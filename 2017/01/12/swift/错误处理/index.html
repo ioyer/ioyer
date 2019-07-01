@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"always","offset":40,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"抱歉暂时没有发表相关: ${query}内容文章","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0eeeae6f.js","daovoice")
+daovoice('init', {
+app_id: "06289ecd"
+});
+daovoice('update');
+</script>
+
+
+
+  <meta name="description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverabl">
+<meta name="keywords" content="安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift错误处理">
+<meta property="og:url" content="https://huos3203.github.io/2017/01/12/swift/错误处理/index.html">
+<meta property="og:site_name" content="布衣男儿">
+<meta property="og:description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverabl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-01-12T11:57:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift错误处理">
+<meta name="twitter:description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverabl">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="布衣男儿" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://huos3203.github.io/2017/01/12/swift/错误处理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>swift错误处理 | 布衣男儿</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b4a2528a681e2f23855d15a4de0abfc2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">布衣男儿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不物喜，不己悲，善假物，易参行！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/huos3203" class="github-corner" title="关注不迷路" aria-label="关注不迷路" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://huos3203.github.io/2017/01/12/swift/错误处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iTBoyer">
+      <meta itemprop="description" content="不物喜，不己悲，善假物，易参行！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="布衣男儿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift错误处理<a href="https://github.com/huos3203/iTBoyer/edit/master/source/_posts/swift/错误处理.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-11 17:04:21" itemprop="dateCreated datePublished" datetime="2017-01-11T17:04:21Z">2017-01-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 11:57:41" itemprop="dateModified" datetime="2017-01-12T11:57:41Z">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/swift/" itemprop="url" rel="index"><span itemprop="name">swift</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/swift/语法/" itemprop="url" rel="index"><span itemprop="name">语法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2017/01/12/swift/错误处理/" class="leancloud_visitors" data-flag-title="swift错误处理">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" href="/owl.css"><p>Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.<br>Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.<br>As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.<br>举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。</p>
+<h1 id="Representing-and-Throwing-Errors"><a href="#Representing-and-Throwing-Errors" class="headerlink" title="Representing and Throwing Errors"></a>Representing and Throwing Errors</h1><p>In Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.<br>在swift中，错误类型是遵循Error 协议。</p>
+<p>Swift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:<br>swift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：<br>一个在操作一台游戏机时的会出现的错误枚举类：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">VendingMachineError</span>: <span class="title">Error</span> </span>&#123;</span><br><span class="line"><span class="keyword">case</span> invalidSelection</span><br><span class="line"><span class="keyword">case</span> insufficientFunds(coinsNeeded: <span class="type">Int</span>)</span><br><span class="line"><span class="keyword">case</span> outOfStock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:<br>抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="type">VendingMachineError</span>.insufficientFunds(coinsNeeded: <span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Handling-Errors"><a href="#Handling-Errors" class="headerlink" title="Handling Errors"></a>Handling Errors</h1><p>When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.<br>当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。</p>
+<p>There are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.<br>在swift中有四种处理错误机制:</p>
+<pre><code>1. 向调用方法中传递这个错误
+2. 使用do-catch语句处理
+3. 把错误设置为可选型
+4.断言不会出现异常的情况下，使用try!禁止异常抛出
+</code></pre><p>When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.<br>当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字<code>try</code> 要注意 <code>try?</code>或<code>try!</code>之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。</p>
+<h2 id="Propagating-Errors-Using-Throwing-Functions"><a href="#Propagating-Errors-Using-Throwing-Functions" class="headerlink" title="Propagating Errors Using Throwing Functions"></a>Propagating Errors Using Throwing Functions</h2><p>To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&gt;).<br>函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：<code>throws</code>即可，这种方法被称为<code>throws</code>函数，<code>throws</code>关键字位置在参数之后，返回值(-&gt;)之前</p>
+<p>A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.<br>抛出函数会把错误抛给调用它的函数周期中去。</p>
+<a id="more"></a>
+<p>Only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside the function.<br>只有抛出函数能传递错误，如果不是抛出函数，它自己必须处理掉任何抛进来的错误。</p>
+<p>In the example below, the VendingMachine class has a <code>vend(itemNamed:)</code> method that throws an appropriate VendingMachineError if the requested item is not available, is out of stock, or has a cost that exceeds the current deposited amount:<br>在下面的例子中，对某个请求内容不可用时，自动售货机会通过<code>vend(itemNamed:)</code>方法抛出一个对应的<code>VendingMachineError</code>错误，缺货或超过目前的存款金额成本：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VendingMachine</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> inventory = [</span><br><span class="line">        <span class="string">"Candy Bar"</span>: <span class="type">Item</span>(price: <span class="number">12</span>, <span class="built_in">count</span>: <span class="number">7</span>),</span><br><span class="line">        <span class="string">"Chips"</span>: <span class="type">Item</span>(price: <span class="number">10</span>, <span class="built_in">count</span>: <span class="number">4</span>),</span><br><span class="line">        <span class="string">"Pretzels"</span>: <span class="type">Item</span>(price: <span class="number">7</span>, <span class="built_in">count</span>: <span class="number">11</span>)</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">var</span> coinsDeposited = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">vend</span><span class="params">(itemNamed name: String)</span></span> <span class="keyword">throws</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> item = inventory[name] <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.invalidSelection</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">guard</span> item.<span class="built_in">count</span> &gt; <span class="number">0</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.outOfStock</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">guard</span> item.price &lt;= coinsDeposited <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="type">VendingMachineError</span>.insufficientFunds(coinsNeeded: item.price - coinsDeposited)</span><br><span class="line">        &#125;</span><br><span class="line">        coinsDeposited -= item.price</span><br><span class="line">        <span class="keyword">var</span> newItem = item</span><br><span class="line">        newItem.<span class="built_in">count</span> -= <span class="number">1</span></span><br><span class="line">        inventory[name] = newItem</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Dispensing \(name)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>The implementation of the <code>vend(itemNamed:)</code> method uses guard statements to exit the method early and throw appropriate errors if any of the requirements for purchasing a snack aren’t met. Because a throw statement immediately transfers program control, an item will be vended only if all of these requirements are met.<br><code>vend(itemNamed:)</code>方法的实现中使用 <code>guard语句</code>来判断，当在购买操作不符合相应条件会直接抛出相应的错误，来打断该方法的其他操作。因为<code>throw语句</code>会立即转移程序控制权，保证了机器仅出售满足所有条件的物品。</p>
+<p>Because the <code>vend(itemNamed:)</code> method propagates any errors it throws, any code that calls this method must either handle the errors—using a <code>do-catch</code> statement, <code>try?</code>, or <code>try!</code>—or continue to propagate them. For example, the <code>buyFavoriteSnack(person:vendingMachine:)</code> in the example below is also a throwing function, and any errors that the <code>vend(itemNamed:)</code> method throws will propagate up to the point where the <code>buyFavoriteSnack(person:vendingMachine:)</code>function is called.<br>因为vend(itemNamed:)的方法抛出所有错误，所以调用该方法的函数必须处理错误（ <code>do-catch, try?, or try!</code>处理，或使用<code>try</code>向上抛出）。</p>
+<p>例如，<code>buyFavoriteSnack(person:vendingMachine:)</code>也是一个抛出函数，从<code>vend(itemNamed:)</code>方法接受到的所有错误，都会被会<code>buyFavoriteSnack(person:vendingMachine:)</code>继续抛给调用它的函数中。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> favoriteSnacks = [</span><br><span class="line">    <span class="string">"Alice"</span>: <span class="string">"Chips"</span>,</span><br><span class="line">    <span class="string">"Bob"</span>: <span class="string">"Licorice"</span>,</span><br><span class="line">    <span class="string">"Eve"</span>: <span class="string">"Pretzels"</span>,</span><br><span class="line">]</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">buyFavoriteSnack</span><span class="params">(person: String, vendingMachine: VendingMachine)</span></span> <span class="keyword">throws</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> snackName = favoriteSnacks[person] ?? <span class="string">"Candy Bar"</span></span><br><span class="line">    <span class="keyword">try</span> vendingMachine.vend(itemNamed: snackName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>In this example, the <code>buyFavoriteSnack(person: vendingMachine:)</code> function looks up a given person’s favorite snack and tries to buy it for them by calling the <code>vend(itemNamed:)</code> method. Because the <code>vend(itemNamed:)</code> method can throw an error, it’s called with the trykeyword in front of it.<br><code>buyFavoriteSnack(person: vendingMachine:)</code> 函数查找买家中意的snake，并<code>vend(itemNamed:)</code>调用尝试购买。使用在方法前使用<code>try</code>关键字来抛出异常，并向上传递。</p>
+<p>Throwing initializers can propagate errors in the same way as throwing functions. For example, the initializer for the <code>PurchasedSnackstructure</code> in the listing below calls a throwing function as part of the initialization process, and it handles any errors that it encounters by propagating them to its caller.<br>抛出构造器也能向抛出函数一样传递错误，例如：<code>PurchasedSnackstructure</code>的构造器中调用了抛出函数：<code>vend(itemNamed:)</code>，抛出构造器可以通过向上传递来处理这些错误。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PurchasedSnack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, vendingMachine: <span class="type">VendingMachine</span>) <span class="keyword">throws</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">try</span> vendingMachine.vend(itemNamed: name)</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Handling-Errors-Using-Do-Catch"><a href="#Handling-Errors-Using-Do-Catch" class="headerlink" title="Handling Errors Using Do-Catch"></a>Handling Errors Using Do-Catch</h2><p>You use a do-catch statement to handle errors by running a block of code. If an error is thrown by the code in the <code>do</code> clause, it is matched against the <code>catch</code>clauses to determine which one of them can handle the error.<br>使用<code>do-catch</code>语句通过运行代码块来处理错误。在<code>do</code>分句中如果抛出了一个错误，那么就可以在<code>catch</code>分句中进行处理的匹配到错误<br>Here is the general form of a <code>do-catch</code>statement:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> expression</span><br><span class="line">    statements</span><br><span class="line">&#125; <span class="keyword">catch</span> pattern <span class="number">1</span> &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125; <span class="keyword">catch</span> pattern <span class="number">2</span> <span class="keyword">where</span> condition &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>You write a pattern after catch to indicate what errors that clause can handle. If a <code>catch</code> clause doesn’t have a pattern, the clause matches any <code>error</code> and binds the <code>error</code> to a local constant named error. For more information about pattern matching, see Patterns.<br>在关键字catch后边跟随匹配模式，这个<code>catch分句</code>就会处理匹配到的错误，如果关键字<code>catch分句</code>没有任何匹配模式，那么这个分句将会匹配到所有错误，并把这些错误信息赋值给系统常量<code>error</code>。</p>
+<p>The <code>catch</code>clauses don’t have to handle every possible error that the code in its <code>do</code> clause can throw. If none of the catch clauses handle the error, the error propagates to the surrounding scope. However, the error must be handled by some surrounding scope—either by an enclosing <code>do-catch</code> clause that handles the error or by being inside a throwing function. For example, the following code handles all three cases of the <code>VendingMachineError</code>enumeration, but all other errors have to be handled by its surrounding scope:<br><code>catch分句</code>不必对<code>do分句</code>中的代码可能抛出每一个的错误，如果某个错误没有被<code>catch分句</code>匹配到处理，这个错误将会传递到调用它的函数周期中，这个错误必须在这个函数周期中处理，或通过<code>do-catch语句</code>来处理，或通过内部的抛出函数处理。</p>
+<p>例如，下面的代码处理<code>VendingMachineError</code>枚举类中的三个错误<code>cases</code>，但其他的错误都是由其周边范围处理：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vendingMachine = <span class="type">VendingMachine</span>()</span><br><span class="line">vendingMachine.coinsDeposited = <span class="number">8</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> buyFavoriteSnack(person: <span class="string">"Alice"</span>, vendingMachine: vendingMachine)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.invalidSelection &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Invalid Selection."</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.outOfStock &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Out of Stock."</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">VendingMachineError</span>.insufficientFunds(<span class="keyword">let</span> coinsNeeded) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Insufficient funds. Please insert an additional \(coinsNeeded) coins."</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Prints "Insufficient funds. Please insert an additional 2 coins."</span></span><br></pre></td></tr></table></figure></p>
+<p>In the above example, the <code>buyFavoriteSnack(person:vendingMachine:)</code> function is called in a try expression, because it can throw an error. If an error is thrown, execution immediately transfers to the <code>catch</code> clauses, which decide whether to allow propagation to continue. If no error is thrown, the remaining statements in the do statement are executed.<br>在上述代码中因为<code>buyFavoriteSnack(person:vendingMachine:)</code>函数会抛出错误异常，所以要在try表达式中调用。如果抛出异常就会立马执行是否继续传递的catch分句，如果没有抛出异常，会保持do分句中的代码正常进行。</p>
+<h2 id="Converting-Errors-to-Optional-Values"><a href="#Converting-Errors-to-Optional-Values" class="headerlink" title="Converting Errors to Optional Values"></a>Converting Errors to Optional Values</h2><p>You use try? to handle an error by converting it to an optional value. If an error is thrown while evaluating the <code>try?</code> expression, the value of the expression is nil. For example, in the following code x and y have the same value and behavior:<br>使用<code>try?表达式</code>处理错误，是通过把错误转换为<code>可选值(?)类型</code>处理。在<code>try?</code>表达式中出现抛出错误时，这个表达式的值<code>=nil</code>。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someThrowingFunction</span><span class="params">()</span></span> <span class="keyword">throws</span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> x = <span class="keyword">try</span>? someThrowingFunction()</span><br><span class="line"><span class="keyword">let</span> y: <span class="type">Int?</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    y = <span class="keyword">try</span> someThrowingFunction()</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    y = <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>If someThrowingFunction() throws an error, the value of x and y is nil. Otherwise, the value of x and y is the value that the function returned. Note that x and y are an optional of whatever type someThrowingFunction() returns. Here the function returns an integer, so xand y are optional integers.<br>如果函数<code>someThrowingFunction()</code>抛出异常，<code>x,y = nil</code>，否则:<code>x,y</code>就时函数<code>return</code>的值。</p>
+<blockquote>
+<p>注意：<code>x,y</code>是一个可选的someThrowingFunction()返回类型。在这里函数返回integer，那么x,y是可选的integer类型。</p>
+</blockquote>
+<p>Using <code>try?</code> lets you write concise error handling code when you want to handle all errors in the same way. For example, the following code uses several approaches to fetch data, or returns nil if all of the approaches fail.<br>当用这种方式来处理所有错误时，使用<code>try?</code>表达式能写更简洁的错误处理代码，例如：下面的代码使用几种方法来获取数据，如果这些方法失败就会返回nil。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fetchData</span><span class="params">()</span></span> -&gt; <span class="type">Data?</span> &#123;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> data = <span class="keyword">try</span>? fetchDataFromDisk() &#123; <span class="keyword">return</span> data &#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> data = <span class="keyword">try</span>? fetchDataFromServer() &#123; <span class="keyword">return</span> data &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Disabling-Error-Propagation"><a href="#Disabling-Error-Propagation" class="headerlink" title="Disabling Error Propagation"></a>Disabling Error Propagation</h2><p>Sometimes you know a throwing function or method won’t, in fact, throw an error at runtime. On those occasions, you can write <code>try!</code> before the expression to disable error propagation and wrap the call in a runtime assertion that no error will be thrown. If an error actually is thrown, you’ll get a runtime error.<br>有时你认为不会出现异常的抛出函数或方法，但事实上，却在运行时抛出异常了。在其他情况下，可以使用<code>try!</code>表达式来禁止错误传递，并且十分肯定断言在运行时不会有异常抛出。如果有异常抛出，就会得到一个运行时错误。</p>
+<p>For example, the following code uses a <code>loadImage(atPath:)</code> function, which loads the image resource at a given path or throws an error if the image can’t be loaded. In this case, because the image is shipped with the application, no error will be thrown at runtime, so it is appropriate to disable error propagation.<br>例如：使用<code>loadImage(atPath:)</code>函数要么通过这个路径加载image，要么image加载失败抛出一个错误。在这种情况下，因为<code>image</code>在app资源目录<code>resources</code>中，所以在运行时肯定不会有异常抛出。因此可以使用<code>try!</code>禁止错误传递。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> photo = <span class="keyword">try</span>! loadImage(atPath: <span class="string">"./Resources/John Appleseed.jpg"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Specifying-Cleanup-Actions"><a href="#Specifying-Cleanup-Actions" class="headerlink" title="Specifying Cleanup Actions"></a>Specifying Cleanup Actions</h2><p>You use a defer statement to execute a set of statements just before code execution leaves the current block of code. This statement lets you do any necessary cleanup that should be performed regardless of how execution leaves the current block of code—whether it leaves because an error was thrown or because of a statement such as return or break. For example, you can use a defer statement to ensure that file descriptors are closed and manually allocated memory is freed.<br>在代码执行离开当前代码块之前，使用一个“defer语句”来执行一组语句。defer语句让做一些必要的清理操作，在执行如何离开当前代码块：因为抛出异常或者因为<code>return，break语句</code>导致。例如：使用<code>defer语句</code>执行关闭文件和内存的释放操作，来确保清理操作完成。</p>
+<p>A defer statement defers execution until the current scope is exited. This statement consists of the defer keyword and the statements to be executed later. The deferred statements may not contain any code that would transfer control out of the statements, such as a break or a return statement, or by throwing an error. Deferred actions are executed in reverse order of how they are specified—that is, the code in the first defer statement executes after code in the second, and so on.<br><code>defer语句</code>推迟在直到当前作用域推出时，再执行。<code>defer语句</code>由<code>defer</code>关键字和一些清理操作语句组成。<code>defer语句</code>不包含transfer control out of the statements例如<code>（return，break，throw）</code>等。</p>
+<p><code>defer</code>延迟操作是按照指定的顺序执行的，就是先执行最后一个<code>defer语句</code>中的代码之后，再执行第倒数第二个<code>defer语句</code>的代码，以此类推，倒叙清理退场。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">processFile</span><span class="params">(filename: String)</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> exists(filename) &#123;</span><br><span class="line">        <span class="keyword">let</span> file = <span class="keyword">open</span>(filename)</span><br><span class="line">        <span class="keyword">defer</span> &#123;</span><br><span class="line">            close(file)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">let</span> line = <span class="keyword">try</span> file.readline() </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Work with the file.</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="comment">// close(file) is called here, at the end of the scope.</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>The above example uses a defer statement to ensure that the <code>open(_:)</code> function has a corresponding call to <code>close(_:)</code>.<br>使用defer语句，确保了在open的同时与之相关的还有close。</p>
+<p>You can use a defer statement even when no error handling code is involved.<br>即使在没有涉及错误处理代码的时候，也可以使用“延迟”语句。</p>
+
+      
+    </div>
+
+    
+
+    <div>
+    
+    
+
+    
+    </div>
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/weixinimg.jpg" alt="iTBoyer wechat" style="width: 200px; max-width: 100%;">
+  <div>关注不迷路</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>迎接美好的一天！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/weixin.jpg" alt="iTBoyer 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/zhifubao.jpg" alt="iTBoyer 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/安全/" rel="tag"><i class="fa fa-tag"></i> 安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/11/iOS/在OC和swift中区分多个targets/" rel="next" title="在OC和swift中区分多个targets">
+                <i class="fa fa-chevron-left"></i> 在OC和swift中区分多个targets
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/18/git/迁移SVN库到git库保留branchs和tags/" rel="prev" title="迁移SVN库到git库保留branchs和tags">
+                迁移SVN库到git库保留branchs和tags <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="iTBoyer">
+            
+              <p class="site-author-name" itemprop="name">iTBoyer</p>
+              <div class="site-description motion-element" itemprop="description">不物喜，不己悲，善假物，易参行！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">286</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+            <!--博客-->
+            
+                <div class="feed-link motion-element">
+                    <a href="/podcast.xml" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的博客
+                    </a>
+                </div>
+            
+            
+                <div class="feed-link motion-element">
+                    <a href="/docs" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的阅读
+                    </a>
+                </div>
+            
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/huos3203" title="GitHub &rarr; https://github.com/huos3203" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/1791281385" title="微博 &rarr; http://weibo.com/1791281385" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://douban.com/people/boyers" title="豆瓣 &rarr; http://douban.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://www.zhihu.com/people/boyers" title="知乎 &rarr; http://www.zhihu.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-snapchat"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:iTBoyer@qq.com" title="E-Mail &rarr; mailto:iTBoyer@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                学习园地
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/" title="swift文档" target="_blank">swift文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/matteocrippa/awesome-swift" title="swift酷库" target="_blank">swift酷库</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://swift.org/getting-started/" title="SPM终端开发" target="_blank">SPM终端开发</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/PerfectlySoft/Perfect/blob/master/README.zh_CN.md" title="Perfect服务器端" target="_blank">Perfect服务器端</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/uraimo/Awesome-Swift-Playgrounds" title="Playground" target="_blank">Playground</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.objccn.io" title="objc中国" target="_blank">objc中国</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.cn" title="NSHipster" target="_blank">NSHipster</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/AttackOnDobby/iOS-Core-Animation-Advanced-Techniques" title="动画" target="_blank">动画</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://git-scm.com/book/zh" title="GitPro" target="_blank">GitPro</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kaopu.so/pan" title="全盘搜" target="_blank">全盘搜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wherebt.com" title="BT导航网" target="_blank">BT导航网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mp.weixin.qq.com" title="小程序官方" target="_blank">小程序官方</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="王维" target="_blank">王维</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+            
+            
+                <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                    <div class="links-of-blogroll-title">
+                        <i class="fa  fa-fw fa-link"></i>
+                        在线工具
+                    </div>
+                    <ul class="links-of-blogroll-list">
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="http://blog.didispace.com/tools/online-markdown/" title="MarkDown转公众号" target="_blank">MarkDown转公众号</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://leetcode-cn.com/playground/new/empty" title="leetcode工具" target="_blank">leetcode工具</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://www.lintcode.com/problem/" title="lintcode编码" target="_blank">lintcode编码</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-and-Throwing-Errors"><span class="nav-number">1.</span> <span class="nav-text">Representing and Throwing Errors</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Handling-Errors"><span class="nav-number">2.</span> <span class="nav-text">Handling Errors</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Propagating-Errors-Using-Throwing-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Propagating Errors Using Throwing Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Handling-Errors-Using-Do-Catch"><span class="nav-number">2.2.</span> <span class="nav-text">Handling Errors Using Do-Catch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Converting-Errors-to-Optional-Values"><span class="nav-number">2.3.</span> <span class="nav-text">Converting Errors to Optional Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Disabling-Error-Propagation"><span class="nav-number">2.4.</span> <span class="nav-text">Disabling Error Propagation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specifying-Cleanup-Actions"><span class="nav-number">2.5.</span> <span class="nav-text">Specifying Cleanup Actions</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iTBoyer</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+您是本站第:<span id="busuanzi_value_site_uv"></span>位小伙伴 |
+</span>
+<span id="busuanzi_container_site_pv">
+本站总<span id="busuanzi_value_site_pv"></span>次访问 |
+</span>
+<span class="post-count"> 博客全站共字</span>
+</div>
+<div class="copyright">
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+</div>
+
+
+<script>
+var now = new Date();
+function createtime() {
+var grt= new Date("02/14/2018 12:49:00");//此处修改你的建站时间或者网站上线时间
+now.setTime(now.getTime()+250);
+days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'd46ea301857e36a08319',
+    clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
+    repo: 'huos3203.github.io',
+    owner: 'huos3203',
+    admin: ['huos3203'],
+    id: md5(location.pathname),
+    
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.2"></script>
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz',
+                'X-LC-Key': '2kHl2CEoDUKiHcVvz0dhu5rF',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>

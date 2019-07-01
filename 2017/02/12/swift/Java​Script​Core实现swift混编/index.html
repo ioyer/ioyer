@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"always","offset":40,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"抱歉暂时没有发表相关: ${query}内容文章","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0eeeae6f.js","daovoice")
+daovoice('init', {
+app_id: "06289ecd"
+});
+daovoice('update');
+</script>
+
+
+
+  <meta name="description" content="OS X Mavericks 和 iOS 7 引入了 JavaScriptCore 库，它把 WebKit 的 JavaScript 引擎用 Objective-C 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，JavaScript 的普遍存在使得程序员、工具以及融合到 OS X 和 iOS 里这样超快的虚拟机中资源的使用都大幅增长。  如何从 JavaScrip">
+<meta name="keywords" content="混编,IOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java​Script​Core实现swift混编">
+<meta property="og:url" content="https://huos3203.github.io/2017/02/12/swift/Java​Script​Core实现swift混编/index.html">
+<meta property="og:site_name" content="布衣男儿">
+<meta property="og:description" content="OS X Mavericks 和 iOS 7 引入了 JavaScriptCore 库，它把 WebKit 的 JavaScript 引擎用 Objective-C 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，JavaScript 的普遍存在使得程序员、工具以及融合到 OS X 和 iOS 里这样超快的虚拟机中资源的使用都大幅增长。  如何从 JavaScrip">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-16T21:01:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java​Script​Core实现swift混编">
+<meta name="twitter:description" content="OS X Mavericks 和 iOS 7 引入了 JavaScriptCore 库，它把 WebKit 的 JavaScript 引擎用 Objective-C 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，JavaScript 的普遍存在使得程序员、工具以及融合到 OS X 和 iOS 里这样超快的虚拟机中资源的使用都大幅增长。  如何从 JavaScrip">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="布衣男儿" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://huos3203.github.io/2017/02/12/swift/Java​Script​Core实现swift混编/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java​Script​Core实现swift混编 | 布衣男儿</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b4a2528a681e2f23855d15a4de0abfc2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">布衣男儿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不物喜，不己悲，善假物，易参行！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/huos3203" class="github-corner" title="关注不迷路" aria-label="关注不迷路" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://huos3203.github.io/2017/02/12/swift/Java​Script​Core实现swift混编/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iTBoyer">
+      <meta itemprop="description" content="不物喜，不己悲，善假物，易参行！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="布衣男儿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java​Script​Core实现swift混编<a href="https://github.com/huos3203/iTBoyer/edit/master/source/_posts/swift/Java​Script​Core实现swift混编.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-12 13:34:06" itemprop="dateCreated datePublished" datetime="2017-02-12T13:34:06Z">2017-02-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-16 21:01:14" itemprop="dateModified" datetime="2019-01-16T21:01:14Z">2019-01-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/swift/" itemprop="url" rel="index"><span itemprop="name">swift</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/swift/JS混编/" itemprop="url" rel="index"><span itemprop="name">JS混编</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2017/02/12/swift/Java​Script​Core实现swift混编/" class="leancloud_visitors" data-flag-title="Java​Script​Core实现swift混编">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" href="/owl.css"><p>OS X Mavericks 和 iOS 7 引入了 <code>JavaScriptCore</code> 库，它把 <code>WebKit 的 JavaScript</code> 引擎用 <code>Objective-C</code> 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，<code>JavaScript</code> 的普遍存在使得程序员、工具以及融合到 OS X 和 iOS 里这样超快的虚拟机中资源的使用都大幅增长。</p>
+<ol>
+<li>如何从 <code>JavaScript 环境</code>中提取值以及如何调用其中定义的函数?</li>
+<li>那么反向呢？怎样从 <code>JavaScript</code> 访问我们在 <code>Objective-C</code>或 <code>Swift</code> 定义的对象和方法？</li>
+</ol>
+<h2 id="swift通过JSContext调用JavaScript"><a href="#swift通过JSContext调用JavaScript" class="headerlink" title="swift通过JSContext调用JavaScript"></a>swift通过JSContext调用JavaScript</h2><p>如何从<code>JavaScript 环境</code>中提取值以及如何调用其中定义的函数?</p>
+<h3 id="全局实例JSContext：运行JavaScript代码的环境"><a href="#全局实例JSContext：运行JavaScript代码的环境" class="headerlink" title="全局实例JSContext：运行JavaScript代码的环境"></a>全局实例JSContext：运行JavaScript代码的环境</h3><p>全局实例<code>JSContext</code>作用就像在浏览器内运行的一个<code>JavaScript</code>脚本，<code>JSContext</code> 类似于 <code>window</code>。<br>通过<code>JSContext</code>实例运行<code>JavaScript</code>代码<code>创建变量</code>，<code>做计算</code>，<code>定义方法</code>：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> context = <span class="type">JSContext</span>()    <span class="comment">//创建全局环境</span></span><br><span class="line">context.evaluateScript(<span class="string">"var num = 5 + 5"</span>) <span class="comment">//计算</span></span><br><span class="line">context.evaluateScript(<span class="string">"var names = ['Grace', 'Ada', 'Margaret']"</span>) <span class="comment">//定义变量</span></span><br><span class="line">context.evaluateScript(<span class="string">"var triple = function(value) &#123; return value * 3 &#125;"</span>) <span class="comment">//定义方法</span></span><br><span class="line"><span class="keyword">let</span> tripleNum: <span class="type">JSValue</span> = context.evaluateScript(<span class="string">"triple(num)"</span>)  </span><br></pre></td></tr></table></figure></p>
+<h3 id="动态类型JSValue-包裹JSContext环境下每一个可能的JS值"><a href="#动态类型JSValue-包裹JSContext环境下每一个可能的JS值" class="headerlink" title="动态类型JSValue:包裹JSContext环境下每一个可能的JS值"></a>动态类型JSValue:包裹JSContext环境下每一个可能的JS值</h3><p><code>JavaScript</code> 是动态语言，所以动态类型<code>JSValue</code>包裹JSContext环境中任何可能的JS值，字符串和数字；数组、对象和方法；甚至错误和特殊的 JavaScript 值诸如 <code>null</code> 和 <code>undefined</code>。<br>获取<code>tripleNum</code>值：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">println</span>(<span class="string">"Tripled: \(tripleNum.toInt32())"</span>)</span><br></pre></td></tr></table></figure><br><code>JSValue</code> 包括一系列方法用于访问其可能的值以保证有正确的 <code>Foundation 基本类型</code><br>包括：</p>
+<h3 id="下标取值：访问JSContext环境下的任何值"><a href="#下标取值：访问JSContext环境下的任何值" class="headerlink" title="下标取值：访问JSContext环境下的任何值"></a>下标取值：访问JSContext环境下的任何值</h3><p><code>JSContext</code> 和 <code>JSValue</code> 实例可以使用下标的方式访问之前创建的 <code>context</code> 的任何值。</p>
+<ul>
+<li><code>JSContext</code>：需要一个字符串下标</li>
+<li><code>JSValue</code>：允许使用<code>字符串</code>或<code>整数</code>标来得到里面的对象和数组</li>
+</ul>
+<h4 id="JSContext下标取值"><a href="#JSContext下标取值" class="headerlink" title="JSContext下标取值"></a>JSContext下标取值</h4><ol>
+<li><code>swift</code>语法<figure class="highlight swift"><figcaption><span>未映射成[]的原始方法</span><a href="http://nshipster.cn/object-subscripting/" target="_blank" rel="noopener">objectAtKeyedSubscript()和objectAtIndexedSubscript()</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = context.objectForKeyedSubscript(<span class="string">"names"</span>)  <span class="comment">//JSContext字符串下标原始方法</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="JSValue整数下标原始方法"><a href="#JSValue整数下标原始方法" class="headerlink" title="JSValue整数下标原始方法"></a>JSValue整数下标原始方法</h4><figure class="highlight swift"><figcaption><span>未映射成[]的原始方法</span><a href="http://nshipster.cn/object-subscripting/" target="_blank" rel="noopener">objectAtKeyedSubscript()和objectAtIndexedSubscript()</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> initialName = names.objectAtIndexedSubscript(<span class="number">0</span>)   <span class="comment">//JSValue整数下标原始方法</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"The first name: \(initialName.toString())"</span>)  <span class="comment">//JSValue method</span></span><br><span class="line"><span class="comment">// The first name: Grace</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在这里，Objective-C 代码可以利用下标表示法，如下例：context[@”names”]，names[0]，[initialName toString]，Swift 目前只公开<a href="http://nshipster.cn/object-subscripting/" target="_blank" rel="noopener">原始方法</a>:<code>objectAtKeyedSubscript()</code> 和 <code>objectAtIndexedSubscript()</code>来让下标成为可能。</p>
+</blockquote>
+<h3 id="callWithArguments调用JS方法：只需传入Foundation基本类型参数"><a href="#callWithArguments调用JS方法：只需传入Foundation基本类型参数" class="headerlink" title="callWithArguments调用JS方法：只需传入Foundation基本类型参数"></a>callWithArguments调用JS方法：只需传入Foundation基本类型参数</h3><p>上述<code>JavaScript</code>代码中，<code>JSValue</code>包装了一个<code>triple函数</code>，在<code>Objective-C / Swift</code> 代码中可以使用 <code>Foundation基本类型</code>作为参数来直接调用该函数。再次，<code>JavaScriptCore</code> 很轻松的处理了这个桥接：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">let</span> tripleFunction = context.objectForKeyedSubscript(<span class="string">"triple"</span>) <span class="comment">//下标取值</span></span><br><span class="line"><span class="keyword">let</span> result = tripleFunction.callWithArguments([<span class="number">5</span>]) <span class="comment">//传入基本类型参数直接调用</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"Five tripled: \(result.toInt32())"</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="exceptionHandler错误处理"><a href="#exceptionHandler错误处理" class="headerlink" title="exceptionHandler错误处理"></a><code>exceptionHandler</code>错误处理</h3><p><code>exceptionHandler</code> 是一个接收<code>JSContext 引用</code>和<code>异常本身</code>的回调处理的闭包。<br>通过设置上下文的 <code>exceptionHandler</code> 属性，可以观察和记录<code>语法</code>，<code>类型</code>以及<code>运行时错误</code>:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">context.exceptionHandler = &#123; context, exception <span class="keyword">in</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"JS Error: \(exception)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">context.evaluateScript(<span class="string">"function multiply(value1, value2) &#123; return value1 * value2 "</span>)</span><br><span class="line"><span class="comment">// JS Error: SyntaxError: Unexpected end of script</span></span><br></pre></td></tr></table></figure><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">context.exceptionHandler = ^(JSContext *context, JSValue *exception) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"JS Error: %@"</span>, exception);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[context evaluateScript:<span class="string">@"function multiply(value1, value2) &#123; return value1 * value2 "</span>];</span><br><span class="line"><span class="comment">// JS Error: SyntaxError: Unexpected end of script</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="JavaScript-通过JSContext调用-swift／OC"><a href="#JavaScript-通过JSContext调用-swift／OC" class="headerlink" title="JavaScript 通过JSContext调用 swift／OC"></a>JavaScript 通过JSContext调用 swift／OC</h2><p>怎样从 <code>JavaScript</code> 访问我们在 <code>Objective-C</code>或 <code>Swift</code> 定义的对象和方法？<br>让 <code>JSContext</code> 访问我们的本地客户端代码的方式主要有两种：</p>
+<ol>
+<li><code>block块</code>键值对：把OC中的<code>block块</code>赋值给<code>JSContext</code>的一个标示键，该标识键的<code>JSValue</code>可以通过<code>callWithArguments</code>调用.</li>
+<li><code>JSExport 协议</code>。</li>
+</ol>
+<h3 id="block块-键值对-该block键的JSValue通过callWithArguments调用"><a href="#block块-键值对-该block键的JSValue通过callWithArguments调用" class="headerlink" title="block块 键值对:该block键的JSValue通过callWithArguments调用"></a>block块 键值对:该block键的<code>JSValue</code>通过<code>callWithArguments</code>调用</h3><p>当一个 <code>Objective-C block</code> 被赋给 <code>JSContext</code> 里的一个标识符，<code>JavaScriptCore</code> 会自动的把 <code>block</code> 封装在 <code>JavaScript 函数</code>里，并以该标示符作为函数名来调用该block的实现。这使得在 <code>JavaScript</code> 中可以简单的使用 <code>Foundation</code> 和 <code>Cocoa</code>类，所有的桥接都为你做好了。<br><a href="http://nshipster.cn/cfstringtransform/" target="_blank" rel="noopener">CFStringTransform</a>处理语言的强大威力</p>
+<p>在 <code>JSContext</code> 中使用 <code>Swift 闭包</code>需要注意两点:</p>
+<ol>
+<li>与 <code>@objc_block</code> 属性一起声明</li>
+<li>使用Swift中的<code>unsafeBitCast()</code>函数，把对象转换为<code>AnyObject</code></li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> simplifyString: <span class="meta">@objc</span>_block <span class="type">String</span> -&gt; <span class="type">String</span> = &#123; input <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">var</span> mutableString = <span class="type">NSMutableString</span>(string: input) <span class="keyword">as</span> <span class="type">CFMutableStringRef</span></span><br><span class="line">    <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformToLatin, <span class="type">Boolean</span>(<span class="number">0</span>))</span><br><span class="line">    <span class="type">CFStringTransform</span>(mutableString, <span class="literal">nil</span>, kCFStringTransformStripCombiningMarks, <span class="type">Boolean</span>(<span class="number">0</span>))</span><br><span class="line">    <span class="keyword">return</span> mutableString</span><br><span class="line">&#125;</span><br><span class="line">context.setObject(<span class="built_in">unsafeBitCast</span>(simplifyString, <span class="type">AnyObject</span>.<span class="keyword">self</span>), forKeyedSubscript: <span class="string">"simplifyString"</span>)</span><br><span class="line"><span class="comment">//通过simplifyString标示符来调用block的实现</span></span><br><span class="line"><span class="built_in">println</span>(context.evaluateScript(<span class="string">"simplifyString('안녕하새요!')"</span>))</span><br><span class="line"><span class="comment">// annyeonghasaeyo!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给标示符赋值一个oc-block，该标示符会被自动装换为JavaScript函数</span></span><br><span class="line">context[<span class="string">@"simplifyString"</span>] = ^(<span class="built_in">NSString</span> *input) &#123;</span><br><span class="line"><span class="built_in">NSMutableString</span> *mutableString = [input mutableCopy];</span><br><span class="line"><span class="built_in">CFStringTransform</span>((__bridge <span class="built_in">CFMutableStringRef</span>)mutableString, <span class="literal">NULL</span>, kCFStringTransformToLatin, <span class="literal">NO</span>);</span><br><span class="line"><span class="built_in">CFStringTransform</span>((__bridge <span class="built_in">CFMutableStringRef</span>)mutableString, <span class="literal">NULL</span>, kCFStringTransformStripCombiningMarks, <span class="literal">NO</span>);</span><br><span class="line"><span class="keyword">return</span> mutableString;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过simplifyString标示符来调用block的实现</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [context evaluateScript:<span class="string">@"simplifyString('안녕하새요!')"</span>]);</span><br></pre></td></tr></table></figure>
+<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>由于 <code>block</code> 可以保有变量引用，而且 <code>JSContext</code> 也强引用它所有的变量，为了避免强引用循环需要特别小心。<br>避免保有<code>JSContext</code> 或<code>一个 block</code> 里的任何 <code>JSValue</code>。相反，使用 <code>[JSContext currentContext]</code> 得到当前上下文，并把你需要的任何值用参数传递。</p>
+<h3 id="JSExport-协议"><a href="#JSExport-协议" class="headerlink" title="JSExport 协议"></a>JSExport 协议</h3><p>在继承<code>JSExport 协议</code>的子协议里声明的属性，实例方法还是类方法，都会自动暴漏给<code>JavaScript</code>代码来调用。</p>
+
+      
+    </div>
+
+    
+
+    <div>
+    
+    
+
+    
+    </div>
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/weixinimg.jpg" alt="iTBoyer wechat" style="width: 200px; max-width: 100%;">
+  <div>关注不迷路</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>迎接美好的一天！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/weixin.jpg" alt="iTBoyer 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/zhifubao.jpg" alt="iTBoyer 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/语法/" rel="tag"><i class="fa fa-tag"></i> 语法</a>
+          
+            <a href="/tags/macOS/" rel="tag"><i class="fa fa-tag"></i> macOS</a>
+          
+            <a href="/tags/混编/" rel="tag"><i class="fa fa-tag"></i> 混编</a>
+          
+            <a href="/tags/Java​Script​Core/" rel="tag"><i class="fa fa-tag"></i> Java​Script​Core</a>
+          
+            <a href="/tags/swift/" rel="tag"><i class="fa fa-tag"></i> swift</a>
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/11/git/用Git将代码恢复到一个历史的版本/" rel="next" title="用Git将代码恢复到一个历史的版本">
+                <i class="fa fa-chevron-left"></i> 用Git将代码恢复到一个历史的版本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/12/swift/使用JavaScript把JSON数据定义对象/" rel="prev" title="使用JavaScript把JSON数据定义对象">
+                使用JavaScript把JSON数据定义对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="iTBoyer">
+            
+              <p class="site-author-name" itemprop="name">iTBoyer</p>
+              <div class="site-description motion-element" itemprop="description">不物喜，不己悲，善假物，易参行！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">286</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+            <!--博客-->
+            
+                <div class="feed-link motion-element">
+                    <a href="/podcast.xml" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的博客
+                    </a>
+                </div>
+            
+            
+                <div class="feed-link motion-element">
+                    <a href="/docs" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的阅读
+                    </a>
+                </div>
+            
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/huos3203" title="GitHub &rarr; https://github.com/huos3203" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/1791281385" title="微博 &rarr; http://weibo.com/1791281385" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://douban.com/people/boyers" title="豆瓣 &rarr; http://douban.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://www.zhihu.com/people/boyers" title="知乎 &rarr; http://www.zhihu.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-snapchat"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:iTBoyer@qq.com" title="E-Mail &rarr; mailto:iTBoyer@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                学习园地
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/" title="swift文档" target="_blank">swift文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/matteocrippa/awesome-swift" title="swift酷库" target="_blank">swift酷库</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://swift.org/getting-started/" title="SPM终端开发" target="_blank">SPM终端开发</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/PerfectlySoft/Perfect/blob/master/README.zh_CN.md" title="Perfect服务器端" target="_blank">Perfect服务器端</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/uraimo/Awesome-Swift-Playgrounds" title="Playground" target="_blank">Playground</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.objccn.io" title="objc中国" target="_blank">objc中国</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.cn" title="NSHipster" target="_blank">NSHipster</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/AttackOnDobby/iOS-Core-Animation-Advanced-Techniques" title="动画" target="_blank">动画</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://git-scm.com/book/zh" title="GitPro" target="_blank">GitPro</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kaopu.so/pan" title="全盘搜" target="_blank">全盘搜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wherebt.com" title="BT导航网" target="_blank">BT导航网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mp.weixin.qq.com" title="小程序官方" target="_blank">小程序官方</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="王维" target="_blank">王维</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+            
+            
+                <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                    <div class="links-of-blogroll-title">
+                        <i class="fa  fa-fw fa-link"></i>
+                        在线工具
+                    </div>
+                    <ul class="links-of-blogroll-list">
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="http://blog.didispace.com/tools/online-markdown/" title="MarkDown转公众号" target="_blank">MarkDown转公众号</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://leetcode-cn.com/playground/new/empty" title="leetcode工具" target="_blank">leetcode工具</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://www.lintcode.com/problem/" title="lintcode编码" target="_blank">lintcode编码</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#swift通过JSContext调用JavaScript"><span class="nav-number">1.</span> <span class="nav-text">swift通过JSContext调用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局实例JSContext：运行JavaScript代码的环境"><span class="nav-number">1.1.</span> <span class="nav-text">全局实例JSContext：运行JavaScript代码的环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态类型JSValue-包裹JSContext环境下每一个可能的JS值"><span class="nav-number">1.2.</span> <span class="nav-text">动态类型JSValue:包裹JSContext环境下每一个可能的JS值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下标取值：访问JSContext环境下的任何值"><span class="nav-number">1.3.</span> <span class="nav-text">下标取值：访问JSContext环境下的任何值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSContext下标取值"><span class="nav-number">1.3.1.</span> <span class="nav-text">JSContext下标取值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSValue整数下标原始方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">JSValue整数下标原始方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#callWithArguments调用JS方法：只需传入Foundation基本类型参数"><span class="nav-number">1.4.</span> <span class="nav-text">callWithArguments调用JS方法：只需传入Foundation基本类型参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exceptionHandler错误处理"><span class="nav-number">1.5.</span> <span class="nav-text">exceptionHandler错误处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-通过JSContext调用-swift／OC"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 通过JSContext调用 swift／OC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#block块-键值对-该block键的JSValue通过callWithArguments调用"><span class="nav-number">2.1.</span> <span class="nav-text">block块 键值对:该block键的JSValue通过callWithArguments调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存管理"><span class="nav-number">2.1.1.</span> <span class="nav-text">内存管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSExport-协议"><span class="nav-number">2.2.</span> <span class="nav-text">JSExport 协议</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iTBoyer</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+您是本站第:<span id="busuanzi_value_site_uv"></span>位小伙伴 |
+</span>
+<span id="busuanzi_container_site_pv">
+本站总<span id="busuanzi_value_site_pv"></span>次访问 |
+</span>
+<span class="post-count"> 博客全站共字</span>
+</div>
+<div class="copyright">
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+</div>
+
+
+<script>
+var now = new Date();
+function createtime() {
+var grt= new Date("02/14/2018 12:49:00");//此处修改你的建站时间或者网站上线时间
+now.setTime(now.getTime()+250);
+days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'd46ea301857e36a08319',
+    clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
+    repo: 'huos3203.github.io',
+    owner: 'huos3203',
+    admin: ['huos3203'],
+    id: md5(location.pathname),
+    
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.2"></script>
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz',
+                'X-LC-Key': '2kHl2CEoDUKiHcVvz0dhu5rF',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>

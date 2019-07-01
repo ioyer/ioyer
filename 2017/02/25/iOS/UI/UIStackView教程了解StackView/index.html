@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"always","offset":40,"onmobile":false,"dimmer":true},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索文章","hits_empty":"抱歉暂时没有发表相关: ${query}内容文章","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0eeeae6f.js","daovoice")
+daovoice('init', {
+app_id: "06289ecd"
+});
+daovoice('update');
+</script>
+
+
+
+  <meta name="description" content="原地址 UIStackView简单介绍一个Stack View能够将它所含的View以各种方式沿其轴向进行分布，同时也可以将View沿某个方向等距分布，要隐藏Stack View中的视图，你只需要设置该View的Hidden属性为true，剩下的工作Stack View会自己完成。。坐标（Axis）、间隔（Spacing）、对齐（Alignment）以及分布（Distribution ）等。dis">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIStackView教程了解StackView">
+<meta property="og:url" content="https://huos3203.github.io/2017/02/25/iOS/UI/UIStackView教程了解StackView/index.html">
+<meta property="og:site_name" content="布衣男儿">
+<meta property="og:description" content="原地址 UIStackView简单介绍一个Stack View能够将它所含的View以各种方式沿其轴向进行分布，同时也可以将View沿某个方向等距分布，要隐藏Stack View中的视图，你只需要设置该View的Hidden属性为true，剩下的工作Stack View会自己完成。。坐标（Axis）、间隔（Spacing）、对齐（Alignment）以及分布（Distribution ）等。dis">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-16T21:01:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIStackView教程了解StackView">
+<meta name="twitter:description" content="原地址 UIStackView简单介绍一个Stack View能够将它所含的View以各种方式沿其轴向进行分布，同时也可以将View沿某个方向等距分布，要隐藏Stack View中的视图，你只需要设置该View的Hidden属性为true，剩下的工作Stack View会自己完成。。坐标（Axis）、间隔（Spacing）、对齐（Alignment）以及分布（Distribution ）等。dis">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="布衣男儿" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://huos3203.github.io/2017/02/25/iOS/UI/UIStackView教程了解StackView/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>UIStackView教程了解StackView | 布衣男儿</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b4a2528a681e2f23855d15a4de0abfc2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">布衣男儿</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不物喜，不己悲，善假物，易参行！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/huos3203" class="github-corner" title="关注不迷路" aria-label="关注不迷路" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://huos3203.github.io/2017/02/25/iOS/UI/UIStackView教程了解StackView/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iTBoyer">
+      <meta itemprop="description" content="不物喜，不己悲，善假物，易参行！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="布衣男儿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">UIStackView教程了解StackView<a href="https://github.com/huos3203/iTBoyer/edit/master/source/_posts/iOS/UI/UIStackView教程了解StackView.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-24 18:12:14" itemprop="dateCreated datePublished" datetime="2017-02-24T18:12:14Z">2017-02-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-16 21:01:13" itemprop="dateModified" datetime="2019-01-16T21:01:13Z">2019-01-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/控件/" itemprop="url" rel="index"><span itemprop="name">控件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2017/02/25/iOS/UI/UIStackView教程了解StackView/" class="leancloud_visitors" data-flag-title="UIStackView教程了解StackView">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" href="/owl.css"><p><a href="http://blog.csdn.net/kmyhy/article/details/50456444" target="_blank" rel="noopener">原地址</a></p>
+<h2 id="UIStackView简单介绍"><a href="#UIStackView简单介绍" class="headerlink" title="UIStackView简单介绍"></a>UIStackView简单介绍</h2><p>一个Stack View能够将它所含的View以各种方式沿其轴向进行分布，同时也可以将View沿某个方向等距分布，要隐藏<code>Stack View</code>中的视图，你只需要设置该View的<code>Hidden</code>属性为<code>true</code>，剩下的工作Stack View会自己完成。。<br>坐标（Axis）、间隔（Spacing）、对齐（Alignment）以及分布（Distribution ）等。<br>distribution属性：决定Stack View如何沿它轴向的水平方向摆放它的subview，当属性值是Fill，这表示subview会沿轴向完全占据Stack View。因此，Stack View会拉伸其中一个subview使其填充剩余空间，尤其是水平内容优先级最低的那个，如果所有subview优先级相同，则拉伸第一个subview。<br>Alignment属性：决定了Stack View如何沿它轴向的垂直方向摆放它的subview，对于一个垂直的Stack View，这个属性可以设置为Fill、Leading、Center和Trailing。<br>对于水平的Stack View，这个属性则稍有不同：<br>.Top取代了.Leading，.Bottom取代了.Trailing。此外，水平Stack View还多出了两个属性值：.FirstBaseLine和.LastBaseLine。<br>对于水平的Stack View，这个属性则稍有不同：<br>Fill:<br>Leading:<br>Center:<br>Trailing:</p>
+<p>布局方式对比</p>
+<h3 id="添加一个新的Stack-View"><a href="#添加一个新的Stack-View" class="headerlink" title="添加一个新的Stack View"></a>添加一个新的Stack View</h3><p>点击故事板画布左下角<code>Auto Layout工具栏</code>中的<code>Stack按钮</code>：<br>另一种解散的方法是选中Stack View，然后点击<code>Editor\Emebed in\stack view</code>菜单。</p>
+<h3 id="解散一个废弃的Stack-View"><a href="#解散一个废弃的Stack-View" class="headerlink" title="解散一个废弃的Stack View"></a>解散一个废弃的Stack View</h3><p>首先，选定想解散的Stack View。按下<code>Option键</code>，点击<code>Stack 按钮</code>。这将弹出一个上下文菜单，然后点击Unembed：<br>另一种解散的方法是选中Stack View，然后点击<code>Editor\Unemebed</code>菜单。</p>
+<h2 id="使用场景描述"><a href="#使用场景描述" class="headerlink" title="使用场景描述"></a>使用场景描述</h2><p>当APP运行中增加或删除一个<code>view</code>时，需要重新调整邻近<code>view</code>的位置布局。<br>预见困境：</p>
+<ol>
+<li>在故事板中新建一些布局约束连接，以便能够安装或卸载其中的一些约束</li>
+<li>使用第三方库来实现</li>
+<li>根据任务复杂程度完全用代码实现<br>也许这个在视图附近的视图树中的所有View都不需要在运行时改变，但当你将新视图添加到故事板时，仍然要想方设法为它挤出空间来。</li>
+</ol>
+<p><code>UIStackView</code>提供了一个对多个视图进行水平或垂直布局的方法。通过对几个属性进行简单设置，比如对齐、分布和间距，可以让我们让其所包含的视图适应于其有效空间。</p>
+<h2 id="实现需求"><a href="#实现需求" class="headerlink" title="实现需求"></a>实现需求</h2><p>存在着这几方面的问题:</p>
+<h3 id="问题一：自适应横竖屏"><a href="#问题一：自适应横竖屏" class="headerlink" title="问题一：自适应横竖屏"></a>问题一：自适应横竖屏</h3><p>在横屏状态下（command+左箭头旋转为横屏），发现截图中的一排按钮位置无法适应屏幕宽度的变化。这时可以使用<code>UIStackView</code>来帮助实现自动适应横竖屏的效果。</p>
+<h3 id="问题二：控件间留白不紧凑"><a href="#问题二：控件间留白不紧凑" class="headerlink" title="问题二：控件间留白不紧凑"></a>问题二：控件间留白不紧凑</h3><p>点击WEATHER旁边的Hide按钮。隐藏了下面的文本内容后，留下了一大块的空白区域。</p>
+<h3 id="Storyboard引入界面"><a href="#Storyboard引入界面" class="headerlink" title="Storyboard引入界面"></a>Storyboard引入界面</h3><p>打开<code>Main.storyboard</code>，找到<code>Spot Info View Controller</code>这个Scene。将这些标签和按钮设为不同的背景色，是为了在运行时效果更直观。就是在故事板中，这也有助于看到<code>Stack View</code>属性的改变导致其内部视图的变化。<br>如果想在运行App时看见这些颜色，在<code>SpotInfoViewController</code>的<code>viewDidLoad()</code>方法中将下列语句注释：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 清空标签和按钮的背景色</span></span><br><span class="line"><span class="keyword">for</span> view <span class="keyword">in</span> backgroundColoredViews </span><br><span class="line">&#123;</span><br><span class="line">    view.backgroundColor = <span class="type">UIColor</span>.clearColor()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Size类便于使用storyboard"><a href="#Size类便于使用storyboard" class="headerlink" title="Size类便于使用storyboard"></a>Size类便于使用storyboard</h3><p>在本案例中，故事板中Scene大小不是默认<code>600x600</code>，在这里Simulated Metrics下的Size属性被设置成iPhone 4-inch。Simulated Metrics属性在运行时并没有任何影响——不同设备上视图的大小仍然会自动改变。</p>
+<h2 id="创建水平UIStackView"><a href="#创建水平UIStackView" class="headerlink" title="创建水平UIStackView"></a>创建水平<code>UIStackView</code></h2><h3 id="按钮模块"><a href="#按钮模块" class="headerlink" title="按钮模块"></a>按钮模块</h3><ol>
+<li>选中按钮<br>用<code>Command+左键</code>同时选中<code>Spot Info View Controller</code>底下一排的所有按钮：</li>
+<li>Stack按钮添加一个新的Stack View<br>点击故事板画布左下角<code>Auto Layout工具栏</code>中新增的<code>Stack按钮</code>：    </li>
+</ol>
+<p>这些按钮被嵌到一个新的Stack View中：</p>
+<h4 id="给新的Stack-View添加布局约束"><a href="#给新的Stack-View添加布局约束" class="headerlink" title="给新的Stack View添加布局约束"></a>给新的Stack View添加布局约束</h4><p>要在故事板选取一个充满了子视图的Stack View还是比较难的，介绍两种选择技巧。<br>3.1 在<code>Outline视图</code>中选取Stack View</p>
+<p>3.2 Shift+右键调出View树<br>在Stack View 的任意地方按下<code>Shift+右键</code>或者<code>Control+Shift+左键</code>（如果你正在用触控板的话）。这时将弹出一个上下文菜单，列出了位于所点击的地方的View树，你可以在这个菜单中选择Stack View。</p>
+<ol start="4">
+<li>自动布局工具栏中的Pin按钮,添加一个约束</li>
+</ol>
+<p>首先勾选Constrain to margins。然后在Stack View四周添加下列约束：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Top</span>: <span class="number">20</span>, <span class="type">Leading</span>: <span class="number">0</span>, <span class="type">Trailing</span>: <span class="number">0</span>, <span class="type">Bottom</span>: <span class="number">0</span></span><br></pre></td></tr></table></figure><br>仔细检查top、leading、trailing、bottom中的数字并确保它们的I型柱都被选中。然后点击Add 4 Constraints：</p>
+<h4 id="按钮等间距分布"><a href="#按钮等间距分布" class="headerlink" title="按钮等间距分布"></a>按钮等间距分布</h4><p>添加约束后，导致第一个按钮被拉伸：</p>
+<h5 id="使用等宽约束的Spacer-View实现"><a href="#使用等宽约束的Spacer-View实现" class="headerlink" title="使用等宽约束的Spacer View实现"></a>使用等宽约束的<code>Spacer View</code>实现</h5><p>解决这个问题只能使用空白的View来分隔这些按钮，在按钮之间摆放上一些用于分隔空间的 Spacer View。所有的Spacer View都要添加等宽约束，以及许多额外的约束，才能将这些Spacer View布局正确。<br>这看起来如下图所示。为了直观起见，这些Spacer View的背景色设置成了浅灰色：<br>如果要在运行时添加一个按钮或者隐藏/删除一个按钮时，要想调整这些Spacer View和约束就要命了。</p>
+<h5 id="Distribution属性：沿轴向水平分布"><a href="#Distribution属性：沿轴向水平分布" class="headerlink" title="Distribution属性：沿轴向水平分布"></a><code>Distribution</code>属性：沿轴向水平分布</h5><p>distribution属性：决定Stack View如何将它的subview沿轴向分布，当属性值是Fill，这表示subview会沿轴向完全占据Stack View。因此，Stack View会拉伸其中一个subview使其填充剩余空间，尤其是水平内容优先级最低的那个，如果所有subview优先级相同，则拉伸第一个subview。<br>打开Stack View属性面板。将<code>Distribution</code>属性由<code>Fill</code>修改为<code>Equal Spacing</code>：<br>编译运行，点击某个单元格，旋转模拟器（⌘→）。你将看到最下一排按钮现在按照等间距排列了！</p>
+<h3 id="Rating版块"><a href="#Rating版块" class="headerlink" title="Rating版块"></a>Rating版块</h3><p>选中RATING标签，以及旁边的显示为几个星形图标的标签：<br>然后点击Stack按钮将它们嵌到一个Stack View中：<br>然后点击Pin按钮。勾选Constrain to margins，并添加如下约束：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Top</span>: <span class="number">20</span>, <span class="type">Leading</span>: <span class="number">0</span>, <span class="type">Bottom</span>: <span class="number">20</span></span><br></pre></td></tr></table></figure><br>打开属性面板，将间距设置为8：<br>你可能会看到一个 Misplaced Views的布局约束警告，同时星星标签会显示将会被拉伸到视图之外：<br>有时候Xcode会临时提示一些警告，或者显示Stack View的位置不正确，这些警告会在你添加其他约束后消失。你完全可以忽略这些警告。<br>要解决这个警告，我们可以修改一下Stack View的Frame然后又改回，或者临时修改它的一条布局约束。<br>让我们试一下。先将Alignment 属性从Fill修改为Top，然后又改回原来的Fill。你将看到这下星星标签显示正常了：<br>编译运行，进行测试</p>
+<h2 id="创建垂直的Stack-View"><a href="#创建垂直的Stack-View" class="headerlink" title="创建垂直的Stack View"></a>创建垂直的Stack View</h2><p>Xcode会自动根据这两者的位置推断出这将是一个垂直的Stack View，Stack View没有添加任何约束时，会自动适应了两个标签中的最宽的一个的宽度。</p>
+<h3 id="WHY-VISIT模块"><a href="#WHY-VISIT模块" class="headerlink" title="WHY VISIT模块"></a>WHY VISIT模块</h3><p>选中WHY VISIT标签及下面的标签,创建一个垂直的Stack View：<br>点击Stack 按钮将二者嵌到一个Stack View：</p>
+<h4 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h4><p>默认，约束是相对于距离最近的对象，对于Bottom约束来说就是距离它15像素的Hide按钮。但我们其实是想让约束相对于WEATHER标签。<br>选中Stack View，点击Pin按钮。勾选Constrain to margins，设置Top、Leading、Trainling为0。<br>然后，点击Bottom右边的下拉按钮，从列表中选择WEATHER（curent distance =20）：<br>最后点击Add 4 Constraints按钮。显示结果如下图所示：</p>
+<h4 id="alignment属性：轴向的垂直方向"><a href="#alignment属性：轴向的垂直方向" class="headerlink" title="alignment属性：轴向的垂直方向"></a>alignment属性：轴向的垂直方向</h4><p>Stack View问题，它的右边对齐于View的右边。但是底下的标签仍然是原来的宽度。需要使用alignment属性解决这个问题。<br>当你测试完所有Alignment值的布局效果后，将Alignment修改为Fill：<br>将<code>Alignment</code>设置为<code>Fill</code>，表示所有View将沿与Stack View轴向垂直的方向进行全占式分布。这会让WHY VISIT标签扩展它的宽度到100%.</p>
+<p>如果我们只想让底下的标签将宽度扩展到100%怎么办？</p>
+<p>这个问题现在看来还不是多大的问题，因为两个标签在运行时的背景色都是透明的。但对于Weather版块来说就不同了。</p>
+<p>我们将用另外一个Stack View来说明这个问题。</p>
+<h2 id="垂直／水平Stack-View嵌套使用"><a href="#垂直／水平Stack-View嵌套使用" class="headerlink" title="垂直／水平Stack View嵌套使用"></a>垂直／水平Stack View嵌套使用</h2><h3 id="Weather版块"><a href="#Weather版块" class="headerlink" title="Weather版块"></a>Weather版块</h3><p>在Weather版块相对复杂一些，因为它多了一个Hide按钮。<br>要隐藏<code>Stack View</code>中的视图，你只需要设置该View的<code>Hidden</code>属性为<code>true</code>，剩下的工作Stack View会自己完成。这也是我们解决用户隐藏WEATHER标签下文本的主要思路。<br>一种方法是使用嵌套的Stack View，先将WEATHER标签和Hide按钮嵌到一个水平StackView，再将这个Stack View和标签嵌到一个垂直Stack View。</p>
+<h4 id="垂直stackView"><a href="#垂直stackView" class="headerlink" title="垂直stackView"></a>垂直stackView</h4><p>注意Alignment属性负责Stack View轴向垂直的方向上的布局。所以，我们需要将Alignment属性设置为 Bottom：</p>
+<h4 id="水平StackView中出现按钮拉伸标签的问题"><a href="#水平StackView中出现按钮拉伸标签的问题" class="headerlink" title="水平StackView中出现按钮拉伸标签的问题"></a>水平StackView中出现按钮拉伸标签的问题</h4><p>注意，WEATHER标签被拉伸为和Hide按钮一样高了。这并不合适，因为这会导致WEATHER标签和下面的文本之间多出了一些空间。<br>正确的方法是让 Hide 按钮不要和 Weather 版块呆在同一个Stack View中，或者任何别的Stack View中。<br>这样，在顶层View中还会保留一个subview，你将为它添加一个相对于WEATHER标签的约束——WEATHER标签嵌在Stack View里的。也就是说，你要为位于Stack View之外的按钮加一个约束，这个约束是相对于Stack View内的一个标签！</p>
+<h4 id="垂直stack-View1-嵌套WEATHER标签和标签"><a href="#垂直stack-View1-嵌套WEATHER标签和标签" class="headerlink" title="垂直stack View1:嵌套WEATHER标签和标签"></a>垂直stack View1:嵌套WEATHER标签和标签</h4><p>选中WEATHER标签和标签：<br>点击 Stack 按钮：<br>点击Pin 按钮，勾上Constrain to margins，然后添加如下约束：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Top</span>: <span class="number">20</span>, <span class="type">Leading</span>: <span class="number">0</span>, <span class="type">Trailing</span>: <span class="number">0</span>, <span class="type">Bottom</span>: <span class="number">20</span></span><br></pre></td></tr></table></figure><br>将Stack View的Alignment设为Fill：<br>我们需要在 Hide 按钮左边和WEATHER标签右边加一条约束，这样WEATHER 标签的宽度就不会拉满整个Stack View了。</p>
+<p>当然，底下的标签宽度还是需要100%占满的。</p>
+<p>我们是通过将WEATHER标签嵌到一个垂直Stack View 来实现的。注意，垂直Stack View的Alignment 属性可以设置为 .Leading，如果将Stack View拉宽，则它里面的View 会保持左对齐。</p>
+<h4 id="垂直stack-View2-仅嵌套WEATHER标签"><a href="#垂直stack-View2-仅嵌套WEATHER标签" class="headerlink" title="垂直stack View2: 仅嵌套WEATHER标签"></a>垂直stack View2: 仅嵌套WEATHER标签</h4><p>从Outline视图中选取WEATHER 标签，或者用Control+Shift+左键的方式选取WEATHER 标签：<br>然后点击Stack 按钮：<br>确保Axis 为 Vertical 的情况下，将Alignment 设置为 Leading：</p>
+<h4 id="按钮和WEATHER标签两个约束"><a href="#按钮和WEATHER标签两个约束" class="headerlink" title="按钮和WEATHER标签两个约束"></a>按钮和WEATHER标签两个约束</h4><p>从Hide 按钮用右键拖一条新的约束到 WEATHER 标签：<br>按下Shift键，同时选择Horizontal Spacing 和 Baseline。然后点击 Add Constraints：<br>编译运行。Hide 按钮的位置现在对了，而且当按下Hide 按钮，位于Stack View 中的标签被隐藏后，下面的视图也会被调整——根本不需要我们进行手动调整。</p>
+<h2 id="顶级-Stack-View"><a href="#顶级-Stack-View" class="headerlink" title="顶级 Stack View"></a>顶级 Stack View</h2><p>在Outline 视图中，用Command+左键选择5个最顶级的 Stack View：<br>然后点击 Stack 按钮：<br>点击Pin 按钮，勾上 Constrain to margins，将 4 个边的约束都设为0。然后将Spacing 设置为20，Alignment 设为 Fill。现在故事板会是这个样子：<br>编译运行：<br>噢！这个 Hide 按钮又失去了它 的约束！因为包含 WEATHER 标签的Stack View的外边又套了一层 Stack View。这不是什么大问题，就像之前你做过的那样，再重新为它添加约束就是了。</p>
+<p>右键从Hide 按钮拖一条约束到 WEATHER标签，按下 Shift 键，同时选择 Horizontal Spacing 和 Baseline。然后点击 Add Constraints：</p>
+<h2 id="重新调整视图位置"><a href="#重新调整视图位置" class="headerlink" title="重新调整视图位置"></a>重新调整视图位置</h2><p>现在，所有的版块都被嵌到一个顶级的 Stack View中了，我们想修改一下 what to see版块的位置，让它位于 weather 版块之后。</p>
+<p>从 Outline 视图中选择中间的的 Stack View，然后将它拖到第一、二个 Stack View 之间。<br>注意：让箭头稍微偏向你正在拖的Stack View左边一点，以便它能够作为外层 Stack View 的 subview 添加。蓝色的小圆圈应当位于两个 Stack View 之间的左端而不是右端：</p>
+<p>现在，weather版块是从上到下的第三个版块，由于 Hide 按钮它并不是 Stack View的subview，所以它不会参与移动，它的frame当前是不正确的。</p>
+<p>点击 Hide 按钮，选中它：</p>
+<p>然后点击自动布局工具栏中的 Resolve Auto Layout Issues 按钮，选择 Update Frames：<br>现在 Hide 按钮将回到正确的位置：</p>
+<h2 id="基于配置的-Size-类"><a href="#基于配置的-Size-类" class="headerlink" title="基于配置的 Size 类"></a>基于配置的 Size 类</h2><p>最后还有一个任务没有完成。在横屏模式，垂直空间是比较珍贵的，你想将这些版块之间靠得更近一些。要实现这个，你需要判断当垂直Size类为compact时，将顶层 Stack View的 Spacing属性由 20 改成 10.</p>
+<p>选择顶层 Stack View，点击 Spacing 前面的+按钮：</p>
+<p>选择 Any Width &gt; Compact Height：</p>
+<p>在新出现的 wAny hC 一栏中，将 Spacing 设为 10：<br>编译运行。在竖屏模式下Spacing不会改变。旋转模拟器（⌘←），你会看到各版块之间的间距减少了，现在底部按钮之间的空间也变大了：<br>如果你没有添加最外层的 Stack View，你仍然可以使用 Size 类将每个版块之间的垂直间距设置为 10，但这就不是仅仅设置一个地方就能够办到的了。</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>现在，在隐藏和显示天气信息时仍然会觉得有一些突兀。你将增加一个动画使这个转换变得更平滑。</p>
+<p>Stack View完全支持 <code>UIView 动画</code>。也就是说要以动画方式显示/隐藏它所包含的subview，只需要简单地在一个动画块中切换它的 hidden 属性。</p>
+<p>让我们来看看代码怎么实现。打开 <code>SpotInfoViewController.Swift</code>，找到<br><code>updateWeatherInfoViews(hideWeatherInfo:animated:)</code>方法。</p>
+<p>将方法的最后一行：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weatherInfoLabel.hidden = shouldHideWeatherInfo</span><br></pre></td></tr></table></figure><br>替换为：<br><figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> animated </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">UIView</span>.animateWithDuration(<span class="number">0.3</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.weatherInfoLabel.hidden = shouldHideWeatherInfo</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">    weatherInfoLabel.hidden = shouldHideWeatherInfo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译运行，点击Hide 按钮或 Show 按钮。是不是加入动画之后看起来要好得多呢？</p>
+<p>除了对 Stack View 中的视图以动画的方式设置 hidden 属性，你也可以对 Stack View 自身的属性使用 UIView 动画，例如 Alignment 属性、 Distribution 属性、 Spacing 属性和 Axis 属性。<br><a href="http://cdn5.raywenderlich.com/wp-content/uploads/2015/09/VacationSpots_Starter.zip" target="_blank" rel="noopener">开始项目源码</a><br><a href="http://cdn1.raywenderlich.com/wp-content/uploads/2015/09/VacationSpots_Complete.zip" target="_blank" rel="noopener">完整项目源码</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+      
+    </div>
+
+    
+
+    <div>
+    
+    
+
+    
+    </div>
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/weixinimg.jpg" alt="iTBoyer wechat" style="width: 200px; max-width: 100%;">
+  <div>关注不迷路</div>
+</div>
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>迎接美好的一天！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/weixin.jpg" alt="iTBoyer 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/uploads/zhifubao.jpg" alt="iTBoyer 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          
+            <a href="/tags/UI/" rel="tag"><i class="fa fa-tag"></i> UI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/24/iOS/UI/更改设备屏幕上显示的应用程序图标下方的名称/" rel="next" title="更改设备屏幕上显示的应用程序图标下方的名称">
+                <i class="fa fa-chevron-left"></i> 更改设备屏幕上显示的应用程序图标下方的名称
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/28/macOS/使用Cocoapods创建私有podspec/" rel="prev" title="使用Cocoapods创建私有podspec">
+                使用Cocoapods创建私有podspec <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="iTBoyer">
+            
+              <p class="site-author-name" itemprop="name">iTBoyer</p>
+              <div class="site-description motion-element" itemprop="description">不物喜，不己悲，善假物，易参行！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">286</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+            <!--博客-->
+            
+                <div class="feed-link motion-element">
+                    <a href="/podcast.xml" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的博客
+                    </a>
+                </div>
+            
+            
+                <div class="feed-link motion-element">
+                    <a href="/docs" rel="alternate">
+                        <i class="fa fa-rss"></i>
+                        我的阅读
+                    </a>
+                </div>
+            
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/huos3203" title="GitHub &rarr; https://github.com/huos3203" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/1791281385" title="微博 &rarr; http://weibo.com/1791281385" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://douban.com/people/boyers" title="豆瓣 &rarr; http://douban.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://www.zhihu.com/people/boyers" title="知乎 &rarr; http://www.zhihu.com/people/boyers" rel="noopener" target="_blank"><i class="fa fa-fw fa-snapchat"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:iTBoyer@qq.com" title="E-Mail &rarr; mailto:iTBoyer@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                学习园地
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/" title="swift文档" target="_blank">swift文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/matteocrippa/awesome-swift" title="swift酷库" target="_blank">swift酷库</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://swift.org/getting-started/" title="SPM终端开发" target="_blank">SPM终端开发</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/PerfectlySoft/Perfect/blob/master/README.zh_CN.md" title="Perfect服务器端" target="_blank">Perfect服务器端</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/uraimo/Awesome-Swift-Playgrounds" title="Playground" target="_blank">Playground</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.objccn.io" title="objc中国" target="_blank">objc中国</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.cn" title="NSHipster" target="_blank">NSHipster</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/AttackOnDobby/iOS-Core-Animation-Advanced-Techniques" title="动画" target="_blank">动画</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://git-scm.com/book/zh" title="GitPro" target="_blank">GitPro</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://kaopu.so/pan" title="全盘搜" target="_blank">全盘搜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wherebt.com" title="BT导航网" target="_blank">BT导航网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mp.weixin.qq.com" title="小程序官方" target="_blank">小程序官方</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="王维" target="_blank">王维</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+            
+            
+                <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                    <div class="links-of-blogroll-title">
+                        <i class="fa  fa-fw fa-link"></i>
+                        在线工具
+                    </div>
+                    <ul class="links-of-blogroll-list">
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="http://blog.didispace.com/tools/online-markdown/" title="MarkDown转公众号" target="_blank">MarkDown转公众号</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://leetcode-cn.com/playground/new/empty" title="leetcode工具" target="_blank">leetcode工具</a>
+                            </li>
+                        
+                            <li class="links-of-blogroll-item">
+                            <a href="https://www.lintcode.com/problem/" title="lintcode编码" target="_blank">lintcode编码</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIStackView简单介绍"><span class="nav-number">1.</span> <span class="nav-text">UIStackView简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加一个新的Stack-View"><span class="nav-number">1.1.</span> <span class="nav-text">添加一个新的Stack View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解散一个废弃的Stack-View"><span class="nav-number">1.2.</span> <span class="nav-text">解散一个废弃的Stack View</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景描述"><span class="nav-number">2.</span> <span class="nav-text">使用场景描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现需求"><span class="nav-number">3.</span> <span class="nav-text">实现需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一：自适应横竖屏"><span class="nav-number">3.1.</span> <span class="nav-text">问题一：自适应横竖屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二：控件间留白不紧凑"><span class="nav-number">3.2.</span> <span class="nav-text">问题二：控件间留白不紧凑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storyboard引入界面"><span class="nav-number">3.3.</span> <span class="nav-text">Storyboard引入界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Size类便于使用storyboard"><span class="nav-number">3.4.</span> <span class="nav-text">Size类便于使用storyboard</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建水平UIStackView"><span class="nav-number">4.</span> <span class="nav-text">创建水平UIStackView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按钮模块"><span class="nav-number">4.1.</span> <span class="nav-text">按钮模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#给新的Stack-View添加布局约束"><span class="nav-number">4.1.1.</span> <span class="nav-text">给新的Stack View添加布局约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按钮等间距分布"><span class="nav-number">4.1.2.</span> <span class="nav-text">按钮等间距分布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用等宽约束的Spacer-View实现"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">使用等宽约束的Spacer View实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Distribution属性：沿轴向水平分布"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">Distribution属性：沿轴向水平分布</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rating版块"><span class="nav-number">4.2.</span> <span class="nav-text">Rating版块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建垂直的Stack-View"><span class="nav-number">5.</span> <span class="nav-text">创建垂直的Stack View</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WHY-VISIT模块"><span class="nav-number">5.1.</span> <span class="nav-text">WHY VISIT模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加约束"><span class="nav-number">5.1.1.</span> <span class="nav-text">添加约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alignment属性：轴向的垂直方向"><span class="nav-number">5.1.2.</span> <span class="nav-text">alignment属性：轴向的垂直方向</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直／水平Stack-View嵌套使用"><span class="nav-number">6.</span> <span class="nav-text">垂直／水平Stack View嵌套使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Weather版块"><span class="nav-number">6.1.</span> <span class="nav-text">Weather版块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直stackView"><span class="nav-number">6.1.1.</span> <span class="nav-text">垂直stackView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平StackView中出现按钮拉伸标签的问题"><span class="nav-number">6.1.2.</span> <span class="nav-text">水平StackView中出现按钮拉伸标签的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直stack-View1-嵌套WEATHER标签和标签"><span class="nav-number">6.1.3.</span> <span class="nav-text">垂直stack View1:嵌套WEATHER标签和标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直stack-View2-仅嵌套WEATHER标签"><span class="nav-number">6.1.4.</span> <span class="nav-text">垂直stack View2: 仅嵌套WEATHER标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按钮和WEATHER标签两个约束"><span class="nav-number">6.1.5.</span> <span class="nav-text">按钮和WEATHER标签两个约束</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顶级-Stack-View"><span class="nav-number">7.</span> <span class="nav-text">顶级 Stack View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新调整视图位置"><span class="nav-number">8.</span> <span class="nav-text">重新调整视图位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于配置的-Size-类"><span class="nav-number">9.</span> <span class="nav-text">基于配置的 Size 类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">10.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">11.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+    <div id="sidebar-dimmer"></div>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iTBoyer</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+您是本站第:<span id="busuanzi_value_site_uv"></span>位小伙伴 |
+</span>
+<span id="busuanzi_container_site_pv">
+本站总<span id="busuanzi_value_site_pv"></span>次访问 |
+</span>
+<span class="post-count"> 博客全站共字</span>
+</div>
+<div class="copyright">
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+</div>
+
+
+<script>
+var now = new Date();
+function createtime() {
+var grt= new Date("02/14/2018 12:49:00");//此处修改你的建站时间或者网站上线时间
+now.setTime(now.getTime()+250);
+days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'd46ea301857e36a08319',
+    clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
+    repo: 'huos3203.github.io',
+    owner: 'huos3203',
+    admin: ['huos3203'],
+    id: md5(location.pathname),
+    
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.2"></script>
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'ue8PI3eFeweMAjNgpAAIfiRi-gzGzoHsz',
+                'X-LC-Key': '2kHl2CEoDUKiHcVvz0dhu5rF',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
