@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>小米路由常用操作 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="常用命令  ssh登录
+1 2 3 4 5 6 7 8 9 10 11 12  局域网登录: ssh [user@]hostname [command] 例如：ssh root@192.168.31.1 或 远程登录：ssh root@222.35.145.28 -p 2195 回车 输入密码 **修改密码：** root@xiaoqiang:~#passwd 回车 输入新密码 回车 再次输入新密码   远程拷贝数据
+1  scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx   每次重启路由获取IP:
+1 2  vi /etc/rc.local sh /etc/getIP.sh   //启动后，等待20秒，然后，获取当前时间作为文件名称 //使用ifconfig 获取路由器的ip信息 //使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行 // &amp;gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中 //通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中 //查看该文件，既有路由重启后的当前IP
+ " /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="小米路由常用操作" />
+<meta property="og:description" content="常用命令
+
+
+ssh登录
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+局域网登录:
+ssh [user@]hostname [command]
+ 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+回车
+输入密码
+
+**修改密码：**
+root@xiaoqiang:~#passwd   
+回车
+输入新密码
+回车
+再次输入新密码
+
+
+
+远程拷贝数据
+
+
+1
+
+
+scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
+
+
+
+每次重启路由获取IP:
+
+
+1
+2
+
+
+vi /etc/rc.local
+sh /etc/getIP.sh
+
+
+//启动后，等待20秒，然后，获取当前时间作为文件名称
+//使用ifconfig 获取路由器的ip信息
+//使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
+// &gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
+//通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
+//查看该文件，既有路由重启后的当前IP
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" />
+<meta property="article:published_time" content="2015-09-25T23:59:16+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="小米路由常用操作">
+<meta itemprop="description" content="常用命令
+
+
+ssh登录
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+局域网登录:
+ssh [user@]hostname [command]
+ 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+回车
+输入密码
+
+**修改密码：**
+root@xiaoqiang:~#passwd   
+回车
+输入新密码
+回车
+再次输入新密码
+
+
+
+远程拷贝数据
+
+
+1
+
+
+scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
+
+
+
+每次重启路由获取IP:
+
+
+1
+2
+
+
+vi /etc/rc.local
+sh /etc/getIP.sh
+
+
+//启动后，等待20秒，然后，获取当前时间作为文件名称
+//使用ifconfig 获取路由器的ip信息
+//使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
+// &gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
+//通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
+//查看该文件，既有路由重启后的当前IP
+">
+
+
+<meta itemprop="datePublished" content="2015-09-25T23:59:16&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="1231">
+
+
+
+<meta itemprop="keywords" content="小米路由,SSH,协议," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="小米路由常用操作"/>
+<meta name="twitter:description" content="常用命令
+
+
+ssh登录
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+局域网登录:
+ssh [user@]hostname [command]
+ 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+回车
+输入密码
+
+**修改密码：**
+root@xiaoqiang:~#passwd   
+回车
+输入新密码
+回车
+再次输入新密码
+
+
+
+远程拷贝数据
+
+
+1
+
+
+scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
+
+
+
+每次重启路由获取IP:
+
+
+1
+2
+
+
+vi /etc/rc.local
+sh /etc/getIP.sh
+
+
+//启动后，等待20秒，然后，获取当前时间作为文件名称
+//使用ifconfig 获取路由器的ip信息
+//使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
+// &gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
+//通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
+//查看该文件，既有路由重启后的当前IP
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">小米路由常用操作</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-09-25 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
+            </div>
+          <span class="more-meta"> 约 1231 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#常用命令">常用命令</a></li>
+<li><a href="#ssh登录数据库-转-http-bbs-xiaomi-cn-thread-10339070-1-1-html">ssh登录数据库   <a href="http://bbs.xiaomi.cn/thread-10339070-1-1.html">转</a></a>
+<ul>
+<li><a href="#客户端mysqlworkbench无法连接llmp个人网站的mysql数据库">客户端MySQLWorkbench无法连接LLMP个人网站的MySql数据库</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h4 id="常用命令">常用命令</h4>
+
+<ol>
+<li><p>ssh登录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">局域网登录:
+ssh [user@]hostname [command]
+ 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+回车
+输入密码
+
+**修改密码：**
+root@xiaoqiang:~#passwd   
+回车
+输入新密码
+回车
+再次输入新密码</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>远程拷贝数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>每次重启路由获取IP:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vi /etc/rc.local
+sh /etc/getIP.sh</pre></td></tr></table>
+</div>
+</div>
+<p>//启动后，等待20秒，然后，获取当前时间作为文件名称
+//使用ifconfig 获取路由器的ip信息
+//使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
+// &gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
+//通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
+//查看该文件，既有路由重启后的当前IP</p></li>
+</ol>
+
+<p>详见getIP.sh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    #!/bin/sh
+    sleep 20
+    current_date=`date +%Y_%m_%d`
+    current_time=`date +%H_%M_%S`
+    echo $current_date
+    echo $current_time
+    #local_ip=`ifconfig |grep &#39;[0-9]\{1,3\}.*P-t-P&#39;`
+    local_ip=`ifconfig | grep P-t-P`
+    echo $local_ip &gt; /userdisk/data/my/ip/$current_date:$current_time.txt</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li><p>修改防火墙设置<strong>/etc/config</strong>目录下的<strong>dropbear</strong>和<strong>firewall</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd /etc/config  //把备份文件内容覆盖新文件即可
+1.cat dropbear.bak &gt; dropbear  
+    增加如下内容：
+    config dropbear
+    option PasswordAuth &#39;on&#39;
+    option RootPasswordAuth &#39;on&#39;
+    option Interface &#39;wan&#39;
+    option Port &#39;2195&#39;
+2.保存文件修改后，再重启dropbear服务，一次输入下面两行命令：
+    /etc/init.d/dropbear reload
+    /etc/init.d/dropbear restart
+1.cat firewall.bak &gt; firewall
+    增加如下内容： 
+    config rule
+    option name &#39;Allow-wan-ssh&#39;
+    option src &#39;wan&#39;
+    option proto &#39;tcp&#39;
+    option dest_port &#39;2195&#39;
+    option target &#39;ACCEPT&#39;
+2.保存文档的更改后，重启防火墙服务，依次输入以下两条命令：
+    /etc/init.d/firewall reload
+    /etc/init.d/firewall restart</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<p>5.由于铁通机制，分配的独立iP，并不能被外网访问</p>
+
+<h4 id="ssh登录数据库-转-http-bbs-xiaomi-cn-thread-10339070-1-1-html">ssh登录数据库   <a href="http://bbs.xiaomi.cn/thread-10339070-1-1.html">转</a></h4>
+
+<p>先确保能访问<a href="http://192.168.31.1:8088/phpinfo.php">LLMP搭建的个人网站地址</a></p>
+
+<p>修复教程：</p>
+
+<ol>
+<li>登录路由： <code>ssh root@192.168.31.1</code>  mm:admin</li>
+<li>执行命令：<code>/userdisk/data/lamp.sh fix</code><br /></li>
+
+<li><p>再次访问个人网站地址。  <a href="http://192.168.31.1:8088/phpinfo.php">LLMP搭建的个人网站地址</a> 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">1./userdisk/data/lamp.sh  (安装本插件，一键开启llmp，具体安装过程可见前面的安装步骤）       
+2./userdisk/data/lamp.sh a（卸载本插件，恢复安装前，注：卸载本插件时路由器会自动重启一次，自动断网几分钟）
+3./userdisk/data/lamp.sh fix（升级小米路由器固件后，能瞬间恢复自己搭建的网站功能，另外，如果在极特殊的情况的情况下，本功能无效，可使用如下方法恢复自建网站的功能：先尝试重新安装本插件，如果提示不能重复安装，可先卸载本插件，再重新安装本插件，并按说明3对数据库执行修改密码命令，改回原来的密码，原来自己搭建网站就可恢复使用）
+4./userdisk/data/lamp.sh help  (插件用法的帮助信息）</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<p>登录数据库：<code>ssh mysql@192.168.31.1 -p 2222</code></p>
+
+<p>正确日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">AdmindeMacBook-Air:~ admin$ ssh mysql@192.168.31.1 -p 2222
+The authenticity of host &#39;[192.168.31.1]:2222 ([192.168.31.1]:2222)&#39; can&#39;t be established.
+RSA key fingerprint is SHA256:bLH9smUb7sD9CZLWCsT6t9YqPy2jciznepkscFNd59M.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;[192.168.31.1]:2222&#39; (RSA) to the list of known hosts.
+mysql@192.168.31.1&#39;s password:admin
+
+BusyBox v1.19.4 (2015-05-08 18:41:26 CST) built-in shell (ash)
+Enter &#39;help&#39; for a list of built-in commands.
+
+    ~ $</pre></td></tr></table>
+</div>
+</div>
+<p>错误日志：
+需要修改本地的ssh配置。</p>
+
+<ol>
+<li>vi /Users/admin/.ssh/known_hosts文件</li>
+<li>删除包含[192.168.31.1]:2222的一行内容。</li>
+
+<li><p>重新登录数据库：ssh mysql@192.168.31.1 -p 2222。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">AdmindeMacBook-Air:~ admin$ ssh mysql@192.168.31.1 -p 2222
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+SHA256:bLH9smUb7sD9CZLWCsT6t9YqPy2jciznepkscFNd59M.
+Please contact your system administrator.
+Add correct host key in /Users/admin/.ssh/known_hosts to get rid of this message.
+Offending RSA key in /Users/admin/.ssh/known_hosts:10
+RSA host key for [192.168.31.1]:2222 has changed and you have requested strict checking.
+Host key verification failed.</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h5 id="客户端mysqlworkbench无法连接llmp个人网站的mysql数据库">客户端MySQLWorkbench无法连接LLMP个人网站的MySql数据库</h5>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1/">小米路由</a>
+          <a href="/tags/ssh/">SSH</a>
+          <a href="/tags/%E5%8D%8F%E8%AE%AE/">协议</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Mac安装gitLab服务器</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/">
+            <span class="next-text nav-default">Xcode7编译发布问题</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2015-09-25 23:59:16 \x2b0800 CST',
+        title: '小米路由常用操作',
+        link: decodeURI(location.href),
+        desc: '\x3ch4 id=\x22常用命令\x22\x3e常用命令\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e\x3cp\x3essh登录\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3cspan class=\x22lnt\x22\x3e 1\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 2\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 3\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 4\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 5\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 6\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 7\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 8\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e 9\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e10\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e11\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e12\n\x3c\/span\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e局域网登录:\nssh [user@]hostname [command]\n 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195\n回车\n输入密码\n\n**修改密码：**\nroot@xiaoqiang:~#passwd   \n回车\n输入新密码\n回车\n再次输入新密码\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e远程拷贝数据\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3escp Desktop\/ar71xx\/* root@192.168.31.1:\/userdisk\/myWorkspace\/ar71xx\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e每次重启路由获取IP:\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e2\n\x3c\/span\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3evi \/etc\/rc.local\nsh \/etc\/getIP.sh\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3e\/\/启动后，等待20秒，然后，获取当前时间作为文件名称\n\/\/使用ifconfig 获取路由器的ip信息\n\/\/使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行\n\/\/ \x26gt; 使用重定向，将过滤的ip行，写入路由硬盘\/userdisk\/data\/my\/ip目录中\n\/\/通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中\n\/\/查看该文件，既有路由重启后的当前IP\x3c\/p\x3e\x3c\/li\x3e\n\x3c\/ol\x3e',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

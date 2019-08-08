@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Git中的储藏工具stash - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content=" Stashing 储藏工作 应用储藏 被暂存的文件重新暂存 应用后，移除储藏的内容 取消储藏(Un-applying a Stash) 新建stash-unapply别名 从储藏中创建分支   Git工具 - 储藏（Stashing）git 原文 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
+问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
+解决：git stash 命令。
+“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
+储藏工作  进入项目目录，修改某个文件，有可能还暂存其中的一个变更。 git status 命令,查看中间状态： {%codeblock lang:bash %} $ git status
+On branch master Changes to be committed: (use &amp;ldquo;git reset HEAD &amp;hellip;&amp;rdquo; to unstage) #
+modified: index.html #
+Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed) #
+modified: lib/simplegit.rb # {%endcodeblock%}
+ 切换分支，但不提交step 1 中的变更，所以储藏这些变更。 执行git stash 命令，往堆栈中推送一个新的储藏： {%codeblock lang:bash %} $ git stash Saved working directory and index state &amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%}
+ 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+ 使用git stash list要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+应用储藏 执行git stash apply命令, 可以重新应用最近的一次储藏； 执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
+On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed) #
+modified: index.html modified: lib/simplegit.rb # {%endcodeblock%}
+ " /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Git中的储藏工具stash" />
+<meta property="og:description" content="
+Stashing
+储藏工作
+应用储藏
+被暂存的文件重新暂存
+应用后，移除储藏的内容
+取消储藏(Un-applying a Stash)
+新建stash-unapply别名
+从储藏中创建分支
+
+
+
+Git工具 - 储藏（Stashing）git
+
+
+
+原文
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
+
+问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
+
+解决：git stash 命令。
+
+“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
+
+储藏工作
+
+
+
+
+进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
+
+git status 命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status
+
+On branch master
+
+Changes to be committed:
+
+(use &ldquo;git reset HEAD &hellip;&rdquo; to unstage)
+
+#
+
+modified:   index.html
+
+#
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+
+切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行git stash 命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state 
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+
+执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+
+使用git stash list要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+
+应用储藏
+
+
+
+执行git stash apply命令, 可以重新应用最近的一次储藏；
+执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply
+
+On branch master
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   index.html
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" />
+<meta property="article:published_time" content="2015-01-19T19:57:04+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="Git中的储藏工具stash">
+<meta itemprop="description" content="
+Stashing
+储藏工作
+应用储藏
+被暂存的文件重新暂存
+应用后，移除储藏的内容
+取消储藏(Un-applying a Stash)
+新建stash-unapply别名
+从储藏中创建分支
+
+
+
+Git工具 - 储藏（Stashing）git
+
+
+
+原文
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
+
+问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
+
+解决：git stash 命令。
+
+“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
+
+储藏工作
+
+
+
+
+进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
+
+git status 命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status
+
+On branch master
+
+Changes to be committed:
+
+(use &ldquo;git reset HEAD &hellip;&rdquo; to unstage)
+
+#
+
+modified:   index.html
+
+#
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+
+切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行git stash 命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state 
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+
+执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+
+使用git stash list要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+
+应用储藏
+
+
+
+执行git stash apply命令, 可以重新应用最近的一次储藏；
+执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply
+
+On branch master
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   index.html
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+">
+
+
+<meta itemprop="datePublished" content="2015-01-19T19:57:04&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="1711">
+
+
+
+<meta itemprop="keywords" content="git,工具,坑," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git中的储藏工具stash"/>
+<meta name="twitter:description" content="
+Stashing
+储藏工作
+应用储藏
+被暂存的文件重新暂存
+应用后，移除储藏的内容
+取消储藏(Un-applying a Stash)
+新建stash-unapply别名
+从储藏中创建分支
+
+
+
+Git工具 - 储藏（Stashing）git
+
+
+
+原文
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
+
+问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
+
+解决：git stash 命令。
+
+“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
+
+储藏工作
+
+
+
+
+进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
+
+git status 命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status
+
+On branch master
+
+Changes to be committed:
+
+(use &ldquo;git reset HEAD &hellip;&rdquo; to unstage)
+
+#
+
+modified:   index.html
+
+#
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+
+切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行git stash 命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state 
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+
+执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+
+使用git stash list要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+
+应用储藏
+
+
+
+执行git stash apply命令, 可以重新应用最近的一次储藏；
+执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply
+
+On branch master
+
+Changes not staged for commit:
+
+(use &ldquo;git add &hellip;&rdquo; to update what will be committed)
+
+#
+
+modified:   index.html
+
+modified:   lib/simplegit.rb
+
+#
+{%endcodeblock%}
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Git中的储藏工具stash</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-01-19 </span>
+        <div class="post-category">
+            <a href="/categories/git/"> git </a>
+            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            </div>
+          <span class="more-meta"> 约 1711 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#a-name-stashing-git工具-储藏-stashing-a-git"><a name="Stashing">Git工具 - 储藏（Stashing）</a>git</a></li>
+<li><a href="#a-name-work-储藏工作-a"><a name="work">储藏工作</a></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#on-branch-master">On branch master</a></li>
+<li><a href="#changes-to-be-committed">Changes to be committed:</a></li>
+<li><a href="#use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</a></li>
+<li><a href="#modified-index-html">modified:   index.html</a></li>
+<li><a href="#changes-not-staged-for-commit">Changes not staged for commit:</a></li>
+<li><a href="#use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</a></li>
+<li><a href="#modified-lib-simplegit-rb">modified:   lib/simplegit.rb</a>
+<ul>
+<li>
+<ul>
+<li><a href="#a-name-apply-应用储藏-a"><a name="apply">应用储藏</a></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#on-branch-master-1">On branch master</a></li>
+<li><a href="#changes-not-staged-for-commit-1">Changes not staged for commit:</a></li>
+<li><a href="#use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</a></li>
+<li><a href="#modified-index-html-1">modified:   index.html</a></li>
+<li><a href="#modified-lib-simplegit-rb-1">modified:   lib/simplegit.rb</a>
+<ul>
+<li>
+<ul>
+<li><a href="#a-name-applyindex-被暂存的文件重新暂存-a"><a name="applyIndex">被暂存的文件重新暂存</a></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#on-branch-master-2">On branch master</a></li>
+<li><a href="#changes-to-be-committed-1">Changes to be committed:</a></li>
+<li><a href="#use-git-reset-head-file-to-unstage-1">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</a></li>
+<li><a href="#modified-index-html-2">modified:   index.html</a></li>
+<li><a href="#changes-not-staged-for-commit-2">Changes not staged for commit:</a></li>
+<li><a href="#use-git-add-file-to-update-what-will-be-committed-2">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</a></li>
+<li><a href="#modified-lib-simplegit-rb-2">modified:   lib/simplegit.rb</a>
+<ul>
+<li>
+<ul>
+<li><a href="#a-name-drop-应用后-移除储藏的内容-a"><a name="drop">应用后，移除储藏的内容</a></a></li>
+<li><a href="#a-name-unapply-取消储藏-un-applying-a-stash-a"><a name="unapply">取消储藏(Un-applying a Stash)</a></a>
+<ul>
+<li><a href="#a-name-stash-unapply-新建stash-unapply别名-a"><a name="stash-unapply">新建stash-unapply别名</a></a></li>
+</ul></li>
+<li><a href="#a-name-stashbranch-从储藏中创建分支-a"><a name="stashBranch">从储藏中创建分支</a></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#on-branch-testchanges">On branch testchanges</a></li>
+<li><a href="#changes-to-be-committed-2">Changes to be committed:</a></li>
+<li><a href="#use-git-reset-head-file-to-unstage-2">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</a></li>
+<li><a href="#modified-index-html-3">modified:   index.html</a></li>
+<li><a href="#changes-not-staged-for-commit-3">Changes not staged for commit:</a></li>
+<li><a href="#use-git-add-file-to-update-what-will-be-committed-3">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</a></li>
+<li><a href="#modified-lib-simplegit-rb-3">modified:   lib/simplegit.rb</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ol>
+<li><a href="#Stashing">Stashing</a></li>
+<li><a href="#work">储藏工作</a></li>
+<li><a href="#apply">应用储藏</a></li>
+<li><a href="#applyIndex">被暂存的文件重新暂存</a></li>
+<li><a href="#drop">应用后，移除储藏的内容</a></li>
+<li><a href="#unapply">取消储藏(Un-applying a Stash)</a></li>
+<li><a href="#stash-unapply">新建stash-unapply别名</a></li>
+<li><a href="#stashBranch">从储藏中创建分支</a>
+<br /></li>
+</ol>
+
+<h3 id="a-name-stashing-git工具-储藏-stashing-a-git"><a name="Stashing">Git工具 - 储藏（Stashing）</a>git</h3>
+
+<hr />
+
+<p><a href="https://git-scm.com/book/zh/v2/Git-工具-储藏与清理">原文</a>
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
+
+<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
+
+<p>解决：<strong><font color="red">git stash </font></strong>命令。</p>
+
+<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
+
+<h3 id="a-name-work-储藏工作-a"><a name="work">储藏工作</a></h3>
+
+<hr />
+
+<ol>
+<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
+
+<li><p><strong><font color="red">git status </font></strong>命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status</p>
+
+<h1 id="on-branch-master">On branch master</h1>
+
+<h1 id="changes-to-be-committed">Changes to be committed:</h1>
+
+<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html">modified:   index.html</h1>
+
+<p>#</p>
+
+<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-lib-simplegit-rb">modified:   lib/simplegit.rb</h1>
+
+<p>#
+{%endcodeblock%}</p></li>
+
+<li><p>切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行<strong><font color="red">git stash </font></strong>命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state <br />
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}</p></li>
+
+<li><p>执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。</p></li>
+
+<li><p>使用<strong><font color="red">git stash list</font></strong>要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
+
+<h3 id="a-name-apply-应用储藏-a"><a name="apply">应用储藏</a></h3>
+
+<hr />
+
+<p>执行<strong><font color="red">git stash apply</font></strong>命令, 可以重新应用最近的一次储藏；
+执行<strong><font color="red">git stash apply stash@{2}</font></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply</p>
+
+<h1 id="on-branch-master-1">On branch master</h1>
+
+<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html-1">modified:   index.html</h1>
+
+<h1 id="modified-lib-simplegit-rb-1">modified:   lib/simplegit.rb</h1>
+
+<p>#
+{%endcodeblock%}</p></li>
+</ol>
+
+<p>可以看到 Git 重新修改了你所储藏的那些当时尚未提交的文件。在这个案例里，你尝试应用储藏的工作目录是干净的，并且属于同一分支；但是一个干净的工作目录和应用到相同的分支上并不是应用储藏的必要条件。你可以在其中一个分支上保留一份储藏，随后切换到另外一个分支，再重新应用这些变更。在工作目录里包含已修改和未提交的文件时，你也可以应用储藏——Git 会给出归并冲突如果有任何变更无法干净地被应用。</p>
+
+<h3 id="a-name-applyindex-被暂存的文件重新暂存-a"><a name="applyIndex">被暂存的文件重新暂存</a></h3>
+
+<hr />
+
+<p>执行<strong><font color="red">git stash apply</font></strong>命令,虽然对文件的变更被重新应用，但是被暂存的文件没有重新被暂存。
+执行<strong><font color="red">git stash apply &ndash;index</font></strong>命令,即可让被暂存的文件重新暂存。
+<strong>&ndash;index</strong>选项告诉命令重新应用被暂存的变更：
+{%codeblock lang:bash%}
+$ git stash apply &ndash;index</p>
+
+<h1 id="on-branch-master-2">On branch master</h1>
+
+<h1 id="changes-to-be-committed-1">Changes to be committed:</h1>
+
+<h1 id="use-git-reset-head-file-to-unstage-1">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html-2">modified:   index.html</h1>
+
+<p>#</p>
+
+<h1 id="changes-not-staged-for-commit-2">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed-2">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-lib-simplegit-rb-2">modified:   lib/simplegit.rb</h1>
+
+<p>#
+{%endcodeblock%}</p>
+
+<h3 id="a-name-drop-应用后-移除储藏的内容-a"><a name="drop">应用后，移除储藏的内容</a></h3>
+
+<hr />
+
+<p>**apply <strong>选项只尝试应用储藏的工作——储藏的内容仍然在栈上。
+执行</strong><font color="red">git stash drop 储藏的名字</font>**命令，，即可从栈中彻底移除储藏内容：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+$ git stash drop stash@{0}
+Dropped stash@{0} (364e91f3f268f0900bc3ee613f9f733e82aaed43)
+{%endcodeblock%}
+你也可以运行 <strong><font color="red">git stash pop</font></strong>命令，来重新应用储藏，同时立刻将其从堆栈中移走。</p>
+
+<h3 id="a-name-unapply-取消储藏-un-applying-a-stash-a"><a name="unapply">取消储藏(Un-applying a Stash)</a></h3>
+
+<hr />
+
+<p>在某些情况下，重新应用了之前的储藏的变更，进行了一些其他的修改后，又想要取消之前所应用储藏的修改。
+Git没有提供类似于 <strong><font color="red">stash unapply</font></strong>的命令，但是可以通过取消该储藏的补丁达到同样的效果：
+{%codeblock lang:bash%}
+$ git stash show -p stash@{0} | git apply -R
+{%endcodeblock%}
+同样的，如果你沒有指定具体的某个储藏，Git 会选择最近的储藏：
+{%codeblock lang:bash%}
+$ git stash show -p | git apply -R
+{%endcodeblock%}</p>
+
+<h4 id="a-name-stash-unapply-新建stash-unapply别名-a"><a name="stash-unapply">新建stash-unapply别名</a></h4>
+
+<hr />
+
+<p>你可能会想要新建一个別名，在你的 Git 里增加一个<strong><font color="red">stash-unapply</font></strong> 命，这样更有效率。例如：
+{%codeblock lang:bash%}
+$ git config &ndash;global alias.stash-unapply &lsquo;!git stash show -p | git apply -R&rsquo;
+$ git stash apply
+$ #&hellip; work work work
+$ git stash-unapply
+{%endcodeblock%}</p>
+
+<h3 id="a-name-stashbranch-从储藏中创建分支-a"><a name="stashBranch">从储藏中创建分支</a></h3>
+
+<hr />
+
+<p>如果你储藏了一些工作，暂时不去理会，然后继续在你储藏工作的分支上工作，你在重新应用工作时可能会碰到一些问题。如果尝试应用的变更是针对一个你那之后修改过的文件，你会碰到一个归并冲突并且必须去化解它。如果你想用更方便的方法来重新检验你储藏的变更，你可以运行 git stash branch，这会创建一个新的分支，检出你储藏工作时的所处的提交，重新应用你的工作，如果成功，将会丢弃储藏。
+{%codeblock lang:bash%}
+$ git stash branch testchanges
+Switched to a new branch &ldquo;testchanges&rdquo;</p>
+
+<h1 id="on-branch-testchanges">On branch testchanges</h1>
+
+<h1 id="changes-to-be-committed-2">Changes to be committed:</h1>
+
+<h1 id="use-git-reset-head-file-to-unstage-2">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html-3">modified:   index.html</h1>
+
+<p>#</p>
+
+<h1 id="changes-not-staged-for-commit-3">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed-3">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-lib-simplegit-rb-3">modified:   lib/simplegit.rb</h1>
+
+<p>#
+Dropped refs/stash@{0} (f0dfc4d5dc332d1cee34a634182e168c4efc3359)
+{%endcodeblock%}
+这是一个很棒的捷径来恢复储藏的工作然后在新的分支上继续当时的工作。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/git/">git</a>
+          <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+          <a href="/tags/%E5%9D%91/">坑</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">快速正确的安装Ruby,Rails运行环境</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">
+            <span class="next-text nav-default">XMPP简单研究[转]</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2015-01-19 19:57:04 \x2b0800 CST',
+        title: 'Git中的储藏工具stash',
+        link: decodeURI(location.href),
+        desc: '\x3col\x3e\n\x3cli\x3e\x3ca href=\x22#Stashing\x22\x3eStashing\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#work\x22\x3e储藏工作\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#apply\x22\x3e应用储藏\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#applyIndex\x22\x3e被暂存的文件重新暂存\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#drop\x22\x3e应用后，移除储藏的内容\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#unapply\x22\x3e取消储藏(Un-applying a Stash)\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#stash-unapply\x22\x3e新建stash-unapply别名\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22#stashBranch\x22\x3e从储藏中创建分支\x3c\/a\x3e\n\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch3 id=\x22a-name-stashing-git工具-储藏-stashing-a-git\x22\x3e\x3ca name=\x22Stashing\x22\x3eGit工具 - 储藏（Stashing）\x3c\/a\x3egit\x3c\/h3\x3e\n\n\x3chr \/\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/git-scm.com\/book\/zh\/v2\/Git-工具-储藏与清理\x22\x3e原文\x3c\/a\x3e\n场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。\x3c\/p\x3e\n\n\x3cp\x3e问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。\x3c\/p\x3e\n\n\x3cp\x3e解决：\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit stash \x3c\/font\x3e\x3c\/strong\x3e命令。\x3c\/p\x3e\n\n\x3cp\x3e“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。\x3c\/p\x3e\n\n\x3ch3 id=\x22a-name-work-储藏工作-a\x22\x3e\x3ca name=\x22work\x22\x3e储藏工作\x3c\/a\x3e\x3c\/h3\x3e\n\n\x3chr \/\x3e\n\n\x3col\x3e\n\x3cli\x3e进入项目目录，修改某个文件，有可能还暂存其中的一个变更。\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit status \x3c\/font\x3e\x3c\/strong\x3e命令,查看中间状态：\n{%codeblock lang:bash %}\n$ git status\x3c\/p\x3e\n\n\x3ch1 id=\x22on-branch-master\x22\x3eOn branch master\x3c\/h1\x3e\n\n\x3ch1 id=\x22changes-to-be-committed\x22\x3eChanges to be committed:\x3c\/h1\x3e\n\n\x3ch1 id=\x22use-git-reset-head-file-to-unstage\x22\x3e(use \x26ldquo;git reset HEAD \x3cfile\x3e\x26hellip;\x26rdquo; to unstage)\x3c\/h1\x3e\n\n\x3cp\x3e#\x3c\/p\x3e\n\n\x3ch1 id=\x22modified-index-html\x22\x3emodified:   index.html\x3c\/h1\x3e\n\n\x3cp\x3e#\x3c\/p\x3e\n\n\x3ch1 id=\x22changes-not-staged-for-commit\x22\x3eChanges not staged for commit:\x3c\/h1\x3e\n\n\x3ch1 id=\x22use-git-add-file-to-update-what-will-be-committed\x22\x3e(use \x26ldquo;git add \x3cfile\x3e\x26hellip;\x26rdquo; to update what will be committed)\x3c\/h1\x3e\n\n\x3cp\x3e#\x3c\/p\x3e\n\n\x3ch1 id=\x22modified-lib-simplegit-rb\x22\x3emodified:   lib\/simplegit.rb\x3c\/h1\x3e\n\n\x3cp\x3e#\n{%endcodeblock%}\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e切换分支，但不提交step 1 中的变更，所以储藏这些变更。\n执行\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit stash \x3c\/font\x3e\x3c\/strong\x3e命令，往堆栈中推送一个新的储藏：\n{%codeblock lang:bash %}\n$ git stash\nSaved working directory and index state \x3cbr \/\x3e\n\x26ldquo;WIP on master: 049d078 added the index file\x26rdquo;\nHEAD is now at 049d078 added the index file\n(To restore them type \x26ldquo;git stash apply\x26rdquo;)\n{%endcodeblock%}\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e执行step 2查看目录库，中间状态就不见了：\n{%codeblock lang:bash %}\n$ git status\n#######On branch master\nnothing to commit, working directory clean\n{%endcodeblock%}\n这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e使用\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit stash list\x3c\/font\x3e\x3c\/strong\x3e要查看现有的储藏：\n{%codeblock lang:bash%}\n$ git stash list\nstash@{0}: WIP on master: 049d078 added the index file\nstash@{1}: WIP on master: c264051 Revert \x26ldquo;added file_size\x26rdquo;\nstash@{2}: WIP on master: 21d80a5 added number to log\n{%endcodeblock%}\n在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。\x3c\/p\x3e\n\n\x3ch3 id=\x22a-name-apply-应用储藏-a\x22\x3e\x3ca name=\x22apply\x22\x3e应用储藏\x3c\/a\x3e\x3c\/h3\x3e\n\n\x3chr \/\x3e\n\n\x3cp\x3e执行\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit stash apply\x3c\/font\x3e\x3c\/strong\x3e命令, 可以重新应用最近的一次储藏；\n执行\x3cstrong\x3e\x3cfont color=\x22red\x22\x3egit stash apply stash@{2}\x3c\/font\x3e\x3c\/strong\x3e命令，即通过指定储藏的名字，来应用更早的储藏。\n{%codeblock lang:bash%}\n$ git stash apply\x3c\/p\x3e\n\n\x3ch1 id=\x22on-branch-master-1\x22\x3eOn branch master\x3c\/h1\x3e\n\n\x3ch1 id=\x22changes-not-staged-for-commit-1\x22\x3eChanges not staged for commit:\x3c\/h1\x3e\n\n\x3ch1 id=\x22use-git-add-file-to-update-what-will-be-committed-1\x22\x3e(use \x26ldquo;git add \x3cfile\x3e\x26hellip;\x26rdquo; to update what will be committed)\x3c\/h1\x3e\n\n\x3cp\x3e#\x3c\/p\x3e\n\n\x3ch1 id=\x22modified-index-html-1\x22\x3emodified:   index.html\x3c\/h1\x3e\n\n\x3ch1 id=\x22modified-lib-simplegit-rb-1\x22\x3emodified:   lib\/simplegit.rb\x3c\/h1\x3e\n\n\x3cp\x3e#\n{%endcodeblock%}\x3c\/p\x3e\x3c\/li\x3e\n\x3c\/ol\x3e',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

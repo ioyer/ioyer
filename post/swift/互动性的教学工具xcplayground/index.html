@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>互动性的教学工具XCPlayground - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有" /><meta name="keywords" content="工具,语法,测试" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/swift/%E4%BA%92%E5%8A%A8%E6%80%A7%E7%9A%84%E6%95%99%E5%AD%A6%E5%B7%A5%E5%85%B7xcplayground/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="互动性的教学工具XCPlayground" />
+<meta property="og:description" content="Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/swift/%E4%BA%92%E5%8A%A8%E6%80%A7%E7%9A%84%E6%95%99%E5%AD%A6%E5%B7%A5%E5%85%B7xcplayground/" />
+<meta property="article:published_time" content="2017-03-01T17:27:16+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="互动性的教学工具XCPlayground">
+<meta itemprop="description" content="Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有">
+
+
+<meta itemprop="datePublished" content="2017-03-01T17:27:16&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="3864">
+
+
+
+<meta itemprop="keywords" content="工具,语法,测试," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="互动性的教学工具XCPlayground"/>
+<meta name="twitter:description" content="Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">互动性的教学工具XCPlayground</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-01 </span>
+        <div class="post-category">
+            <a href="/categories/swift/"> swift </a>
+            <a href="/categories/playground/"> playground </a>
+            </div>
+          <span class="more-meta"> 约 3864 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#导入frameworks">导入Frameworks</a>
+<ul>
+<li><a href="#手动配置cocoa-touch-framework来桥接playground">手动配置cocoa touch Framework来桥接playground</a></li>
+<li><a href="#导入cocopads管理的依赖库">导入cocopads管理的依赖库</a></li>
+</ul></li>
+<li><a href="#playground沙盒resources">Playground沙盒Resources</a></li>
+<li><a href="#本地-bundle访问本地资源">本地 bundle访问本地资源</a></li>
+<li><a href="#共享-访问documents共享目录">共享 访问Documents共享目录</a></li>
+<li><a href="#playgroundsupport">PlaygroundSupport</a>
+<ul>
+<li><a href="#liveview视图代理">liveView视图代理</a></li>
+<li><a href="#捕获值-xcpcapturevalue在xcplayground中过时">捕获值（XCPCaptureValue在XCPlayground中过时）</a></li>
+<li><a href="#异步执行-asynchronous-execution">异步执行（Asynchronous Execution）</a></li>
+</ul></li>
+<li><a href="#支持markdown格式的文档">支持Markdown格式的文档</a></li>
+<li><a href="#headers-of-all-sizes">Headers of All Sizes</a>
+<ul>
+<li><a href="#lists-of-links">Lists of Links</a></li>
+<li><a href="#images-too">Images, Too</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有这些就如一个活的文档展示在眼前。
+1. 演习框架API，了解框架结构
+<a href="https://github.com/objcio/PersonalSwiftPlaygrounds">SceneKitMac.playground</a>
+是一个功能完备带动画的 3D 场景。你需要打开 Assistant Editor (在菜单上依次点击 View | Assistant Editor | Show Assistant Editor)，3D 效果和动画将会被自动渲染。这不需要编译循环，而且任何的改动，比如改变颜色、几何形状、亮度等，都能实时反映出来。使用它能在一个交互例子中很好的记录和介绍如何使用SceneKit框架。
+2. 测试驱动开发
+我们可以验证一个方法的执行是否正确，甚至在加载到 playground 的时候就能判断方法是否被正确解析。不难想象我们也可以在 playground 里添加断言，以及创建真正的单元测试。或者更进一步，创建出符合条件的测试，从而在你打字时就实现测试驱动开发。</p>
+
+<h2 id="sources">Sources</h2>
+
+<p>打开 Project Navigator (⌘1) 并展开 Playground 文件，你就能看到&rdquo;Sources&rdquo;路径。
+放到此目录下的源文件会被编译成模块(module)并自动导入到 Playground 中，并且这个编译只会进行一次(或者我们对该目录下的文件进行修改的时候)，而非每次你敲入一个字母的时候就编译一次。 这将会大大提高代码执行的效率。
+&gt;注意：由于此目录下的文件都是被编译成模块导入的，只有被设置成 public 的类型，属性或方法才能在 Playground 中使用。</p>
+
+<h2 id="导入frameworks">导入Frameworks</h2>
+
+<p>如果想要导入外部 framework，创建一个 Xcode Workspace 包含了 framework 项目和你的 Playground。在 Build 之后，就可以通过常规的import命令导入对应的包。</p>
+
+<h3 id="手动配置cocoa-touch-framework来桥接playground">手动配置cocoa touch Framework来桥接playground</h3>
+
+<p>在Playgroud中使用个人项目中的类相关方法，需要借助于Custom Frameworks桥接
+注：.swift的文件中的方法必须是public修饰。
+参考文档：<code>Playground help -&gt; Importing Custom Frameworks into a Playground</code>
+1. 导入个人项目文件，需要借助<code>cocoa touch Framework</code>桥接<code>playground</code>
+2. 需要<code>workspace</code>来管理<code>Framework</code>项目和<code>playground</code>文件，典型例子：pod项目都是用workspace来管理多个项目。
+3. 把个人项目的<code>swift文件</code>关联到<code>Cocoa touch Framework</code>项目的<code>target</code>中：
+    详细设置：选中target -&gt; build phases -&gt; compiles sources -&gt;点击 + 加号，选中原项目中的swift
+4. 在<code>build</code>选项中选中Framework的scheme进行编译 ,要保证framework的target配置：<code>build setting -&gt; build active architecture Only -&gt;debug</code>选项设置为<code>YES</code>
+5. 打开playground文件 import Framework名称，此时即可使用Framework中的提供的public API方法了。
+Workspace相关设置，build生成的目录：xcode偏好设置要和项目中的workspace中设置要保持一致.
+1. xcode的偏好设置中 -&gt;Locations -&gt; Locations -&gt;点击打开 Advanced&hellip;在弹出框中设置Unique选项.
+2. 在workspace中选中菜单 File -&gt; workspace settings&hellip; -&gt; 在弹出框中设置为Unique选项.</p>
+
+<h3 id="导入cocopads管理的依赖库">导入cocopads管理的依赖库</h3>
+
+<p>xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库
+解决办法：<a href="http://stackoverflow.com/questions/38216238/xcode-playground-with-cocoapods#">http://stackoverflow.com/questions/38216238/xcode-playground-with-cocoapods#</a>
+{% codeblock  lang:bash %}
+#在写入磁盘之前，修改一些工程的配置:
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name != &lsquo;CocoaAsyncSocket&rsquo;
+            #playground相关配置，会导致&rsquo;GCDAsyncSocket.h&rsquo; file not found
+            target.build_configurations.each do |config|
+                config.build_settings[&lsquo;CONFIGURATION_BUILD_DIR&rsquo;] = &lsquo;$PODS_CONFIGURATION_BUILD_DIR&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">            #Use Legacy Swift Language Version” (SWIFT_VERSION):
+            #   https://github.com/CocoaPods/CocoaPods/issues/5864#issuecomment-247109685
+            puts &#34;SWIFT_VERSIION:&#34;
+            config.build_settings[&#39;SWIFT_VERSION&#39;] = &#34;3.0.1&#34;
+            puts config.build_settings[&#39;SWIFT_VERSION&#39;]
+        end
+    else
+        #输出操作
+        puts &#34;以下不能在playground中使用的库名：&#34;
+        puts target.name
+    end
+end</pre></td></tr></table>
+</div>
+</div>
+<p>end
+{% endcodeblock %}</p>
+
+<h2 id="playground沙盒resources">Playground沙盒Resources</h2>
+
+<p>Playgrounds 有两个与相关的Resources关联起来：一个是每一个独立的 playground 本地的，另一个则是 playground 之间共享的。在你的实验过程中，Playgrounds 能够支持 XML，JSON 数据，XIB，和图像文件。这也增加了其使用可用性。</p>
+
+<h2 id="本地-bundle访问本地资源">本地 bundle访问本地资源</h2>
+
+<p>Resources 文件夹, 与 Sources 文件夹一样在 Playground 的包路径中, 通过 Project Navigator 就可见了——只需要简单的拖拽图像和数据文件，就可以在 Playground 中使用了。对应的内容在 main bundle 中也是可见的。比如，我们可以像这样非常快捷的加载一个包含天气数据的 JSON 文件：
+{% codeblock lang:swift %}
+let jsonPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(&ldquo;weather.json&rdquo;)
+if let
+jsonData = NSData(contentsOfFile: jsonPath),
+json = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as? [String: AnyObject]
+{
+    // &hellip;
+}
+{% endcodeblock %}</p>
+
+<h2 id="共享-访问documents共享目录">共享 访问Documents共享目录</h2>
+
+<p>&ldquo;共享 Playground 数据&rdquo;的内容在你的&rdquo;Documents&rdquo;文件夹路径下，也同样对于你创建的任何 Playground 都可见。我们通过XCPSharedDataDirectoryPath常量来访问该共享文件夹。</p>
+
+<p>如果你自习想尝试，需要在 &ldquo;~/Documents/Shared Playground Data&rdquo; 下简历一个文件夹。 这里我们尝试载入一个名字叫做 &ldquo;image.png&rdquo; 的图片文件:</p>
+
+<p>{% codeblock lang:swift %}
+let sharedImagePath = XCPSharedDataDirectoryPath.stringByAppendingPathComponent(&ldquo;image.png&rdquo;)
+if let image = UIImage(contentsOfFile: sharedImagePath) {
+    // &hellip;
+}
+{% endcodeblock %}</p>
+
+<h2 id="playgroundsupport">PlaygroundSupport</h2>
+
+<h3 id="liveview视图代理">liveView视图代理</h3>
+
+<p>实现在playground中实现UI显示及交互操作
+liveView定义：
+{% codeblock lang:swift %}
+public var liveView: XCPlaygroundLiveViewable?
+{% endcodeblock %}
+遵循了<code>XCPlaygroundLiveViewable</code>协议即可在playground中可视化显示：
+1. 在iOS 和 tvOS中<code>UIView</code> and <code>UIViewController</code>遵循该协议
+2. 在OS X中<code>NSView</code> and <code>NSViewController</code>遵循该协议
+3. 用户自定类型，须遵守XCPlaygroundLiveViewable协议
+总之，只要遵守改协议并实现代理方法，都可以在playground中可视化显示。
+用法：
+{% codeblock lang:swift %}
+PlaygroundPage.current.liveView = UIView()／NSViewController()
+{% endcodeblock %}</p>
+
+<h3 id="捕获值-xcpcapturevalue在xcplayground中过时">捕获值（XCPCaptureValue在XCPlayground中过时）</h3>
+
+<p><a href="http://swifter.tips/playground-capture/">冒泡排序可视化预览</a>
+{% codeblock XCPlayground Module lang:swift %}
+/// This function has been deprecated.
+@available(*, deprecated)
+public func XCPCaptureValue<T>(identifier: String, value: T)
+{% endcodeblock %}</p>
+
+<p>简介：可以多次调用该方法来做图，相同的 identifier 的数据将会出现在同一张图上，而 value 将根据输入的次序进行排列,将一组数据轻而易举地绘制到时间轴上，从而让我们能看到每一步的结果。这不仅对我们直观且及时地了解算法内部的变化很有帮助，也会是教学或者演示时候的神兵利器。
+1. 使用：导入框架<code>import XCPlayground</code>
+2. 扩展：XCPCaptureValue 的数据输入是任意类型的，所以不论是传什么进去都是可以表示的。它们将以 QuickLook 预览的方式被表现出来，一些像 UIImage，UIColor 或者 UIBezierPath 这样的类型已经实现了 QuickLook。当然对于那些没有实现快速预览的 NSObject 子类，也可以通过重写</p>
+
+<p>一个 Playground 通常立即显示简单表达式的结果。数组，字符串，数字等等，会在结果面板把计算后的结果显示出来。那么，随着时间改变的值是如何处理的呢？</p>
+
+<p>通过使用 XCPCaptureValue() 函数，我们可以随着一系列的迭代建立一个变动值的图。回到我们上面提到的天气例子，让我们来看看按小时计的温度数据，使用 XCPCaptureValue 来在辅助编辑界面以时间线的方式显示 温度的值：</p>
+
+<p>{% codeblock lang:swift %}
+import XCPlayground</p>
+
+<p>for forecast in forecasts
+{
+    if let tempString = forecast[&ldquo;temp&rdquo;]?[&ldquo;english&rdquo;] as? String, temperature = tempString.toInt()
+    {
+        XCPCaptureValue(&ldquo;Temperature&rdquo;, temperature)
+    }
+}
+{% endcodeblock %}</p>
+
+<p>另一种可选的方式是, 选择 Editor → Show Result For Current Line 就会捕获当前线的数值并且直接以图表的形势显示在 Playground 流中：</p>
+
+<h3 id="异步执行-asynchronous-execution">异步执行（Asynchronous Execution）</h3>
+
+<p>不同于大部分 Swift 代码，是作为框架或者应用的一部分，Playgrounds 被当做是 高级代码。Playground 中的高级代码是按照指令接着指令的顺序从上到下执行的。
+这种无容器风格的代码执行提供了立即反馈，但是存在着一个问题：在执行到了 Playground 底部后，会立即停止。网络请求，计时器，以及长时间运行的后台队列都会在提供反馈成功或者失败之前被立即终止。
+<code>PlaygroundSupport</code> 模块包含一个能够延长该过程的函数：
+{% codeblock lang:swift %}
+public var needsIndefiniteExecution: Bool
+{% endcodeblock %}
+1. 开启异步：默认值为<code>false</code>,当使用liveView代理时，会自动设置为<code>true</code>。当为<code>true</code>时，在高级代码执行完成后，会告诉Xcode继续运行Playground页面。为<code>false</code>时，当代码执行完直接终止。
+3. 手动终止：还可以使用<code>PlaygroundPage.finishExecution()</code>手动终止正在运行的Playground。</p>
+
+<p>{% codeblock lang:swift %}
+import PlaygroundSupport</p>
+
+<p>PlaygroundPage.current.needsIndefiniteExecution = true</p>
+
+<p>let url = NSURL(string: &ldquo;<a href="http://httpbin.org/image/png&quot;)!">http://httpbin.org/image/png&quot;)!</a>
+let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
+    data, _, _ in
+        let image = UIImage(data: data)
+        // &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //手动终止
+    PlaygroundPage.current.currentPage.finishExecution()</pre></td></tr></table>
+</div>
+</div>
+<p>}
+task.resume()
+{% endcodeblock %}</p>
+
+<h2 id="支持markdown格式的文档">支持Markdown格式的文档</h2>
+
+<p><a href="https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/">官方文档</a>
+除了实验用途，Playgrounds 在展示 Swift 语言的工具和框架中也一样强大。特别文档部分可以作为丰富格式的方式展示出来，以提供对于代码的清晰解释从而展示某个技术或者正确使用某个 Library 的方式。</p>
+
+<p>不同于<a href="http://nshipster.cn/swift-documentation/">Swift代码中的注释文档语法</a>, <code>Swift Playgrounds</code> 使用 <code>Markdown</code> 来显示多格式的文档。
+例如：
+<code>//:</code>：可以指定单行文本说明
+<code>/*: Markdown格式内容... */</code>：可以用<code>Markdown</code>格式来显示丰富的文档内容</p>
+
+<p><code>xcode</code>切换备注以<code>Markdown</code>格式显示：
+1. 选择<code>Editor → Show Rendered Markup</code> 菜单
+2. 在 <code>File Inspector (⌘⌥1)</code> 选中 <code>Render Documentation</code> 复选框。
+&gt;在xcode8中打开之前版本时，菜单上的<code>Show Rendered Markup</code>会显示为<code>Upgrade playgound...</code>升级菜单项，这样就需要先点击升级菜单项之后，才能激活上述（1）（2）设置项。</p>
+
+<p>{% codeblock lang:swift %}
+//: This line will have <strong>bold</strong> and <em>italic</em> text.</p>
+
+<p>/*:</p>
+
+<h2 id="headers-of-all-sizes">Headers of All Sizes</h2>
+
+<h3 id="lists-of-links">Lists of Links</h3>
+
+<ul>
+<li><a href="http://nshipster.com">NSHipster</a></li>
+<li><a href="http://asciiwwdc.com">ASCIIwwdc</a></li>
+<li><a href="http://swiftdoc.org">SwiftDoc</a></li>
+</ul>
+
+<h3 id="images-too">Images, Too</h3>
+
+<p><img src="http://nshipster.s3.amazonaws.com/alert.gif" alt="Remote Image" />
+<img src="bomb.gif" alt="Local Image" /></p>
+
+<p><em>Images in the Resources directory can be referenced locally</em>
+*/</p>
+
+<p>{% endcodeblock %}</p>
+
+<p>Playgrounds 提供了一个我们关于分享和学习 OS X 和 iOS 相关工具的方式的重大改变。Playground 可以展示每一个特性，并且为将来的用户探索和发现你创建的库提供了空间。丢掉你的静态README.md， 换成可互动的README.playground吧，再玩起来！</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+          <a href="/tags/%E8%AF%AD%E6%B3%95/">语法</a>
+          <a href="/tags/%E6%B5%8B%E8%AF%95/">测试</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/rxswift%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">RxSwift基本概念</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/macos/%E4%BD%BF%E7%94%A8cocoapods%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89podspec/">
+            <span class="next-text nav-default">使用Cocoapods创建私有podspec</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2017-03-01 17:27:16 \x2b0000 UTC',
+        title: '互动性的教学工具XCPlayground',
+        link: decodeURI(location.href),
+        desc: 'Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

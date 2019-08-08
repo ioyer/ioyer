@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Storyboard之Segue - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="Segue原理: 在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：
+ 实例化目标视图控制器 实例化一个新segue对象，该对象持有所有的信息 调用源视图控制器的prepareForSegue:sender:方法， 调用segue的 perform 方法将目标控制器带到屏幕上。
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。  在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。
+" /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/ios/ui/storyboard%E4%B9%8Bsegue/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Storyboard之Segue" />
+<meta property="og:description" content="Segue原理:
+
+在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：
+
+
+实例化目标视图控制器
+实例化一个新segue对象，该对象持有所有的信息
+调用源视图控制器的prepareForSegue:sender:方法，
+调用segue的 perform 方法将目标控制器带到屏幕上。
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。
+
+
+在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/ios/ui/storyboard%E4%B9%8Bsegue/" />
+<meta property="article:published_time" content="2014-07-22T10:59:49+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="Storyboard之Segue">
+<meta itemprop="description" content="Segue原理:
+
+在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：
+
+
+实例化目标视图控制器
+实例化一个新segue对象，该对象持有所有的信息
+调用源视图控制器的prepareForSegue:sender:方法，
+调用segue的 perform 方法将目标控制器带到屏幕上。
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。
+
+
+在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。">
+
+
+<meta itemprop="datePublished" content="2014-07-22T10:59:49&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="1390">
+
+
+
+<meta itemprop="keywords" content="Storyboard,转场," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Storyboard之Segue"/>
+<meta name="twitter:description" content="Segue原理:
+
+在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：
+
+
+实例化目标视图控制器
+实例化一个新segue对象，该对象持有所有的信息
+调用源视图控制器的prepareForSegue:sender:方法，
+调用segue的 perform 方法将目标控制器带到屏幕上。
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。
+
+
+在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Storyboard之Segue</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-07-22 </span>
+        <div class="post-category">
+            <a href="/categories/xcode/"> xcode </a>
+            <a href="/categories/sb/"> SB </a>
+            </div>
+          <span class="more-meta"> 约 1390 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#segue原理">Segue原理:</a></li>
+<li><a href="#segue三种类型-modal-segue-push-segue-custom-segue">segue三种类型:modal segue、push segue、custom segue</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h5 id="segue原理">Segue原理:</h5>
+
+<p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
+
+<ol>
+<li>实例化目标视图控制器</li>
+<li>实例化一个新segue对象，该对象持有所有的信息</li>
+<li>调用源视图控制器的prepareForSegue:sender:方法，</li>
+<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br />
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。</li>
+</ol>
+
+<p>在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。</p>
+
+<p>在apple的文档库中第二个示例应用开发文档中，介绍了这样一个segue的使用例子。
+{%codeblock lang:objc%}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender<br />
+{<br />
+    if ([[segue identifier] isEqualToString:@&ldquo;ShowSightingsDetails&rdquo;])<br />
+    {<br />
+    //当用户选择表视图中的一行时，触发<strong>segue</strong>事件，传输数据到目标视图控制器，使目标控制器上能显示<code>sighting</code>
+        DetailViewController *detailViewController = [segue destinationViewController];<br />
+        detailViewController.sighting = [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];<br />
+    }</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">if ([[segue identifier] isEqualToString:@&#34;ShowAddSightingView&#34;])  
+{  
+    AddSightingViewController *addSightingViewController = [[[segue destinationViewController] viewControllers] objectAtIndex:0];  
+    addSightingViewController.delegate = self;  
+}  </pre></td></tr></table>
+</div>
+</div>
+<p>}<br />
+{%endcodeblock%}<br />
+在<code>storyboard</code>中，这个实现方法代码是用来处理从主视图控制器到两个不同的目标视图控制器的<strong>segue</strong>。这两个<strong>segue</strong>通过它们的<code>identifier</code>属性进行判断，具体解释如下：</p>
+
+<ul>
+<li><p><code>identifier</code>为&rdquo;<strong>ShowSightingsDetails</strong>&ldquo;时，目标视图控制器是一个展示明细信息的视图控制器,使用的<strong>segue</strong>类型为<code>push</code>。这种通常用于<strong>navigator</strong>视图控制器中。</p></li>
+
+<li><p>在<code>identifier</code>为&rdquo;<strong>ShowAddSightingView</strong>&ldquo;时，目标视图控制器管理的是一个新加的<strong>sighting</strong>信息视图，我们称之为<strong>add</strong>视图控制器。它是不需要从主视图控制器（源）传什么数据过来的。但是，主视图控制器需要获取在add视图控制器（目标）上输入的数据。</p></li>
+
+<li><ul>
+<li>实现方式是采用<code>delegate</code>，将主视图控制器设置为add视图控制器(目标)的委托。在add目标视图控制器上执行它的委托中方法，该方法需要先在主视图控制器的实现代码中实现，方法包括如何读取add视图控制器的数据，并dismiss掉add视图控制器。<br /></li>
+</ul></li>
+</ul>
+
+<p>在add视图控制器上，有两个按钮，用于执行<strong>cancel</strong>和<strong>done</strong>操作。这两个按钮操作的方法在主视图控制器中实现。
+{%codeblock lang:objc%}
+//
+- (void)addSightingViewControllerDidCancel:(AddSightingViewController *)controller<br />
+{<br />
+    [self dismissViewControllerAnimated:YES completion:NULL];<br />
+}</p>
+
+<p>//
+- (void)addSightingViewControllerDidFinish:(AddSightingViewController *)controller name:(NSString *)name location:(NSString *)location {<br />
+if ([name length] || [location length]) {<br />
+    [self.dataController addBirdSightingWithName:name location:location];<br />
+    [[self tableView] reloadData];<br />
+}<br />
+    [self dismissModalViewControllerAnimated:YES];<br />
+}
+{%endcodeblock%}<br />
+在add视图控制器实现代码中，调用它的委托中这两个方法。</p>
+
+<h5 id="segue三种类型-modal-segue-push-segue-custom-segue">segue三种类型:modal segue、push segue、custom segue</h5>
+
+<ul>
+<li>###### modal segue
+是一个视图控制器（源）为了完成一个任务而模态地（<strong>modally</strong>）呈现另一个视图控制器（目标）。这个目标视图控制器不是导航视图控制器(<strong>navigation view controller</strong>)的栈中的一部分。<br />
+在任务完成后，使用<code>delegate</code>将呈现的视图控制器（目标）释放掉，应用界面切换到原来的视图控制器（源）上。<br /></li>
+</ul>
+
+<p>这个过程的实现代码可以看成是<code>present</code>和<code>dismiss</code>两个操作。</p>
+
+<ul>
+<li>###### push segue<br />
+是将另一个视图控制器压入到导航控制器的栈中。它通常和导航视图控制器(<strong>navigation view controller</strong>)一起使用。<br />
+新压入的视图控制器会有一个回退按钮，可以退回来上一层。</li>
+</ul>
+
+<p>这个过程的实现代码可以看成是<code>push</code>和<code>pop</code>两个操作。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/storyboard/">Storyboard</a>
+          <a href="/tags/%E8%BD%AC%E5%9C%BA/">转场</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">XcodeHeaderDoc教程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/">
+            <span class="next-text nav-default">TextKit之便笺实战</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2014-07-22 10:59:49 \x2b0800 CST',
+        title: 'Storyboard之Segue',
+        link: decodeURI(location.href),
+        desc: '\x3ch5 id=\x22segue原理\x22\x3eSegue原理:\x3c\/h5\x3e\n\n\x3cp\x3e在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：\x3c\/p\x3e\n\n\x3col\x3e\n\x3cli\x3e实例化目标视图控制器\x3c\/li\x3e\n\x3cli\x3e实例化一个新segue对象，该对象持有所有的信息\x3c\/li\x3e\n\x3cli\x3e调用源视图控制器的prepareForSegue:sender:方法，\x3c\/li\x3e\n\x3cli\x3e调用segue的 perform 方法将目标控制器带到屏幕上。\x3cbr \/\x3e\n这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3cp\x3e在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。\x3c\/p\x3e',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

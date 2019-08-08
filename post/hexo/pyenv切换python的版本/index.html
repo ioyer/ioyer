@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>pyenv切换python的版本 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="问题引入 在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error pyenv是python的多版本管理包，实现互相独立、互不干扰的pytho" /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/hexo/pyenv%E5%88%87%E6%8D%A2python%E7%9A%84%E7%89%88%E6%9C%AC/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="pyenv切换python的版本" />
+<meta property="og:description" content="问题引入 在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error pyenv是python的多版本管理包，实现互相独立、互不干扰的pytho" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/hexo/pyenv%E5%88%87%E6%8D%A2python%E7%9A%84%E7%89%88%E6%9C%AC/" />
+<meta property="article:published_time" content="2018-05-29T10:33:30+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="pyenv切换python的版本">
+<meta itemprop="description" content="问题引入 在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error pyenv是python的多版本管理包，实现互相独立、互不干扰的pytho">
+
+
+<meta itemprop="datePublished" content="2018-05-29T10:33:30&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="768">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pyenv切换python的版本"/>
+<meta name="twitter:description" content="问题引入 在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error pyenv是python的多版本管理包，实现互相独立、互不干扰的pytho"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">pyenv切换python的版本</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-29 </span>
+        <div class="post-category">
+            <a href="/categories/hexo/"> hexo </a>
+            </div>
+          <span class="more-meta"> 约 768 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#问题引入">问题引入</a></li>
+<li><a href="#安装pyenv">安装pyenv</a></li>
+<li><a href="#使用pyenv">使用pyenv</a>
+<ul>
+<li>
+<ul>
+<li><a href="#安装指定版本的python">安装指定版本的python</a></li>
+</ul></li>
+<li><a href="#为项目配置python环境">为项目配置python环境</a></li>
+</ul></li>
+<li><a href="#其他">其他</a>
+<ul>
+<li><a href="#1-显示所有安装的python版本">1.显示所有安装的python版本</a></li>
+<li><a href="#2-切换python版本">2.切换python版本</a></li>
+<li><a href="#3-切换python-shell版本">3.切换python shell版本</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="问题引入">问题引入</h2>
+
+<p><a href="https://stackoverflow.com/questions/32702098/err-stack-error-command-failed-python2-c-import-platform">在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error</a></p>
+
+<p>pyenv是python的多版本管理包，实现互相独立、互不干扰的python环境配置。</p>
+
+<h2 id="安装pyenv">安装pyenv</h2>
+
+<p>安装电脑是mac，所以理所当然的使用神器：homebrew</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">brew install pyenv</code></pre></td></tr></table>
+</div>
+</div>
+<p>安装界面略过，安装结束后，系统提示如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">==</span>&gt; Caveats
+To use Homebrew<span class="err">&#39;</span>s directories rather than ~/.pyenv add to your profile:
+<span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span>/usr/local/var/pyenv
+
+To <span class="nb">enable</span> shims and autocompletion add to your profile:
+<span class="k">if</span> which pyenv &gt; /dev/null<span class="p">;</span> <span class="k">then</span> <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">fi</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>根据此提示，在bash的配置文件（由于我的bash是oh my zsh，所以我的配置文件为~/.zshrc）中添加以下两行代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv &gt; /dev/null; then eval &#34;$(pyenv init -)&#34;; fi</pre></td></tr></table>
+</div>
+</div>
+<h2 id="使用pyenv">使用pyenv</h2>
+
+<h4 id="安装指定版本的python">安装指定版本的python</h4>
+
+<p>显示所有可以安装的python版本软件，如2.1.3&hellip;3.5.1等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pyenv install -l
+pyenv install <span class="m">2</span>.7.11 -v</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>-v</code>表示在显示安装过程。
+安装完成后，2.7.11版本在系统中的存放位置为：
+<code>/usr/local/var/pyenv/versions/2.7.11</code></p>
+
+<h3 id="为项目配置python环境">为项目配置python环境</h3>
+
+<p>接下来进入开发项目的主文件夹，如<code>~/Desktop/Python/TWD</code>，输入如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">pyenv local 2.7.11</pre></td></tr></table>
+</div>
+</div>
+<p>即在当前文件夹下配置完成python的开发环境。接下来可通过pip安装开发过程中的各种包。</p>
+
+<h2 id="其他">其他</h2>
+
+<h3 id="1-显示所有安装的python版本">1.显示所有安装的python版本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">pyenv versions</pre></td></tr></table>
+</div>
+</div>
+<h3 id="2-切换python版本">2.切换python版本</h3>
+
+<p>要切换python 版本，可以使用如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">pyenv global &lt;version&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>比如，我使用以上命令pyenv global 2.7.11后，系统默认的python版本即为2.7.11，在命令行输入python后，进入的就是2.7.11的shell，不再是system的shell。</p>
+
+<h3 id="3-切换python-shell版本">3.切换python shell版本</h3>
+
+<p>若不使用pyenv global命令实现python shell版本切换，可以使用如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">pyenv shell &lt;version&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>比如，我使用pyenv shell 2.7.11后，在命令行输入python，进入的是2.7.11的shell。此时系统的默认python版本也变成了2.7.11，如下所示：</p>
+
+<p><a href="https://www.jianshu.com/p/bcb3f1be9073">转自</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/shell/%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E9%A2%84%E8%A7%88plantuml%E7%9A%84%E6%8F%92%E4%BB%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">终端实现预览plantuml的插件</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ios/%E6%B1%89%E5%AD%97%E6%8B%BC%E9%9F%B3%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/">
+            <span class="next-text nav-default">汉字拼音排序方法</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2018-05-29 10:33:30 \x2b0000 UTC',
+        title: 'pyenv切换python的版本',
+        link: decodeURI(location.href),
+        desc: '问题引入 在hexo 项目中使用npm 配置环境，出现错误：gyp ERR! configure error pyenv是python的多版本管理包，实现互相独立、互不干扰的pytho',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

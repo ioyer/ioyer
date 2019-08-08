@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>常见的后台实现 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 1. 如何做异步网络请求 2. 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供" /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/ios/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="常见的后台实现" />
+<meta property="og:description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 1. 如何做异步网络请求 2. 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/ios/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0/" />
+<meta property="article:published_time" content="2017-09-24T11:03:35+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="常见的后台实现">
+<meta itemprop="description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 1. 如何做异步网络请求 2. 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供">
+
+
+<meta itemprop="datePublished" content="2017-09-24T11:03:35&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="3419">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="常见的后台实现"/>
+<meta name="twitter:description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 1. 如何做异步网络请求 2. 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">常见的后台实现</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-09-24 </span>
+        <div class="post-category">
+            <a href="/categories/ios/"> iOS </a>
+            <a href="/categories/api/"> API </a>
+            </div>
+          <span class="more-meta"> 约 3419 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#概览">概览</a>
+<ul>
+<li><a href="#操作队列-operation-queues-还是-gcd">操作队列 (Operation Queues) 还是 GCD ?</a></li>
+</ul></li>
+<li><a href="#后台-ui-代码">后台 UI 代码</a>
+<ul>
+<li><a href="#后台获取ui数据">后台获取UI数据</a></li>
+<li><a href="#后台绘制ui">后台绘制UI</a>
+<ul>
+<li><a href="#cell在操作队列中异步绘制">cell在操作队列中异步绘制</a></li>
+<li><a href="#其他方案">其他方案</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#异步网络请求处理">异步网络请求处理</a>
+<ul>
+<li><a href="#分析状况">分析状况</a></li>
+<li><a href="#方案一">方案一</a></li>
+<li><a href="#方案二">方案二</a></li>
+</ul></li>
+<li><a href="#进阶-后台文件-i-o">进阶：后台文件 I/O</a>
+<ul>
+<li>
+<ul>
+<li><a href="#runloop分发nsinputstream事件">runloop分发NSInputStream事件</a></li>
+<li><a href="#nsinputstream代理方法">NSInputStream代理方法</a></li>
+<li><a href="#缓冲区处理">缓冲区处理</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="概览">概览</h2>
+
+<p>本文主要探讨一些常用后台任务的最佳实践：
+1. 如何做异步网络请求
+2. 如何异步处理大型文件，以保持较低的内存占用</p>
+
+<h3 id="操作队列-operation-queues-还是-gcd">操作队列 (Operation Queues) 还是 GCD ?</h3>
+
+<p>操作队列提供了在 GCD 中不那么容易复制的有用特性。其中最重要的一个就是可以取消在任务处理队列中的任务，而且操作队列在管理操作间的依赖关系方面也容易一些。
+GCD 给予你更多的控制权力以及操作队列中所不能使用的底层函数。详细介绍可以参考<a href="http://www.objccn.io/issue-2-3/">底层并发 API</a> 这篇文章。</p>
+
+<h2 id="后台-ui-代码">后台 UI 代码</h2>
+
+<p>首先要强调：UIKit 只能在主线程上运行。而那部分不与 UIKit 直接相关，却会消耗大量时间的 UI 代码可以被移动到后台去处理，以避免其将主线程阻塞太久。</p>
+
+<h3 id="后台获取ui数据">后台获取UI数据</h3>
+
+<p>例如使用操作队列隔离以下昂贵操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">__weak</span> <span class="kt">id</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">operationQueue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+    <span class="n">NSNumber</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="n">findLargestMersennePrime</span><span class="p">();</span>
+    <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">MyClass</span><span class="o">*</span> <span class="n">strongSelf</span> <span class="o">=</span> <span class="n">weakSelf</span><span class="p">;</span>
+        <span class="n">strongSelf</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span> <span class="n">stringValue</span><span class="p">];</span>
+    <span class="p">}];</span>
+<span class="p">}];</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如你所见，这些代码其实一点也不直接明了。我们首先声明了一个 weak 引用来参照 self，否则会形成循环引用（ block 持有了 self，私有的 <code>operationQueue</code> retain 了 block，而 self 又 retain 了 <code>operationQueue</code> ）。为了避免在运行 block 时访问到已被释放的对象，在 block 中我们又需要将其转回 strong 引用。
+&gt; 这在 ARC 和 block 主导的编程范式中是解决 retain cycle 的一种常见也是最标准的方法。</p>
+
+<h3 id="后台绘制ui">后台绘制UI</h3>
+
+<p>如果你确定 <code>drawRect:</code> 是你的应用的性能瓶颈，那么你可以将这些绘制代码放到后台去做。但是在你这样做之前，检查下看看是不是有其他方法来解决，比如、考虑使用 core animation layers 或者预先渲染图片而不去做 Core Graphics 绘制。</p>
+
+<p>如果你确实认为在后台执行绘制代码会是你的最好选择时再这么做。其实解决起来也很简单，把 <code>drawRect:</code> 中的代码放到一个后台操作中去做就可以了。然后将原本打算绘制的视图用一个 image view 来替换，等到操作执行完后再去更新。在绘制的方法中，使用 <code>UIGraphicsBeginImageContextWithOptions</code> 来取代 <code>UIGraphicsGetCurrentContext</code> ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">NO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="c1">// drawing code here
+</span><span class="c1"></span><span class="n">UIImage</span> <span class="o">*</span><span class="n">i</span> <span class="o">=</span> <span class="n">UIGraphicsGetImageFromCurrentImageContext</span><span class="p">();</span>
+<span class="n">UIGraphicsEndImageContext</span><span class="p">();</span>
+<span class="k">return</span> <span class="n">i</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>通过在第三个参数中传入 0 ，设备的主屏幕的 scale 将被自动传入，这将使图片在普通设备和 retina 屏幕上都有良好的表现。</p>
+
+<h4 id="cell在操作队列中异步绘制">cell在操作队列中异步绘制</h4>
+
+<p>如果你在 table view 或者是 collection view 的 cell 上做了自定义绘制的话，最好将它们放入 operation 的子类中去。你可以将它们添加到后台操作队列，也可以在用户将 cell 滚动出边界时的 <code>didEndDisplayingCell</code> 委托方法中进行取消。这些技巧都在 2012 年的WWDC <a href="https://developer.apple.com/videos/wwdc/2012/">Session 211 &ndash; Building Concurrent User Interfaces on iOS</a>中有详细阐述。</p>
+
+<h4 id="其他方案">其他方案</h4>
+
+<p>除了在后台自己调度绘制代码，以也可以试试看使用 <code>CALayer</code> 的 <code>drawsAsynchronously</code> 属性。然而你需要精心衡量这样做的效果，因为有时候它能使绘制加速，有时候却适得其反。</p>
+
+<h2 id="异步网络请求处理">异步网络请求处理</h2>
+
+<p>你的所有网络请求都应该采取异步的方式完成。</p>
+
+<p>然而，在 GCD 下，有时候你可能会看到这样的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 警告：不要使用这些代码。
+</span><span class="c1"></span><span class="n">dispatch_async</span><span class="p">(</span><span class="n">backgroundQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+    <span class="n">NSData</span><span class="o">*</span> <span class="n">contents</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:</span><span class="n">url</span><span class="p">]</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+        <span class="c1">// 处理取到的日期
+</span><span class="c1"></span>    <span class="p">});</span>
+<span class="p">});</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>乍看起来没什么问题，但是这段代码却有致命缺陷。你没有办法去取消这个同步的网络请求。它将阻塞主线程直到它完成。如果请求一直没结果，那就只能干等到超时（比如 <code>dataWithContentsOfURL:</code> 的超时时间是 30 秒）。</p>
+
+<h3 id="分析状况">分析状况</h3>
+
+<ol>
+<li>当队列是串行执行时，它将一直被阻塞住。</li>
+<li>当队列是并行执行时，GCD 需要重开一个线程来补凑你阻塞住的线程。</li>
+</ol>
+
+<p>两种结果都不太妙，所以最好还是不要阻塞线程。</p>
+
+<h3 id="方案一">方案一</h3>
+
+<p>要解决上面的困境，我们可以使用 <code>NSURLConnection</code> 的异步方法，并且把所有操作转化为 operation 来执行。通过这种方法，我们可以从操作队列的强大功能和便利中获益良多：我们能轻易地控制并发操作的数量，添加依赖，以及取消操作。
+例如：在<code>NSOperation</code>子类<code>DownloadOperation</code>中重写<code>start</code>方法，并实现<code>NSURLConnectionDelegate</code>代理方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">DownloadOperation</span> : <span class="nc">NSOperation</span><span class="o">&lt;</span><span class="n">NSURLConnectionDelegate</span><span class="o">&gt;</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">start</span>
+<span class="p">{</span>
+    <span class="n">NSURLRequest</span><span class="o">*</span> <span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">url</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isConcurrent</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span>
+    <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">connection</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLConnection</span> <span class="nl">connectionWithRequest</span><span class="p">:</span><span class="n">request</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+    <span class="p">}];</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>然而，在这里还有一些事情值得注意： <code>NSURLConnection</code> 是通过 run loop 来发送事件的。因为发送事件不会花多少时间，因此最简单的是就只使用 main run loop 来做这个。然后，我们就可以用后台线程来处理输入的数据了。</p>
+
+<h3 id="方案二">方案二</h3>
+
+<p>另一种可能的方式是使用像 <a href="http://afnetworking.com">AFNetworking</a> 这样的框架：建立一个独立的线程，为建立的线程设置自己的 run loop，然后在其中调度 URL 连接。但是并不推荐你自己去实现这些事情。</p>
+
+<p>要处理URL 连接，我们重写自定义的 operation 子类中的 <code>start</code> 方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">start</span>
+<span class="p">{</span>
+    <span class="n">NSURLRequest</span><span class="o">*</span> <span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">url</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span>
+    <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">connection</span> <span class="o">=</span> <span class="p">[</span><span class="nl">NSURLConnectionconnectionWithRequest</span><span class="p">:</span><span class="n">request</span>
+        <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+    <span class="p">}];</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>由于重写的是 <code>start</code> 方法，所以我们需要自己要管理操作的 <code>isExecuting</code> 和 <code>isFinished</code> 状态。要取消一个操作，我们需要取消 connection ，并且设定合适的标记，这样操作队列才知道操作已经完成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancel</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">cancel</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">connection</span> <span class="n">cancel</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>当连接完成加载后，它向代理发送回调：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectionDidFinishLoading:</span><span class="p">(</span><span class="n">NSURLConnection</span> <span class="o">*</span><span class="p">)</span><span class="nv">connection</span>
+<span class="p">{</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">buffer</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>就这么多了。完整的代码可以参见<a href="https://github.com/objcio/issue-2-background-networking">GitHub上的示例工程</a>。</p>
+
+<p>总结来说，我们建议要么你花时间来把事情做对做好，要么就直接使用像 <a href="http://afnetworking.com/">AFNetworking</a> 这样的框架。其实 <a href="http://afnetworking.com/">AFNetworking</a> 还提供了不少好用的小工具，比如有个 <code>UIImageView</code> 的 category，来负责异步地从一个 URL 加载图片。在你的 table view 里使用的话，还能自动帮你处理取消加载操作，非常方便。</p>
+
+<p>扩展阅读：</p>
+
+<ul>
+<li><a href="http://developer.apple.com/library/ios/#documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1">Concurrency Programming Guide</a></li>
+<li><a href="http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/NSOperation_class/Reference/Reference.html%23http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/NSOperation_class/Reference/Reference.html%23//apple_ref/doc/uid/TP40004591-RH2-SW15">NSOperation Class Reference: Concurrent vs. Non-Concurrent Operations</a></li>
+<li><a href="http://www.cocoaintheshell.com/2011/04/nsurlconnection-synchronous-asynchronous/">Blog: synchronous vs. asynchronous NSURLConnection</a></li>
+<li><a href="https://github.com/rs/SDWebImage/blob/master/SDWebImage/SDWebImageDownloaderOperation.m">GitHub: <code>SDWebImageDownloaderOperation.m</code></a></li>
+<li><a href="http://www.cocoaintheshell.com/2011/05/progressive-images-download-imageio/">Blog: Progressive image download with ImageIO</a></li>
+<li><a href="https://developer.apple.com/videos/wwdc/2012/">WWDC 2012 Session 211: Building Concurrent User Interfaces on iOS</a></li>
+</ul>
+
+<h2 id="进阶-后台文件-i-o">进阶：后台文件 I/O</h2>
+
+<p>构建一个类，负责一行一行读取文件而不是一次将整个文件读入内存，另外要在后台队列处理文件，以保持应用相应用户的操作。
+为了达到这个目的，我们使用能让我们异步处理文件的 <code>NSInputStream</code> 。根据<a href="http://developer.apple.com/library/ios/#documentation/FileManagement/Conceptual/FileSystemProgrammingGUide/TechniquesforReadingandWritingCustomFiles/TechniquesforReadingandWritingCustomFiles.html">官方文档</a>的描述：
+&gt; 如果你总是需要从头到尾来读/写文件的话，streams 提供了一个简单的接口来异步完成这个操作</p>
+
+<p>不管你是否使用 streams，大体上逐行读取一个文件的模式是这样的：
+1. 建立一个中间缓冲层以提供，当没有找到换行符号的时候可以向其中添加数据
+2. 从 stream 中读取一块数据
+3. 对于这块数据中发现的每一个换行符，取中间缓冲层，向其中添加数据，直到（并包括）这个换行符，并将其输出
+4. 将剩余的字节添加到中间缓冲层去
+5. 回到 2，直到 stream 关闭</p>
+
+<p>为了将其运用到实践中，我们又建立了一个<a href="https://github.com/objcio/issue-2-background-file-io">示例应用</a>，里面有一个 <code>Reader</code> 类完成了这件事情，它的接口十分简单</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Reader</span> : <span class="nc">NSObject</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateLines:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span><span class="o">*</span><span class="p">))</span><span class="nv">block</span> <span class="nf">completion:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">completion</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">initWithFileAtPath:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">path</span><span class="p">;</span>
+<span class="k">@end</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="runloop分发nsinputstream事件">runloop分发NSInputStream事件</h4>
+
+<p>注意，这个类不是 NSOperation 的子类。与 URL connections 类似，输入的 streams 通过 run loop 来传递它的事件。这里，我们仍然采用 main run loop 来分发事件，然后将数据处理过程派发至后台操作线程里去处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateLines:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span><span class="o">*</span><span class="p">))</span><span class="nv">block</span>
+<span class="nf">completion:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">completion</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">queue</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">queue</span><span class="p">.</span><span class="n">maxConcurrentOperationCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">//串行队列
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">block</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">completion</span> <span class="o">=</span> <span class="n">completion</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">inputStream</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSInputStream</span> <span class="nl">inputStreamWithURL</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">fileURL</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">inputStream</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="c1">//分发NSInputStream事件
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">inputStream</span> <span class="nl">scheduleInRunLoop</span><span class="p">:[</span><span class="n">NSRunLoop</span> <span class="n">currentRunLoop</span><span class="p">]</span>
+                                <span class="nl">forMode</span><span class="p">:</span><span class="n">NSDefaultRunLoopMode</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">inputStream</span> <span class="n">open</span><span class="p">];</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>调用时的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">import:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span>
+<span class="p">{</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">fileURL</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">URLForResource</span><span class="p">:</span><span class="s">@&#34;Clarissa Harlowe&#34;</span> <span class="nl">withExtension</span><span class="p">:</span><span class="s">@&#34;txt&#34;</span><span class="p">];</span>
+    <span class="n">NSAssert</span><span class="p">([[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">]</span> <span class="nl">fileExistsAtPath</span><span class="p">:[</span><span class="n">fileURL</span> <span class="n">path</span><span class="p">]],</span> <span class="s">@&#34;Please download the sample data&#34;</span><span class="p">);</span>
+
+    <span class="nb">self</span><span class="p">.</span><span class="n">reader</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Reader</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFileAtURL</span><span class="p">:</span><span class="n">fileURL</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">reader</span> <span class="nl">enumerateLinesWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSUInteger</span> <span class="n">i</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">line</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2000ull</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;i: %d&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+            <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">button</span> <span class="nl">setTitle</span><span class="p">:</span><span class="n">line</span> <span class="nl">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+        <span class="p">}];</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSUInteger</span> <span class="n">numberOfLines</span><span class="p">){</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;lines: %d&#34;</span><span class="p">,</span> <span class="n">numberOfLines</span><span class="p">);</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">button</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Done&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+    <span class="p">}];</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="nsinputstream代理方法">NSInputStream代理方法</h4>
+
+<p>现在，input stream 将（在主线程）向我们发送代理消息，然后我们可以在操作队列中加入一个 block 操作来执行处理了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stream:</span><span class="p">(</span><span class="n">NSStream</span><span class="o">*</span><span class="p">)</span><span class="nv">stream</span> <span class="nf">handleEvent:</span><span class="p">(</span><span class="n">NSStreamEvent</span><span class="p">)</span><span class="nv">eventCode</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">eventCode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="k">case</span> <span class="nl">NSStreamEventHasBytesAvailable</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">NSMutableData</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableData</span> <span class="nl">dataWithLength</span><span class="p">:</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">];</span>
+            <span class="n">NSUInteger</span> <span class="n">length</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">inputStream</span> <span class="nl">read</span><span class="p">:[</span><span class="n">buffer</span> <span class="n">mutableBytes</span><span class="p">]</span>
+                                             <span class="nl">maxLength</span><span class="p">:[</span><span class="n">buffer</span> <span class="n">length</span><span class="p">]];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+                <span class="p">[</span><span class="n">buffer</span> <span class="nl">setLength</span><span class="p">:</span><span class="n">length</span><span class="p">];</span>
+                <span class="k">__weak</span> <span class="kt">id</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+                <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">queue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                    <span class="c1">//在后台串行队列的线程池中逐行处理缓冲区
+</span><span class="c1"></span>                    <span class="p">[</span><span class="n">weakSelf</span> <span class="nl">processDataChunk</span><span class="p">:</span><span class="n">buffer</span><span class="p">];</span>
+                <span class="p">}];</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="缓冲区处理">缓冲区处理</h4>
+
+<p>处理数据块的过程是先查看当前已缓冲的数据，并将新加入的数据附加上去。接下来它将按照换行符分解成小的部分，并逐行处理。
+数据处理过程中会不断的从buffer中获取已读入的数据。然后把这些新读入的数据按行分开并存储。剩余的数据被再次存储到缓冲区中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processDataChunk:</span><span class="p">(</span><span class="n">NSMutableData</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="nl">appendData</span><span class="p">:</span><span class="n">buffer</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="nl">obj_enumerateComponentsSeparatedBy</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">delimiter</span>
+                            <span class="nl">usingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSData</span><span class="o">*</span> <span class="n">component</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">[</span><span class="nb">self</span> <span class="nl">emitLineWithData</span><span class="p">:</span><span class="n">component</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">component</span> <span class="n">length</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="o">=</span> <span class="p">[</span><span class="n">component</span> <span class="n">mutableCopy</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emitLineWithData:</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="n">NSUInteger</span> <span class="n">lineNumber</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">lineNumber</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">lineNumber</span> <span class="o">=</span> <span class="n">lineNumber</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">.</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">line</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithData</span><span class="p">:</span><span class="n">data</span> <span class="nl">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">callback</span><span class="p">(</span><span class="n">lineNumber</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>现在你运行示例应用的话，会发现它在响应事件时非常迅速，内存的开销也保持很低（在我们测试时，不论读入的文件有多大，堆所占用的内存量始终低于 800KB）。绝大部分时候，使用逐块读入的方式来处理大文件，是非常有用的技术。</p>
+
+<p>延伸阅读：</p>
+
+<ul>
+<li><a href="http://developer.apple.com/library/ios/#documentation/FileManagement/Conceptual/FileSystemProgrammingGUide/TechniquesforReadingandWritingCustomFiles/TechniquesforReadingandWritingCustomFiles.html">File System Programming Guide: Techniques for Reading and Writing Files Without File Coordinators</a></li>
+<li><a href="http://stackoverflow.com/questions/3707427/how-to-read-data-from-nsfilehandle-line-by-line">StackOverflow: How to read data from NSFileHandle line by line?</a></li>
+</ul>
+
+<h2 id="总结">总结</h2>
+
+<p>通过我们所列举的几个示例，我们展示了如何异步地在后台执行一些常见任务。在所有的解决方案中，我们尽力保持了代码的简单，这是因为在并发编程中，稍不留神就会捅出篓子来。</p>
+
+<p>很多时候为了避免麻烦，你可能更愿意在主线程中完成你的工作，在你能这么做事，这确实让你的工作轻松不少，但是当你发现性能瓶颈时，你可以尝试尽可能用最简单的策略将那些繁重任务放到后台去做。</p>
+
+<p>我们在上面例子中所展示的方法对于其他任务来说也是安全的选择。在主队列中接收事件或者数据，然后用后台操作队列来执行实际操作，然后回到主队列去传递结果，遵循这样的原则来编写尽量简单的并行代码，将是保证高效正确的不二法则。</p>
+
+<hr />
+
+<p><a href="http://objccn.io/issue-2">话题 #2 下的更多文章</a></p>
+
+<p>原文 <a href="http://www.objc.io/issue-2/common-background-practices.html">Common Background Practices</a></p>
+
+<p>译文 <a href="http://onevcat.com/2014/03/common-background-practices/">常见的后台实践</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/ios/gcd%E5%BA%95%E5%B1%82%E5%B9%B6%E5%8F%91api/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">GCD底层并发API</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ios/ios%E5%A4%9A%E7%BA%BF%E7%A8%8Bapi%E4%BB%8B%E7%BB%8D/">
+            <span class="next-text nav-default">iOS多线程API介绍</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2017-09-24 11:03:35 \x2b0000 UTC',
+        title: '常见的后台实现',
+        link: decodeURI(location.href),
+        desc: '概览 本文主要探讨一些常用后台任务的最佳实践： 1. 如何做异步网络请求 2. 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

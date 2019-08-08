@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>自定义展示型控制器 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控" /><meta name="keywords" content="转场,动画" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/ios/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%95%E7%A4%BA%E5%9E%8B%E6%8E%A7%E5%88%B6%E5%99%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="自定义展示型控制器" />
+<meta property="og:description" content="{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/ios/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%95%E7%A4%BA%E5%9E%8B%E6%8E%A7%E5%88%B6%E5%99%A8/" />
+<meta property="article:published_time" content="2017-02-17T12:26:11+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="自定义展示型控制器">
+<meta itemprop="description" content="{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控">
+
+
+<meta itemprop="datePublished" content="2017-02-17T12:26:11&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="6331">
+
+
+
+<meta itemprop="keywords" content="转场,动画," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自定义展示型控制器"/>
+<meta name="twitter:description" content="{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">自定义展示型控制器</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-02-17 </span>
+        <div class="post-category">
+            <a href="/categories/ios/"> iOS </a>
+            <a href="/categories/%E8%BD%AC%E5%9C%BA/"> 转场 </a>
+            </div>
+          <span class="more-meta"> 约 6331 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#触发转场的方式">触发转场的方式</a>
+<ul>
+<li><a href="#官方支持的自定义转场">官方支持的自定义转场</a></li>
+<li><a href="#相关触发转场的动作">相关触发转场的动作</a>
+<ul>
+<li><a href="#uinavigationcontroller">UINavigationController</a></li>
+<li><a href="#uitabbarcontroller">UITabBarController</a></li>
+<li><a href="#modal-转场">Modal 转场：</a></li>
+<li><a href="#segue">Segue</a></li>
+<li><a href="#ios-8-的变化">iOS 8 的变化</a></li>
+</ul></li>
+<li><a href="#转场五大工具">转场五大工具</a>
+<ul>
+<li><a href="#转场代理-transition-delegate">转场代理(Transition Delegate)：</a></li>
+<li><a href="#动画控制器-animation-controller">动画控制器(Animation Controller)：</a></li>
+<li><a href="#交互控制器-interaction-controller">交互控制器(Interaction Controller)：</a></li>
+<li><a href="#转场环境-transition-context">转场环境(Transition Context):</a></li>
+<li><a href="#转场协调器-transition-coordinator">转场协调器(Transition Coordinator)：</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#特殊的-modal-转场">特殊的 Modal 转场</a>
+<ul>
+<li><a href="#ios-8引入的uipresentationcontroller">iOS 8引入的UIPresentationController</a></li>
+<li><a href="#定制presentedview">定制presentedView</a>
+<ul>
+<li><a href="#外观-重载size方法和frameofpresentedviewincontainerview属性">外观：重载size方法和frameOfPresentedViewInContainerView属性</a></li>
+<li><a href="#过渡动画-转场协调器-transition-coordinator">过渡动画，转场协调器(Transition Coordinator)</a>
+<ul>
+<li><a href="#转场开始">转场开始</a></li>
+<li><a href="#转场结束">转场结束</a></li>
+</ul></li>
+<li><a href="#适配屏幕旋转">适配屏幕旋转</a></li>
+<li><a href="#modal的两种presentationstyle">Modal的两种PresentationStyle</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#交互式转场">交互式转场</a>
+<ul>
+<li><a href="#实现交互化">实现交互化</a></li>
+<li><a href="#使用一个变量来标记交互状态配合转场交互">使用一个变量来标记交互状态配合转场交互</a></li>
+<li><a href="#转场动画控制器-向转场中添加视图-执行转场动画">转场动画控制器：向转场中添加视图，执行转场动画</a></li>
+</ul></li>
+<li><a href="#转场代理协议-transition-delegate">转场代理协议(Transition Delegate)</a>
+<ul>
+<li><a href="#实现转场代理协议方法-整合动画控制器和自定义展示控制器">实现转场代理协议方法，整合动画控制器和自定义展示控制器</a></li>
+<li><a href="#使用自定义的转场的代理">使用自定义的转场的代理</a></li>
+</ul></li>
+<li><a href="#两种常规的转场方式">两种常规的转场方式</a>
+<ul>
+<li><a href="#uiview方式-transitionfromview">UIView方式:transitionFromView</a></li>
+<li><a href="#uiviewcontroller方式-在子-vc-间转换的方法">UIViewController方式：在子 VC 间转换的方法</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %}</p>
+
+<h2 id="触发转场的方式">触发转场的方式</h2>
+
+<h3 id="官方支持的自定义转场">官方支持的自定义转场</h3>
+
+<ul>
+<li>在 <code>UINavigationController</code> 中 <code>push</code> 和 <code>pop</code>;</li>
+<li>在 <code>UITabBarController</code> 中切换 <code>Tab</code>;</li>
+
+<li><p>Modal 转场：<code>presentation</code> 和 <code>dismissal</code>，俗称视图控制器的模态显示和消失，仅限于<code>modalPresentationStyle</code>属性为 <code>UIModalPresentationFullScreen</code> 或 <code>UIModalPresentationCustom</code> 这两种模式;
+<code>UICollectionViewController</code> 的布局转场：仅限于 <code>UICollectionViewController</code> 与 <code>UINavigationController</code> 结合的转场方式，与上面三种都有点不同，不过实现很简单，可跳转至该链接查看。
+官方的支持包含了 iOS 中的大部分转场方式，还有一种自定义容器中的转场并没有得到系统的直接支持，不过借助协议这种灵活的方式，我们依然能够实现对自定义容器控制器转场的定制，在压轴环节我们将实现这一点。</p>
+
+<h3 id="相关触发转场的动作">相关触发转场的动作</h3>
+
+<h4 id="uinavigationcontroller">UINavigationController</h4>
+
+<p><code>UINavigationController</code> 中所有修改其<code>viewControllers</code>栈中 <code>VC</code> 的方法都可以自定义转场动画：
+{% codeblock swift lang:swift %}
+//我们使用的最广泛的 push 和 pop 方法
+func pushViewController(_ viewController: UIViewController, animated animated: Bool)
+func popViewControllerAnimated(_ animated: Bool) -&gt; UIViewController?
+//不怎么常用的 pop 方法
+func popToRootViewControllerAnimated(_ animated: Bool) -&gt; [UIViewController]?
+func popToRootViewControllerAnimated(_ animated: Bool) -&gt; [UIViewController]?
+//这个方法有有点特别，是对 VC 栈的整体更新，开启动画后的执行比较复杂，具体参考文档说明。不建议在这种情况下开启转场动画。
+func setViewControllers(_ viewControllers: [UIViewController], animated animated: Bool)
+{% endcodeblock %}</p>
+
+<h4 id="uitabbarcontroller">UITabBarController</h4>
+
+<p>{% codeblock swift lang:swift %}
+//注意传递的参数必须是其下的子 VC
+unowned(unsafe) var selectedViewController: UIViewController?
+var selectedIndex: Int
+//和上面类似的整体更新
+func setViewControllers(_ viewControllers: [UIViewController]?, animated animated: Bool)
+{% endcodeblock %}</p>
+
+<h4 id="modal-转场">Modal 转场：</h4>
+
+<p>{% codeblock swift lang:swift %}
+// Presentation 转场
+func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion completion: (() -&gt; Void)?)
+// Dismissal 转场
+func dismissViewControllerAnimated(_ flag: Bool, completion completion: (() -&gt; Void)?)
+{% endcodeblock %}</p>
+
+<h4 id="segue">Segue</h4>
+
+<p>在 <code>storyboard</code> 里设置 <code>segue</code>有两种方式：<code>Button to VC</code>，这种在点击 <code>Button</code> 的时候触发转场；<code>VC to VC</code>，这种需要在代码中调用<code>performSegueWithIdentifier:sender:</code>。<code>prepareForSegue:sender:</code>方法是在转场发生前修改转场参数的最后机会。这点对于 <code>Modal</code> 转场比较重要，因为在 <code>storyboard</code>里 <code>Modal</code> 转场的 <code>Segue</code> 类型不支持选择 <code>Custom</code> 模式，使用 <code>segue</code> 方式触发时必须在<code>prepareForSegue:sender:</code>里修改模式。</p></li>
+</ul>
+
+<h4 id="ios-8-的变化">iOS 8 的变化</h4>
+
+<p>iOS 8 引入了适应性布局，由此添加了两种新的方式来显示一个视图控制器：
+{% codeblock swift lang:swift %}
+func showViewController(_ vc: UIViewController, sender sender: AnyObject?)
+func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
+{% endcodeblock %}
+这两个方法咋看上去是给 <code>UISplitViewController</code> 用的，在 <code>storyboard</code> 里 <code>segue</code> 的候选模式里，直接给出了<code>Show(e.g. Push)</code>和<code>Show Detail(e.g. Replace)</code>这样的提示，以至于我之前一直对这两个 segue 有误解。实际上这两个方法智能判断当前的显示环境来决定如何显示，iOS 8 想统一显示视图控制器的方式，不过引入这两个方法增加了使用的复杂性，来看看这两个方法的使用规则。
+这两个方法在 <code>UISplitViewController</code> 上的确是按名字显示的那样去工作的，而在本文关注的控制器上是这样工作的：
+|  |ViewController|NavigationController|TabBarController|
+|:&mdash;&mdash;-|:&mdash;&mdash;-|:&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;|
+|showViewController:sender: |Presentation| Push | Presentation(by self) |
+|showDetailViewController:sender: |Presentation| Presentation(by self) | Presentation(by self)|
+<code>UINavigationController</code> 重写了<code>showViewController:sender:</code>而执行 <code>push</code> 操作，上面的<code>by self</code>意思是用容器 <code>VC</code> 本身而非其下子 <code>VC</code> 去执行 <code>presentation</code>。这两个方法的行为可以通过重写来改变。
+当非容器类 VC 内嵌在这两种容器 VC 里时，会通过最近的容器 VC 来执行：
+||VC in NavigationController|VC in TabBarController|
+|:&mdash;&mdash;-|:&mdash;&mdash;-|:&mdash;&mdash;&ndash;|
+|showViewController:sender: |Push(by NavigationController)| Presentation(by TabBarController) |
+|showDetailViewController:sender: |Presentation(by NavigationController)| Presentation(by TabBarController) |</p>
+
+<h3 id="转场五大工具">转场五大工具</h3>
+
+<p>iOS 7 以协议的方式开放了自定义转场的 API，协议的好处是不再拘泥于具体的某个类，只要是遵守该协议的对象都能参与转场，非常灵活。转场协议由5种协议组成，在实际中只需要我们提供其中的两个或三个便能实现绝大部分的转场动画：</p>
+
+<h4 id="转场代理-transition-delegate">转场代理(Transition Delegate)：</h4>
+
+<p>有如下三种容器转场代理，对应上面三种类型的转场：
+{% codeblock lang:swift %}
+<UINavigationControllerDelegate> //UINavigationController 的 delegate 属性遵守该协议。
+<UITabBarControllerDelegate> //UITabBarController 的 delegate 属性遵守该协议。
+<UIViewControllerTransitioningDelegate> //UIViewController 的 transitioningDelegate 属性遵守该协议。
+{% endcodeblock %}
+这里除了<UIViewControllerTransitioningDelegate>是 iOS 7 新增的协议，其他两种在 iOS 2 里就存在了，在 iOS 7 时扩充了这两种协议来支持自定义转场。</p>
+
+<h4 id="动画控制器-animation-controller">动画控制器(Animation Controller)：</h4>
+
+<p>最重要的部分，负责添加视图以及执行动画；遵守<UIViewControllerAnimatedTransitioning>协议；由我们实现。</p>
+
+<h4 id="交互控制器-interaction-controller">交互控制器(Interaction Controller)：</h4>
+
+<p>通过交互手段，通常是手势来驱动动画控制器实现的动画，使得用户能够控制整个过程；遵守<UIViewControllerInteractiveTransitioning>协议；系统已经打包好现成的类供我们使用。</p>
+
+<h4 id="转场环境-transition-context">转场环境(Transition Context):</h4>
+
+<p>提供转场中需要的数据；遵守<UIViewControllerContextTransitioning>协议；由 UIKit 在转场开始前生成并提供给我们提交的动画控制器和交互控制器使用。</p>
+
+<h4 id="转场协调器-transition-coordinator">转场协调器(Transition Coordinator)：</h4>
+
+<p>可在转场动画发生的同时并行执行其他的动画，其作用与其说协调不如说辅助，主要在 Modal 转场和交互转场取消时使用，其他时候很少用到；遵守<UIViewControllerTransitionCoordinator>协议；由 UIKit 在转场时生成，UIViewController 在 iOS 7 中新增了方法transitionCoordinator()返回一个遵守该协议的对象，且该方法只在该控制器处于转场过程中才返回一个此类对象，不参与转场时返回 nil。</p>
+
+<p>总结下，5个协议只需要我们操心3个；实现一个最低限度可用的转场动画，我们只需要提供上面五个组件里的两个：转场代理和动画控制器即可，还有一个转场环境是必需的，不过这由系统提供；当进一步实现交互转场时，还需要我们提供交互控制器，也有现成的类供我们使用。</p>
+
+<h2 id="特殊的-modal-转场">特殊的 Modal 转场</h2>
+
+<p>容器类 VC 的转场里 <code>fromView</code> 和 <code>toView</code> 是 <code>containerView</code> 的子层次的视图，而 Modal 转场里 <code>presentingView</code> 与 <code>containerView</code> 是同层次的视图，只有 <code>presentedView</code> 是 <code>containerView</code> 的子层次视图。</p>
+
+<h3 id="ios-8引入的uipresentationcontroller">iOS 8引入的UIPresentationController</h3>
+
+<p><code>UIPresentationController</code>类，该类接管了 <code>UIViewController</code> 的显示过程，为其提供转场和视图管理支持。在 iOS 8.0 以上的系统里，你可以在 <code>presentation</code> 转场结束后打印视图控制器的结构，会发现 <code>presentedVC</code> 是由一个<code>UIPresentationController</code>对象来显示的，查看视图结构也能看到 <code>presentedView</code> 是 <code>UIView</code> 私有子类的<code>UITtansitionView</code>的子视图，这就是前面 <code>containerView</code> 的真面目.
+当<code>UIViewController</code>的<code>modalPresentationStyle</code>属性为<code>.Custom</code>时(不支持.FullScreen)，我们有机会通过控制器的转场代理提供<code>UIPresentationController</code>的子类对 <code>Modal 转场</code>进行进一步的定制。实际上该类也可以在<code>.FullScreen</code>模式下使用，但是会丢失由该类负责的动画，保险起见还是遵循官方的建议，只在<code>.Custom</code>模式下使用该类。
+<code>UIPresentationController</code>类赋予 Modal 转场以下特性：
+1. 定制 <code>presentedView</code> 的外观，尺寸以及在 <code>containerView</code> 中添加自定义视图并为这些视图添加动画；
+2. 可以选择是否移除 <code>presentingView</code>
+3. 可以在不需要动画控制器的情况下单独工作
+4. iOS 8 中的自适应适应性布局
+<code>UIPresentationController</code>类提供了如下的方法参与转场，对转场过程实现了更加细致的控制，从命名便可以看出与动画控制器里的<code>animateTransition:</code>的关系：
+{% codeblock swift lang:swift   %}
+func presentationTransitionWillBegin()
+func presentationTransitionDidEnd(_ completed: Bool)
+func dismissalTransitionWillBegin()
+func dismissalTransitionDidEnd(_ completed: Bool)
+{% endcodeblock %}
+除了 presentingView，UIPresentationController类拥有转场过程中剩下的角色：
+{% codeblock swift lang:swift %}
+//指定初始化方法。
+init(presentedViewController presentedViewController: UIViewController, presentingViewController presentingViewController: UIViewController)
+var presentingViewController: UIViewController { get }
+var presentedViewController: UIViewController { get }
+var containerView: UIView? { get }
+//提供给动画控制器使用的视图，默认返回 presentedVC.view，通过重写该方法返回其他视图，但一定要是 presentedVC.view 的上层视图。
+func presentedView() -&gt; UIView?<br />
+{% endcodeblock %}
+没有 <code>presentingView</code> 是因为 <code>Custom</code> 模式下 <code>presentingView</code> 不受 <code>containerView</code> 管理，<code>UIPresentationController</code>类并没有改变这一点。iOS 8 扩充了转场环境协议，可以通过<code>viewForKey:</code>方便获取转场的视图，而该方法在 <code>Modal</code> 转场中获取的是<code>presentedView()</code>返回的视图。因此我们可以在子类中将 <code>presentedView</code> 包装在其他视图后重写该方法返回包装后的视图当做 <code>presentedView</code> 在动画控制器中使用。</p>
+
+<h3 id="定制presentedview">定制presentedView</h3>
+
+<h4 id="外观-重载size方法和frameofpresentedviewincontainerview属性">外观：重载size方法和frameOfPresentedViewInContainerView属性</h4>
+
+<p>重载存储属性：get方法返回登场页面的位置和大小
+{% codeblock lang:swift %}
+override var frameOfPresentedViewInContainerView: CGRect
+{
+    var presentViewFrame = CGRect.zero
+    let containerBounds = containerView?.bounds
+    //登场控制器内容页面的大小
+    presentViewFrame.size = size(forChildContentContainer: presentedViewController,
+                                  withParentContainerSize: (containerBounds?.size)!)
+    presentViewFrame.origin.x = (containerBounds?.size.width)! - presentViewFrame.size.width
+    return presentViewFrame
+}</p>
+
+<p>//返回登场控制器内容页面的大小，在这里设置为屏幕宽度的三分之一款
+override func size(forChildContentContainer container: UIContentContainer,
+                   withParentContainerSize parentSize: CGSize) -&gt; CGSize
+{
+    return CGSize.init(width:CGFloat(floorf(Float(parentSize.width/3.0))), height: parentSize.height)
+}
+{% endcodeblock %}</p>
+
+<h4 id="过渡动画-转场协调器-transition-coordinator">过渡动画，转场协调器(Transition Coordinator)</h4>
+
+<p>参与角色都准备好了，但有个问题，无法直接访问动画控制器，不知道转场的持续时间，怎么与转场过程同步？这时候前面提到的用处甚少的转场协调器(Transition Coordinator)将在这里派上用场。该对象可通过 <code>UIViewController</code> 的<code>transitionCoordinator()</code>方法获取，这是 iOS 7 为自定义转场新增的 API，该方法只在控制器处于转场过程中才返回一个与当前转场有关的有效对象，其他时候返回 <code>nil</code>。</p>
+
+<h5 id="转场开始">转场开始</h5>
+
+<ol>
+<li>在<code>containerView</code>中插入过渡视图<code>chromeView</code></li>
+<li>为转场中<code>chromeView</code>过渡视图添加转场动画</li>
+<li><code>presentedViewController.transitionCoordinator</code>转场协调器，添加转场的登场和退场动画
+{% codeblock presentationTransitionWillBegin lang:swift %}
+override func presentationTransitionWillBegin()
+{
+chromeView.frame = (self.containerView?.bounds)!
+chromeView.alpha = 0.0
+//在<code>containerView</code>中插入视图<code>chromeView</code><br />
+containerView?.insertSubview(chromeView, at:0)
+//coordinator转场协调器负责转场动画的呈现和dismissal
+let coordinator = presentedViewController.transitionCoordinator
+if (coordinator != nil) {
+    //添加登场动画
+    coordinator!.animate(alongsideTransition: {
+    (context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
+        //animate the alpha to 1.0.
+        self.chromeView.alpha = 1.0
+    }, completion:nil)
+}
+else
+{
+    chromeView.alpha = 1.0
+}
+}
+{% endcodeblock %}</li>
+</ol>
+
+<h5 id="转场结束">转场结束</h5>
+
+<p>在<code>presentedViewController.transitionCoordinator</code>转场协调器中添加转场的退场动画
+{% codeblock dismissalTransitionWillBegin lang:swift %}
+override func dismissalTransitionWillBegin()
+{
+    let coordinator = presentedViewController.transitionCoordinator
+    if (coordinator != nil)
+    {
+        //添加退场动画
+        coordinator!.animate(alongsideTransition: {
+        (context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
+            self.chromeView.alpha = 0.0
+        }, completion:nil)
+    }
+    else
+    {
+        chromeView.alpha = 0.0
+    }
+}
+{% endcodeblock %}</p>
+
+<h4 id="适配屏幕旋转">适配屏幕旋转</h4>
+
+<p>在设备旋转的情况下，重置背景视图的外观和登场控制器内容的外观
+{% codeblock lang:swift %}
+override func containerViewWillLayoutSubviews()
+{
+    chromeView.frame = (containerView?.bounds)!
+    presentedView?.frame = frameOfPresentedViewInContainerView
+}
+{% endcodeblock %}</p>
+
+<h4 id="modal的两种presentationstyle">Modal的两种PresentationStyle</h4>
+
+<ol>
+<li>设置整个转场动画是否将覆盖全屏幕
+<code>.OverFullScreen</code>: 浮动式全屏，即：登场视图下方的视图不会完全被遮挡
+<code>.FullScreen</code>  : 全覆盖全屏 即：占据全屏来显示登场视图
+{% codeblock lang:swift %}
+//设置整个转场动画是否将覆盖全屏幕
+override var shouldPresentInFullscreen: Bool
+{
+return true
+}</li>
+</ol>
+
+<p>override var adaptivePresentationStyle: UIModalPresentationStyle
+{
+    return UIModalPresentationStyle.fullScreen
+}
+{% endcodeblock %}</p>
+
+<h2 id="交互式转场">交互式转场</h2>
+
+<h3 id="实现交互化">实现交互化</h3>
+
+<p>在非交互转场的基础上将之交互化需要两个条件：
+由转场代理提供交互控制器，这是一个遵守<UIViewControllerInteractiveTransitioning>协议的对象，不过系统已经打包好了现成的类<code>UIPercentDrivenInteractiveTransition</code>供我们使用。我们不需要做任何配置，仅仅在转场代理的相应方法中提供一个该类实例便能工作。另外交互控制器必须有动画控制器才能工作。
+交互控制器还需要交互手段的配合，最常见的是使用手势，或是其他事件，来驱动整个转场进程。</p>
+
+<h3 id="使用一个变量来标记交互状态配合转场交互">使用一个变量来标记交互状态配合转场交互</h3>
+
+<p>如果在转场代理中提供了交互控制器，而转场发生时并没有方法来驱动转场进程(比如手势)，转场过程将一直处于开始阶段无法结束。
+在两个容器控制器<code>NavigationController</code>和<code>TabBarController</code>转场为例：
+1. 在 <code>NavigationController</code> 中点击 <code>NavigationBar</code> 也能实现 <code>pop</code> 返回操作，但此时没有了交互手段的支持，转场过程卡壳；
+2. 在 <code>TabBarController</code> 的代理里提供交互控制器存在同样的问题，点击 <code>TabBar</code> 切换页面时也没有实现交互控制。因此仅在确实处于交互状态时才提供交互控制器，可以使用一个变量来标记交互状态，该变量由交互手势来更新状态。</p>
+
+<h3 id="转场动画控制器-向转场中添加视图-执行转场动画">转场动画控制器：向转场中添加视图，执行转场动画</h3>
+
+<p>转场 API 是协议的好处是不受限于具体的类，只要对象实现该协议便能参与转场过程，这也带来另外一个好处：封装便于复用，尽管三大转场代理协议的方法不尽相同。
+但它们返回的动画控制器遵守的是同一个协议，因此可以将动画控制器封装作为第三方动画控制器在其他控制器的转场过程中使用。
+<code>UIViewControllerAnimatedTransitioning</code>代理协议方法，提供了转场所需要的重要数据：
+1. <code>containerView()</code>：运行转场动画的容器视图
+2. 转场视图控制器
+    * 方法一：<code>viewController(forKey:)</code>：<code>UITransitionContextViewControllerKey</code>枚举值：<code>from</code>，<code>to</code>
+    * 方法二：<code>viewForKey(_ key: String) -&gt; UIView? AVAILABLE_IOS(8_0)</code>:iOS 8新增 API 用于方便获取参与转场的视图.两个键值：<code>UITransitionContextFromViewKey</code>,<code>UITransitionContextToViewKey</code>.</p>
+
+<p>{% codeblock lang:swift %}
+class ExampleAnimatedTransitioning: NSObject,UIViewControllerAnimatedTransitioning
+{
+    //used to determine if the presentation animation is presenting (as opposed to dismissing).
+    var isPresentation : Bool = false</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//returns the duration in seconds of the transition animation.
+func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -&gt; TimeInterval
+{
+    //返回动画时间
+    return 0.5
+}
+
+//get the respective views of these view controllers. 
+//Next we get the container view and if the presentation animation is presenting, we add the to view to the container view.
+func animateTransition(using transitionContext: UIViewControllerContextTransitioning) 
+{
+    //get the from and to view controllers from the UIViewControllerContextTransitioning object.
+    let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+    let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+    //determine the start and end positions of the view.
+    let fromView = fromVC?.view
+    let toView = toVC?.view
+    let containerView = transitionContext.containerView
+
+    if isPresentation 
+    {
+        containerView.addSubview(toView!)
+    }
+    //decide on which view controller to animate based on whether the transition is a presentation or dismissal
+    let animatingVC = isPresentation ? toVC : fromVC
+    let animatingView = animatingVC?.view
+
+    let finalFrameForVC = transitionContext.finalFrame(for: animatingVC!)
+    var initialFrameForVC = finalFrameForVC
+    //This will animate the view from right to left during a presentation and vice versa during dismissal.
+    initialFrameForVC.origin.x += initialFrameForVC.size.width
+
+    let initialFrame = isPresentation ? initialFrameForVC : finalFrameForVC
+    let finalFrame = isPresentation ? finalFrameForVC : initialFrameForVC
+
+    animatingView?.frame = initialFrame
+    //根据协议中的方法获取动画的时间。
+    let duration = transitionDuration(using: transitionContext)
+    UIView.animate(withDuration: duration, delay:0, usingSpringWithDamping:300.0, initialSpringVelocity:5.0, options:UIViewAnimationOptions.allowUserInteraction, animations:{
+
+        //we move the view to the final position.
+        animatingView?.frame = finalFrame
+
+    }, completion:{ (value: Bool) in
+
+        if !self.isPresentation {
+            //If the transition is a dismissal, we remove the view.
+            fromView?.removeFromSuperview()
+        }
+        //we complete the transition by calling transitionContext.completeTransition()
+        transitionContext.completeTransition(true)
+    })
+}
+//    UIView.transitionFromView(fromView, toView: toView, duration: durantion, options: .TransitionCurlDown, completion: { _ in
+//    let isCancelled = transitionContext.transitionWasCancelled()
+//    transitionContext.completeTransition(!isCancelled)
+//    })
+
+//如果实现了，会在转场动画结束后调用，可以执行一些收尾工作。
+func animationEnded(_ transitionCompleted: Bool) {
+    //
+}</pre></td></tr></table>
+</div>
+</div>
+<p>}
+{% endcodeblock %}</p>
+
+<h2 id="转场代理协议-transition-delegate">转场代理协议(Transition Delegate)</h2>
+
+<p>自定义转场的第一步便是提供转场代理，告诉系统使用我们提供的代理而不是系统的默认代理来执行转场。</p>
+
+<h3 id="实现转场代理协议方法-整合动画控制器和自定义展示控制器">实现转场代理协议方法，整合动画控制器和自定义展示控制器</h3>
+
+<ol>
+<li>返回管理用户信息视图控制器如何展示的控制器。前面实现的<code>ExamplePresentationViewController</code>类可同时处理 <code>presentation</code>转场 和 <code>dismissal</code> 转场。</li>
+<li>动画控制器为 <code>presentation</code> 和 <code>dismissal</code> 转场分别提供了动画控制器。
+&gt;<code>UIPresentationController</code>只在 iOS 8中可用，通过available关键字可以解决 API 的版本差异。</li>
+</ol>
+
+<p>{% codeblock  lang:swift %}
+class ExampleTransitioningDelegate: NSObject,UIViewControllerTransitioningDelegate
+{
+    //returns a presentation controller that manages the presentation of a view controller.
+    func presentationController(forPresented presented: UIViewController,
+                                            presenting: UIViewController?,
+                                                source: UIViewController) -&gt; UIPresentationController?
+    {
+        //presentation动画控制器
+        let presentationController = ExamplePresentationViewController(presentedViewController:presented,
+                                                                                    presenting:presenting)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    return presentationController
+}
+
+//为presentation转场提供登场转场动画控制器
+func animationController(forPresented presented: UIViewController, 
+                                     presenting: UIViewController, 
+                                         source: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? 
+{
+    //登场转场动画控制器
+    let animator = ExampleAnimatedTransitioning()
+    animator.isPresentation = true
+    return animator
+}
+
+//为dismissal 转场提供退场转场动画控制器
+func animationController(forDismissed dismissed: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? 
+{
+    //退场转场动画控制器
+    let animator = ExampleAnimatedTransitioning()
+    animator.isPresentation = false
+    return animator
+}</pre></td></tr></table>
+</div>
+</div>
+<p>}
+{% endcodeblock %}</p>
+
+<h3 id="使用自定义的转场的代理">使用自定义的转场的代理</h3>
+
+<p>自定义转场的第一步便是提供转场代理，告诉系统使用我们提供的代理而不是系统的默认代理来执行转场。
+UIViewControllerTransitioningDelegate转场代理：
+1. 强引用代理变量:强引用的变量来维护该代理
+2. Modal转场代理的特性：由presentedVC自身来遵循转场代理<code>presentedVC.modalPresentationStyle</code>，和前两个容器控制器转场代理不同。
+3. 两种支持自定义转场模式：<code>.Custom</code>或<code>.FullScreen</code>,默认值为<code>.FullScreen</code>
+{% codeblock fromVC.class lang:swift %}
+//强引用的变量来维护该代理
+let exampleTransitionDelegate = ExampleTransitioningDelegate()
+//create an instance of ExampleViewController which will provide the content to display.
+let presentedVC = ExampleViewController()
+presentedVC.modalPresentationStyle = .custom
+presentedVC.transitioningDelegate = exampleTransitionDelegate</p>
+
+<p>//present this view controller.
+present(toVC, animated: true, completion: nil)
+{% endcodeblock %}</p>
+
+<h2 id="两种常规的转场方式">两种常规的转场方式</h2>
+
+<h3 id="uiview方式-transitionfromview">UIView方式:transitionFromView</h3>
+
+<p>不需要获取 <code>containerView</code> 以及手动添加 <code>toView</code> 就能实现一个指定类型的转场动画，而缺点则是只能使用指定类型的动画。
+{% codeblock lang:swift %}
+UIView.transitionFromView(fromView, toView: toView, duration: durantion, options: .TransitionCurlDown, completion: { _ in
+let isCancelled = transitionContext.transitionWasCancelled()
+transitionContext.completeTransition(!isCancelled)
+})
+{% endcodeblock %}</p>
+
+<h3 id="uiviewcontroller方式-在子-vc-间转换的方法">UIViewController方式：在子 VC 间转换的方法</h3>
+
+<p>该方法用 toVC 的视图转换 fromVC 的视图在父视图中的位置，并且执行<code>animations闭包</code>里的动画。
+{% codeblock lang:swift %}
+transitionFromViewController:toViewController:duration:options:animations:completion:
+{% endcodeblock %}
+该方法仅限于在自定义容器控制器里使用，如果直接使用 <code>UINavigationController</code> 和 <code>UITabBarController</code> 调用该方法执行子VC间转换会抛出异常。
+&gt;不过 iOS 7 中这两个容器控制器开放的自定义转场做的是同样的事情，回头再看第一章 Transition 解释，转场协议 API 将这个方法拆分成了上面的几个组件，并且加入了激动人心的交互控制，以便我们能够方便定制转场动画。</p>
+
+<p><a href="http://www.appcoda.com/presentation-controllers-tutorial/">原文</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%BD%AC%E5%9C%BA/">转场</a>
+          <a href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E9%AB%98%E6%9C%9F%E6%9C%9B%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">高期望实现异步单元测试</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ios/ios%E4%B8%AD%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B1%95%E7%A4%BA%E6%8E%A7%E5%88%B6%E5%99%A8%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">整理iOS中几种常用的展示型视图控制器</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2017-02-17 12:26:11 \x2b0000 UTC',
+        title: '自定义展示型控制器',
+        link: decodeURI(location.href),
+        desc: '{% github huos3203 PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

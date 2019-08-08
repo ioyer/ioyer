@@ -1,0 +1,77 @@
+@startuml
+
+title 巡查录入类图 
+center header
+分析录入架构业务
+endheader
+
+note left of YGPatrolViewController #red
+巡查录入的核心类
+end note
+
+package 操作层 {  
+class YGPatrolViewController{
+    --属性--
+    --函数--
+}
+    class MHLazyCollectionImages
+    class SearchRecordController
+    class CheckListViewController
+    class ShopsTableViewController
+    class SignViewController
+}
+
+package UI层{
+class MHLazyCollectionImageCell
+class WPCollectionViewCell
+class ZFStatusCollectionCell
+class TakePhotoCell
+class YGPatrolCell
+class RecordedCell
+class ShopListCell
+class BottomSheetCell
+class CheckListOptionCell
+class PatrolButton
+class JHTextView
+class BottomSheetView
+}
+package 数据层{
+package UI模型{
+
+}
+package 接口模型{ 
+
+}
+class CommonModel
+class ReqZhifaModel{
+    --接口--
+}
+class CheckModel
+class SignModel
+CommonModel <|-- ReqZhifaModel
+note left of ReqZhifaModel 
+    对巡查记录的执法的请求数据模型
+end note
+}
+package 网络层{ 
+        class YGPatrolServer{
+        }
+        class JHFileUpload
+        class SingletonUpload
+        class SingletonDownload
+}
+
+JHFileUpload --|> SingletonUpload:继承>
+note left on link #red
+    这是继承关系
+end note
+
+
+
+
+
+
+center footer
+结束
+endfooter
+@enduml

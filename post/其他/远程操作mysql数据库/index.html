@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>远程操作mysql数据库 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker" /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="远程操作mysql数据库" />
+<meta property="og:description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+<meta property="article:published_time" content="2017-05-24T17:07:47+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="远程操作mysql数据库">
+<meta itemprop="description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker">
+
+
+<meta itemprop="datePublished" content="2017-05-24T17:07:47&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="1395">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="远程操作mysql数据库"/>
+<meta name="twitter:description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">远程操作mysql数据库</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-05-24 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
+            </div>
+          <span class="more-meta"> 约 1395 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#腾讯云服务器">腾讯云服务器</a>
+<ul>
+<li><a href="#远程服务器的基本操作">远程服务器的基本操作</a></li>
+<li><a href="#docker下安装mysql数据库镜像">docker下安装mysql数据库镜像</a>
+<ul>
+<li><a href="#终端-单行登录mysql">终端：单行登录mysql</a></li>
+<li><a href="#进入mysql终端-访问数据库">进入mysql终端,访问数据库</a></li>
+<li><a href="#用户权限控制">用户权限控制</a></li>
+<li><a href="#数据库操作">数据库操作</a>
+<ul>
+<li><a href="#jira和数据库关联结果">jira和数据库关联结果</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="腾讯云服务器">腾讯云服务器</h2>
+
+<ol>
+<li><p>申请账户，体验5天，搭建一个jira服务，还有微信小程序服务</p></li>
+
+<li><p>需要在服务器上安装docker （腾讯服务器提供了一款支持docker的Ubuntu系统）</p></li>
+
+<li><p>想使用daocloud加速器，就要更新docker版本
+docker run &ndash;detach &ndash;publish 8080:8080 cptactionhank/atlassian-jira:latest
+http://[dockerhost]:8080 and finish the configuration</p></li>
+</ol>
+
+<h3 id="远程服务器的基本操作">远程服务器的基本操作</h3>
+
+<ol>
+<li>登录：<code>ssh -l username 服务ip／域名</code>
+ssh ubuntu@123.*<strong>.*.*6   5</strong>****RtH
+sudo docker pull cptactionhank/atlassian-jira</li>
+<li>服务器端拷贝文件目录
+scp -i localDir serveruser@serverip:serverDir</li>
+</ol>
+
+<h3 id="docker下安装mysql数据库镜像">docker下安装mysql数据库镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo docker pull mysql 
+sudo docker run --name jiradb -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>jiradb -d mysql/mysql-server:latest</code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>-name : 容器名
+MYSQL_ROOT_PASSWORD : 数据库密码
+-d : 镜像名:tag 版本</p>
+</blockquote>
+
+<h4 id="终端-单行登录mysql">终端：单行登录mysql</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo docker exec -it jiradb mysql -ujira -pjira</pre></td></tr></table>
+</div>
+</div>
+<h4 id="进入mysql终端-访问数据库">进入mysql终端,访问数据库</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo docker exec -it jiradb bash
+#登录数据库  默认用户root 密码为空，如果前边设置了MYSQL_ROOT_PASSWORD的值，则需要密码
+mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
+回车
+输入密码：jiradb  #就是$MYSQL_ROOT_PASSWORD的值
+即登录</pre></td></tr></table>
+</div>
+</div>
+<h4 id="用户权限控制">用户权限控制</h4>
+
+<ol>
+<li><p>查看sql服务器的状态：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">status;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>创建用户名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">create user jira identified by &#39;jira&#39;;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>赋予权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">grant all privileges on *.* to &#39;jira&#39;@&#39;%&#39; identified by &#39;jira&#39; with grant option;
+grant all privileges on *.* to &#39;jira&#39;@&#39;localhost&#39; identified by &#39;jira&#39; with grant option;
+flush privileges;
+quit;</pre></td></tr></table>
+</div>
+</div>
+<h4 id="数据库操作">数据库操作</h4></li>
+
+<li><p>创建数据库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">create database jiradb character set &#39;UTF8&#39;;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>查看当前数据库名：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">select database();</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>切换指定数据库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">use jiradb;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>查看数据库表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">show tables;</pre></td></tr></table>
+</div>
+</div>
+<p>创建表</p></li>
+</ol>
+
+<h5 id="jira和数据库关联结果">jira和数据库关联结果</h5>
+
+<p>无法通过 docker 中mysql镜像的盒子来实现jira和数据库关联：
+从另一个容器中的应用来访问jiradb容器中的mysql服务：没成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Connect to MySQL from an application in another Docker container
+sudo docker run --name jirad --link jiradb:mysql/mysql-server -d cptactionhank/atlassian-jira:latest
+````
+
+最终采用在ubuntu系统中安装mysql：</pre></td></tr></table>
+</div>
+</div>
+<p>$sudo apt-get -y install mysql-server</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="err">##</span><span class="nx">问题</span><span class="err">：</span><span class="nx">Could</span> <span class="nx">not</span> <span class="nx">reach</span> <span class="nx">any</span> <span class="nx">registry</span> <span class="nx">endpoint</span>
+<span class="nx">安装Linux加速器</span><span class="err">：</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">sSL</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//get.daocloud.io/daotools/set_mirror.sh | sh -s http://142900b5.m.daocloud.io
+</span><span class="c1"></span><span class="nx">该脚本可以将</span> <span class="o">--</span><span class="nx">registry</span><span class="o">-</span><span class="nx">mirror</span> <span class="nx">加入到你的</span> <span class="nx">Docker</span> <span class="nx">配置文件</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="nx">docker</span> <span class="nx">中</span><span class="err">。</span><span class="nx">适用于</span> <span class="nx">Ubuntu14</span><span class="mf">.04</span><span class="err">、</span><span class="nx">Debian</span><span class="err">、</span><span class="nx">CentOS6</span> <span class="err">、</span><span class="nx">CentOS7</span><span class="err">、</span><span class="nx">Fedora</span><span class="err">、</span><span class="nx">Arch</span> <span class="nx">Linux</span><span class="err">、</span><span class="nx">openSUSE</span> <span class="nx">Leap</span> <span class="mf">42.1</span><span class="err">，</span><span class="nx">其他版本可能有细微不同</span><span class="err">。</span>
+<span class="nx">ubuntu</span> <span class="nx">系统安装daocloud检测工具</span><span class="err">：</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">sSL</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//get.daocloud.io/daomonit/install.sh | sh -s d0312f829e9807ee0bf157cdc9c9cca42380395c 
+</span><span class="c1"></span>
+<span class="err">###</span> <span class="nx">更新服务器上的docker</span>
+<span class="p">[</span><span class="nx">官网教程</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites-by-ubuntu-version)
+</span><span class="c1"></span><span class="err">###</span> <span class="nx">Update</span> <span class="nx">your</span> <span class="nx">apt</span> <span class="nx">sources</span>
+<span class="nx">To</span> <span class="nx">set</span> <span class="nx">APT</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">packages</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">Docker</span> <span class="nx">repository</span><span class="p">:</span>
+<span class="mf">1.</span> <span class="nx">Log</span> <span class="nx">into</span> <span class="nx">your</span> <span class="nx">machine</span> <span class="nx">as</span> <span class="nx">a</span> <span class="nx">user</span> <span class="nx">with</span> <span class="nx">sudo</span> <span class="nx">or</span> <span class="nx">root</span> <span class="nx">privileges</span><span class="p">.</span>
+<span class="mf">2.</span> <span class="nx">Open</span> <span class="nx">a</span> <span class="nx">terminal</span> <span class="nx">window</span><span class="p">.</span>
+<span class="mf">3.</span> <span class="nx">Update</span> <span class="kn">package</span> <span class="nx">information</span><span class="p">,</span> <span class="nx">ensure</span> <span class="nx">that</span> <span class="nx">APT</span> <span class="nx">works</span> <span class="nx">with</span> <span class="nx">the</span> <span class="nx">https</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">that</span> <span class="nx">CA</span> <span class="nx">certificates</span> <span class="nx">are</span> <span class="nx">installed</span><span class="p">.</span></pre></td></tr></table>
+</div>
+</div>
+<p>bash
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">4. Docker资源库
+|Ubuntu version|	Repository|
+|---|----|
+|Precise 12.04 (LTS)|deb https://apt.dockerproject.org/repo ubuntu-precise main|
+|Trusty 14.04 (LTS)	|deb https://apt.dockerproject.org/repo ubuntu-trusty main|
+|Wily 15.10         |deb https://apt.dockerproject.org/repo ubuntu-wily main|
+|Xenial 16.04 (LTS)	|deb https://apt.dockerproject.org/repo ubuntu-xenial main|
+&gt;Note: Docker does not provide packages for all architectures. Binary artifacts are built nightly, and you can download them from https://master.dockerproject.org. To install docker on a multi-architecture system, add an [arch=...] clause to the entry. Refer to Debian Multiarch wiki for details.
+5. 导入库 
+&lt;REPO&gt; = deb https://apt.dockerproject.org/repo ubuntu-precise main</pre></td></tr></table>
+</div>
+</div>
+<p>bash
+$ echo &ldquo;<REPO>&rdquo; | sudo tee /etc/apt/sources.list.d/docker.list</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="err">`</span>
+<span class="mf">6.</span><span class="nx">Update</span> <span class="nx">the</span> <span class="nx">APT</span> <span class="kn">package</span> <span class="nx">index</span><span class="p">.</span></pre></td></tr></table>
+</div>
+</div>
+<p>$ sudo apt-get update
+```
+7.Verify that APT is pulling from the right repository.
+When you run the following command, an entry is returned for each version of Docker that is available for you to install. Each entry should have the URL <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a>. The version currently installed is marked with ***.The output below is truncated.</p>
+
+<p>$ apt-cache policy docker-engine</p>
+
+<p>docker-engine:
+Installed: 1.12.2-0~trusty
+Candidate: 1.12.2-0~trusty
+Version table:
+*** 1.12.2-0~trusty 0
+500 <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a> ubuntu-trusty/main amd64 Packages
+100 /var/lib/dpkg/status
+1.12.1-0~trusty 0
+500 <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a> ubuntu-trusty/main amd64 Packages
+1.12.0-0~trusty 0
+500 <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a> ubuntu-trusty/main amd64 Packages</p>
+
+<p>From now on when you run apt-get upgrade, APT pulls from the new repository.</p>
+
+<p>To upgrade your kernel and install the additional packages, do the following:</p>
+
+<p>Open a terminal on your Ubuntu host.
+Update your package manager.
+$ sudo apt-get update
+Install both the required and optional packages.
+$ sudo apt-get install linux-image-generic-lts-trusty
+Repeat this step for other packages you need to install.
+Reboot your host to use the updated kernel.
+$ sudo reboot
+After your system reboots, go ahead and install Docker.</p>
+
+<p>Install the latest version
+Make sure you have satisfied all the prerequisites, then follow these steps.</p>
+
+<p>Note: For production systems, it is recommended that you install a specific version so that you do not accidentally update Docker. You should plan upgrades for production systems carefully.
+Log into your Ubuntu installation as a user with sudo privileges.
+Update your APT package index.
+$ sudo apt-get update
+Install Docker.
+$ sudo apt-get install docker-engine
+Start the docker daemon.
+$ sudo service docker start
+Verify that docker is installed correctly by running the hello-world image.
+$ sudo docker run hello-world
+This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/calibre%E4%B8%80%E7%AB%99%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">calibre一站式电子书解决方案</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/ios%E5%92%8Cosx%E9%9B%86%E6%88%90gitapi/">
+            <span class="next-text nav-default">iOS和OSX集成gitAPI</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2017-05-24 17:07:47 \x2b0000 UTC',
+        title: '远程操作mysql数据库',
+        link: decodeURI(location.href),
+        desc: '腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

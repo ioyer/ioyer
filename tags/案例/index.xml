@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>案例 on Even - A super concise theme for Hugo</title>
+    <link>https://huos3203.github.io/tags/%E6%A1%88%E4%BE%8B/</link>
+    <description>Recent content in 案例 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Jul 2014 17:29:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://huos3203.github.io/tags/%E6%A1%88%E4%BE%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TextKit之便笺实战</title>
+      <link>https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Thu, 03 Jul 2014 17:29:00 +0800</pubDate>
+      
+      <guid>https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</guid>
+      <description>&lt;h2 id=&#34;便笺练习功能点&#34;&gt;便笺练习功能点:&lt;/h2&gt;
+
+&lt;p&gt;通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
+  * 动态样式（Dynamic type）&lt;br /&gt;
+  * 凸版印刷效果（Letterpress effects）&lt;br /&gt;
+  * 环绕路径（Exclusion paths）&lt;br /&gt;
+  * 动态文本格式及存储（Dynamic text formatting and storage）&lt;/p&gt;
+
+&lt;p&gt;这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
+效果图:&lt;br /&gt;
+&lt;img src=&#34;https://huos3203.github.io/images/bianqian.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+App开始运行后自动生成一组便笺实例并利用&lt;code&gt;tableViewController&lt;/code&gt;显示出来。&lt;code&gt;Storyboards&lt;/code&gt;和&lt;code&gt;segues&lt;/code&gt;会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
+项目开发包：&lt;a href=&#34;http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip&#34;&gt;Notepad.zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;动态样式&#34;&gt;动态样式&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;动态样式（Dynamic type）&lt;/code&gt;是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
+选择 &lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt; 或 &lt;strong&gt;通用-&amp;gt;辅助功能&lt;/strong&gt; 来查看app中的字体设置。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://huos3203.github.io/images/UserTextPreferences.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+iOS 7 支持通过&lt;code&gt;粗体&lt;/code&gt;、&lt;code&gt;设置字体大小&lt;/code&gt;等方式提高支持动态文本的应用的易读性。
+例如&lt;strong&gt;&lt;code&gt;UIFont&lt;/code&gt;&lt;/strong&gt;新增的一个方法： &lt;strong&gt;&lt;code&gt;preferredFontForTextStyle&lt;/code&gt;&lt;/strong&gt; 用来根据用户对字体大小的设置来自动制定字体样式。&lt;br /&gt;
+下面表格中是六种可用字体样式的示例：&lt;br /&gt;
+&lt;img src=&#34;https://huos3203.github.io/images/TextStyles.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。&lt;/p&gt;
+
+&lt;h3 id=&#34;使用系统动态字体样式&#34;&gt;使用系统动态字体样式&lt;/h3&gt;
+
+&lt;p&gt;使用动态文本，是通过给&lt;code&gt;文本字体&lt;/code&gt;设置字体样式&lt;strong&gt;style&lt;/strong&gt;而不是指定具体的&lt;code&gt;字体名称&lt;/code&gt;和&lt;code&gt;大小&lt;/code&gt;。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。&lt;/p&gt;
+
+&lt;h4 id=&#34;preferredfontfortextstyle-方法设置字体样式&#34;&gt;&lt;code&gt;preferredFontForTextStyle:&lt;/code&gt;方法设置字体样式&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;打开 &lt;code&gt;NoteEditorViewController.m/swift&lt;/code&gt; 在&lt;code&gt;viewDidLoad：&lt;/code&gt;方法实现的最后面加入以下代码：
+{%codeblock lang:objc%}
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+{%endcodeblock%}
+{% codeblock  lang:swift %}
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+{% endcodeblock %}&lt;/li&gt;
+&lt;li&gt;打开 &lt;code&gt;NotesListViewController.m/swift&lt;/code&gt; 在 &lt;code&gt;tableView:cellForRowAtIndexPath:&lt;/code&gt; 方法中增加如下代码:
+{%codeblock lang:objc%}
+cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+{%endcodeblock%}
+{% codeblock  lang:swift %}
+cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+{% endcodeblock %}
+上面两行代码都用到了新版iOS的字体样式.&lt;br /&gt;
+&amp;gt; 字体样式：通过语义法命名字体，例如 &lt;code&gt;UIFontTextStyleSubHeadline&lt;/code&gt;, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;app响应用户字体设置&#34;&gt;APP响应用户字体设置&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;设置系统字体
+返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置.
+再运行App, &lt;strong&gt;Note&lt;/strong&gt;页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。&lt;br /&gt;
+&lt;img src=&#34;https://huos3203.github.io/images/NotepadWithDynamicType.png&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;设置系统字体生效
+当我们返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置. 再打开&lt;strong&gt;Note&lt;/strong&gt;页面, 会发现app并没有&lt;strong&gt;立即&lt;/strong&gt;对字体设置的变化做出相应反应。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&#34;监听系统通知-实现app响应用户字体设置&#34;&gt;监听系统通知：实现APP响应用户字体设置&lt;/h5&gt;
+
+&lt;p&gt;当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，&lt;code&gt;preferredFontForTextStyle:&lt;/code&gt;方法返回的字体也会变化。
+1. 添加监听系统通知&lt;code&gt;UIContentSizeCategoryDidChangeNotification&lt;/code&gt;通知APP响应用户字体设置的变化
+打开 &lt;code&gt;NoteEditorViewController.m&lt;/code&gt; 并在 &lt;code&gt;viewDidLoad&lt;/code&gt; 方法的实现的最后加入以下代码：
+{%codeblock lang:objc%}
+[[NSNotificationCenter defaultCenter]
+                              addObserver:self
+                                 selector:@selector(preferredContentSizeChanged:)
+                                     name:UIContentSizeCategoryDidChangeNotification
+                                   object:nil];
+{%endcodeblock%}
+{%codeblock lang:swift%}
+//字体变化通知:调用preferredContentSizeChanged:方法
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(&lt;em&gt;:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+{%endcodeblock%}
+2. 添加系统通知响应事件
+收到用于指定本类接收字体设定变化的通知后，调用&lt;code&gt;preferredContentSizeChanged:&lt;/code&gt;方法
+在&lt;code&gt;NoteEditorViewController.m&lt;/code&gt;中&lt;code&gt;viewDidLoad&lt;/code&gt;方法之后紧接着添加以下方法：
+{%codeblock lang:objc%}
+- (void)preferredContentSizeChanged:(NSNotification *)notification
+{
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+{%endcodeblock%}
+{%codeblock lang:swift %}
+//字体变化通知时调用
+func preferredContentSizeChanged(&lt;/em&gt; notification:NSNotification)
+{
+    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+}
+{%endcodeblock%}
+这一方法作用是根据新的字体设置来设定&lt;code&gt;textView&lt;/code&gt;中的字体。&lt;br /&gt;
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

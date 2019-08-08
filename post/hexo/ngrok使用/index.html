@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ngrok使用 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="iTBoyer" /><meta name="description" content="注册 1.注册https://ngrok.com/signup 1. Start by downloading ngrok. 2. Install your authtoken 1 ./ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ***** Create your first secure tunnel 1 ./ngrok http 80 Open the web interface at http://localhost:4040 to inspect and replay requests Read the documentation for instructions on advanced" /><meta name="keywords" content="Hugo, swift, org-mode" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://huos3203.github.io/post/hexo/ngrok%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ngrok使用" />
+<meta property="og:description" content="注册 1.注册https://ngrok.com/signup 1. Start by downloading ngrok. 2. Install your authtoken 1 ./ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ***** Create your first secure tunnel 1 ./ngrok http 80 Open the web interface at http://localhost:4040 to inspect and replay requests Read the documentation for instructions on advanced" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huos3203.github.io/post/hexo/ngrok%E4%BD%BF%E7%94%A8/" />
+<meta property="article:published_time" content="2017-09-06T12:23:24+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta itemprop="name" content="ngrok使用">
+<meta itemprop="description" content="注册 1.注册https://ngrok.com/signup 1. Start by downloading ngrok. 2. Install your authtoken 1 ./ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ***** Create your first secure tunnel 1 ./ngrok http 80 Open the web interface at http://localhost:4040 to inspect and replay requests Read the documentation for instructions on advanced">
+
+
+<meta itemprop="datePublished" content="2017-09-06T12:23:24&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="wordCount" content="1125">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ngrok使用"/>
+<meta name="twitter:description" content="注册 1.注册https://ngrok.com/signup 1. Start by downloading ngrok. 2. Install your authtoken 1 ./ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ***** Create your first secure tunnel 1 ./ngrok http 80 Open the web interface at http://localhost:4040 to inspect and replay requests Read the documentation for instructions on advanced"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签🏷️</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签🏷️</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ngrok使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-09-06 </span>
+        <div class="post-category">
+            <a href="/categories/hexo/"> hexo </a>
+            </div>
+          <span class="more-meta"> 约 1125 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#注册">注册</a></li>
+<li><a href="#开启tcp协议">开启TCP协议</a></li>
+<li><a href="#强大的tunnel-隧道-工具部署原理">强大的tunnel(隧道)工具部署原理</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h3 id="注册">注册</h3>
+
+<p>1.注册<a href="https://ngrok.com/signup">https://ngrok.com/signup</a>
+1. Start by <a href="https://ngrok.com/download">downloading ngrok</a>.
+2. Install your authtoken</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ*****</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li><p>Create your first secure tunnel</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./ngrok http 80</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>Open the web interface at <a href="http://localhost:4040">http://localhost:4040</a> to inspect and replay requests</p></li>
+
+<li><p>Read the documentation for instructions on advanced features like adding HTTP authentication, setting custom subdomains and more.</p>
+
+<h3 id="开启tcp协议">开启TCP协议</h3></li>
+
+<li><p>开启TCP实现SSH远程访问. <a href="https://ngrok.com/docs#tcp">详见</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">./ngrok tcp 22</pre></td></tr></table>
+</div>
+</div>
+<p>如图：
+&gt; 每当执行开启命令，端口就会随机生成最新的。</p></li>
+
+<li><p>配置SSH远程工具
+自定义SSH名：ngrok
+SSH域名地址：0.tcp.ngrok.io  (ngrok提供的免费域名，IP地址ping就变新)
+SSH端口号：16335 （每次重新启动时需更新）
+用户名称/密码: 电脑管理员账户/密码</p></li>
+
+<li><p>手机热点访问远程内网电脑
+连接前准备：</p>
+
+<ol>
+<li>使用“网络实用工具”扫描<code>0.tcp.ngrok.io</code>域名，确保当前网络16335端口开启</li>
+<li>备选方案，使用手机热点分享，来访问内网电脑，进行连通测试。</li>
+</ol></li>
+
+<li><p>连接成功。
+总结：可以使用ngrok客户端，开启tcp协议端口，实现SSH远程控制，在不要求过高的网速和安全，可以不搭建ngrok服务器。</p></li>
+</ol>
+
+<h3 id="强大的tunnel-隧道-工具部署原理">强大的tunnel(隧道)工具部署原理</h3>
+
+<p><a href="http://tonybai.com/2015/05/14/ngrok-source-intro/">部署</a>
+ngrok在其github官方页面上的自我诠释是 “introspected tunnels to localhost&rdquo;，这个诠释有两层含义：
+1、可以用来建立public到localhost的tunnel，让居于内网主机上的服务可以暴露给public，俗称内网穿透。
+2、支持对隧道中数据的introspection（内省），支持可视化的观察隧道内数据，并replay（重放）相关请求（诸如http请 求）。
+因此ngrok可以很便捷的协助进行服务端程序调试，尤其在进行一些Web server开发中。ngrok更强大的一点是它支持tcp层之上的所有应用协议或者说与应用层协议无关。比如：你可以通过ngrok实现ssh登录到内 网主 机，也可以通过ngrok实现远程桌面(VNC)方式访问内网主机。</p>
+
+<p>一、ngrok tunnel与ngrok部署</p>
+
+<p>网络tunnel（隧道）对多数人都是很”神秘“的概念，tunnel种类很多，没有标准定义，我了解的也不多（日常工作较少涉及），这里也就不 深入了。在《HTTP权威指南》中有关于HTTP tunnel（http上承载非web流量）和SSL tunnel的说明，但ngrok中的tunnel又与这些有所不同。</p>
+
+<p>ngrok实现了一个tcp之上的端到端的tunnel，两端的程序在ngrok实现的Tunnel内透明的进行数据交互。
+<img src="http://tonybai.com/wp-content/uploads/ngrok-tunnel.png" alt="" />
+ngrok分为client端(ngrok)和服务端(ngrokd)，实际使用中的部署如下：
+<img src="http://tonybai.com/wp-content/uploads/ngrok-deployment.png" alt="" />
+内网服务程序可以与ngrok client部署在同一主机，也可以部署在内网可达的其他主机上。ngrok和ngrokd会为建立与public client间的专用通道（tunnel）。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">iTBoyer</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-08
+        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/macos/%E6%94%AF%E6%8C%81osx%E6%B5%8F%E8%A7%88pdf%E7%AE%80%E5%8D%95%E8%A7%86%E5%9B%BE/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">支持OSX浏览PDF简单视图</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E9%98%85%E8%AF%BB/%E6%90%9E%E5%AE%9Aiii%E7%9B%AE%E5%BD%95%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">搞定III目录笔记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2017-09-06 12:23:24 \x2b0000 UTC',
+        title: 'ngrok使用',
+        link: decodeURI(location.href),
+        desc: '注册 1.注册https:\/\/ngrok.com\/signup 1. Start by downloading ngrok. 2. Install your authtoken 1 .\/ngrok authtoken 2tpoyojTzL5w55Y4na5DY_3shJgaMVzjJ***** Create your first secure tunnel 1 .\/ngrok http 80 Open the web interface at http:\/\/localhost:4040 to inspect and replay requests Read the documentation for instructions on advanced',
+        owner: 'huos3203',
+        repo: 'huos3203.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+  
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="huos3203/huos3203.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">iTBoyer</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
