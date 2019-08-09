@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-09T14:00:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T15:22:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -123,6 +123,139 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-19 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+          </div>
+        <span class="more-meta"> 约 1711 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <ol>
+<li><a href="#Stashing">Stashing</a></li>
+<li><a href="#work">储藏工作</a></li>
+<li><a href="#apply">应用储藏</a></li>
+<li><a href="#applyIndex">被暂存的文件重新暂存</a></li>
+<li><a href="#drop">应用后，移除储藏的内容</a></li>
+<li><a href="#unapply">取消储藏(Un-applying a Stash)</a></li>
+<li><a href="#stash-unapply">新建stash-unapply别名</a></li>
+<li><a href="#stashBranch">从储藏中创建分支</a>
+<br /></li>
+</ol>
+
+<h3 id="a-name-stashing-git工具-储藏-stashing-a-git"><a name="Stashing">Git工具 - 储藏（Stashing）</a>git</h3>
+
+<hr />
+
+<p><a href="https://git-scm.com/book/zh/v2/Git-工具-储藏与清理">原文</a>
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
+
+<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
+
+<p>解决：<strong><font color="red">git stash </font></strong>命令。</p>
+
+<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
+
+<h3 id="a-name-work-储藏工作-a"><a name="work">储藏工作</a></h3>
+
+<hr />
+
+<ol>
+<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
+
+<li><p><strong><font color="red">git status </font></strong>命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status</p>
+
+<h1 id="on-branch-master">On branch master</h1>
+
+<h1 id="changes-to-be-committed">Changes to be committed:</h1>
+
+<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <file>&hellip;&rdquo; to unstage)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html">modified:   index.html</h1>
+
+<p>#</p>
+
+<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-lib-simplegit-rb">modified:   lib/simplegit.rb</h1>
+
+<p>#
+{%endcodeblock%}</p></li>
+
+<li><p>切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行<strong><font color="red">git stash </font></strong>命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state <br />
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}</p></li>
+
+<li><p>执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。</p></li>
+
+<li><p>使用<strong><font color="red">git stash list</font></strong>要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
+
+<h3 id="a-name-apply-应用储藏-a"><a name="apply">应用储藏</a></h3>
+
+<hr />
+
+<p>执行<strong><font color="red">git stash apply</font></strong>命令, 可以重新应用最近的一次储藏；
+执行<strong><font color="red">git stash apply stash@{2}</font></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply</p>
+
+<h1 id="on-branch-master-1">On branch master</h1>
+
+<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
+
+<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <file>&hellip;&rdquo; to update what will be committed)</h1>
+
+<p>#</p>
+
+<h1 id="modified-index-html-1">modified:   index.html</h1>
+
+<h1 id="modified-lib-simplegit-rb-1">modified:   lib/simplegit.rb</h1>
+
+<p>#
+{%endcodeblock%}</p></li>
+</ol>
+    </div>
+    <div class="read-more">
+      <a href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">XMPP简单研究[转]</a></h1>
@@ -322,42 +455,6 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
     </div>
     <div class="read-more">
       <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/storyboard%E4%B9%8Bsegue/">Storyboard之Segue</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-22 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/sb/"> SB </a>
-          </div>
-        <span class="more-meta"> 约 1390 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h5 id="segue原理">Segue原理:</h5>
-
-<p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
-
-<ol>
-<li>实例化目标视图控制器</li>
-<li>实例化一个新segue对象，该对象持有所有的信息</li>
-<li>调用源视图控制器的prepareForSegue:sender:方法，</li>
-<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br />
-这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。</li>
-</ol>
-
-<p>在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ui/storyboard%E4%B9%8Bsegue/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

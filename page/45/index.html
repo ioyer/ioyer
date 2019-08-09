@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-09T14:00:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T15:22:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -123,6 +123,90 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">swift错误处理</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-01-11 </span>
+      <div class="post-category">
+          <a href="/categories/swift/"> swift </a>
+          <a href="/categories/%E8%AF%AD%E6%B3%95/"> 语法 </a>
+          </div>
+        <span class="more-meta"> 约 4578 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
+Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.
+As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.
+举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。</p>
+
+<h1 id="representing-and-throwing-errors">Representing and Throwing Errors</h1>
+
+<p>In Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.
+在swift中，错误类型是遵循Error 协议。</p>
+
+<p>Swift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:
+swift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：
+一个在操作一台游戏机时的会出现的错误枚举类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">invalidSelection</span>
+<span class="k">case</span> <span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
+<span class="k">case</span> <span class="n">outOfStock</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:
+抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h1 id="handling-errors">Handling Errors</h1>
+
+<p>When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.
+当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。</p>
+
+<p>There are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.
+在swift中有四种处理错误机制:
+    1. 向调用方法中传递这个错误
+    2. 使用do-catch语句处理
+    3. 把错误设置为可选型
+    4.断言不会出现异常的情况下，使用try!禁止异常抛出</p>
+
+<p>When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.
+当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字<code>try</code> 要注意 <code>try?</code>或<code>try!</code>之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。</p>
+
+<h2 id="propagating-errors-using-throwing-functions">Propagating Errors Using Throwing Functions</h2>
+
+<p>To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&gt;).
+函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：<code>throws</code>即可，这种方法被称为<code>throws</code>函数，<code>throws</code>关键字位置在参数之后，返回值(-&gt;)之前</p>
+
+<p>A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
+抛出函数会把错误抛给调用它的函数周期中去。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8oc%E5%92%8Cswift%E4%B8%AD%E5%8C%BA%E5%88%86%E5%A4%9A%E4%B8%AAtargets/">在OC和swift中区分多个targets</a></h1>
@@ -263,29 +347,6 @@
     </div>
     <div class="read-more">
       <a href="/post/hexo/hackmd%E4%BD%BF%E7%94%A8/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/hexo/hexo-hello-world/">Hexo-hello-world</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-12-20 </span>
-      <div class="post-category">
-          <a href="/categories/hexo/"> hexo </a>
-          </div>
-        <span class="more-meta"> 约 1066 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      什么是 Hexo？ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成
-    </div>
-    <div class="read-more">
-      <a href="/post/hexo/hexo-hello-world/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
