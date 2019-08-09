@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-09T11:47:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T14:00:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -61,6 +61,17 @@
   <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
 <![endif]-->
+
+<script>
+    (function(){
+     if(''){
+     if (prompt('请输入文章密码') !== ''){
+     alert('密码错误！');
+     history.back();
+     }
+     }
+     })();
+</script>
 
 </head>
 <body>
@@ -112,6 +123,29 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/shell/%E5%AE%89%E8%A3%85ruby%E5%8F%8Achruby%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">安装ruby及chruby版本管理</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-19 </span>
+      <div class="post-category">
+          <a href="/categories/shell/"> shell </a>
+          </div>
+        <span class="more-meta"> 约 365 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      {% github postmodern ruby-install ea2b8bb width = 30% %} 安装工具ruby-install 1 $ brew install ruby-install 安装指定 Ruby 版本 方式一：使用Homebrew安装 1 2 $ ruby-install ruby 2.4.1 $ ruby-install --system ruby #覆盖系统版本
+    </div>
+    <div class="read-more">
+      <a href="/post/shell/%E5%AE%89%E8%A3%85ruby%E5%8F%8Achruby%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/hexo/%E7%94%A8hexo%E5%81%9A%E4%B8%AA%E4%BA%BAwiki%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">用Hexo做个人Wiki知识管理系统</a></h1>
@@ -200,29 +234,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E8%B0%83%E8%AF%95/xcode%E8%B0%83%E8%AF%95%E4%B8%AD%E5%BC%95%E7%94%A8python%E8%84%9A%E6%9C%AC/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/">CommandLineTool使用pod依赖库开发</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-16 </span>
-      <div class="post-category">
-          <a href="/categories/macos/"> macOS </a>
-          </div>
-        <span class="more-meta"> 约 550 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods + Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项
-    </div>
-    <div class="read-more">
-      <a href="/post/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
