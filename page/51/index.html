@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-09T15:22:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T15:30:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -123,6 +123,80 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-06-17 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/%E8%AE%BE%E5%A4%87/"> 设备 </a>
+          </div>
+        <span class="more-meta"> 约 818 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="uidevice-h">UIDevice.h</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc 设备的基本属性" data-lang="objc 设备的基本属性"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc 设备的基本属性" data-lang="objc 设备的基本属性">+ (UIDevice *)currentDevice; 		  // 获取当前设备
+
+NSString    *name;               	  // e.g. &#34;My iPhone&#34;  
+NSString    *model;              	  // e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
+NSString    *localizedModel;     	  // localized version of model  
+NSString    *systemName;     		  // e.g. @&#34;iOS&#34;  
+NSString    *systemVersion;   	  // e.g. @&#34;4.0&#34;  
+UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
+NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-objc 方向属性值" data-lang="objc 方向属性值"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc 方向属性值" data-lang="objc 方向属性值">    UIDeviceOrientationUnknown,
+    UIDeviceOrientationPortrait,                    // 竖向，头向上
+    UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
+    UIDeviceOrientationLandscapeLeft,         		// 横向，头向左
+    UIDeviceOrientationLandscapeRight,       		// 横向，头向右
+    UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
+    UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下</code></pre></td></tr></table>
+</div>
+</div>
+<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br />
+{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
+#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
+{%endcodeblock %}
+{%codeblock lang:java 横向宏定义,返回YES:横向%}
+#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
+{%endcodeblock%}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/">IOS7新宠TextKit</a></h1>
@@ -224,29 +298,6 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/">初步搭建Octopress</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-09 </span>
-      <div class="post-category">
-          <a href="/categories/hexo/"> hexo </a>
-          </div>
-        <span class="more-meta"> 约 3015 字 </span>
-        <span class="more-meta"> 预计阅读 7 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      软件支持： Github:后台新建项目，点击下载 iTerm2:可以替代mac终端，相当强大。下载 ruby:ruby安装包 下载 Mou:MarkD
-    </div>
-    <div class="read-more">
-      <a href="/post/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -254,7 +305,10 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/52/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
