@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" />
@@ -42,9 +42,8 @@
 <meta property="og:description" content="tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version&#43;=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" />
-<meta property="article:published_time" content="2018-06-20T17:22:37&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-06-20T17:22:37+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="使用tag管理多个相关组件的版本发布">
 <meta itemprop="description" content="tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version&#43;=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag">
 
@@ -198,13 +197,17 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-git" data-lang="git">git tag -f v1.0.2.8</code></pre></td></tr></table>
 </div>
+</div></li>
+
+<li><p>服务器已有v1.0.2.8，强制推到服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-git" data-lang="git"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-git" data-lang="git">git push origin -f v1.0.2.8</code></pre></td></tr></table>
 </div>
-<ol>
-<li>服务器已有v1.0.2.8，强制推到服务器
-<code>git
-git push origin -f v1.0.2.8
-</code></li>
-</ol></li>
+</div></li>
 
 <li><p>同步服务器：获取服务器刚刚的v1.0.2.8</p>
 <div class="highlight"><div class="chroma">
@@ -225,13 +228,17 @@ git push origin -f v1.0.2.8
 <td class="lntd">
 <pre class="chroma"><code class="language-git" data-lang="git">git tag -d v1.0.2.8</code></pre></td></tr></table>
 </div>
+</div></li>
+
+<li><p>删除服务器上的分支(用空版本覆盖)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="ss">:v1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">8</span></code></pre></td></tr></table>
 </div>
-<ol>
-<li>删除服务器上的分支(用空版本覆盖)
-<code>ruby
-git push origin :v1.0.2.8
-</code></li>
-</ol></li>
+</div></li>
 
 <li><p>服务器获取刚刚的v1.0.2.8</p>
 <div class="highlight"><div class="chroma">
@@ -357,7 +364,6 @@ git push origin :v1.0.2.8
   </span>
 </div>
 
-#添加下面代码
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>

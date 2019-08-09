@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/shell%E5%91%BD%E4%BB%A4%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/shell%E5%91%BD%E4%BB%A4%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" />
-<meta property="article:published_time" content="2017-06-23T10:32:45&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-06-23T10:32:45+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="shell命令处理字符串">
 <meta itemprop="description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字">
 
 
 <meta itemprop="datePublished" content="2017-06-23T10:32:45&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="378">
+<meta itemprop="wordCount" content="375">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 378 字 </span>
+          <span class="more-meta"> 约 375 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -194,15 +193,20 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">categories</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">line</span><span class="p">%%/*</span><span class="si">}</span><span class="s2">&#34;</span>  <span class="c1"># %%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符</span></code></pre></td></tr></table>
 </div>
+</div></li>
+
+<li><p>截取文件名称：shell命令处理字符串
+先删除最左边的“shell/”,再删除最右边的“.md”</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">titlemd</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">line</span><span class="p">##*/</span><span class="si">}</span><span class="s2">&#34;</span>   <span class="c1"># ##*/: 删除&#34;/&#34;左边所有字段即&#34;shell/&#34;</span>
+<span class="nv">title</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">titlemd</span><span class="p">%%</span><span class="se">\.</span><span class="p">*</span><span class="si">}</span><span class="s2">&#34;</span> <span class="c1"># 删除.md文件后缀</span></code></pre></td></tr></table>
 </div>
-<ol>
-<li>截取文件名称：shell命令处理字符串
-先删除最左边的“shell/”,再删除最右边的“.md”
-<code>sh
-titlemd=&quot;${line##*/}&quot;   # ##*/: 删除&quot;/&quot;左边所有字段即&quot;shell/&quot;
-title=&quot;${titlemd%%\.*}&quot; # 删除.md文件后缀
-</code></li>
-</ol></li>
+</div></li>
 </ol>
 
     </div>
@@ -318,7 +322,6 @@ title=&quot;${titlemd%%\.*}&quot; # 删除.md文件后缀
   </span>
 </div>
 
-#添加下面代码
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>

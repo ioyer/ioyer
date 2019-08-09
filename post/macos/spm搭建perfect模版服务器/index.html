@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
-<meta property="article:published_time" content="2018-10-02T11:13:35&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-02T11:13:35+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SPM搭建Perfect模版服务器">
 <meta itemprop="description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主">
 
 
 <meta itemprop="datePublished" content="2018-10-02T11:13:35&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1722">
+<meta itemprop="wordCount" content="1713">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 1722 字 </span>
+          <span class="more-meta"> 约 1713 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -156,6 +155,10 @@
 <li><a href="#搭建http服务器">搭建HTTP服务器</a>
 <ul>
 <li><a href="#创建web应用">创建Web应用</a></li>
+</ul></li>
+<li><a href="#设置-perfect-httpserver-服务器">设置<strong>Perfect HTTPServer</strong>服务器</a>
+<ul>
+<li><a href="#注册路由和请求-响应句柄">注册路由和请求／响应句柄</a></li>
 </ul></li>
 <li><a href="#使用xcode调试服务器">使用Xcode调试服务器</a>
 <ul>
@@ -224,59 +227,89 @@ $ cd iPerfect</pre></td></tr></table>
 
 <li><p>配置依赖
 打开<code>Package.swift</code>文件进行编辑：
-该文件在要求Swift编译的最低版本为<code>3.0.0</code>，设置<code>target</code>编译依存库<code>PerfectHTTPServer</code>
-``` swift
-// swift-tools-version:4.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.</p></li>
-</ol>
-
-<p>import PackageDescription</p>
-
-<p>let package = Package(
-name: &ldquo;iPerfect&rdquo;,
-    dependencies: [
-        .package(url: &ldquo;<a href="https://github.com/PerfectlySoft/Perfect-HTTPServer.git&quot;">https://github.com/PerfectlySoft/Perfect-HTTPServer.git&quot;</a>, from: &ldquo;3.0.0&rdquo;)
-    ],
-    targets: [
-    .target(
-        name: &ldquo;iPerfect&rdquo;,
-        dependencies: [&ldquo;PerfectHTTPServer&rdquo;]),
-    ]
-)</p>
+该文件在要求Swift编译的最低版本为<code>3.0.0</code>，设置<code>target</code>编译依存库<code>PerfectHTTPServer</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">4. 编码</pre></td></tr></table>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// swift-tools-version:4.0</span>
+<span class="c1">// The swift-tools-version declares the minimum version of Swift required to build this package.</span>
+
+<span class="kd">import</span> <span class="nc">PackageDescription</span>
+
+<span class="kd">let</span> <span class="nv">package</span> <span class="p">=</span> <span class="n">Package</span><span class="p">(</span>
+<span class="n">name</span><span class="p">:</span> <span class="s">&#34;iPerfect&#34;</span><span class="p">,</span>
+<span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">.</span><span class="n">package</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/PerfectlySoft/Perfect-HTTPServer.git&#34;</span><span class="p">,</span> <span class="n">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">)</span>
+<span class="p">],</span>
+<span class="n">targets</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">.</span><span class="n">target</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">&#34;iPerfect&#34;</span><span class="p">,</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;PerfectHTTPServer&#34;</span><span class="p">]),</span>
+<span class="p">]</span>
+<span class="p">)</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>mkdir Sources
-echo &lsquo;print(&ldquo;您好！&rdquo;)&rsquo; &gt;&gt; Sources/iPerfect/main.swift</p>
+</div></li>
+
+<li><p>编码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">5. 编译和运行
-现在项目就已经准备好，可以通过以下两个命令编译和运行：</pre></td></tr></table>
+<pre class="chroma">mkdir Sources
+echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>编译和运行
+现在项目就已经准备好，可以通过以下两个命令编译和运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">swift build
+.build/debug/iPerfect</pre></td></tr></table>
 </div>
 </div>
-<p>swift build
-.build/debug/iPerfect</p>
+<p>成功之后，会打印：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">成功之后，会打印：</pre></td></tr></table>
+<pre class="chroma">你好！！！</pre></td></tr></table>
 </div>
-</div>
-<p>你好！！！</p>
+</div></li>
+</ol>
+
+<h2 id="设置-perfect-httpserver-服务器">设置<strong>Perfect HTTPServer</strong>服务器</h2>
+
+<h3 id="注册路由和请求-响应句柄">注册路由和请求／响应句柄</h3>
+
+<p>打开<code>Sources/iPerfect/main.swift</code>文件，把内容替换为以下程序：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -294,34 +327,26 @@ echo &lsquo;print(&ldquo;您好！&rdquo;)&rsquo; &gt;&gt; Sources/iPerfect/main
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">## 设置**Perfect HTTPServer**服务器
-### 注册路由和请求／响应句柄
-打开`Sources/iPerfect/main.swift`文件，把内容替换为以下程序：
-``` swift
-import PerfectHTTP
-import PerfectHTTPServer
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PerfectHTTP</span>
+<span class="kd">import</span> <span class="nc">PerfectHTTPServer</span>
 
-// 注册路由和请求／响应句柄
-var routes = Routes()
-routes.add(method: .get, uri: &#34;/&#34;) {
-    request, response in
-    response.setHeader(.contentType, value: &#34;text/html&#34;)
-    response.appendBody(string: &#34;&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;&#34;)
-    .completed()
-}
+<span class="c1">// 注册路由和请求／响应句柄</span>
+<span class="kd">var</span> <span class="nv">routes</span> <span class="p">=</span> <span class="n">Routes</span><span class="p">()</span>
+<span class="n">routes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="p">.</span><span class="kr">get</span><span class="p">,</span> <span class="n">uri</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">request</span><span class="p">,</span> <span class="n">response</span> <span class="k">in</span>
+    <span class="n">response</span><span class="p">.</span><span class="n">setHeader</span><span class="p">(.</span><span class="n">contentType</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="s">&#34;text/html&#34;</span><span class="p">)</span>
+    <span class="n">response</span><span class="p">.</span><span class="n">appendBody</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&#34;&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">completed</span><span class="p">()</span>
+<span class="p">}</span>
 
-do {
-    // 启动HTTP服务器
-    try HTTPServer.launch(.server(name: &#34;www.example.ca&#34;, port: 8181, routes: routes))
-} catch {
-    fatalError(&#34;\(error)&#34;) // fatal error launching one of the servers
-}</pre></td></tr></table>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// 启动HTTP服务器</span>
+    <span class="k">try</span> <span class="n">HTTPServer</span><span class="p">.</span><span class="n">launch</span><span class="p">(.</span><span class="n">server</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;www.example.ca&#34;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="mi">8181</span><span class="p">,</span> <span class="n">routes</span><span class="p">:</span> <span class="n">routes</span><span class="p">))</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="bp">fatalError</span><span class="p">(</span><span class="s">&#34;</span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span> <span class="c1">// fatal error launching one of the servers</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -487,7 +512,6 @@ Swift软件包管理器（SPM）能够为您的项目<code>iPerfect</code>生成
   </span>
 </div>
 
-#添加下面代码
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>

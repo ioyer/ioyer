@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/%E5%B0%86playground%E4%BD%9C%E4%B8%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/%E5%B0%86playground%E4%BD%9C%E4%B8%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
-<meta property="article:published_time" content="2018-10-22T16:52:33&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-22T16:52:33+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="将Playground作为项目的单元测试">
 <meta itemprop="description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode">
 
 
 <meta itemprop="datePublished" content="2018-10-22T16:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="403">
+<meta itemprop="wordCount" content="411">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 403 字 </span>
+          <span class="more-meta"> 约 411 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -190,20 +189,35 @@
 
 <ol>
 <li>新建一个工作空间：<code>Perfect.workspace</code>,在工作空间中添加工程和操场：<code>Perfect.xcodeproj</code>和<code>PerfectPlayground</code>。</li>
-<li>编译<code>Perfect.xcodeproj</code>，这样就激活了<code>PerfectPlayground</code>的<code>PerfectLib</code>函数库功能。
-```swift
-import PerfectLib
-let json = &ldquo;{\&ldquo;name\&rdquo;: \&ldquo;tom\&ldquo;}&rdquo;
-do {
-let name = try json.jsonDecode()
-print(name)
-}catch{</li>
-</ol>
 
-<p>}
-let u = UUID()
-print(u.string)
-```</p>
+<li><p>编译<code>Perfect.xcodeproj</code>，这样就激活了<code>PerfectPlayground</code>的<code>PerfectLib</code>函数库功能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PerfectLib</span>
+<span class="kd">let</span> <span class="nv">json</span> <span class="p">=</span> <span class="s">&#34;{</span><span class="se">\&#34;</span><span class="s">name</span><span class="se">\&#34;</span><span class="s">: </span><span class="se">\&#34;</span><span class="s">tom</span><span class="se">\&#34;</span><span class="s">}&#34;</span>
+<span class="k">do</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="k">try</span> <span class="n">json</span><span class="p">.</span><span class="n">jsonDecode</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span><span class="k">catch</span><span class="p">{</span>
+
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">u</span> <span class="p">=</span> <span class="n">UUID</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">string</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
 
 <p><a href="https://github.com/PerfectExamples/Perfect-Playground/blob/master/README.zh_CN.md">原文Perfect-Playground</a></p>
 
@@ -320,7 +334,6 @@ print(u.string)
   </span>
 </div>
 
-#添加下面代码
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
