@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-08T20:39:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T11:47:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -112,6 +112,75 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/hexo/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/">Hexo标签插件</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-01-23 </span>
+      <div class="post-category">
+          <a href="/categories/hexo/"> hexo </a>
+          </div>
+        <span class="more-meta"> 约 2298 字 </span>
+        <span class="more-meta"> 预计阅读 5 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。</p>
+
+<h2 id="引用块">引用块</h2>
+
+<hr />
+
+<p>在文章中插入引言，可包含作者、来源和标题。</p>
+
+<h3 id="别号-quote">别号： quote</h3>
+
+<hr />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span><span class="o">%</span> <span class="nx">blockquote</span> <span class="p">[</span><span class="nx">author</span><span class="p">[,</span> <span class="nx">source</span><span class="p">]]</span> <span class="p">[</span><span class="nx">link</span><span class="p">]</span> <span class="p">[</span><span class="nx">source_link_title</span><span class="p">]</span> <span class="o">%</span><span class="p">}</span>
+<span class="nx">content</span>
+<span class="p">{</span><span class="o">%</span> <span class="nx">endblockquote</span> <span class="o">%</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="样例">样例</h4>
+
+<hr />
+
+<h5 id="无参普通blockquote">无参普通blockquote</h5>
+
+<hr />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span><span class="o">%</span> <span class="nx">blockquote</span> <span class="o">%</span><span class="p">}</span>
+<span class="nx">Lorem</span> <span class="nx">ipsum</span> <span class="nx">dolor</span> <span class="nx">sit</span> <span class="nx">amet</span><span class="p">,</span> <span class="nx">consectetur</span> <span class="nx">adipiscing</span> <span class="nx">elit</span><span class="p">.</span> <span class="nx">Pellentesque</span> <span class="nx">hendrerit</span> <span class="nx">lacus</span> <span class="nx">ut</span> <span class="nx">purus</span> <span class="nx">iaculis</span> <span class="nx">feugiat</span><span class="p">.</span> <span class="nx">Sed</span> <span class="nx">nec</span> <span class="nx">tempor</span> <span class="nx">elit</span><span class="p">,</span> <span class="nx">quis</span> <span class="nx">aliquam</span> <span class="nx">neque</span><span class="p">.</span> <span class="nx">Curabitur</span> <span class="nx">sed</span> <span class="nx">diam</span> <span class="nx">eget</span> <span class="nx">dolor</span> <span class="nx">fermentum</span> <span class="nx">semper</span> <span class="nx">at</span> <span class="nx">eu</span> <span class="nx">lorem</span><span class="p">.</span>
+<span class="p">{</span><span class="o">%</span> <span class="nx">endblockquote</span> <span class="o">%</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>{% blockquote %}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
+{% endblockquote %}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/hexo/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/kindle%E8%B5%84%E6%BA%90/">Kindle114 资源集[转]</a></h1>
@@ -200,29 +269,6 @@
     </div>
     <div class="read-more">
       <a href="/post/swift/awsomeappledevelopguide/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/swift/ios%E9%9D%A2%E8%AF%95%E9%A2%98%E5%A4%A7%E9%9B%86%E5%90%88/">iOS面试题大集合[转]</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-01-22 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%B5%84%E6%BA%90/"> 资源 </a>
-          </div>
-        <span class="more-meta"> 约 6497 字 </span>
-        <span class="more-meta"> 预计阅读 13 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      iOS有用的面试题大集合 面试题从何处得来 招聘一个靠谱的 iOS 知乎－如何面试 iOS 工程师？ 阅读面试题之前 在正式开始之前，我期望你能对iOS/Mac OS X
-    </div>
-    <div class="read-more">
-      <a href="/post/swift/ios%E9%9D%A2%E8%AF%95%E9%A2%98%E5%A4%A7%E9%9B%86%E5%90%88/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

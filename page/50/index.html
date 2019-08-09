@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-08T20:39:00+08:00" />
+<meta property="og:updated_time" content="2019-08-09T11:47:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -112,6 +112,67 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-07-01 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/api/"> API </a>
+          </div>
+        <span class="more-meta"> 约 4001 字 </span>
+        <span class="more-meta"> 预计阅读 8 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
+
+<p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
+
+<ul>
+<li>######预览文档和呈现选项菜单<br />
+如果app需要打开自身并不支持的文件时，就需要使用<strong>UIDocumentInteractionController</strong>。一个<strong>document interaction controller</strong>通过<strong>Quick Look框架</strong>判断文档是否能被另一个app打开和预览。也就是说，app可以通过<strong>documentinteraction controller</strong>提供一些支持打开该文件方式的菜单。
+<br /></li>
+</ul>
+
+<p>具体实现需要以下步骤：</p>
+
+<ul>
+<li>* 需要通过其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象。<br /></li>
+<li>* 在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。</li>
+<li>* 用户交互，如触摸这个控件，则调用<code>documentinteractioncontroller</code>对象。<br /></li>
+</ul>
+
+<p>三种交互界面:
+    1. 预览文件的内容。
+    2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。
+    3. 一个菜单，仅包含“以其它方式打开”操作。</p>
+
+<p>同时，<code>documentinteractioncontroller</code>内置了一些手势，必要时可以直接实现它们。</p>
+
+<ul>
+<li><p>######使用<code>documentinteractioncontroller</code>的场景:<strong>与文件交互的app都可以使用。</strong></p></li>
+
+<li><ul>
+<li>需要从网络下载文件的APP:<br />
+例如，email程序需要打开和预览邮件附件。</li>
+</ul></li>
+
+<li><ul>
+<li>不下载文件的APP:<br />
+例如，APP需要支持文件共享（参考“File-Sharing Support” in <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898">iOS Technology Overview</a>), 即可以对同步到app Documents/Shared目录下的文件使用<code>documentinteractioncontroller</code>。</li>
+</ul></li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
@@ -271,29 +332,6 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
     </div>
     <div class="read-more">
       <a href="/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/">在IOS中像SnapChat一样监控screenshots</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-10 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          </div>
-        <span class="more-meta"> 约 284 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      A number of Stack Overflowquestions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself. The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
