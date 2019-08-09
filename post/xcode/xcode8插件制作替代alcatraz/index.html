@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/xcode/xcode8%E6%8F%92%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%9B%BF%E4%BB%A3alcatraz/" />
@@ -42,8 +42,9 @@
 <meta property="og:description" content="背景 Xcode7插件工具Alcatraz 开发者可以在Xcode运行的时候通过注入代码去实现插件的功能。插件可以在一个Alcatraz这个优秀" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/xcode/xcode8%E6%8F%92%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%9B%BF%E4%BB%A3alcatraz/" />
-<meta property="article:published_time" content="2017-05-15T14:09:30+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2017-05-15T14:09:30&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="Xcode8插件制作替代Alcatraz">
 <meta itemprop="description" content="背景 Xcode7插件工具Alcatraz 开发者可以在Xcode运行的时候通过注入代码去实现插件的功能。插件可以在一个Alcatraz这个优秀">
 
@@ -312,7 +313,7 @@ Xcode 8验证每个库和包，以防止恶意代码未经您的许可运行。�
        <span class="kd">var</span> <span class="nv">updatedLineIndexes</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
        <span class="k">for</span> <span class="n">lineIndex</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">.</span><span class="bp">count</span>
        <span class="p">{</span>
-           <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="n">NSString</span>
+           <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="k">as</span><span class="o">!</span> <span class="n">NSString</span>
            <span class="k">do</span> <span class="p">{</span>
                <span class="kd">let</span> <span class="nv">results</span> <span class="p">=</span> <span class="k">try</span> <span class="n">findClosureSyntax</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">)</span>
                <span class="c1">//简化所有闭包语法格式：移除闭包里面括号</span>

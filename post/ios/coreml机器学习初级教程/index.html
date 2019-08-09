@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/coreml%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/coreml%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/" />
-<meta property="article:published_time" content="2017-06-24T22:10:44+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2017-06-24T22:10:44&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="CoreML机器学习初级教程">
 <meta itemprop="description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating">
 
 
 <meta itemprop="datePublished" content="2017-06-24T22:10:44&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2262">
+<meta itemprop="wordCount" content="2259">
 
 
 
@@ -139,7 +140,7 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/api/"> API </a>
             </div>
-          <span class="more-meta"> 约 2262 字 </span>
+          <span class="more-meta"> 约 2259 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -157,7 +158,6 @@
 <li><a href="#资源">资源</a></li>
 <li><a href="#配置-将-core-ml-模型集成到你的-app">配置 ：将 Core ML 模型集成到你的 App</a></li>
 <li><a href="#实现vision工作流程">实现Vision工作流程</a></li>
-<li><a href="#创建并运行vnimagerequesthandler请求处理程序">创建并运行VNImageRequestHandler请求处理程序</a></li>
 <li><a href="#使用模型来自动识别场景">使用模型来自动识别场景</a></li>
 <li><a href="#什么是深度学习">什么是深度学习</a></li>
 </ul></li>
@@ -219,11 +219,27 @@ CoreML模型 是用于 Vision 请求的 Core ML 模型的容器
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">CoreML</span>
 <span class="kd">import</span> <span class="nc">Vision</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>创建<code>VNCoreMLRequest</code>图像分析请求
+</div>
+<ol>
+<li>创建<code>VNCoreMLRequest</code>图像分析请求
 <code>VNCoreMLRequest</code> 是一个图像分析请求，它使用 Core ML 模型来完成工作。它的 completion handler 接收 request 和 error 对象。
-Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预测一个特征：图像的场景分类。这时request.results 是 <code>VNClassificationObservation</code> 对象数组。</p>
+Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预测一个特征：图像的场景分类。这时request.results 是 <code>VNClassificationObservation</code> 对象数组。
+```
+// 创建一个带有 completion handler 的 Vision 请求
+let request = VNCoreMLRequest(model: model) { [weak self] request, error in
+guard let results = request.results as? [VNClassificationObservation],
+let topResult = results.first else {
+fatalError(&ldquo;unexpected result type from VNCoreMLRequest&rdquo;)
+}</li>
+</ol></li>
+</ol>
+
+<p>// 在主线程上更新 UI
+let article = (self?.vowels.contains(topResult.identifier.first!))! ? &ldquo;an&rdquo; : &ldquo;a&rdquo;
+    DispatchQueue.main.async { [weak self] in
+        self?.answerLabel.text = &ldquo;(Int(topResult.confidence * 100))% it&rsquo;s (article) (topResult.identifier)&rdquo;
+    }
+}</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -239,54 +255,27 @@ Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预�
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">// 创建一个带有 completion handler 的 Vision 请求
-let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-guard let results = request.results as? [VNClassificationObservation],
-let topResult = results.first else {
-fatalError(&#34;unexpected result type from VNCoreMLRequest&#34;)
-}
+<pre class="chroma">VNClassificationObservation 有两个属性：identifier - 一个 String，以及 confidence - 介于0和1之间的数字，这个数字是是分类正确的概率。使用对象检测模型时，你可能只会看到那些 confidence 大于某个阈值的对象，例如 30％ 的阈值。
+然后取第一个结果，它会具有最高的 confidence 值，然后根据 identifier 的首字母把不定冠词设置为“a”或“an”。最后，dispatch 回到主线程来更新 label。你很快会明白分类工作为什么不在主线程，因为它会很慢。
 
-// 在主线程上更新 UI
-let article = (self?.vowels.contains(topResult.identifier.first!))! ? &#34;an&#34; : &#34;a&#34;
-DispatchQueue.main.async { [weak self] in
-    self?.answerLabel.text = &#34;\(Int(topResult.confidence * 100))% it&#39;s \(article) \(topResult.identifier)&#34;
-}
+### 创建并运行VNImageRequestHandler请求处理程序
+`VNImageRequestHandler` 是标准的 Vision 框架请求处理程序；不特定于 Core ML 模型。给它 image 作为 detectScene(image:) 的参数。然后调用它的 perform 方法来运行处理程序，传入请求数组。在这个例子里，我们只有一个请求。
+把下面几行添加到 `detectScene(image:)` 的末尾：
+```swift
+// 在主线程上运行 Core ML GoogLeNetPlaces 分类器
+let handler = VNImageRequestHandler(ciImage: image)
+DispatchQueue.global(qos: .userInteractive).async {
+    do {
+        try handler.perform([request])
+    } catch {
+        print(error)
+    }
 }</pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-
-<p>VNClassificationObservation 有两个属性：identifier - 一个 String，以及 confidence - 介于0和1之间的数字，这个数字是是分类正确的概率。使用对象检测模型时，你可能只会看到那些 confidence 大于某个阈值的对象，例如 30％ 的阈值。
-然后取第一个结果，它会具有最高的 confidence 值，然后根据 identifier 的首字母把不定冠词设置为“a”或“an”。最后，dispatch 回到主线程来更新 label。你很快会明白分类工作为什么不在主线程，因为它会很慢。</p>
-
-<h3 id="创建并运行vnimagerequesthandler请求处理程序">创建并运行VNImageRequestHandler请求处理程序</h3>
-
-<p><code>VNImageRequestHandler</code> 是标准的 Vision 框架请求处理程序；不特定于 Core ML 模型。给它 image 作为 detectScene(image:) 的参数。然后调用它的 perform 方法来运行处理程序，传入请求数组。在这个例子里，我们只有一个请求。
-把下面几行添加到 <code>detectScene(image:)</code> 的末尾：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 在主线程上运行 Core ML GoogLeNetPlaces 分类器</span>
-<span class="kd">let</span> <span class="nv">handler</span> <span class="p">=</span> <span class="n">VNImageRequestHandler</span><span class="p">(</span><span class="n">ciImage</span><span class="p">:</span> <span class="n">image</span><span class="p">)</span>
-<span class="n">DispatchQueue</span><span class="p">.</span><span class="n">global</span><span class="p">(</span><span class="n">qos</span><span class="p">:</span> <span class="p">.</span><span class="n">userInteractive</span><span class="p">).</span><span class="n">async</span> <span class="p">{</span>
-    <span class="k">do</span> <span class="p">{</span>
-        <span class="k">try</span> <span class="n">handler</span><span class="p">.</span><span class="n">perform</span><span class="p">([</span><span class="n">request</span><span class="p">])</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="使用模型来自动识别场景">使用模型来自动识别场景</h3>

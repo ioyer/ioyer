@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="{% github huos3203 SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
-<meta property="article:published_time" content="2018-04-11T16:42:17+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2018-04-11T16:42:17&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="iOS插件化开发之Small">
 <meta itemprop="description" content="{% github huos3203 SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团">
 
 
 <meta itemprop="datePublished" content="2018-04-11T16:42:17&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="3254">
+<meta itemprop="wordCount" content="3270">
 
 
 
@@ -138,7 +139,7 @@
         <div class="post-category">
             <a href="/categories/xcode/"> xcode </a>
             </div>
-          <span class="more-meta"> 约 3254 字 </span>
+          <span class="more-meta"> 约 3270 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -160,7 +161,6 @@
 <li><a href="#支持storyboard作为启动页的解析">支持Storyboard作为启动页的解析</a></li>
 <li><a href="#参数传递">参数传递</a></li>
 </ul></li>
-<li><a href="#插件命名规则和入口设置">插件命名规则和入口设置</a></li>
 <li><a href="#集成插件到主工程">集成插件到主工程</a></li>
 <li><a href="#small的两种开发模式的demo">small的两种开发模式的demo</a></li>
 </ul></li>
@@ -208,57 +208,43 @@ cp -r Templates ~/Library/Developer/Xcode/Templates</code></pre></td></tr></tabl
 <li><strong>新建项目</strong>
 <code>File-&gt;New-&gt;Project...</code>，选择<code>Small-pods</code>模板
 <img src="https://camo.githubusercontent.com/25aac173476e3a5eecdf2853b0e233bf8179bece/687474703a2f2f636f64652e7765717569636b2e6e65742f6173736574732f696d616765732f736d616c6c2d696f732d74656d706c6174652e706e67" alt="Small iOS Template" /></li>
-
-<li><p>库依赖配置文件<code>podfile</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">platform</span> <span class="o">:</span><span class="nx">ios</span><span class="p">,</span> <span class="s1">&#39;7.0&#39;</span>
-<span class="nx">use_frameworks</span><span class="o">!</span>
-
-<span class="nx">target</span> <span class="s1">&#39;SmallAPP&#39;</span> <span class="k">do</span>
-<span class="nx">pod</span> <span class="s2">&#34;Small&#34;</span><span class="p">,</span> <span class="o">:</span><span class="nx">git</span> <span class="p">=&gt;</span> <span class="s1">&#39;https://github.com/wequick/Small.git&#39;</span>
-<span class="nx">end</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<li>库依赖配置文件<code>podfile</code>：
+```js
+platform :ios, &lsquo;7.0&rsquo;
+use_frameworks!</li>
 </ol>
 
-<ul>
-<li><p>路由文件<code>bundle.json</code>:</p>
+<p>target &lsquo;SmallAPP&rsquo; do
+    pod &ldquo;Small&rdquo;, :git =&gt; &lsquo;<a href="https://github.com/wequick/Small.git'">https://github.com/wequick/Small.git'</a>
+end</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-<span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-<span class="nt">&#34;bundles&#34;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&#34;uri&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span>
-        <span class="nt">&#34;pkg&#34;</span><span class="p">:</span> <span class="s2">&#34;hsg.com.cn.SmallAPP.app.main&#34;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma">* 路由文件`bundle.json`:
+```json
+{
+    &#34;version&#34;: &#34;1.0.0&#34;,
+    &#34;bundles&#34;: [
+        {
+            &#34;uri&#34;: &#34;main&#34;,
+            &#34;pkg&#34;: &#34;hsg.com.cn.SmallAPP.app.main&#34;
+        }
+    ]
+}</pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
 <ol>
 <li><p>安装pod依赖</p>
 <div class="highlight"><div class="chroma">
@@ -479,11 +465,41 @@ Small.openUri(&#34;fixurl&#34;, from: self)</pre></td></tr></table>
 </div>
 </div>
 <ol>
-<li><p>接收解析为属性值
-例如<code>DetailController</code>)定义两个属性，属性名称和<code>uri</code>键值名保持一致，因为是通过<code>setValuesForKeysWithDictionary</code>来给相应属性赋值。</p>
+<li>接收解析为属性值
+例如<code>DetailController</code>)定义两个属性，属性名称和<code>uri</code>键值名保持一致，因为是通过<code>setValuesForKeysWithDictionary</code>来给相应属性赋值。
+```objc
+// DetailController.h
+@property (nonatomic, strong) NSString *id;</li>
+</ol>
+
+<p>// DetailController.m
+NSString *id = self.id;</p>
+
+<p>样例
+// Initialize controller parameters
+if (bundle.queryParams != nil) {
+    [controller setValuesForKeysWithDictionary:bundle.queryParams];
+}</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">### 插件命名规则和入口设置
+路由配置对插件包的命名有严格要求，`SMBundle`主要通过`pkg`名称包含`.app.`(模块库)/`.lib.`(工具库)来定位插件包的，否则全部默认加载bundle包。
+**模块命名规范**
+* `framework`编译成功后，名称跟`Product Name`一样命名规则:</pre></td></tr></table>
+</div>
+</div>
+<p>xx_xx_lib_xx【com_example_small_lib_utils】
+xx_xx_app_xx
+xx_xx_xx_xx</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -494,65 +510,21 @@ Small.openUri(&#34;fixurl&#34;, from: self)</pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// DetailController.h
-</span><span class="c1"></span><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="kt">id</span><span class="p">;</span>
-
-<span class="c1">// DetailController.m
-</span><span class="c1"></span><span class="n">NSString</span> <span class="o">*</span><span class="kt">id</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="kt">id</span><span class="p">;</span>
-
-<span class="err">样例</span>
-<span class="c1">// Initialize controller parameters
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-<span class="p">[</span><span class="n">controller</span> <span class="nl">setValuesForKeysWithDictionary</span><span class="p">:</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span><span class="p">];</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-
-<h3 id="插件命名规则和入口设置">插件命名规则和入口设置</h3>
-
-<p>路由配置对插件包的命名有严格要求，<code>SMBundle</code>主要通过<code>pkg</code>名称包含<code>.app.</code>(模块库)/<code>.lib.</code>(工具库)来定位插件包的，否则全部默认加载bundle包。
-<strong>模块命名规范</strong>
-* <code>framework</code>编译成功后，名称跟<code>Product Name</code>一样命名规则:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
+</span><span class="lnt">12
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">xx_xx_lib_xx【com_example_small_lib_utils】
-xx_xx_app_xx
-xx_xx_xx_xx</pre></td></tr></table>
-</div>
-</div>
-<p>注意lib、app这些对查找framework文件相当重要，这所以会有<code>_</code>，是small对<code>.</code>做了替换</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">bundlePath</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">bundleSuffix</span> <span class="o">=</span> <span class="s">@&#34;bundle&#34;</span><span class="p">;</span> <span class="c1">//默认
-</span><span class="c1"></span><span class="n">SMBundleType</span> <span class="n">bundleType</span> <span class="o">=</span> <span class="n">SMBundleTypeAssets</span><span class="p">;</span> 
-<span class="k">if</span> <span class="p">([</span><span class="n">pkg</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;.app.&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span>
-<span class="o">||</span> <span class="p">[</span><span class="n">pkg</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;.lib.&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">bundleSuffix</span> <span class="o">=</span> <span class="s">@&#34;framework&#34;</span><span class="p">;</span>
-    <span class="n">bundleType</span> <span class="o">=</span> <span class="n">SMBundleTypeApplication</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">bundleName</span> <span class="o">=</span> <span class="p">[</span><span class="n">pkg</span> <span class="nl">stringByReplacingOccurrencesOfString</span><span class="p">:</span><span class="s">@&#34;.&#34;</span> <span class="nl">withString</span><span class="p">:</span><span class="s">@&#34;_&#34;</span><span class="p">];</span>
-<span class="n">bundleName</span> <span class="o">=</span> <span class="p">[</span><span class="n">bundleName</span> <span class="nl">stringByAppendingFormat</span><span class="p">:</span><span class="s">@&#34;.%@&#34;</span><span class="p">,</span> <span class="n">bundleSuffix</span><span class="p">];</span></code></pre></td></tr></table>
+<pre class="chroma">注意lib、app这些对查找framework文件相当重要，这所以会有`_`，是small对`.`做了替换
+```objc
+NSString *bundlePath = nil;
+NSString *bundleSuffix = @&#34;bundle&#34;; //默认
+SMBundleType bundleType = SMBundleTypeAssets; 
+if ([pkg rangeOfString:@&#34;.app.&#34;].location != NSNotFound
+|| [pkg rangeOfString:@&#34;.lib.&#34;].location != NSNotFound) {
+    bundleSuffix = @&#34;framework&#34;;
+    bundleType = SMBundleTypeApplication;
+}
+NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&#34;.&#34; withString:@&#34;_&#34;];
+bundleName = [bundleName stringByAppendingFormat:@&#34;.%@&#34;, bundleSuffix];</pre></td></tr></table>
 </div>
 </div>
 <p><strong>设置加载模块的入口类</strong>
