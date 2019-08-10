@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
-<meta property="article:published_time" content="2014-06-11T10:17:19+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2014-06-11T10:17:19&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="IOS7的变革">
 <meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7">
 
 
 <meta itemprop="datePublished" content="2014-06-11T10:17:19&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="4160">
+<meta itemprop="wordCount" content="4217">
 
 
 
@@ -139,7 +140,7 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E7%89%B9%E6%80%A7/"> 特性 </a>
             </div>
-          <span class="more-meta"> 约 4160 字 </span>
+          <span class="more-meta"> 约 4217 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -159,10 +160,8 @@
 <li><a href="#新增返回类型-instancetype">新增返回类型 – <code>instancetype</code></a></li>
 <li><a href="#uiscrollview新增属性-uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></a></li>
 <li><a href="#uikit使用-nsattributedstring-http-developer-apple-com-documentation-cocoa-reference-foundation-classes-nsattributedstring-class-显示html-textkit-http">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://</a>)</a></li>
-<li><a href="#nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</a></li>
 <li><a href="#tint-images-with-uiimage-renderingmode">Tint images with <code>UIImage.renderingMode</code></a></li>
 <li><a href="#usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</a></li>
-<li><a href="#check-which-wireless-routes-are-available">Check which wireless routes are available</a></li>
 <li><a href="#nsarray-firstobject-的实现"><code>-[NSArray firstObject]</code>的实现</a></li>
 <li><a href="#uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a>
 <ul>
@@ -297,7 +296,7 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 <pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="o">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nl">arrayWithObjects</span><span class="p">:(</span><span class="kt">id</span><span class="p">)</span><span class="n">firstObj</span><span class="p">,</span> <span class="p">...;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">arrayWithObjects:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">firstObj</span><span class="p">,</span> <span class="p">...;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>唯一的区别是返回类<code>instancetype</code>取代<code>id</code>。这种新的返回类型会告知编译器，返回值是该方法所属的类的实例对象。<br />
@@ -362,41 +361,7 @@ NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentTyp
 {% endcodeblock %}</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/" data-lang="objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/" data-lang="objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">NSString *html = @&#34;&lt;bold&gt;Wow!&lt;/bold&gt; Now &lt;em&gt;iOS&lt;/em&gt; can create &lt;h3&gt;NSAttributedString&lt;/h3&gt; from HTMLs!&#34;;
-NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
-NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
-NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlData
-												                      options:options 
-									                       documentAttributes:nil 
-									   			                        error:nil];</code></pre></td></tr></table>
-</div>
-</div>
-<p>NSDocumentTypeDocumentAttribute包括:
-<!--https://gist.githubusercontent.com/huos3203/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
--->
-    NSPlainTextDocumentType     //Plain text document.
-    NSRTFTextDocumentType       //Rich text format document.
-    NSRTFDTextDocumentType      //Rich text format with attachments document.</p>
-
-<p>2.相反，也可以将<code>NSAttributedString</code>对象，解析成HTML片段：</p>
-
-<p>{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}</p>
-
-<h3 id="nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</h3>
-
-<p>首先，创建一个<code>NSAttributedString</code>对象,然后，调用<code>addAttribute:value:range:</code>方法，添加 <code>NSLinkAttributeName</code>属性并赋值，如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc UITextView支持超链接" data-lang="objc UITextView支持超链接"><span class="lnt"> 1
+<pre class="chroma"><code class="language-objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/" data-lang="objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -407,9 +372,55 @@ NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlDa
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc UITextView支持超链接" data-lang="objc UITextView支持超链接">	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&#34;This is an example by @marcelofabri_&#34;]; 
+<pre class="chroma"><code class="language-objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/" data-lang="objc 用少量HTML片段，初始化`NSAttributedString`对象 http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">NSString *html = @&#34;&lt;bold&gt;Wow!&lt;/bold&gt; Now &lt;em&gt;iOS&lt;/em&gt; can create &lt;h3&gt;NSAttributedString&lt;/h3&gt; from HTMLs!&#34;;
+NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
+NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
+NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlData
+												                      options:options 
+									                       documentAttributes:nil 
+									   			                        error:nil];
+```								   	
+NSDocumentTypeDocumentAttribute包括:
+&lt;!--https://gist.githubusercontent.com/huos3203/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
+--&gt;
+	NSPlainTextDocumentType		//Plain text document.
+    NSRTFTextDocumentType		//Rich text format document.
+    NSRTFDTextDocumentType		//Rich text format with attachments document.
+
+2.相反，也可以将`NSAttributedString`对象，解析成HTML片段：
+
+{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}	
+
+### NSLinkAttributeName让标签（UILabel,UITextView）支持超链接
+ 
+首先，创建一个`NSAttributedString`对象,然后，调用`addAttribute:value:range:`方法，添加 `NSLinkAttributeName`属性并赋值，如下：  
+``` objc UITextView支持超链接
+	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&#34;This is an example by @marcelofabri_&#34;]; 
 	[attributedString addAttribute:NSLinkAttributeName 
                          value:@&#34;username://marcelofabri_&#34; 
                          range:[[attributedString string] rangeOfString:@&#34;@marcelofabri_&#34;]]; 
@@ -503,6 +514,21 @@ In order to avoid getting tripped up by the new property, you should perform the
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-objc bar通过判断是否包含setBarTintColor:确定系统版本" data-lang="objc bar通过判断是否包含setBarTintColor:确定系统版本">UINavigationBar *bar = self.navigationController.navigationBar;
@@ -514,32 +540,22 @@ if ([bar respondsToSelector:@selector(setBarTintColor:)]) {
 } else { 
 		// iOS 6 or earlier
 		    bar.tintColor = color;
-}</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="check-which-wireless-routes-are-available">Check which wireless routes are available</h3>
+}
+```	  
 
-<p>The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a <code>MPVolumeView</code>.<br />
-In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.<br />
-The following two new properties and notifications have been added to MPVolumeView:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// is there a route that the device can connect to?
-</span><span class="c1"></span>	<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">wirelessRoutesAvailable</span><span class="p">;</span>
+### Check which wireless routes are available
+The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a `MPVolumeView`.  
+In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.  
+The following two new properties and notifications have been added to MPVolumeView:  
+
+``` objc  
+// is there a route that the device can connect to?
+	@property (nonatomic, readonly) BOOL wirelessRoutesAvailable;
 	
-<span class="c1">// is the device currently connected?
-</span><span class="c1"></span>	<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">wirelessRouteActive</span><span class="p">;</span>   
-  <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">MPVolumeViewWirelessRoutesAvailableDidChangeNotification</span><span class="p">;</span>
-	<span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">MPVolumeViewWirelessRouteActiveDidChangeNotification</span><span class="p">;</span></code></pre></td></tr></table>
+// is the device currently connected?
+	@property (nonatomic, readonly) BOOL wirelessRouteActive;   
+  NSString *const MPVolumeViewWirelessRoutesAvailableDidChangeNotification;
+	NSString *const MPVolumeViewWirelessRouteActiveDidChangeNotification;</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="nsarray-firstobject-的实现"><code>-[NSArray firstObject]</code>的实现</h3>
@@ -681,7 +697,7 @@ The following two new properties and notifications have been added to MPVolumeVi
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-06-11 10:17:19 \x2b0800 CST',
+        id: '2014-06-11 10:17:19 \x2b0800 \x2b0800',
         title: 'IOS7的变革',
         link: decodeURI(location.href),
         desc: '性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7',

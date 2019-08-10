@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="概念概述 getting-started {% github huos3203 PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
-<meta property="article:published_time" content="2018-10-01T14:52:23+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2018-10-01T14:52:23&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="SPM相关命令工具">
 <meta itemprop="description" content="概念概述 getting-started {% github huos3203 PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift">
 
 
 <meta itemprop="datePublished" content="2018-10-01T14:52:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1033">
+<meta itemprop="wordCount" content="1035">
 
 
 
@@ -138,7 +139,7 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1033 字 </span>
+          <span class="more-meta"> 约 1035 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -227,9 +228,8 @@ $ cd Hello</pre></td></tr></table>
 └── LinuxMain.swift</code></pre></td></tr></table>
 </div>
 </div>
-<p>每个包在其根目录下都必须拥有一个命名为<code>Package.swift</code>清单文件。如果清单文件为空，那包管理器将会使用常规默认的方式来编译包。</p></li>
-
-<li><p><code>swift build</code>编译SPM
+<p>每个包在其根目录下都必须拥有一个命名为<code>Package.swift</code>清单文件。如果清单文件为空，那包管理器将会使用常规默认的方式来编译包。
+3.  <code>swift build</code>编译SPM
 编译会先解析<code>Package.swift</code>项目配置和下载依赖库等环境，然后编译源码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -280,9 +280,8 @@ Executed <span class="m">1</span> test, with <span class="m">0</span> failures <
 <h3 id="创建一个可执行的spm">创建一个可执行的SPM</h3>
 
 <p>可运行的SPM必须包含<code>main.swift</code>文件。SPM会把<code>main.swift</code>编译成可执行文件的二进制文件。
-在本例中，SPM将生成一个名为<code>Hello</code>的可执行文件，输出“Hello, world!”</p></li>
-
-<li><p>创建</p>
+在本例中，SPM将生成一个名为<code>Hello</code>的可执行文件，输出“Hello, world!”
+1. 创建</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
@@ -349,8 +348,7 @@ Hello, world!</code></pre></td></tr></table>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p><code>sayHello(_:)</code> 方法带一个单一的字符串参数，然后在前面打印一个 “Hello”，后面跟着函数参数单词 “World”。</p></li>
-</ol>
+<p><code>sayHello(_:)</code> 方法带一个单一的字符串参数，然后在前面打印一个 “Hello”，后面跟着函数参数单词 “World”。</p>
 
 <p>现在打开 <code>main.swift</code>， 然后替换原来的内容为下面代码：</p>
 <div class="highlight"><div class="chroma">
@@ -364,13 +362,15 @@ Hello, world!</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="bp">count</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Usage: hello NAME&#34;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;Usage: hello NAME&#34;</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+
 <p>跟之前的硬编码不同，<code>main.swift</code> 现在从命令行参数中读取。替代之前直接调用 <code>print(_:)</code>， <code>main.swift</code> 现在调用 <code>sayHello(_:)</code> 方法。因为这个方法是 <code>Hello 模块</code>的一部分，所以不需要使用到 <code>import</code> 语句。</p>
 
 <p>运行 swift build 并尝试 Hello 的新版本：</p>

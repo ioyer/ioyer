@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/" />
-<meta property="article:published_time" content="2018-10-15T17:22:37+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2018-10-15T17:22:37&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="Swift调用AppleScript脚本和Shell脚本">
 <meta itemprop="description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通">
 
 
 <meta itemprop="datePublished" content="2018-10-15T17:22:37&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1125">
+<meta itemprop="wordCount" content="1128">
 
 
 
@@ -138,7 +139,7 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1125 字 </span>
+          <span class="more-meta"> 约 1128 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -154,7 +155,6 @@
 <li><a href="#nstask调用applescript">NSTask调用AppleScript</a>
 <ul>
 <li><a href="#用-process-原-nstask-进行调用-main-scpt-脚本">用<code>Process</code>(原<code>NStask</code>)进行调用<code>main.scpt</code>脚本</a></li>
-<li><a href="#nsapplescript调用applescript">NSAppleScript调用AppleScript</a></li>
 </ul></li>
 <li><a href="#applescript调用shell">AppleScript调用shell  </a></li>
 <li><a href="#终端-osascript-调用-applescript">终端<code>osascript</code>调用<code>AppleScript</code></a>
@@ -180,46 +180,24 @@
 <h3 id="用-process-原-nstask-进行调用-main-scpt-脚本">用<code>Process</code>(原<code>NStask</code>)进行调用<code>main.scpt</code>脚本</h3>
 
 <ol>
-<li><p>swift两种方式</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//方式一：</span>
-<span class="kd">let</span> <span class="nv">process</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">()</span>
-<span class="n">process</span><span class="p">.</span><span class="n">launchPath</span> <span class="p">=</span> <span class="s">&#34;/usr/bin/osascript&#34;</span>
-<span class="n">process</span><span class="p">.</span><span class="n">arguments</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;~/Desktop/main.scpt&#34;</span><span class="p">]</span>
-<span class="n">process</span><span class="p">.</span><span class="n">launch</span><span class="p">()</span>
-
-<span class="c1">//方式二</span>
-<span class="kd">let</span> <span class="nv">bundle</span> <span class="p">=</span> <span class="n">NSBundle</span><span class="p">.</span><span class="n">mainBundle</span><span class="p">()</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">scriptPath</span> <span class="p">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">pathForResource</span><span class="p">(</span><span class="s">&#34;main&#34;</span><span class="p">,</span> <span class="n">ofType</span><span class="p">:</span> <span class="s">&#34;scpt&#34;</span><span class="p">){</span>
-<span class="kd">let</span> <span class="nv">paths</span> <span class="p">=</span> <span class="p">[</span><span class="n">scriptPath</span><span class="p">]</span>
-<span class="nb">Process</span><span class="p">.</span><span class="n">launchedProcess</span><span class="p">(</span><span class="n">launchPath</span><span class="p">:</span> <span class="s">&#34;/usr/bin/osascript&#34;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">paths</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div></li>
+<li>swift两种方式
+```swift
+//方式一：
+let process = Process()
+process.launchPath = &ldquo;/usr/bin/osascript&rdquo;
+process.arguments = [&rdquo;~/Desktop/main.scpt&rdquo;]
+process.launch()</li>
 </ol>
 
-<h3 id="nsapplescript调用applescript">NSAppleScript调用AppleScript</h3>
-
-<p><code>NSAppleScript</code>语法：<code>do shell script &quot;shell语句&quot;</code>，必须在<code>on run {变量名称，逗号隔开}</code> 以<code>end run</code>结束的闭包里运行。
-调用APPleScript脚本片段样例：</p>
+<p>//方式二
+let bundle = NSBundle.mainBundle()
+if let scriptPath = bundle.pathForResource(&ldquo;main&rdquo;, ofType: &ldquo;scpt&rdquo;){
+    let paths = [scriptPath]
+    Process.launchedProcess(launchPath: &ldquo;/usr/bin/osascript&rdquo;, arguments: paths)
+}</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -233,22 +211,30 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></code></pre></td>
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">bundle</span> <span class="p">=</span> <span class="n">NSBundle</span><span class="p">.</span><span class="n">mainBundle</span><span class="p">()</span>
-<span class="kd">let</span> <span class="nv">videoPath</span> <span class="p">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">pathForResource</span><span class="p">(</span><span class="s">&#34;BigBuck&#34;</span><span class="p">,</span> <span class="n">ofType</span><span class="p">:</span> <span class="s">&#34;m4v&#34;</span><span class="p">)</span>
-<span class="c1">//https://developer.apple.com/library/mac/technotes/tn2084/_index.html</span>
-<span class="c1">//open -na /Applications/mpv.app命令行必须是 -na 才能调用当前指定的播放器，否则会调用系统默认播发器</span>
-<span class="kd">let</span> <span class="nv">myAppleScript</span> <span class="p">=</span> <span class="s">&#34;on run</span><span class="se">\n</span><span class="s">do shell script </span><span class="se">\&#34;</span><span class="s">open -na /Applications/mpv.app </span><span class="si">\(</span><span class="n">videoPath</span><span class="p">!</span><span class="si">)</span><span class="se">\&#34;\n</span><span class="s">tell application </span><span class="se">\&#34;</span><span class="s">mpv</span><span class="se">\&#34;</span><span class="s"> to activate</span><span class="se">\n</span><span class="s"> end run&#34;</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">myAppleScript</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="n">NSDictionary</span><span class="p">?</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">scriptObject</span> <span class="p">=</span> <span class="n">NSAppleScript</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">myAppleScript</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="kd">let</span> <span class="nv">output</span><span class="p">:</span> <span class="n">NSAppleEventDescriptor</span> <span class="p">=</span> <span class="n">scriptObject</span><span class="p">.</span><span class="n">executeAndReturnError</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="n">output</span><span class="p">.</span><span class="n">stringValue</span><span class="p">)</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma">### NSAppleScript调用AppleScript
+`NSAppleScript`语法：`do shell script &#34;shell语句&#34;`，必须在`on run {变量名称，逗号隔开}` 以`end run`结束的闭包里运行。
+调用APPleScript脚本片段样例：
+```swift
+let bundle = NSBundle.mainBundle()
+let videoPath = bundle.pathForResource(&#34;BigBuck&#34;, ofType: &#34;m4v&#34;)
+//https://developer.apple.com/library/mac/technotes/tn2084/_index.html
+//open -na /Applications/mpv.app命令行必须是 -na 才能调用当前指定的播放器，否则会调用系统默认播发器
+let myAppleScript = &#34;on run\ndo shell script \&#34;open -na /Applications/mpv.app \(videoPath!)\&#34;\ntell application \&#34;mpv\&#34; to activate\n end run&#34;
+print(myAppleScript)
+var error: NSDictionary?
+if let scriptObject = NSAppleScript(source: myAppleScript) {
+    if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&amp;error) {
+        print(output.stringValue)
+    } else if (error != nil) {
+        print(&#34;error: \(error)&#34;)
+    }
+}</pre></td></tr></table>
 </div>
 </div>
 <p><a href="http://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">oc调用AppleScript</a>
