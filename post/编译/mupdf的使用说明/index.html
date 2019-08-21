@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E7%BC%96%E8%AF%91/mupdf%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E7%BC%96%E8%AF%91/mupdf%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
-<meta property="article:published_time" content="2017-06-19T18:25:32&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-06-19T18:25:32+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="mupdf使用说明">
 <meta itemprop="description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android">
 
 
 <meta itemprop="datePublished" content="2017-06-19T18:25:32&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="397">
+<meta itemprop="wordCount" content="387">
 
 
 
@@ -140,7 +139,7 @@
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/pdf/"> PDF </a>
             </div>
-          <span class="more-meta"> 约 397 字 </span>
+          <span class="more-meta"> 约 387 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -193,40 +192,24 @@ git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 <p>最新整合集成加密到源码库，并发布到git服务器上，便于协作维护:<a href="https://server.local/git/mupdf.git">https://server.local/git/mupdf.git</a>
 协作过程：
 在服务器端添加账号：test  test123</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//se</span><span class="n">rver</span><span class="o">.</span><span class="n">local</span><span class="sr">/git/mu</span><span class="n">pdf</span><span class="o">.</span><span class="n">git</span> <span class="n">mupdf</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">mupdf</span><span class="sr">/thirdparty/</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
-<span class="err">$</span> <span class="nb">open</span> <span class="n">mupdf</span><span class="sr">/platform/ios/MuPDF.xcodeproj
-</span><span class="sr">$ build &amp; run</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-ruby">$ git clone https://server.local/git/mupdf.git mupdf
+$ cd mupdf/thirdparty/
+$ git submodule init
+$ git submodule update
+$ open mupdf/platform/ios/MuPDF.xcodeproj
+$ build &amp; run
+</code></pre>
+
 <p>封装MuPDFFramework便于集成至PBBReader中：
 初始化mupdf页面接口：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">MuPDFViewController</span> <span class="o">*</span><span class="n">bindingPhone</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MuPDFViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="n">bindingPhone</span><span class="p">.</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">;</span>
-<span class="n">bindingPhone</span><span class="p">.</span><span class="n">openfilepath</span><span class="o">=</span><span class="n">select_files</span><span class="p">;</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">contentViewController</span> <span class="nl">presentViewControllerAsSheet</span><span class="p">:</span><span class="n">bindingPhone</span><span class="p">];</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-objc">MuPDFViewController *bindingPhone = [[MuPDFViewController alloc] initWithNibName:nil bundle:nil];
+bindingPhone.filename=filename;
+bindingPhone.openfilepath=select_files;
+[self.view.window.contentViewController presentViewControllerAsSheet:bindingPhone];
+</code></pre>
+
     </div>
 
     <div class="post-copyright">

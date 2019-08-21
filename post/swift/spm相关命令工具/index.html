@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="概念概述 getting-started {% github huos3203 PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
-<meta property="article:published_time" content="2018-10-01T14:52:23&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-01T14:52:23+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SPM相关命令工具">
 <meta itemprop="description" content="概念概述 getting-started {% github huos3203 PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift">
 
 
 <meta itemprop="datePublished" content="2018-10-01T14:52:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1035">
+<meta itemprop="wordCount" content="981">
 
 
 
@@ -139,8 +138,8 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1035 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 981 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -190,33 +189,14 @@
 
 <ol>
 <li><p>创建<code>Hello</code>目录，目录名会作为SPM名称：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ mkdir Hello
-$ cd Hello</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ mkdir Hello
+$ cd Hello
+</code></pre></li>
 
 <li><p><code>swift package</code>初始化为SPM工程</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift package init
+
+<pre><code class="language-sh">$ swift package init
 ├── Package.swift   // 依赖清单文件
 ├── README.md
 ├── Sources         // 源码目录
@@ -225,165 +205,99 @@ $ cd Hello</pre></td></tr></table>
 └── Tests
 ├── HelloTests
 │   └── HelloTests.swift
-└── LinuxMain.swift</code></pre></td></tr></table>
-</div>
-</div>
-<p>每个包在其根目录下都必须拥有一个命名为<code>Package.swift</code>清单文件。如果清单文件为空，那包管理器将会使用常规默认的方式来编译包。
-3.  <code>swift build</code>编译SPM
+└── LinuxMain.swift
+</code></pre>
+
+<p>每个包在其根目录下都必须拥有一个命名为<code>Package.swift</code>清单文件。如果清单文件为空，那包管理器将会使用常规默认的方式来编译包。</p></li>
+
+<li><p><code>swift build</code>编译SPM
 编译会先解析<code>Package.swift</code>项目配置和下载依赖库等环境，然后编译源码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift build  <span class="c1">#编译可执行文件</span>
-Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span></code></pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code class="language-sh">$ swift build  #编译可执行文件
+Compile Swift Module 'Hello' (1 sources)
+</code></pre></li>
 
 <li><p>swift test运行SPM的单元测试</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift <span class="nb">test</span>
-Compile Swift Module <span class="s1">&#39;HelloTests&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span>
+
+<pre><code class="language-sh">$ swift test
+Compile Swift Module 'HelloTests' (1 sources)
 Linking ./.build/x86_64-apple-macosx10.10/debug/HelloPackageTests.xctest/Contents/MacOS/HelloPackageTests
-Test Suite <span class="s1">&#39;All tests&#39;</span> started at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.453
-Test Suite <span class="s1">&#39;HelloPackageTests.xctest&#39;</span> started at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.454
-Test Suite <span class="s1">&#39;HelloTests&#39;</span> started at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.454
-Test Case <span class="s1">&#39;-[HelloTests.HelloTests testExample]&#39;</span> started.
-Test Case <span class="s1">&#39;-[HelloTests.HelloTests testExample]&#39;</span> passed <span class="o">(</span><span class="m">0</span>.001 seconds<span class="o">)</span>.
-Test Suite <span class="s1">&#39;HelloTests&#39;</span> passed at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.455.
-Executed <span class="m">1</span> test, with <span class="m">0</span> failures <span class="o">(</span><span class="m">0</span> unexpected<span class="o">)</span> in <span class="m">0</span>.001 <span class="o">(</span><span class="m">0</span>.001<span class="o">)</span> seconds
-Test Suite <span class="s1">&#39;HelloPackageTests.xctest&#39;</span> passed at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.455.
-Executed <span class="m">1</span> test, with <span class="m">0</span> failures <span class="o">(</span><span class="m">0</span> unexpected<span class="o">)</span> in <span class="m">0</span>.001 <span class="o">(</span><span class="m">0</span>.001<span class="o">)</span> seconds
-Test Suite <span class="s1">&#39;All tests&#39;</span> passed at <span class="m">2016</span>-08-29 <span class="m">08</span>:00:31.455.
-Executed <span class="m">1</span> test, with <span class="m">0</span> failures <span class="o">(</span><span class="m">0</span> unexpected<span class="o">)</span> in <span class="m">0</span>.001 <span class="o">(</span><span class="m">0</span>.002<span class="o">)</span> seconds</code></pre></td></tr></table>
-</div>
-</div>
+Test Suite 'All tests' started at 2016-08-29 08:00:31.453
+Test Suite 'HelloPackageTests.xctest' started at 2016-08-29 08:00:31.454
+Test Suite 'HelloTests' started at 2016-08-29 08:00:31.454
+Test Case '-[HelloTests.HelloTests testExample]' started.
+Test Case '-[HelloTests.HelloTests testExample]' passed (0.001 seconds).
+Test Suite 'HelloTests' passed at 2016-08-29 08:00:31.455.
+Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'HelloPackageTests.xctest' passed at 2016-08-29 08:00:31.455.
+Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'All tests' passed at 2016-08-29 08:00:31.455.
+Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+</code></pre>
+
 <h3 id="创建一个可执行的spm">创建一个可执行的SPM</h3>
 
 <p>可运行的SPM必须包含<code>main.swift</code>文件。SPM会把<code>main.swift</code>编译成可执行文件的二进制文件。
-在本例中，SPM将生成一个名为<code>Hello</code>的可执行文件，输出“Hello, world!”
-1. 创建</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ mkdir Hello
-$ <span class="nb">cd</span> Hello
-$ swift package init --type executable</code></pre></td></tr></table>
-</div>
-</div></li>
+在本例中，SPM将生成一个名为<code>Hello</code>的可执行文件，输出“Hello, world!”</p></li>
+
+<li><p>创建</p>
+
+<pre><code class="language-sh">$ mkdir Hello
+$ cd Hello
+$ swift package init --type executable
+</code></pre></li>
 
 <li><p>两种运行方式
 2.1 先编译在运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ swift build
-Compile Swift Module &#39;Hello&#39; (1 sources)
+
+<pre><code>$ swift build
+Compile Swift Module 'Hello' (1 sources)
 Linking ./.build/x86_64-apple-macosx10.10/debug/Hello
 
 $ .build/x86_64-apple-macosx10.10/debug/Hello
-Hello, world!</pre></td></tr></table>
-</div>
-</div></li>
+Hello, world!
+</code></pre></li>
 </ol>
 
 <p>2.2 <code>swift run</code>直接运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift run Hello
-Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span>
+
+<pre><code class="language-sh">$ swift run Hello
+Compile Swift Module 'Hello' (1 sources)
 Linking ./.build/x86_64-apple-macosx10.10/debug/Hello
-Hello, world!</code></pre></td></tr></table>
-</div>
-</div>
+Hello, world!
+</code></pre>
+
 <ol>
 <li><p>多个源文件协作
 下一步，让我们在新的资源文件里定义一个新的方法 <code>sayHello(_:)</code> 然后直接用 <code>print(_:)</code> 替换执行调用的内容。
 在 <code>Sources/</code> 目录下创建一个新文件命名为 <code>Greeter.swift</code> 然后输入如下代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<p><code>sayHello(_:)</code> 方法带一个单一的字符串参数，然后在前面打印一个 “Hello”，后面跟着函数参数单词 “World”。</p>
+
+<pre><code class="language-swift">func sayHello(name: String) {
+print(&quot;Hello, \(name)!&quot;)
+}
+</code></pre>
+
+<p><code>sayHello(_:)</code> 方法带一个单一的字符串参数，然后在前面打印一个 “Hello”，后面跟着函数参数单词 “World”。</p></li>
+</ol>
 
 <p>现在打开 <code>main.swift</code>， 然后替换原来的内容为下面代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="bp">count</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&#34;Usage: hello NAME&#34;</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
+
+<pre><code class="language-swift">if Process.arguments.count != 2 {
+    print(&quot;Usage: hello NAME&quot;)
+} else {
+    let name = Process.arguments[1]
+    sayHello(name)
+}
+</code></pre>
 
 <p>跟之前的硬编码不同，<code>main.swift</code> 现在从命令行参数中读取。替代之前直接调用 <code>print(_:)</code>， <code>main.swift</code> 现在调用 <code>sayHello(_:)</code> 方法。因为这个方法是 <code>Hello 模块</code>的一部分，所以不需要使用到 <code>import</code> 语句。</p>
 
 <p>运行 swift build 并尝试 Hello 的新版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="err">$</span> <span class="n">swift</span> <span class="n">build</span>
-<span class="err">$</span> <span class="p">.</span><span class="n">build</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="n">Hello</span> <span class="err">&#39;</span><span class="n">whoami</span><span class="err">&#39;</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-swift">$ swift build
+$ .build/debug/Hello 'whoami'
+</code></pre>
+
 <p>目前为止，你已经能够运用开源 Swift 来运行一些你想要的程序了 。
 要了解Swift包管理器，包括如何构建模块、导入依赖项和映射系统库，请参阅网站的<a href="https://swift.org/package-manager">Swift包管理器</a>部分。</p>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hexo/hexo%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github hexojs hexo 0b26940 width = 30% %} [](https://hexo.io/zh-cn/docs/contributing) 开始之前 请遵守以下准则： 遵守 Google JavaScript 代码风格。 使用 2 个空格缩排。 不要把逗号放在最前面。 工作流程 Fork hexojs/hexo 把库（repository" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hexo/hexo%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" />
-<meta property="article:published_time" content="2018-09-07T15:08:22&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-09-07T15:08:22+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Hexo开发文档及使用教程">
 <meta itemprop="description" content="{% github hexojs hexo 0b26940 width = 30% %} [](https://hexo.io/zh-cn/docs/contributing) 开始之前 请遵守以下准则： 遵守 Google JavaScript 代码风格。 使用 2 个空格缩排。 不要把逗号放在最前面。 工作流程 Fork hexojs/hexo 把库（repository">
 
 
 <meta itemprop="datePublished" content="2018-09-07T15:08:22&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="226">
+<meta itemprop="wordCount" content="219">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 226 字 </span>
+          <span class="more-meta"> 约 219 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -189,42 +188,24 @@
 <li>Fork <a href="https://github.com/hexojs/hexo">hexojs/hexo</a></li>
 
 <li><p>把库（repository）复制到电脑上，并安装所依赖的插件:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ git clone https://github.com/&lt;username&gt;/hexo.git
+
+<pre><code>$ git clone https://github.com/&lt;username&gt;/hexo.git
 $ cd hexo
 $ npm install
-$ git submodule update --init</pre></td></tr></table>
-</div>
-</div></li>
+$ git submodule update --init
+</code></pre></li>
 
 <li><p>新增一个功能分支:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ git checkout -b new_feature</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ git checkout -b new_feature
+</code></pre></li>
 
 <li><p>开始开发。</p></li>
 
 <li><p>推送（push）分支:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ git push origin new_feature</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ git push origin new_feature
+</code></pre></li>
 
 <li><p>建立一个新的合并申请（pull request）并描述变动.</p>
 
@@ -232,14 +213,9 @@ $ git submodule update --init</pre></td></tr></table>
 
 <p>不要修改 <code>package.json</code> 的版本号。
 只有在测试通过的情况下您的合并申请才会被批准，在提交前别忘了进行测试。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ npm test</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ npm test
+</code></pre></li>
 </ol>
 
     </div>

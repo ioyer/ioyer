@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="必要配置 1 2 *创建一个名称为&amp;#34;gitlab&amp;#34;管理员用户，然后再创建一个名称为&amp;#34;gitlab&amp;#34;的群组 *开启gi" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="必要配置 *创建一个名称为&amp;quot;gitlab&amp;quot;管理员用户，然后再创建一个名称为&amp;quot;gitlab&amp;quot;的群组 *开启" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="Mac安装gitLab服务器" />
-<meta property="og:description" content="必要配置 1 2 *创建一个名称为&#34;gitlab&#34;管理员用户，然后再创建一个名称为&#34;gitlab&#34;的群组 *开启gi" />
+<meta property="og:description" content="必要配置 *创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组 *开启" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
-<meta property="article:published_time" content="2015-09-27T19:25:38&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2015-09-27T19:25:38+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Mac安装gitLab服务器">
-<meta itemprop="description" content="必要配置 1 2 *创建一个名称为&#34;gitlab&#34;管理员用户，然后再创建一个名称为&#34;gitlab&#34;的群组 *开启gi">
+<meta itemprop="description" content="必要配置 *创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组 *开启">
 
 
 <meta itemprop="datePublished" content="2015-09-27T19:25:38&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="862">
+<meta itemprop="wordCount" content="804">
 
 
 
 <meta itemprop="keywords" content="gitLab,工具,搭建,git," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mac安装gitLab服务器"/>
-<meta name="twitter:description" content="必要配置 1 2 *创建一个名称为&#34;gitlab&#34;管理员用户，然后再创建一个名称为&#34;gitlab&#34;的群组 *开启gi"/>
+<meta name="twitter:description" content="必要配置 *创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组 *开启"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -140,7 +139,7 @@
             <a href="/categories/git/"> git </a>
             <a href="/categories/gitlab/"> gitLab </a>
             </div>
-          <span class="more-meta"> 约 862 字 </span>
+          <span class="more-meta"> 约 804 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,35 +178,22 @@
       
 
 <h4 id="必要配置">必要配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">*创建一个名称为&#34;gitlab&#34;管理员用户，然后再创建一个名称为&#34;gitlab&#34;的群组
-*开启gitlab用户的远程登录</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>*创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组
+*开启gitlab用户的远程登录
+</code></pre>
+
 <p>在系统启动界面:<br />
 隐藏gitlab用户</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add gitlab</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add gitlab
+</code></pre>
+
 <p>显示git用户</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo defaults delete /Library/Preferences/com.apple.loginwindow HiddenUsersList</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo defaults delete /Library/Preferences/com.apple.loginwindow HiddenUsersList
+</code></pre>
+
 <h4 id="添加系统账户gitlab">添加系统账户gitlab</h4>
 
 <h6 id="生成gitlab服务器目录-即用户根目录">生成gitlab服务器目录，即用户根目录</h6>
@@ -215,206 +201,115 @@
 <p>进入<strong>系统偏好设置&hellip;</strong>,在管理<strong>用户与群组</strong>中，添加其他用户，暂时定为：gitlab ，登录密码假设为：gitlab，添加完成后，会自动在/Users目录下，生成用户根目录gitlab.</p>
 
 <h6 id="安装-gitlab-shell">安装 Gitlab Shell</h6>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd /Users/gitlab
+
+<pre><code>cd /Users/gitlab
 sudo -u gitlab git clone https://github.com/gitlabhq/gitlab-shell.git
 cd gitlab-shell
 sudo -u gitlab git checkout v1.9.1
-sudo -u gitlab cp config.yml.example config.yml</pre></td></tr></table>
-</div>
-</div>
+sudo -u gitlab cp config.yml.example config.yml
+</code></pre>
+
 <p>打开 config.yml,然后进行编辑<br />
 设置  gitlab_url. 把 gitlab.example.com 替换成你自己的域名 （如果本地就不用了）<br />
 把所有的/home 替换成 /Users</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo -u gitlab sed -i &#34;&#34; &#34;s/\/home\//\/Users\//g&#34; config.yml
-sudo -u gitlab sed -i &#34;&#34; &#34;s/\/usr\/bin\/redis-cli/\/usr\/local\/bin\/redis-cli/&#34; config.yml</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo -u gitlab sed -i &quot;&quot; &quot;s/\/home\//\/Users\//g&quot; config.yml
+sudo -u gitlab sed -i &quot;&quot; &quot;s/\/usr\/bin\/redis-cli/\/usr\/local\/bin\/redis-cli/&quot; config.yml
+</code></pre>
+
 <p>然后执行安装脚本：<code>sudo -u gitlab -H ./bin/install</code>  <strong>//需在gitlab-shell目录下载执行</strong></p>
 
 <h6 id="安装gitlab">安装gitlab</h6>
 
 <p>先下载gitlab</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd /Users/gitlab
+
+<pre><code>cd /Users/gitlab
 sudo -u gitlab git clone https://github.com/gitlabhq/gitlabhq.git
 cd gitlab
-sudo -u gitlab git checkout 6-7-stable</pre></td></tr></table>
-</div>
-</div>
+sudo -u gitlab git checkout 6-7-stable
+</code></pre>
+
 <p>配置gitlab</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo -u gitlab cp config/gitlab.yml.example config/gitlab.yml
-sudo -u gitlab sed -i &#34;&#34; &#34;s/\/usr\/bin\/git/\/usr\/local\/bin\/git/g&#34; config/gitlab.yml
-sudo -u gitlab sed -i &#34;&#34; &#34;s/\/home/\/Users/g&#34; config/gitlab.yml
-sudo -u gitlab sed -i &#34;&#34; &#34;s/localhost/domain.com/g&#34; config/gitlab.yml</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo -u gitlab cp config/gitlab.yml.example config/gitlab.yml
+sudo -u gitlab sed -i &quot;&quot; &quot;s/\/usr\/bin\/git/\/usr\/local\/bin\/git/g&quot; config/gitlab.yml
+sudo -u gitlab sed -i &quot;&quot; &quot;s/\/home/\/Users/g&quot; config/gitlab.yml
+sudo -u gitlab sed -i &quot;&quot; &quot;s/localhost/domain.com/g&quot; config/gitlab.yml
+</code></pre>
+
 <p>配置MySQL数据库，创建gitlab用户，数据库，和gitlab用户的管理权限</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># Login to MySQL
+
+<pre><code># Login to MySQL
 $ mysql -u root -p
 
 # Create the GitLab production database
 mysql&gt; CREATE DATABASE IF NOT EXISTS `gitlabhq_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;
 
 # Create the MySQL User change $password to a real password
-mysql&gt; CREATE USER &#39;gitlab&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;$password&#39;;
+mysql&gt; CREATE USER 'gitlab'@'localhost' IDENTIFIED BY '$password';
 
 # Grant proper permissions to the MySQL User
-mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON `gitlabhq_production`.* TO &#39;gitlab&#39;@&#39;localhost&#39;;</pre></td></tr></table>
-</div>
-</div>
+mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON `gitlabhq_production`.* TO 'gitlab'@'localhost';
+</code></pre>
+
 <h6 id="安装-gitolite帮助管理git内部用户">安装 Gitolite帮助管理git内部用户</h6>
 
 <p>克隆gitlab的gitolite分支源代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo -H -u gitlab git clone -b gl-v304 https://github.com/gitlabhq/gitolite.git /Users/gitlab/gitolite</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo -H -u gitlab git clone -b gl-v304 https://github.com/gitlabhq/gitolite.git /Users/gitlab/gitolite
+</code></pre>
+
 <p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd /Users/gitlab
+
+<pre><code>cd /Users/gitlab
 sudo -u gitlab -H mkdir bin
-sudo -u gitlab sh -c &#39;echo -e &#34;PATH=\$PATH:/Users/gitlab/bin\nexport PATH&#34; &gt;&gt; /Users/gitlab/.profile&#39;
-sudo -u gitlab sh -c &#39;gitolite/install -ln /Users/gitlab/bin&#39;
+sudo -u gitlab sh -c 'echo -e &quot;PATH=\$PATH:/Users/gitlab/bin\nexport PATH&quot; &gt;&gt; /Users/gitlab/.profile'
+sudo -u gitlab sh -c 'gitolite/install -ln /Users/gitlab/bin'
 
 sudo cp ~/.ssh/id_rsa.pub /Users/gitlab/gitlab.pub
 sudo chmod 0444 /Users/gitlab/gitlab.pub
 
-sudo -u gitlab -H sh -c &#34;PATH=/Users/gitlab/bin:$PATH; gitolite setup -pk /Users/gitlab/gitlab.pub&#34;</pre></td></tr></table>
-</div>
-</div>
+sudo -u gitlab -H sh -c &quot;PATH=/Users/gitlab/bin:$PATH; gitolite setup -pk /Users/gitlab/gitlab.pub&quot;
+</code></pre>
+
 <p>为 Git 创建用户：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo adduser \
+
+<pre><code>sudo adduser \
   --system \
   --shell /bin/sh \
-  --gecos &#39;git version control&#39; \
+  --gecos 'git version control' \
   --group \
   --disabled-password \
   --home /home/git \
-  git</pre></td></tr></table>
-</div>
-</div>
+  git
+</code></pre>
+
 <p>若干问题解决办法：<a href="http://www.cnblogs.com/whj198579/archive/2013/04/09/3009350.html">Mac搭建Git服务器—开启SSH</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Cloning into &#39;/tmp/gitolite-admin&#39;...
+
+<pre><code>Cloning into '/tmp/gitolite-admin'...
 ssh: connect to host localhost port 22: Connection refused
-fatal: Could not read from remote repository.</pre></td></tr></table>
-</div>
-</div>
+fatal: Could not read from remote repository.
+</code></pre>
+
 <p>SSH无密码登陆设置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ cd /etc
+
+<pre><code>$ cd /etc
 $ chmod 666 sshd_config
 $ vim sshd_config
 
 #PermitRootLogin yes  改为：PermitRootLogin no
-#UsePAM yes          改为: UsePAM no</pre></td></tr></table>
-</div>
-</div>
+#UsePAM yes          改为: UsePAM no
+</code></pre>
+
 <p>Remove the # from the following</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#RSAAuthentication yes
+
+<pre><code>#RSAAuthentication yes
 #PubkeyAuthentication yes
 #AuthorizedKeysFile     .ssh/authorized_keys    
 #PasswordAuthentication no
-#PermitEmptyPasswords no</pre></td></tr></table>
-</div>
-</div>
+#PermitEmptyPasswords no
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -473,10 +368,10 @@ $ vim sshd_config
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-09-27 19:25:38 \x2b0800 \x2b0800',
+        id: '2015-09-27 19:25:38 \x2b0800 CST',
         title: 'Mac安装gitLab服务器',
         link: decodeURI(location.href),
-        desc: '必要配置 1 2 *创建一个名称为\x26#34;gitlab\x26#34;管理员用户，然后再创建一个名称为\x26#34;gitlab\x26#34;的群组 *开启gi',
+        desc: '必要配置 *创建一个名称为\x26quot;gitlab\x26quot;管理员用户，然后再创建一个名称为\x26quot;gitlab\x26quot;的群组 *开启',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

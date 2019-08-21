@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E8%B0%83%E8%AF%95/%E9%AB%98%E6%9C%9F%E6%9C%9B%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="异步单元测试 在Xcode 6之前的版本里面并没有内置XCTest，只能是在主线程的RunLoop里面使用一个while循环,然后一直等待响应或" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E8%B0%83%E8%AF%95/%E9%AB%98%E6%9C%9F%E6%9C%9B%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
-<meta property="article:published_time" content="2017-02-20T23:09:30&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:50:03&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-02-20T23:09:30+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:50:03+08:00" />
 <meta itemprop="name" content="高期望实现异步单元测试">
 <meta itemprop="description" content="异步单元测试 在Xcode 6之前的版本里面并没有内置XCTest，只能是在主线程的RunLoop里面使用一个while循环,然后一直等待响应或">
 
 
 <meta itemprop="datePublished" content="2017-02-20T23:09:30&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:50:03&#43;08:00" />
-<meta itemprop="wordCount" content="1952">
+<meta itemprop="wordCount" content="1900">
 
 
 
@@ -140,7 +139,7 @@
             <a href="/categories/xcode/"> xcode </a>
             <a href="/categories/%E6%B5%8B%E8%AF%95/"> 测试 </a>
             </div>
-          <span class="more-meta"> 约 1952 字 </span>
+          <span class="more-meta"> 约 1900 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -207,21 +206,8 @@ func testAsyncTheOldWay()
         responseHasArrived = true
         XCTAssert((response.data?.count)! &gt; 0)
     }</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">while (responseHasArrived == false 
+
+<pre><code>while (responseHasArrived == false 
         &amp;&amp; (timeoutDate.timeIntervalSinceNow &gt; 0)) 
 {
     CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0.01, false)
@@ -229,10 +215,10 @@ func testAsyncTheOldWay()
 
 if (responseHasArrived == false)
 {
-    XCTFail(&#34;Test timed out&#34;)
-}</pre></td></tr></table>
-</div>
-</div>
+    XCTFail(&quot;Test timed out&quot;)
+}
+</code></pre>
+
 <p>}
 {% endcodeblock %}</p>
 
@@ -306,22 +292,14 @@ func testAsynForNotificationWithExpectation()
     }
     //发送一个通知
     NotificationCenter.default.post(name: notif, object: nil)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">//waitForExpectations
+
+<pre><code>//waitForExpectations
 waitForExpectations(timeout: 1, handler: nil)
 
 //移除通知
-NotificationCenter.default.removeObserver(sub)</pre></td></tr></table>
-</div>
-</div>
+NotificationCenter.default.removeObserver(sub)
+</code></pre>
+
 <p>}</p>
 
 <p>{% endcodeblock %}</p>
@@ -357,32 +335,13 @@ func testThatBackgroundImageChanges()
 {
     //设置期望
     let expectation = self.expectation(description: &ldquo;backgroundImageForState&rdquo;)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">let viewController = OnclickLikeViewController()
+
+<pre><code>let viewController = OnclickLikeViewController()
 //viewController.loadView()  //不执行viewDidload方法
 let _ = viewController.view
 let button = viewController.button
 let img = button.backgroundImage(for: .normal)
-XCTAssertNil(img,&#34;此时img不为nil,中止执行&#34;)  //当img不是nil时，执行断言
+XCTAssertNil(img,&quot;此时img不为nil,中止执行&quot;)  //当img不是nil时，执行断言
 let predicate = NSPredicate.init { (anyobject, bindings) -&gt; Bool in
     //
     let button = anyobject as! UIButton
@@ -392,9 +351,9 @@ let predicate = NSPredicate.init { (anyobject, bindings) -&gt; Bool in
 }
 
 //等待期望实现
-waitForExpectations(timeout: 20, handler: nil)</pre></td></tr></table>
-</div>
-</div>
+waitForExpectations(timeout: 20, handler: nil)
+</code></pre>
+
 <p>}</p>
 
 <p>{% endcodeblock %}</p>
@@ -407,38 +366,12 @@ waitForExpectations(timeout: 20, handler: nil)</pre></td></tr></table>
 func testAsynForNotificationWithExpectation2()
 {
     let expectation = self.expectation(description: &ldquo;BLDownloadImageNotification&rdquo;)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">let notif = Notification.Name(rawValue: &#34;BLDownloadImageNotification&#34;)
+
+<pre><code>let notif = Notification.Name(rawValue: &quot;BLDownloadImageNotification&quot;)
 NotificationCenter.default.addObserver(self, selector: #selector(AsyncTheOldWayTest.downLoadImage(_:)), name: notif, object: nil)
 
     //将期望封装在字典中传递
-    let userInf = [&#34;name&#34;:&#34;iTBoyer&#34;,&#34;sex&#34;:&#34;man&#34;,&#34;expectation&#34;:expectation]
+    let userInf = [&quot;name&quot;:&quot;iTBoyer&quot;,&quot;sex&quot;:&quot;man&quot;,&quot;expectation&quot;:expectation]
     NotificationCenter.default.post(name: notif, object: self, userInfo: userInf)
     //等待期望实现
     waitForExpectations(timeout: 1, handler: nil)
@@ -450,15 +383,15 @@ func downLoadImage(_ notification:Notification)
 {
     //
     let userInfo = notification.userInfo as! [String:AnyObject]
-    let name = userInfo[&#34;name&#34;]
-    let sex = userInfo[&#34;sex&#34;]
-    print(&#34;name:\(name), sex = \(sex)&#34;)
+    let name = userInfo[&quot;name&quot;]
+    let sex = userInfo[&quot;sex&quot;]
+    print(&quot;name:\(name), sex = \(sex)&quot;)
 
-    let expectation = userInfo[&#34;expectation&#34;] as! XCTestExpectation
+    let expectation = userInfo[&quot;expectation&quot;] as! XCTestExpectation
     expectation.fulfill()
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <p>}
 {% endcodeblock %}</p>
 

@@ -27,7 +27,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" />
@@ -63,9 +63,8 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" />
-<meta property="article:published_time" content="2015-09-18T23:52:06&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2015-09-18T23:52:06+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Xcode和Jenkins持续集成的几种实现方式">
 <meta itemprop="description" content="CI服务器
 
@@ -89,7 +88,7 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 
 <meta itemprop="datePublished" content="2015-09-18T23:52:06&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="4897">
+<meta itemprop="wordCount" content="4814">
 
 
 
@@ -194,7 +193,7 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 4897 字 </span>
+          <span class="more-meta"> 约 4814 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -262,26 +261,15 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 <li>下载：<a href="http://mirrors.jenkins-ci.org/war/lastest/jenkins.war">http://mirrors.jenkins-ci.org/war/lastest/jenkins.war</a><br /></li>
 
 <li><p>运行命令行：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
+</code></pre></li>
 
 <li><p>写入启动文件中，起别名</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vi /Users/(username)/.bash_profile  
-输入:alias jenkins=&#34;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  </pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>vi /Users/(username)/.bash_profile  
+输入:alias jenkins=&quot;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
+</code></pre></li>
 
 <li><p>启动时，在命令行中输入：<strong><code>jenkins</code></strong> 回车  即可启动</p></li>
 
@@ -296,59 +284,25 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 
 <p>brew install jenkins
 安装好之后，可以通过使用命令行启动</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">java -jar /usr/local/opt/jenkins/libexec/jenkins.war</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>java -jar /usr/local/opt/jenkins/libexec/jenkins.war
+</code></pre>
+
 <p>如果想<strong>开机自动启动</strong>，需要先执行以下命令，创建启动项：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">ln -sfv /usr/local/opt/jenkins/*.plist ~/Library/LaunchAgents</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>ln -sfv /usr/local/opt/jenkins/*.plist ~/Library/LaunchAgents
+</code></pre>
+
 <p>可以编辑一下~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist这个文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">open ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>open ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+</code></pre>
+
 <p>具体内容：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;
-&lt;plist version=&#34;1.0&#34;&gt;
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
   &lt;dict&gt;
     &lt;key&gt;Label&lt;/key&gt;
     &lt;string&gt;homebrew.mxcl.jenkins&lt;/string&gt;
@@ -364,45 +318,32 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
     &lt;key&gt;RunAtLoad&lt;/key&gt;
     &lt;true/&gt;
   &lt;/dict&gt;
-&lt;/plist&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/plist&gt;
+</code></pre>
+
 <p>想要让局域网都可以访问或修改端口号，需要把—httpListenAddress=127.0.0.1改成自己的局域网IP</p>
 
 <p>手动启动启动项可以执行,制作替身：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist  </pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist  
+</code></pre>
+
 <p>之后用浏览器就可以访问 <strong><a href="http://localhost:8088/">http://localhost:8088/</a></strong> 来登录jenkins了</p>
 
 <h4 id="方法三">方法三：</h4>
 
 <p>使用tomcat
 制作替身：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd ~/Downloads/soft/Tomcat/
-ln -sfv apache-tomcat-8.0.27 tomcat</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>cd ~/Downloads/soft/Tomcat/
+ln -sfv apache-tomcat-8.0.27 tomcat
+</code></pre>
+
 <p>将jenkins.war拷贝到 $tomcat/webapp下面。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"> $tomcat/bin/start.sh  </pre></td></tr></table>
-</div>
-</div>
+
+<pre><code> $tomcat/bin/start.sh  
+</code></pre>
+
 <p>用浏览器打开 <strong>localhost:8080/jenkins</strong> tomcat默认端口号为8080，就可以看到 jenkin运行了。</p>
 
 <h4 id="自动化构建和依赖管理-参考-http-www-infoq-com-cn-articles-build-ios-continuous-integration-platform-part1">自动化构建和依赖管理<a href="http://www.infoq.com/cn/articles/build-ios-continuous-integration-platform-part1/">参考</a></h4>
@@ -478,20 +419,14 @@ ln -sfv apache-tomcat-8.0.27 tomcat</pre></td></tr></table>
 
 <li><p>支持多种格式的build报告。
 例子：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">path</span><span class="sr">/to/x</span><span class="n">ctool</span><span class="o">.</span><span class="n">sh</span> 
-<span class="o">-</span><span class="n">workspaceYourWorkspace</span><span class="o">.</span><span class="n">xcworkspace</span>
-<span class="o">-</span><span class="n">schemeYourScheme</span>
-<span class="nb">test</span> <span class="o">-</span><span class="n">only</span> <span class="ss">SomeTestTarget</span><span class="p">:</span><span class="no">SomeTestClass</span><span class="sr">/testSomeMethod</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-ruby">path/to/xctool.sh 
+-workspaceYourWorkspace.xcworkspace
+-schemeYourScheme
+test -only SomeTestTarget:SomeTestClass/testSomeMethod
+</code></pre></li>
+</ul>
+
 <h4 id="自动化部署">自动化部署</h4>
 
 <p>这儿的想谈的“部署”不是传统意义上的直接部署到产品环境的部署，而是指如何把最新版本的应用快速的部署到测试用户的机器上以收集反馈，或者做一些探索性的测试。</p>
@@ -527,101 +462,58 @@ ln -sfv apache-tomcat-8.0.27 tomcat</pre></td></tr></table>
 <li>calabash  是一款开源的跨平台UI测试工具，目前支持iOS和Android。它使用Cucumber作为测试核心，Cucumber是一个在敏捷团队十分流行的自动化的功能测试工具，它使用接近于自然语言的特性文档进行用例的书写和测试，支持多语言和多平台。</li>
 
 <li><p>安装Calabash</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo gem install calabash-cucumber</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo gem install calabash-cucumber
+</code></pre></li>
 
 <li><p>安装Calabash中文支持包</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo gem install calabash-cucumber-cn</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo gem install calabash-cucumber-cn
+</code></pre></li>
 </ol>
 
 <h4 id="for-automatic-setup">For automatic setup:</h4>
 
 <ol>
 <li><p>In a terminal, go to your iOS project</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
+</code></pre></li>
 
 <li><p>Install calabash-cucumber gem (this make take some time because of dependencies)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">gem install calabash-cucumber</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>gem install calabash-cucumber
+</code></pre></li>
 
 <li><p>Setup your project for Calabash-iOS.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">calabash-ios setup  //Answer the questions and read the output :)</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>calabash-ios setup  //Answer the questions and read the output :)
+</code></pre></li>
 
 <li><p>Generate a skeleton features folder for your tests</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">calabash-ios gen</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>calabash-ios gen
+</code></pre></li>
 
 <li><p>In Xcode, build your project using the -cal scheme</p></li>
 
 <li><p>Run the generated test!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cucumber</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>cucumber
+</code></pre></li>
 </ol>
 
 <p>If all goes well, you are now ready to write your first test. Start by editing the file features/my_first.feature.</p>
 
 <h4 id="cucumber官网-https-cukes-info"><a href="https://cukes.info/">cucumber官网</a></h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">* Feature（功能）  
-* Scenario（情景）  
-*  Given（给定）  
-*  When（当）  
-*  Then（则） </pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>    * Feature（功能）  
+    * Scenario（情景）  
+    *  Given（给定）  
+    *  When（当）  
+    *  Then（则） 
+</code></pre>
+
 <h5 id="运行原理-http-www-educity-cn-se-619226-html"><a href="http://www.educity.cn/se/619226.html">运行原理</a></h5>
 
 <p><img src="http://img.educity.cn/img_7/262/2013122000/125005907.jpg" alt="image" /><br />
@@ -634,42 +526,37 @@ cucumber是一种BDD测试框架，核心为cucumber的calabash的脚本在运�
 feature为主件夹，step_definitions目录内是你封装的脚本，my_first.feature文件就是你的TC逻辑。<br />
 再看一下其中的内容：</p>
 
-<p>　　my_first.feature</p>
+<pre><code>　　my_first.feature
 
-<p>　　Feature： 登陆</p>
+　　Feature： 登陆
 
-<p>　　Scenario： 输入正确的用户名密码能够正常登陆</p>
+　　Scenario： 输入正确的用户名密码能够正常登陆
 
-<p>　　When 打开登陆页面</p>
+　　When 打开登陆页面
 
-<p>　　And    输入用户名XXX输入密码XXX</p>
+　　And    输入用户名XXX输入密码XXX
 
-<p>　　And   点击登陆</p>
+　　And   点击登陆
 
-<p>　　Then  验证登陆成功</p>
+　　Then  验证登陆成功
+</code></pre>
 
 <p>　　看起来很简单吧，想要验证其他功能也是类似的语言描述即可。<br />
 如果你没有用过cucumber或者calabash那么你肯定现在有一个疑问，计算机怎么能识别汉字来进行测试的呢，<br />
 那么看一下step_definition，以 输入用户名XXX输入密码XXX为例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">When /^ 输入用户名\&#34;([^\\\&#34;]*)\&#34; 输入密码\&#34;([^\\\&#34;]*)\&#34;  $/ do |username，password|
-performAction(&#39;enter_text_into_numbered_field&#39;，username，1)
-performAction(&#39;enter_text_into_numbered_field&#39;，password，2)
-end</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>    When /^ 输入用户名\&quot;([^\\\&quot;]*)\&quot; 输入密码\&quot;([^\\\&quot;]*)\&quot;  $/ do |username，password|
+    performAction('enter_text_into_numbered_field'，username，1)
+    performAction('enter_text_into_numbered_field'，password，2)
+    end
+</code></pre>
+
 <p>现在应该能明白为什么你需要写汉字的脚本就可以了吧。<br />
 在这里解释一下为什么如果业务存在功能修改这种情况，自动化脚本的修改量会小。<br />
 还是以这个登录脚本为例：</p>
 
-<p>假如现在输入用户名和密码的输入框顺序变了，在你的页面显示上，可能是从左下角移到中间了，这种变化，那么feature文件你不用改，只需要改step_definition脚本就好了</p>
+<pre><code>假如现在输入用户名和密码的输入框顺序变了，在你的页面显示上，可能是从左下角移到中间了，这种变化，那么feature文件你不用改，只需要改step_definition脚本就好了
+</code></pre>
 
 <h5 id="运行报告">运行报告</h5>
 
@@ -680,73 +567,46 @@ end</pre></td></tr></table>
 
 <p><a href="http://blog.csdn.net/qs_csu/article/details/9000262">【cucumber解析features文件】</a><br />
 1. my_first.feature: 描述在这个条件下需要做什么事情；</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Feature: Running a test  
-  As an iOS developer  
-  I want to have a sample feature file  
-  So I can begin testing quickly  
 
-Scenario: Example steps1  
-  Given I am on the Welcome Screen  
-  Then I swipe left  
-  And I wait until I don&#39;t see &#34;Please swipe left&#34;  
-  And take picture  
+<pre><code>    Feature: Running a test  
+      As an iOS developer  
+      I want to have a sample feature file  
+      So I can begin testing quickly  
 
-Scenario: Example steps2  
-  Given I am on the Welcome Screen  
- #ASSERTION  
-  Then I should see a &#34;login&#34; button  
- #INPUT TEXT  
-  Then I enter &#34;my_username&#34; into text field number 1  
-#  Then I touch &#34;Return&#34;  
+    Scenario: Example steps1  
+      Given I am on the Welcome Screen  
+      Then I swipe left  
+      And I wait until I don't see &quot;Please swipe left&quot;  
+      And take picture  
 
- #TOGGLE SWITCH  
-  Then I toggle the switch  
-  Then I touch &#34;Login&#34;  
-  And I touch &#34;Second&#34;  
-  And take picture  </pre></td></tr></table>
-</div>
-</div>
-<p>该文件描述了在“on the Welcome Screen”这个Step中需要做的事情，两个场景:steps1 和 steps2.</p>
+    Scenario: Example steps2  
+      Given I am on the Welcome Screen  
+     #ASSERTION  
+      Then I should see a &quot;login&quot; button  
+     #INPUT TEXT  
+      Then I enter &quot;my_username&quot; into text field number 1  
+    #  Then I touch &quot;Return&quot;  
+
+     #TOGGLE SWITCH  
+      Then I toggle the switch  
+      Then I touch &quot;Login&quot;  
+      And I touch &quot;Second&quot;  
+      And take picture  
+该文件描述了在“on the Welcome Screen”这个Step中需要做的事情，两个场景:steps1 和 steps2. 
+</code></pre>
 
 <ol>
 <li><p>my_first_step.rb: 解释了Given的具体条件</p>
 
-<p>Given /^I am on the Welcome Screen$/ do<br />
-  element_exists(&ldquo;view&rdquo;)<br />
-  check_element_exists(&ldquo;label text:&lsquo;First View&rsquo;&ldquo;)<br />
-  sleep(STEP_PSEAU)<br />
+<pre><code>Given /^I am on the Welcome Screen$/ do  
+  element_exists(&quot;view&quot;)  
+  check_element_exists(&quot;label text:'First View'&quot;)  
+  sleep(STEP_PSEAU)  
 end
-这个语句，判定了当前条件&rdquo;on the Welcome Screen&rdquo;是否满足，如果element存在，则就在&rdquo;Welcome Screen&rdquo;；</p></li>
-</ol></li>
-</ul>
+</code></pre>
+
+<p>这个语句，判定了当前条件&rdquo;on the Welcome Screen&rdquo;是否满足，如果element存在，则就在&rdquo;Welcome Screen&rdquo;；</p></li>
+</ol>
     </div>
 
     <div class="post-copyright">
@@ -803,7 +663,7 @@ end
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-09-18 23:52:06 \x2b0800 \x2b0800',
+        id: '2015-09-18 23:52:06 \x2b0800 CST',
         title: 'Xcode和Jenkins持续集成的几种实现方式',
         link: decodeURI(location.href),
         desc: '\x3ch2 id=\x22ci服务器\x22\x3eCI服务器\x3c\/h2\x3e\n\n\x3cp\x3e写到这儿，对于iOS开发者来说，需要准备好：\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e一个比较容易获取的源代码仓库(包含源代码)\x3c\/li\x3e\n\x3cli\x3e一套自动化构建脚本\x3c\/li\x3e\n\x3cli\x3e一系列围绕构建的可执行测试\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3e接下来就需要一个CI服务器来根据源代码的变更触发构建，监控测试结果。\x3c\/p\x3e\n\n\x3cp\x3e目前，业界比较流行的，支持iOS构建的CI服务器有\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e\x3ca href=\x22https:\/\/travis-ci.org\x22\x3eTravis CI\x3c\/a\x3e：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，\x3ca href=\x22http:\/\/www.infoq.com\/cn\/articles\/build-ios-continuous-integration-platform-part3\x22\x3e详见\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3cstrong\x3eJenkins\x3c\/strong\x3e：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。\x3c\/li\x3e\n\x3c\/ul\x3e',

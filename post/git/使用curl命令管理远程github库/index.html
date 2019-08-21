@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -m" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -m &#39;some" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="使用curl命令管理远程github库" />
-<meta property="og:description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;&amp; git add . &amp;&amp; git commit -m" />
+<meta property="og:description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;&amp; git add . &amp;&amp; git commit -m &#39;some" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/" />
-<meta property="article:published_time" content="2018-06-20T11:14:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-06-20T11:14:00+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="使用curl命令管理远程github库">
-<meta itemprop="description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;&amp; git add . &amp;&amp; git commit -m">
+<meta itemprop="description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;&amp; git add . &amp;&amp; git commit -m &#39;some">
 
 
 <meta itemprop="datePublished" content="2018-06-20T11:14:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1270">
+<meta itemprop="wordCount" content="1194">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用curl命令管理远程github库"/>
-<meta name="twitter:description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;&amp; git add . &amp;&amp; git commit -m"/>
+<meta name="twitter:description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;&amp; git add . &amp;&amp; git commit -m &#39;some"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 1270 字 </span>
+          <span class="more-meta"> 约 1194 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -177,33 +176,21 @@
 <li><p>在本地准备工作
 进入一个目录，这个目录是本地仓库的目录；
 在本地建立仓库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">git init <span class="o">&amp;&amp;</span> git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;some information&#39;</span></code></pre></td></tr></table>
-</div>
-</div>
-<ol>
-<li>新建一个<code>API token</code>
-打开此链接，<a href="https://github.com/settings/tokens">generate new token</a>，写入<code>description</code>，选择<code>scopes</code>（设置此token持有者的权限）。记住<code>personal access token</code>（也就是那一串字符和数字）！这一串东西只出现一次，下次查看不到。</li>
+
+<pre><code class="language-sh">git init &amp;&amp; git add . &amp;&amp; git commit -m 'some information'
+</code></pre></li>
+
+<li><p>新建一个<code>API token</code>
+打开此链接，<a href="https://github.com/settings/tokens">generate new token</a>，写入<code>description</code>，选择<code>scopes</code>（设置此token持有者的权限）。记住<code>personal access token</code>（也就是那一串字符和数字）！这一串东西只出现一次，下次查看不到。</p></li>
 </ol>
 
 <h3 id="基础命令">基础命令</h3>
 
 <p>这是最直接的一种形式，直接把参数写到命令行搞定：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-git" data-lang="git"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-git" data-lang="git">curl -u git账号 -d &#39;{&#34;name&#34;:&#34;新库名&#34;,&#34;description&#34;:&#34;库描述&#34;}&#39; https://api.github.com/user/repos
-curl -u &#34;$username:$token&#34; https://api.github.com/user/repos -d &#39;{&#34;name&#34;:&#34;&#39;$repo_name&#39;&#34;}&#39;</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
+
+<pre><code class="language-git">curl -u git账号 -d '{&quot;name&quot;:&quot;新库名&quot;,&quot;description&quot;:&quot;库描述&quot;}' https://api.github.com/user/repos
+curl -u &quot;$username:$token&quot; https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}'
+</code></pre>
 
 <blockquote>
 <p>注：这里需要把<code>$username</code>和<code>$token</code>分别换成实际的用户名和刚才记住的<code>personal access token</code>，把<code>$repo_name</code>换成任何想要的<code>repo name</code>。</p>
@@ -212,254 +199,139 @@ curl -u &#34;$username:$token&#34; https://api.github.com/user/repos -d &#39;{&#
 
 <p>我们可以把命令行写成bash脚本，下次只要执行里面的简单命令就可以执行以上整条命令。
 1. 把<code>username</code>和<code>token</code>写入(apend或者修改)<code>~/.gitconfig</code>，形式如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[github]
+
+<pre><code>[github]
     user = your user name 
-    token = the token you get</pre></td></tr></table>
-</div>
-</div>
+    token = the token you get
+</code></pre>
+
 <ol>
 <li><p>把如下 <code>bash code</code>写入（append）<code>~/.bash_profile</code>文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">github-create<span class="o">()</span> <span class="o">{</span>
-<span class="nv">repo_name</span><span class="o">=</span><span class="nv">$1</span>
 
-<span class="nv">dir_name</span><span class="o">=</span><span class="sb">`</span>basename <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sb">`</span>
+<pre><code class="language-bash">github-create() {
+repo_name=$1
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$repo_name</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&#34;Repo name (hit enter to use &#39;</span><span class="nv">$dir_name</span><span class="s2">&#39;)?&#34;</span>
-    <span class="nb">read</span> repo_name
-<span class="k">fi</span>
+dir_name=`basename $(pwd)`
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$repo_name</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">repo_name</span><span class="o">=</span><span class="nv">$dir_name</span>
-<span class="k">fi</span>
+if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
+echo &quot;Repo name (hit enter to use '$dir_name')?&quot;
+    read repo_name
+fi
 
-<span class="nv">username</span><span class="o">=</span><span class="sb">`</span>git config github.user<span class="sb">`</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Could not find username, run &#39;git config --global github.user &lt;username&gt;&#39;&#34;</span>
-    <span class="nv">invalid_credentials</span><span class="o">=</span><span class="m">1</span>
-<span class="k">fi</span>
+if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
+    repo_name=$dir_name
+fi
 
-<span class="nv">token</span><span class="o">=</span><span class="sb">`</span>git config github.token<span class="sb">`</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$token</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Could not find token, run &#39;git config --global github.token &lt;token&gt;&#39;&#34;</span>
-    <span class="nv">invalid_credentials</span><span class="o">=</span><span class="m">1</span>
-<span class="k">fi</span>
+username=`git config github.user`
+if [ &quot;$username&quot; = &quot;&quot; ]; then
+    echo &quot;Could not find username, run 'git config --global github.user &lt;username&gt;'&quot;
+    invalid_credentials=1
+fi
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$invalid_credentials</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;1&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="k">return</span> <span class="m">1</span>
-<span class="k">fi</span>
+token=`git config github.token`
+if [ &quot;$token&quot; = &quot;&quot; ]; then
+    echo &quot;Could not find token, run 'git config --global github.token &lt;token&gt;'&quot;
+    invalid_credentials=1
+fi
 
-<span class="nb">echo</span> -n <span class="s2">&#34;Creating Github repository &#39;</span><span class="nv">$repo_name</span><span class="s2">&#39; ...&#34;</span>
-curl -u <span class="s2">&#34;</span><span class="nv">$username</span><span class="s2">:</span><span class="nv">$token</span><span class="s2">&#34;</span> https://api.github.com/user/repos -d <span class="s1">&#39;{&#34;name&#34;:&#34;&#39;</span><span class="nv">$repo_name</span><span class="s1">&#39;&#34;}&#39;</span> &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="nb">echo</span> <span class="s2">&#34; done.&#34;</span>
+if [ &quot;$invalid_credentials&quot; == &quot;1&quot; ]; then
+    return 1
+fi
 
-<span class="nb">echo</span> -n <span class="s2">&#34;Pushing local code to remote ...&#34;</span>
-git remote add origin git@github.com:<span class="nv">$username</span>/<span class="nv">$repo_name</span>.git &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-git push -u origin master &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="nb">echo</span> <span class="s2">&#34; done.&#34;</span>
-<span class="o">}</span></code></pre></td></tr></table>
-</div>
-</div>
+echo -n &quot;Creating Github repository '$repo_name' ...&quot;
+curl -u &quot;$username:$token&quot; https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}' &gt; /dev/null 2&gt;&amp;1
+echo &quot; done.&quot;
+
+echo -n &quot;Pushing local code to remote ...&quot;
+git remote add origin git@github.com:$username/$repo_name.git &gt; /dev/null 2&gt;&amp;1
+git push -u origin master &gt; /dev/null 2&gt;&amp;1
+echo &quot; done.&quot;
+}
+</code></pre></li>
+</ol>
+
 <ul>
 <li><p>也可以将脚本保存在<code>github-create.sh</code>文件中，让后在<code>~/.bash_profile</code>添加导入语句</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">. &#34;$HOME/your path/github-create.sh&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>. &quot;$HOME/your path/github-create.sh&quot;
+</code></pre></li>
 
 <li><p>也可以导入到<code>oh-my-zsh</code>配置文件<code>zshrc.zsh-template</code>中，每次创建myzsh窗口时，<code>github-create</code>方法会初始化在环境中：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">. &#34;$HOME/hsg/hexo/Util/tool/github-create.sh&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>. &quot;$HOME/hsg/hexo/Util/tool/github-create.sh&quot;
+</code></pre></li>
 
 <li><p>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Source  ~/.bash_profile</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>Source  ~/.bash_profile
+</code></pre></li>
 
 <li><p>然后就可以用如下命令创建远程仓库了</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">github-create [repo name]</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>github-create [repo name]
+</code></pre>
+
 <p>如果你不想用默认<code>repo name</code>（也就是当前目录名）创建repo可以重新输入另一个名字，否则直接按回车执行。</p>
 
 <h3 id="bash形式-简化版">bash形式&ndash;简化版</h3></li>
 
 <li><p>把如下<code>bash code</code>写入（append）<code>~/.bash_profile</code>文件。第十行按照形式一处理一下。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">simple-create() {
+
+<pre><code>simple-create() {
 if [ $1 ]
 then
-repo_name=$1
+    repo_name=$1
 else
-echo &#34;Repo name?&#34;
-read repo_name
+    echo &quot;Repo name?&quot;
+    read repo_name
 fi
     
-curl -u &#39;$username:$token&#39; https://api.github.com/user/repos -d &#39;{&#34;name&#34;:&#34;&#39;$repo_name&#39;&#34;}&#39;
+curl -u '$username:$token' https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}'
 git remote add origin git@github.com:efatsi/$repo_name.git
 git push -u origin master
-}</pre></td></tr></table>
-</div>
-</div></li>
+}
+</code></pre></li>
 </ul>
 
 <ol>
 <li><p>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Source  ~/.bash_profile</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>Source  ~/.bash_profile
+</code></pre></li>
 
 <li><p>执行命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">simple-create [repo name]</pre></td></tr></table>
-</div>
-</div></li>
-</ol></li>
+
+<pre><code>simple-create [repo name]
+</code></pre></li>
 </ol>
 </blockquote>
 
 <h2 id="查询现有库">查询现有库</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">curl -u git账号 https://api.github.com/repos/账号/库名</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>curl -u git账号 https://api.github.com/repos/账号/库名
+</code></pre>
+
 <h2 id="初始化远程仓库">初始化远程仓库</h2>
 
 <p>找到仓库路径的字段<code>clone_url</code>或者</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-git" data-lang="git"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-git" data-lang="git">git remote add origin clone_url
+
+<pre><code class="language-git">git remote add origin clone_url
 //或者使用ssh,避免输入密码
 //git remote add origin ssh_url
-git push origin master</code></pre></td></tr></table>
-</div>
-</div>
+git push origin master
+</code></pre>
+
 <h2 id="删除远程仓库">删除远程仓库</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">githubDelRepo</span><span class="p">(){</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="err">$</span><span class="c1"># != 2 ]] ; then</span>
-        <span class="n">echo</span> <span class="s2">&#34;Needs username and repo-name as args 1 and 2 respectively.&#34;</span>
-    <span class="k">else</span>
-        <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="no">DELETE</span> <span class="o">-</span><span class="n">u</span> <span class="s2">&#34;${1}&#34;</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="sr">/repos/</span><span class="s2">&#34;${1}&#34;</span><span class="sr">/&#34;${2}&#34;
-</span><span class="sr">    fi
-</span><span class="sr">}</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-ruby">githubDelRepo(){
+    if [[ $# != 2 ]] ; then
+        echo &quot;Needs username and repo-name as args 1 and 2 respectively.&quot;
+    else
+        curl -X DELETE -u &quot;${1}&quot; https://api.github.com/repos/&quot;${1}&quot;/&quot;${2}&quot;
+    fi
+}
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -516,7 +388,7 @@ git push origin master</code></pre></td></tr></table>
         id: '2018-06-20 11:14:00 \x2b0000 UTC',
         title: '使用curl命令管理远程github库',
         link: decodeURI(location.href),
-        desc: '使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init \x26amp;\x26amp; git add . \x26amp;\x26amp; git commit -m',
+        desc: '使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init \x26amp;\x26amp; git add . \x26amp;\x26amp; git commit -m \x27some',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

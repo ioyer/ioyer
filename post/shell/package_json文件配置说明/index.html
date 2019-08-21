@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/package_json%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="npm 与 package.json 快速入门教程 每个项目的根目录下一般都有一个package.json文件，定义项目所需要的各种模块，以及项目的配置信息。npm insta" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/package_json%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" />
-<meta property="article:published_time" content="2018-10-14T23:47:05&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-14T23:47:05+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="package_json文件配置说明">
 <meta itemprop="description" content="npm 与 package.json 快速入门教程 每个项目的根目录下一般都有一个package.json文件，定义项目所需要的各种模块，以及项目的配置信息。npm insta">
 
 
 <meta itemprop="datePublished" content="2018-10-14T23:47:05&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1074">
+<meta itemprop="wordCount" content="1055">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 1074 字 </span>
+          <span class="more-meta"> 约 1055 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -172,69 +171,43 @@
 package.json文件可以手工编写，也可以用npm init命令自动生成，除了项目名称和项目版本是必填的，其他都是选填的。</p>
 
 <h2 id="最简单的package-json">最简单的package.json</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{
-&#34;name&#34;:&#34;aaa&#34;,       //项目名称
-&#34;version&#34;:&#34;0.0.0&#34;   //项目版本(大版本.次要版本.小版本)
-}</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>{
+&quot;name&quot;:&quot;aaa&quot;,       //项目名称
+&quot;version&quot;:&quot;0.0.0&quot;   //项目版本(大版本.次要版本.小版本)
+}
+</code></pre>
+
 <p>package是一个JSON对象，对象的每个成员就是当前项目的一项设置。</p>
 
 <h3 id="script字段">script字段</h3>
 
 <p>script指定运行脚本命令的npm命令行缩写。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&#34;script&#34;:{
-    &#34;start&#34;:&#34;node index.js&#34;,
-    &#34;test&#34;:&#34;tap test/*.js&#34;
+
+<pre><code>&quot;script&quot;:{
+    &quot;start&quot;:&quot;node index.js&quot;,
+    &quot;test&quot;:&quot;tap test/*.js&quot;
 }
 //运行npm run start时，执行node index.js命令
-//运行npm run test时，执行tap test/*.js命令</pre></td></tr></table>
-</div>
-</div>
+//运行npm run test时，执行tap test/*.js命令
+</code></pre>
+
 <h3 id="dependencies-devdependencies">dependencies，devDependencies</h3>
 
 <p>dependencies和devDependencies两项，分别指定了项目运行所依赖的模块、项目开发所需要的模块。它们都指向一个对象，该对象的各个成员，分别由模块名和对应的版本要去组成，表示依赖的模块及其版本范围</p>
 
 <p>&ndash;save参数表示将该模块写入dependencies属性，
 &ndash;save-dev表示将该模块写入devDependencies属性。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{
-    &#34;devDependencies&#34;:{
-        &#34;browserify&#34;:&#34;~13.0.0&#34;,
-        &#34;babel-core&#34;:&#34;^6.5.0&#34;       
+
+<pre><code>{
+    &quot;devDependencies&quot;:{
+        &quot;browserify&quot;:&quot;~13.0.0&quot;,
+        &quot;babel-core&quot;:&quot;^6.5.0&quot;       
     }
 }
-//模块名：对应的版本</pre></td></tr></table>
-</div>
-</div>
+//模块名：对应的版本
+</code></pre>
+
 <h3 id="对应的版本">对应的版本</h3>
 
 <p>指定版本: 比如1.2.2，安装时只安装指定版本1.2.2</p>
@@ -246,16 +219,11 @@ package.json文件可以手工编写，也可以用npm init命令自动生成，
 <p>latest:安装最新的版本</p>
 
 <p>如果一个模块不在package.json文件汇总，则可以单独安装这个模块，并使用相应的参数将其写入package.json中。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ npm install express --save
-$ npm install express --save-dev</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ npm install express --save
+$ npm install express --save-dev
+</code></pre>
+
 <p>例如安装上面的express模块，–save表示将模块写入dependencies属性，–save-dev表示将模块写入devDependencies属性。</p>
 
 <h2 id="注释问题">注释问题</h2>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hexo/config%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3%E5%BA%93%E4%B8%93%E6%A0%8F/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github huos3203 blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hexo/config%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3%E5%BA%93%E4%B8%93%E6%A0%8F/" />
-<meta property="article:published_time" content="2018-10-20T13:54:16&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-20T13:54:16+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="config配置个人文档库专栏">
 <meta itemprop="description" content="{% github huos3203 blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。">
 
 
 <meta itemprop="datePublished" content="2018-10-20T13:54:16&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="346">
+<meta itemprop="wordCount" content="338">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 346 字 </span>
+          <span class="more-meta"> 约 338 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -172,14 +171,10 @@
 <h3 id="忽略配置">忽略配置</h3>
 
 <p>文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。故需要通过hexo的<code>skip_render</code>配置机制，来屏蔽一些目录/文件等。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">skip_render: [&#34;*.html&#34;,&#34;docs/*/*&#34;]</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>skip_render: [&quot;*.html&quot;,&quot;docs/*/*&quot;]
+</code></pre>
+
 <p>这样，在hexo g过程，跳过这些文件，目录的编辑过程，直接拷贝到public中发布。
 <a href="https://github.com/hexojs/hexo/issues/1146#issuecomment-88380140">skip_render参考</a></p>
 
@@ -188,26 +183,16 @@
 <ol>
 <li><p>位置考虑
 <code>docs</code>放在在source目录下，目录结构：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">├── souce
+
+<pre><code>├── souce
 ├── _post       //博客
 ├── tags        //标签
 ├── categories  //分类
 ├── docs        //文档库
     ├── index.md
-    └── kindle笔记</pre></td></tr></table>
-</div>
-</div>
+    └── kindle笔记
+</code></pre>
+
 <p>其他配置可以按照<code>tag</code>,<code>categories</code>相关配置，显示在网页中。</p></li>
 
 <li><p>版本控制

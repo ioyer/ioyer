@@ -38,7 +38,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
@@ -152,9 +152,8 @@ func preferredContentSizeChanged( notification:NSNotification)
 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
-<meta property="article:published_time" content="2014-07-03T17:29:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2014-07-03T17:29:00+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="TextKit之便笺实战">
 <meta itemprop="description" content="便笺练习功能点:
 
@@ -256,7 +255,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 
 <meta itemprop="datePublished" content="2014-07-03T17:29:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="9592">
+<meta itemprop="wordCount" content="9505">
 
 
 
@@ -440,8 +439,8 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E6%8E%A7%E4%BB%B6/"> 控件 </a>
             </div>
-          <span class="more-meta"> 约 9592 字 </span>
-          <span class="more-meta"> 预计阅读 20 分钟 </span>
+          <span class="more-meta"> 约 9505 字 </span>
+          <span class="more-meta"> 预计阅读 19 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -653,24 +652,8 @@ Build并运行app，修改字体大小设置，行高也会随着字体大小的
     UITableViewCell <em>cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     Note</em> note = [self notes][indexPath.row];</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">UIFont* font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+
+<pre><code>UIFont* font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
 
 UIColor* textColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
 
@@ -682,9 +665,9 @@ NSAttributedString* attrString = [[NSAttributedString alloc]
                                        initWithString:note.title
                                            attributes:attrs];
 cell.textLabel.attributedText = attrString;
-return cell;</pre></td></tr></table>
-</div>
-</div>
+return cell;
+</code></pre>
+
 <p>{%endcodeblock%}
 {% codeblock lang:swift %}
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell
@@ -945,24 +928,15 @@ return backingStore.string
 - (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)str
 {
     NSLog(@&ldquo;replaceCharactersInRange:%@ withString:%@&ldquo;, NSStringFromRange(range), str);</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[self beginEditing];
+
+<pre><code>[self beginEditing];
 [_backingStore replaceCharactersInRange:range withString:str];
 [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes
           range:range
  changeInLength:str.length - range.length];
-[self endEditing];</pre></td></tr></table>
-</div>
-</div>
+[self endEditing];
+</code></pre>
+
 <p>}</p>
 
 <ul>
@@ -1192,21 +1166,8 @@ func performReplacementsForRange(</em> changedRange:NSRange)
     let locationRange = NSMakeRange(changedRange.location, 0)
     //定位到文本当前行的位置区间
     let range1 = (backingStore.string as NSString).lineRange(for: locationRange)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">//扩展范围
+
+<pre><code>//扩展范围
 var extendedRange = NSUnionRange(changedRange, range1)
 
 let maxRange = NSMakeRange(NSMaxRange(changedRange), 0)
@@ -1214,10 +1175,10 @@ let maxRange = NSMakeRange(NSMaxRange(changedRange), 0)
 let range2 = (backingStore.string as NSString).lineRange(for: maxRange)
 extendedRange = NSUnionRange(changedRange, range2)
 
-print(&#34;在指定的区域中进行替换:\(extendedRange)&#34;)
-applyStylesToRange(searchRange: extendedRange)</pre></td></tr></table>
-</div>
-</div>
+print(&quot;在指定的区域中进行替换:\(extendedRange)&quot;)
+applyStylesToRange(searchRange: extendedRange)
+</code></pre>
+
 <p>}</p>
 
 <p>{% endcodeblock %}</p>
@@ -1233,39 +1194,9 @@ applyStylesToRange(searchRange: extendedRange)</pre></td></tr></table>
                            fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
     UIFont* boldFont =  [UIFont fontWithDescriptor:boldFontDescriptor size: 0.0];
     UIFont* normalFont =  [UIFont preferredFontForTextStyle:UIFontTextStyleBody];</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">// 2. match items surrounded by asterisks
-NSString* regexStr = @&#34;(*w+(sw+)**)s&#34;;
+
+<pre><code>// 2. match items surrounded by asterisks
+NSString* regexStr = @&quot;(*w+(sw+)**)s&quot;;
 NSRegularExpression* regex = [NSRegularExpression
                                regularExpressionWithPattern:regexStr
                                                     options:0
@@ -1290,9 +1221,9 @@ NSDictionary* normalAttributes = @{ NSFontAttributeName : normalFont };
         [self addAttributes:normalAttributes
             range:NSMakeRange(NSMaxRange(matchRange)+1, 1)];
     }
-}];</pre></td></tr></table>
-</div>
-</div>
+}];
+</code></pre>
+
 <p>}
 {%endcodeblock%}
 上面的代码有以下作用：</p>
@@ -1317,39 +1248,8 @@ NSDictionary* normalAttributes = @{ NSFontAttributeName : normalFont };
     UIFontDescriptor *scriptFontDescriptor =
       [UIFontDescriptor fontDescriptorWithFontAttributes:
           @{UIFontDescriptorFamilyAttribute: @&ldquo;Zapfino&rdquo;}];</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">// 1. base our script font on the preferred body font size
+
+<pre><code>// 1. base our script font on the preferred body font size
 UIFontDescriptor* bodyFontDescriptor = [UIFontDescriptor
   preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
 NSNumber* bodyFontSize = bodyFontDescriptor.
@@ -1371,14 +1271,14 @@ NSDictionary* redTextAttributes =
 
 // construct a dictionary of replacements based on regexes
 _replacements = @{
-          @&#34;(\*w+(sw+)\*\*)s&#34; : boldAttributes,
-          @&#34;(_w+(sw+)\*_)s&#34; : italicAttributes,
-          @&#34;([0-9]+.)s&#34; : boldAttributes,
-          @&#34;(-w+(sw+)\*-)s&#34; : strikeThroughAttributes,
-          @&#34;(~w+(sw+)\*~)s&#34; : scriptAttributes,
-          @&#34;s([A-Z]{2,})s&#34; : redTextAttributes};</pre></td></tr></table>
-</div>
-</div>
+          @&quot;(\*w+(sw+)\*\*)s&quot; : boldAttributes,
+          @&quot;(_w+(sw+)\*_)s&quot; : italicAttributes,
+          @&quot;([0-9]+.)s&quot; : boldAttributes,
+          @&quot;(-w+(sw+)\*-)s&quot; : strikeThroughAttributes,
+          @&quot;(~w+(sw+)\*~)s&quot; : scriptAttributes,
+          @&quot;s([A-Z]{2,})s&quot; : redTextAttributes};
+</code></pre>
+
 <p>}
 {%endcodeblock%}</p>
 
@@ -1425,22 +1325,14 @@ s         —— 以空格结尾<br />
                                     withTrait:(uint32_t)trait {
     UIFontDescriptor *fontDescriptor = [UIFontDescriptor
                                preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">UIFontDescriptor *descriptorWithTrait = [fontDescriptor
+
+<pre><code>UIFontDescriptor *descriptorWithTrait = [fontDescriptor
                                 fontDescriptorWithSymbolicTraits:trait];
 
 UIFont* font =  [UIFont fontWithDescriptor:descriptorWithTrait size: 0.0];
-return @{ NSFontAttributeName : font };</pre></td></tr></table>
-</div>
-</div>
+return @{ NSFontAttributeName : font };
+</code></pre>
+
 <p>}
 {%endcodeblock%}</p>
 
@@ -1501,7 +1393,7 @@ return @{ NSFontAttributeName : font };</pre></td></tr></table>
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-07-03 17:29:00 \x2b0800 \x2b0800',
+        id: '2014-07-03 17:29:00 \x2b0800 CST',
         title: 'TextKit之便笺实战',
         link: decodeURI(location.href),
         desc: '\x3ch2 id=\x22便笺练习功能点\x22\x3e便笺练习功能点:\x3c\/h2\x3e\n\n\x3cp\x3e通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。\n  * 动态样式（Dynamic type）\x3cbr \/\x3e\n  * 凸版印刷效果（Letterpress effects）\x3cbr \/\x3e\n  * 环绕路径（Exclusion paths）\x3cbr \/\x3e\n  * 动态文本格式及存储（Dynamic text formatting and storage）\x3c\/p\x3e\n\n\x3cp\x3e这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。\n效果图:\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/bianqian.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\nApp开始运行后自动生成一组便笺实例并利用\x3ccode\x3etableViewController\x3c\/code\x3e显示出来。\x3ccode\x3eStoryboards\x3c\/code\x3e和\x3ccode\x3esegues\x3c\/code\x3e会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。\n项目开发包：\x3ca href=\x22http:\/\/cdn4.raywenderlich.com\/wp-content\/uploads\/2013\/09\/TextKitNotepad-starter.zip\x22\x3eNotepad.zip\x3c\/a\x3e\x3c\/p\x3e\n\n\x3ch2 id=\x22动态样式\x22\x3e动态样式\x3c\/h2\x3e\n\n\x3cp\x3e\x3ccode\x3e动态样式（Dynamic type）\x3c\/code\x3e是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。\n选择 \x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e 或 \x3cstrong\x3e通用-\x26gt;辅助功能\x3c\/strong\x3e 来查看app中的字体设置。\x3c\/p\x3e\n\n\x3cp\x3e\x3cimg src=\x22\/images\/UserTextPreferences.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\niOS 7 支持通过\x3ccode\x3e粗体\x3c\/code\x3e、\x3ccode\x3e设置字体大小\x3c\/code\x3e等方式提高支持动态文本的应用的易读性。\n例如\x3cstrong\x3e\x3ccode\x3eUIFont\x3c\/code\x3e\x3c\/strong\x3e新增的一个方法： \x3cstrong\x3e\x3ccode\x3epreferredFontForTextStyle\x3c\/code\x3e\x3c\/strong\x3e 用来根据用户对字体大小的设置来自动制定字体样式。\x3cbr \/\x3e\n下面表格中是六种可用字体样式的示例：\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/TextStyles.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\n最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。\x3c\/p\x3e\n\n\x3ch3 id=\x22使用系统动态字体样式\x22\x3e使用系统动态字体样式\x3c\/h3\x3e\n\n\x3cp\x3e使用动态文本，是通过给\x3ccode\x3e文本字体\x3c\/code\x3e设置字体样式\x3cstrong\x3estyle\x3c\/strong\x3e而不是指定具体的\x3ccode\x3e字体名称\x3c\/code\x3e和\x3ccode\x3e大小\x3c\/code\x3e。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。\x3c\/p\x3e\n\n\x3ch4 id=\x22preferredfontfortextstyle-方法设置字体样式\x22\x3e\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法设置字体样式\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e打开 \x3ccode\x3eNoteEditorViewController.m\/swift\x3c\/code\x3e 在\x3ccode\x3eviewDidLoad：\x3c\/code\x3e方法实现的最后面加入以下代码：\n{%codeblock lang:objc%}\nself.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\nself.textView.font = UIFont.preferredFont(forTextStyle: .body)\n{% endcodeblock %}\x3c\/li\x3e\n\x3cli\x3e打开 \x3ccode\x3eNotesListViewController.m\/swift\x3c\/code\x3e 在 \x3ccode\x3etableView:cellForRowAtIndexPath:\x3c\/code\x3e 方法中增加如下代码:\n{%codeblock lang:objc%}\ncell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\ncell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)\n{% endcodeblock %}\n上面两行代码都用到了新版iOS的字体样式.\x3cbr \/\x3e\n\x26gt; 字体样式：通过语义法命名字体，例如 \x3ccode\x3eUIFontTextStyleSubHeadline\x3c\/code\x3e, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch4 id=\x22app响应用户字体设置\x22\x3eAPP响应用户字体设置\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e设置系统字体\n返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置.\n再运行App, \x3cstrong\x3eNote\x3c\/strong\x3e页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/NotepadWithDynamicType.png\x22 alt=\x22image\x22 \/\x3e\x3c\/li\x3e\n\x3cli\x3e设置系统字体生效\n当我们返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置. 再打开\x3cstrong\x3eNote\x3c\/strong\x3e页面, 会发现app并没有\x3cstrong\x3e立即\x3c\/strong\x3e对字体设置的变化做出相应反应。\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch5 id=\x22监听系统通知-实现app响应用户字体设置\x22\x3e监听系统通知：实现APP响应用户字体设置\x3c\/h5\x3e\n\n\x3cp\x3e当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法返回的字体也会变化。\n1. 添加监听系统通知\x3ccode\x3eUIContentSizeCategoryDidChangeNotification\x3c\/code\x3e通知APP响应用户字体设置的变化\n打开 \x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e 并在 \x3ccode\x3eviewDidLoad\x3c\/code\x3e 方法的实现的最后加入以下代码：\n{%codeblock lang:objc%}\n[[NSNotificationCenter defaultCenter]\n                              addObserver:self\n                                 selector:@selector(preferredContentSizeChanged:)\n                                     name:UIContentSizeCategoryDidChangeNotification\n                                   object:nil];\n{%endcodeblock%}\n{%codeblock lang:swift%}\n\/\/字体变化通知:调用preferredContentSizeChanged:方法\nNotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(\x3cem\x3e:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)\n{%endcodeblock%}\n2. 添加系统通知响应事件\n收到用于指定本类接收字体设定变化的通知后，调用\x3ccode\x3epreferredContentSizeChanged:\x3c\/code\x3e方法\n在\x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e中\x3ccode\x3eviewDidLoad\x3c\/code\x3e方法之后紧接着添加以下方法：\n{%codeblock lang:objc%}\n- (void)preferredContentSizeChanged:(NSNotification *)notification\n{\n    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n}\n{%endcodeblock%}\n{%codeblock lang:swift %}\n\/\/字体变化通知时调用\nfunc preferredContentSizeChanged(\x3c\/em\x3e notification:NSNotification)\n{\n    self.textView.font = UIFont.preferredFont(forTextStyle: .body)\n}\n{%endcodeblock%}\n这一方法作用是根据新的字体设置来设定\x3ccode\x3etextView\x3c\/code\x3e中的字体。\x3cbr \/\x3e\nBuild并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。\x3c\/p\x3e',

@@ -26,7 +26,7 @@
       <pubDate>Fri, 12 Oct 2018 19:56:59 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/brew%E5%8D%87%E7%BA%A7git%E7%89%88%E6%9C%AC/</guid>
-      <description>1 2 3 4 $ brew doctor $ brew install git $ brew link --overwrite git Linking /usr/local/Cellar/git/2.19.1... 216 symlinks created</description>
+      <description>$ brew doctor $ brew install git $ brew link --overwrite git Linking /usr/local/Cellar/git/2.19.1... 216 symlinks created</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Thu, 11 Oct 2018 17:17:52 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/gist%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</guid>
-      <description>{% github defunkt gist 8d86604 width = 30% %} 按照gist 安装gist 1 brew install gist 创建gist 上传a.rb中的代码段： 1 gist a.rb 上传多个文件a.rb,b.rb,c.rb的代码段</description>
+      <description>{% github defunkt gist 8d86604 width = 30% %} 按照gist 安装gist brew install gist 创建gist 上传a.rb中的代码段： gist a.rb 上传多个文件a.rb,b.rb,c.rb的代码段: gist</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Tue, 09 Oct 2018 12:07:55 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/subtree%E6%8B%86%E5%88%86%E5%A4%A7%E7%9A%84git%E5%BA%93%E5%88%B0%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8Bgit%E5%BA%93/</guid>
-      <description>Git 仓库拆拆拆 拆分一个子目录为独立仓库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分</description>
+      <description>Git 仓库拆拆拆 拆分一个子目录为独立仓库 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分支 eiyo $ git subtree split -P codes-eiyo -b eiyo # 另建一</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Wed, 20 Jun 2018 17:22:37 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/</guid>
-      <description>tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &amp;#34;version+=1&amp;#34; newTag=${tag%.*}.${version} echo &amp;#39;Create New Tag &amp;#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag</description>
+      <description>tag标签自增新建脚本 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &amp;quot;version+=1&amp;quot; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 git tag -f v1.0.2.8 服务器已有</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Wed, 20 Jun 2018 11:14:00 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/</guid>
-      <description>使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -m</description>
+      <description>使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -m &#39;some</description>
     </item>
     
     <item>
@@ -116,7 +116,7 @@
       <pubDate>Wed, 04 Apr 2018 17:44:24 +0000</pubDate>
       
       <guid>https://huos3203.github.io/post/git/%E5%BD%93%E9%A1%B9%E7%9B%AE%E8%BF%87%E5%A4%A7%E9%9C%80%E8%A6%81%E9%80%9A%E8%BF%87ssh%E6%96%B9%E5%BC%8Fclone/</guid>
-      <description>设置全局提交信息 1 2 git config --global user.email &amp;#34;you@example.com&amp;#34; git config --global user.name &amp;#34;Your Name&amp;#34; 修改最后一次提交的用户名信息 git git config user.name &#39;wangz&#39; git config user.email &#39;wangz@alib.com&#39; git commit --amend --author=wangz ` 项目过大问题 git clone 主工程出现 fatal: The remote end hung up unexpectedly3) 通</description>
+      <description>设置全局提交信息 git config --global user.email &amp;quot;you@example.com&amp;quot; git config --global user.name &amp;quot;Your Name&amp;quot; 修改最后一次提交的用户名信息 git git config user.name &#39;wangz&#39; git config user.email &#39;wangz@alib.com&#39; git commit --amend --author=wangz ` 项目过大问题 git clone 主工程出现 fatal: The remote end hung up unexpectedly3) 通常的</description>
     </item>
     
     <item>
@@ -200,7 +200,7 @@
       <pubDate>Sun, 27 Sep 2015 19:25:38 +0800</pubDate>
       
       <guid>https://huos3203.github.io/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>必要配置 1 2 *创建一个名称为&amp;#34;gitlab&amp;#34;管理员用户，然后再创建一个名称为&amp;#34;gitlab&amp;#34;的群组 *开启gi</description>
+      <description>必要配置 *创建一个名称为&amp;quot;gitlab&amp;quot;管理员用户，然后再创建一个名称为&amp;quot;gitlab&amp;quot;的群组 *开启</description>
     </item>
     
     <item>

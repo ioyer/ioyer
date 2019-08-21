@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/shadowrocket%E6%97%A0%E9%9C%80%E8%B6%8A%E7%8B%B1%E9%87%8D%E7%AD%BE%E7%BF%BB%E5%A2%99/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github huos3203 WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/shadowrocket%E6%97%A0%E9%9C%80%E8%B6%8A%E7%8B%B1%E9%87%8D%E7%AD%BE%E7%BF%BB%E5%A2%99/" />
-<meta property="article:published_time" content="2018-09-05T12:11:58&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-09-05T12:11:58+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="shadowrocket无需越狱重签翻墙">
 <meta itemprop="description" content="{% github huos3203 WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh">
 
 
 <meta itemprop="datePublished" content="2018-09-05T12:11:58&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2013">
+<meta itemprop="wordCount" content="1999">
 
 
 
@@ -139,8 +138,8 @@
         <div class="post-category">
             <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
             </div>
-          <span class="more-meta"> 约 2013 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta"> 约 1999 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -231,64 +230,34 @@
 
 <ul>
 <li><p>安装最新的theos</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo git clone --recursive https://github.com/theos/theos.git /opt/theos</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
+</code></pre></li>
 
 <li><p>安装ldid(如安装theos过程安装了ldid，跳过)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">brew install ldid</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>brew install ldid
+</code></pre></li>
 
 <li><p>指定的Xcode</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo xcode-select -s /Applications/Xcode.app</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo xcode-select -s /Applications/Xcode.app
+</code></pre></li>
 
 <li><p>执行安装命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install)&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install)&quot;
+</code></pre></li>
 
 <li><p>更新</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update)&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update)&quot;
+</code></pre></li>
 
 <li><p>卸载</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall)&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall)&quot;
+</code></pre></li>
 </ul>
 
 <h4 id="2-运行工程">2、运行工程</h4>
@@ -343,24 +312,14 @@
 <li>打开shadowrocket 首页，点击右上角+号。模式选择Subscribe</li>
 
 <li><p>URL部分输入以下三个地址（一个或多选，多选表示订阅多个）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 所有(golbal)可用订阅:
+
+<pre><code>实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 所有(golbal)可用订阅:
 https://tool.ssrshare.xyz/tool/api/getGolSub?key=1529942400_8_xuo
 实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 中国(CN)可用订阅:
 https://tool.ssrshare.xyz/tool/api/getCnSub?key=1529942400_8_xuo
 非实时订阅链接（无密码）:
-https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com</pre></td></tr></table>
-</div>
-</div></li>
+https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com
+</code></pre></li>
 
 <li><p>点击完成，就能发现节点列表新增了我们订阅节点信息。选择一个可以的连接即可。</p></li>
 </ul>
@@ -374,16 +333,11 @@ https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com</pre></td></tr>
 <p><img src="https://github.com/we11cheng/WCImageHost/raw/master/WX20180717-102431.png" alt="" /></p>
 
 <h3 id="添加节点的时候-遇到问题-还没解决-求大佬们一起解决它">添加节点的时候，遇到问题，还没解决..求大佬们一起解决它..</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">CoreData: annotation:  Failed to load optimized model at path &#39;/var/containers/Bundle/Application/9D19C752-5139-426B-815E-2A68B632352F/WCShadowrocket.app/Shadowrocket.momd/Shadowrocket 7.omo&#39;
-*** Terminating app due to uncaught exception &#39;NSFileHandleOperationException&#39;, reason: &#39;*** -[NSConcreteFileHandle seekToFileOffset:]: Bad file descriptor&#39;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>CoreData: annotation:  Failed to load optimized model at path '/var/containers/Bundle/Application/9D19C752-5139-426B-815E-2A68B632352F/WCShadowrocket.app/Shadowrocket.momd/Shadowrocket 7.omo'
+*** Terminating app due to uncaught exception 'NSFileHandleOperationException', reason: '*** -[NSConcreteFileHandle seekToFileOffset:]: Bad file descriptor'
+</code></pre>
+
 <p><img src="https://github.com/we11cheng/WCImageHost/raw/master/WX20180717-102320.png" alt="" /></p>
 
 <h3 id="最新福利-谷歌云上搭建了一个app-engine-爬取ssr-ss节点-拿去不谢-https-sspy-210307-appspot-com-已失效">最新福利，谷歌云上搭建了一个App Engine 爬取ssr/ss节点，拿去不谢 <a href="https://sspy-210307.appspot.com/">https://sspy-210307.appspot.com/</a>（已失效）</h3>

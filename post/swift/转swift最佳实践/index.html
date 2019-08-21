@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="英文 黄金法则 Apple 通常是对的。应紧随苹果所推荐的或他的 Demo 中所展示的方式。您应该尽可能地遵守 Apple 在 The Swift Programming Language 一书中所定义的代码风格。但我们还是可以看到" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" />
-<meta property="article:published_time" content="2015-09-29T17:05:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2015-09-29T17:05:21+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="[转]Swift最佳实践">
 <meta itemprop="description" content="英文 黄金法则 Apple 通常是对的。应紧随苹果所推荐的或他的 Demo 中所展示的方式。您应该尽可能地遵守 Apple 在 The Swift Programming Language 一书中所定义的代码风格。但我们还是可以看到">
 
 
 <meta itemprop="datePublished" content="2015-09-29T17:05:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1352">
+<meta itemprop="wordCount" content="1341">
 
 
 
@@ -140,7 +139,7 @@
             <a href="/categories/swift/"> swift </a>
             <a href="/categories/%E8%AF%AD%E6%B3%95/"> 语法 </a>
             </div>
-          <span class="more-meta"> 约 1352 字 </span>
+          <span class="more-meta"> 约 1341 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -251,20 +250,13 @@ var currentLocation: Location = Location()
         (&ldquo;Susan&rdquo;, 27),
         (&ldquo;Charlie&rdquo;, 18),
     ]</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">let strings = people.map() {
+
+<pre><code>let strings = people.map() {
     (name: String, age: Int) -&gt; String in
-    return &#34;\(name) is \(age) years old&#34;
-}</pre></td></tr></table>
-</div>
-</div>
+    return &quot;\(name) is \(age) years old&quot;
+}
+</code></pre>
+
 <p>{%endcodeblock%}</p>
 
 <p>如果编译器可以推导出来的话，完全可以把类型删掉：
@@ -298,26 +290,16 @@ dispatch_async(queue) {
     struct PhysicsModel {
     static var speedOfLightInAVacuum = 299_792_458
     }</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">class Spaceship {
+
+<pre><code>class Spaceship {
      static let topSpeed = PhysicsModel.speedOfLightInAVacuum
      var speed: Double
      func fullSpeedAhead() {
          speed = Spaceship.topSpeed
     }
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <p>{%endcodeblock%}
 将常量标示为 <code>static</code> ，允许它们可以被无类型的实例引用。</p>
 
@@ -378,7 +360,7 @@ dispatch_async(queue) {
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-09-29 17:05:21 \x2b0800 \x2b0800',
+        id: '2015-09-29 17:05:21 \x2b0800 CST',
         title: '[转]Swift最佳实践',
         link: decodeURI(location.href),
         desc: '英文 黄金法则 Apple 通常是对的。应紧随苹果所推荐的或他的 Demo 中所展示的方式。您应该尽可能地遵守 Apple 在 The Swift Programming Language 一书中所定义的代码风格。但我们还是可以看到',

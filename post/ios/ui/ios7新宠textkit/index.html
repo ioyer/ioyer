@@ -29,7 +29,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" />
@@ -56,9 +56,8 @@ IOS6之前，想实现一些丰富的文本排版，例如在textView中显示�
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" />
-<meta property="article:published_time" content="2014-06-16T22:24:48&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2014-06-16T22:24:48+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="IOS7新宠TextKit">
 <meta itemprop="description" content="Text Kit
 
@@ -73,7 +72,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
 <meta itemprop="datePublished" content="2014-06-16T22:24:48&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2384">
+<meta itemprop="wordCount" content="2363">
 
 
 
@@ -169,7 +168,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <div class="post-category">
             <a href="/categories/ios/"> iOS </a>
             </div>
-          <span class="more-meta"> 约 2384 字 </span>
+          <span class="more-meta"> 约 2363 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -260,32 +259,8 @@ UIBezierPath *newButterflyPath = [UIBezierPath bezierPathWithRect:butterflyImage
 {
 if ([sender isKindOfClass:[UIPanGestureRecognizer class]]) {
     UIPanGestureRecognizer *localSender = sender;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">if (localSender.state == UIGestureRecognizerStateBegan) {
+
+<pre><code>if (localSender.state == UIGestureRecognizerStateBegan) {
     self.gestureStartingPoint = [localSender translationInView:self.textView];
     self.gestureStartingCenter = self.imageView.center;
 } else if (localSender.state == UIGestureRecognizerStateChanged) {
@@ -305,9 +280,9 @@ if ([sender isKindOfClass:[UIPanGestureRecognizer class]]) {
 } else if (localSender.state == UIGestureRecognizerStateEnded) {
     self.gestureStartingPoint = CGPointZero;
     self.gestureStartingCenter = CGPointZero;
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <p>}
 }
 {%endcodeblock%}
@@ -370,7 +345,7 @@ if ([sender isKindOfClass:[UIPanGestureRecognizer class]]) {
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-06-16 22:24:48 \x2b0800 \x2b0800',
+        id: '2014-06-16 22:24:48 \x2b0800 CST',
         title: 'IOS7新宠TextKit',
         link: decodeURI(location.href),
         desc: '\x3ch2 id=\x22text-kit\x22\x3eText Kit\x3c\/h2\x3e\n\n\x3cp\x3e\x3cstrong\x3e\x3ccode\x3eText Kit\x3c\/code\x3e\x3c\/strong\x3e：是个庞大的framework，继承了\x3ccode\x3eCore Text\x3c\/code\x3e的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过\x3cstrong\x3eNSTextStorage\x3c\/strong\x3e对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。\x3cbr \/\x3e\n\x26gt;\x3cfont size=3\x3e更直观的理解，\x3cstrong\x3eUITextView\x3c\/strong\x3e，\x3cstrong\x3eUITextField\x3c\/strong\x3e、\x3cstrong\x3eUILabel\x3c\/strong\x3e等UIKit控件都已经基于\x3cstrong\x3eText Kit\x3c\/strong\x3e重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.\x3cbr \/\x3e\n例如：NSTextStorage对象，它本身是\x3cstrong\x3eNSMutableAttributedString\x3c\/strong\x3e的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。\x3c\/font\x3e\x3c\/p\x3e\n\n\x3cp\x3eIOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下\x3ccode\x3eCore Text\x3c\/code\x3e。后来iOS6，增加一个很棒的属性:\x3ccode\x3eNSAttributedString\x3c\/code\x3e，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的\x3ccode\x3eText Kit\x3c\/code\x3e新宠。\x3cbr \/\x3e\n在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：\x3cbr \/\x3e\niOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：\x3c\/p\x3e',

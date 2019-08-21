@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E5%BC%80%E6%BA%90%E5%BA%93/rxswift%E5%BA%94%E7%94%A8%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github huos3203 SimpleValidation fb7a58b width = 30% %} {% meting &ldquo;0036mZ7Q1pk7st&rdquo; &ldquo;tencent&rdquo; &ldquo;song&rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E5%BC%80%E6%BA%90%E5%BA%93/rxswift%E5%BA%94%E7%94%A8%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/" />
-<meta property="article:published_time" content="2018-10-04T09:04:35&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-04T09:04:35+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="RxSwift应用登录验证">
 <meta itemprop="description" content="{% github huos3203 SimpleValidation fb7a58b width = 30% %} {% meting &ldquo;0036mZ7Q1pk7st&rdquo; &ldquo;tencent&rdquo; &ldquo;song&rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi">
 
 
 <meta itemprop="datePublished" content="2018-10-04T09:04:35&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1279">
+<meta itemprop="wordCount" content="1264">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/%E5%BC%80%E6%BA%90%E5%BA%93/"> 开源库 </a>
             </div>
-          <span class="more-meta"> 约 1279 字 </span>
+          <span class="more-meta"> 约 1264 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -208,26 +207,8 @@
 
 <p>我的理解就是将已经信号源去用一个<code>UIBindingObserver</code>去接受,当接收到的属性是<code>true</code>进行相应的操作
 为登录按钮写一个rx_click的拓展</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">///首先写一个UIBindingObserver
+
+<pre><code>///首先写一个UIBindingObserver
 var rx_click:AnyObserver&lt;Bool&gt; {
 return UIBindingObserver.init(UIElement: self, binding: { (lab, result) in
 lab.backgroundColor = result ? UIColor.blue:UIColor.gray
@@ -241,9 +222,9 @@ lab.backgroundColor = result ? UIColor.blue:UIColor.gray
 ///然后手机号11位 验证码 6位就可以用这一行代码解决
 let _ = Observable.combineLatest(phoneobser, passobserver, resultSelector: {
 $0 &amp;&amp; $1
-}).bind(to: canclik.rx_click)</pre></td></tr></table>
-</div>
-</div>
+}).bind(to: canclik.rx_click)
+</code></pre>
+
     </div>
 
     <div class="post-copyright">

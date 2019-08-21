@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" />
-<meta property="article:published_time" content="2017-05-24T17:07:47&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-05-24T17:07:47+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="远程操作mysql数据库">
 <meta itemprop="description" content="腾讯云服务器 申请账户，体验5天，搭建一个jira服务，还有微信小程序服务 需要在服务器上安装docker （腾讯服务器提供了一款支持docker">
 
 
 <meta itemprop="datePublished" content="2017-05-24T17:07:47&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1383">
+<meta itemprop="wordCount" content="1345">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
             </div>
-          <span class="more-meta"> 约 1383 字 </span>
+          <span class="more-meta"> 约 1345 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -197,16 +196,11 @@ scp -i localDir serveruser@serverip:serverDir</li>
 </ol>
 
 <h3 id="docker下安装mysql数据库镜像">docker下安装mysql数据库镜像</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">sudo docker pull mysql 
-sudo docker run --name jiradb -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>jiradb -d mysql/mysql-server:latest</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">sudo docker pull mysql 
+sudo docker run --name jiradb -e MYSQL_ROOT_PASSWORD=jiradb -d mysql/mysql-server:latest
+</code></pre>
+
 <blockquote>
 <p>-name : 容器名
 MYSQL_ROOT_PASSWORD : 数据库密码
@@ -214,112 +208,63 @@ MYSQL_ROOT_PASSWORD : 数据库密码
 </blockquote>
 
 <h4 id="终端-单行登录mysql">终端：单行登录mysql</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo docker exec -it jiradb mysql -ujira -pjira</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo docker exec -it jiradb mysql -ujira -pjira
+</code></pre>
+
 <h4 id="进入mysql终端-访问数据库">进入mysql终端,访问数据库</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo docker exec -it jiradb bash
+
+<pre><code>sudo docker exec -it jiradb bash
 #登录数据库  默认用户root 密码为空，如果前边设置了MYSQL_ROOT_PASSWORD的值，则需要密码
 mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
 回车
 输入密码：jiradb  #就是$MYSQL_ROOT_PASSWORD的值
-即登录</pre></td></tr></table>
-</div>
-</div>
+即登录
+</code></pre>
+
 <h4 id="用户权限控制">用户权限控制</h4>
 
 <ol>
 <li><p>查看sql服务器的状态：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">status;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>status;
+</code></pre></li>
 
 <li><p>创建用户名</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">create user jira identified by &#39;jira&#39;;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>create user jira identified by 'jira';
+</code></pre></li>
 
 <li><p>赋予权限</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">grant all privileges on *.* to &#39;jira&#39;@&#39;%&#39; identified by &#39;jira&#39; with grant option;
-grant all privileges on *.* to &#39;jira&#39;@&#39;localhost&#39; identified by &#39;jira&#39; with grant option;
+
+<pre><code>grant all privileges on *.* to 'jira'@'%' identified by 'jira' with grant option;
+grant all privileges on *.* to 'jira'@'localhost' identified by 'jira' with grant option;
 flush privileges;
-quit;</pre></td></tr></table>
-</div>
-</div>
+quit;
+</code></pre>
+
 <h4 id="数据库操作">数据库操作</h4></li>
 
 <li><p>创建数据库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">create database jiradb character set &#39;UTF8&#39;;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>create database jiradb character set 'UTF8';
+</code></pre></li>
 
 <li><p>查看当前数据库名：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">select database();</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>select database();
+</code></pre></li>
 
 <li><p>切换指定数据库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">use jiradb;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>use jiradb;
+</code></pre></li>
 
 <li><p>查看数据库表</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">show tables;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>show tables;
+</code></pre>
+
 <p>创建表</p></li>
 </ol>
 
@@ -327,94 +272,60 @@ quit;</pre></td></tr></table>
 
 <p>无法通过 docker 中mysql镜像的盒子来实现jira和数据库关联：
 从另一个容器中的应用来访问jiradb容器中的mysql服务：没成功</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Connect to MySQL from an application in another Docker container
+
+<pre><code>Connect to MySQL from an application in another Docker container
 sudo docker run --name jirad --link jiradb:mysql/mysql-server -d cptactionhank/atlassian-jira:latest
 ````
 
-最终采用在ubuntu系统中安装mysql：</pre></td></tr></table>
-</div>
-</div>
-<p>$sudo apt-get -y install mysql-server</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="err">##</span><span class="nx">问题</span><span class="err">：</span><span class="nx">Could</span> <span class="nx">not</span> <span class="nx">reach</span> <span class="nx">any</span> <span class="nx">registry</span> <span class="nx">endpoint</span>
-<span class="nx">安装Linux加速器</span><span class="err">：</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">sSL</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//get.daocloud.io/daotools/set_mirror.sh | sh -s http://142900b5.m.daocloud.io
-</span><span class="c1"></span><span class="nx">该脚本可以将</span> <span class="o">--</span><span class="nx">registry</span><span class="o">-</span><span class="nx">mirror</span> <span class="nx">加入到你的</span> <span class="nx">Docker</span> <span class="nx">配置文件</span> <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="nx">docker</span> <span class="nx">中</span><span class="err">。</span><span class="nx">适用于</span> <span class="nx">Ubuntu14</span><span class="mf">.04</span><span class="err">、</span><span class="nx">Debian</span><span class="err">、</span><span class="nx">CentOS6</span> <span class="err">、</span><span class="nx">CentOS7</span><span class="err">、</span><span class="nx">Fedora</span><span class="err">、</span><span class="nx">Arch</span> <span class="nx">Linux</span><span class="err">、</span><span class="nx">openSUSE</span> <span class="nx">Leap</span> <span class="mf">42.1</span><span class="err">，</span><span class="nx">其他版本可能有细微不同</span><span class="err">。</span>
-<span class="nx">ubuntu</span> <span class="nx">系统安装daocloud检测工具</span><span class="err">：</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">sSL</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//get.daocloud.io/daomonit/install.sh | sh -s d0312f829e9807ee0bf157cdc9c9cca42380395c 
-</span><span class="c1"></span>
-<span class="err">###</span> <span class="nx">更新服务器上的docker</span>
-<span class="p">[</span><span class="nx">官网教程</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites-by-ubuntu-version)
-</span><span class="c1"></span><span class="err">###</span> <span class="nx">Update</span> <span class="nx">your</span> <span class="nx">apt</span> <span class="nx">sources</span>
-<span class="nx">To</span> <span class="nx">set</span> <span class="nx">APT</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">packages</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">Docker</span> <span class="nx">repository</span><span class="p">:</span>
-<span class="mf">1.</span> <span class="nx">Log</span> <span class="nx">into</span> <span class="nx">your</span> <span class="nx">machine</span> <span class="nx">as</span> <span class="nx">a</span> <span class="nx">user</span> <span class="nx">with</span> <span class="nx">sudo</span> <span class="nx">or</span> <span class="nx">root</span> <span class="nx">privileges</span><span class="p">.</span>
-<span class="mf">2.</span> <span class="nx">Open</span> <span class="nx">a</span> <span class="nx">terminal</span> <span class="nx">window</span><span class="p">.</span>
-<span class="mf">3.</span> <span class="nx">Update</span> <span class="kn">package</span> <span class="nx">information</span><span class="p">,</span> <span class="nx">ensure</span> <span class="nx">that</span> <span class="nx">APT</span> <span class="nx">works</span> <span class="nx">with</span> <span class="nx">the</span> <span class="nx">https</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">that</span> <span class="nx">CA</span> <span class="nx">certificates</span> <span class="nx">are</span> <span class="nx">installed</span><span class="p">.</span>
-<span class="s">``</span><span class="err">`</span><span class="nx">bash</span>
-<span class="err">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">get</span> <span class="nx">update</span>
-<span class="err">$</span> <span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">get</span> <span class="nx">install</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">transport</span><span class="o">-</span><span class="nx">https</span> <span class="nx">ca</span><span class="o">-</span><span class="nx">certificates</span></pre></td></tr></table>
-</div>
-</div>
-<ol>
-<li>Docker资源库
-|Ubuntu version|    Repository|
-|&mdash;|&mdash;-|
-|Precise 12.04 (LTS)|deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> ubuntu-precise main|
-|Trusty 14.04 (LTS) |deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> ubuntu-trusty main|
-|Wily 15.10         |deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> ubuntu-wily main|
-|Xenial 16.04 (LTS) |deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> ubuntu-xenial main|
-&gt;Note: Docker does not provide packages for all architectures. Binary artifacts are built nightly, and you can download them from <a href="https://master.dockerproject.org">https://master.dockerproject.org</a>. To install docker on a multi-architecture system, add an [arch=&hellip;] clause to the entry. Refer to Debian Multiarch wiki for details.</li>
+最终采用在ubuntu系统中安装mysql：
+</code></pre>
 
-<li><p>导入库
-<REPO> = deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> ubuntu-precise main</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;&lt;REPO&gt;&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list</code></pre></td></tr></table>
-</div>
-</div>
-<p>`
-6.Update the APT package index.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ sudo apt-get update</pre></td></tr></table>
-</div>
-</div>
-<p>7.Verify that APT is pulling from the right repository.
+<p>$sudo apt-get -y install mysql-server</p>
+
+<pre><code>
+
+##问题：Could not reach any registry endpoint
+安装Linux加速器：
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://142900b5.m.daocloud.io
+该脚本可以将 --registry-mirror 加入到你的 Docker 配置文件 /etc/default/docker 中。适用于 Ubuntu14.04、Debian、CentOS6 、CentOS7、Fedora、Arch Linux、openSUSE Leap 42.1，其他版本可能有细微不同。
+ubuntu 系统安装daocloud检测工具：
+curl -sSL https://get.daocloud.io/daomonit/install.sh | sh -s d0312f829e9807ee0bf157cdc9c9cca42380395c 
+
+### 更新服务器上的docker
+[官网教程](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites-by-ubuntu-version)
+### Update your apt sources
+To set APT to use packages from the Docker repository:
+1. Log into your machine as a user with sudo or root privileges.
+2. Open a terminal window.
+3. Update package information, ensure that APT works with the https method, and that CA certificates are installed.
+</code></pre>
+
+<p>bash
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates</p>
+
+<pre><code>4. Docker资源库
+|Ubuntu version|	Repository|
+|---|----|
+|Precise 12.04 (LTS)|deb https://apt.dockerproject.org/repo ubuntu-precise main|
+|Trusty 14.04 (LTS)	|deb https://apt.dockerproject.org/repo ubuntu-trusty main|
+|Wily 15.10         |deb https://apt.dockerproject.org/repo ubuntu-wily main|
+|Xenial 16.04 (LTS)	|deb https://apt.dockerproject.org/repo ubuntu-xenial main|
+&gt;Note: Docker does not provide packages for all architectures. Binary artifacts are built nightly, and you can download them from https://master.dockerproject.org. To install docker on a multi-architecture system, add an [arch=...] clause to the entry. Refer to Debian Multiarch wiki for details.
+5. 导入库 
+&lt;REPO&gt; = deb https://apt.dockerproject.org/repo ubuntu-precise main
+</code></pre>
+
+<p>bash
+$ echo &ldquo;<REPO>&rdquo; | sudo tee /etc/apt/sources.list.d/docker.list</p>
+
+<pre><code>`
+6.Update the APT package index.
+</code></pre>
+
+<p>$ sudo apt-get update
+```
+7.Verify that APT is pulling from the right repository.
 When you run the following command, an entry is returned for each version of Docker that is available for you to install. Each entry should have the URL <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a>. The version currently installed is marked with ***.The output below is truncated.</p>
 
 <p>$ apt-cache policy docker-engine</p>
@@ -458,8 +369,7 @@ Start the docker daemon.
 $ sudo service docker start
 Verify that docker is installed correctly by running the hello-world image.
 $ sudo docker run hello-world
-This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.</p></li>
-</ol>
+This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.</p>
 
     </div>
 

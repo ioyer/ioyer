@@ -34,7 +34,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8smartsvn%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/" />
@@ -83,9 +83,8 @@ svnserve 在终端执行： whereis svnserve
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/%E4%BD%BF%E7%94%A8smartsvn%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/" />
-<meta property="article:published_time" content="2015-10-05T19:16:47&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2015-10-05T19:16:47+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="使用SmartSVN创建版本库">
 <meta itemprop="description" content="SmartSVN有以下版本：
 
@@ -122,7 +121,7 @@ svnserve 在终端执行： whereis svnserve
 
 <meta itemprop="datePublished" content="2015-10-05T19:16:47&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="723">
+<meta itemprop="wordCount" content="700">
 
 
 
@@ -241,7 +240,7 @@ svnserve 在终端执行： whereis svnserve
             <a href="/categories/git/"> git </a>
             <a href="/categories/svn/"> svn </a>
             </div>
-          <span class="more-meta"> 约 723 字 </span>
+          <span class="more-meta"> 约 700 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -314,167 +313,91 @@ svnserve 在终端执行： whereis svnserve
 </ol>
 
 <p>查看是否安装SVN服务：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">svnserve —version</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>svnserve —version
+</code></pre>
+
 <p>SVN随系统一起启动：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vi /etc/rc.local   //(此文件Mac系统中默认是不存在的，需手动创建)
+
+<pre><code>vi /etc/rc.local   //(此文件Mac系统中默认是不存在的，需手动创建)
 
 添加启动SVN服务： 
-svnserve -d -r /data/svn/repos  </pre></td></tr></table>
-</div>
-</div>
+svnserve -d -r /data/svn/repos  
+</code></pre>
+
 <p>关闭svn服务:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">直接ps aux | grep svn，然后kill -9 进程号</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>直接ps aux | grep svn，然后kill -9 进程号
+</code></pre>
+
 <ol>
 <li><p>创建库:<br />
 打印应用目录命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">whereis svn</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>whereis svn
+</code></pre>
+
 <p>新建版本库目录：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo mkdir -p /data/svn/repos/local 
-chmod u+w 文件名</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo mkdir -p /data/svn/repos/local 
+chmod u+w 文件名
+</code></pre>
+
 <p>创建：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo svnadmin create /data/svn/repos/local
-查看文件权限： ls -l</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo svnadmin create /data/svn/repos/local
+查看文件权限： ls -l
+</code></pre></li>
 
 <li><p>配置版本库的访问权限</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd conf/ </pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>cd conf/ 
+</code></pre>
+
 <ol>
 <li><p>开启密码权限，普通用户/匿名用户</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo vi svnserve.conf</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo vi svnserve.conf
+</code></pre></li>
 
 <li><p>设置用户：密码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo vi passwd</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo vi passwd
+</code></pre></li>
 
 <li><p>分组设置，组权限</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo vi authz</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo vi authz
+</code></pre></li>
 </ol></li>
 
 <li><p>启动svnserve服务</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo svnserve -d -r /data/svn/repos —log-file=/var/log/svn.log</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo svnserve -d -r /data/svn/repos —log-file=/var/log/svn.log
+</code></pre></li>
 
 <li><p>测试端口：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">telnet localhost 3690</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>telnet localhost 3690
+</code></pre></li>
 
 <li><p>重启必先kill ：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo kill PID</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>sudo kill PID
+</code></pre></li>
 
 <li><p>版本库路径：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">svn://localhost/local</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>svn://localhost/local
+</code></pre>
+
 <p>其他：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">svn ls svn://svnpath 可以查询snv仓库内容  
+
+<pre><code>svn ls svn://svnpath 可以查询snv仓库内容  
 lsof -i :3690 查看svn是否启动  
 ps aux | grep ‘svn’ 查找所有svn启动的进程id  
-kill -9 pid 将pid替换为上面查到的进程id可以杀掉svn进程  </pre></td></tr></table>
-</div>
-</div></li>
+kill -9 pid 将pid替换为上面查到的进程id可以杀掉svn进程  
+</code></pre></li>
 </ol>
     </div>
 
@@ -533,7 +456,7 @@ kill -9 pid 将pid替换为上面查到的进程id可以杀掉svn进程  </pre><
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-10-05 19:16:47 \x2b0800 \x2b0800',
+        id: '2015-10-05 19:16:47 \x2b0800 CST',
         title: '使用SmartSVN创建版本库',
         link: decodeURI(location.href),
         desc: '\x3cp\x3eSmartSVN有以下版本：\x3c\/p\x3e\n\n\x3col\x3e\n\x3cli\x3eSmartSVN enterprise 9 企业版\x3c\/li\x3e\n\x3cli\x3eSmartSVN foundation 8 基础版\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3cp\x3e由于企业版只能建立本地的版本库，无法创建\x26amp;使用svn:\/\/localhost方式。\x3c\/p\x3e\n\n\x3ch4 id=\x22用基础版来说明创建版本库\x22\x3e用基础版来说明创建版本库。\x3c\/h4\x3e\n\n\x3cp\x3e参考：\x3ca href=\x22http:\/\/hammadk.com\/how-to-create-repository-in-smartsvn-tutorial\/\x22\x3eCreate Repository in SmartSVN – Tutorial\x3c\/a\x3e\x3c\/p\x3e\n\n\x3col\x3e\n\x3cli\x3e启动SmartSVN SmartSVN foundation 8 基础版\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3e菜单栏Project-\x26gt; set up Local Repository\x26hellip;\x3cbr \/\x3e\n需要设置如下两个参数：\x3cbr \/\x3e\n\n\x3col\x3e\n\x3cli\x3esvnadmin 在终端执行： whereis svnadmin\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3esvnserve 在终端执行： whereis svnserve\x3cbr \/\x3e\n￼\x3cimg src=\x22https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/adeb039a-b429-481a-ac25-2044b871e45e\/screenshot.png?resizeSmall\x26amp;width=832\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ol\x3e\x3c\/li\x3e\n\x3cli\x3e指定版本库的目录位置：\x3cbr \/\x3e\n\x3cimg src=\x22https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/a3f00903-101c-4848-a10a-3479643baea7\/screenshot.png?resizeSmall\x26amp;width=832\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3e初始化账户密码：\x3cbr \/\x3e\n\x3cimg src=\x22https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/140f257e-e452-47ea-8317-34a5ed8d6c7f\/screenshot.png?resizeSmall\x26amp;width=832\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3e完成。\x3cbr \/\x3e\n\x3cimg src=\x22https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/ed975623-72bb-4132-8d04-ac9a7b1d2fc9\/screenshot.png?resizeSmall\x26amp;width=832\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\n\x3cimg src=\x22https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/53306789-9d97-485c-a54d-a143e7b078f1\/screenshot.png?resizeSmall\x26amp;width=832\x22 alt=\x22image\x22 \/\x3e\x3c\/li\x3e\n\x3c\/ol\x3e',

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/%E5%9C%A8space-vim%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85%E8%8B%A5%E5%B9%B2%E6%8F%92%E4%BB%B6/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/%E5%9C%A8space-vim%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85%E8%8B%A5%E5%B9%B2%E6%8F%92%E4%BB%B6/" />
-<meta property="article:published_time" content="2017-08-17T14:26:46&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-08-17T14:26:46+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="在space-vim平台安装若干插件">
 <meta itemprop="description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于">
 
 
 <meta itemprop="datePublished" content="2017-08-17T14:26:46&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="835">
+<meta itemprop="wordCount" content="829">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 835 字 </span>
+          <span class="more-meta"> 约 829 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -281,41 +280,28 @@
 <p><a href="https://github.com/Valloric/YouCompleteMe#commands">YouCompleteMe命令工具</a>
 1. 在spacevim添加
 使用space-vim封装的layer</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Layer &#39;ycmd&#39;         &#34;语法自动补齐</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>Layer 'ycmd'         &quot;语法自动补齐
+</code></pre>
+
 <p>YouCompleteMe 安装位置： <code>~/.vim/plugged/YouCompleteMe</code> 。</p>
 
 <ol>
 <li><p>编译 YCM
 在使用space-vim平台上，使用layer方式安装会执行如下编译操作：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">!./install.py --clang-completer</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>!./install.py --clang-completer
+</code></pre>
+
 <p>详见脚本：space-vim/layers/+tools/ycmd/packages.vim</p></li>
 </ol>
 
 <p>参考：<a href="http://www.cocoachina.com/ios/20170224/18751.html">征服恐惧！用 Vim 写 iOS App</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">brew install cmake
-./install.py --clang-completer --system-libclang</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>brew install cmake
+./install.py --clang-completer --system-libclang
+</code></pre>
+
 <p><code>--clang-completer</code>: 告诉脚本需要 clang 的支持
 <code>--system-libclang</code>: 告诉编译脚本使用系统的 clang，因为之前 clang 升级 4.0 的时候，并没有已经编译好的包给我下载，所以这里不用系统 clang 的话，编译脚本会下载一个 clang 3.0，这样就无法支持 iOS 10.0 以后的 sdk 了，因为 iOS 10.0 以后的 sdk 为了支持 swift 引入了一些 clang 3.0 不支持的新语法，所以这里要加上 &ndash;system-libclang。</p>
 
@@ -325,30 +311,21 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
 
 <li><p>安装vim插件
 使用vim-plug安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Plug &#39;keith/sourcekittendaemon.vim&#39;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>Plug 'keith/sourcekittendaemon.vim'
+</code></pre>
+
 <p>NOTE: This plugin doesn&rsquo;t provide Swift runtime files. If you&rsquo;d like those checkout swift.vim</p></li>
 </ol>
 
 <h3 id="asyncrun-shell-command">AsyncRun shell command</h3>
 
 <p>编辑器命令:AsyncRun + shell命令即可在后台执行shell命令，打开quickfix就可以实时查看执行结果了。也可以通过添加配置的方式来实现开始执行命令的时候自动打开quickfix窗口：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"> :copen //打开脚本运行日志窗口 
- :AsyncRun git status  //异步执行shell脚本</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code> :copen //打开脚本运行日志窗口 
+ :AsyncRun git status  //异步执行shell脚本
+</code></pre>
+
     </div>
 
     <div class="post-copyright">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/macos/%E4%BD%BF%E7%94%A8swift%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%93%E5%8F%96wwdc%E5%AD%97%E5%B9%95/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github huos3203 WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/macos/%E4%BD%BF%E7%94%A8swift%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%93%E5%8F%96wwdc%E5%AD%97%E5%B9%95/" />
-<meta property="article:published_time" content="2018-11-18T19:10:49&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-11-18T19:10:49+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="使用swift命令行抓取WWDC字幕">
 <meta itemprop="description" content="{% github huos3203 WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原">
 
 
 <meta itemprop="datePublished" content="2018-11-18T19:10:49&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="346">
+<meta itemprop="wordCount" content="341">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 346 字 </span>
+          <span class="more-meta"> 约 341 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -177,38 +176,24 @@
 &gt; 不支持2108下载</p>
 
 <h2 id="安装">安装</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ git clone https://github.com/Danny1451/WWDC-Subtitles.git
+
+<pre><code>$ git clone https://github.com/Danny1451/WWDC-Subtitles.git
 $ cd WWDC-Subtitles
-$ swift build</pre></td></tr></table>
-</div>
-</div>
+$ swift build
+</code></pre>
+
 <h2 id="抓取字幕">抓取字幕</h2>
 
 <p>获取 2017 年 204 session 的字幕，保存到当前目录的 2017 文件夹</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./wwwww subtitle -s 204 -v -y 2017</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>./wwwww subtitle -s 204 -v -y 2017
+</code></pre>
+
 <p>获取 2016 年 204 session 的 meta 信息，以 json 格式并且保存在当前目录的 sessions.json 文件中</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./wwwww meta -s 204 -v -y 2016</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>./wwwww meta -s 204 -v -y 2016
+</code></pre>
+
 <h2 id="如何下载中文">如何下载中文</h2>
 
 <h2 id="如何支持2018下载">如何支持2018下载</h2>

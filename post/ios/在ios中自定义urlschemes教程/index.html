@@ -27,7 +27,7 @@ Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，�
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
@@ -62,9 +62,8 @@ Step2. 打开“Item 0″类型为Dic,添加新key为&rdquo;URL identifier&rdquo
 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
-<meta property="article:published_time" content="2014-08-28T20:32:48&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2014-08-28T20:32:48+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="在IOS中自定义URLSchemes教程">
 <meta itemprop="description" content="URL Schemes
 
@@ -87,7 +86,7 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
 
 <meta itemprop="datePublished" content="2014-08-28T20:32:48&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1488">
+<meta itemprop="wordCount" content="1466">
 
 
 
@@ -192,7 +191,7 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/schemes/"> schemes </a>
             </div>
-          <span class="more-meta"> 约 1488 字 </span>
+          <span class="more-meta"> 约 1466 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -301,42 +300,24 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
      - (void)buttonPressed:(UIButton *)button
     {
       NSString *customURL = @&ldquo;iOSDevTips://&ldquo;;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">  if ([[UIApplication sharedApplication] 
+
+<pre><code>  if ([[UIApplication sharedApplication] 
     canOpenURL:[NSURL URLWithString:customURL]])
   {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:customURL]];
   }
   else
   {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&#34;URL error&#34;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;URL error&quot;
                           message:[NSString stringWithFormat:
-                            @&#34;No custom URL defined for %@&#34;, customURL]
-                          delegate:self cancelButtonTitle:@&#34;Ok&#34; 
+                            @&quot;No custom URL defined for %@&quot;, customURL]
+                          delegate:self cancelButtonTitle:@&quot;Ok&quot; 
                           otherButtonTitles:nil];
     [alert show];
   }    
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <p>{%endcodeblock%}
 Line 5 we check to see if the custom URL is defined, and if so, use the shared application instance to open the URL (line 8).<br />
 The <strong><code>openURL:</code></strong>method starts the application and passes the URL into the app. The current application is exited during this process.</p>
@@ -369,16 +350,11 @@ As in web development, the string <strong><code>?token=123abct&amp;registered=1<
       NSLog(@&ldquo;Calling Application Bundle ID: %@&ldquo;, sourceApplication);
       NSLog(@&ldquo;URL scheme:%@&ldquo;, [url scheme]);
       NSLog(@&ldquo;URL query: %@&ldquo;, [url query]);</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">  return YES;
-}</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>  return YES;
+}
+</code></pre>
+
 <p>{%endcodeblock%}<br />
 The output from the app with the custom URL (using my Bundle ID), when called from another app, is as follows:
 {%codeblock lang:objc%}
@@ -399,22 +375,14 @@ Take note of the ‘<strong>Calling Application Bundle ID</strong>’ as you cou
         NSLog(@&ldquo;Calling Application Bundle ID: %@&ldquo;, sourceApplication);
         NSLog(@&ldquo;URL scheme:%@&ldquo;, [url scheme]);
         NSLog(@&ldquo;URL query: %@&ldquo;, [url query]);</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    return YES;
+
+<pre><code>    return YES;
   }
   else
     return NO;
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <p>{%endcodeblock%}
 It’s important to note that you cannot prevent another application from calling your app via custom <strong><code>URL scheme</code></strong>, however you can skip any further processing and <code>return NO</code> as shown above. With that said, if you desire to keep other apps from calling your app, create a unique (non-obvious) <code>URL scheme</code>. Although this will guarantee you app won’t be called, it will make it more unlikely.</p>
 
@@ -480,7 +448,7 @@ It’s important to note that you cannot prevent another application from callin
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-08-28 20:32:48 \x2b0800 \x2b0800',
+        id: '2014-08-28 20:32:48 \x2b0800 CST',
         title: '在IOS中自定义URLSchemes教程',
         link: decodeURI(location.href),
         desc: '\x3ch4 id=\x22url-schemes\x22\x3eURL Schemes\x3c\/h4\x3e\n\n\x3cp\x3eiPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！\x3c\/p\x3e\n\n\x3cp\x3e首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。\x3c\/p\x3e\n\n\x3ch4 id=\x22注册自定义url协议\x22\x3e注册自定义URL协议\x3c\/h4\x3e\n\n\x3cp\x3e首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。\x3c\/p\x3e\n\n\x3cp\x3e默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。\x3c\/p\x3e\n\n\x3ch6 id=\x22step1-右键-选择-add-row-在下拉选框中选择-url-types-类型为array\x22\x3eStep1. 右键，选择“Add Row”,在下拉选框中选择“\x3cstrong\x3eURL types\x3c\/strong\x3e”，类型为Array:\x3c\/h6\x3e\n\n\x3ch6 id=\x22step2-打开-item-0-类型为dic-添加新key为-url-identifier-类型为string-可以是任何值-但建议用-反域名-例如-com-myapp\x22\x3eStep2. 打开“Item 0″类型为Dic,添加新key为\x26rdquo;URL identifier\x26rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。\x3c\/h6\x3e\n\n\x3ch5 id=\x22step3-打开-item-0-类型为dic-添加新key为-url-schemes-类型为array\x22\x3eStep3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:\x3c\/h5\x3e',

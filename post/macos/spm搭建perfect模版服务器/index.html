@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
-<meta property="article:published_time" content="2018-10-02T11:13:35&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-02T11:13:35+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SPM搭建Perfect模版服务器">
 <meta itemprop="description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主">
 
 
 <meta itemprop="datePublished" content="2018-10-02T11:13:35&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1722">
+<meta itemprop="wordCount" content="1653">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 1722 字 </span>
+          <span class="more-meta"> 约 1653 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -156,6 +155,10 @@
 <li><a href="#搭建http服务器">搭建HTTP服务器</a>
 <ul>
 <li><a href="#创建web应用">创建Web应用</a></li>
+</ul></li>
+<li><a href="#设置-perfect-httpserver-服务器">设置<strong>Perfect HTTPServer</strong>服务器</a>
+<ul>
+<li><a href="#注册路由和请求-响应句柄">注册路由和请求／响应句柄</a></li>
 </ul></li>
 <li><a href="#使用xcode调试服务器">使用Xcode调试服务器</a>
 <ul>
@@ -187,159 +190,100 @@
 
 <p><a href="https://github.com/PerfectlySoft/PerfectDocs/blob/master/guide/gettingStartedFromScratch.md">原文</a>
 1. 新建一个文件夹保存项目文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ mkdir iPerfect
-$ cd iPerfect</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ mkdir iPerfect
+$ cd iPerfect
+</code></pre>
+
 <ol>
 <li><p>初始化项目，用<code>SPM</code>软件包管理器：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="err">$</span> <span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span> <span class="o">--</span><span class="kd">type</span><span class="p">=</span><span class="nx">executable</span>
-<span class="nx">Creating</span> <span class="nx">executable</span> <span class="kn">package</span><span class="p">:</span> <span class="nx">iPerfect</span>
-<span class="nx">Creating</span> <span class="nx">Package</span><span class="p">.</span><span class="nx">swift</span>
-<span class="nx">Creating</span> <span class="nx">README</span><span class="p">.</span><span class="nx">md</span>
-<span class="nx">Creating</span> <span class="p">.</span><span class="nx">gitignore</span>
-<span class="nx">Creating</span> <span class="nx">Sources</span><span class="o">/</span>
-<span class="nx">Creating</span> <span class="nx">Sources</span><span class="o">/</span><span class="nx">iPerfect</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="nx">swift</span>
-<span class="nx">Creating</span> <span class="nx">Tests</span><span class="o">/</span></pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ swift package init --type=executable
+Creating executable package: iPerfect
+Creating Package.swift
+Creating README.md
+Creating .gitignore
+Creating Sources/
+Creating Sources/iPerfect/main.swift
+Creating Tests/
+</code></pre></li>
 
 <li><p>配置依赖
 打开<code>Package.swift</code>文件进行编辑：
-该文件在要求Swift编译的最低版本为<code>3.0.0</code>，设置<code>target</code>编译依存库<code>PerfectHTTPServer</code>
-``` swift
-// swift-tools-version:4.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.</p></li>
+该文件在要求Swift编译的最低版本为<code>3.0.0</code>，设置<code>target</code>编译依存库<code>PerfectHTTPServer</code></p>
+
+<pre><code class="language-swift">// swift-tools-version:4.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+name: &quot;iPerfect&quot;,
+dependencies: [
+    .package(url: &quot;https://github.com/PerfectlySoft/Perfect-HTTPServer.git&quot;, from: &quot;3.0.0&quot;)
+],
+targets: [
+.target(
+    name: &quot;iPerfect&quot;,
+    dependencies: [&quot;PerfectHTTPServer&quot;]),
+]
+)
+</code></pre></li>
+
+<li><p>编码</p>
+
+<pre><code>mkdir Sources
+echo 'print(&quot;您好！&quot;)' &gt;&gt; Sources/iPerfect/main.swift
+</code></pre></li>
+
+<li><p>编译和运行
+现在项目就已经准备好，可以通过以下两个命令编译和运行：</p>
+
+<pre><code>swift build
+.build/debug/iPerfect
+</code></pre>
+
+<p>成功之后，会打印：</p>
+
+<pre><code>你好！！！
+</code></pre></li>
 </ol>
 
-<p>import PackageDescription</p>
+<h2 id="设置-perfect-httpserver-服务器">设置<strong>Perfect HTTPServer</strong>服务器</h2>
 
-<p>let package = Package(
-name: &ldquo;iPerfect&rdquo;,
-    dependencies: [
-        .package(url: &ldquo;<a href="https://github.com/PerfectlySoft/Perfect-HTTPServer.git&quot;">https://github.com/PerfectlySoft/Perfect-HTTPServer.git&quot;</a>, from: &ldquo;3.0.0&rdquo;)
-    ],
-    targets: [
-    .target(
-        name: &ldquo;iPerfect&rdquo;,
-        dependencies: [&ldquo;PerfectHTTPServer&rdquo;]),
-    ]
-)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">4. 编码</pre></td></tr></table>
-</div>
-</div>
-<p>mkdir Sources
-echo &lsquo;print(&ldquo;您好！&rdquo;)&rsquo; &gt;&gt; Sources/iPerfect/main.swift</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">5. 编译和运行
-现在项目就已经准备好，可以通过以下两个命令编译和运行：</pre></td></tr></table>
-</div>
-</div>
-<p>swift build
-.build/debug/iPerfect</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">成功之后，会打印：</pre></td></tr></table>
-</div>
-</div>
-<p>你好！！！</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">## 设置**Perfect HTTPServer**服务器
-### 注册路由和请求／响应句柄
-打开`Sources/iPerfect/main.swift`文件，把内容替换为以下程序：
-``` swift
-import PerfectHTTP
+<h3 id="注册路由和请求-响应句柄">注册路由和请求／响应句柄</h3>
+
+<p>打开<code>Sources/iPerfect/main.swift</code>文件，把内容替换为以下程序：</p>
+
+<pre><code class="language-swift">import PerfectHTTP
 import PerfectHTTPServer
 
 // 注册路由和请求／响应句柄
 var routes = Routes()
-routes.add(method: .get, uri: &#34;/&#34;) {
+routes.add(method: .get, uri: &quot;/&quot;) {
     request, response in
-    response.setHeader(.contentType, value: &#34;text/html&#34;)
-    response.appendBody(string: &#34;&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;&#34;)
+    response.setHeader(.contentType, value: &quot;text/html&quot;)
+    response.appendBody(string: &quot;&lt;html&gt;&lt;title&gt;Hello, world!&lt;/title&gt;&lt;body&gt;Hello, world!&lt;/body&gt;&lt;/html&gt;&quot;)
     .completed()
 }
 
 do {
     // 启动HTTP服务器
-    try HTTPServer.launch(.server(name: &#34;www.example.ca&#34;, port: 8181, routes: routes))
+    try HTTPServer.launch(.server(name: &quot;www.example.ca&quot;, port: 8181, routes: routes))
 } catch {
-    fatalError(&#34;\(error)&#34;) // fatal error launching one of the servers
-}</pre></td></tr></table>
-</div>
-</div>
+    fatalError(&quot;\(error)&quot;) // fatal error launching one of the servers
+}
+</code></pre>
+
 <ol>
 <li><p>编译运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ swift build
+
+<pre><code>$ swift build
 $ .build/debug/iPerfect
 &gt;&gt;
-[INFO] Starting HTTP server www.example.ca on :::8181</pre></td></tr></table>
-</div>
-</div></li>
+[INFO] Starting HTTP server www.example.ca on :::8181
+
+</code></pre></li>
 </ol>
 
 <p>在浏览器上打开<code>http://127.0.0.1:8181/</code>
@@ -349,14 +293,10 @@ $ .build/debug/iPerfect
 
 <p>生成<strong>iPerfect.xcodeproj</strong>
 Swift软件包管理器（SPM）能够为您的项目<code>iPerfect</code>生成Xcode工程：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>swift package generate-xcodeproj
+</code></pre>
+
 <h3 id="递归编译设置">递归编译设置</h3>
 
 <ol>

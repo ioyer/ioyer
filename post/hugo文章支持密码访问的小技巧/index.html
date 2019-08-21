@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html 1 vi themes/even/layouts/partials/head.html 在head" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html vi themes/even/layouts/partials/head.html 在head." /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hugo%E6%96%87%E7%AB%A0%E6%94%AF%E6%8C%81%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="hugo文章支持密码访问的小技巧" />
-<meta property="og:description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html 1 vi themes/even/layouts/partials/head.html 在head" />
+<meta property="og:description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html vi themes/even/layouts/partials/head.html 在head." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hugo%E6%96%87%E7%AB%A0%E6%94%AF%E6%8C%81%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/" />
-<meta property="article:published_time" content="2019-08-09T14:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-09T19:27:24&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-08-09T14:00:00+08:00" />
+<meta property="article:modified_time" content="2019-08-09T19:27:24+08:00" />
 <meta itemprop="name" content="hugo文章支持密码访问的小技巧">
-<meta itemprop="description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html 1 vi themes/even/layouts/partials/head.html 在head">
+<meta itemprop="description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html vi themes/even/layouts/partials/head.html 在head.">
 
 
 <meta itemprop="datePublished" content="2019-08-09T14:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-09T19:27:24&#43;08:00" />
-<meta itemprop="wordCount" content="271">
+<meta itemprop="wordCount" content="254">
 
 
 
 <meta itemprop="keywords" content="hugo," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo文章支持密码访问的小技巧"/>
-<meta name="twitter:description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html 1 vi themes/even/layouts/partials/head.html 在head"/>
+<meta name="twitter:description" content="给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html vi themes/even/layouts/partials/head.html 在head."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/hugo/"> hugo </a>
             </div>
-          <span class="more-meta"> 约 271 字 </span>
+          <span class="more-meta"> 约 254 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -167,78 +166,37 @@
 
 <h2 id="修改主题even的header-dot-html">修改主题even的header.html</h2>
 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">vi themes/even/layouts/partials/head.html</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vi themes/even/layouts/partials/head.html</code></pre></div>
 
 <p>在head.html底部添加js脚本:</p>
 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"> <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-        <span class="k">if</span><span class="p">(</span><span class="s1">&#39;{{ .Params.password }}&#39;</span><span class="p">){</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;请输入文章密码&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="s1">&#39;{{ .Params.password }}&#39;</span><span class="p">){</span>
-                <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;密码错误！&#39;</span><span class="p">);</span>
-                <span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">})();</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+    (<span style="color:#66d9ef">function</span>(){
+        <span style="color:#66d9ef">if</span>(<span style="color:#e6db74">&#39;{{ .Params.password }}&#39;</span>){
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#39;请输入文章密码&#39;</span>) <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;{{ .Params.password }}&#39;</span>){
+                <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;密码错误！&#39;</span>);
+                <span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">back</span>();
+            }
+        }
+    })();
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div>
 
 <h2 id="配置文章默认密码值">配置文章默认密码值</h2>
 
 <p>需要通过对post.org头设置,新增自定义字段`password`</p>
 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">#</span><span class="o">+</span><span class="nx">password</span><span class="o">:</span>
-<span class="err">#</span><span class="o">+</span><span class="nx">hugo_custom_front_matter</span><span class="o">:</span> <span class="o">:</span><span class="nx">author</span> <span class="s2">&#34;iTBoyer&#34;</span> <span class="o">:</span><span class="nx">password</span> <span class="s2">&#34;0000&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">+</span><span style="color:#a6e22e">password</span><span style="color:#f92672">:</span>
+<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">+</span><span style="color:#a6e22e">hugo_custom_front_matter</span><span style="color:#f92672">:</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">author</span> <span style="color:#e6db74">&#34;iTBoyer&#34;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">password</span> <span style="color:#e6db74">&#34;0000&#34;</span>
+</code></pre></div>
 
 <p>这样,在org转md之后,会在md文章头部自动添加:</p>
 
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
-<span class="nx">author</span> <span class="o">=</span> <span class="s2">&#34;iTBoyer&#34;</span>
-<span class="nx">password</span> <span class="o">=</span> <span class="mi">0000</span>
-<span class="o">+++</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">...
+<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iTBoyer&#34;</span>
+<span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0000</span>
+<span style="color:#f92672">+++</span>
+</code></pre></div>
 
 <p>运行: `hugo server`
 访问该文章就会提示,输入密码弹出框了.</p>
@@ -298,10 +256,10 @@
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2019-08-09 14:00:00 \x2b0800 \x2b0800',
+        id: '2019-08-09 14:00:00 \x2b0800 CST',
         title: 'hugo文章支持密码访问的小技巧',
         link: decodeURI(location.href),
-        desc: '给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html 1 vi themes\/even\/layouts\/partials\/head.html 在head',
+        desc: '给文章添加访问权限,为自己知识产权多一份保障. 本文章基于even主题,添加文章密码. 修改主题even的header.html vi themes\/even\/layouts\/partials\/head.html 在head.',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

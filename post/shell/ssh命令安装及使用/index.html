@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/ssh%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="写下这篇文章的目的是为了更清楚的讲解和展现ssh的用法和操作，避免网上庞杂的文章和材料影响新手的学习过程。所以如果你是为老手，可以略过这篇文" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/ssh%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2019-02-26T18:16:23&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-02-26T18:16:23+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SSH命令安装及使用">
 <meta itemprop="description" content="写下这篇文章的目的是为了更清楚的讲解和展现ssh的用法和操作，避免网上庞杂的文章和材料影响新手的学习过程。所以如果你是为老手，可以略过这篇文">
 
 
 <meta itemprop="datePublished" content="2019-02-26T18:16:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2029">
+<meta itemprop="wordCount" content="2007">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 2029 字 </span>
+          <span class="more-meta"> 约 2007 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -229,23 +228,15 @@ Secure Shell 是一个通信协议，在这个协议之上可以实现很多种�
 <p>大部分linux发行版都默认包含了OpenSSH客户端和服务器端，一些linux桌面发行版没有安装openssh服务器端。
 如果没有安装，我们可以通过linux发行版的软件包管理工具进行安装。简单来说就是：
 apt-get系列：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get install openssh openssh-server</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">sudo apt-get install openssh openssh-server
+</code></pre>
+
 <p>yum系列：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">sudo yum install openssh openssh-server</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">sudo yum install openssh openssh-server
+</code></pre>
+
 <p>其他系列：自己百度下。
 备注：openssh是客户端、openssh-server是服务器端。不同的发行版名称可能不同，需要自己确认一下。
 安装完毕之后，系统中就应该会有ssh命令了。这个时候就可以使用ssh来进行远程主机的管理了。</p>
@@ -256,69 +247,42 @@ apt-get系列：</p>
 
 <p>在使用之前我们需要对ssh服务进行配置，在大多数linux系统中，ssh服务的配置文件为：/etc/ssh/sshd_config
 使用vim进行编辑：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">vim  /etc/ssh/sshd_config</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">vim  /etc/ssh/sshd_config
+</code></pre>
+
 <p>以下地方根据实际情况进行修改（yes为允许、no为禁止）：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">PermitRootLogin yes  #是否允许root账户登录
+
+<pre><code>PermitRootLogin yes  #是否允许root账户登录
 PasswordAuthentication yes  #是否允许使用密码校验登录
 RSAAuthentication yes  
-PubkeyAuthentication yes  #是否允许使用key登录</pre></td></tr></table>
-</div>
-</div>
+PubkeyAuthentication yes  #是否允许使用key登录
+</code></pre>
+
 <p>然后使用系统服务管理命令启动服务，在大部分linux系统下，命令为：service 或者 systemctl
 启动ssh服务命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# service sshd restart</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# service sshd restart
+</code></pre>
+
 <p>或者</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# systemctl  restart sshd</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# systemctl  restart sshd
+</code></pre>
+
 <h4 id="登录到远程主机">登录到远程主机</h4>
 
 <p>命令格式为：ssh  用户名@远程主机的ip地址:远程主机端口
 示例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">ssh  root@192.168.0.1:22   </code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">ssh  root@192.168.0.1:22   
+</code></pre>
+
 <p>或者：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">ssh -p <span class="m">22</span> root@192.168.0.1</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">ssh -p 22 root@192.168.0.1
+</code></pre>
+
 <blockquote>
 <p>注：ssh默认端口为22，远程主机为默认端口时，可省略端口号。</p>
 </blockquote>
@@ -329,52 +293,31 @@ PubkeyAuthentication yes  #是否允许使用key登录</pre></td></tr></table>
 
 <p>使用key登录，需三个步骤：
 1. 修改ssh服务配置文件允许key登录：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# vim /etc/ssh/sshd_config</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# vim /etc/ssh/sshd_config
+</code></pre>
+
 <p>找到PubkeyAuthentication这一行，改成：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">PubkeyAuthentication  yes</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>PubkeyAuthentication  yes
+</code></pre>
+
 <ol>
 <li><p>重启ssh服务：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# service sshd restart</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# service sshd restart
+</code></pre>
+
 <p>或者</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# systemctl  restart sshd</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>~# systemctl  restart sshd
+</code></pre></li>
 
 <li><p>使用ssh-keygen命令在本地机器上生成Rsa公钥对：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# ssh-keygen -t rsa</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# ssh-keygen -t rsa
+</code></pre>
+
 <p>执行上述命令后，会提示输入要保存的文件路径，默认为：~/.ssh/id_rsa.</p></li>
 </ol>
 
@@ -384,27 +327,18 @@ PubkeyAuthentication yes  #是否允许使用key登录</pre></td></tr></table>
 
 <ol>
 <li><p>将公钥文件上传到服务上：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# ssh-copy-id -i /home/zhao/.ssh/id_rsa_leilei.pub
-root@192.168.0.1</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# ssh-copy-id -i /home/zhao/.ssh/id_rsa_leilei.pub
+root@192.168.0.1
+</code></pre>
+
 <p><code>-i</code> 是用来指定公钥文件，执行命令之后，按提示输入远程密码即可。</p></li>
 
 <li><p>然后即可使用私钥文件登录服务器：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# ssh -i /home/zhao/.ssh/id_rsa_leilei   root@192.168.0.1</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# ssh -i /home/zhao/.ssh/id_rsa_leilei   root@192.168.0.1
+</code></pre>
+
 <blockquote>
 <p>注意：如果在第3步时为秘钥设置了密码，则使用秘钥登录服务器时，需要输入秘钥密码。</p>
 </blockquote></li>
@@ -419,36 +353,23 @@ root@192.168.0.1</pre></td></tr></table>
 
 <li><p>拷贝文件到远程主机：
 ssh中提供了scp命令用来拷贝文件到远程主机，使用方式为：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# scp -i /home/zhao/.ssh/id_rsa_miyao  a.tar.gz root@192.168.0.1:/home/zhao/</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# scp -i /home/zhao/.ssh/id_rsa_miyao  a.tar.gz root@192.168.0.1:/home/zhao/
+</code></pre>
+
 <p>就能将文件 <code>a.tar.gz</code> 拷贝到远程主机<code>/home/zhao/</code>下</p></li>
 
 <li><p>在远程服务器上执行命令：
 直接将需要执行的命令追加到ssh命令后面即可，如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# ssh -i /home/zhao/.ssh/id_rsa_miyao root@192.168.0.1  &#34;ls -l&#34;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>~# ssh -i /home/zhao/.ssh/id_rsa_miyao root@192.168.0.1  &quot;ls -l&quot;
+</code></pre>
+
 <p>即可在远程服务器上执行“<code>ls -l</code>” 命令，结果将输出到本地控制台。
 但是在执行一些命令时，远程主机会提示无法找到该命令，这说明需要设置远程主机的环境变量，可在发送给远程主机的命令中增加source指令，如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">~# ssh -i /home/zhao/.ssh/id_rsa_miyao  root@192.168.0.1 &#34;source ~/.bash_profile &amp;&amp; ls -l&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>~# ssh -i /home/zhao/.ssh/id_rsa_miyao  root@192.168.0.1 &quot;source ~/.bash_profile &amp;&amp; ls -l&quot;
+</code></pre></li>
 </ol>
 
 <h2 id="本章总结">本章总结</h2>

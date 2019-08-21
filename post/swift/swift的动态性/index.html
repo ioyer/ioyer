@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/swift%E7%9A%84%E5%8A%A8%E6%80%81%E6%80%A7/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="Foundation Foundation 框架实现了基于运行时一个特性的两个API： 1. 键值编码 (key-value-coding, KVC) 2. 键值观察 (key-value observing, KVO) KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他响应式框架实现" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/swift%E7%9A%84%E5%8A%A8%E6%80%81%E6%80%A7/" />
-<meta property="article:published_time" content="2018-11-10T09:14:55&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-11-10T09:14:55+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Swift的动态性">
 <meta itemprop="description" content="Foundation Foundation 框架实现了基于运行时一个特性的两个API： 1. 键值编码 (key-value-coding, KVC) 2. 键值观察 (key-value observing, KVO) KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他响应式框架实现">
 
 
 <meta itemprop="datePublished" content="2018-11-10T09:14:55&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1730">
+<meta itemprop="wordCount" content="1692">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1730 字 </span>
+          <span class="more-meta"> 约 1692 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -188,54 +187,33 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 <h3 id="kvc">KVC</h3>
 
 <p>KVC 的工作方式如下所示：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
 
-<span class="p">[</span><span class="n">myClass</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
-<span class="p">[</span><span class="n">myClass</span> <span class="nl">setValue</span><span class="p">:</span><span class="l">@(</span><span class="mi">4</span><span class="l">)</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span></code></pre></td></tr></table>
-</div>
-</div>
+<pre><code class="language-objc">@property (nonatomic, strong) NSNumber *number;
+
+[myClass valueForKey:@&quot;number&quot;];
+[myClass setValue:@(4) forKey:@&quot;number&quot;];
+</code></pre>
+
 <p>例如，假设我们有这个 number 属性，您可以将属性名称作为键，来获取属性值或者设置属性值。这个功能可以用在此前我们所看到的获取变量列表、协议列表，以及危险的混淆功能当中。</p>
 
 <h3 id="kvo">KVO</h3>
 
 <p>通常所说的 Objective-C 「动态性」，往往都是指 KVO。虽然还有其余的函数，但是这些是最常见、最常用的。这也就是人们所说的，Swift 缺失的部分。
 1. 使用KVO对状态的变化进行注册</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">myClass</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;number&#34;</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">NSKeyValueObservingOptionInitial</span> <span class="o">|</span> <span class="n">NSKeyValueObservingOptionNew</span>
-<span class="nl">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">observeValueForKeyPath:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyPath</span>
-<span class="nf">ofObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">object</span>
-<span class="nf">change:</span><span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSKeyValueChangeKey</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">change</span>
-<span class="nf">context:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">{</span>
-<span class="c1">// Respond to observation.
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
+<pre><code class="language-objc">[myClass addObserver:self
+forKeyPath:@&quot;number&quot;
+options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+context:nil];
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+ofObject:(id)object
+change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change
+context:(void *)context{
+// Respond to observation.
+}
+</code></pre>
+
 <p>在观察的值发生变更之后，KVO 会调用此方法立即通知观察者。通过这个方法，我们便可以按需更新 UI。
 2. 弊端：难以调试
 KVO这些操作都存有隐患。比方说 KVO，特别是当我们对某个不是自己所创建的类进行观察时，往往会发现有出乎意料的变化发生。通常而言，这些问题是非常难以调试的，也很难去理解为什么出错。在实际产品当中，我并不建议使用它们，尽管它们非常好用。但是在实际产品当中，我会很谨慎地去使用这些功能。</p>
@@ -270,38 +248,22 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 <p>回到我们的动态特性当中，让我们来看一看 Swift 当中这些动态特性是什么样的。假设我们需要使用内省机制、转发方法、替换和绑定方法。</p>
 
 <h4 id="方法转发">方法转发</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 1
-</span><span class="c1"></span><span class="n">override</span> <span class="k">class</span> <span class="n">func</span> <span class="nf">resolveInstanceMethod</span><span class="p">(</span><span class="n">_</span> <span class="nl">sel</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span>
-<span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-<span class="c1">// 添加实例方法并返回 true 的一次机会，它随后会再次尝试发送消息
-</span><span class="c1"></span><span class="p">}</span>
 
-<span class="c1">// 2
-</span><span class="c1"></span><span class="n">override</span> <span class="n">func</span> <span class="nf">forwardingTarget</span><span class="p">(</span><span class="k">for</span> <span class="nl">aSelector</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span>
-<span class="n">Any</span><span class="o">?</span> <span class="p">{</span>
-<span class="c1">// 返回可以处理 Selector 的对象
-</span><span class="c1"></span><span class="p">}</span>
+<pre><code class="language-objc">// 1
+override class func resolveInstanceMethod(_ sel: Selector!)
+-&gt; Bool {
+// 添加实例方法并返回 true 的一次机会，它随后会再次尝试发送消息
+}
 
-<span class="o">//</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">Swift</span> <span class="err">不支持</span> <span class="n">NSInvocation</span></code></pre></td></tr></table>
-</div>
-</div>
+// 2
+override func forwardingTarget(for aSelector: Selector!) -&gt;
+Any? {
+// 返回可以处理 Selector 的对象
+}
+
+// 3 - Swift 不支持 NSInvocation
+</code></pre>
+
 <p>resolveInstanceMethod 同样会被调用，forwardingTarget 看起来似乎更贴近于 Swift 3 风格的 API。但是 NSInvocation 并不能在 Swift 当中使用。我们同样可以实现方法转发，因此看起来也不算太坏。</p>
 
 <h4 id="方法混淆">方法混淆</h4>
@@ -309,34 +271,20 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 <p><code>load</code> 在 Swift 不再会被调用，因此我们需要在 <code>initialize</code> 中进行混淆。在 Objective-C 当中使用的 <code>dispatch_once</code>，但是在 Swift 3 中被废弃。事情变得略为复杂。虽然对于特定类型的函数而言，我们仍然可以将其定义为动态函数，但是它会消除大部分混淆的功能。</p>
 
 <h4 id="内省机制">内省机制</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">if self is MyClass {
+
+<pre><code>if self is MyClass {
 // YAY
 }
 
-let myString = &#34;myString&#34;;
+let myString = &quot;myString&quot;;
 let mirror = Mirror(reflecting: myString)
-print(mirror.subjectType) // “String&#34;
+print(mirror.subjectType) // “String&quot;
 let string = String(reflecting: type(of:
 myString)) // Swift.String
 
-// No native method introspection</pre></td></tr></table>
-</div>
-</div>
+// No native method introspection
+</code></pre>
+
 <p><code>is</code> 替代了 <code>isMemberOfClass</code>，它同样也可以对 Swift 值类型:结构体、枚举以及其他 Swift 当中的新类型使用。此外还有一个新的映射 API，它主要针对于管道 (pipe) 和数据。</p>
 
 <h4 id="单元测试">单元测试</h4>

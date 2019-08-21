@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: 1 $ pod playgrounds Alamofire To generate a Playground for" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: $ pod playgrounds Alamofire To generate a Playground for a" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/macos/%E4%B8%BApod%E7%9A%84%E5%BA%93%E5%88%9B%E5%BB%BA%E6%BC%94%E7%A4%BA%E6%96%87%E4%BB%B6swiftplayground/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="为Pod的库创建演示文件SwiftPlayground" />
-<meta property="og:description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: 1 $ pod playgrounds Alamofire To generate a Playground for" />
+<meta property="og:description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: $ pod playgrounds Alamofire To generate a Playground for a" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/macos/%E4%B8%BApod%E7%9A%84%E5%BA%93%E5%88%9B%E5%BB%BA%E6%BC%94%E7%A4%BA%E6%96%87%E4%BB%B6swiftplayground/" />
-<meta property="article:published_time" content="2018-10-12T19:56:59&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-12T19:56:59+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="为Pod的库创建演示文件SwiftPlayground">
-<meta itemprop="description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: 1 $ pod playgrounds Alamofire To generate a Playground for">
+<meta itemprop="description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: $ pod playgrounds Alamofire To generate a Playground for a">
 
 
 <meta itemprop="datePublished" content="2018-10-12T19:56:59&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="132">
+<meta itemprop="wordCount" content="126">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="为Pod的库创建演示文件SwiftPlayground"/>
-<meta name="twitter:description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: 1 $ pod playgrounds Alamofire To generate a Playground for"/>
+<meta name="twitter:description" content="{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: $ pod playgrounds Alamofire To generate a Playground for a"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 132 字 </span>
+          <span class="more-meta"> 约 126 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -191,58 +190,37 @@
 <h3 id="cocoapods">CocoaPods</h3>
 
 <p>To generate a Playground for a specific Pod:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ pod playgrounds Alamofire</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ pod playgrounds Alamofire
+</code></pre>
+
 <p>To generate a Playground for a local development Pod:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ pod playgrounds ../../../Sources/Alamofire/Alamofire.podspec</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ pod playgrounds ../../../Sources/Alamofire/Alamofire.podspec
+</code></pre>
+
 <p>To generate a Playground with multiple Pods:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ pod playgrounds RxSwift,RxCocoa</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ pod playgrounds RxSwift,RxCocoa
+</code></pre>
+
 <h3 id="carthage">Carthage</h3>
 
 <p>To generate a Playground for a Carthage-enabled library:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ carthage-play Alamofire/Alamofire</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ carthage-play Alamofire/Alamofire
+</code></pre>
+
 <p>Note: This currently assumes that libraries are hosted on GitHub.</p>
 
 <h3 id="cli">CLI</h3>
 
 <p>To generate an empty Playground from the commandline:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ playground --platform=ios YOLO
-$ open YOLO.playground</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ playground --platform=ios YOLO
+$ open YOLO.playground
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -299,7 +277,7 @@ $ open YOLO.playground</pre></td></tr></table>
         id: '2018-10-12 19:56:59 \x2b0000 UTC',
         title: '为Pod的库创建演示文件SwiftPlayground',
         link: decodeURI(location.href),
-        desc: '{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: 1 $ pod playgrounds Alamofire To generate a Playground for',
+        desc: '{% github asmallteapot cocoapods-playgrounds c54b492 width = 30% %} issues 62 在playground中优雅的使用Pod This Could Be Us But You Playing Generates a Swift Playground for any Pod. Installation $ gem install cocoapods-playgrounds Usage CocoaPods To generate a Playground for a specific Pod: $ pod playgrounds Alamofire To generate a Playground for a',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
-<meta property="article:published_time" content="2017-05-17T11:23:22&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-05-17T11:23:22+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SubModule与SubTree的差异">
 <meta itemprop="description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul">
 
 
 <meta itemprop="datePublished" content="2017-05-17T11:23:22&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1011">
+<meta itemprop="wordCount" content="978">
 
 
 
@@ -139,8 +138,8 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 1011 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+          <span class="more-meta"> 约 978 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -155,6 +154,7 @@
 <li><a href="#核心区别">核心区别</a>
 <ul>
 <li><a href="#submodule命令">submodule命令</a></li>
+<li><a href="#subtree命令">subtree命令</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -172,134 +172,84 @@
 
 <ol>
 <li><p>添加submodule</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git submodule add -b branchA http://github.com/../repoA.git pathA
-git submodule add http://github.com/../repoB.git pathB</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>git submodule add -b branchA http://github.com/../repoA.git pathA
+git submodule add http://github.com/../repoB.git pathB
+</code></pre>
+
 <p>执行以上命令后会生成<code>.gitmodule</code>的文件，文件存储子模块信息:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>submodule <span class="s2">&#34;repoA&#34;</span><span class="o">]</span>
-<span class="nv">path</span> <span class="o">=</span> pathA
-<span class="nv">url</span> <span class="o">=</span> http://github.com/../repoA.git
-<span class="nv">branch</span> <span class="o">=</span> branchA
-<span class="o">[</span>submodule <span class="s2">&#34;ModuleB&#34;</span><span class="o">]</span>
-<span class="nv">path</span> <span class="o">=</span> ModuleB
-<span class="nv">url</span> <span class="o">=</span> http://github.com/../repoB.git</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">[submodule &quot;repoA&quot;]
+path = pathA
+url = http://github.com/../repoA.git
+branch = branchA
+[submodule &quot;ModuleB&quot;]
+path = ModuleB
+url = http://github.com/../repoB.git
+</code></pre>
+
 <p>提交<code>.gitmodule</code>文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git commit -m &#39;add submodule&#39;
-git push</pre></td></tr></table>
-</div>
-</div>
-<ol>
+
+<pre><code>git commit -m 'add submodule'
+git push
+</code></pre></li>
+
 <li><p>clone新库初始化submodule
 clone之后各模块内容为空目录，需要执行：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git submodule init</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>git submodule init
+</code></pre></li>
 
 <li><p>拉取所有子模块
 需要在<code>.gitmodules</code>文件中指定<code>branch:分支名</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git submodule foreach git pull
+
+<pre><code>git submodule foreach git pull
 或
-git submodule foreach git pull origin master</pre></td></tr></table>
-</div>
-</div></li>
+git submodule foreach git pull origin master
+</code></pre></li>
 
 <li><p>更新所有模块
 更新后每个子模块并非在指定分支上，而是关联最近一次commitID。
 使用<code>git submodule foreach</code>为每一个子模块执行切换命令:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git submodule foreach git checkout master</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>git submodule foreach git checkout master
+</code></pre>
+
 <p>切换到所有master分支上（ModuleB为ResourceEvaluate，暂时需要单独执行）</p></li>
 
-<li><p>删除子模块
-```</p></li>
-</ol></li>
-</ol>
+<li><p>删除子模块</p>
 
-<p>git rm &ndash;cached moduleA
+<pre><code>git rm --cached moduleA
 rm -rf moduleA
 vi .gitmodules //删除moduleA相关的内容
 git add .
-git commit -m &ldquo;remove moduleA&rdquo;
-git push origin master</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">### subtree命令
-1. `subtree`添加子模块
-通过`subtree`添加子模块,`–squash`可省略，其功能是只有最新的提交记录被引入，去掉后则是引入所有历史提交记录</pre></td></tr></table>
-</div>
-</div>
-<p>#增加远程仓库并设置引用名<code>ModuleA</code>，此步可省略，主要是为了简化后面的操作
-git remote add ModuleA <a href="http://github.com/../ModuleA.git">http://github.com/../ModuleA.git</a> master
-#<code>subtree</code>添加子模块
-git subtree add &ndash;prefix=ModuleA &ndash;squash  ModuleA master</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">3. `subtree`更新</pre></td></tr></table>
-</div>
-</div>
-<p>git subtree pull -P ModuleA ModuleA master</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">4. `subtree`提交</pre></td></tr></table>
-</div>
-</div>
-<p>git subtree push &ndash;prefix=ModuleA ModuleA master
-```</p>
+git commit -m &quot;remove moduleA&quot;
+git push origin master
+</code></pre></li>
+</ol>
+
+<h3 id="subtree命令">subtree命令</h3>
+
+<ol>
+<li><p><code>subtree</code>添加子模块
+通过<code>subtree</code>添加子模块,<code>–squash</code>可省略，其功能是只有最新的提交记录被引入，去掉后则是引入所有历史提交记录</p>
+
+<pre><code>#增加远程仓库并设置引用名`ModuleA`，此步可省略，主要是为了简化后面的操作
+git remote add ModuleA http://github.com/../ModuleA.git master
+#`subtree`添加子模块
+git subtree add --prefix=ModuleA --squash  ModuleA master
+</code></pre></li>
+
+<li><p><code>subtree</code>更新</p>
+
+<pre><code>git subtree pull -P ModuleA ModuleA master
+</code></pre></li>
+
+<li><p><code>subtree</code>提交</p>
+
+<pre><code>git subtree push --prefix=ModuleA ModuleA master
+</code></pre></li>
+</ol>
 
 <table>
 <thead>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/git/git-log%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/git/git-log%E7%9A%84%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2018-09-05T15:52:33&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-09-05T15:52:33+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="git-log的使用">
 <meta itemprop="description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/">
 
 
 <meta itemprop="datePublished" content="2018-09-05T15:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="198">
+<meta itemprop="wordCount" content="190">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 198 字 </span>
+          <span class="more-meta"> 约 190 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -168,28 +167,17 @@
 
 <p><a href="http://iissnan.com/progit/html/zh/ch2_3.html">查看提交历史</a>
 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件），可以用下面的查询命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git log --pretty<span class="o">=</span><span class="s2">&#34;%h - %s&#34;</span> --author<span class="o">=</span>gitster --since<span class="o">=</span><span class="s2">&#34;2008-10-01&#34;</span> <span class="se">\
-</span><span class="se"></span>--before<span class="o">=</span><span class="s2">&#34;2008-11-01&#34;</span> --no-merges -- t/
+
+<pre><code class="language-bash">$ git log --pretty=&quot;%h - %s&quot; --author=gitster --since=&quot;2008-10-01&quot; \
+--before=&quot;2008-11-01&quot; --no-merges -- t/
 5610e3b - Fix testcase failure when extended attribute
-acd3b9e - Enhance hold_lock_file_for_<span class="o">{</span>update,append<span class="o">}()</span>
+acd3b9e - Enhance hold_lock_file_for_{update,append}()
 f563754 - demonstrate breakage of detached checkout wi
 d1a43f2 - reset --hard/read-tree --reset -u: remove un
-51a94af - Fix <span class="s2">&#34;checkout --track -b newbranch&#34;</span> on detac
-b0ad11e - pull: allow <span class="s2">&#34;git pull origin </span><span class="nv">$something</span><span class="s2">:</span><span class="nv">$cur</span></code></pre></td></tr></table>
-</div>
-</div>
+51a94af - Fix &quot;checkout --track -b newbranch&quot; on detac
+b0ad11e - pull: allow &quot;git pull origin $something:$cur
+</code></pre>
+
 <p>Git 项目有 20,000 多条提交，但我们给出搜索选项后，仅列出了其中满足条件的 6 条。</p>
 
 <h2 id="gitk图形工具">gitk图形工具</h2>

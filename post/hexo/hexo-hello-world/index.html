@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hexo/hexo-hello-world/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="什么是 Hexo？ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hexo/hexo-hello-world/" />
-<meta property="article:published_time" content="2016-12-20T18:02:13&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2016-12-20T18:02:13+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Hexo-hello-world">
 <meta itemprop="description" content="什么是 Hexo？ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成">
 
 
 <meta itemprop="datePublished" content="2016-12-20T18:02:13&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1066">
+<meta itemprop="wordCount" content="1034">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 1066 字 </span>
+          <span class="more-meta"> 约 1034 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -190,86 +189,52 @@ Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Ch
 <ol>
 <li><p>安装<code>nvm</code>
 方式一：cURL命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+</code></pre></li>
 </ol>
 
 <p>方式二：linux方法Wget命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+</code></pre>
+
 <p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ nvm install stable</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ nvm install stable
+</code></pre>
+
 <ol>
 <li><p>更新npm命令工具至最新版本</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">npm install -g npm</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>npm install -g npm
+</code></pre></li>
 </ol>
 
 <h2 id="安装-hexo">安装 Hexo</h2>
 
 <p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ npm install -g hexo-cli</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ npm install -g hexo-cli
+</code></pre>
+
 <h2 id="建站">建站</h2>
 
 <p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ hexo init &lt;folder&gt;
+
+<pre><code>$ hexo init &lt;folder&gt;
 $ cd &lt;folder&gt;
-$ npm install</pre></td></tr></table>
-</div>
-</div>
+$ npm install
+</code></pre>
+
 <p>为了便于在多台电脑上部署博客，可以使用使用git版本库来管理个人博客的内容：<br />
 具体部署过程：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git clone https://xxxxx/boyer.git boyer
+
+<pre><code>git clone https://xxxxx/boyer.git boyer
 cd boyer
-npm install  #安装package.json是插件包，使用git管理更加便于管理安装的完整性。</pre></td></tr></table>
-</div>
-</div>
+npm install  #安装package.json是插件包，使用git管理更加便于管理安装的完整性。
+</code></pre>
+
 <p>新建完成后，指定文件夹的目录如下：
     .
     ├── _config.yml     # 网站的 配置 信息，您可以在此配置大部分的参数。
@@ -291,143 +256,82 @@ Hexo的模板是指在新建的markdown文件中默认填充的内容。例如�
 </ol>
 
 <h3 id="create-a-new-post">Create a new post</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo new <span class="s2">&#34;My New Post&#34;</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo new draft <span class="s2">&#34;草稿名&#34;</span> </code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo publish <span class="s2">&#34;草稿名&#34;</span>  <span class="c1">#Moves a draft post from _drafts to _posts folder.</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+
+<pre><code class="language-bash">$ hexo new draft &quot;草稿名&quot; 
+</code></pre>
+
+<pre><code class="language-bash">$ hexo publish &quot;草稿名&quot;  #Moves a draft post from _drafts to _posts folder.
+</code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 
 <h3 id="run-server">Run server</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo server</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ hexo server
+</code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 
 <h3 id="generate-static-files">Generate static files</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo generate</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ hexo generate
+</code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ hexo deploy</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ hexo deploy
+</code></pre>
+
 <p>在我们开始之前,你必须在 <code>_config.yml</code> 修改设置。一个有效的部署设置必须有 <code>type</code> 字段。例如:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">deploy:
-    type: git</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">deploy:
+    type: git
+</code></pre>
+
 <p>你可用同时部署到多个type，Hexo将依次执行每个部署。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">deploy:
+
+<pre><code class="language-bash">deploy:
     - type: git
       repo:
     - type: heroku
-      repo:</code></pre></td></tr></table>
-</div>
-</div>
+      repo:
+</code></pre>
+
 <h3 id="安装插件">安装插件</h3>
 
 <h4 id="安装同步到git-插件">安装同步到git 插件</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ npm install hexo-deployer-git --save </code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ npm install hexo-deployer-git --save 
+</code></pre>
+
 <p>编辑<code>_config.yml</code>设置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">deploy:
+
+<pre><code class="language-bash">deploy:
     type: git
     repo: &lt;repository url&gt;
-    branch: <span class="o">[</span>branch<span class="o">]</span>
-    message: <span class="o">[</span>message<span class="o">]</span></code></pre></td></tr></table>
-</div>
-</div>
+    branch: [branch]
+    message: [message]
+</code></pre>
+
 <h4 id="安装生成rss支持插件">安装生成RSS支持插件</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ npm install  hexo-generator-feed --save</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-bash">$ npm install  hexo-generator-feed --save
+</code></pre>
+
 <p>编辑<code>_config.yml</code>设置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">feed:
+
+<pre><code class="language-bash">feed:
     type: atom
     path: atom.xml
-    limit: <span class="m">20</span>
-    hub:</code></pre></td></tr></table>
-</div>
-</div>
+    limit: 20
+    hub:
+</code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 
     </div>

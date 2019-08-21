@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/swiftlint%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github realm SwiftLint 8deb453 width = 30% %} 安装配置swiftlint语法矫正工具 安装包方式 brew install swiftlint 或下载[swiftlint.pkg][https://github." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/swiftlint%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2018-08-21T17:02:47&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-08-21T17:02:47+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="SwiftLint检查代码使用">
 <meta itemprop="description" content="{% github realm SwiftLint 8deb453 width = 30% %} 安装配置swiftlint语法矫正工具 安装包方式 brew install swiftlint 或下载[swiftlint.pkg][https://github.">
 
 
 <meta itemprop="datePublished" content="2018-08-21T17:02:47&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="815">
+<meta itemprop="wordCount" content="797">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 815 字 </span>
+          <span class="more-meta"> 约 797 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -185,44 +184,27 @@
 <p><code>brew install swiftlint</code> 或下载[swiftlint.pkg][<a href="https://github.com/realm/SwiftLint/releases/latest">https://github.com/realm/SwiftLint/releases/latest</a>]
 2. Xcode项目支持
 在<code>Xcode build Phase</code>新增 &ldquo;Run Script Phase&rdquo;:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> which swiftlint &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+
+<pre><code class="language-sh">if which swiftlint &gt;/dev/null; then
 swiftlint
-<span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&#34;warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint&#34;</span>
-<span class="k">fi</span></code></pre></td></tr></table>
-</div>
-</div>
+else
+echo &quot;warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint&quot;
+fi
+</code></pre>
+
 <h4 id="单个项目安装swiftlint">单个项目安装swiftlint</h4>
 
 <ol>
 <li><p>通过cocoapods对单个项目安装swiftlint</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">pod &#39;SwiftLint&#39;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>pod 'SwiftLint'
+</code></pre></li>
 
 <li><p>项目中添加支持</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&#34;${PODS_ROOT}/SwiftLint/swiftlint&#34;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>&quot;${PODS_ROOT}/SwiftLint/swiftlint&quot;
+</code></pre>
+
 <blockquote>
 <p>注意：pod服务器上有时并不是最新版本，尝试<code>:=&gt; githuburl</code>无用。这种情况智能使用安装包方式。</p>
 </blockquote></li>
@@ -232,22 +214,14 @@ swiftlint
 
 <p>让 <code>SwiftLint</code> 在做代码规范检查时，不想检查某些源码，可以隔离规则，来自动忽略，例如： <code>CocoaPods</code>、<code>Carthage</code>、<code>SPM</code> 引入的第三方库文件。
 在项目中新建 <code>.swiftlint.yml</code> 的配置文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ cd your-project
+
+<pre><code>$ cd your-project
 $ vi .swiftlint.yml
 
 excluded: 
-    - Pods</pre></td></tr></table>
-</div>
-</div>
+    - Pods
+</code></pre>
+
 <p><code>excluded</code>： 配置项用来设置忽略代码规范检查的路径，可以指定整个文件夹，也可以指定精确路径下的文件。
 <strong>支持嵌套</strong>：
 <code>.swiftlint.yml</code> 配置文件支持嵌套，可以给每个文件夹下的代码单独指定不同的规则，每个文件会匹配距离自己层级最近的父文件夹中的配置文件
@@ -262,48 +236,29 @@ excluded:
 
 <p>使用<a href="https://github.com/tpope/vim-pathogen.git">vim-pathogen</a>安装syntastic，
 1. 第一步安装 <code>pathogen.vim</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">mkdir -p ~/.vim/autoload ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+</code></pre>
+
 <p>设置<code>~/.vimrc</code>配置项：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">execute pathogen#infect<span class="o">()</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">execute pathogen#infect()
+</code></pre>
+
 <ol>
 <li><p>第二步将<code>syntastic</code> 作为 <code>Pathogen</code> bundle的资源方式安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vim-syntastic/syntastic.git</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-sh">cd ~/.vim/bundle &amp;&amp; \
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+</code></pre>
+
 <h4 id="终端集成使用">终端集成使用</h4>
 
 <p>在<code>vimrc</code>中添加配置，当启动vim即可使用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">let</span> g:syntastic_swift_checkers <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;swiftpm&#39;</span>, <span class="s1">&#39;swiftlint&#39;</span><span class="o">]</span></code></pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code class="language-sh">let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+</code></pre></li>
 
 <li><p>终端支持<code>Package.swift</code>
 当存在<code>Package.swift</code>的swift目录中启动vim，swiftpm将自动可用。</p></li>

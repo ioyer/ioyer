@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hexo/hexo%E5%8A%9F%E8%83%BD%E6%8F%92%E4%BB%B6/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="安装插件 //保证格式正确：&rdquo;插件名&rdquo;: &ldquo;^版本号&rdquo;, 1. 方式一通过package.json 新增" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hexo/hexo%E5%8A%9F%E8%83%BD%E6%8F%92%E4%BB%B6/" />
-<meta property="article:published_time" content="2017-06-24T11:59:03&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-06-24T11:59:03+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Hexo功能插件">
 <meta itemprop="description" content="安装插件 //保证格式正确：&rdquo;插件名&rdquo;: &ldquo;^版本号&rdquo;, 1. 方式一通过package.json 新增">
 
 
 <meta itemprop="datePublished" content="2017-06-24T11:59:03&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="585">
+<meta itemprop="wordCount" content="542">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 585 字 </span>
+          <span class="more-meta"> 约 542 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -172,33 +171,22 @@
 <p>//保证格式正确：&rdquo;插件名&rdquo;: &ldquo;^版本号&rdquo;,
 1. 方式一通过package.json 新增插件库
 //保证格式正确：&rdquo;插件名&rdquo;: &ldquo;^版本号&rdquo;,</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&#34;hexo-filter-plantuml&#34;: &#34;^1.0.1&#34;,
-&#34;hexo-filter-sequence&#34;: &#34;^1.0.3&#34;,
-&#34;hexo-tag-plantuml&#34;: &#34;^1.0.0&#34;,
-&#34;hexo-pdf&#34;: &#34;^1.1.1&#34;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>&quot;hexo-filter-plantuml&quot;: &quot;^1.0.1&quot;,
+&quot;hexo-filter-sequence&quot;: &quot;^1.0.3&quot;,
+&quot;hexo-tag-plantuml&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-pdf&quot;: &quot;^1.1.1&quot;
+</code></pre>
+
 <blockquote>
 <p>如何插件版本号：可以在插件的github库文件<code>package.json</code>中得到。</p>
 </blockquote>
 
 <p>执行安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo npm install</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>sudo npm install
+</code></pre>
+
 <ol>
 <li>方式二: 安装单个插件
 即下文的作图插件说明中使用的安装方式</li>
@@ -216,33 +204,21 @@
 
 <p><a href="https://github.com/wafer-li/hexo-filter-plantuml">hexo-filter-plantuml</a>
 安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="nx">hexo</span><span class="o">-</span><span class="nx">filter</span><span class="o">-</span><span class="nx">plantuml</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-js">npm install --save hexo-filter-plantuml
+</code></pre>
+
 <p>hexo使用语法：
 ```puml
 @startuml
 class A
 @enduml
 ```</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-puml" data-lang="puml"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-puml" data-lang="puml">@startuml
+
+<pre><code class="language-puml">@startuml
 class A
-@enduml</code></pre></td></tr></table>
-</div>
-</div></li>
+@enduml
+</code></pre></li>
 </ol>
 
 <p>效果图：</p>
@@ -252,30 +228,14 @@ class A
 <p><a href="https://github.com/bubkoo/hexo-filter-sequence">sequence</a></p>
 
 <p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">npm install --save hexo-filter-sequence</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>npm install --save hexo-filter-sequence
+</code></pre>
+
 <p>配置
 _config.yml:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sequence:
+
+<pre><code>sequence:
 # webfont:     # optional, the source url of webfontloader.js
 # snap:        # optional, the source url of snap.svg.js
 # underscore:  # optional, the source url of underscore.js
@@ -283,39 +243,29 @@ _config.yml:</p>
 # css: # optional, the url for css, such as hand drawn theme
 options:
 theme:
-css_class:</pre></td></tr></table>
-</div>
-</div>
+css_class:
+</code></pre>
+
 <p>hexo使用语法：
 ```sequence
     Alice-&gt;Bob: Hello Bob, how are you?
     Note right of Bob: Bob thinks
     Bob&ndash;&gt;Alice: I am good thanks!
 ```</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sequence" data-lang="sequence">Alice-&gt;Bob: Hello Bob, how are you?
+
+<pre><code class="language-sequence">Alice-&gt;Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
-Bob--&gt;Alice: I am good thanks!</code></pre></td></tr></table>
-</div>
-</div>
+Bob--&gt;Alice: I am good thanks!
+</code></pre>
+
 <p>效果图：</p>
 
 <p><a href="https://github.com/bubkoo/hexo-filter-flowchart">hexo-filter-flowchart</a>
 安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">npm install --save hexo-filter-flowchart</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>npm install --save hexo-filter-flowchart
+</code></pre>
+
 <p>hexo使用语法：
 ```flow
 st=&gt;start: Start|past:&gt;<a href="http://www.google.com[blank">http://www.google.com[blank</a>]
@@ -336,26 +286,8 @@ c2(no)-&gt;op2-&gt;e
 ```</p>
 
 <p>效果图：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-flow" data-lang="flow"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-flow" data-lang="flow">st=&gt;start: Start|past:&gt;http://www.google.com[blank]
+
+<pre><code class="language-flow">st=&gt;start: Start|past:&gt;http://www.google.com[blank]
 e=&gt;end: End:&gt;http://www.google.com
 op1=&gt;operation: My Operation|past
 op2=&gt;operation: Stuff|current
@@ -369,59 +301,38 @@ st-&gt;op1(right)-&gt;cond
 cond(yes, right)-&gt;c2
 cond(no)-&gt;sub1(left)-&gt;op1
 c2(yes)-&gt;io-&gt;e
-c2(no)-&gt;op2-&gt;e</code></pre></td></tr></table>
-</div>
-</div>
+c2(no)-&gt;op2-&gt;e
+</code></pre>
+
 <h3 id="插件hexo-pdf">插件hexo-pdf</h3>
 
 <p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">npm install --save hexo-pdf</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>npm install --save hexo-pdf
+</code></pre>
+
 <p>hexo使用语法：
 1. 普通 PDF</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{% pdf http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %}</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>{% pdf http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %}
+</code></pre>
+
 <ol>
 <li><p>相对路径</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{% pdf ./bash_freshman.pdf %}</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>{% pdf ./bash_freshman.pdf %}
+</code></pre></li>
 
 <li><p>支持Google盘/Slideshare</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{% pdf https://drive.google.com/file/d/0B6qSwdwPxPRdTEliX0dhQ2JfUEU/preview %}</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>{% pdf https://drive.google.com/file/d/0B6qSwdwPxPRdTEliX0dhQ2JfUEU/preview %}
+</code></pre>
+
 <p>Slideshare</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{% pdf http://www.slideshare.net/slideshow/embed_code/key/8Jl0hUt2OKUOOE %}</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>{% pdf http://www.slideshare.net/slideshow/embed_code/key/8Jl0hUt2OKUOOE %}
+</code></pre>
+
 <p>预览：
 <img src="https://github.com/superalsrk/hexo-pdf/raw/master/screenshot/hexo-pdf-preview.png" alt="" /></p></li>
 </ol>

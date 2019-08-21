@@ -20,14 +20,9 @@
       <description>&lt;p&gt;Zombie:针对&lt;strong&gt;僵尸对象&lt;/strong&gt;导致应用程序崩溃，即已经&lt;code&gt;deallocated&lt;/code&gt;的对象，它们的&lt;code&gt;retainCount&lt;/code&gt;计数器已经为0，通过正常的手段是无法在&lt;code&gt;debug&lt;/code&gt;中跟踪和观察到的。&lt;/p&gt;
 
 &lt;p&gt;如果你开启了 &lt;code&gt;Zombie Enabled&lt;/code&gt; ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt; -[CALayer retainCount]: message sent to deallocated instance &amp;lt;memoryaddress&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
+
+&lt;pre&gt;&lt;code&gt; -[CALayer retainCount]: message sent to deallocated instance &amp;lt;memoryaddress&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

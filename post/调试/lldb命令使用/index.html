@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E8%B0%83%E8%AF%95/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github huos3203 width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E8%B0%83%E8%AF%95/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2018-08-31T16:20:20&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-08-31T16:20:20+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="LLDB命令使用">
 <meta itemprop="description" content="{% github huos3203 width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，">
 
 
 <meta itemprop="datePublished" content="2018-08-31T16:20:20&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="392">
+<meta itemprop="wordCount" content="384">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 392 字 </span>
+          <span class="more-meta"> 约 384 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,42 +178,25 @@
 <p>可以给 print 指定不同的打印格式。它们都是以 <code>print/&lt;fmt&gt;</code> 或者简化的 <code>p/&lt;fmt&gt;</code> 格式书写。
 下面是一些例子：
 默认的格式:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">(lldb) p 16
-16</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>(lldb) p 16
+16
+</code></pre>
+
 <p>十六进制:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">(lldb) p/x 16
-0x10</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>(lldb) p/x 16
+0x10
+</code></pre>
+
 <p>二进制 (t 代表 two)：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">(lldb) p/t 16
+
+<pre><code>(lldb) p/t 16
 0b00000000000000000000000000010000
 (lldb) p/t (char)16
-0b00010000</pre></td></tr></table>
-</div>
-</div>
+0b00010000
+</code></pre>
+
 <p>你也可以使用 <code>p/c</code> 打印字符，或者 <code>p/s</code> 打印以空终止的字符串 (译者注：以 &lsquo;\0&rsquo; 结尾的字符串)。
 <a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html">这里</a>是格式的完整清单。</p>
 

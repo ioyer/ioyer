@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/icompleteme%E6%94%AF%E6%8C%81swift%E8%AF%AD%E6%B3%95%E6%8F%90%E7%A4%BA/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/icompleteme%E6%94%AF%E6%8C%81swift%E8%AF%AD%E6%B3%95%E6%8F%90%E7%A4%BA/" />
-<meta property="article:published_time" content="2018-08-10T16:40:19&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-08-10T16:40:19+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="iCompleteMe支持swift语法提示">
 <meta itemprop="description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之">
 
 
 <meta itemprop="datePublished" content="2018-08-10T16:40:19&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="254">
+<meta itemprop="wordCount" content="250">
 
 
 
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 254 字 </span>
+          <span class="more-meta"> 约 250 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -171,27 +170,17 @@ iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对Yo
 iCompleteMe实现的行为对于Swift的补齐提示。iCompleteMe的核心子系统只与Swift一起工作。代码基占用的空间要小得多，这使得在CI上更容易安装、更容易理解和更稳定(理论上)。</p>
 
 <h3 id="在space-vim中添加插件支持">在space-vim中添加插件支持</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Plugin &#39;jerrymarino/iCompleteMe&#39;</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>Plugin 'jerrymarino/iCompleteMe'
+</code></pre>
+
 <p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd ~/.vim/plugged/iCompleteMe/
+
+<pre><code>cd ~/.vim/plugged/iCompleteMe/
 brew install cmake
-./install.py</pre></td></tr></table>
-</div>
-</div>
+./install.py
+</code></pre>
+
 <p>然后 <code>&lt;Leader&gt; f R</code> 使配置生效，并执行   <code>:PlugInstall</code>进行安装.</p>
 
     </div>

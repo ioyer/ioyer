@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview &amp;#34; open preview window in markdown buffer MarkdownPreviewStop &amp;#34; close the preview window and server 插件运行效果预览" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 MarkdownPreview &amp;quot; open preview window in markdown buffer MarkdownPreviewStop &amp;quot; close the preview window and server 插件运行效果预览" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/shell/markdown-preview%E5%AE%9E%E7%8E%B0md%E9%A2%84%E8%A7%88/" />
@@ -39,26 +39,25 @@
 
 
 <meta property="og:title" content="markdown-preview实现md预览" />
-<meta property="og:description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview &#34; open preview window in markdown buffer MarkdownPreviewStop &#34; close the preview window and server 插件运行效果预览" />
+<meta property="og:description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 MarkdownPreview &quot; open preview window in markdown buffer MarkdownPreviewStop &quot; close the preview window and server 插件运行效果预览" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/shell/markdown-preview%E5%AE%9E%E7%8E%B0md%E9%A2%84%E8%A7%88/" />
-<meta property="article:published_time" content="2018-08-21T10:40:31&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-08-21T10:40:31+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="markdown-preview实现md预览">
-<meta itemprop="description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview &#34; open preview window in markdown buffer MarkdownPreviewStop &#34; close the preview window and server 插件运行效果预览">
+<meta itemprop="description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 MarkdownPreview &quot; open preview window in markdown buffer MarkdownPreviewStop &quot; close the preview window and server 插件运行效果预览">
 
 
 <meta itemprop="datePublished" content="2018-08-21T10:40:31&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="44">
+<meta itemprop="wordCount" content="39">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="markdown-preview实现md预览"/>
-<meta name="twitter:description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview &#34; open preview window in markdown buffer MarkdownPreviewStop &#34; close the preview window and server 插件运行效果预览"/>
+<meta name="twitter:description" content="{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 MarkdownPreview &quot; open preview window in markdown buffer MarkdownPreviewStop &quot; close the preview window and server 插件运行效果预览"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +138,7 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 44 字 </span>
+          <span class="more-meta"> 约 39 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -171,22 +170,14 @@
 nisha</p>
 
 <h3 id="命令行使用">命令行使用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">MarkdownPreview
-&#34; open preview window in markdown buffer
+
+<pre><code class="language-md">MarkdownPreview
+&quot; open preview window in markdown buffer
 
 MarkdownPreviewStop
-&#34; close the preview window and server</code></pre></td></tr></table>
-</div>
-</div>
+&quot; close the preview window and server
+</code></pre>
+
 <h3 id="插件运行效果预览">插件运行效果预览</h3>
 
 <p><img src="https://cloud.githubusercontent.com/assets/5492542/15363504/839753be-1d4b-11e6-9ac8-def4d7122e8d.gif" alt="" /></p>
@@ -247,7 +238,7 @@ MarkdownPreviewStop
         id: '2018-08-21 10:40:31 \x2b0000 UTC',
         title: 'markdown-preview实现md预览',
         link: decodeURI(location.href),
-        desc: '{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview \x26#34; open preview window in markdown buffer MarkdownPreviewStop \x26#34; close the preview window and server 插件运行效果预览',
+        desc: '{% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 MarkdownPreview \x26quot; open preview window in markdown buffer MarkdownPreviewStop \x26quot; close the preview window and server 插件运行效果预览',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

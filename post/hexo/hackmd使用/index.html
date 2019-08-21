@@ -29,7 +29,7 @@ tags: 功能 酷 更新 YAML metadata 提供描述筆記的資訊，以進階設
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/hexo/hackmd%E4%BD%BF%E7%94%A8/" />
@@ -99,9 +99,8 @@ YAML metadata
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/hexo/hackmd%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2016-12-21T10:49:32&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2016-12-21T10:49:32+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="hackmd使用">
 <meta itemprop="description" content="編輯
 
@@ -159,7 +158,7 @@ YAML metadata
 
 <meta itemprop="datePublished" content="2016-12-21T10:49:32&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2003">
+<meta itemprop="wordCount" content="1916">
 
 
 
@@ -298,7 +297,7 @@ YAML metadata
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 2003 字 </span>
+          <span class="more-meta"> 约 1916 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -432,32 +431,14 @@ YAML metadata
 <h2 id="程式碼區塊">程式碼區塊</h2>
 
 <p>我們支援非常多程式語言，使用自動完成來看看有些什麼</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript=" data-lang="javascript="><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript=" data-lang="javascript=">var s = &#34;JavaScript syntax highlighting&#34;;
+
+<pre><code class="language-javascript=">var s = &quot;JavaScript syntax highlighting&quot;;
 alert(s);
 function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
       return process(block, true, 0x0F) + 
-             &#39; class=&#34;&#34;&#39;;
+             ' class=&quot;&quot;';
   } catch (e) {
     /* handle exception */
   }
@@ -465,39 +446,21 @@ function $initHighlight(block, cls) {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
-}</code></pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <blockquote>
 <p>如果想要 <strong>行號</strong>，在表明程式語言之後輸入 <code>=</code>
 您也可以指定開始行號，如下所示，行號從101開始</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript=101" data-lang="javascript=101"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript=101" data-lang="javascript=101">var s = &#34;JavaScript syntax highlighting&#34;;
+
+<pre><code class="language-javascript=101">var s = &quot;JavaScript syntax highlighting&quot;;
 alert(s);
 function $initHighlight(block, cls) {
   try {
     if (cls.search(/\bno\-highlight\b/) != -1)
       return process(block, true, 0x0F) + 
-             &#39; class=&#34;&#34;&#39;;
+             ' class=&quot;&quot;';
   } catch (e) {
     /* handle exception */
   }
@@ -505,22 +468,17 @@ function $initHighlight(block, cls) {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
-}</code></pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <blockquote>
 <p>或是可以接續上一個程式碼區塊的行號，使用 <code>=+</code></p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript=+" data-lang="javascript=+"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript=+" data-lang="javascript=+">var s = &#34;JavaScript syntax highlighting&#34;;
-alert(s);</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-javascript=+">var s = &quot;JavaScript syntax highlighting&quot;;
+alert(s);
+</code></pre>
+
 <h2 id="引用區塊標籤">引用區塊標籤</h2>
 
 <blockquote>
@@ -545,37 +503,22 @@ alert(s);</code></pre></td></tr></table>
 <p>{%gist schacon/4277%}</p>
 
 <h3 id="slideshare">SlideShare</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span><span class="o">%</span><span class="nx">slideshare</span> <span class="nx">briansolis</span><span class="o">/</span><span class="mi">26</span><span class="o">-</span><span class="nx">disruptive</span><span class="o">-</span><span class="nx">technology</span><span class="o">-</span><span class="nx">trends</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mi">2018</span><span class="o">-</span><span class="mi">56796196</span> <span class="o">%</span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-js">{%slideshare briansolis/26-disruptive-technology-trends-2016-2018-56796196 %}
+</code></pre>
+
 <h3 id="speakerdeck">Speakerdeck</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span><span class="o">%</span><span class="nx">speakerdeck</span> <span class="nx">sugarenia</span><span class="o">/</span><span class="nx">xxlcss</span><span class="o">-</span><span class="nx">how</span><span class="o">-</span><span class="nx">to</span><span class="o">-</span><span class="nx">scale</span><span class="o">-</span><span class="nx">css</span><span class="o">-</span><span class="nx">and</span><span class="o">-</span><span class="nx">keep</span><span class="o">-</span><span class="nx">your</span><span class="o">-</span><span class="nx">sanity</span> <span class="o">%</span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-js">{%speakerdeck sugarenia/xxlcss-how-to-scale-css-and-keep-your-sanity %}
+</code></pre>
+
 <h3 id="pdf">PDF</h3>
 
 <p><strong>注意：請使用 https 的網址，否則可能會被您的瀏覽器阻擋載入</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span><span class="o">%</span><span class="nx">pdf</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf %}
-</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code class="language-js">{%pdf https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf %}
+</code></pre>
+
 <h2 id="mathjax">MathJax</h2>
 
 <p>您可以使用 <strong>MathJax</strong> 語法 來產生 <em>LaTeX</em> 數學表達式，如同 <a href="http://math.stackexchange.com/">math.stackexchange.com</a>：</p>
@@ -599,39 +542,19 @@ $$</p>
 <h3 id="循序圖">循序圖</h3>
 
 <p>您可以像是以下使用循序圖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sequence" data-lang="sequence"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sequence" data-lang="sequence">艾莉絲-&gt;包柏: 哈摟，你好嗎？
+
+<pre><code class="language-sequence">艾莉絲-&gt;包柏: 哈摟，你好嗎？
 Note right of 包柏: 包柏思考中
 包柏--&gt;艾莉絲: 我很好，謝謝！
 Note left of 艾莉絲: 艾莉絲回應
-艾莉絲-&gt;包柏: 最近過得怎樣？</code></pre></td></tr></table>
-</div>
-</div>
+艾莉絲-&gt;包柏: 最近過得怎樣？
+</code></pre>
+
 <h3 id="流程圖">流程圖</h3>
 
 <p>您可以像是以下使用流程圖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-flow" data-lang="flow"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-flow" data-lang="flow">st=&gt;start: 開始
+
+<pre><code class="language-flow">st=&gt;start: 開始
 e=&gt;end: 結束
 op=&gt;operation: 我的操作
 op2=&gt;operation: 啦啦啦
@@ -639,27 +562,12 @@ cond=&gt;condition: 是或否？
 
 st-&gt;op-&gt;op2-&gt;cond
 cond(yes)-&gt;e
-cond(no)-&gt;op2</code></pre></td></tr></table>
-</div>
-</div>
+cond(no)-&gt;op2
+</code></pre>
+
 <h3 id="graphviz">Graphviz</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-graphviz" data-lang="graphviz"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-graphviz" data-lang="graphviz">digraph hierarchy {
+
+<pre><code class="language-graphviz">digraph hierarchy {
 
                 nodesep=1.0 // increases the separation between nodes
                 
@@ -670,24 +578,12 @@ cond(no)-&gt;op2</code></pre></td></tr></table>
                 Deputy1-&gt;{Teacher1 Teacher2}
                 BusinessManager-&gt;ITManager
                 {rank=same;ITManager Teacher1 Teacher2}  // Put them on the same level
-}</code></pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
+
 <h3 id="mermaid">Mermaid</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-mermaid" data-lang="mermaid"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-mermaid" data-lang="mermaid">gantt
+
+<pre><code class="language-mermaid">gantt
     title A Gantt Diagram
 
     section Section
@@ -695,9 +591,9 @@ cond(no)-&gt;op2</code></pre></td></tr></table>
     Another task     :after a1  , 20d
     section Another
     Task in sec      :2014-01-12  , 12d
-    anther task      : 24d</code></pre></td></tr></table>
-</div>
-</div>
+    anther task      : 24d
+</code></pre>
+
 <blockquote>
 <p>更多關於 <strong>循序圖</strong> 語法 <a href="http://bramp.github.io/js-sequence-diagrams/">在這裡</a>.
 更多關於 <strong>流程圖</strong> 語法 <a href="http://adrai.github.io/flowchart.js/">在這裡</a>.
@@ -727,24 +623,15 @@ cond(no)-&gt;op2</code></pre></td></tr></table>
 <h2 id="排版">排版</h2>
 
 <h3 id="標頭">標頭</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># h1 標頭
+
+<pre><code># h1 標頭
 ## h2 標頭
 ### h3 標頭
 #### h4 標頭
 ##### h5 標頭
-###### h6 標頭</pre></td></tr></table>
-</div>
-</div>
+###### h6 標頭
+</code></pre>
+
 <h3 id="水平分隔線">水平分隔線</h3>
 
 <hr />
@@ -847,47 +734,27 @@ cond(no)-&gt;op2</code></pre></td></tr></table>
 <p>行內 <code>程式碼</code></p>
 
 <p>縮排程式碼</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">// Some comments
+
+<pre><code>// Some comments
 line 1 of code
 line 2 of code
-line 3 of code</pre></td></tr></table>
-</div>
-</div>
-<p>程式碼區塊</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Sample text here...</pre></td></tr></table>
-</div>
-</div>
-<p>語法標色</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">bar</span><span class="o">++</span><span class="p">;</span>
-<span class="p">};</span>
+line 3 of code
+</code></pre>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<p>程式碼區塊</p>
+
+<pre><code>Sample text here...
+</code></pre>
+
+<p>語法標色</p>
+
+<pre><code class="language-javascript">var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+</code></pre>
+
 <h3 id="表格">表格</h3>
 
 <table>
@@ -1031,14 +898,10 @@ line 3 of code</pre></td></tr></table>
 <dd><p>定義 1 快速連續項目</p></dd>
 <dt>名詞 2 加上 <em>行內標記</em></dt>
 <dd><p>定義 2</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{ 這些程式碼屬於 定義 2 的一部分 }</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>{ 這些程式碼屬於 定義 2 的一部分 }
+</code></pre>
+
 <p>定義 2 的第三段落</p></dd>
 </dl>
 
