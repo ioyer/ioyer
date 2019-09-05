@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="类图 page 1x1 title 二级布局器流程 创建时间：2019-07-22 19:35:47&#43;0800 endtitle left header 整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取 endheader class &amp;quot;LayoutSecondEngineViewController&amp;quot; as second" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="类图 流程图" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
@@ -39,25 +39,25 @@
 
 
 <meta property="og:title" content="二级布局器流程" />
-<meta property="og:description" content="类图 page 1x1 title 二级布局器流程 创建时间：2019-07-22 19:35:47&#43;0800 endtitle left header 整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取 endheader class &quot;LayoutSecondEngineViewController&quot; as second" />
+<meta property="og:description" content="类图 流程图" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E4%BA%8C%E7%BA%A7%E5%B8%83%E5%B1%80%E5%99%A8%E6%B5%81%E7%A8%8B/" />
 <meta property="article:published_time" content="2019-07-22T19:35:47+08:00" />
-<meta property="article:modified_time" content="2019-07-22T19:35:47+08:00" />
+<meta property="article:modified_time" content="2019-09-05T15:39:02+08:00" />
 <meta itemprop="name" content="二级布局器流程">
-<meta itemprop="description" content="类图 page 1x1 title 二级布局器流程 创建时间：2019-07-22 19:35:47&#43;0800 endtitle left header 整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取 endheader class &quot;LayoutSecondEngineViewController&quot; as second">
+<meta itemprop="description" content="类图 流程图">
 
 
 <meta itemprop="datePublished" content="2019-07-22T19:35:47&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-22T19:35:47&#43;08:00" />
-<meta itemprop="wordCount" content="528">
+<meta itemprop="dateModified" content="2019-09-05T15:39:02&#43;08:00" />
+<meta itemprop="wordCount" content="5">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="二级布局器流程"/>
-<meta name="twitter:description" content="类图 page 1x1 title 二级布局器流程 创建时间：2019-07-22 19:35:47&#43;0800 endtitle left header 整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取 endheader class &quot;LayoutSecondEngineViewController&quot; as second"/>
+<meta name="twitter:description" content="类图 流程图"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,8 +142,8 @@
         <div class="post-category">
             <a href="/categories/ios/"> iOS </a>
             </div>
-          <span class="more-meta"> 约 528 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 5 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -170,111 +170,11 @@
 
 <h3 id="类图">类图</h3>
 
-<p><img src="http://www.plantuml.com/plantuml/png/hLDDJnDF63__zrDC-h-qO4EB6cI91n0JQxfYg8edcw4xj1DcTydija0C2KHUVE65Wq2aIeh6m4M425XRNhxCpcuvyHMSdMaRQQ8NxQ5fd-UPtylpcnc3MGJY4t75mGv1G74hYtvbXvLVi8DfzcxNEvhnTzyex6MHLIlUnl75nk7boMPdBDuTZNL5Epj1l5kzVbEzqTKUknMB0GMPkW1I21fnG0v17L75MplqL-TRaFtDMRzOPdFVtEedlpJ3zhRyvVrhtkwsMprl6PKzj_ogMVJMzhsbFQ-oob5goz_Podh0NATJCWJQDWWbuQILTr8eOvdwNJEBJVG4e_4xbkbGYn14Gm3Qm1Pjy5m1_1EDieCjRth7hyxotwBK3WgG0ZNbK6ncRuT2_ubgEWtOmYbNmIVJQNaMXB4UmIPsXh2Juznvoz6GcK_qgz3K4tRAW8GCOLEtnbLnuFyn2hC610Qaeu2zBjLEJvkEtNArjZFFYcSDw8B5mOa5TGrYKneBpAZXle61P0JRWsY48ZidnZiwt9CIc_iyOH2vfykJnThvMrRSQk9VR1zTVFXOu0XN2COWjT5JBQaQWN076HeqOHPHbKfuTPXOcL5L38FmiqZuSI9G0Te2f4X4TEiIW5VwmQbbabvfnI_k9VgbYjhAUxQqvfvlUpDVvGhhcmu_IFLI2YT1MoIB7AskmUwRv3laFPa1Rs8TcGuUmJphgMRQz-yb7sfNPOk00okOr_v1n4AXbdVWC44DeKP3PP3we4MG_SXAvQnnSGbG0H4rt50c_aP8y0t4CVsAArbgSPIoyZI3VlLZYyfVkn4P1K_dR2CWzjONtEgnM_w23SuKXFg7P7e92Ipto6RhJiI8V7NoeWQpYNxH_4sCFShKJm00" alt="" /></p>
-
-<pre><code class="language-puml">page 1x1
-title 
-二级布局器流程
-创建时间：2019-07-22 19:35:47+0800 
-endtitle
-left header
-整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取
-endheader
-
-class &quot;LayoutSecondEngineViewController&quot; as second {
-    --属性组 --
-    + var :String=&quot;&quot;	
-    __ 函数组__
-    - (id)initWithLayuotMenuID:andIsSmallWindow:
-    #pragma mark 加载布局器主视图
-    - (void)loadMainLayoutView:(BOOL)isRefresh
-    //传入xml数据，返回布局器页面view
-    - (void)parseXML:menuItemManager:refresh:block:(void (^)(UIView *view))block
-    // 根据二级栏目ID返回菜单信息数组
-    + (NSArray *)getMenuItemsByID:(NSString *)identifier
-}
-
-class &quot;JHLPMenuItemManager&quot; as menuitem {
-    --属性组 --
-    + var :String=&quot;&quot;	
-    __ 函数组__
-    + (NSMutableArray *)menuItemsWithRolesToShowWithLevel:(JHLPMenuLevel)level menuId:(NSString *)menuId
-}
-
-class &quot;JHLPSourceManager&quot; as source {
-    --属性组 --
-    + var :String=&quot;&quot;	
-    __ 函数组__
-    // 获得menu文件中imageView数组
-    + (NSArray *)getAllItem;
-    +(NSMutableArray *)getSecondLayoutItemIDArray:(NSString *)identifier;
-}
-
-
-
-</code></pre>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/seclayout-class.uml" alt="" /></p>
 
 <h3 id="流程图">流程图</h3>
 
-<p><img src="http://www.plantuml.com/plantuml/png/jLJVJzDG57xlNt75X8mOo1o9Fxh4Q03Z34F2Y6YC3sKzQs-yQw6zTKBsW88820uV3961P3meCGGXYCun-6jsr-s9Vy5kTyjMraMCyJniNUztltFEzvqpYYa1WMLdsS4C-xXZfxFizQ6zFiVoCoprldZqqjvvozAd0bj8i-DSSUr7UUtxMNuzuBzwizj_lJlGYmAzOk2QwE-zuh_XzoC1D9bp4eXHf88aWo4Kjm_jrVb65eT_ArVSs2tjdPRsCiMT3CkdplBBRE-J_Mw_a5sqSr-QmRoO2dMDBrd8pZHZaaBoyZWs9or85dBBBIU05KXoMjU1D6qPa2obDjZAXt9wdgqk93seJIePL107fIdTeWEQWZLuY27HfslKq0a18oY82ImhG4DnIU5d14UVZM6gzajK4eC2ZY5V73GhH26EEZjH_RadIgJfwSgRIq_er0GWR0vCMX8PrIFKm9eYtkuOWeJPfnChhdKyxK9K1Gtv7Wz4kWJaH3DlZscDXvrdimN5SQHQ_wFmO0y1JQ4gkeNy7b24H9RzNDnOPD_ofOMlnSsCOy0vKOCrB10JSCmtzA3fSWkqnP46baiQWQYkoPx2Dg3To8VbBgnXMf7LkMZfjD9jg5ziGjclVh4tnzpGnki_kLF7_IUNU5pSBHv_Rvmhn7FZ7lH4jIo5DzTOLRzH5HjogpdkS6-JDztzUuF3uPeEOKcJb7PaObqji-BMY4x0T3HNzKHr1k0v48wGnNzghxdaDeLGQPnKPqUKiHm10b4weYVkq90cmujXYQfYcujiQQiqUy8pE8tNssw3Le1MPlAkeSU72JQhipxgJ1oVSi_QVnwMJdOBsNMsb0cYLeptzhav9WmmGQlj8Tz9TxgBhv4hG9DnJ6Z_Xl_obCfXStV8KYjiVyu-E2vdZigRsurp6QWKLJt-jXifd6-Xder_kdCXeKsItm00" alt="" /></p>
-
-<pre><code class="language-puml">title
-布局器相关的开发流程图
-创建时间：2019-07-23 23:26:03+0800 
-endtitle
-left header
-梳理布局器的基本设计模式，实现三级布局器的开发
-endheader
-|一级布局器|
-|#bisque|二级布局器|
-|#beige|三级布局器|
-|#azure|菜单集合|
-|一级布局器|
-start
-:LayoutEngineViewController;
-:widgetImageViewClickWithData:;
-if (menuItem &amp;&amp; menuItem.clazz &amp;&amp; ![type isEqualToString:@&quot;NewsColumn&quot;]) then (YES)
-    if (menuItem.subMenus) then (YES)
-      if (layoutXML.length &gt; 0) then (YES)
-        :带有导航条的二级布局器;
-      elseif(NO)
-        :二级布局器;
-|二级布局器|
-        :LayoutSecondEngineViewController;
-        :- (id)initWithLayuotMenuID:;
-        :点击菜单;
-        :widgetImageViewClickWithData:;
-        if (menuItem &amp;&amp; menuItem.clazz &amp;&amp; ![type isEqualToString:@&quot;NewsColumn&quot;]) then (YES)
-            if (menuItem.subMenus) then (YES)
-                 if (layoutXML.length &gt; 0) then (YES)
-                    :三级布局器;
-                    |三级布局器|
-                    :WidgetThirdController;
-                    |菜单集合|
-                    :JHLPMenuItemManager;
-                    :menuItemsWithRolesToShowWithLevel:menuId:;
-                    |三级布局器|
-                    :菜单集合;
-                    :tableView:didSelectRowAtIndexPath:;
-                    :功能菜单:JHMenuItem;
-                    :getDataFromPlistWithTypeID:;
-                    :跳转业务; 
-                 |二级布局器|
-                 :presentSecondLayout:;
-                 :widgetImageViewClickWithData:;
-                 endif
-            endif
-        endif
-        :功能菜单;
-        :跳转反射类页面;
-        detach
-|一级布局器|
-     endif   
-  endif
-endif
-:功能菜单; 
-:跳转反射类页面;
-</code></pre>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/seclayout-act.uml" alt="" /></p>
 
     </div>
 
@@ -286,8 +186,8 @@ endif
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-07-22
-        
+        2019-09-05
+        <a href="iEmacsd/commit/59a53aa6c8fdd4d9f03e53d7a0afba6b22ff40f5" title="类图整理">(59a53aa)</a>
     </span>
   </p>
   
@@ -332,7 +232,7 @@ endif
         id: '2019-07-22 19:35:47 \x2b0800 CST',
         title: '二级布局器流程',
         link: decodeURI(location.href),
-        desc: '类图 page 1x1 title 二级布局器流程 创建时间：2019-07-22 19:35:47\x2b0800 endtitle left header 整理二级布局器的相关代码实现,模仿二级布局器实现三级布局数据源的获取 endheader class \x26quot;LayoutSecondEngineViewController\x26quot; as second',
+        desc: '类图 流程图',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {
