@@ -129,6 +129,129 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/schemes/"> schemes </a>
+          </div>
+        <span class="more-meta"> 约 1466 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="url-schemes">URL Schemes</h4>
+
+<p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
+
+<p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
+
+<h4 id="注册自定义url协议">注册自定义URL协议</h4>
+
+<p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
+
+<p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
+
+<h6 id="step1-右键-选择-add-row-在下拉选框中选择-url-types-类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+
+<h6 id="step2-打开-item-0-类型为dic-添加新key为-url-identifier-类型为string-可以是任何值-但建议用-反域名-例如-com-myapp">Step2. 打开“Item 0″类型为Dic,添加新key为&rdquo;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+
+<h5 id="step3-打开-item-0-类型为dic-添加新key为-url-schemes-类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/%E6%96%87%E6%A1%A3/"> 文档 </a>
+          </div>
+        <span class="more-meta"> 约 4561 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
+
+<p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
+
+<p>通过本教程，将学习如下几点：</p>
+
+<ul>
+<li>如何书写 HeaderDoc 风格的注释</li>
+<li>分如何在 Xcode 中预览文档</li>
+<li>如何生成 HTML 文档</li>
+<li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
+</ul>
+
+<h4 id="准备工作">准备工作</h4>
+
+<p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
+
+<p>这个简单的示例程序只包含了两个类：</p>
+
+<ul>
+<li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
+<li>MathAPI: 包含了1个方法，用于累加两个数。
+现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/storyboard%E4%B9%8Bsegue/">Storyboard之Segue</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-07-22 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/sb/"> SB </a>
+          </div>
+        <span class="more-meta"> 约 1385 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h5 id="segue原理">Segue原理:</h5>
+
+<p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
+
+<ol>
+<li>实例化目标视图控制器</li>
+<li>实例化一个新segue对象，该对象持有所有的信息</li>
+<li>调用源视图控制器的prepareForSegue:sender:方法，</li>
+<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br />
+这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。</li>
+</ol>
+
+<p>在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/storyboard%E4%B9%8Bsegue/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/">TextKit之便笺实战</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-07-03 </span>
@@ -303,118 +426,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/instrument/"> instrument </a>
-          </div>
-        <span class="more-meta"> 约 592 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-
-<p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-
-<pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-17 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/%E8%AE%BE%E5%A4%87/"> 设备 </a>
-          </div>
-        <span class="more-meta"> 约 802 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h3 id="uidevice-h">UIDevice.h</h3>
-
-<pre><code class="language-objc">+ (UIDevice *)currentDevice; 		  // 获取当前设备
-
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
-NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
-UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</code></pre>
-
-<pre><code class="language-objc">    UIDeviceOrientationUnknown,
-    UIDeviceOrientationPortrait,                    // 竖向，头向上
-    UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
-    UIDeviceOrientationLandscapeLeft,         		// 横向，头向左
-    UIDeviceOrientationLandscapeRight,       		// 横向，头向右
-    UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
-    UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
-</code></pre>
-
-<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br />
-{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
-#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
-{%endcodeblock %}
-{%codeblock lang:java 横向宏定义,返回YES:横向%}
-#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
-{%endcodeblock%}</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/">IOS7新宠TextKit</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-16 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          </div>
-        <span class="more-meta"> 约 2363 字 </span>
-        <span class="more-meta"> 预计阅读 5 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="text-kit">Text Kit</h2>
-
-<p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。<br />
-&gt;<font size=3>更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br />
-例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。</font></p>
-
-<p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br />
-在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br />
-iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
