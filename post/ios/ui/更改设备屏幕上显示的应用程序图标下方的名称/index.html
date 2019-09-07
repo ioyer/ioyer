@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/ui/%E6%9B%B4%E6%94%B9%E8%AE%BE%E5%A4%87%E5%B1%8F%E5%B9%95%E4%B8%8A%E6%98%BE%E7%A4%BA%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87%E4%B8%8B%E6%96%B9%E7%9A%84%E5%90%8D%E7%A7%B0/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="修改APP启动图标上的名称，需配置Info.plist文件，增加CFBundleDisplayName属性键值对。 进入到如下界面： 在Info" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/ui/%E6%9B%B4%E6%94%B9%E8%AE%BE%E5%A4%87%E5%B1%8F%E5%B9%95%E4%B8%8A%E6%98%BE%E7%A4%BA%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87%E4%B8%8B%E6%96%B9%E7%9A%84%E5%90%8D%E7%A7%B0/" />
-<meta property="article:published_time" content="2017-02-24T14:23:59&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-02-24T14:23:59+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="更改设备屏幕上显示的应用程序图标下方的名称">
 <meta itemprop="description" content="修改APP启动图标上的名称，需配置Info.plist文件，增加CFBundleDisplayName属性键值对。 进入到如下界面： 在Info">
 
 
 <meta itemprop="datePublished" content="2017-02-24T14:23:59&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="775">
+<meta itemprop="wordCount" content="774">
 
 
 
@@ -144,7 +143,7 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E9%85%8D%E7%BD%AE/"> 配置 </a>
             </div>
-          <span class="more-meta"> 约 775 字 </span>
+          <span class="more-meta"> 约 774 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -214,11 +213,11 @@ agvtool 会搜索此编译选项。如果这个值存在就运行，否则不运
 </code></pre>
 
 <ol>
-<li>更新版本号</li>
-</ol>
+<li><p>更新版本号</p>
 
 <pre><code class="language-sh">agvtool new-marketing-version &lt;指定的版本号&gt;
-</code></pre>
+</code></pre></li>
+</ol>
 
 <h3 id="编译号命令">编译号命令</h3>
 
@@ -226,14 +225,12 @@ agvtool 会搜索此编译选项。如果这个值存在就运行，否则不运
 <li><p>将编译号设置为指定版本</p>
 
 <pre><code class="language-sh">agvtool new-version -all &lt;指定的版本号&gt;
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>更新编译号
-<code>sh
-agvtool next-version -all
-</code></li>
-</ol></li>
+<li><p>更新编译号</p>
+
+<pre><code class="language-sh">agvtool next-version -all
+</code></pre></li>
 
 <li><p>查看当前编译号</p>
 
