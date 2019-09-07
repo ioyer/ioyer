@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/gcd%E5%BA%95%E5%B1%82%E5%B9%B6%E5%8F%91api/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/gcd%E5%BA%95%E5%B1%82%E5%B9%B6%E5%8F%91api/" />
-<meta property="article:published_time" content="2017-09-24T18:21:38+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2017-09-24T18:21:38&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="GCD底层并发API">
 <meta itemprop="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的">
 
 
 <meta itemprop="datePublished" content="2017-09-24T18:21:38&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="11215">
+<meta itemprop="wordCount" content="11216">
 
 
 
@@ -143,7 +144,7 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/api/"> API </a>
             </div>
-          <span class="more-meta"> 约 11215 字 </span>
+          <span class="more-meta"> 约 11216 字 </span>
           <span class="more-meta"> 预计阅读 23 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -480,9 +481,8 @@ dispatch_sync(queueA, ^(){
 });
 </code></pre>
 
-<p>一旦我们进入到第二个 <code>dispatch_sync</code> 就会发生死锁。我们不能分发到queueA，因为有人（当前线程）正在队列中并且永远不会离开。</p></li>
-
-<li><p>更隐晦的产生死锁方式：</p>
+<p>一旦我们进入到第二个 <code>dispatch_sync</code> 就会发生死锁。我们不能分发到queueA，因为有人（当前线程）正在队列中并且永远不会离开。
+2. 更隐晦的产生死锁方式：</p>
 
 <pre><code class="language-objc">dispatch_queue_t queueA; // assume we have this
 dispatch_queue_t queueB; // assume we have this
