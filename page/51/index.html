@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-09-05T20:13:28+08:00" />
+<meta property="og:updated_time" content="2019-09-07T20:47:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -127,6 +127,99 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/sb/"> SB </a>
+          </div>
+        <span class="more-meta"> 约 2604 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="按比例缩放">按比例缩放</h2>
+
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br />
+而在代码中，有如下两种实现方式:</p>
+
+<ol>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。<br /></li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。<br /></li>
+</ol>
+
+<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br />
+{%codeblock lang:objc%}
+    UIButton *btn;<br />
+{%endcodeblock%}</p>
+
+<h4 id="需求-1">需求 1：</h4>
+
+<ol>
+<li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br />
+{%codeblock lang:objc%}</li>
+
+<li><p>(void)viewDidLoad
+{
+[super viewDidLoad];</p>
+
+<p>//创建UIButton，不需要设置frame
+btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
+btn.backgroundColor = [UIColor greenColor];
+[self.view addSubview:btn];</p>
+
+<p>//禁止自动转换AutoresizingMask
+btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
+
+<p>//居中
+[self.view addConstraint:[NSLayoutConstraint
+                          constraintWithItem:btn
+                          attribute:NSLayoutAttributeCenterX
+                          relatedBy:NSLayoutRelationEqual
+                          toItem:self.view
+                          attribute:NSLayoutAttributeCenterX
+                          multiplier:1
+                          constant:0]];</p>
+
+<p>//距离底部20单位
+//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
+[self.view addConstraint:[NSLayoutConstraint
+                          constraintWithItem:btn
+                          attribute:NSLayoutAttributeBottom
+                          relatedBy:NSLayoutRelationEqual
+                          toItem:self.view
+                          attribute:NSLayoutAttributeBottom
+                          multiplier:1
+                          constant:-20]];</p>
+
+<p>//定义高度是父View的三分之一
+[self.view addConstraint:[NSLayoutConstraint
+                          constraintWithItem:btn
+                          attribute:NSLayoutAttributeHeight
+                          relatedBy:NSLayoutRelationEqual
+                          toItem:self.view
+                          attribute:NSLayoutAttributeHeight
+                          multiplier:0.3
+                          constant:0]];</p>
+
+<p>//注册KVO方法
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil];<br />
+}</p></li>
+</ol>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
@@ -365,67 +458,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/api/"> API </a>
-          </div>
-        <span class="more-meta"> 约 3992 字 </span>
-        <span class="more-meta"> 预计阅读 8 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
-
-<p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
-
-<ul>
-<li>######预览文档和呈现选项菜单<br />
-如果app需要打开自身并不支持的文件时，就需要使用<strong>UIDocumentInteractionController</strong>。一个<strong>document interaction controller</strong>通过<strong>Quick Look框架</strong>判断文档是否能被另一个app打开和预览。也就是说，app可以通过<strong>documentinteraction controller</strong>提供一些支持打开该文件方式的菜单。
-<br /></li>
-</ul>
-
-<p>具体实现需要以下步骤：</p>
-
-<ul>
-<li>* 需要通过其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象。<br /></li>
-<li>* 在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。</li>
-<li>* 用户交互，如触摸这个控件，则调用<code>documentinteractioncontroller</code>对象。<br /></li>
-</ul>
-
-<p>三种交互界面:
-    1. 预览文件的内容。
-    2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。
-    3. 一个菜单，仅包含“以其它方式打开”操作。</p>
-
-<p>同时，<code>documentinteractioncontroller</code>内置了一些手势，必要时可以直接实现它们。</p>
-
-<ul>
-<li><p>######使用<code>documentinteractioncontroller</code>的场景:<strong>与文件交互的app都可以使用。</strong></p></li>
-
-<li><ul>
-<li>需要从网络下载文件的APP:<br />
-例如，email程序需要打开和预览邮件附件。</li>
-</ul></li>
-
-<li><ul>
-<li>不下载文件的APP:<br />
-例如，APP需要支持文件共享（参考“File-Sharing Support” in <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898">iOS Technology Overview</a>), 即可以对同步到app Documents/Shared目录下的文件使用<code>documentinteractioncontroller</code>。</li>
-</ul></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
