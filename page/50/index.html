@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/" />
@@ -45,7 +45,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-09-05T20:13:28+08:00" />
+<meta property="og:updated_time" content="2019-09-07T20:47:00&#43;08:00"/>
+
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -127,6 +128,30 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/">Xcode7编译发布问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-25 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/%E7%BC%96%E8%AF%91/"> 编译 </a>
+          </div>
+        <span class="more-meta"> 约 788 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to
+    </div>
+    <div class="read-more">
+      <a href="/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Xcode和Jenkins持续集成的几种实现方式</a></h1>
@@ -358,99 +383,6 @@ $ git stash apply</p>
     </div>
     <div class="read-more">
       <a href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-09-02 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/sb/"> SB </a>
-          </div>
-        <span class="more-meta"> 约 2604 字 </span>
-        <span class="more-meta"> 预计阅读 6 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="按比例缩放">按比例缩放</h2>
-
-<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br />
-而在代码中，有如下两种实现方式:</p>
-
-<ol>
-<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。<br /></li>
-<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。<br /></li>
-</ol>
-
-<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br />
-{%codeblock lang:objc%}
-    UIButton *btn;<br />
-{%endcodeblock%}</p>
-
-<h4 id="需求-1">需求 1：</h4>
-
-<ol>
-<li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
-<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br />
-{%codeblock lang:objc%}</li>
-
-<li><p>(void)viewDidLoad
-{
-[super viewDidLoad];</p>
-
-<p>//创建UIButton，不需要设置frame
-btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
-btn.backgroundColor = [UIColor greenColor];
-[self.view addSubview:btn];</p>
-
-<p>//禁止自动转换AutoresizingMask
-btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
-
-<p>//居中
-[self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeCenterX
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeCenterX
-                          multiplier:1
-                          constant:0]];</p>
-
-<p>//距离底部20单位
-//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
-[self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeBottom
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeBottom
-                          multiplier:1
-                          constant:-20]];</p>
-
-<p>//定义高度是父View的三分之一
-[self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeHeight
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeHeight
-                          multiplier:0.3
-                          constant:0]];</p>
-
-<p>//注册KVO方法
-[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil];<br />
-}</p></li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

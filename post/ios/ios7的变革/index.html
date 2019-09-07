@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
@@ -42,15 +42,16 @@
 <meta property="og:description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
-<meta property="article:published_time" content="2014-06-11T10:17:19+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2014-06-11T10:17:19&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="IOS7的变革">
 <meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7">
 
 
 <meta itemprop="datePublished" content="2014-06-11T10:17:19&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="4060">
+<meta itemprop="wordCount" content="4093">
 
 
 
@@ -143,7 +144,7 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E7%89%B9%E6%80%A7/"> 特性 </a>
             </div>
-          <span class="more-meta"> 约 4060 字 </span>
+          <span class="more-meta"> 约 4093 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -163,10 +164,8 @@
 <li><a href="#新增返回类型-instancetype">新增返回类型 – <code>instancetype</code></a></li>
 <li><a href="#uiscrollview新增属性-uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></a></li>
 <li><a href="#uikit使用-nsattributedstring-http-developer-apple-com-documentation-cocoa-reference-foundation-classes-nsattributedstring-class-显示html-textkit-http">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://</a>)</a></li>
-<li><a href="#nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</a></li>
 <li><a href="#tint-images-with-uiimage-renderingmode">Tint images with <code>UIImage.renderingMode</code></a></li>
 <li><a href="#usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</a></li>
-<li><a href="#check-which-wireless-routes-are-available">Check which wireless routes are available</a></li>
 <li><a href="#nsarray-firstobject-的实现"><code>-[NSArray firstObject]</code>的实现</a></li>
 <li><a href="#uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a>
 <ul>
@@ -312,24 +311,23 @@ NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlDa
 												                      options:options 
 									                       documentAttributes:nil 
 									   			                        error:nil];
-</code></pre>
+```								   	
+NSDocumentTypeDocumentAttribute包括:
+&lt;!--https://gist.githubusercontent.com/huos3203/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
+--&gt;
+	NSPlainTextDocumentType		//Plain text document.
+    NSRTFTextDocumentType		//Rich text format document.
+    NSRTFDTextDocumentType		//Rich text format with attachments document.
 
-<p>NSDocumentTypeDocumentAttribute包括:
-<!--https://gist.githubusercontent.com/huos3203/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
--->
-    NSPlainTextDocumentType     //Plain text document.
-    NSRTFTextDocumentType       //Rich text format document.
-    NSRTFDTextDocumentType      //Rich text format with attachments document.</p>
+2.相反，也可以将`NSAttributedString`对象，解析成HTML片段：
 
-<p>2.相反，也可以将<code>NSAttributedString</code>对象，解析成HTML片段：</p>
+{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}	
 
-<p>{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}</p>
-
-<h3 id="nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</h3>
-
-<p>首先，创建一个<code>NSAttributedString</code>对象,然后，调用<code>addAttribute:value:range:</code>方法，添加 <code>NSLinkAttributeName</code>属性并赋值，如下：</p>
-
-<pre><code class="language-objc">	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
+### NSLinkAttributeName让标签（UILabel,UITextView）支持超链接
+ 
+首先，创建一个`NSAttributedString`对象,然后，调用`addAttribute:value:range:`方法，添加 `NSLinkAttributeName`属性并赋值，如下：  
+``` objc UITextView支持超链接
+	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
 	[attributedString addAttribute:NSLinkAttributeName 
                          value:@&quot;username://marcelofabri_&quot; 
                          range:[[attributedString string] rangeOfString:@&quot;@marcelofabri_&quot;]]; 
@@ -395,15 +393,15 @@ if ([bar respondsToSelector:@selector(setBarTintColor:)]) {
 		// iOS 6 or earlier
 		    bar.tintColor = color;
 }
-</code></pre>
+```	  
 
-<h3 id="check-which-wireless-routes-are-available">Check which wireless routes are available</h3>
+### Check which wireless routes are available
+The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a `MPVolumeView`.  
+In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.  
+The following two new properties and notifications have been added to MPVolumeView:  
 
-<p>The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a <code>MPVolumeView</code>.<br />
-In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.<br />
-The following two new properties and notifications have been added to MPVolumeView:</p>
-
-<pre><code class="language-objc">// is there a route that the device can connect to?
+``` objc  
+// is there a route that the device can connect to?
 	@property (nonatomic, readonly) BOOL wirelessRoutesAvailable;
 	
 // is the device currently connected?
@@ -525,7 +523,7 @@ The following two new properties and notifications have been added to MPVolumeVi
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-06-11 10:17:19 \x2b0800 CST',
+        id: '2014-06-11 10:17:19 \x2b0800 \x2b0800',
         title: 'IOS7的变革',
         link: decodeURI(location.href),
         desc: '性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7',
