@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/docker%E4%BD%BF%E7%94%A8/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="安装Docker for Mac 在Mac上运行Docker。系统要求，OS X 10.10.3 或者更高版本，至少4G内存，4.3.30版本以前的VirtualBox会与" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E5%85%B6%E4%BB%96/docker%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2016-12-21T21:25:29&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2016-12-21T21:25:29+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Docker使用">
 <meta itemprop="description" content="安装Docker for Mac 在Mac上运行Docker。系统要求，OS X 10.10.3 或者更高版本，至少4G内存，4.3.30版本以前的VirtualBox会与">
 
 
 <meta itemprop="datePublished" content="2016-12-21T21:25:29&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="2691">
+<meta itemprop="wordCount" content="2689">
 
 
 
@@ -143,7 +142,7 @@
         <div class="post-category">
             <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
             </div>
-          <span class="more-meta"> 约 2691 字 </span>
+          <span class="more-meta"> 约 2689 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -252,12 +251,12 @@ docker-machine create -d virtualbox default
 <li><p>在 <code>Docker 主机</code> DaoCloud 加速器的组件包：</p>
 
 <pre><code class="language-ruby">curl -sSL https://get.daocloud.io/daomonit/install.sh | sh -s d0312f829e9807ee0bf157******
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>启动组件包,会在「安装主机监控程序」的 DaoCloud 控制台页面下方显示一台已经接入的主机。</li>
-<li>执行<code>Dao Pull</code>命令,高速下载<code>Docker Hub</code>镜像文件
-这台 Docker 主机已经被接入 DaoCloud 平台，用户可以在 DaoCloud 控制台的「我的集群」页面发现这台主机，可以执行管理和部署应用的操作。</li>
+<li><p>启动组件包,会在「安装主机监控程序」的 DaoCloud 控制台页面下方显示一台已经接入的主机。</p></li>
+
+<li><p>执行<code>Dao Pull</code>命令,高速下载<code>Docker Hub</code>镜像文件
+这台 Docker 主机已经被接入 DaoCloud 平台，用户可以在 DaoCloud 控制台的「我的集群」页面发现这台主机，可以执行管理和部署应用的操作。</p></li>
 </ol>
 
 <h3 id="从docker-hub-仓库中获取一个镜像">从Docker Hub 仓库中获取一个镜像</h3>
@@ -267,8 +266,7 @@ docker-machine create -d virtualbox default
 <p>Docker 使用类似 git 的方式管理镜像。通过基本的镜像可以定制创建出来不同种应用的 Docker 镜像。Docker Hub 是 Docker 官方提供的镜像中心。在这里可以很方便地找到各类应用、环境的镜像。由于 Docker 使用联合文件系统，所以镜像就像是夹心饼干一样一层层构成，相同底层的镜像可以共享。所以 Docker 还是相当节约磁盘空间的。要使用一 个镜像，需要先从远程的镜像注册中心拉取，这点非常类似 git。</p>
 
 <pre><code class="language-ruby">docker pull ubuntu
-</code></pre></li>
-</ol>
+</code></pre>
 
 <h2 id="docker-命令创建管理容器">Docker 命令创建管理容器</h2>
 
@@ -313,9 +311,8 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 执行<code>run images</code>，并将 Ubuntu 的 Shell 作为入口，进入Docker容器环境操作</p>
 
 <pre><code class="language-ruby">docker run -it ubuntu:latest sh -c '/bin/bash'
-</code></pre>
+</code></pre></li>
 
-<ol>
 <li><p>样例2
 执行<code>docker start -i 容器</code>命令进入容器环境</p>
 
@@ -332,7 +329,6 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 -i 表示这是一个交互容器，会把当前标准输入重定向到容器的标准输入中，而不是终止程序运行
 -t 指为这个容器分配一个终端</p>
 </blockquote></li>
-</ol></li>
 </ol>
 
 <p>这时候我们成功创建了一个 Ubuntu 的容器，并将当前终端连接为这个 Ubuntu 的 bash shell。这时候就可以愉快地使用 Ubuntu 的相关命令了。</p>
@@ -396,35 +392,33 @@ Docker 提供了两种方式来创建镜像：
 <li><p>为了创建一个新的镜像，我们先创建一个新的容器作为基底：</p>
 
 <pre><code class="language-ruby">docker run -it ubuntu:latest sh -c '/bin/bash'
-</code></pre>
+</code></pre></li>
 
-<ol>
 <li><p>定制这个容器，例如我们可以配置 PHP 环境、将我们的项目代码部署在里面等：</p>
 
 <pre><code class="language-ruby">apt-get install php
 # some other opreations ...
-</code></pre></li>
-</ol></li>
-</ol>
-
-<p>当执行完操作之后，我们按 Ctrl+D 退出容器.
-3. 获取定制后的容器ID</p>
-
-<pre><code>    docker ps -a
-    [root@localhost ~]# docker ps -a
-
-    CONTAINER ID        IMAGE                        COMMAND                    CREATED             STATUS                      PORTS               NAMES
-    cb2b06c83a50        ubuntu:latest                &quot;sh -c /bin/bash&quot;          7 minutes ago       Exited (0) 7 seconds ago                       trusting_morse
 </code></pre>
 
-<ol>
+<p>当执行完操作之后，我们按 Ctrl+D 退出容器.</p></li>
+
+<li><p>获取定制后的容器ID</p>
+
+<pre><code>docker ps -a
+[root@localhost ~]# docker ps -a
+
+CONTAINER ID        IMAGE                        COMMAND                    CREATED             STATUS                      PORTS               NAMES
+cb2b06c83a50        ubuntu:latest                &quot;sh -c /bin/bash&quot;          7 minutes ago       Exited (0) 7 seconds ago                       trusting_morse
+</code></pre></li>
+
 <li><p>执行<code>docker commit</code> 把这个容器变为一个镜像：</p>
 
 <pre><code class="language-shel">docker commit cb2b06c83a50 ubuntu:myubuntu
 </code></pre>
 
-<p>这时候 docker 容器会被创建为一个新的 Ubuntu 镜像，版本名称为 myubuntu。以后我们可以随时使用这个镜像来创建容器了，新的容器将自动包含上面对容器的操作。<br />
-5. 打包/发布镜像</p>
+<p>这时候 docker 容器会被创建为一个新的 Ubuntu 镜像，版本名称为 myubuntu。以后我们可以随时使用这个镜像来创建容器了，新的容器将自动包含上面对容器的操作。</p></li>
+
+<li><p>打包/发布镜像</p>
 
 <pre><code class="language-ruby">docker save -o myubuntu.tar.gz ubuntu:myubuntu
 </code></pre></li>
@@ -432,7 +426,8 @@ Docker 提供了两种方式来创建镜像：
 <li><p>导入打包镜像</p>
 
 <pre><code class="language-ruby">docker import myubuntu.tar.gz
-</code></pre>
+</code></pre></li>
+</ol>
 
 <h3 id="dockerfile">Dockerfile</h3>
 
@@ -441,8 +436,7 @@ Docker 提供了两种方式来创建镜像：
 <h4 id="通过-dockerfile-创建镜像">通过<code>Dockerfile</code>创建镜像</h4>
 
 <pre><code class="language-ruby">docker build yourDir/Dockerfile
-</code></pre></li>
-</ol>
+</code></pre>
 
 <blockquote>
 <p>确保Dockerfile文件在一个目录中，否则会提示错误</p>

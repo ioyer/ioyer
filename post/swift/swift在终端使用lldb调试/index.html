@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/swift%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8lldb%E8%B0%83%E8%AF%95/" />
@@ -42,16 +42,15 @@
 <meta property="og:description" content="Using the LLDB Debugger 使用LLDB调试器一步一步地运行Swift程序，通过设置断点调试运行状态。 1. 创建一个名Factorial.swift，定义了一个fa" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/swift%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8lldb%E8%B0%83%E8%AF%95/" />
-<meta property="article:published_time" content="2018-10-01T21:02:49&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-10-01T21:02:49+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="swift在终端使用LLDB调试">
 <meta itemprop="description" content="Using the LLDB Debugger 使用LLDB调试器一步一步地运行Swift程序，通过设置断点调试运行状态。 1. 创建一个名Factorial.swift，定义了一个fa">
 
 
 <meta itemprop="datePublished" content="2018-10-01T21:02:49&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="732">
+<meta itemprop="wordCount" content="729">
 
 
 
@@ -143,7 +142,7 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 732 字 </span>
+          <span class="more-meta"> 约 729 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -178,46 +177,43 @@ $ ls
 Factorial.dSYM
 Factorial.swift
 Factorial*
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>使用lldb启动Factorial文件
-通过LLDB调试器命令<code>lldb</code>运行:
-<code>sh
-$ lldb Factorial
+<li><p>使用lldb启动Factorial文件
+通过LLDB调试器命令<code>lldb</code>运行:</p>
+
+<pre><code class="language-sh">$ lldb Factorial
 (lldb) target create &quot;Factorial&quot;
 Current executable set to 'Factorial' (x86_64).
-</code></li>
-</ol></li>
+</code></pre></li>
 
 <li><p>设置断点
 使用<code>breakpoint set</code> (<code>b</code>) 命令在<code>factorial(n:)</code>函数的第2行中设置一个断点，每次执行函数时中断进程:</p>
 
 <pre><code class="language-sh">(lldb) b 2
 Breakpoint 1: where = Factorial`Factorial.factorial (Swift.Int) -&gt; Swift.Int + 12
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>运行调试
-使用<code>run</code> (<code>r</code>)命令运行进程。进程在<code>factorial(n:)</code>函数的调用位置停止。
-```sh
-(lldb) r
+<li><p>运行调试
+使用<code>run</code> (<code>r</code>)命令运行进程。进程在<code>factorial(n:)</code>函数的调用位置停止。</p>
+
+<pre><code class="language-sh">(lldb) r
 Process 40246 resuming
-Process 40246 stopped</li>
-
-<li><p>thread #1: tid = 0x14dfdf, 0x0000000100000e7c Factorial<code>Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-frame #0: 0x0000000100000e7c Factorial</code>Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2
+Process 40246 stopped
+* thread #1: tid = 0x14dfdf, 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+frame #0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2
 1    func factorial(n: Int) -&gt; Int {
 -&gt; 2        if n &lt;= 1 { return n }
 3        return n * factorial(n: n - 1)
 4    }
 5
 6    let number = 4
-7    print(&rdquo;(number)! is equal to (factorial(n: number))&ldquo;)</p>
+7    print(&quot;\(number)! is equal to \(factorial(n: number))&quot;)
+</code></pre>
 
-<pre><code>Use the print (p) command to inspect the value of the n parameter.
-```sh
-(lldb) p n
+<p>Use the print (p) command to inspect the value of the n parameter.</p>
+
+<pre><code class="language-sh">(lldb) p n
 (Int) $R0 = 4
 </code></pre>
 
@@ -227,22 +223,19 @@ frame #0: 0x0000000100000e7c Factorial</code>Factorial.factorial (n=4) -&gt; Swi
 (Int) $R1 = 16
 </code></pre>
 
-<p>Use the <code>backtrace</code> (<code>bt</code>) command to show the frames leading to <code>factorial(n:)</code> being called.
-```sh
-(lldb) bt</p></li>
-</ol></li>
+<p>Use the <code>backtrace</code> (<code>bt</code>) command to show the frames leading to <code>factorial(n:)</code> being called.</p>
 
-<li><p>thread #1: tid = 0x14e393, 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = &lsquo;com.apple.main-thread&rsquo;, stop reason = breakpoint 1.1</p>
+<pre><code class="language-sh">(lldb) bt
+* thread #1: tid = 0x14e393, 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+* frame #0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2
+frame #1: 0x0000000100000daf Factorial`main + 287 at Factorial.swift:7
+frame #2: 0x00007fff890be5ad libdyld.dylib`start + 1
+frame #3: 0x00007fff890be5ad libdyld.dylib`start + 1
+</code></pre>
 
-<ul>
-<li><p>frame #0: 0x0000000100000e7c Factorial<code>Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2
-frame #1: 0x0000000100000daf Factorial</code>main + 287 at Factorial.swift:7
-frame #2: 0x00007fff890be5ad libdyld.dylib<code>start + 1
-frame #3: 0x00007fff890be5ad libdyld.dylib</code>start + 1</p>
+<p>Use the <code>continue</code> (<code>c</code>) command to resume the process until the breakpoint is hit again.</p>
 
-<pre><code>Use the `continue` (`c`) command to resume the process until the breakpoint is hit again.
-```sh
-(lldb) c
+<pre><code class="language-sh">(lldb) c
 Process 40246 resuming
 Process 40246 stopped
 * thread #1: tid = 0x14e393, 0x0000000100000e7c Factorial`Factorial.factorial (n=3) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
@@ -260,21 +253,18 @@ frame #0: 0x0000000100000e7c Factorial`Factorial.factorial (n=3) -&gt; Swift.Int
 
 <pre><code class="language-sh">(lldb) p n
 (Int) $R2 = 3
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>取消断点
-Use the <code>breakpoint disable</code> (<code>br di</code>) command to disable all breakpoints and the <code>continue</code> (<code>c</code>) command to have the process run until it exits.
-<code>sh
-(lldb) br di
+<li><p>取消断点
+Use the <code>breakpoint disable</code> (<code>br di</code>) command to disable all breakpoints and the <code>continue</code> (<code>c</code>) command to have the process run until it exits.</p>
+
+<pre><code class="language-sh">(lldb) br di
 All breakpoints disabled. (1 breakpoints)
 (lldb) c
 Process 40246 resuming
 4! is equal to 24
 Process 40246 exited with status = 0 (0x00000000)
-</code></li>
-</ol></li>
-</ul></li>
+</code></pre></li>
 </ol>
 
     </div>
