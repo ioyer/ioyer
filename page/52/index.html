@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huos3203.github.io/" />
 
-<meta property="og:updated_time" content="2019-09-07T20:47:00+08:00" />
+<meta property="og:updated_time" content="2019-09-11T21:38:39+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
 
@@ -127,6 +127,125 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/">TextKit之便笺实战</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-07-03 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/%E6%8E%A7%E4%BB%B6/"> 控件 </a>
+          </div>
+        <span class="more-meta"> 约 9505 字 </span>
+        <span class="more-meta"> 预计阅读 19 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="便笺练习功能点">便笺练习功能点:</h2>
+
+<p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
+  * 动态样式（Dynamic type）<br />
+  * 凸版印刷效果（Letterpress effects）<br />
+  * 环绕路径（Exclusion paths）<br />
+  * 动态文本格式及存储（Dynamic text formatting and storage）</p>
+
+<p>这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
+效果图:<br />
+<img src="/images/bianqian.png" alt="image" /><br />
+App开始运行后自动生成一组便笺实例并利用<code>tableViewController</code>显示出来。<code>Storyboards</code>和<code>segues</code>会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
+项目开发包：<a href="http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip">Notepad.zip</a></p>
+
+<h2 id="动态样式">动态样式</h2>
+
+<p><code>动态样式（Dynamic type）</code>是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
+选择 <strong>通用-&gt;文字大小</strong> 或 <strong>通用-&gt;辅助功能</strong> 来查看app中的字体设置。</p>
+
+<p><img src="/images/UserTextPreferences.png" alt="image" /><br />
+iOS 7 支持通过<code>粗体</code>、<code>设置字体大小</code>等方式提高支持动态文本的应用的易读性。
+例如<strong><code>UIFont</code></strong>新增的一个方法： <strong><code>preferredFontForTextStyle</code></strong> 用来根据用户对字体大小的设置来自动制定字体样式。<br />
+下面表格中是六种可用字体样式的示例：<br />
+<img src="/images/TextStyles.png" alt="image" /><br />
+最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。</p>
+
+<h3 id="使用系统动态字体样式">使用系统动态字体样式</h3>
+
+<p>使用动态文本，是通过给<code>文本字体</code>设置字体样式<strong>style</strong>而不是指定具体的<code>字体名称</code>和<code>大小</code>。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。</p>
+
+<h4 id="preferredfontfortextstyle-方法设置字体样式"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
+
+<ol>
+<li>打开 <code>NoteEditorViewController.m/swift</code> 在<code>viewDidLoad：</code>方法实现的最后面加入以下代码：
+{%codeblock lang:objc%}
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+{%endcodeblock%}
+{% codeblock  lang:swift %}
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+{% endcodeblock %}</li>
+<li>打开 <code>NotesListViewController.m/swift</code> 在 <code>tableView:cellForRowAtIndexPath:</code> 方法中增加如下代码:
+{%codeblock lang:objc%}
+cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+{%endcodeblock%}
+{% codeblock  lang:swift %}
+cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+{% endcodeblock %}
+上面两行代码都用到了新版iOS的字体样式.<br />
+&gt; 字体样式：通过语义法命名字体，例如 <code>UIFontTextStyleSubHeadline</code>, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。</li>
+</ol>
+
+<h4 id="app响应用户字体设置">APP响应用户字体设置</h4>
+
+<ol>
+<li>设置系统字体
+返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置.
+再运行App, <strong>Note</strong>页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。<br />
+<img src="/images/NotepadWithDynamicType.png" alt="image" /></li>
+<li>设置系统字体生效
+当我们返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置. 再打开<strong>Note</strong>页面, 会发现app并没有<strong>立即</strong>对字体设置的变化做出相应反应。</li>
+</ol>
+
+<h5 id="监听系统通知-实现app响应用户字体设置">监听系统通知：实现APP响应用户字体设置</h5>
+
+<p>当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，<code>preferredFontForTextStyle:</code>方法返回的字体也会变化。
+1. 添加监听系统通知<code>UIContentSizeCategoryDidChangeNotification</code>通知APP响应用户字体设置的变化
+打开 <code>NoteEditorViewController.m</code> 并在 <code>viewDidLoad</code> 方法的实现的最后加入以下代码：
+{%codeblock lang:objc%}
+[[NSNotificationCenter defaultCenter]
+                              addObserver:self
+                                 selector:@selector(preferredContentSizeChanged:)
+                                     name:UIContentSizeCategoryDidChangeNotification
+                                   object:nil];
+{%endcodeblock%}
+{%codeblock lang:swift%}
+//字体变化通知:调用preferredContentSizeChanged:方法
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(<em>:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+{%endcodeblock%}
+2. 添加系统通知响应事件
+收到用于指定本类接收字体设定变化的通知后，调用<code>preferredContentSizeChanged:</code>方法
+在<code>NoteEditorViewController.m</code>中<code>viewDidLoad</code>方法之后紧接着添加以下方法：
+{%codeblock lang:objc%}
+- (void)preferredContentSizeChanged:(NSNotification *)notification
+{
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+{%endcodeblock%}
+{%codeblock lang:swift %}
+//字体变化通知时调用
+func preferredContentSizeChanged(</em> notification:NSNotification)
+{
+    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+}
+{%endcodeblock%}
+这一方法作用是根据新的字体设置来设定<code>textView</code>中的字体。<br />
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
@@ -296,30 +415,6 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
     </div>
     <div class="read-more">
       <a href="/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/">IOS7的变革</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-11 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/%E7%89%B9%E6%80%A7/"> 特性 </a>
-          </div>
-        <span class="more-meta"> 约 4060 字 </span>
-        <span class="more-meta"> 预计阅读 9 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -42,14 +42,14 @@
 <meta property="og:description" content="巡查单新增功能菜单(监管意见书和责令整改通知书) 弹出框UI实现/接口权限实现和功能跳转业务 监管意见书/整改通知书(复用设计/编辑功能) 页面元" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E9%95%BF%E5%85%B4%E9%A1%B9%E7%9B%AE%E8%BF%AD%E4%BB%A3/" />
-<meta property="article:published_time" content="2019-09-10T20:14:27+08:00" />
-<meta property="article:modified_time" content="2019-09-10T20:14:27+08:00" />
+<meta property="article:published_time" content="2019-09-11T21:38:39+08:00" />
+<meta property="article:modified_time" content="2019-09-11T21:28:41+08:00" />
 <meta itemprop="name" content="长兴项目迭代">
 <meta itemprop="description" content="巡查单新增功能菜单(监管意见书和责令整改通知书) 弹出框UI实现/接口权限实现和功能跳转业务 监管意见书/整改通知书(复用设计/编辑功能) 页面元">
 
 
-<meta itemprop="dateModified" content="2019-09-10T20:14:27&#43;08:00" />
-<meta itemprop="wordCount" content="270">
+<meta itemprop="dateModified" content="2019-09-11T21:28:41&#43;08:00" />
+<meta itemprop="wordCount" content="418">
 
 
 
@@ -137,9 +137,9 @@
       <h1 class="post-title">长兴项目迭代</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-09-10 </span>
+        <span class="post-time"> 2019-09-11 </span>
         
-          <span class="more-meta"> 约 270 字 </span>
+          <span class="more-meta"> 约 418 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -157,7 +157,8 @@
 <ul>
 <li><a href="#页面元数据接口-从接口中获取监督的数据">页面元数据接口:从接口中获取监督的数据</a></li>
 <li><a href="#基础信息ui和编辑ui和ui交互">基础信息UI和编辑UI和UI交互</a></li>
-<li><a href="#监督意见ui和天数ui编辑ui-ui交互">监督意见UI和天数UI编辑UI/UI交互</a></li>
+<li><a href="#tableview结构实现"><span class="org-todo todo STARTED">STARTED</span> tableView结构实现</a></li>
+<li><a href="#监督意见ui和天数ui编辑ui-ui交互"><span class="org-todo todo STARTED">STARTED</span> 监督意见UI和天数UI编辑UI/UI交互</a></li>
 <li><a href="#检查项数据解析和ui复用实现">检查项数据解析和UI复用实现</a></li>
 </ul></li>
 <li><a href="#签名盖章">签名盖章</a>
@@ -196,7 +197,23 @@
 </figure>
 
 
-<h3 id="监督意见ui和天数ui编辑ui-ui交互">监督意见UI和天数UI编辑UI/UI交互</h3>
+<h3 id="tableview结构实现"><span class="org-todo todo STARTED">STARTED</span> tableView结构实现</h3>
+
+<p>把tableView分为3个部分:header/footer/sectionheader</p>
+
+<ol>
+<li>header:显示人员信息</li>
+<li>sectionHeader:显示备注和天数</li>
+<li>footer:显示签名和盖章</li>
+</ol>
+
+<p>技术问题: 自适应高度</p>
+
+<h3 id="监督意见ui和天数ui编辑ui-ui交互"><span class="org-todo todo STARTED">STARTED</span> 监督意见UI和天数UI编辑UI/UI交互</h3>
+
+<p>headerView样式显示和自适应高度文本输入框天数选择器</p>
+
+<p>[[<a href="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/booknote-class.uml">http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/booknote-class.uml</a>]]</p>
 
 <h3 id="检查项数据解析和ui复用实现">检查项数据解析和UI复用实现</h3>
 
@@ -223,11 +240,6 @@
 </figure>
 
 
-<figure>
-    <img src="/ox-hugo/xmind.png"/> 
-</figure>
-
-
 <p>### 监管意见书UI层设计包含的元素: 文本输入框,textView输入框,alertView,</p>
 
 <p><span class="timestamp-wrapper"><span class="timestamp">[2019-09-05 四 11:43]</span></span></p>
@@ -242,8 +254,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-09-10
-        
+        2019-09-11
+        <a href="iEmacsd/commit/eeac7b221364669ab48bbe2f3701d7e303aa4d33" title="update">(eeac7b2)</a>
     </span>
   </p>
   
@@ -284,7 +296,7 @@
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2019-09-10 20:14:27 \x2b0800 CST',
+        id: '2019-09-11 21:38:39 \x2b0800 CST',
         title: '长兴项目迭代',
         link: decodeURI(location.href),
         desc: '巡查单新增功能菜单(监管意见书和责令整改通知书) 弹出框UI实现\/接口权限实现和功能跳转业务 监管意见书\/整改通知书(复用设计\/编辑功能) 页面元',
