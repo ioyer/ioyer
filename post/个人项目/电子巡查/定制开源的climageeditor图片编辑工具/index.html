@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC title 定制开源的CLImageEditor图片编辑工具 left header 在CLImageEd" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC 替换为github代理 时序图" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%94%B5%E5%AD%90%E5%B7%A1%E6%9F%A5/%E5%AE%9A%E5%88%B6%E5%BC%80%E6%BA%90%E7%9A%84climageeditor%E5%9B%BE%E7%89%87%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/" />
@@ -39,25 +39,26 @@
 
 
 <meta property="og:title" content="定制开源的CLImageEditor图片编辑工具" />
-<meta property="og:description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC title 定制开源的CLImageEditor图片编辑工具 left header 在CLImageEd" />
+<meta property="og:description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC 替换为github代理 时序图" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%94%B5%E5%AD%90%E5%B7%A1%E6%9F%A5/%E5%AE%9A%E5%88%B6%E5%BC%80%E6%BA%90%E7%9A%84climageeditor%E5%9B%BE%E7%89%87%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/" />
-<meta property="article:published_time" content="2019-06-13T22:19:57+08:00" />
-<meta property="article:modified_time" content="2019-08-28T17:26:24+08:00" />
+<meta property="article:published_time" content="2019-06-13T22:19:57&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-28T17:26:24&#43;08:00"/>
+
 <meta itemprop="name" content="定制开源的CLImageEditor图片编辑工具">
-<meta itemprop="description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC title 定制开源的CLImageEditor图片编辑工具 left header 在CLImageEd">
+<meta itemprop="description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC 替换为github代理 时序图">
 
 
 <meta itemprop="datePublished" content="2019-06-13T22:19:57&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-28T17:26:24&#43;08:00" />
-<meta itemprop="wordCount" content="2682">
+<meta itemprop="wordCount" content="47">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="定制开源的CLImageEditor图片编辑工具"/>
-<meta name="twitter:description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC title 定制开源的CLImageEditor图片编辑工具 left header 在CLImageEd"/>
+<meta name="twitter:description" content="定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC 替换为github代理 时序图"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,8 +143,8 @@
         <div class="post-category">
             <a href="/categories/ios/"> iOS </a>
             </div>
-          <span class="more-meta"> 约 2682 字 </span>
-          <span class="more-meta"> 预计阅读 6 分钟 </span>
+          <span class="more-meta"> 约 47 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -175,440 +176,12 @@
 <pre><code>other link 添加-ObjC
 </code></pre>
 
-<p><img src="/iPictures/images/LImageEditor.png" alt="" /></p>
-
-<pre><code class="language-puml">title 定制开源的CLImageEditor图片编辑工具
-left header
-在CLImageEditor基础之上，定制金和需求功能
-1. 打包成公用组件JHImageEditorSDK.a
-在CLImageEditor中使用类别，集成到主项目时，出现类的分别中的方法无法找到的问题。
-需要配置other link，支持类的分别加载`-ObjC`
-1. UI定制
-2. 操作流程定制
-开源库提供了两套Demo
-第一个Demo：`CLImageEditorDemo`使用源码的demo
-第二个Demo：`CocoapodsDemo`使用cocoapods管理依赖
-endheader
-
-scale 3.0
-
-package &quot;Demo&quot;{
-class &quot;ViewController&quot; as DemoVC 
-}
-'package，node，folder，frame，cloud，database'
-package &quot;JHImageEditorSDK&quot; as jhsdk {
-
-class &quot;CLImageEditor&quot; as editor {
-    --属性组 --
-    + CLImageEditorTheme *theme;
-    + CLImageToolInfo *toolInfo;
-    __构造器__
-    #pragma mark - 金和
-    + (id)initWithJHImage:
-    + (id)initWithJHImage:delegate:
-    + (id)initWithJHDelegate:
-    --功能方法--
-    + (void)refreshToolSettings;
-}
-class &quot;CLImageEditorTheme&quot; as theme {
-    --属性组 --
-    + id&lt;CLImageEditorThemeDelegate&gt; delegate;
-    + NSString *bundleName;
-    + UIColor  *backgroundColor;
-    + UIColor  *toolbarColor;
-    + NSString *toolIconColor;
-    + UIColor  *toolbarTextColor;
-    + UIColor  *toolbarSelectedButtonColor;
-    + UIFont   *toolbarTextFont;
-    + BOOL statusBarHidden;
-    + UIStatusBarStyle statusBarStyle;
-    __ 函数组__
-    + (CLImageEditorTheme*)theme;
-    + (CLToolbarMenuItem*)menuItemWithFrame:target:action:toolInfo:
-}
-class &quot;CLImageToolInfo&quot; as tool {
-    --属性组 --
-    + NSString *toolName;
-    + NSString *title;
-    + BOOL      available;
-    + CGFloat   dockedNumber;
-    + NSString *iconImagePath;
-    + UIImage  *iconImage;
-    + NSArray  *subtools;
-    + NSMutableDictionary *optionalInfo;
-    --辅助函数--
-    - (NSString*)toolTreeDescription;
-    - (NSArray*)sortedSubtools;
-    --构造器--
-    - (CLImageToolInfo*)subToolInfoWithToolName:recursive:
-    + (CLImageToolInfo*)toolInfoForToolClass:
-    - (CLImageToolInfo*)subToolInfoWithToolName:ecursive:
-}
-'package，node，folder，frame，cloud，database'
-package &quot;图片编辑器VC&quot; as VC {
-class &quot;_CLImageEditorViewController&quot; as editorvc {
-    --属性组 --
-    - UIScrollView *menuView;
-    __UI函数--
-    //初始化图片浏览器,放大缩小功能
-    - (void)initImageScrollView
-    //初始化toolbar
-    - (void)installMenuToolBar
-    //底部toolbar功能切换方法
-    - (void)swapToolBarWithEditing:(BOOL)editing
-    }
- 
-class &quot;JHImageEditorViewController&quot; as jheditorvc {
---属性组 --
-    - UIScrollView *menuView;
-    - JHMenuToolBar *menuToolBar;
-    - UIBarButtonItem *confirmBtn;
-    - UIBarButtonItem *cancelBtn;
-    __ getter函数组__
-    - (UIToolBar*)UIToolBar
-    - (UIBarButtonItem *)confirmBtn
-    - (UIBarButtonItem *)cancelBtn
-    --UI函数--
-    //初始化图片浏览器,放大缩小功能
-    - (void)initImageScrollView
-    //初始化toolbar
-    - (void)installMenuToolBar
-    //重装toolbar
-    - (void)reloadMenuToolBar
-    //底部toolbar功能切换方法
-    - (void)swapToolBarWithEditing:(BOOL)editing
-    }
-    note top of jheditorvc
-    1. 定制底部bar: 取消/保存和x/之间的切换
-    2. 封装接口,提供上传按钮回调事件
-    end note
-    note top of editorvc
-        自带的demo编辑器，包含所有的官方功能 
-    end note
-     class &quot;JHMenuToolBar&quot; as JHBar {
-        __ 函数组__
-        //重写drawRect:删除toolbar的系统样式
-        - (void) drawRect:(CGRect)rect
-    } 
-}
-folder &quot;JH&quot;{
-    'package，node，folder，frame，cloud，database'
-    package &quot;六色板&quot; as sixcolor {
-        class &quot;JHColorBoardView&quot; as colorboard {
-        __构造器__
-        -(id)initWithFrame:for:colorHandler:
-        --私有变量--
-        //支持的工具类型
-        JHImageEditorType type
-        //选色触发回调block
-        (void(^ColorHandler)(UIColor *))
-        }
-        enum &quot;JHImageEditorType&quot; as tooltype {
-        JHImage_Draw,
-        JHImage_Text,
-        }
-        class &quot;JHColorCellModel&quot; as cellmodel {
-        --属性组 --
-        UIColor *color
-        }
-        class &quot;JHColorCell&quot; as cell {
-        --属性组 --
-        JHColorCellModel *model
-        } 
-        cell ..&gt; cellmodel
-        colorboard o--&gt; cell
-        colorboard ..&gt; tooltype
-    }
-}
-
-folder &quot;ImageTools&quot; as imgtools {
-
-    class &quot;CLImageToolBase&quot; as basetool {
-    }
-    class &quot;CLDrawTool&quot; as drawtool {
-    }
-   folder &quot;OptionalImageTools可选工具箱&quot;{
-    class &quot;CLTextTool&quot; as texttool {
-    }
-} 
-}
-
-basetool &lt;|-- drawtool
-basetool &lt;|-- texttool
-colorboard *-up-&gt; drawtool
-colorboard *-up-&gt; texttool
-
-folder &quot;ToolSettings&quot; {
-class &quot;CLToolbarMenuItem&quot; as CLmenuItem {
---属性组 --
-    + NSString *title;
-    + UIImage *iconImage;
-    + UIViewContentMode iconImageContentMode;
-    + BOOL selected;
-    + UIImageView *iconView;
-    --构造方法--
-    - (id)initWithFrame:target:action:toolInfo:
-    }
-    class &quot;CLImageToolInfo+Private&quot; as infopr {
-    + (NSArray*)toolsWithToolClass:
-    }
-    class &quot;CLClassList&quot; as clslist{
-    + (NSArray*)subclassesOfClass:
-    }
-}
-note bottom of infopr
-     两种方式屏蔽
-     第一种:在CLImageToolInfo+Private.m中添加如下代码
-     if(![cls isEqualToString:@&quot;CLDrawTool&quot;]
-     &amp;&amp; ![cls isEqualToString:@&quot;CLTextTool&quot;]) continue;
-     第二种: 如下实现,获取工具实例,然后设置available为NO
-end note
-
-    Node &quot;bundle&quot;{
-        Node &quot;CLImageEditor.Bundle&quot; as b{
-            folder &quot;icon&quot;{
-                folder &quot;black&quot;{
-        
-                }
-        
-                folder &quot;white&quot;{
-        
-                }
-            }
-        }
-        Node &quot;JHImageEditor.Bundle&quot; as jhb {
-    
-        }
-      }
-
-editor *-up-&gt; DemoVC
-editor &lt;|-- jheditorvc
-editor &lt;|-- editorvc
-JHBar *-up-&gt; jheditorvc:底部保存/上传按钮组类
-CLmenuItem *-up-&gt; jheditorvc: menuView中的菜单项类
-CLmenuItem *-up-&gt; editorvc: menuView中的菜单项类
-theme *-up-&gt; editor
-tool *-up-&gt; editor
-theme -- CLmenuItem: &lt;font color=red&gt;**创建**&lt;/font&gt;\n类方法获取菜单项实例
-infopr *-up-&gt; tool:&lt;font color=red&gt;**获取**&lt;/font&gt;\n通过subTools获取某个菜单项实例\n定制菜单项实例的UI外观
-infopr ..&gt; clslist
-theme ....&gt; bundle 
-
-CLmenuItem --down- imgtools
-imgtools &lt;|....down... imgtools2
-folder &quot;ImageTools工具箱&quot; as imgtools2 {
-
-    class &quot;CLImageToolBase&quot; as basetool2 {
-        --属性组 --
-        + _CLImageEditorViewController *editor;
-        + CLImageToolInfo *toolInfo;
-        --public接口方法--
-        + (id)initWithImageEditor:withToolInfo:
-        + (void)setup;   //初始化批注工具
-        + (void)cleanup; //清除批注编辑操作
-        ///图片合并完成回调方法
-        + (void)executeWithCompletionBlock:(void(^)(UIImage *image, NSError *error, NSDictionary *userInfo))
-        + (UIImage*)imageForKey:defaultImageName:
-}
-    class &quot;CLDrawTool&quot; as drawtool2 {
-        --属性组 --
-        + var :String=&quot;&quot;
-        --私有变量--
-        //存储每一张图片
-        NSMutableArray *_lineArray;
-        NSMutableArray *_undoLines;
-        UIButton *_undo;
-        UIButton *_redo;
-
-        --私有函数--
-        //撤销
-        -(void)unPreDoAction:
-        -(void)clearLine:(NSArray *)pointArray
-        -(void)clearLine:to:
-        //重做
-        -(void)rePreDoAction:
-        -(void)reDrawLine
-        -(void)drawLine:to:
-        __ 函数组__
-        - (void)setup
-        - (void)cleanup
-        - (void)setMenu
-    }
-    note bottom of drawtool2
-    画笔定制:
-    1. 新增撤销/重做功能
-    2. 新增六色选择器
-    3. 底部toolbar适配iPhonx
-    4. 底部显示图片问题,
-    注释掉:&lt;font color=red&gt;scrollview.clipsToBounds = NO;&lt;/font&gt;
-
-    end note
-   folder &quot;OptionalImageTools&quot;{
-    class &quot;CLTextTool&quot; as texttool2 {
-        --属性组 --
-        __ 函数组__
-        --功能方法--
-        ///键盘顶部文本输入框的确定按钮事件
-        - (void)pushedButton:
-    }
-    class &quot;_CLTextView&quot; as cltextview {
-        --接口属性组 --
-        NSString *text;
-        UIFont *font;
-        UIColor *fillColor;
-        UIColor *borderColor;
-        CGFloat borderWidth;
-        NSTextAlignment textAlignment;
-        --接口方法--
-        + (void)setActiveTextView:(_CLTextView*)view;
-        - (id)initWithTool:(CLTextTool*)tool;
-        - (void)setScale:(CGFloat)scale;
-        - (void)sizeToFitWithMaxWidth:lineHeight:
-        --功能方法--
-        //编辑框删除事件
-        - (void)pushedDeleteBtn:
-        //_label事件
-        - (void)viewDidTap: //点击事件,激活输入
-        - (void)viewDidPan: //拖动事件,换坐标
-        //旋转放大操作柄事件
-        - (void)circleViewDidPan:
-        //清除虚线框
-        -(void)removeViewBorder:
-
-    } 
-    note bottom of cltextview
-         文本编辑框View
-         定制:
-         1. 替换删除按钮样式
-         2. 文本框虚线框的自适应文本框度高度,完成之后的清除操作等
-         3. 替换操作柄按钮样式
-    end note
-    
-    class &quot;CLTextSettingView&quot; as textsettingview {
-        --属性组 --
-        + id&lt;CLTextSettingViewDelegate&gt; delegate;
-        + NSString *selectedText;
-        + UIColor *selectedFillColor;
-        + UIColor *selectedBorderColor;
-        + CGFloat selectedBorderWidth;
-        + UIFont *selectedFont;
-        --私有变量--
-        //高级设置菜单的容器
-        - UIScrollView *_scrollView;
-        //键盘顶部textView输入框
-        - UITextView *_textView;
-        ..其他高级设置控件..
-        - CLColorPickerView *_colorPickerView;
-        - CLFontPickerView *_fontPickerView;
-        - UIView *_colorPanel;
-        - CLCircleView *_fillCircle;
-        - CLCircleView *_pathCircle;
-        - UISlider *_pathSlider;
-        --接口函数--
-        + (void)setTextColor:(UIColor*)textColor;
-        + (void)setFontPickerForegroundColor:(UIColor*)foregroundColor;
-        ///根据索引显示某个高级设置
-        + (void)showSettingMenuWithIndex:(NSInteger)index animated:(BOOL)animated;
-        --功能方法--
-        //初始化View
-        - (void)customInit
-        
-        //键盘事件
-        - (void)keyBoardWillShow:
-        - (void)keyBoardWillHide:
-        - (void)keyBoardWillChange:withTextViewHeight:
-    }
-
-    interface &quot;CLTextSettingViewDelegate&quot; as textsettingdelegate {
-    - (void)textSettingView:didChangeText:(NSString*)text;
-    - (void)textSettingView:didChangeFillColor:(UIColor*)fillColor;
-    - (void)textSettingView:didChangeBorderColor:(UIColor*)borderColor;
-    - (void)textSettingView:didChangeBorderWidth:(CGFloat)borderWidth;
-    - (void)textSettingView:didChangeFont:(UIFont*)font;    
-    }
-    note bottom of textsettingview
-         键盘顶部输入框/支持右滑动高级设置功能
-         定制:
-         1. --文本输入框样式--
-         2. 添加x号清除按钮
-         3. 固定高度/支持上下滑动预览文本
-         4. 设置图片中的文本的字体样式等
-    end note
-    class &quot;CLCircleView&quot; as circle{        
-    }
-basetool2 &lt;|-- drawtool2
-basetool2 &lt;|-- texttool2
-circle *-up&gt; cltextview:控制柄
-cltextview *--up-&gt; texttool2:文本编辑框
-textsettingview *-up-&gt; texttool2:键盘顶部输入框\n支持右滑动高级设置功能
-textsettingdelegate o-up- texttool2:遵守代理协议
-textsettingdelegate *-down-&gt; textsettingview
-}
-}
-</code></pre>
+<p>替换为github代理
+<img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/CLIImageEditor-class.uml" alt="" /></p>
 
 <h3 id="时序图">时序图</h3>
 
-<p><img src="http://www.plantuml.com/plantuml/png/fLDDKzDG5Ds_N_5cNBYf7oxSP0X_H9tCQ_DGIaYOy706LqK4Mpvegtmme69HX74qb95Qe07_JDzBikfVyBw-j4cchcJHwUJUS-wvz-I4JJABuc2pnN_MUBiX3exuzHPVEeeQhUX3IPozZdQyw72NbvV5fngow0J3BoWngOiUtSUYMkjUVUrUxF6LXcWj12Uh2XtilOa9r3PZE29ppB7dflFKnG_HNL9WZflBEtEsITpvNC6ncUjOEMh3GlCvap2I9xCKzM4uNgo-Yp6PnTF4naW1LKSkAnkMYsE2A7_d-pUoLcHnIPvrLkt3PkAIMb-MM74mC3pz9XQNue4cPMJI6g2tpiNcfIo_UZwOUR7OxNJw0yZi59ABtNjo9s-HmjIpSRcE5lxP1pFJzahgv4l2gBm3cJJzcFGi5m4z6LPaM5D71VvsU5CNbKlnwoJ1mva0IV1IM-oVY-scf5JUYfC6_xYJo4b6Li6QmHhtI_nuLJd5gzlXwKAY0Au1v5yAuV5oT5WVLG06qdLzD2IwdfLcHQmfbFXI0el4LbEiUuaqz17yWE1IKocFJK1WSC6n75U7uhXXg06yji6hktAljKhqpWjMVelI0g_MmrPRlJ_367iWkUDFxT4PFR_ChzyFqyQNryMF1jWETlJyjQw_9qeRudExvrU6Oz87GugoXq5IuWGeSOZLy2he0JVzbANAH6cmkSeOU9SmPGkdoHdNtRxhl7CLUbxQUrrFVuAFR_KAr8U1jO7jmUQ1ACS13xqc9CWmiiuaenGNgR__DIkXtzemDUal" alt="" /></p>
-
-<pre><code class="language-puml">title 电子巡查录入页需求问题分析
-left header
-1. 提交业务流程问题的分析
-endheader
-
-autonumber 0
-'actor,boundary,control,entity,database
-actor 巡查员  as man 
-entity 巡查页 as lr 
-actor 截图 as jt
-actor 录屏 as lp
-actor 提交 as tj
-entity 详情页 as detail
-actor 整改 as zg
-actor 布任 as task
-man -[#black]&gt; lr :进入电子巡查
-activate man
-deactivate man
-activate lr
-lr -[#black]&gt;jt :截图编辑批注
-activate jt
-jt -[#black]&gt;lr :更新图片模块
-deactivate jt
-lr -[#black]&gt;lp :开始录屏取证
-activate lp
-lp -[#black]&gt;lr :更新视频模块
-deactivate lp
-
-===提交业务流程==
-lr -[#black]&gt;tj :提交检查数据
-activate tj 
-tj -[#red]&gt;lr :&lt;font color=red&gt;__提交后变更按钮状态发起整改__&lt;/font&gt;\n&lt;font color=red&gt;__（当巡查员再次截屏，会怎样）__&lt;/font&gt;
-deactivate tj
-
-lr -[#black]&gt; zg:进入整改页
-activate zg
-deactivate zg
-lr -[#black]&gt; task:发布任务
-activate task 
-deactivate 
-deactivate lr
-
-===建议提交业务==
-autonumber 5
-lr -[#black]&gt;tj :提交检查数据
-activate tj 
-tj -[#red]&gt;detail :__提交生成巡查记录__
-deactivate tj
-activate detail
-detail -[#black]&gt; zg:进入整改页
-activate zg
-deactivate zg
-detail -[#black]&gt; task:发布任务
-activate task 
-deactivate 
-deactivate detail
-
-</code></pre>
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://huos3203.github.io/iDocs/uml/CLIImageEditor-act.uml" alt="" /></p>
 
     </div>
 
@@ -663,10 +236,10 @@ deactivate detail
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2019-06-13 22:19:57 \x2b0800 CST',
+        id: '2019-06-13 22:19:57 \x2b0800 \x2b0800',
         title: '定制开源的CLImageEditor图片编辑工具',
         link: decodeURI(location.href),
-        desc: '定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC title 定制开源的CLImageEditor图片编辑工具 left header 在CLImageEd',
+        desc: '定制图片编辑器 关于Other Link Flag的有关说明 other link 添加-ObjC 替换为github代理 时序图',
         owner: 'huos3203',
         repo: 'huos3203.github.io',
         oauth: {

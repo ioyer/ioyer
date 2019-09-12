@@ -27,7 +27,7 @@ vi /etc/rc.local sh /etc/getIP.sh  //启动后，等待20秒，然后，获取�
 
 
 
-<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" />
@@ -82,8 +82,9 @@ sh /etc/getIP.sh
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" />
-<meta property="article:published_time" content="2015-09-25T23:59:16+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:published_time" content="2015-09-25T23:59:16&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
+
 <meta itemprop="name" content="小米路由常用操作">
 <meta itemprop="description" content="常用命令
 
@@ -485,7 +486,7 @@ Host key verification failed.
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-09-25 23:59:16 \x2b0800 CST',
+        id: '2015-09-25 23:59:16 \x2b0800 \x2b0800',
         title: '小米路由常用操作',
         link: decodeURI(location.href),
         desc: '\x3ch4 id=\x22常用命令\x22\x3e常用命令\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e\x3cp\x3essh登录\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3e局域网登录:\nssh [user@]hostname [command]\n 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195\n回车\n输入密码\n\n**修改密码：**\nroot@xiaoqiang:~#passwd   \n回车\n输入新密码\n回车\n再次输入新密码\n\x3c\/code\x3e\x3c\/pre\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e远程拷贝数据\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3escp Desktop\/ar71xx\/* root@192.168.31.1:\/userdisk\/myWorkspace\/ar71xx\n\x3c\/code\x3e\x3c\/pre\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e每次重启路由获取IP:\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3evi \/etc\/rc.local\nsh \/etc\/getIP.sh\n\x3c\/code\x3e\x3c\/pre\x3e\n\n\x3cp\x3e\/\/启动后，等待20秒，然后，获取当前时间作为文件名称\n\/\/使用ifconfig 获取路由器的ip信息\n\/\/使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行\n\/\/ \x26gt; 使用重定向，将过滤的ip行，写入路由硬盘\/userdisk\/data\/my\/ip目录中\n\/\/通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中\n\/\/查看该文件，既有路由重启后的当前IP\x3c\/p\x3e\x3c\/li\x3e\n\x3c\/ol\x3e',
