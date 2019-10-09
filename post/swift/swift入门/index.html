@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/swift/swift%E5%85%A5%E9%97%A8/" />
@@ -34,24 +34,24 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.809e28ce.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/search.css">
 
 
 <meta property="og:title" content="Swift入门" />
 <meta property="og:description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/swift/swift%E5%85%A5%E9%97%A8/" />
-<meta property="article:published_time" content="2015-11-27T17:18:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2015-11-27T17:18:21+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Swift入门">
 <meta itemprop="description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来">
 
 
 <meta itemprop="datePublished" content="2015-11-27T17:18:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="3068">
+<meta itemprop="wordCount" content="3055">
 
 
 
@@ -111,8 +111,36 @@
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">Even</a>
+  
+   <div class="modal-body">
+           <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
 </div>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+<script>
+var client = algoliasearch("DL4WEHTC05", "6bf0b46d45334edb64efc572e1cd4668");
+var index = client.initIndex('qikqiak-blog');
+autocomplete('#aa-search-input',
+{ hint: false}, {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 8}),
+    displayKey: 'name',
+    templates: {
+        suggestion: function(suggestion) {
+            console.log(suggestion);
+            return '<span>' + '<a href="/' + suggestion.objectID + '">' +
+            suggestion._highlightResult.title.value + '</a></span>';
+        }
+    }
+});
+</script>
 
+   </div>
+  
+</div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -128,6 +156,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -144,7 +173,7 @@
             <a href="/categories/swift/"> swift </a>
             <a href="/categories/%E8%AF%AD%E6%B3%95/"> 语法 </a>
             </div>
-          <span class="more-meta"> 约 3068 字 </span>
+          <span class="more-meta"> 约 3055 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -186,6 +215,14 @@
 <li>
 <ul>
 <li><a href="#1-闭包-无需名字-只需要放在大括号中即可">1. 闭包 无需名字，只需要放在大括号中即可</a></li>
+<li><a href="#2-函数">2. 函数</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#对象与类">对象与类</a>
+<ul>
+<li>
+<ul>
+<li><a href="#1-类的创建-class-类名">1. 类的创建  ：class 类名 {}</a></li>
 <li><a href="#2-类的实例创建-类名-点语法来访问实例的属性和方法">2. 类的实例创建   :  类名()  ,点语法来访问实例的属性和方法</a></li>
 </ul></li>
 </ul></li>
@@ -267,17 +304,15 @@ let explicitDouble: Double = 70
 <pre><code class="language-swift">let label = &quot;The width is &quot;
 let width = 94
 let widthLabel = label + String(width)
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>以小括号来写值，并用反斜线(“”)放在小括号之前
-<code>swift
-let apples = 3
+<li><p>以小括号来写值，并用反斜线(“”)放在小括号之前</p>
+
+<pre><code class="language-swift">let apples = 3
 let oranges = 5     //by gashero
 let appleSummary = &quot;I have \(apples) apples.&quot;
 let fruitSummary = &quot;I have \(apples + oranges) pieces of fruit.&quot;
-</code></li>
-</ul></li>
+</code></pre></li>
 </ul>
 
 <h4 id="数组和字典的用法">数组和字典的用法</h4>
@@ -290,8 +325,9 @@ let emptyDictionary = Dictionary&lt;String, Float&gt;()
 shoppingList = [] //去购物并买些东西 
 </code></pre>
 
-<p>如果数组类型无法推断，你可以写空的数组为 “[]” 和空的字典为 “[:]“。
-2. 访问<br />
+<p>如果数组类型无法推断，你可以写空的数组为 “[]” 和空的字典为 “[:]“。</p></li>
+
+<li><p>访问<br />
 创建一个数组和字典使用方括号 “[]”，访问其元素则是通过方括号中的索引或键。</p>
 
 <pre><code class="language-swift">var shoppingList = [&quot;catfish&quot;, &quot;water&quot;, &quot;tulips&quot;, &quot;blue paint&quot;]
@@ -321,12 +357,11 @@ var greeting = &quot;Hello!&quot;
 if let name = optionalName {
 greeting = &quot;Hello, \(name)&quot;
 }
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>switch 支持多种数据以及多种比较，不限制必须是整数和测试相等<br />
-<code>swift
-let vegetable = &quot;red pepper&quot;
+<li><p>switch 支持多种数据以及多种比较，不限制必须是整数和测试相等</p>
+
+<pre><code class="language-swift">let vegetable = &quot;red pepper&quot;
 switch vegetable {
 case &quot;celery&quot;:
 let vegetableComment = &quot;Add some raisins and make ants on a log.&quot;
@@ -337,15 +372,12 @@ let vegetableComment = &quot;Is it a spicy \(x)?&quot;
 default:    //by gashero
 let vegetableComment = &quot;Everything tastes good in soup.&quot;
 }
-</code></li>
-</ul></li>
-</ul>
+</code></pre>
 
 <p>在执行匹配的情况后，程序会从 switch 跳出，而不是继续执行下一个情况。所以不再需要 break 跳出 switch 。</p>
 
-<h6 id="2-循环控制">2. 循环控制</h6>
+<h6 id="2-循环控制">2. 循环控制</h6></li>
 
-<ul>
 <li><p>for-in 来迭代字典中的每个元素<br />
 可使用 for-in 来迭代字典中的每个元素，提供一对名字来使用每个键值对。</p>
 
@@ -399,8 +431,9 @@ m
 
 <h6 id="1-闭包-无需名字-只需要放在大括号中即可">1. 闭包 无需名字，只需要放在大括号中即可</h6>
 
-<p>编写闭包时有多种选项:
-1. 使用 in 到特定参数和主体的返回值。</p>
+<p>编写闭包时有多种选项:</p></li>
+
+<li><p>使用 in 到特定参数和主体的返回值。</p>
 
 <pre><code class="language-swift">numbers.map({
 (number: Int) -&gt; Int in
@@ -413,16 +446,15 @@ return result
 例如：当一个闭包的类型是已知时，例如代表回调，你可以忽略其参数和返回值，或两者</p>
 
 <pre><code class="language-swift">numbers.map({number in 3 * number})
+</code></pre></li>
+
+<li><p>通过数字而不是名字来引用一个参数，这对于很短的闭包很有用。<br />
+例如：一个闭包传递其最后一个参数到函数作为返回值。</p>
+
+<pre><code class="language-swift">sort([1, 5, 3, 12, 2]) { $0 &gt; $1 }
 </code></pre>
 
-<ol>
-<li>通过数字而不是名字来引用一个参数，这对于很短的闭包很有用。<br />
-例如：一个闭包传递其最后一个参数到函数作为返回值。<br />
-<code>swift
-sort([1, 5, 3, 12, 2]) { $0 &gt; $1 }
-</code>
-###### 2. 函数</li>
-</ol></li>
+<h6 id="2-函数">2. 函数</h6></li>
 
 <li><p>函数的声明   &ndash;  使用func 声明一个函数  使用 -&gt;分隔参数的名字和返回值类型,
 调用函数使用他的名字加上小括号中的参数列表</p>
@@ -431,23 +463,21 @@ sort([1, 5, 3, 12, 2]) { $0 &gt; $1 }
 return &quot;Hello \(name), today is \(day).&quot;
 }
 greet(&quot;Bob&quot;, &quot;Tuesday&quot;)
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>函数的嵌套<br />
+<li><p>函数的嵌套<br />
 内嵌函数可以访问其定义所在函数的变量。
-你可以使用内嵌函数来组织代码，避免过长和过于复杂：
-<code>swift
-func returnFifteen() -&gt; Int {
+你可以使用内嵌函数来组织代码，避免过长和过于复杂：</p>
+
+<pre><code class="language-swift">func returnFifteen() -&gt; Int {
 var y = 10
 func add() {
-y += 5
+    y += 5
 }
 add()
 return y
 }  
-</code></li>
-</ul></li>
+</code></pre></li>
 
 <li><p>函数接收的参数</p>
 
@@ -464,15 +494,14 @@ return sum
 }
 //例子
 sumOf(42, 597, 12)
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>其他函数作为参数  func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool{}
-<code>swift
-func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool {
+<li><p>其他函数作为参数  func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool{}</p>
+
+<pre><code class="language-swift">func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool {
 for item in list {
 if condition(item) {
-return true
+    return true
 }
 }
 return false
@@ -482,9 +511,9 @@ return number &lt; 10
 }
 var numbers = [20, 19, 7, 12]
 hasAnyMatches(numbers, lessThanTen)
-</code>
-函数实际是闭包的特殊情况。你可以写一个闭包而无需名字，只需要放在大括号中即可。使用 in 到特定参数和主体的返回值。</li>
-</ol></li>
+</code></pre>
+
+<p>函数实际是闭包的特殊情况。你可以写一个闭包而无需名字，只需要放在大括号中即可。使用 in 到特定参数和主体的返回值。</p></li>
 </ol></li>
 
 <li><p>函数的返回值</p>
@@ -496,13 +525,12 @@ hasAnyMatches(numbers, lessThanTen)
 <pre><code class="language-swift">func getGasPrices() -&gt; (Double, Double, Double) {
 return (3.59, 3.69, 3.79)
 }
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>返回另一个函数  ： makeIncrementer() -&gt; (Int -&gt; Int)
-函数是第一类型的
-<code>swift
-func makeIncrementer() -&gt; (Int -&gt; Int) {
+<li><p>返回另一个函数  ： makeIncrementer() -&gt; (Int -&gt; Int)
+函数是第一类型的</p>
+
+<pre><code class="language-swift">func makeIncrementer() -&gt; (Int -&gt; Int) {
 func addOne(number: Int) -&gt; Int {
 return 1 + number
 }
@@ -510,10 +538,11 @@ return addOne
 }
 var increment = makeIncrementer()
 increment(7)
-</code>
-#### 对象与类
-###### 1. 类的创建  ：class 类名 {}</li>
-</ol></li>
+</code></pre>
+
+<h4 id="对象与类">对象与类</h4>
+
+<h6 id="1-类的创建-class-类名">1. 类的创建  ：class 类名 {}</h6></li>
 </ol></li>
 
 <li><p>使用 class 可以创建一个类。
@@ -525,25 +554,23 @@ func simpleDescription() -&gt; String {
     return &quot;A shape with \(numberOfSides) sides.&quot;
 }
 }
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>类的构造器  ： 构造器来在创建实例时设置类，使用 init 来创建
-```swift
-class NamedShape {
+<li><p>类的构造器  ： 构造器来在创建实例时设置类，使用 init 来创建</p>
+
+<pre><code class="language-swift">class NamedShape {
 var numberOfSides: Int = 0
-var name: String</li>
-</ol>
+var name: String
 
-<p>init(name: String) {
+init(name: String) {
     self.name = name
-}   //by gashero</p>
+}   //by gashero
 
-<p>func simpleDescription() -&gt; String {
-    return &ldquo;A Shape with (numberOfSides) sides.&rdquo;
+func simpleDescription() -&gt; String {
+    return &quot;A Shape with \(numberOfSides) sides.&quot;
 }
 }
-```</p></li>
+</code></pre></li>
 </ul>
 
 <p>self 用来区分 name 属性和 name 参数。
@@ -656,7 +683,7 @@ var shapeDescription = shape.simpleDescription()
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-11-27 17:18:21 \x2b0800 \x2b0800',
+        id: '2015-11-27 17:18:21 \x2b0800 CST',
         title: 'Swift入门',
         link: decodeURI(location.href),
         desc: '苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来',

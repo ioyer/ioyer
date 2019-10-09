@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
@@ -34,24 +34,24 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.809e28ce.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/search.css">
 
 
 <meta property="og:title" content="iOS插件化开发之Small" />
 <meta property="og:description" content="{% github huos3203 SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
-<meta property="article:published_time" content="2018-04-11T16:42:17&#43;00:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-04-11T16:42:17+00:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="iOS插件化开发之Small">
 <meta itemprop="description" content="{% github huos3203 SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团">
 
 
 <meta itemprop="datePublished" content="2018-04-11T16:42:17&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="3131">
+<meta itemprop="wordCount" content="3103">
 
 
 
@@ -111,8 +111,36 @@
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">Even</a>
+  
+   <div class="modal-body">
+           <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
 </div>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+<script>
+var client = algoliasearch("DL4WEHTC05", "6bf0b46d45334edb64efc572e1cd4668");
+var index = client.initIndex('qikqiak-blog');
+autocomplete('#aa-search-input',
+{ hint: false}, {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 8}),
+    displayKey: 'name',
+    templates: {
+        suggestion: function(suggestion) {
+            console.log(suggestion);
+            return '<span>' + '<a href="/' + suggestion.objectID + '">' +
+            suggestion._highlightResult.title.value + '</a></span>';
+        }
+    }
+});
+</script>
 
+   </div>
+  
+</div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -128,6 +156,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -143,7 +172,7 @@
         <div class="post-category">
             <a href="/categories/xcode/"> xcode </a>
             </div>
-          <span class="more-meta"> 约 3131 字 </span>
+          <span class="more-meta"> 约 3103 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -165,6 +194,7 @@
 <li><a href="#支持storyboard作为启动页的解析">支持Storyboard作为启动页的解析</a></li>
 <li><a href="#参数传递">参数传递</a></li>
 </ul></li>
+<li><a href="#插件命名规则和入口设置">插件命名规则和入口设置</a></li>
 <li><a href="#集成插件到主工程">集成插件到主工程</a></li>
 <li><a href="#small的两种开发模式的demo">small的两种开发模式的demo</a></li>
 </ul></li>
@@ -206,29 +236,33 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 <li><strong>新建项目</strong>
 <code>File-&gt;New-&gt;Project...</code>，选择<code>Small-pods</code>模板
 <img src="https://camo.githubusercontent.com/25aac173476e3a5eecdf2853b0e233bf8179bece/687474703a2f2f636f64652e7765717569636b2e6e65742f6173736574732f696d616765732f736d616c6c2d696f732d74656d706c6174652e706e67" alt="Small iOS Template" /></li>
-<li>库依赖配置文件<code>podfile</code>：
-```js
-platform :ios, &lsquo;7.0&rsquo;
-use_frameworks!</li>
+
+<li><p>库依赖配置文件<code>podfile</code>：</p>
+
+<pre><code class="language-js">platform :ios, '7.0'
+use_frameworks!
+
+target 'SmallAPP' do
+pod &quot;Small&quot;, :git =&gt; 'https://github.com/wequick/Small.git'
+end
+</code></pre></li>
 </ol>
 
-<p>target &lsquo;SmallAPP&rsquo; do
-    pod &ldquo;Small&rdquo;, :git =&gt; &lsquo;<a href="https://github.com/wequick/Small.git'">https://github.com/wequick/Small.git'</a>
-end</p>
+<ul>
+<li><p>路由文件<code>bundle.json</code>:</p>
 
-<pre><code>* 路由文件`bundle.json`:
-```json
-{
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;bundles&quot;: [
-        {
-            &quot;uri&quot;: &quot;main&quot;,
-            &quot;pkg&quot;: &quot;hsg.com.cn.SmallAPP.app.main&quot;
-        }
-    ]
+<pre><code class="language-json">{
+&quot;version&quot;: &quot;1.0.0&quot;,
+&quot;bundles&quot;: [
+    {
+        &quot;uri&quot;: &quot;main&quot;,
+        &quot;pkg&quot;: &quot;hsg.com.cn.SmallAPP.app.main&quot;
+    }
+]
 }
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <ol>
 <li><p>安装pod依赖</p>
@@ -351,36 +385,37 @@ if (bundle.queryParams != nil) {
 </code></pre>
 
 <ol>
-<li>接收解析为属性值
-例如<code>DetailController</code>)定义两个属性，属性名称和<code>uri</code>键值名保持一致，因为是通过<code>setValuesForKeysWithDictionary</code>来给相应属性赋值。
-```objc
-// DetailController.h
-@property (nonatomic, strong) NSString *id;</li>
-</ol>
+<li><p>接收解析为属性值
+例如<code>DetailController</code>)定义两个属性，属性名称和<code>uri</code>键值名保持一致，因为是通过<code>setValuesForKeysWithDictionary</code>来给相应属性赋值。</p>
 
-<p>// DetailController.m
-NSString *id = self.id;</p>
+<pre><code class="language-objc">// DetailController.h
+@property (nonatomic, strong) NSString *id;
 
-<p>样例
+// DetailController.m
+NSString *id = self.id;
+
+样例
 // Initialize controller parameters
 if (bundle.queryParams != nil) {
-    [controller setValuesForKeysWithDictionary:bundle.queryParams];
-}</p>
+[controller setValuesForKeysWithDictionary:bundle.queryParams];
+}
+</code></pre></li>
+</ol>
 
-<pre><code>
-### 插件命名规则和入口设置
-路由配置对插件包的命名有严格要求，`SMBundle`主要通过`pkg`名称包含`.app.`(模块库)/`.lib.`(工具库)来定位插件包的，否则全部默认加载bundle包。
-**模块命名规范**
-* `framework`编译成功后，名称跟`Product Name`一样命名规则:
+<h3 id="插件命名规则和入口设置">插件命名规则和入口设置</h3>
+
+<p>路由配置对插件包的命名有严格要求，<code>SMBundle</code>主要通过<code>pkg</code>名称包含<code>.app.</code>(模块库)/<code>.lib.</code>(工具库)来定位插件包的，否则全部默认加载bundle包。
+<strong>模块命名规范</strong>
+* <code>framework</code>编译成功后，名称跟<code>Product Name</code>一样命名规则:</p>
+
+<pre><code>xx_xx_lib_xx【com_example_small_lib_utils】
+xx_xx_app_xx
+xx_xx_xx_xx
 </code></pre>
 
-<p>xx_xx_lib_xx【com_example_small_lib_utils】
-xx_xx_app_xx
-xx_xx_xx_xx</p>
+<p>注意lib、app这些对查找framework文件相当重要，这所以会有<code>_</code>，是small对<code>.</code>做了替换</p>
 
-<pre><code>注意lib、app这些对查找framework文件相当重要，这所以会有`_`，是small对`.`做了替换
-```objc
-NSString *bundlePath = nil;
+<pre><code class="language-objc">NSString *bundlePath = nil;
 NSString *bundleSuffix = @&quot;bundle&quot;; //默认
 SMBundleType bundleType = SMBundleTypeAssets; 
 if ([pkg rangeOfString:@&quot;.app.&quot;].location != NSNotFound

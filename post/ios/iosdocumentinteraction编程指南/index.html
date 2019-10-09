@@ -33,7 +33,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
@@ -44,8 +44,9 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.809e28ce.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/search.css">
 
 
 <meta property="og:title" content="iOS Document Interaction 编程指南" />
@@ -89,9 +90,8 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
-<meta property="article:published_time" content="2014-07-01T23:12:01&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2014-07-01T23:12:01+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="iOS Document Interaction 编程指南">
 <meta itemprop="description" content="关于 Document Interaction
 
@@ -232,8 +232,36 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">Even</a>
+  
+   <div class="modal-body">
+           <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
 </div>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+<script>
+var client = algoliasearch("DL4WEHTC05", "6bf0b46d45334edb64efc572e1cd4668");
+var index = client.initIndex('qikqiak-blog');
+autocomplete('#aa-search-input',
+{ hint: false}, {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 8}),
+    displayKey: 'name',
+    templates: {
+        suggestion: function(suggestion) {
+            console.log(suggestion);
+            return '<span>' + '<a href="/' + suggestion.objectID + '">' +
+            suggestion._highlightResult.title.value + '</a></span>';
+        }
+    }
+});
+</script>
 
+   </div>
+  
+</div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -249,6 +277,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -594,7 +623,7 @@ UIApplicationLaunchOptionsSourceApplicationKey      //源程序向目标程序�
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-07-01 23:12:01 \x2b0800 \x2b0800',
+        id: '2014-07-01 23:12:01 \x2b0800 CST',
         title: 'iOS Document Interaction 编程指南',
         link: decodeURI(location.href),
         desc: '\x3ch4 id=\x22关于-document-interaction\x22\x3e关于 Document Interaction\x3c\/h4\x3e\n\n\x3cp\x3eiOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/UIKit\/Reference\/UIDocumentInteractionController_class\/Reference\/Reference.html\x22\x3eUIDocumentInteractionController\x3c\/a\x3e类，以及\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/QuickLook\/Reference\/QuickLookFrameworkReference_iPhoneOS\/_index.html\x22\x3eQuick Look\x3c\/a\x3e框架。\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e######预览文档和呈现选项菜单\x3cbr \/\x3e\n如果app需要打开自身并不支持的文件时，就需要使用\x3cstrong\x3eUIDocumentInteractionController\x3c\/strong\x3e。一个\x3cstrong\x3edocument interaction controller\x3c\/strong\x3e通过\x3cstrong\x3eQuick Look框架\x3c\/strong\x3e判断文档是否能被另一个app打开和预览。也就是说，app可以通过\x3cstrong\x3edocumentinteraction controller\x3c\/strong\x3e提供一些支持打开该文件方式的菜单。\n\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3e具体实现需要以下步骤：\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e* 需要通过其他APP打开的文件，来实例化\x3ccode\x3eUIDocumentInteractionController\x3c\/code\x3e实例对象。\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3e* 在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。\x3c\/li\x3e\n\x3cli\x3e* 用户交互，如触摸这个控件，则调用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e对象。\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3e三种交互界面:\n    1. 预览文件的内容。\n    2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。\n    3. 一个菜单，仅包含“以其它方式打开”操作。\x3c\/p\x3e\n\n\x3cp\x3e同时，\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e内置了一些手势，必要时可以直接实现它们。\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e\x3cp\x3e######使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e的场景:\x3cstrong\x3e与文件交互的app都可以使用。\x3c\/strong\x3e\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cul\x3e\n\x3cli\x3e需要从网络下载文件的APP:\x3cbr \/\x3e\n例如，email程序需要打开和预览邮件附件。\x3c\/li\x3e\n\x3c\/ul\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cul\x3e\n\x3cli\x3e不下载文件的APP:\x3cbr \/\x3e\n例如，APP需要支持文件共享（参考“File-Sharing Support” in \x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/Miscellaneous\/Conceptual\/iPhoneOSTechOverview\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007898\x22\x3eiOS Technology Overview\x3c\/a\x3e), 即可以对同步到app Documents\/Shared目录下的文件使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e。\x3c\/li\x3e\n\x3c\/ul\x3e\x3c\/li\x3e\n\x3c\/ul\x3e',

@@ -27,7 +27,7 @@ Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，�
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.56.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
@@ -38,8 +38,9 @@ Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，�
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.809e28ce.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/search.css">
 
 
 <meta property="og:title" content="在IOS中自定义URLSchemes教程" />
@@ -62,9 +63,8 @@ Step2. 打开“Item 0″类型为Dic,添加新key为&rdquo;URL identifier&rdquo
 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
-<meta property="article:published_time" content="2014-08-28T20:32:48&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-08T17:46:02&#43;08:00"/>
-
+<meta property="article:published_time" content="2014-08-28T20:32:48+08:00" />
+<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="在IOS中自定义URLSchemes教程">
 <meta itemprop="description" content="URL Schemes
 
@@ -163,8 +163,36 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">Even</a>
+  
+   <div class="modal-body">
+           <div class="aa-input-container" id="aa-input-container">
+    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
+    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+    </svg>
 </div>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
+<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
+<script>
+var client = algoliasearch("DL4WEHTC05", "6bf0b46d45334edb64efc572e1cd4668");
+var index = client.initIndex('qikqiak-blog');
+autocomplete('#aa-search-input',
+{ hint: false}, {
+    source: autocomplete.sources.hits(index, {hitsPerPage: 8}),
+    displayKey: 'name',
+    templates: {
+        suggestion: function(suggestion) {
+            console.log(suggestion);
+            return '<span>' + '<a href="/' + suggestion.objectID + '">' +
+            suggestion._highlightResult.title.value + '</a></span>';
+        }
+    }
+});
+</script>
 
+   </div>
+  
+</div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -180,6 +208,7 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -453,7 +482,7 @@ It’s important to note that you cannot prevent another application from callin
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-08-28 20:32:48 \x2b0800 \x2b0800',
+        id: '2014-08-28 20:32:48 \x2b0800 CST',
         title: '在IOS中自定义URLSchemes教程',
         link: decodeURI(location.href),
         desc: '\x3ch4 id=\x22url-schemes\x22\x3eURL Schemes\x3c\/h4\x3e\n\n\x3cp\x3eiPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！\x3c\/p\x3e\n\n\x3cp\x3e首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。\x3c\/p\x3e\n\n\x3ch4 id=\x22注册自定义url协议\x22\x3e注册自定义URL协议\x3c\/h4\x3e\n\n\x3cp\x3e首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。\x3c\/p\x3e\n\n\x3cp\x3e默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。\x3c\/p\x3e\n\n\x3ch6 id=\x22step1-右键-选择-add-row-在下拉选框中选择-url-types-类型为array\x22\x3eStep1. 右键，选择“Add Row”,在下拉选框中选择“\x3cstrong\x3eURL types\x3c\/strong\x3e”，类型为Array:\x3c\/h6\x3e\n\n\x3ch6 id=\x22step2-打开-item-0-类型为dic-添加新key为-url-identifier-类型为string-可以是任何值-但建议用-反域名-例如-com-myapp\x22\x3eStep2. 打开“Item 0″类型为Dic,添加新key为\x26rdquo;URL identifier\x26rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。\x3c\/h6\x3e\n\n\x3ch5 id=\x22step3-打开-item-0-类型为dic-添加新key为-url-schemes-类型为array\x22\x3eStep3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:\x3c\/h5\x3e',
