@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
-<link rel="canonical" href="https://huos3203.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,21 +42,18 @@
 <meta property="og:title" content="MPMoviePlayerController遇到的坑" />
 <meta property="og:description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huos3203.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
+<meta property="og:url" content="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
 <meta property="article:published_time" content="2018-08-31T16:58:22+00:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:modified_time" content="2018-08-31T16:58:22+00:00" />
 <meta itemprop="name" content="MPMoviePlayerController遇到的坑">
 <meta itemprop="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController">
-
-
 <meta itemprop="datePublished" content="2018-08-31T16:58:22&#43;00:00" />
-<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="632">
+<meta itemprop="dateModified" content="2018-08-31T16:58:22&#43;00:00" />
+<meta itemprop="wordCount" content="627">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MPMoviePlayerController遇到的坑"/>
 <meta name="twitter:description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 632 字 </span>
+          <span class="more-meta"> 约 627 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,42 +179,29 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#问题">问题</a></li>
-</ul></li>
-<li><a href="#问题2">问题2</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#投影不全屏">投影不全屏</a>
-<ul>
-<li><a href="#demo问题">demo问题</a></li>
-</ul></li>
-<li><a href="#mp4音频不同步">MP4音频不同步</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">问题</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="问题">问题</h2>
-
+      <h2 id="heading">问题</h2>
 <ol>
 <li>[MPMoviePlayerController播放过程中自动暂停的问题]
 在使用系统播放器MPMoviePlayerController的过程中，会出现播放器自动暂停的情况，有两种解决办法：<a href="https://www.cnblogs.com/elsonpeng/p/5404969.html">参看</a>
 1.1 <code>在播放开始的时候，设置useApplicationAudioSession ＝ NO;</code>
 1.2 <code>重启手机，也可以恢复</code></li>
-
-<li><p><a href="https://stackoverflow.com/questions/3138660/why-does-mpmovieloadstate-have-state-5">why does MPMovieLoadState have state 5?</a></p>
-
+<li><a href="https://stackoverflow.com/questions/3138660/why-does-mpmovieloadstate-have-state-5">why does MPMovieLoadState have state 5?</a></li>
+</ol>
 <pre><code>The playState is a bitmask. Any number of bits can be set, such as
 MPMovieLoadStatePlaythroughOK | MPMovieLoadStatePlayable
 Check for states like this:
@@ -225,39 +209,31 @@ MPMovieLoadState state = [playerController loadState];
 if( state &amp; MPMovieLoadStatePlaythroughOK ) {
 NSLog(@&quot;State is Playthrough OK&quot;);
 }
-</code></pre></li>
+</code></pre>
+<h1 id="2">问题2</h1>
+<h4 id="heading-1">投影不全屏</h4>
+<p>现象：投影仪页面未同步现象，全屏查看视频，横屏全屏显示，但投影在大屏的画面没有同步</p>
+<ol>
+<li>隔离业务代码，编写demo复现投影问题。<a href="https://github.com/it-boyer/ALMoviePlayerController/tree/master/ALMoviePlayerControllerDemo">ALMoviePlayerControllerGit库</a></li>
 </ol>
-
-<h1 id="问题2">问题2</h1>
-
-<h4 id="投影不全屏">投影不全屏</h4>
-
-<p>现象：投影仪页面未同步现象，全屏查看视频，横屏全屏显示，但投影在大屏的画面没有同步
-1. 隔离业务代码，编写demo复现投影问题。<a href="https://github.com/huos3203/ALMoviePlayerController/tree/master/ALMoviePlayerControllerDemo">ALMoviePlayerControllerGit库</a></p>
-
-<h5 id="demo问题">demo问题</h5>
-
+<h5 id="demo">demo问题</h5>
 <p>解决办法：
 注释掉：<code>- (id)initWithContentURL:(NSURL *)url</code>方法。demo正常播放
-小插曲：遇到<code>Setting device discovery mode to DiscoveryMode_None</code>，排查之后不影响播放。故没有继续研究。。。
-&gt;教训：必须深入代码联调测试中，本可以通过断点排查，查处url为nil导致demo无法的播放的原因。却长时间纠结在不必要的日志中。</p>
-
-<ol>
-<li><p>通过在投影仪上联调测试<code>不影响播放</code></p>
-
+小插曲：遇到<code>Setting device discovery mode to DiscoveryMode_None</code>，排查之后不影响播放。故没有继续研究。。。</p>
+<blockquote>
+<p>教训：必须深入代码联调测试中，本可以通过断点排查，查处url为nil导致demo无法的播放的原因。却长时间纠结在不必要的日志中。</p>
+</blockquote>
+<ol start="2">
+<li>通过在投影仪上联调测试<code>不影响播放</code></li>
+</ol>
 <pre><code>VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
 </code></pre>
-
 <p>通过百度有两种方式：
 1.在viewwillapear中添加<code>player=nil</code>
 <a href="https://stackoverflow.com/questions/47438401/avplayer-is-not-playing-in-ios-11#">AVPlayer is not playing in iOS 11</a>
-<a href="https://stackoverflow.com/questions/46321860/avplayerviewcontroller-black-screen-when-swiping-on-ios-11">AVPlayerViewController black screen when swiping on iOS 11</a></p></li>
-</ol>
-
+<a href="https://stackoverflow.com/questions/46321860/avplayerviewcontroller-black-screen-when-swiping-on-ios-11">AVPlayerViewController black screen when swiping on iOS 11</a></p>
 <p>2.将工程设置为<code>arc=YES</code></p>
-
-<h4 id="mp4音频不同步">MP4音频不同步</h4>
-
+<h4 id="mp4">MP4音频不同步</h4>
 <p>现象：视频播放到待定的时间点，画面卡顿，拖动进度条，声音画面不同步，复现：《视频美国儿童思维导图特训营》第一课：21:00时长复现</p>
 
     </div>
@@ -270,8 +246,8 @@ NSLog(@&quot;State is Playthrough OK&quot;);
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-08-08
-        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+        2018-08-31
+        
     </span>
   </p>
   
@@ -317,8 +293,8 @@ NSLog(@&quot;State is Playthrough OK&quot;);
         title: 'MPMoviePlayerController遇到的坑',
         link: decodeURI(location.href),
         desc: '问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController',
-        owner: 'huos3203',
-        repo: 'huos3203.github.io',
+        owner: 'it-boyer',
+        repo: 'it-boyer.github.io',
         oauth: {
           client_id: 'd46ea301857e36a08319',
           client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
@@ -338,12 +314,12 @@ NSLog(@&quot;State is Playthrough OK&quot;);
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/it-boyer" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">

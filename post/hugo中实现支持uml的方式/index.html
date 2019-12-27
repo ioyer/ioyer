@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
-<link rel="canonical" href="https://huos3203.github.io/post/hugo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81uml%E7%9A%84%E6%96%B9%E5%BC%8F/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/hugo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81uml%E7%9A%84%E6%96%B9%E5%BC%8F/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,21 +42,18 @@
 <meta property="og:title" content="hugo中实现支持uml的方式" />
 <meta property="og:description" content="### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes/even/layouts/partials/footer.html &lt;!-- mermaid JS --&gt; &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt; &lt;script&gt; mermaid.initialize({ startOnLoad: true }); &lt;/script&gt; 在md文件中添加代码块 &lt;div class=&quot;mermaid&quot;&gt; graph LR A --- B B--&gt;C[fa:fa-ban forbidden] B--&gt;D(fa:fa-spinner); &lt;/div&gt;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huos3203.github.io/post/hugo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81uml%E7%9A%84%E6%96%B9%E5%BC%8F/" />
+<meta property="og:url" content="https://it-boyer.github.io/post/hugo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81uml%E7%9A%84%E6%96%B9%E5%BC%8F/" />
 <meta property="article:published_time" content="2019-08-08T20:39:00+08:00" />
-<meta property="article:modified_time" content="2019-08-09T20:22:00+08:00" />
+<meta property="article:modified_time" content="2019-08-09T17:50:14+08:00" />
 <meta itemprop="name" content="hugo中实现支持uml的方式">
 <meta itemprop="description" content="### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes/even/layouts/partials/footer.html &lt;!-- mermaid JS --&gt; &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt; &lt;script&gt; mermaid.initialize({ startOnLoad: true }); &lt;/script&gt; 在md文件中添加代码块 &lt;div class=&quot;mermaid&quot;&gt; graph LR A --- B B--&gt;C[fa:fa-ban forbidden] B--&gt;D(fa:fa-spinner); &lt;/div&gt;">
-
-
 <meta itemprop="datePublished" content="2019-08-08T20:39:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-09T20:22:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-09T17:50:14&#43;08:00" />
 <meta itemprop="wordCount" content="70">
 
 
 
-<meta itemprop="keywords" content="uml," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="uml," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo中实现支持uml的方式"/>
 <meta name="twitter:description" content="### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes/even/layouts/partials/footer.html &lt;!-- mermaid JS --&gt; &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt; &lt;script&gt; mermaid.initialize({ startOnLoad: true }); &lt;/script&gt; 在md文件中添加代码块 &lt;div class=&quot;mermaid&quot;&gt; graph LR A --- B B--&gt;C[fa:fa-ban forbidden] B--&gt;D(fa:fa-spinner); &lt;/div&gt;"/>
 
@@ -181,34 +178,32 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p>### 使用mermaidjs
 <a href="https://mermaidjs.github.io/#/">mermaidjs</a></p>
-
 <ol>
-<li><p>引入js文件:<a href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">mermaid.min.js</a></p>
-
+<li>引入js文件:<a href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">mermaid.min.js</a></li>
+</ol>
 <pre><code>vi themes/even/layouts/partials/footer.html
 &lt;!-- mermaid JS --&gt;
 &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({ startOnLoad: true });
 &lt;/script&gt;
-</code></pre></li>
-
-<li><p>在md文件中添加代码块</p>
-
-<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
-graph LR
-  A --- B
-  B--&gt;C[fa:fa-ban forbidden]
-  B--&gt;D(fa:fa-spinner);
-&lt;/div&gt;
-</code></pre></li>
+</code></pre>
+<ol>
+<li>在md文件中添加代码块</li>
 </ol>
+<pre><code> &lt;div class=&quot;mermaid&quot;&gt;
+  graph LR
+      A --- B
+      B--&gt;C[fa:fa-ban forbidden]
+      B--&gt;D(fa:fa-spinner);
+  &lt;/div&gt;
+</code></pre>
 
     </div>
 
@@ -221,7 +216,7 @@ graph LR
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-08-09
-        <a href="iEmacsd/commit/49041475e262fa028158bcf3f3aa070fdd671505" title="更新">(4904147)</a>
+        
     </span>
   </p>
   
@@ -269,8 +264,8 @@ graph LR
         title: 'hugo中实现支持uml的方式',
         link: decodeURI(location.href),
         desc: '### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes\/even\/layouts\/partials\/footer.html \x26lt;!-- mermaid JS --\x26gt; \x26lt;script src=\x26quot;\x26lt;https:\/\/cdn.jsdelivr.net\/npm\/mermaid\/dist\/mermaid.min.js\x26gt;\x26quot;\x26gt;\x26lt;\/script\x26gt; \x26lt;script\x26gt; mermaid.initialize({ startOnLoad: true }); \x26lt;\/script\x26gt; 在md文件中添加代码块 \x26lt;div class=\x26quot;mermaid\x26quot;\x26gt; graph LR A --- B B--\x26gt;C[fa:fa-ban forbidden] B--\x26gt;D(fa:fa-spinner); \x26lt;\/div\x26gt;',
-        owner: 'huos3203',
-        repo: 'huos3203.github.io',
+        owner: 'it-boyer',
+        repo: 'it-boyer.github.io',
         oauth: {
           client_id: 'd46ea301857e36a08319',
           client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
@@ -290,12 +285,12 @@ graph LR
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/it-boyer" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">

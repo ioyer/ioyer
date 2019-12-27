@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
-<link rel="canonical" href="https://huos3203.github.io/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,21 +42,18 @@
 <meta property="og:title" content="Xcode7编译发布问题" />
 <meta property="og:description" content="Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huos3203.github.io/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" />
+<meta property="og:url" content="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" />
 <meta property="article:published_time" content="2015-09-25T15:58:17+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:modified_time" content="2015-09-25T15:58:17+08:00" />
 <meta itemprop="name" content="Xcode7编译发布问题">
 <meta itemprop="description" content="Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to">
-
-
 <meta itemprop="datePublished" content="2015-09-25T15:58:17&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="dateModified" content="2015-09-25T15:58:17&#43;08:00" />
 <meta itemprop="wordCount" content="788">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xcode7编译发布问题"/>
 <meta name="twitter:description" content="Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to"/>
 
@@ -183,66 +180,58 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#xcode7编译发布问题">Xcode7编译发布问题</a></li>
-</ul></li>
-<li><a href="#解决办法">解决办法：</a>
-<ul>
-<li><a href="#cannot-proceed-with-delivery-an-existing-transporter-instance-is-currently-uploading-this-package">Cannot proceed with delivery: an existing transporter instance is currently uploading this package</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#heading">解决办法：</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="xcode7编译发布问题">Xcode7编译发布问题</h4>
-
+      <h4 id="xcode7">Xcode7编译发布问题</h4>
 <ol>
-<li><p>ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue.&rdquo;</p>
-
-<p>解决办法：搜索CFBundleExecutable 字段，删除所有第三方框架中的info.plist文件中包含的字段，重新打包上传。</p></li>
-
-<li><p>ERROR ITMS-90475: &ldquo;Invalid Bundle. iPad Multitasking support requires launch story board in bundle &lsquo;pyc.com.cn.pbbReader&rsquo;.&rdquo;</p></li>
-
-<li><p>苹果邮件：We have discovered one or more issues with your recent delivery for &ldquo;PBB Reader&rdquo;. To process your delivery, the following issues must be corrected:
-Invalid Bundle - A nested bundle doesn&rsquo;t have the right platforms listed in CFBundleSupportedPlatforms Info.plist key.</p></li>
-
-<li><p>IOS9访问网络设置：<strong>NSAppTransportSecurity</strong> 字典，字段：<strong>NSAllowsArbitraryLoads</strong>  字段值：<strong>YES</strong></p></li>
-
-<li><p>搜索Target对应的build setting中，把<strong>bitCode</strong>支持设置为NO</p></li>
-
-<li><p><a href="http://onevcat.com/2015/06/multitasking/">iPad 中的多任务适配</a><br />
-如果你不想你的 app 可以作为多任务的副 app 被使用的话，你可以在 Info.plist 中添加 <strong>UIRequiresFullScreen</strong> 并将其设为 <strong>YES</strong></p></li>
-
-<li><p>对第三方SDK后台运行，有严格的把控，要求bundle资源必须为最新有效，上传包时必要条件</p></li>
+<li>
+<p>ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue.&rdquo;</p>
+<p>解决办法：搜索CFBundleExecutable 字段，删除所有第三方框架中的info.plist文件中包含的字段，重新打包上传。</p>
+</li>
+<li>
+<p>ERROR ITMS-90475: &ldquo;Invalid Bundle. iPad Multitasking support requires launch story board in bundle &lsquo;pyc.com.cn.pbbReader&rsquo;.&rdquo;</p>
+</li>
+<li>
+<p>苹果邮件：We have discovered one or more issues with your recent delivery for &ldquo;PBB Reader&rdquo;. To process your delivery, the following issues must be corrected:
+Invalid Bundle - A nested bundle doesn't have the right platforms listed in CFBundleSupportedPlatforms Info.plist key.</p>
+</li>
+<li>
+<p>IOS9访问网络设置：<strong>NSAppTransportSecurity</strong> 字典，字段：<strong>NSAllowsArbitraryLoads</strong>  字段值：<strong>YES</strong></p>
+</li>
+<li>
+<p>搜索Target对应的build setting中，把<strong>bitCode</strong>支持设置为NO</p>
+</li>
+<li>
+<p><a href="http://onevcat.com/2015/06/multitasking/">iPad 中的多任务适配</a><br>
+如果你不想你的 app 可以作为多任务的副 app 被使用的话，你可以在 Info.plist 中添加 <strong>UIRequiresFullScreen</strong> 并将其设为 <strong>YES</strong></p>
+</li>
+<li>
+<p>对第三方SDK后台运行，有严格的把控，要求bundle资源必须为最新有效，上传包时必要条件</p>
+</li>
 </ol>
-
-<h3 id="解决办法">解决办法：</h3>
-
+<h3 id="heading">解决办法：</h3>
 <p>退回Xcode6.4,进行打包发布</p>
-
 <h4 id="cannot-proceed-with-delivery-an-existing-transporter-instance-is-currently-uploading-this-package">Cannot proceed with delivery: an existing transporter instance is currently uploading this package</h4>
-
-<p>把Application Loader(XCode-&gt;Organizer-&gt;Archived Applications-&gt;Submit)中正在上传的文件中断或者删除，再次Submit提示：<br />
+<p>把Application Loader(XCode-&gt;Organizer-&gt;Archived Applications-&gt;Submit)中正在上传的文件中断或者删除，再次Submit提示：<br>
 Cannot proceed with delivery: an existing transporter instance is currently uploading this package。
-无论如何Clean All、重新Submit都失败，给出上述提示。<br />
-原因：上传的动作被记录在UploadToken中了。<br />
-解决方法：<br />
-（1）打开终端，输入cd，到达个人用户目录下。<br />
-（2）输入ls -a，可以看到一个隐藏的目录 .itmstransporter<br />
-（3）cd .itmstransporter/UploadTokens<br />
-（4）ls ，可以看到一个类似 xxxxx.local_itunesConnectUSERxxxxxx.itmsp.token文件<br />
-（5）nano  xxxxx.local_itunesConnectUSERxxxxxx.itmsp.token，在里面把内容都删除，保存。<br />
+无论如何Clean All、重新Submit都失败，给出上述提示。<br>
+原因：上传的动作被记录在UploadToken中了。<br>
+解决方法：<br>
+（1）打开终端，输入cd，到达个人用户目录下。<br>
+（2）输入ls -a，可以看到一个隐藏的目录 .itmstransporter<br>
+（3）cd .itmstransporter/UploadTokens<br>
+（4）ls ，可以看到一个类似 xxxxx.local_itunesConnectUSERxxxxxx.itmsp.token文件<br>
+（5）nano  xxxxx.local_itunesConnectUSERxxxxxx.itmsp.token，在里面把内容都删除，保存。<br>
 （6）重新在Organizer里面submit，ok了</p>
 
     </div>
@@ -255,8 +244,8 @@ Cannot proceed with delivery: an existing transporter instance is currently uplo
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-08-08
-        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+        2015-09-25
+        
     </span>
   </p>
   
@@ -302,8 +291,8 @@ Cannot proceed with delivery: an existing transporter instance is currently uplo
         title: 'Xcode7编译发布问题',
         link: decodeURI(location.href),
         desc: 'Xcode7编译发布问题 ERROR ITMS-90535: \x26ldquo;Unexpected CFBundleExecutable Key. The bundle at \x26lsquo;Payload\/PBBReader.app\/TencentOpenApi_IOS_Bundle.bundle\x26rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to',
-        owner: 'huos3203',
-        repo: 'huos3203.github.io',
+        owner: 'it-boyer',
+        repo: 'it-boyer.github.io',
         oauth: {
           client_id: 'd46ea301857e36a08319',
           client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
@@ -323,12 +312,12 @@ Cannot proceed with delivery: an existing transporter instance is currently uplo
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/it-boyer" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">

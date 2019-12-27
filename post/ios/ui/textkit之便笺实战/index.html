@@ -16,32 +16,28 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="便笺练习功能点: 通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。 * 动态样式（Dynamic type）
-* 凸版印刷效果（Letterpress effects）
-* 环绕路径（Exclusion paths）
-* 动态文本格式及存储（Dynamic text formatting and storage）
-这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。 效果图:
+<meta name="author" content="iTBoyer" /><meta name="description" content="便笺练习功能点: 通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
+ 动态样式（Dynamic type） 凸版印刷效果（Letterpress effects） 环绕路径（Exclusion paths） 动态文本格式及存储（Dynamic text formatting and storage）  这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。 效果图:
 App开始运行后自动生成一组便笺实例并利用tableViewController显示出来。Storyboards和segues会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。 项目开发包：Notepad.zip
 动态样式 动态样式（Dynamic type）是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。 选择 通用-&amp;gt;文字大小 或 通用-&amp;gt;辅助功能 来查看app中的字体设置。
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。 例如UIFont新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
 使用系统动态字体样式 使用动态文本，是通过给文本字体设置字体样式style而不是指定具体的字体名称和大小。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。
-preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码： {%codeblock lang:objc%} self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; {%endcodeblock%} {% codeblock lang:swift %} self.textView.font = UIFont.preferredFont(forTextStyle: .body) {% endcodeblock %} 打开 NotesListViewController.m/swift 在 tableView:cellForRowAtIndexPath: 方法中增加如下代码: {%codeblock lang:objc%} cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]; {%endcodeblock%} {% codeblock lang:swift %} cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline) {% endcodeblock %} 上面两行代码都用到了新版iOS的字体样式.
-&amp;gt; 字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。  APP响应用户字体设置  设置系统字体 返回到通用-&amp;gt;文字大小重新修改字体设置. 再运行App, Note页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。
- 设置系统字体生效 当我们返回到通用-&amp;gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。  监听系统通知：实现APP响应用户字体设置 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。 1. 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 2. 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%} - (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged( notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
-" /><meta name="keywords" content="Hugo, swift, org-mode" />
+preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码： {%codeblock lang:objc%} self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; {%endcodeblock%} {% codeblock lang:swift %} self.textView.font = UIFont.preferredFont(forTextStyle: .body) {% endcodeblock %} 打开 NotesListViewController.m/swift 在 tableView:cellForRowAtIndexPath: 方法中增加如下代码: {%codeblock lang:objc%} cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]; {%endcodeblock%} {% codeblock lang:swift %} cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline) {% endcodeblock %} 上面两行代码都用到了新版iOS的字体样式.   字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
+ APP响应用户字体设置  设置系统字体 返回到通用-&amp;gt;文字大小重新修改字体设置. 再运行App, Note页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。
+ 设置系统字体生效 当我们返回到通用-&amp;gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。  监听系统通知：实现APP响应用户字体设置 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
+ 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%}   (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged(_ notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。 " /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
-<link rel="canonical" href="https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -56,37 +52,30 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 
 <meta property="og:title" content="TextKit之便笺实战" />
 <meta property="og:description" content="便笺练习功能点:
-
 通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
-  * 动态样式（Dynamic type）
-  * 凸版印刷效果（Letterpress effects）
-  * 环绕路径（Exclusion paths）
-  * 动态文本格式及存储（Dynamic text formatting and storage）
+
+动态样式（Dynamic type）
+凸版印刷效果（Letterpress effects）
+环绕路径（Exclusion paths）
+动态文本格式及存储（Dynamic text formatting and storage）
 
 这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
 效果图:
 
 App开始运行后自动生成一组便笺实例并利用tableViewController显示出来。Storyboards和segues会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：Notepad.zip
-
 动态样式
-
 动态样式（Dynamic type）是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
-
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
 例如UIFont新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
-
 使用系统动态字体样式
-
 使用动态文本，是通过给文本字体设置字体样式style而不是指定具体的字体名称和大小。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。
-
 preferredFontForTextStyle:方法设置字体样式
-
 
 打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -103,11 +92,11 @@ cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
 cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 {% endcodeblock %}
 上面两行代码都用到了新版iOS的字体样式.
-&gt; 字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
+
+字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
 APP响应用户字体设置
-
 
 设置系统字体
 返回到通用-&gt;文字大小重新修改字体设置.
@@ -116,78 +105,73 @@ APP响应用户字体设置
 设置系统字体生效
 当我们返回到通用-&gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。
 
-
 监听系统通知：实现APP响应用户字体设置
-
 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
-1. 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
+
+添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码：
 {%codeblock lang:objc%}
 [[NSNotificationCenter defaultCenter]
-                              addObserver:self
-                                 selector:@selector(preferredContentSizeChanged:)
-                                     name:UIContentSizeCategoryDidChangeNotification
-                                   object:nil];
+addObserver:self
+selector:@selector(preferredContentSizeChanged:)
+name:UIContentSizeCategoryDidChangeNotification
+object:nil];
 {%endcodeblock%}
 {%codeblock lang:swift%}
 //字体变化通知:调用preferredContentSizeChanged:方法
-NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
 {%endcodeblock%}
-2. 添加系统通知响应事件
+添加系统通知响应事件
 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法
 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法：
 {%codeblock lang:objc%}
-- (void)preferredContentSizeChanged:(NSNotification *)notification
+
+
+(void)preferredContentSizeChanged:(NSNotification *)notification
 {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 {%endcodeblock%}
 {%codeblock lang:swift %}
 //字体变化通知时调用
-func preferredContentSizeChanged( notification:NSNotification)
+func preferredContentSizeChanged(_ notification:NSNotification)
 {
-    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 }
 {%endcodeblock%}
-这一方法作用是根据新的字体设置来设定textView中的字体。
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。" />
+这一方法作用是根据新的字体设置来设定textView中的字体。 
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
+<meta property="og:url" content="https://it-boyer.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
 <meta property="article:published_time" content="2014-07-03T17:29:00+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:modified_time" content="2014-07-03T17:29:00+08:00" />
 <meta itemprop="name" content="TextKit之便笺实战">
 <meta itemprop="description" content="便笺练习功能点:
-
 通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
-  * 动态样式（Dynamic type）
-  * 凸版印刷效果（Letterpress effects）
-  * 环绕路径（Exclusion paths）
-  * 动态文本格式及存储（Dynamic text formatting and storage）
+
+动态样式（Dynamic type）
+凸版印刷效果（Letterpress effects）
+环绕路径（Exclusion paths）
+动态文本格式及存储（Dynamic text formatting and storage）
 
 这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
 效果图:
 
 App开始运行后自动生成一组便笺实例并利用tableViewController显示出来。Storyboards和segues会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：Notepad.zip
-
 动态样式
-
 动态样式（Dynamic type）是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
-
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
 例如UIFont新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
-
 使用系统动态字体样式
-
 使用动态文本，是通过给文本字体设置字体样式style而不是指定具体的字体名称和大小。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。
-
 preferredFontForTextStyle:方法设置字体样式
-
 
 打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -204,11 +188,11 @@ cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
 cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 {% endcodeblock %}
 上面两行代码都用到了新版iOS的字体样式.
-&gt; 字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
+
+字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
 APP响应用户字体设置
-
 
 设置系统字体
 返回到通用-&gt;文字大小重新修改字体设置.
@@ -217,84 +201,76 @@ APP响应用户字体设置
 设置系统字体生效
 当我们返回到通用-&gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。
 
-
 监听系统通知：实现APP响应用户字体设置
-
 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
-1. 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
+
+添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码：
 {%codeblock lang:objc%}
 [[NSNotificationCenter defaultCenter]
-                              addObserver:self
-                                 selector:@selector(preferredContentSizeChanged:)
-                                     name:UIContentSizeCategoryDidChangeNotification
-                                   object:nil];
+addObserver:self
+selector:@selector(preferredContentSizeChanged:)
+name:UIContentSizeCategoryDidChangeNotification
+object:nil];
 {%endcodeblock%}
 {%codeblock lang:swift%}
 //字体变化通知:调用preferredContentSizeChanged:方法
-NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
 {%endcodeblock%}
-2. 添加系统通知响应事件
+添加系统通知响应事件
 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法
 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法：
 {%codeblock lang:objc%}
-- (void)preferredContentSizeChanged:(NSNotification *)notification
+
+
+(void)preferredContentSizeChanged:(NSNotification *)notification
 {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 {%endcodeblock%}
 {%codeblock lang:swift %}
 //字体变化通知时调用
-func preferredContentSizeChanged( notification:NSNotification)
+func preferredContentSizeChanged(_ notification:NSNotification)
 {
-    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 }
 {%endcodeblock%}
-这一方法作用是根据新的字体设置来设定textView中的字体。
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。">
-
-
+这一方法作用是根据新的字体设置来设定textView中的字体。 
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
+">
 <meta itemprop="datePublished" content="2014-07-03T17:29:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="9505">
+<meta itemprop="dateModified" content="2014-07-03T17:29:00&#43;08:00" />
+<meta itemprop="wordCount" content="9467">
 
 
 
-<meta itemprop="keywords" content="TextKit,案例," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="TextKit,案例," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="TextKit之便笺实战"/>
 <meta name="twitter:description" content="便笺练习功能点:
-
 通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
-  * 动态样式（Dynamic type）
-  * 凸版印刷效果（Letterpress effects）
-  * 环绕路径（Exclusion paths）
-  * 动态文本格式及存储（Dynamic text formatting and storage）
+
+动态样式（Dynamic type）
+凸版印刷效果（Letterpress effects）
+环绕路径（Exclusion paths）
+动态文本格式及存储（Dynamic text formatting and storage）
 
 这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
 效果图:
 
 App开始运行后自动生成一组便笺实例并利用tableViewController显示出来。Storyboards和segues会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：Notepad.zip
-
 动态样式
-
 动态样式（Dynamic type）是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
-
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
 例如UIFont新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
-
 使用系统动态字体样式
-
 使用动态文本，是通过给文本字体设置字体样式style而不是指定具体的字体名称和大小。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。
-
 preferredFontForTextStyle:方法设置字体样式
-
 
 打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -311,11 +287,11 @@ cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
 cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 {% endcodeblock %}
 上面两行代码都用到了新版iOS的字体样式.
-&gt; 字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
+
+字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
 
 APP响应用户字体设置
-
 
 设置系统字体
 返回到通用-&gt;文字大小重新修改字体设置.
@@ -324,41 +300,43 @@ APP响应用户字体设置
 设置系统字体生效
 当我们返回到通用-&gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。
 
-
 监听系统通知：实现APP响应用户字体设置
-
 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
-1. 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
+
+添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化
 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码：
 {%codeblock lang:objc%}
 [[NSNotificationCenter defaultCenter]
-                              addObserver:self
-                                 selector:@selector(preferredContentSizeChanged:)
-                                     name:UIContentSizeCategoryDidChangeNotification
-                                   object:nil];
+addObserver:self
+selector:@selector(preferredContentSizeChanged:)
+name:UIContentSizeCategoryDidChangeNotification
+object:nil];
 {%endcodeblock%}
 {%codeblock lang:swift%}
 //字体变化通知:调用preferredContentSizeChanged:方法
-NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
 {%endcodeblock%}
-2. 添加系统通知响应事件
+添加系统通知响应事件
 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法
 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法：
 {%codeblock lang:objc%}
-- (void)preferredContentSizeChanged:(NSNotification *)notification
+
+
+(void)preferredContentSizeChanged:(NSNotification *)notification
 {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 {%endcodeblock%}
 {%codeblock lang:swift %}
 //字体变化通知时调用
-func preferredContentSizeChanged( notification:NSNotification)
+func preferredContentSizeChanged(_ notification:NSNotification)
 {
-    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 }
 {%endcodeblock%}
-这一方法作用是根据新的字体设置来设定textView中的字体。
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。"/>
+这一方法作用是根据新的字体设置来设定textView中的字体。 
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -473,7 +451,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E6%8E%A7%E4%BB%B6/"> 控件 </a>
             </div>
-          <span class="more-meta"> 约 9505 字 </span>
+          <span class="more-meta"> 约 9467 字 </span>
           <span class="more-meta"> 预计阅读 19 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -483,98 +461,55 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#便笺练习功能点">便笺练习功能点:</a></li>
-<li><a href="#动态样式">动态样式</a>
-<ul>
-<li><a href="#使用系统动态字体样式">使用系统动态字体样式</a>
-<ul>
-<li><a href="#preferredfontfortextstyle-方法设置字体样式"><code>preferredFontForTextStyle:</code>方法设置字体样式</a></li>
-<li><a href="#app响应用户字体设置">APP响应用户字体设置</a>
-<ul>
-<li><a href="#监听系统通知-实现app响应用户字体设置">监听系统通知：实现APP响应用户字体设置</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#更新布局">更新布局</a></li>
-<li><a href="#凸版印刷效果-letterpress-effects">凸版印刷效果（Letterpress effects）</a></li>
-<li><a href="#环绕路径-exclusion-paths">环绕路径（Exclusion paths）</a>
-<ul>
-<li><a href="#添加视图">添加视图</a></li>
-<li><a href="#设置视图位置及自动适应布局-viewdidlayoutsubviews">设置视图位置及自动适应布局：<code>viewDidLayoutSubviews</code></a></li>
-<li><a href="#响应系统偏好设置字体样式">响应系统偏好设置字体样式</a></li>
-</ul></li>
-<li><a href="#文本环绕视图">文本环绕视图</a>
-<ul>
-<li><a href="#curvepathwithorigin-创建文本容器的赛尔路径">curvePathWithOrigin:创建文本容器的赛尔路径</a></li>
-<li><a href="#设置文本容器的环绕路径-exclusionpaths">设置文本容器的环绕路径：exclusionPaths</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#动态文本格式及存储-dynamic-text-formatting-and-storage">动态文本格式及存储（Dynamic text formatting and storage）</a>
-<ul>
-<li><a href="#text-kit文本系统工作机制">Text Kit文本系统工作机制</a></li>
-<li><a href="#nstextstorage-文本存储器动态添加文本属性"><code>NSTextStorage</code>文本存储器动态添加文本属性</a>
-<ul>
-<li><a href="#创建文本存储器nstextstorage子类">创建文本存储器NSTextStorage子类</a></li>
-<li><a href="#重载文本存储器的数据持久化层方法">重载文本存储器的数据持久化层方法</a></li>
-<li><a href="#重载编辑文本时通知布局管理器的方法">重载编辑文本时通知布局管理器的方法</a></li>
-<li><a href="#类族介绍">类族介绍</a></li>
-</ul></li>
-<li><a href="#创建uitextview使用自定义text-kit堆栈">创建UITextView使用自定义Text Kit堆栈</a>
-<ul>
-<li><a href="#storyboard创建uitextview时-text-kit组件只读问题">storyboard创建UITextView时，Text Kit组件只读问题</a></li>
-<li><a href="#在uitextview中使用自定义的syntaxhighlighttextstorage">在UITextView中使用自定义的SyntaxHighlightTextStorage</a>
-<ul>
-<li><a href="#清理ib相关设置">清理IB相关设置</a></li>
-<li><a href="#手动创建-uitextview-和text-kit堆栈">手动创建<code>UITextView</code>和Text Kit堆栈</a></li>
-<li><a href="#创建-text-kit-堆栈">创建<code>Text Kit</code>堆栈</a></li>
-<li><a href="#自定义视图实现在-storyboard-中自动布局约束的效果">自定义视图实现在<code>storyboard</code>中自动布局约束的效果</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#通过正则修改文本存储器的动态格式-dynamic-formatting">通过正则修改文本存储器的动态格式（Dynamic formatting）</a>
-<ul>
-<li><a href="#processediting-将文本的变化通知给布局管理器"><code>processEditing</code>：将文本的变化通知给布局管理器</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">便笺练习功能点:</a></li>
+    <li><a href="#heading-1">动态样式</a>
+      <ul>
+        <li><a href="#heading-2">使用系统动态字体样式</a></li>
+        <li><a href="#heading-3">更新布局</a></li>
+        <li><a href="#letterpress-effects">凸版印刷效果（Letterpress effects）</a></li>
+        <li><a href="#exclusion-paths">环绕路径（Exclusion paths）</a></li>
+        <li><a href="#heading-6">文本环绕视图</a></li>
+      </ul>
+    </li>
+    <li><a href="#dynamic-text-formatting-and-storage">动态文本格式及存储（Dynamic text formatting and storage）</a>
+      <ul>
+        <li><a href="#text-kit">Text Kit文本系统工作机制</a></li>
+        <li><a href="#nstextstorage">NSTextStorage文本存储器动态添加文本属性</a></li>
+        <li><a href="#uitextviewtext-kit">创建UITextView使用自定义Text Kit堆栈</a></li>
+        <li><a href="#dynamic-formatting">通过正则修改文本存储器的动态格式（Dynamic formatting）</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="便笺练习功能点">便笺练习功能点:</h2>
-
-<p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
-  * 动态样式（Dynamic type）<br />
-  * 凸版印刷效果（Letterpress effects）<br />
-  * 环绕路径（Exclusion paths）<br />
-  * 动态文本格式及存储（Dynamic text formatting and storage）</p>
-
+      <h2 id="heading">便笺练习功能点:</h2>
+<p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。</p>
+<ul>
+<li>动态样式（Dynamic type）</li>
+<li>凸版印刷效果（Letterpress effects）</li>
+<li>环绕路径（Exclusion paths）</li>
+<li>动态文本格式及存储（Dynamic text formatting and storage）</li>
+</ul>
 <p>这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
-效果图:<br />
-<img src="/images/bianqian.png" alt="image" /><br />
+效果图:<br>
+<img src="/images/bianqian.png" alt="image"><br>
 App开始运行后自动生成一组便笺实例并利用<code>tableViewController</code>显示出来。<code>Storyboards</code>和<code>segues</code>会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：<a href="http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip">Notepad.zip</a></p>
-
-<h2 id="动态样式">动态样式</h2>
-
+<h2 id="heading-1">动态样式</h2>
 <p><code>动态样式（Dynamic type）</code>是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 <strong>通用-&gt;文字大小</strong> 或 <strong>通用-&gt;辅助功能</strong> 来查看app中的字体设置。</p>
-
-<p><img src="/images/UserTextPreferences.png" alt="image" /><br />
+<p><img src="/images/UserTextPreferences.png" alt="image"><br>
 iOS 7 支持通过<code>粗体</code>、<code>设置字体大小</code>等方式提高支持动态文本的应用的易读性。
-例如<strong><code>UIFont</code></strong>新增的一个方法： <strong><code>preferredFontForTextStyle</code></strong> 用来根据用户对字体大小的设置来自动制定字体样式。<br />
-下面表格中是六种可用字体样式的示例：<br />
-<img src="/images/TextStyles.png" alt="image" /><br />
+例如<strong><code>UIFont</code></strong>新增的一个方法： <strong><code>preferredFontForTextStyle</code></strong> 用来根据用户对字体大小的设置来自动制定字体样式。<br>
+下面表格中是六种可用字体样式的示例：<br>
+<img src="/images/TextStyles.png" alt="image"><br>
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。</p>
-
-<h3 id="使用系统动态字体样式">使用系统动态字体样式</h3>
-
+<h3 id="heading-2">使用系统动态字体样式</h3>
 <p>使用动态文本，是通过给<code>文本字体</code>设置字体样式<strong>style</strong>而不是指定具体的<code>字体名称</code>和<code>大小</code>。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。</p>
-
-<h4 id="preferredfontfortextstyle-方法设置字体样式"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
-
+<h4 id="preferredfontfortextstyle"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
 <ol>
 <li>打开 <code>NoteEditorViewController.m/swift</code> 在<code>viewDidLoad：</code>方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -590,103 +525,101 @@ cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]
 {% codeblock  lang:swift %}
 cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 {% endcodeblock %}
-上面两行代码都用到了新版iOS的字体样式.<br />
-&gt; 字体样式：通过语义法命名字体，例如 <code>UIFontTextStyleSubHeadline</code>, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。</li>
+上面两行代码都用到了新版iOS的字体样式.</li>
 </ol>
-
-<h4 id="app响应用户字体设置">APP响应用户字体设置</h4>
-
+<blockquote>
+<p>字体样式：通过语义法命名字体，例如 <code>UIFontTextStyleSubHeadline</code>, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。</p>
+</blockquote>
+<h4 id="app">APP响应用户字体设置</h4>
 <ol>
 <li>设置系统字体
 返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置.
-再运行App, <strong>Note</strong>页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。<br />
-<img src="/images/NotepadWithDynamicType.png" alt="image" /></li>
+再运行App, <strong>Note</strong>页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。<br>
+<img src="/images/NotepadWithDynamicType.png" alt="image"></li>
 <li>设置系统字体生效
 当我们返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置. 再打开<strong>Note</strong>页面, 会发现app并没有<strong>立即</strong>对字体设置的变化做出相应反应。</li>
 </ol>
-
-<h5 id="监听系统通知-实现app响应用户字体设置">监听系统通知：实现APP响应用户字体设置</h5>
-
-<p>当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，<code>preferredFontForTextStyle:</code>方法返回的字体也会变化。
-1. 添加监听系统通知<code>UIContentSizeCategoryDidChangeNotification</code>通知APP响应用户字体设置的变化
+<h5 id="app-1">监听系统通知：实现APP响应用户字体设置</h5>
+<p>当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，<code>preferredFontForTextStyle:</code>方法返回的字体也会变化。</p>
+<ol>
+<li>添加监听系统通知<code>UIContentSizeCategoryDidChangeNotification</code>通知APP响应用户字体设置的变化
 打开 <code>NoteEditorViewController.m</code> 并在 <code>viewDidLoad</code> 方法的实现的最后加入以下代码：
 {%codeblock lang:objc%}
 [[NSNotificationCenter defaultCenter]
-                              addObserver:self
-                                 selector:@selector(preferredContentSizeChanged:)
-                                     name:UIContentSizeCategoryDidChangeNotification
-                                   object:nil];
+addObserver:self
+selector:@selector(preferredContentSizeChanged:)
+name:UIContentSizeCategoryDidChangeNotification
+object:nil];
 {%endcodeblock%}
 {%codeblock lang:swift%}
 //字体变化通知:调用preferredContentSizeChanged:方法
-NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(<em>:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
-{%endcodeblock%}
-2. 添加系统通知响应事件
+NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+{%endcodeblock%}</li>
+<li>添加系统通知响应事件
 收到用于指定本类接收字体设定变化的通知后，调用<code>preferredContentSizeChanged:</code>方法
 在<code>NoteEditorViewController.m</code>中<code>viewDidLoad</code>方法之后紧接着添加以下方法：
-{%codeblock lang:objc%}
-- (void)preferredContentSizeChanged:(NSNotification *)notification
+{%codeblock lang:objc%}</li>
+</ol>
+<ul>
+<li>(void)preferredContentSizeChanged:(NSNotification *)notification
 {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 {%endcodeblock%}
 {%codeblock lang:swift %}
 //字体变化通知时调用
-func preferredContentSizeChanged(</em> notification:NSNotification)
+func preferredContentSizeChanged(_ notification:NSNotification)
 {
-    self.textView.font = UIFont.preferredFont(forTextStyle: .body)
+self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 }
 {%endcodeblock%}
-这一方法作用是根据新的字体设置来设定<code>textView</code>中的字体。<br />
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。</p>
-
-<h3 id="更新布局">更新布局</h3>
-
-<p>现在，如果你把字体设置到很小，那每个单元格的空白区域是不是太多了，看上去文字比较稀疏，如下面所示：<br />
-  <img src="/images/ChangingLayout.png" alt="image" /></p>
-
-<p>这是<strong>动态样式</strong>有点小复杂的部分：要保证App在字体大小变化后，同时也修改文字表格的行高。<br />
+这一方法作用是根据新的字体设置来设定<code>textView</code>中的字体。 <br>
+Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。</li>
+</ul>
+<h3 id="heading-3">更新布局</h3>
+<p>现在，如果你把字体设置到很小，那每个单元格的空白区域是不是太多了，看上去文字比较稀疏，如下面所示：<br>
+<img src="/images/ChangingLayout.png" alt="image"></p>
+<p>这是<strong>动态样式</strong>有点小复杂的部分：要保证App在字体大小变化后，同时也修改文字表格的行高。<br>
 在<code>NotesListViewController.m</code>中实现<code>tableView:heightForRowAtIndexPath:</code> 代理方法:
-{%codeblock lang:objc%}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath <em>)indexPath {
-    static UILabel</em> label;
-    if (!label) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FLT_MAX, FLT<em>MAX)];
-        label.text = @&ldquo;test&rdquo;;
-    }
-    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    [label sizeToFit];  //自适应文本内容大小
-    return label.frame.size.height * 1.7;
+{%codeblock lang:objc%}</p>
+<ul>
+<li>(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath <em>)indexPath {
+static UILabel</em> label;
+if (!label) {
+label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FLT_MAX, FLT_MAX)];
+label.text = @&ldquo;test&rdquo;;
+}
+label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+[label sizeToFit];  //自适应文本内容大小
+return label.frame.size.height * 1.7;
 }
 {%endcodeblock%}
 {% codeblock lang:swift %}
-override func tableView(</em> tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat
+override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat
 {
-    let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: FLT_MAX, height: FLT_MAX))
-    label.text = &ldquo;test&rdquo;
-    let font = UIFont.preferredFont(forTextStyle: .headline)
-    label.font = font
-    label.sizeToFit()
-    return label.frame.size.height * 1.7
+let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: FLT_MAX, height: FLT_MAX))
+label.text = &ldquo;test&rdquo;
+let font = UIFont.preferredFont(forTextStyle: .headline)
+label.font = font
+label.sizeToFit()
+return label.frame.size.height * 1.7
 }
-{% endcodeblock %}</p>
-
-<p>以上代码创建了一个共享的——或者说静态的——<strong>UILabel</strong>实例，设定它的字体和表中单元格内文本字体一致。然后调用它的<code>sizeToFit</code>方法，使这个<code>label</code>的<code>frame</code>恰好能放得下它的内容文字, 然后把这个<code>label</code>的高度乘个<code>1.7</code>作为表内单元格高度。<br />
-Build并运行app，修改字体大小设置，行高也会随着字体大小的变化而变化。 如下图所示：<br />
-<img src="/images/TableViewAdaptsHeights.png" alt="image" /></p>
-
-<h3 id="凸版印刷效果-letterpress-effects">凸版印刷效果（Letterpress effects）</h3>
-
-<p>凸版印刷效果（Letterpress effects）给文字加上精致的阴影和高光是文字看上去有一定立体感——就好像轻轻嵌入屏幕里一样。<br />
-&gt; <font size=3>注: 使用“凸版印刷（letterpress）”这一印刷术语是向早期印刷业的致敬。所谓凸版印刷，就是将涂上油墨的图文凸版嵌在印版上，然后在纸面上按压就把图文凸版上的油墨转移到纸面上了——纸面受力在文字边缘形成好看的突起。现在这一工艺已广泛被数码打印所取代。</font></p>
-
-<p>打开NotesListViewController.m 将<code>tableView:cellForRowAtIndexPath:</code>方法中的代码用以下代码替换:<br />
+{% endcodeblock %}</li>
+</ul>
+<p>以上代码创建了一个共享的——或者说静态的——<strong>UILabel</strong>实例，设定它的字体和表中单元格内文本字体一致。然后调用它的<code>sizeToFit</code>方法，使这个<code>label</code>的<code>frame</code>恰好能放得下它的内容文字, 然后把这个<code>label</code>的高度乘个<code>1.7</code>作为表内单元格高度。<br>
+Build并运行app，修改字体大小设置，行高也会随着字体大小的变化而变化。 如下图所示：<br>
+<img src="/images/TableViewAdaptsHeights.png" alt="image"></p>
+<h3 id="letterpress-effects">凸版印刷效果（Letterpress effects）</h3>
+<p>凸版印刷效果（Letterpress effects）给文字加上精致的阴影和高光是文字看上去有一定立体感——就好像轻轻嵌入屏幕里一样。</p>
+<blockquote>
+<p><!-- raw HTML omitted -->注: 使用“凸版印刷（letterpress）”这一印刷术语是向早期印刷业的致敬。所谓凸版印刷，就是将涂上油墨的图文凸版嵌在印版上，然后在纸面上按压就把图文凸版上的油墨转移到纸面上了——纸面受力在文字边缘形成好看的突起。现在这一工艺已广泛被数码打印所取代。<!-- raw HTML omitted --></p>
+</blockquote>
+<p>打开NotesListViewController.m 将<code>tableView:cellForRowAtIndexPath: </code>方法中的代码用以下代码替换:<br>
 {%codeblock lang:objc%}
-    static NSString *CellIdentifier = @&ldquo;Cell&rdquo;;
-    UITableViewCell <em>cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
-    Note</em> note = [self notes][indexPath.row];</p>
-
+static NSString *CellIdentifier = @&ldquo;Cell&rdquo;;
+UITableViewCell <em>cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+forIndexPath:indexPath];
+Note</em> note = [self notes][indexPath.row];</p>
 <pre><code>UIFont* font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
 
 UIColor* textColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
@@ -701,48 +634,42 @@ NSAttributedString* attrString = [[NSAttributedString alloc]
 cell.textLabel.attributedText = attrString;
 return cell;
 </code></pre>
-
 <p>{%endcodeblock%}
 {% codeblock lang:swift %}
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell
-{<br />
-    let cell = tableView.dequeueReusableCell(withIdentifier: &ldquo;noteListCell&rdquo;, for: indexPath)
-    // Configure the cell&hellip;
-    let note = notes[indexPath.row] as! NoteModel
-    //cell.textLabel?.text = note.title
-    let font = UIFont.preferredFont(forTextStyle: .headline)
-    let textColor = UIColor.init(red: 0.175, green: 0.458, blue: 0.831, alpha: 1.0)
-    //字体凸版印刷效果
-    let store:[String:Any] = [NSForegroundColorAttributeName:textColor,
-    NSFontAttributeName:font,
-    NSTextEffectAttributeName:NSTextEffectLetterpressStyle]
-    cell.textLabel?.attributedText = NSAttributedString.init(string: note.title, attributes: store)
-    return cell
+{ <br>
+let cell = tableView.dequeueReusableCell(withIdentifier: &ldquo;noteListCell&rdquo;, for: indexPath)
+// Configure the cell&hellip;
+let note = notes[indexPath.row] as! NoteModel
+//cell.textLabel?.text = note.title
+let font = UIFont.preferredFont(forTextStyle: .headline)
+let textColor = UIColor.init(red: 0.175, green: 0.458, blue: 0.831, alpha: 1.0)
+//字体凸版印刷效果
+let store:[String:Any] = [NSForegroundColorAttributeName:textColor,
+NSFontAttributeName:font,
+NSTextEffectAttributeName:NSTextEffectLetterpressStyle]
+cell.textLabel?.attributedText = NSAttributedString.init(string: note.title, attributes: store)
+return cell
 }
 {% endcodeblock %}</p>
-
-<p>上面的代码为单元格的标题创建了一个使用了凸版印刷效果的<strong><code>NSAttributedString</code></strong>。  <p>
-Build并运行app， 表格将显示凸版印刷效果，如下图所示：<br />
-<img src="/images/Letterpress.png" alt="image" /><br />
+<p>上面的代码为单元格的标题创建了一个使用了凸版印刷效果的<strong><code>NSAttributedString</code></strong>。  <!-- raw HTML omitted -->
+Build并运行app， 表格将显示凸版印刷效果，如下图所示：<br>
+<img src="/images/Letterpress.png" alt="image"><br>
 凸版印刷效果是很精巧——但是并不表示你可以随意过度使用它。视觉特效能让文字看上去更有趣，但并不表示一定能让你的文字更清晰易读。</p>
-
-<h3 id="环绕路径-exclusion-paths">环绕路径（Exclusion paths）</h3>
-
+<h3 id="exclusion-paths">环绕路径（Exclusion paths）</h3>
 <p>文字环绕图片或其它内容分布是大多数文字处理软件的标准特性之一。<code>Text Kit</code>允许你通过环绕路径（<code>exclusion paths</code>）将文字按照复杂路径和形状分布。</p>
-
-<p>在便笺右上角添加一个曲线形视图，告知用户便笺创建的日期：<br />
-* 首先添加一个视图<br />
-* 创建一个环绕路径，使文字按照这个路径分布。</p>
-
-<h4 id="添加视图">添加视图</h4>
-
+<p>在便笺右上角添加一个曲线形视图，告知用户便笺创建的日期：</p>
+<ul>
+<li>首先添加一个视图</li>
+<li>创建一个环绕路径，使文字按照这个路径分布。</li>
+</ul>
+<h4 id="heading-4">添加视图</h4>
 <p>打开 <code>NoteEditorViewController.m</code> 在顶部的<code>imports</code>和接口实现中添加变量加入以下代码：
 {%codeblock lang:objc%}
 #import &ldquo;TimeIndicatorView.h&rdquo;</p>
-
 <p>@implementation NoteEditorViewController
 {
-    TimeIndicatorView* _timeView;
+TimeIndicatorView* _timeView;
 }
 {%endcodeblock%}
 实例化这个用以显示文本创建日期的视图实例，并把它作为一个子视图添加进去
@@ -751,284 +678,256 @@ Build并运行app， 表格将显示凸版印刷效果，如下图所示：<br /
 _timeView = [[TimeIndicatorView alloc] initWithDate:_note.timestamp];
 [self.view addSubview:_timeView];
 {%endcodeblock%}</p>
-
-<h4 id="设置视图位置及自动适应布局-viewdidlayoutsubviews">设置视图位置及自动适应布局：<code>viewDidLayoutSubviews</code></h4>
-
-<p>当<strong>NoteEditor</strong>视图的控件调用系统方法<code>viewDidLayoutSubviews</code>方法，对子视图进行布局时，<code>TimeIndicatorView</code>作为子控件也需要有相应的变化。<br />
-在控件接收到文本内容的尺寸发生了变化的时候调用<code>updateTimeIndicatorFrame</code>：
-1. 第一调用<code>updateSize</code>来设定<code>_timeView</code>的尺寸<br />
-2. 第二将<code>_timeView</code>放在右上角<br />
+<h4 id="viewdidlayoutsubviews">设置视图位置及自动适应布局：<code>viewDidLayoutSubviews</code></h4>
+<p>当<strong>NoteEditor</strong>视图的控件调用系统方法<code>viewDidLayoutSubviews</code>方法，对子视图进行布局时，<code>TimeIndicatorView</code>作为子控件也需要有相应的变化。<br>
+在控件接收到文本内容的尺寸发生了变化的时候调用<code>updateTimeIndicatorFrame</code>：</p>
+<ol>
+<li>第一调用<code>updateSize</code>来设定<code>_timeView</code>的尺寸</li>
+<li>第二将<code>_timeView</code>放在右上角<br>
 在NoteEditorViewController.m 的最后添加如下代码：
-{%codeblock objc lang:objc%}
-- (void)viewDidLayoutSubviews
+{%codeblock objc lang:objc%}</li>
+</ol>
+<ul>
+<li>(void)viewDidLayoutSubviews
 {
-    [self updateTimeIndicatorFrame];
-}
-- (void)updateTimeIndicatorFrame
+[self updateTimeIndicatorFrame];
+}</li>
+<li>(void)updateTimeIndicatorFrame
 {
-    [_timeView updateSize];
-    _timeView.frame = CGRectOffset(_timeView.frame,
-                          self.view.frame.size.width - _timeView.frame.size.width, 0.0);
+[_timeView updateSize];
+_timeView.frame = CGRectOffset(_timeView.frame,
+self.view.frame.size.width - _timeView.frame.size.width, 0.0);
 }
 {%endcodeblock%}
 {% codeblock swift lang:swift %}
 //视图的控件调用viewDidLayoutSubviews对子视图进行布局时，TimeIndicatorView作为子控件也需要有相应的变化。
 override func viewDidLayoutSubviews()
 {
-    updateTimeIndicatorFrame()
-}</p>
-
+updateTimeIndicatorFrame()
+}</li>
+</ul>
 <p>func updateTimeIndicatorFrame()
 {
-    //第一调用updateSize来设定_timeView的尺寸
-    timeIndicatorView.updateSize()
-    //通过偏移frame参数，将timeIndicatorView放在右上角
-    timeIndicatorView.frame = timeIndicatorView.frame.offsetBy(dx: ibTextView.frame.width - timeIndicatorView.frame.width,
-                                                               dy: 0.0)
+//第一调用updateSize来设定_timeView的尺寸
+timeIndicatorView.updateSize()
+//通过偏移frame参数，将timeIndicatorView放在右上角
+timeIndicatorView.frame = timeIndicatorView.frame.offsetBy(dx: ibTextView.frame.width - timeIndicatorView.frame.width,
+dy: 0.0)
 }
 {% endcodeblock %}</p>
-
-<h4 id="响应系统偏好设置字体样式">响应系统偏好设置字体样式</h4>
-
+<h4 id="heading-5">响应系统偏好设置字体样式</h4>
 <p>修改<code>NoteEditorViewController.m</code>中<code>preferredContentSizeChanged:</code>方法如下：
-{%codeblock lang:objc%}
-- (void)preferredContentSizeChanged:(NSNotification *)n
+{%codeblock lang:objc%}</p>
+<ul>
+<li>(void)preferredContentSizeChanged:(NSNotification *)n
 {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    [self updateTimeIndicatorFrame];
+self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+[self updateTimeIndicatorFrame];
 }
 {%endcodeblock%}
-Build并运行app，点击选择一个便笺，日期显示视图将出现在右上角，如下图所示：<br />
-<img src="/images/TimIndicator.png" alt="修改设备中文本大小设置，这个视图也将自动调整到相应的合适尺寸" /></p>
-
-<h3 id="文本环绕视图">文本环绕视图</h3>
-
+Build并运行app，点击选择一个便笺，日期显示视图将出现在右上角，如下图所示：<br>
+<img src="/images/TimIndicator.png" alt="修改设备中文本大小设置，这个视图也将自动调整到相应的合适尺寸"></li>
+</ul>
+<h3 id="heading-6">文本环绕视图</h3>
 <ol>
 <li>根据日期视图<code>_timeView</code>创建基于贝赛尔路径的环绕路径</li>
 <li>设置文本容器的环绕路径：使用文本容器的exclusionPaths属性指定。它是一个UIBezierPath数组类型。</li>
 </ol>
-
-<h4 id="curvepathwithorigin-创建文本容器的赛尔路径">curvePathWithOrigin:创建文本容器的赛尔路径</h4>
-
+<h4 id="curvepathwithorigin">curvePathWithOrigin:创建文本容器的赛尔路径</h4>
 <p>根据日期视图<code>_timeView</code>创建基于贝赛尔路径的环绕路径
 添加<code>curvePathWithOrigin:</code>方法，定义文本遵循的环绕路径：
-{%codeblock objc lang:objc%}
-- (UIBezierPath *)curvePathWithOrigin:(CGPoint)origin
+{%codeblock objc lang:objc%}</p>
+<ul>
+<li>(UIBezierPath *)curvePathWithOrigin:(CGPoint)origin
 {
-    return [UIBezierPath bezierPathWithArcCenter:origin
-                                          radius: [self radiusToSurroundFrame:_label.frame]
-                                      startAngle: -180.0f
-                                        endAngle: 180.0f
-                                       clockwise: YES];
+return [UIBezierPath bezierPathWithArcCenter:origin
+radius: [self radiusToSurroundFrame:_label.frame]
+startAngle: -180.0f
+endAngle: 180.0f
+clockwise: YES];
 }
 {%endcodeblock%}
 {% codeblock swift lang:swift %}
 func curvePathWithOrigin(origin:CGPoint)-&gt;UIBezierPath
 {
-    //画弧形
-    let path = UIBezierPath.init(arcCenter: origin,
-    radius: radiusToSurroundFrame(frame: timeLabel.frame),
-                             startAngle: -180,                //-180.0
-                               endAngle: 180.0,               //CGFloat(M_PI * 2),   //180.0
-                              clockwise: true)
-    //        UIColor.blueColor().set()
-    //        path.fill()
-    //        UIColor.blueColor().set()
-    return path
-}</p>
-
+//画弧形
+let path = UIBezierPath.init(arcCenter: origin,
+radius: radiusToSurroundFrame(frame: timeLabel.frame),
+startAngle: -180,                //-180.0
+endAngle: 180.0,               //CGFloat(M_PI * 2),   //180.0
+clockwise: true)
+//        UIColor.blueColor().set()
+//        path.fill()
+//        UIColor.blueColor().set()
+return path
+}</li>
+</ul>
 <p>{% endcodeblock %}</p>
-
-<h4 id="设置文本容器的环绕路径-exclusionpaths">设置文本容器的环绕路径：exclusionPaths</h4>
-
+<h4 id="exclusionpaths">设置文本容器的环绕路径：exclusionPaths</h4>
 <p><code>exclusionPaths</code>是<code>NSArray</code>类型，因此一个文本容器是可以支持多个环绕路径，文本<strong>环绕路径</strong>发生改变后会通知文本管理器，然后<strong>环绕路径</strong>的变化就可以动态地，甚至是动画式地体现到文本上！
 在<code>updateTimeIndicatorFrame</code>方法实现的最后面添加如下代码：
 {%codeblock objc lang:objc%}
 {
-    UIBezierPath* exclusionPath = [_timeView curvePathWithOrigin:_timeView.center];
-    _textView.textContainer.exclusionPaths  = @[exclusionPath];
+UIBezierPath* exclusionPath = [_timeView curvePathWithOrigin:_timeView.center];
+_textView.textContainer.exclusionPaths  = @[exclusionPath];
 }
 {%endcodeblock%}
 {%codeblock swift lang:swift %}
 {
-    let exclusionPath = timeIndicatorView.curvePathWithOrigin(origin: timeIndicatorView.center)
-    ibTextView.textContainer.exclusionPaths = [exclusionPath]
+let exclusionPath = timeIndicatorView.curvePathWithOrigin(origin: timeIndicatorView.center)
+ibTextView.textContainer.exclusionPaths = [exclusionPath]
 }
 {%endcodeblock%}
-Build并运行app，选择一个便笺项，如下图所示：<br />
-<img src="/images/ExclusionPath.png" alt="实现文本环绕效果" /></p>
-
-<h2 id="动态文本格式及存储-dynamic-text-formatting-and-storage">动态文本格式及存储（Dynamic text formatting and storage）</h2>
-
-<p>你已经看到了<code>Text Kit</code>可以根据用户设置的字体大小动态地调整字体。但是如果字体也可以根据实际的文字本身来进行动态更新是不是会更酷呢？<br />
-实现类似markdown语法的效果：<br />
-* 把波浪线(~)之间的文本变为艺术字体<br />
-* 把下划线(_)之间的文本变为斜体<br />
-* 为破折号(-)之间的文本添加删除线<br />
-* 把字母全部大写的单词变为红色<br />
-<img src="/images/DynamicTextExample.png" alt="利用Text Kit framework来实现的效果" /></p>
-
-<h3 id="text-kit文本系统工作机制">Text Kit文本系统工作机制</h3>
-
-<p><code>Text Kit 堆栈</code>存储、处理以及显示文本：<br />
-<img src="/images/TextKitStack-443x320.png" alt="image" /><br />
-当你创建<code>UITextView</code>, <code>UILabel</code> or <code>UITextField</code>的时候，Apple系统自动在后台帮你创建了这些类。你可以使用这些默认的实现或者是自定义一部分，以便达到想要的效果。
-* <strong><code>NSTextStorage</code>文本存储器</strong>: 作为一个<code>NSMutableAttributedString</code>的子类，动态处理的文本可以通过<code>attributedString</code>的方式存储，并且将文本内容的任何变化都通知给布局管理器。可以自定义<code>NSTextStorage</code>的子类，当文本发生变化时，动态地对文本属性做出相应改变。<br />
-* <strong><code>NSLayoutManager</code>布局引擎</strong>: 获取存储的文本并经过修饰处理再显示在屏幕上；
-* <strong><code>NSTextContainer</code>文本容器</strong>: 描述所要处理的文本在屏幕上的位置信息。每一个文本容器都有一个关联的<code>UITextView</code>. 可以创建 <code>NSTextContainer</code>的子类来定义<strong>一个复杂的形状</strong>，然后在这个形状内处理文本。</p>
-
-<h3 id="nstextstorage-文本存储器动态添加文本属性"><code>NSTextStorage</code>文本存储器动态添加文本属性</h3>
-
+Build并运行app，选择一个便笺项，如下图所示：<br>
+<img src="/images/ExclusionPath.png" alt="实现文本环绕效果"></p>
+<h2 id="dynamic-text-formatting-and-storage">动态文本格式及存储（Dynamic text formatting and storage）</h2>
+<p>你已经看到了<code>Text Kit</code>可以根据用户设置的字体大小动态地调整字体。但是如果字体也可以根据实际的文字本身来进行动态更新是不是会更酷呢？<br>
+实现类似markdown语法的效果：</p>
+<ul>
+<li>把波浪线(~)之间的文本变为艺术字体</li>
+<li>把下划线(_)之间的文本变为斜体</li>
+<li>为破折号(-)之间的文本添加删除线</li>
+<li>把字母全部大写的单词变为红色<br>
+<img src="/images/DynamicTextExample.png" alt="利用Text Kit framework来实现的效果"></li>
+</ul>
+<h3 id="text-kit">Text Kit文本系统工作机制</h3>
+<p><code>Text Kit 堆栈</code>存储、处理以及显示文本：<br>
+<img src="/images/TextKitStack-443x320.png" alt="image"><br>
+当你创建<code>UITextView</code>, <code>UILabel</code> or <code>UITextField</code>的时候，Apple系统自动在后台帮你创建了这些类。你可以使用这些默认的实现或者是自定义一部分，以便达到想要的效果。</p>
+<ul>
+<li><strong><code>NSTextStorage</code>文本存储器</strong>: 作为一个<code>NSMutableAttributedString</code>的子类，动态处理的文本可以通过<code>attributedString</code>的方式存储，并且将文本内容的任何变化都通知给布局管理器。可以自定义<code>NSTextStorage</code>的子类，当文本发生变化时，动态地对文本属性做出相应改变。</li>
+<li><strong><code>NSLayoutManager</code>布局引擎</strong>: 获取存储的文本并经过修饰处理再显示在屏幕上；</li>
+<li><strong><code>NSTextContainer</code>文本容器</strong>: 描述所要处理的文本在屏幕上的位置信息。每一个文本容器都有一个关联的<code>UITextView</code>. 可以创建 <code>NSTextContainer</code>的子类来定义<strong>一个复杂的形状</strong>，然后在这个形状内处理文本。</li>
+</ul>
+<h3 id="nstextstorage"><code>NSTextStorage</code>文本存储器动态添加文本属性</h3>
 <ol>
 <li>需要创建一个<code>NSTextStorage</code>的子类，用以在用户输入文本的时候，动态地添加文本属性。</li>
 <li>将<code>UITextView</code>的默认文本存储器,用自定义的实现替换掉。</li>
 </ol>
-
-<h4 id="创建文本存储器nstextstorage子类">创建文本存储器NSTextStorage子类</h4>
-
+<h4 id="nstextstorage-1">创建文本存储器NSTextStorage子类</h4>
 <p>新建<strong><code>NSTextStorage</code></strong>的子类，类命名为<strong><code>SyntaxHighlightTextStorage</code></strong>
 打开<strong>SyntaxHighlightTextStorage.m</strong>并添加实例变量并初始化：
 {%codeblock lang:objc%}
 #import &ldquo;SyntaxHighlightTextStorage.h&rdquo;
 @implementation SyntaxHighlightTextStorage
 {
-    NSMutableAttributedString * _backingStore;
+NSMutableAttributedString *	_backingStore;
 }</p>
-
 <ul>
 <li>(id)init
 {
 if (self = [super init])
 {
-    _backingStore = [NSMutableAttributedString new];
+_backingStore = [NSMutableAttributedString new];
 }
 return self;
 }
 @end
 {%endcodeblock%}</li>
 </ul>
-
 <p>{% codeblock swift lang:swift %}
 class SyntaxHighlightTextStorage: NSTextStorage
 {
-    //文本存储器子类必须提供它自己的“数据持久化层”。
-    var backingStore = NSMutableAttributedString()
+//文本存储器子类必须提供它自己的“数据持久化层”。
+var backingStore = NSMutableAttributedString()
 }</p>
-
 <p>{% endcodeblock %}</p>
-
-<h4 id="重载文本存储器的数据持久化层方法">重载文本存储器的数据持久化层方法</h4>
-
+<h4 id="heading-7">重载文本存储器的数据持久化层方法</h4>
 <p>要使用<strong><code>NSMutableAttributedString</code></strong>作为“后台存储” (后面会详细讲解)，文本存储器子类必须提供它自己的“数据持久化层”：
-{%codeblock lang:objc%}
-- (NSString *)string
-{
-    return [_backingStore string];
-}</p>
-
+{%codeblock lang:objc%}</p>
 <ul>
-<li>(NSDictionary *)attributesAtIndex:(NSUInteger)location
-                 effectiveRange:(NSRangePointer)range
+<li>
+<p>(NSString *)string
+{
+return [_backingStore string];
+}</p>
+</li>
+<li>
+<p>(NSDictionary *)attributesAtIndex:(NSUInteger)location
+effectiveRange:(NSRangePointer)range
 {
 return [_backingStore attributesAtIndex:location
-                         effectiveRange:range];
+effectiveRange:range];
 }
 {%endcodeblock%}
 {% codeblock swift lang:swift %}
 override var string: String
 {
 return backingStore.string
-}</li>
+}</p>
+</li>
 </ul>
-
 <p>override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -&gt; [String : Any]
 {
-    if range == nil
-    {
-        return [:]
-    }
-    //print(&ldquo;backingStore:location(location),effectiveRange:(range!)&ldquo;)
-    return backingStore.attributes(at: location, effectiveRange: range!)
+if range == nil
+{
+return [:]
+}
+//print(&ldquo;backingStore:location(location),effectiveRange:(range!)&quot;)
+return backingStore.attributes(at: location, effectiveRange: range!)
 }</p>
-
 <p>{% endcodeblock %}
 上面两个方法直接把任务代理给了后台存储。</p>
-
-<h4 id="重载编辑文本时通知布局管理器的方法">重载编辑文本时通知布局管理器的方法</h4>
-
+<h4 id="heading-8">重载编辑文本时通知布局管理器的方法</h4>
 <p>同样的，这些方法也是把任务代理给后台存储。它们通过调用<code>beginEditing</code> / <code>edited</code> / <code>endEditing</code>这些方法来完成一些编辑任务。这样做是为了在编辑发生后让文本存储器的类通知相关的布局管理器。
 最后，还在这个文件中，重载以下方法：
-{%codeblock lang:objc%}
-- (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)str
+{%codeblock lang:objc%}</p>
+<ul>
+<li>
+<p>(void)replaceCharactersInRange:(NSRange)range withString:(NSString *)str
 {
-    NSLog(@&ldquo;replaceCharactersInRange:%@ withString:%@&ldquo;, NSStringFromRange(range), str);</p>
-
-<pre><code>[self beginEditing];
+NSLog(@&ldquo;replaceCharactersInRange:%@ withString:%@&quot;, NSStringFromRange(range), str);</p>
+<p>[self beginEditing];
 [_backingStore replaceCharactersInRange:range withString:str];
 [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes
-          range:range
- changeInLength:str.length - range.length];
+range:range
+changeInLength:str.length - range.length];
 [self endEditing];
-</code></pre>
-
-<p>}</p>
-
-<ul>
-<li><p>(void)setAttributes:(NSDictionary *)attrs range:(NSRange)range
+}</p>
+</li>
+<li>
+<p>(void)setAttributes:(NSDictionary *)attrs range:(NSRange)range
 {
-NSLog(@&ldquo;setAttributes:%@ range:%@&ldquo;, attrs, NSStringFromRange(range));</p>
-
+NSLog(@&ldquo;setAttributes:%@ range:%@&quot;, attrs, NSStringFromRange(range));</p>
 <p>[self beginEditing];
 [_backingStore setAttributes:attrs range:range];
 [self edited:NSTextStorageEditedAttributes range:range changeInLength:0];
 [self endEditing];
 }
-{%endcodeblock%}</p></li>
+{%endcodeblock%}</p>
+</li>
 </ul>
-
 <p>{% codeblock swift lang:swift %}
 override func replaceCharacters(in range: NSRange, with str: String)
 {
-    print(&ldquo;replaceCharactersInRange:(NSStringFromRange(range)) withString:(str)&ldquo;)
-    beginEditing()
-    backingStore.replaceCharacters(in: range, with: str)
-    edited([.editedAttributes,.editedCharacters], range: range, changeInLength: str.utf16.count - range.length)
-    endEditing()
+print(&ldquo;replaceCharactersInRange:(NSStringFromRange(range)) withString:(str)&quot;)
+beginEditing()
+backingStore.replaceCharacters(in: range, with: str)
+edited([.editedAttributes,.editedCharacters], range: range, changeInLength: str.utf16.count - range.length)
+endEditing()
 }</p>
-
 <p>override func setAttributes(_ attrs: [String : Any]?, range: NSRange)
 {
-    //Sets the attributes for the characters in the specified range to the specified attributes.
-    print(&ldquo;setAttributes:(attrs!) range:(NSStringFromRange(range))&ldquo;)
-    beginEditing()
-    backingStore.setAttributes(attrs!, range: range)
-    edited(.editedAttributes, range: range, changeInLength: 0)
-    endEditing()
+//Sets the attributes for the characters in the specified range to the specified attributes.
+print(&ldquo;setAttributes:(attrs!) range:(NSStringFromRange(range))&quot;)
+beginEditing()
+backingStore.setAttributes(attrs!, range: range)
+edited(.editedAttributes, range: range, changeInLength: 0)
+endEditing()
 }
 {% endcodeblock %}</p>
-
-<h4 id="类族介绍">类族介绍</h4>
-
+<h4 id="heading-9">类族介绍</h4>
 <p>类族是Apple的framework中广泛用到的一种设计模式。类族就是抽象工厂模式的实现，无需指定具体的类就可以为创建一族相关或从属的对象提供一个公共接口。一些我们很熟悉的类<code>NSArray</code>和<code>NSNumber</code>类似的就是一族类的公共接口。</p>
-
 <p>上例中<code>NSTextStorage</code>文本存储器就是一个类族的公共接口，需要大量代码来创建文本存储器的子类。在扩展功能时，通过创建子类及重载几个方法之外，有些特定需求是要自己实现的，比方<code>attributedString</code>数据的后台存储。</p>
-
-<p>Apple使用类族来封装同一个公共<code>抽象超类</code>下的私有具体子类，<code>抽象超类</code>声明了客户在创建<code>私有子类实例</code>时必须要实现的方法。客户是完全无法知道工厂正在用哪一个私有类，它只和公共接口相互协作。<br />
+<p>Apple使用类族来封装同一个公共<code>抽象超类</code>下的私有具体子类，<code>抽象超类</code>声明了客户在创建<code>私有子类实例</code>时必须要实现的方法。客户是完全无法知道工厂正在用哪一个私有类，它只和公共接口相互协作。<br>
 使用类族当然可以简化接口，使学习和使用类更加容易，但是必须要需要指出的是要在功能扩展和接口简化之间达到平衡。创建一个类族的抽象超类的定制子类也常常是非常难的。</p>
-
-<h3 id="创建uitextview使用自定义text-kit堆栈">创建UITextView使用自定义Text Kit堆栈</h3>
-
+<h3 id="uitextviewtext-kit">创建UITextView使用自定义Text Kit堆栈</h3>
 <p>现在有了一个自定义的<code>NSTextStorage</code>，还需创建一个<code>UITextView</code>来使用它。</p>
-
-<h4 id="storyboard创建uitextview时-text-kit组件只读问题">storyboard创建UITextView时，Text Kit组件只读问题</h4>
-
-<p>从<strong>storyboard</strong>编辑器实例化<code>UITextView</code>会自动创建<strong><code>NSTextStorage</code></strong>, <strong><code>NSLayoutManager</code></strong>和<strong><code>NSTextContainer</code></strong> (例如<strong>Text Kit</strong>堆栈)实例以及所有的这三个只读属性。<br />
+<h4 id="storyboarduitextviewtext-kit">storyboard创建UITextView时，Text Kit组件只读问题</h4>
+<p>从<strong>storyboard</strong>编辑器实例化<code>UITextView</code>会自动创建<strong><code>NSTextStorage</code></strong>, <strong><code>NSLayoutManager</code></strong>和<strong><code>NSTextContainer</code></strong> (例如<strong>Text Kit</strong>堆栈)实例以及所有的这三个只读属性。<br>
 虽然没有办法从<strong>storyboard</strong>编辑器中改变这种设定，但可以手动编程创建<code>UITextView</code>和<strong>Text Kit</strong>堆栈。</p>
-
-<h4 id="在uitextview中使用自定义的syntaxhighlighttextstorage">在UITextView中使用自定义的SyntaxHighlightTextStorage</h4>
-
-<h5 id="清理ib相关设置">清理IB相关设置</h5>
-
+<h4 id="uitextviewsyntaxhighlighttextstorage">在UITextView中使用自定义的SyntaxHighlightTextStorage</h4>
+<h5 id="ib">清理IB相关设置</h5>
 <ul>
 <li>在IB中打开<strong>Main.storyboard</strong> 找到<strong>NoteEditorViewController</strong>。 删除<code>UITextView</code>实例。
 然后，打开<strong>NoteEditorViewController.m</strong>删除<strong>UITextView outlet</strong>。
@@ -1040,9 +939,7 @@ self.textView.delegate = self;
 self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 {%endcodeblock%}</li>
 </ul>
-
-<h5 id="手动创建-uitextview-和text-kit堆栈">手动创建<code>UITextView</code>和Text Kit堆栈</h5>
-
+<h5 id="uitextviewtext-kit-1">手动创建<code>UITextView</code>和Text Kit堆栈</h5>
 <ul>
 <li>在<strong>NoteEditorViewController.m</strong>最上面，添加下面一行代码:
 {%codeblock objc lang:objc %}
@@ -1053,45 +950,41 @@ self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 SyntaxHighlightTextStorage* _textStorage;
 UITextView* _textView;
 {%endcodeblock%}
-文本存储器子类有两个实例变量，还有一个文本视图稍后需要添加。<br /></li>
+文本存储器子类有两个实例变量，还有一个文本视图稍后需要添加。</li>
 </ul>
-
-<h5 id="创建-text-kit-堆栈">创建<code>Text Kit</code>堆栈</h5>
-
+<h5 id="text-kit-1">创建<code>Text Kit</code>堆栈</h5>
 <ul>
-<li>创建自定义的<code>NSTextStorage</code>文本存储器实例，一个用来承载便笺内容的<code>NSAttributedString</code><br /></li>
+<li>创建自定义的<code>NSTextStorage</code>文本存储器实例，一个用来承载便笺内容的<code>NSAttributedString</code></li>
 <li>创建一个<code>NSLayoutManager</code>布局管理器，并添加到文本存储器。</li>
-<li>创建一个<code>NSTextContainer</code>文本容器，并添加到布局管理器。然后把布局管理器和文本存储器联系起来<br /></li>
-<li>最后用你自定义的文本容器和代理组创建实际的文本视图，  并把文本视图添加为子视图<br />
+<li>创建一个<code>NSTextContainer</code>文本容器，并添加到布局管理器。然后把布局管理器和文本存储器联系起来</li>
+<li>最后用你自定义的文本容器和代理组创建实际的文本视图，  并把文本视图添加为子视图<br>
 在NoteEditorViewController.m中，添加下面方法：
 {%codeblock lang:objc%}</li>
-
-<li><p>(void)createTextView
+</ul>
+<ul>
+<li>
+<p>(void)createTextView
 {
 // 1. Create the text storage that backs the editor
 NSDictionary* attrs = @{NSFontAttributeName:
-    [UIFont preferredFontForTextStyle:UIFontTextStyleBody]};
+[UIFont preferredFontForTextStyle:UIFontTextStyleBody]};
 NSAttributedString* attrString = [[NSAttributedString alloc]
-                               initWithString:_note.contents
-                                   attributes:attrs];
+initWithString:_note.contents
+attributes:attrs];
 _textStorage = [SyntaxHighlightTextStorage new];
 [_textStorage appendAttributedString:attrString];</p>
-
 <p>CGRect newTextViewRect = self.view.bounds;</p>
-
 <p>// 2. Create the layout manager
 NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];</p>
-
 <p>// 3. Create a text container
 CGSize containerSize = CGSizeMake(newTextViewRect.size.width,  CGFLOAT_MAX);
 NSTextContainer *container = [[NSTextContainer alloc] initWithSize:containerSize];
 container.widthTracksTextView = YES;
 [layoutManager addTextContainer:container];
 [_textStorage addLayoutManager:layoutManager];</p>
-
 <p>// 4. Create a UITextView
 _textView = [[UITextView alloc] initWithFrame:newTextViewRect
-                                textContainer:container];
+textContainer:container];
 _textView.delegate = self;
 [self.view addSubview:_textView];
 }
@@ -1106,28 +999,22 @@ let attrs = [NSFontAttributeName:bodyFont]
 let attrString = NSAttributedString(string: note.contents,attributes: attrs)
 textStorage = SyntaxHighlightTextStorage()
 textStorage.append(attrString)</p>
-
 <p>// &mdash;&mdash;&ndash;使用Storyboard声明TextView时,只需一行，可惜为只读属性&mdash;&mdash;&mdash;-
 textStorage.addLayoutManager(ibTextView.layoutManager)</p>
-
 <p>/**&mdash;&mdash;&ndash;使用代码声明TextView时，4步骤&mdash;&mdash;&mdash;-
 let newTextViewRect = view.bounds</p>
-
 <p>// 2. Create the layout manager
 let layoutManager = NSLayoutManager()</p>
-
 <p>// 3. Create a text container
 //文本容器的宽度会自动匹配视图的宽度，但是它的高度是无限高的——或者说无限接近于CGFloat.max，它的值可以是无限大。
 let containerSize = CGSize.init(width: newTextViewRect.size.width,
 height: CGFloat.greatestFiniteMagnitude)</p>
-
 <p>let container = NSTextContainer.init(size: containerSize)
 //A Boolean that controls whether the receiver adjusts the width of its bounding rectangle when its text view is resized.
 container.widthTracksTextView = true
 //
 layoutManager.addTextContainer(container)
 textStorage.addLayoutManager(layoutManager)</p>
-
 <p>// 4. Create a UITextView
 textView = UITextView()//.init(frame: newTextViewRect, textContainer: container)
 textView.isScrollEnabled = true
@@ -1135,13 +1022,14 @@ textView.delegate = self
 view.addSubview(textView)
 */
 }
-{% endcodeblock %}</p></li>
+{% endcodeblock %}</p>
+</li>
 </ul>
-
-<p>现在回顾之前那个图表所展示的四个关键类(文本存储器<code>storage</code>, 布局管理器<code>layout manager</code>, 文本容器<code>container</code> 和文本视图<code>textView</code>)之间的关系，是不是觉得理解起来容易多了。<br />
-<img src="/images/TextKitStack-443x320.png" alt="image" />
-&gt;<font size=3>注意:文本容器的宽度会自动匹配视图的宽度，但是它的高度是无限高的——或者说无限接近于<code>CGFLOAT_MAX</code>，它的值可以是无限大。不管怎么说，它的高度足够让<code>UITextView</code>上下滚动以容纳很长的文本。</font></p>
-
+<p>现在回顾之前那个图表所展示的四个关键类(文本存储器<code>storage</code>, 布局管理器<code>layout manager</code>, 文本容器<code>container</code> 和文本视图<code>textView</code>)之间的关系，是不是觉得理解起来容易多了。<br>
+<img src="/images/TextKitStack-443x320.png" alt="image"></p>
+<blockquote>
+<p><!-- raw HTML omitted -->注意:文本容器的宽度会自动匹配视图的宽度，但是它的高度是无限高的——或者说无限接近于<code>CGFLOAT_MAX</code>，它的值可以是无限大。不管怎么说，它的高度足够让<code>UITextView</code>上下滚动以容纳很长的文本。<!-- raw HTML omitted --></p>
+</blockquote>
 <p>在<code>viewDidLoad</code>方法中调用超类的<code>viewDidLoad</code>方法的语句后面添加以下一行代码：
 {%codeblock lang:objc%}
 [self createTextView];
@@ -1150,226 +1038,208 @@ view.addSubview(textView)
 {%codeblock lang:objc%}
 _textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 {%endcodeblock%}</p>
-
-<h5 id="自定义视图实现在-storyboard-中自动布局约束的效果">自定义视图实现在<code>storyboard</code>中自动布局约束的效果</h5>
-
+<h5 id="storyboard">自定义视图实现在<code>storyboard</code>中自动布局约束的效果</h5>
 <p>用自定义的实例变量来替换掉旧的<code>outlet</code>属性。自定义视图不会自动继承<code>storyboard</code>中的布局约束组的规则。当设备方向变化后，视图的边界是不会自动随之改变的，这样就需要自己来编程设定视图边界。</p>
-
 <p>可以在<code>viewDidLayoutSubviews</code>方法的最后添加以下代码来实现：
 {%codeblock lang:objc%}
 _textView.frame = self.view.bounds;
 {%endcodeblock%}
-Build并运行app，打开一个便笺项，在Xcode控制台上有<code>SyntaxHighlightTextStorage</code>生成的运行日志，用来告诉你这些文本处理的代码确实被调用：<br />
-<img src="/images/LogMessages-480x266.png" alt="image" />
+Build并运行app，打开一个便笺项，在Xcode控制台上有<code>SyntaxHighlightTextStorage</code>生成的运行日志，用来告诉你这些文本处理的代码确实被调用：<br>
+<img src="/images/LogMessages-480x266.png" alt="image">
 看来你的文本解析器的基础非常可靠了 —— 那现在来添加动态格式。</p>
-
-<h3 id="通过正则修改文本存储器的动态格式-dynamic-formatting">通过正则修改文本存储器的动态格式（Dynamic formatting）</h3>
-
+<h3 id="dynamic-formatting">通过正则修改文本存储器的动态格式（Dynamic formatting）</h3>
 <p>接下来将对你的自定义文本存储器进行修改以将＊星号符之间的文本＊变为黑体：</p>
-
-<h4 id="processediting-将文本的变化通知给布局管理器"><code>processEditing</code>：将文本的变化通知给布局管理器</h4>
-
+<h4 id="processediting"><code>processEditing</code>：将文本的变化通知给布局管理器</h4>
 <p><code>processEditing</code> 将文本的变化通知给布局管理器。它也为文本编辑之后的处理提供便利。
 打开<strong>SyntaxHighlightTextStorage.m</strong> 添加以下方法：
 {%codeblock lang:objc%}
 -(void)processEditing
 {
-    [self performReplacementsForRange:[self editedRange]];
-    [super processEditing];
+[self performReplacementsForRange:[self editedRange]];
+[super processEditing];
 }
 {%endcodeblock%}</p>
-
+<h4 id="heading-10"></h4>
 <p>NSUnionRange：在range1和range2之间比较，如果一个range完全包含在另一个range内，则返回较大的range
 上面的代码拓展了受黑体格式类型影响的文本范围。因为<code>changedRange</code>一般只是作用到单独的一个字符； 而<code>lineRangeForRange</code> 则扩展到一整行
 在 <code>processEditing</code>方法之后紧接着添加以下代码：
-{%codeblock lang:objc%}
-- (void)performReplacementsForRange:(NSRange)changedRange
+{%codeblock lang:objc%}</p>
+<ul>
+<li>
+<p>(void)performReplacementsForRange:(NSRange)changedRange
 {
-    NSRange extendedRange = NSUnionRange(changedRange, [[_backingStore string]
-                             lineRangeForRange:NSMakeRange(changedRange.location, 0)]);
-    extendedRange = NSUnionRange(changedRange, [[<em>backingStore string]
-                          lineRangeForRange:NSMakeRange(NSMaxRange(changedRange), 0)]);
-    [self applyStylesToRange:extendedRange];
+NSRange extendedRange = NSUnionRange(changedRange, [[_backingStore string]
+lineRangeForRange:NSMakeRange(changedRange.location, 0)]);
+extendedRange = NSUnionRange(changedRange, [[<em>backingStore string]
+lineRangeForRange:NSMakeRange(NSMaxRange(changedRange), 0)]);
+[self applyStylesToRange:extendedRange];
 }
 {%endcodeblock%}
 {% codeblock swift lang:swift %}
 //在指定的区域中进行替换
 func performReplacementsForRange(</em> changedRange:NSRange)
 {
-    //定位正在编辑文本的位置区间
-    let locationRange = NSMakeRange(changedRange.location, 0)
-    //定位到文本当前行的位置区间
-    let range1 = (backingStore.string as NSString).lineRange(for: locationRange)</p>
-
-<pre><code>//扩展范围
-var extendedRange = NSUnionRange(changedRange, range1)
-
-let maxRange = NSMakeRange(NSMaxRange(changedRange), 0)
-
-let range2 = (backingStore.string as NSString).lineRange(for: maxRange)
-extendedRange = NSUnionRange(changedRange, range2)
-
-print(&quot;在指定的区域中进行替换:\(extendedRange)&quot;)
+//定位正在编辑文本的位置区间
+let locationRange = NSMakeRange(changedRange.location, 0)
+//定位到文本当前行的位置区间
+let range1 = (backingStore.string as NSString).lineRange(for: locationRange)</p>
+<p>//扩展范围
+var extendedRange = NSUnionRange(changedRange, range1)</p>
+<p>let maxRange = NSMakeRange(NSMaxRange(changedRange), 0)</p>
+<p>let range2 = (backingStore.string as NSString).lineRange(for: maxRange)
+extendedRange = NSUnionRange(changedRange, range2)</p>
+<p>print(&ldquo;在指定的区域中进行替换:(extendedRange)&quot;)
 applyStylesToRange(searchRange: extendedRange)
-</code></pre>
-
-<p>}</p>
-
+}</p>
+</li>
+</ul>
 <p>{% endcodeblock %}</p>
-
 <p>在 <code>performReplacementsForRange</code>方法之后紧接着添加以下代码：
-{%codeblock lang:objc%}
-- (void)applyStylesToRange:(NSRange)searchRange
+{%codeblock lang:objc%}</p>
+<ul>
+<li>
+<p>(void)applyStylesToRange:(NSRange)searchRange
 {
-    // 1. create some fonts
-    UIFontDescriptor* fontDescriptor = [UIFontDescriptor
-                             preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    UIFontDescriptor* boldFontDescriptor = [fontDescriptor
-                           fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-    UIFont* boldFont =  [UIFont fontWithDescriptor:boldFontDescriptor size: 0.0];
-    UIFont* normalFont =  [UIFont preferredFontForTextStyle:UIFontTextStyleBody];</p>
-
-<pre><code>// 2. match items surrounded by asterisks
-NSString* regexStr = @&quot;(*w+(sw+)**)s&quot;;
+// 1. create some fonts
+UIFontDescriptor* fontDescriptor = [UIFontDescriptor
+preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+UIFontDescriptor* boldFontDescriptor = [fontDescriptor
+fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
+UIFont* boldFont =  [UIFont fontWithDescriptor:boldFontDescriptor size: 0.0];
+UIFont* normalFont =  [UIFont preferredFontForTextStyle:UIFontTextStyleBody];</p>
+<p>// 2. match items surrounded by asterisks
+NSString* regexStr = @&quot;(*w+(sw+)**)s&rdquo;;
 NSRegularExpression* regex = [NSRegularExpression
-                               regularExpressionWithPattern:regexStr
-                                                    options:0
-                                                      error:nil];
-
-NSDictionary* boldAttributes = @{ NSFontAttributeName : boldFont };
-NSDictionary* normalAttributes = @{ NSFontAttributeName : normalFont };
-
-// 3. iterate over each match, making the text bold
+regularExpressionWithPattern:regexStr
+options:0
+error:nil];</p>
+<p>NSDictionary* boldAttributes = @{ NSFontAttributeName : boldFont };
+NSDictionary* normalAttributes = @{ NSFontAttributeName : normalFont };</p>
+<p>// 3. iterate over each match, making the text bold
 [regex enumerateMatchesInString:[_backingStore string]
-          options:0
-            range:searchRange
-       usingBlock:^(NSTextCheckingResult *match,
-                    NSMatchingFlags flags,
-                    BOOL *stop){
+options:0
+range:searchRange
+usingBlock:^(NSTextCheckingResult *match,
+NSMatchingFlags flags,
+BOOL *stop){</p>
+<pre><code>  NSRange matchRange = [match rangeAtIndex:1];
+  [self addAttributes:boldAttributes range:matchRange];
 
-    NSRange matchRange = [match rangeAtIndex:1];
-    [self addAttributes:boldAttributes range:matchRange];
-
-    // 4. reset the style to the original
-    if (NSMaxRange(matchRange)+1 &lt; self.length) {
-        [self addAttributes:normalAttributes
-            range:NSMakeRange(NSMaxRange(matchRange)+1, 1)];
-    }
-}];
+  // 4. reset the style to the original
+  if (NSMaxRange(matchRange)+1 &lt; self.length) {
+      [self addAttributes:normalAttributes
+          range:NSMakeRange(NSMaxRange(matchRange)+1, 1)];
+  }
 </code></pre>
-
-<p>}
+<p>}];
+}
 {%endcodeblock%}
 上面的代码有以下作用：</p>
-
 <ol>
-<li>创建一个粗体及一个正常字体并使用字体描述器（<strong>Font descriptors</strong>）来格式化文本。字体描述器能使你无需对字体手动编码来设置字体和样式。<br /></li>
+<li>创建一个粗体及一个正常字体并使用字体描述器（<strong>Font descriptors</strong>）来格式化文本。字体描述器能使你无需对字体手动编码来设置字体和样式。</li>
 <li>创建一个正则表达式来定位星号符包围的文本。例如，在字符串“iOS 7 is *awesome*”中，存储在regExStr中的正则表达式将会匹配并返回文本“*awesome*”。</li>
-<li>对正则表达式匹配到并返回的文本进行枚举并添加粗体属性。<br /></li>
+<li>对正则表达式匹配到并返回的文本进行枚举并添加粗体属性。</li>
 </ol>
-
-<p>将后一个星号符之后的文本都重置为“常规”样式。以保证添加在后一个星号符之后的文本不被粗体风格所影响。
-&gt; <font size=3>注： 字体描述器（<strong>Font descriptors</strong>）是一种描述性语言，它使你可以通过设置属性来修改字体，或者无需初始化<code>UIFont</code>实例便可获取字体规格的细节。</font></p>
-
-<p>Build并运行app；向便笺中输入文本，并将其中一个词用星号符包围。这个词将会自动变为黑体，如下面截图所示：<br />
-<img src="/images/BoldText.png" alt="image" /></p>
-
+</li>
+</ul>
+<p>将后一个星号符之后的文本都重置为“常规”样式。以保证添加在后一个星号符之后的文本不被粗体风格所影响。</p>
+<blockquote>
+<p><!-- raw HTML omitted -->注： 字体描述器（<strong>Font descriptors</strong>）是一种描述性语言，它使你可以通过设置属性来修改字体，或者无需初始化<code>UIFont</code>实例便可获取字体规格的细节。<!-- raw HTML omitted --></p>
+</blockquote>
+<p>Build并运行app；向便笺中输入文本，并将其中一个词用星号符包围。这个词将会自动变为黑体，如下面截图所示：<br>
+<img src="/images/BoldText.png" alt="image"></p>
 <p>##进一步添加样式
-为限定文本添加风格的基本原则很简单：<strong>使用正则表达式来寻找和替换限定字符，然后用applyStylesToRange来设置想要的文本样式即可。</strong><br />
+为限定文本添加风格的基本原则很简单：<strong>使用正则表达式来寻找和替换限定字符，然后用applyStylesToRange来设置想要的文本样式即可。</strong><br>
 在SyntaxHighlightTextStorage.m中添加以下实例变量：
-{%codeblock lang:objc%}
-- (void) createHighlightPatterns {
-    UIFontDescriptor *scriptFontDescriptor =
-      [UIFontDescriptor fontDescriptorWithFontAttributes:
-          @{UIFontDescriptorFamilyAttribute: @&ldquo;Zapfino&rdquo;}];</p>
-
-<pre><code>// 1. base our script font on the preferred body font size
+{%codeblock lang:objc%}</p>
+<ul>
+<li>
+<p>(void) createHighlightPatterns {
+UIFontDescriptor *scriptFontDescriptor =
+[UIFontDescriptor fontDescriptorWithFontAttributes:
+@{UIFontDescriptorFamilyAttribute: @&ldquo;Zapfino&rdquo;}];</p>
+<p>// 1. base our script font on the preferred body font size
 UIFontDescriptor* bodyFontDescriptor = [UIFontDescriptor
-  preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
 NSNumber* bodyFontSize = bodyFontDescriptor.
-              fontAttributes[UIFontDescriptorSizeAttribute];
+fontAttributes[UIFontDescriptorSizeAttribute];
 UIFont* scriptFont = [UIFont
-          fontWithDescriptor:scriptFontDescriptor size:[bodyFontSize floatValue]];
-
-// 2. create the attributes
+fontWithDescriptor:scriptFontDescriptor size:[bodyFontSize floatValue]];</p>
+<p>// 2. create the attributes
 NSDictionary* boldAttributes = [self
- createAttributesForFontStyle:UIFontTextStyleBody
-                    withTrait:UIFontDescriptorTraitBold];
+createAttributesForFontStyle:UIFontTextStyleBody
+withTrait:UIFontDescriptorTraitBold];
 NSDictionary* italicAttributes = [self
- createAttributesForFontStyle:UIFontTextStyleBody
-                    withTrait:UIFontDescriptorTraitItalic];
+createAttributesForFontStyle:UIFontTextStyleBody
+withTrait:UIFontDescriptorTraitItalic];
 NSDictionary* strikeThroughAttributes = @{ NSStrikethroughStyleAttributeName : @1};
 NSDictionary* scriptAttributes = @{ NSFontAttributeName : scriptFont};
 NSDictionary* redTextAttributes =
-                      @{ NSForegroundColorAttributeName : [UIColor redColor]};
-
-// construct a dictionary of replacements based on regexes
+@{ NSForegroundColorAttributeName : [UIColor redColor]};</p>
+<p>// construct a dictionary of replacements based on regexes
 _replacements = @{
-          @&quot;(\*w+(sw+)\*\*)s&quot; : boldAttributes,
-          @&quot;(_w+(sw+)\*_)s&quot; : italicAttributes,
-          @&quot;([0-9]+.)s&quot; : boldAttributes,
-          @&quot;(-w+(sw+)\*-)s&quot; : strikeThroughAttributes,
-          @&quot;(~w+(sw+)\*~)s&quot; : scriptAttributes,
-          @&quot;s([A-Z]{2,})s&quot; : redTextAttributes};
-</code></pre>
-
-<p>}
+@&quot;(*w+(sw+)**)s&rdquo; : boldAttributes,
+@&quot;(<em>w+(sw+)*</em>)s&rdquo; : italicAttributes,
+@&quot;([0-9]+.)s&rdquo; : boldAttributes,
+@&quot;(-w+(sw+)*-)s&rdquo; : strikeThroughAttributes,
+@&quot;(~w+(sw+)*~)s&rdquo; : scriptAttributes,
+@&ldquo;s([A-Z]{2,})s&rdquo; : redTextAttributes};
+}
 {%endcodeblock%}</p>
-
+</li>
+</ul>
 <p>这个方法的作用：</p>
-
 <ol>
-<li>首先，它使用Zapfino字体来创建了“<code>script</code>”风格。<strong>Font descriptors</strong>会决定当前正文的首选字体，以保证<code>script</code>不会影响到用户的字体大小设置。<br /></li>
+<li>首先，它使用Zapfino字体来创建了“<code>script</code>”风格。<strong>Font descriptors</strong>会决定当前正文的首选字体，以保证<code>script</code>不会影响到用户的字体大小设置。</li>
 <li>然后，它会为每种匹配的字体样式构造各个属性。你稍后将用到 <strong><code>createAttributesForFontStyle:withTrait:</code></strong>。</li>
 <li>最后，它将创建一个<code>NSDictionary</code>并将正则表达式映射到上面声明的属性上。</li>
 </ol>
-
 <p>如果你对正则表达式不是非常熟悉，上面的的dictionary对你来说可能很陌生。但是，如果你一点一点仔细分析它其中包含的正则表达式，其实不用很费力就能理解了。</p>
-
-<p>以上面实现的第一个正则表达式为例，它的工作是匹配星号符包围的文本：<br />
-(*w+(sw+)**)s<br />
-上面两个两个相连的斜杠，其中一个是用来将Objective-C中的特殊字符转义成实体字符。去掉用来转义的斜杠，来看下这个正则表达式的核心部分：<br />
-(*w+(sw+)**)s<br />
-现在，逐步来分析这个正则表达式：<br />
+<p>以上面实现的第一个正则表达式为例，它的工作是匹配星号符包围的文本：<br>
+(*w+(sw+)**)s<br>
+上面两个两个相连的斜杠，其中一个是用来将Objective-C中的特殊字符转义成实体字符。去掉用来转义的斜杠，来看下这个正则表达式的核心部分：<br>
+(*w+(sw+)**)s<br>
+现在，逐步来分析这个正则表达式：<br>
 {%codeblock lang:js%}
-(*            ——  匹配星号符<br />
-w+           —— 后接一个或多个 “word”式 字符串<br />
-(sw+)*     —— 后接零个或多组空格然后再接 “word” 式字符串<br />
-*)        —— 后接星号符<br />
-s         —— 以空格结尾<br />
-{%endcodeblock%}
-&gt; <font size=3>注：如果你想对正则表达式有更多了解，请参考 <a href="http://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet">NSRegularExpression tutorial and cheat sheet</a>.</font></p>
-
+(*	 	 	  ——  匹配星号符<br>
+w+   	 	 —— 后接一个或多个 “word”式 字符串<br>
+(sw+)*	   —— 后接零个或多组空格然后再接 “word” 式字符串<br>
+*)   	  —— 后接星号符<br>
+s   	  —— 以空格结尾<br>
+{%endcodeblock%}</p>
+<blockquote>
+<p><!-- raw HTML omitted -->注：如果你想对正则表达式有更多了解，请参考 <a href="http://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet">NSRegularExpression tutorial and cheat sheet</a>.<!-- raw HTML omitted --></p>
+</blockquote>
 <p>现在你需要调用<code>createHighlightPatterns：</code>
 将<strong>SyntaxHighlightTextStorage.m</strong> 中的<code>init</code>方法更新如下：
-{%codeblock lang:objc%}
-- (id)init
+{%codeblock lang:objc%}</p>
+<ul>
+<li>(id)init
 {
-    if (self = [super init]) {
-        _backingStore = [NSMutableAttributedString new];
-        [self createHighlightPatterns];
-    }
-    return self;
+if (self = [super init]) {
+_backingStore = [NSMutableAttributedString new];
+[self createHighlightPatterns];
+}
+return self;
+}
+{%endcodeblock%}</li>
+</ul>
+<p>在SyntaxHighlightTextStorage.m方法中添加以下代码：
+{%codeblock lang:objc%}</p>
+<ul>
+<li>
+<p>(NSDictionary*)createAttributesForFontStyle:(NSString*)style
+withTrait:(uint32_t)trait {
+UIFontDescriptor *fontDescriptor = [UIFontDescriptor
+preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];</p>
+<p>UIFontDescriptor *descriptorWithTrait = [fontDescriptor
+fontDescriptorWithSymbolicTraits:trait];</p>
+<p>UIFont* font =  [UIFont fontWithDescriptor:descriptorWithTrait size: 0.0];
+return @{ NSFontAttributeName : font };
 }
 {%endcodeblock%}</p>
-
-<p>在SyntaxHighlightTextStorage.m方法中添加以下代码：
-{%codeblock lang:objc%}
-- (NSDictionary<em>)createAttributesForFontStyle:(NSString</em>)style
-                                    withTrait:(uint32_t)trait {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor
-                               preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];</p>
-
-<pre><code>UIFontDescriptor *descriptorWithTrait = [fontDescriptor
-                                fontDescriptorWithSymbolicTraits:trait];
-
-UIFont* font =  [UIFont fontWithDescriptor:descriptorWithTrait size: 0.0];
-return @{ NSFontAttributeName : font };
-</code></pre>
-
-<p>}
-{%endcodeblock%}</p>
-
+</li>
+</ul>
 <p>上面的代码作用是将提供的字体样式作用到正文字体上。它给<code>fontWithDescriptor:size:</code> 提供的<code>size</code>值为0，这样做会迫使<code>UIFont</code>返回用户设置的字体大小。</p>
     </div>
 
@@ -1381,8 +1251,8 @@ return @{ NSFontAttributeName : font };
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-08-08
-        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+        2014-07-03
+        
     </span>
   </p>
   
@@ -1430,9 +1300,9 @@ return @{ NSFontAttributeName : font };
         id: '2014-07-03 17:29:00 \x2b0800 CST',
         title: 'TextKit之便笺实战',
         link: decodeURI(location.href),
-        desc: '\x3ch2 id=\x22便笺练习功能点\x22\x3e便笺练习功能点:\x3c\/h2\x3e\n\n\x3cp\x3e通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。\n  * 动态样式（Dynamic type）\x3cbr \/\x3e\n  * 凸版印刷效果（Letterpress effects）\x3cbr \/\x3e\n  * 环绕路径（Exclusion paths）\x3cbr \/\x3e\n  * 动态文本格式及存储（Dynamic text formatting and storage）\x3c\/p\x3e\n\n\x3cp\x3e这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。\n效果图:\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/bianqian.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\nApp开始运行后自动生成一组便笺实例并利用\x3ccode\x3etableViewController\x3c\/code\x3e显示出来。\x3ccode\x3eStoryboards\x3c\/code\x3e和\x3ccode\x3esegues\x3c\/code\x3e会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。\n项目开发包：\x3ca href=\x22http:\/\/cdn4.raywenderlich.com\/wp-content\/uploads\/2013\/09\/TextKitNotepad-starter.zip\x22\x3eNotepad.zip\x3c\/a\x3e\x3c\/p\x3e\n\n\x3ch2 id=\x22动态样式\x22\x3e动态样式\x3c\/h2\x3e\n\n\x3cp\x3e\x3ccode\x3e动态样式（Dynamic type）\x3c\/code\x3e是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。\n选择 \x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e 或 \x3cstrong\x3e通用-\x26gt;辅助功能\x3c\/strong\x3e 来查看app中的字体设置。\x3c\/p\x3e\n\n\x3cp\x3e\x3cimg src=\x22\/images\/UserTextPreferences.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\niOS 7 支持通过\x3ccode\x3e粗体\x3c\/code\x3e、\x3ccode\x3e设置字体大小\x3c\/code\x3e等方式提高支持动态文本的应用的易读性。\n例如\x3cstrong\x3e\x3ccode\x3eUIFont\x3c\/code\x3e\x3c\/strong\x3e新增的一个方法： \x3cstrong\x3e\x3ccode\x3epreferredFontForTextStyle\x3c\/code\x3e\x3c\/strong\x3e 用来根据用户对字体大小的设置来自动制定字体样式。\x3cbr \/\x3e\n下面表格中是六种可用字体样式的示例：\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/TextStyles.png\x22 alt=\x22image\x22 \/\x3e\x3cbr \/\x3e\n最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。\x3c\/p\x3e\n\n\x3ch3 id=\x22使用系统动态字体样式\x22\x3e使用系统动态字体样式\x3c\/h3\x3e\n\n\x3cp\x3e使用动态文本，是通过给\x3ccode\x3e文本字体\x3c\/code\x3e设置字体样式\x3cstrong\x3estyle\x3c\/strong\x3e而不是指定具体的\x3ccode\x3e字体名称\x3c\/code\x3e和\x3ccode\x3e大小\x3c\/code\x3e。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。\x3c\/p\x3e\n\n\x3ch4 id=\x22preferredfontfortextstyle-方法设置字体样式\x22\x3e\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法设置字体样式\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e打开 \x3ccode\x3eNoteEditorViewController.m\/swift\x3c\/code\x3e 在\x3ccode\x3eviewDidLoad：\x3c\/code\x3e方法实现的最后面加入以下代码：\n{%codeblock lang:objc%}\nself.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\nself.textView.font = UIFont.preferredFont(forTextStyle: .body)\n{% endcodeblock %}\x3c\/li\x3e\n\x3cli\x3e打开 \x3ccode\x3eNotesListViewController.m\/swift\x3c\/code\x3e 在 \x3ccode\x3etableView:cellForRowAtIndexPath:\x3c\/code\x3e 方法中增加如下代码:\n{%codeblock lang:objc%}\ncell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\ncell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)\n{% endcodeblock %}\n上面两行代码都用到了新版iOS的字体样式.\x3cbr \/\x3e\n\x26gt; 字体样式：通过语义法命名字体，例如 \x3ccode\x3eUIFontTextStyleSubHeadline\x3c\/code\x3e, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch4 id=\x22app响应用户字体设置\x22\x3eAPP响应用户字体设置\x3c\/h4\x3e\n\n\x3col\x3e\n\x3cli\x3e设置系统字体\n返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置.\n再运行App, \x3cstrong\x3eNote\x3c\/strong\x3e页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。\x3cbr \/\x3e\n\x3cimg src=\x22\/images\/NotepadWithDynamicType.png\x22 alt=\x22image\x22 \/\x3e\x3c\/li\x3e\n\x3cli\x3e设置系统字体生效\n当我们返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置. 再打开\x3cstrong\x3eNote\x3c\/strong\x3e页面, 会发现app并没有\x3cstrong\x3e立即\x3c\/strong\x3e对字体设置的变化做出相应反应。\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch5 id=\x22监听系统通知-实现app响应用户字体设置\x22\x3e监听系统通知：实现APP响应用户字体设置\x3c\/h5\x3e\n\n\x3cp\x3e当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法返回的字体也会变化。\n1. 添加监听系统通知\x3ccode\x3eUIContentSizeCategoryDidChangeNotification\x3c\/code\x3e通知APP响应用户字体设置的变化\n打开 \x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e 并在 \x3ccode\x3eviewDidLoad\x3c\/code\x3e 方法的实现的最后加入以下代码：\n{%codeblock lang:objc%}\n[[NSNotificationCenter defaultCenter]\n                              addObserver:self\n                                 selector:@selector(preferredContentSizeChanged:)\n                                     name:UIContentSizeCategoryDidChangeNotification\n                                   object:nil];\n{%endcodeblock%}\n{%codeblock lang:swift%}\n\/\/字体变化通知:调用preferredContentSizeChanged:方法\nNotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(\x3cem\x3e:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)\n{%endcodeblock%}\n2. 添加系统通知响应事件\n收到用于指定本类接收字体设定变化的通知后，调用\x3ccode\x3epreferredContentSizeChanged:\x3c\/code\x3e方法\n在\x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e中\x3ccode\x3eviewDidLoad\x3c\/code\x3e方法之后紧接着添加以下方法：\n{%codeblock lang:objc%}\n- (void)preferredContentSizeChanged:(NSNotification *)notification\n{\n    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n}\n{%endcodeblock%}\n{%codeblock lang:swift %}\n\/\/字体变化通知时调用\nfunc preferredContentSizeChanged(\x3c\/em\x3e notification:NSNotification)\n{\n    self.textView.font = UIFont.preferredFont(forTextStyle: .body)\n}\n{%endcodeblock%}\n这一方法作用是根据新的字体设置来设定\x3ccode\x3etextView\x3c\/code\x3e中的字体。\x3cbr \/\x3e\nBuild并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。\x3c\/p\x3e',
-        owner: 'huos3203',
-        repo: 'huos3203.github.io',
+        desc: '\x3ch2 id=\x22heading\x22\x3e便笺练习功能点:\x3c\/h2\x3e\n\x3cp\x3e通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e动态样式（Dynamic type）\x3c\/li\x3e\n\x3cli\x3e凸版印刷效果（Letterpress effects）\x3c\/li\x3e\n\x3cli\x3e环绕路径（Exclusion paths）\x3c\/li\x3e\n\x3cli\x3e动态文本格式及存储（Dynamic text formatting and storage）\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3cp\x3e这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。\n效果图:\x3cbr\x3e\n\x3cimg src=\x22\/images\/bianqian.png\x22 alt=\x22image\x22\x3e\x3cbr\x3e\nApp开始运行后自动生成一组便笺实例并利用\x3ccode\x3etableViewController\x3c\/code\x3e显示出来。\x3ccode\x3eStoryboards\x3c\/code\x3e和\x3ccode\x3esegues\x3c\/code\x3e会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。\n项目开发包：\x3ca href=\x22http:\/\/cdn4.raywenderlich.com\/wp-content\/uploads\/2013\/09\/TextKitNotepad-starter.zip\x22\x3eNotepad.zip\x3c\/a\x3e\x3c\/p\x3e\n\x3ch2 id=\x22heading-1\x22\x3e动态样式\x3c\/h2\x3e\n\x3cp\x3e\x3ccode\x3e动态样式（Dynamic type）\x3c\/code\x3e是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。\n选择 \x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e 或 \x3cstrong\x3e通用-\x26gt;辅助功能\x3c\/strong\x3e 来查看app中的字体设置。\x3c\/p\x3e\n\x3cp\x3e\x3cimg src=\x22\/images\/UserTextPreferences.png\x22 alt=\x22image\x22\x3e\x3cbr\x3e\niOS 7 支持通过\x3ccode\x3e粗体\x3c\/code\x3e、\x3ccode\x3e设置字体大小\x3c\/code\x3e等方式提高支持动态文本的应用的易读性。\n例如\x3cstrong\x3e\x3ccode\x3eUIFont\x3c\/code\x3e\x3c\/strong\x3e新增的一个方法： \x3cstrong\x3e\x3ccode\x3epreferredFontForTextStyle\x3c\/code\x3e\x3c\/strong\x3e 用来根据用户对字体大小的设置来自动制定字体样式。\x3cbr\x3e\n下面表格中是六种可用字体样式的示例：\x3cbr\x3e\n\x3cimg src=\x22\/images\/TextStyles.png\x22 alt=\x22image\x22\x3e\x3cbr\x3e\n最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。\x3c\/p\x3e\n\x3ch3 id=\x22heading-2\x22\x3e使用系统动态字体样式\x3c\/h3\x3e\n\x3cp\x3e使用动态文本，是通过给\x3ccode\x3e文本字体\x3c\/code\x3e设置字体样式\x3cstrong\x3estyle\x3c\/strong\x3e而不是指定具体的\x3ccode\x3e字体名称\x3c\/code\x3e和\x3ccode\x3e大小\x3c\/code\x3e。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。\x3c\/p\x3e\n\x3ch4 id=\x22preferredfontfortextstyle\x22\x3e\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法设置字体样式\x3c\/h4\x3e\n\x3col\x3e\n\x3cli\x3e打开 \x3ccode\x3eNoteEditorViewController.m\/swift\x3c\/code\x3e 在\x3ccode\x3eviewDidLoad：\x3c\/code\x3e方法实现的最后面加入以下代码：\n{%codeblock lang:objc%}\nself.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\nself.textView.font = UIFont.preferredFont(forTextStyle: .body)\n{% endcodeblock %}\x3c\/li\x3e\n\x3cli\x3e打开 \x3ccode\x3eNotesListViewController.m\/swift\x3c\/code\x3e 在 \x3ccode\x3etableView:cellForRowAtIndexPath:\x3c\/code\x3e 方法中增加如下代码:\n{%codeblock lang:objc%}\ncell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];\n{%endcodeblock%}\n{% codeblock  lang:swift %}\ncell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)\n{% endcodeblock %}\n上面两行代码都用到了新版iOS的字体样式.\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cblockquote\x3e\n\x3cp\x3e字体样式：通过语义法命名字体，例如 \x3ccode\x3eUIFontTextStyleSubHeadline\x3c\/code\x3e, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。\x3c\/p\x3e\n\x3c\/blockquote\x3e\n\x3ch4 id=\x22app\x22\x3eAPP响应用户字体设置\x3c\/h4\x3e\n\x3col\x3e\n\x3cli\x3e设置系统字体\n返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置.\n再运行App, \x3cstrong\x3eNote\x3c\/strong\x3e页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。\x3cbr\x3e\n\x3cimg src=\x22\/images\/NotepadWithDynamicType.png\x22 alt=\x22image\x22\x3e\x3c\/li\x3e\n\x3cli\x3e设置系统字体生效\n当我们返回到\x3cstrong\x3e通用-\x26gt;文字大小\x3c\/strong\x3e重新修改字体设置. 再打开\x3cstrong\x3eNote\x3c\/strong\x3e页面, 会发现app并没有\x3cstrong\x3e立即\x3c\/strong\x3e对字体设置的变化做出相应反应。\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3ch5 id=\x22app-1\x22\x3e监听系统通知：实现APP响应用户字体设置\x3c\/h5\x3e\n\x3cp\x3e当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，\x3ccode\x3epreferredFontForTextStyle:\x3c\/code\x3e方法返回的字体也会变化。\x3c\/p\x3e\n\x3col\x3e\n\x3cli\x3e添加监听系统通知\x3ccode\x3eUIContentSizeCategoryDidChangeNotification\x3c\/code\x3e通知APP响应用户字体设置的变化\n打开 \x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e 并在 \x3ccode\x3eviewDidLoad\x3c\/code\x3e 方法的实现的最后加入以下代码：\n{%codeblock lang:objc%}\n[[NSNotificationCenter defaultCenter]\naddObserver:self\nselector:@selector(preferredContentSizeChanged:)\nname:UIContentSizeCategoryDidChangeNotification\nobject:nil];\n{%endcodeblock%}\n{%codeblock lang:swift%}\n\/\/字体变化通知:调用preferredContentSizeChanged:方法\nNotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)\n{%endcodeblock%}\x3c\/li\x3e\n\x3cli\x3e添加系统通知响应事件\n收到用于指定本类接收字体设定变化的通知后，调用\x3ccode\x3epreferredContentSizeChanged:\x3c\/code\x3e方法\n在\x3ccode\x3eNoteEditorViewController.m\x3c\/code\x3e中\x3ccode\x3eviewDidLoad\x3c\/code\x3e方法之后紧接着添加以下方法：\n{%codeblock lang:objc%}\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cul\x3e\n\x3cli\x3e(void)preferredContentSizeChanged:(NSNotification *)notification\n{\nself.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];\n}\n{%endcodeblock%}\n{%codeblock lang:swift %}\n\/\/字体变化通知时调用\nfunc preferredContentSizeChanged(_ notification:NSNotification)\n{\nself.textView.font = UIFont.preferredFont(forTextStyle: .body)\n}\n{%endcodeblock%}\n这一方法作用是根据新的字体设置来设定\x3ccode\x3etextView\x3c\/code\x3e中的字体。 \x3cbr\x3e\nBuild并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。\x3c\/li\x3e\n\x3c\/ul\x3e',
+        owner: 'it-boyer',
+        repo: 'it-boyer.github.io',
         oauth: {
           client_id: 'd46ea301857e36a08319',
           client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
@@ -1452,12 +1322,12 @@ return @{ NSFontAttributeName : font };
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/it-boyer" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">

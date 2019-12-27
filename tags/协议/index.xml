@@ -2,83 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>协议 on Even - A super concise theme for Hugo</title>
-    <link>https://huos3203.github.io/tags/%E5%8D%8F%E8%AE%AE/</link>
+    <link>https://it-boyer.github.io/tags/%E5%8D%8F%E8%AE%AE/</link>
     <description>Recent content in 协议 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 25 Sep 2015 23:59:16 +0800</lastBuildDate>
     
-	<atom:link href="https://huos3203.github.io/tags/%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://it-boyer.github.io/tags/%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>小米路由常用操作</title>
-      <link>https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <link>https://it-boyer.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Fri, 25 Sep 2015 23:59:16 +0800</pubDate>
       
-      <guid>https://huos3203.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
-      <description>&lt;h4 id=&#34;常用命令&#34;&gt;常用命令&lt;/h4&gt;
-
+      <guid>https://it-boyer.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <description>&lt;h4 id=&#34;heading&#34;&gt;常用命令&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;ssh登录&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;ssh登录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 局域网登录:
+ ssh [user@]hostname [command]
+  例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+ 回车
+ 输入密码
 
-&lt;pre&gt;&lt;code&gt;局域网登录:
-ssh [user@]hostname [command]
- 例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
-回车
-输入密码
-
-**修改密码：**
-root@xiaoqiang:~#passwd   
-回车
-输入新密码
-回车
-再次输入新密码
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;远程拷贝数据&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;每次重启路由获取IP:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;vi /etc/rc.local
-sh /etc/getIP.sh
+ **修改密码：**
+ root@xiaoqiang:~#passwd   
+ 回车
+ 输入新密码
+ 回车
+ 再次输入新密码
 &lt;/code&gt;&lt;/pre&gt;
-
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;远程拷贝数据&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每次重启路由获取IP:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; vi /etc/rc.local
+ sh /etc/getIP.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;//启动后，等待20秒，然后，获取当前时间作为文件名称
 //使用ifconfig 获取路由器的ip信息
 //使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
 // &amp;gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
 //通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
-//查看该文件，既有路由重启后的当前IP&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+//查看该文件，既有路由重启后的当前IP&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在IOS中自定义URLSchemes教程</title>
-      <link>https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/</link>
+      <link>https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/</link>
       <pubDate>Thu, 28 Aug 2014 20:32:48 +0800</pubDate>
       
-      <guid>https://huos3203.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/</guid>
       <description>&lt;h4 id=&#34;url-schemes&#34;&gt;URL Schemes&lt;/h4&gt;
-
 &lt;p&gt;iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！&lt;/p&gt;
-
 &lt;p&gt;首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。&lt;/p&gt;
-
-&lt;h4 id=&#34;注册自定义url协议&#34;&gt;注册自定义URL协议&lt;/h4&gt;
-
+&lt;h4 id=&#34;url&#34;&gt;注册自定义URL协议&lt;/h4&gt;
 &lt;p&gt;首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。&lt;/p&gt;
-
 &lt;p&gt;默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。&lt;/p&gt;
-
-&lt;h6 id=&#34;step1-右键-选择-add-row-在下拉选框中选择-url-types-类型为array&#34;&gt;Step1. 右键，选择“Add Row”,在下拉选框中选择“&lt;strong&gt;URL types&lt;/strong&gt;”，类型为Array:&lt;/h6&gt;
-
-&lt;h6 id=&#34;step2-打开-item-0-类型为dic-添加新key为-url-identifier-类型为string-可以是任何值-但建议用-反域名-例如-com-myapp&#34;&gt;Step2. 打开“Item 0″类型为Dic,添加新key为&amp;rdquo;URL identifier&amp;rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。&lt;/h6&gt;
-
-&lt;h5 id=&#34;step3-打开-item-0-类型为dic-添加新key为-url-schemes-类型为array&#34;&gt;Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:&lt;/h5&gt;</description>
+&lt;h6 id=&#34;step1-add-rowurl-typesarray&#34;&gt;Step1. 右键，选择“Add Row”,在下拉选框中选择“&lt;strong&gt;URL types&lt;/strong&gt;”，类型为Array:&lt;/h6&gt;
+&lt;h6 id=&#34;step2-item-0dickeyurl-identifierstring-commyapp&#34;&gt;Step2. 打开“Item 0″类型为Dic,添加新key为&amp;quot;URL identifier&amp;rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。&lt;/h6&gt;
+&lt;h5 id=&#34;step3-item-0dickeyurl-schemesarray&#34;&gt;Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:&lt;/h5&gt;</description>
     </item>
     
   </channel>
