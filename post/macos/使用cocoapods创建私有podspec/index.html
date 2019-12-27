@@ -49,11 +49,7 @@
 <meta itemprop="description" content="创建一个版本库来托管pod索引:pod repo add命令 第一步：在github登录个人账号，创建一个库作为pod索引托管库。也可根据具体情况可以选">
 <meta itemprop="datePublished" content="2017-02-28T15:46:16&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-28T15:46:16&#43;00:00" />
-<<<<<<< HEAD
-<meta itemprop="wordCount" content="3835">
-=======
 <meta itemprop="wordCount" content="3817">
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
@@ -231,17 +227,10 @@ autocomplete('#aa-search-input',
 第二步：pod化版本库，使其专门用户管理个人的<code>*podspec</code>索引文件
 {% codeblock repo add命令 lang:ruby %}</p>
 <h1 id="pod-repo-add-private-repo-name-github-https-clone-url">pod repo add [Private Repo Name] [GitHub HTTPS clone URL]</h1>
-<<<<<<< HEAD
-
-<p>$ pod repo add PodRepo <a href="https://github.com/it-boyer/PodRepo.git">https://github.com/it-boyer/PodRepo.git</a>
-#输出：
-&gt; Cloning spec repo <code>PodRepo</code> from <code>https://github.com/it-boyer/PodRepo.git</code>
-=======
 <p>$ pod repo add PodRepo <a href="https://github.com/it-boyer/PodRepo.git">https://github.com/it-boyer/PodRepo.git</a>
 #输出：</p>
 <blockquote>
 <p>Cloning spec repo <code>PodRepo</code> from <code>https://github.com/it-boyer/PodRepo.git</code>
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 {% endcodeblock %}
 此时在本地会生成<code>~/.cocoapods/repos/PodRepo</code>目录，这个目录就可以用来存储你所有的开源包。
 每当一个或多个<code>*.podspec</code>文件测试无误时，就可以使用<code>pod repo push</code>命令向私有索引库中提交该文件。
@@ -349,13 +338,8 @@ pod &lsquo;LogSwift&rsquo;, :podspec =&gt; &lsquo;~/code/Cocoapods/podTest/LogSw
 {% codeblock Podfile lang:ruby %}
 platform :ios, &lsquo;7.0&rsquo;
 pod &lsquo;MusicLrc&rsquo;, :git =&gt; &lsquo;<a href="https://github.com/it-boyer/MusicLrcTest.git'">https://github.com/it-boyer/MusicLrcTest.git'</a>
-<<<<<<< HEAD
-{% endcodeblock %}</p>
-
-=======
 {% endcodeblock %}</li>
 </ol>
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>然后执行<code>pod install</code>命令安装依赖，打开项目工程，可以看到<code>库文件</code>和<code>资源</code>都被加载到<code>Pods子项目</code>中了，不过它们并没有在<code>Pods目录</code>下，而是跟测试项目一样存在于<code>Development Pods/LogSwift</code>中，这是因为我们是在本地测试，而没有把<code>podspec文件</code>添加到<code>Spec Repo</code>中的缘故。</p>
 <h2 id="podspecrepo-push">万事具备，向私有索引库中提交podspec文件：repo push</h2>
 <p>每当一个或多个<code>*.podspec</code>文件测试无误时，就可以使用<code>pod repo push</code>命令向私有索引库中提交该文件。

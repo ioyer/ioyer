@@ -49,11 +49,7 @@
 <meta itemprop="description" content="Git 仓库拆拆拆 拆分一个子目录为独立仓库 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分支 eiyo $ git subtree split -P codes-eiyo -b eiyo # 另建一">
 <meta itemprop="datePublished" content="2018-10-09T12:07:55&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-09T12:07:55&#43;00:00" />
-<<<<<<< HEAD
-<meta itemprop="wordCount" content="1298">
-=======
 <meta itemprop="wordCount" content="1297">
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
@@ -258,10 +254,6 @@ git remote add -f librepo ../lib-rep
 </code></pre>
 <h5 id="squash">squash合并法</h5>
 <p><code>--squash</code>: 适用于add/pull/merge子命令。先合并引用库的更新记录，将合并结果并到主项目中。</p>
-<<<<<<< HEAD
-
-=======
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <pre><code class="language-sh">git subtree add --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master   
 </code></pre>
 <h4 id="subtree">subtree其他命令</h4>
@@ -272,17 +264,9 @@ git remote add -f librepo ../lib-rep
 'git subtree' split -P &lt;prefix&gt; [OPTIONS] [&lt;commit&gt;]
 </code></pre>
 <p>从子树库中拉取最新代码:</p>
-<<<<<<< HEAD
-
-=======
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <pre><code>git subtree pull --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
 </code></pre>
 <p>将自己的代码发布到子树库:</p>
-<<<<<<< HEAD
-
-=======
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <pre><code>git subtree push --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
 </code></pre>
 <p>相关参数：</p>
@@ -308,15 +292,7 @@ git remote add -f librepo ../lib-rep
 在左边栏的SUBTREES(子树)中显示：</li>
 <li>拉取依赖库的最新代码
 在右边栏右击已存在的subtree，并选择 pull subtree&hellip;菜单项：
-<<<<<<< HEAD
-第二步的功能代码如下:</p>
-
-<pre><code>git -c subtree pull -P themes/.jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master 
-
-</code></pre></li>
-=======
 第二步的功能代码如下:</li>
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 </ol>
 <pre><code>git -c subtree pull -P themes/.jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master 
 

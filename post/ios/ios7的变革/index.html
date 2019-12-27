@@ -49,11 +49,7 @@
 <meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7">
 <meta itemprop="datePublished" content="2014-06-11T10:17:19&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-11T10:17:19&#43;08:00" />
-<<<<<<< HEAD
-<meta itemprop="wordCount" content="4060">
-=======
 <meta itemprop="wordCount" content="4123">
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
@@ -293,29 +289,6 @@ NSString *html = @&ldquo;<!-- raw HTML omitted -->Wow!<!-- raw HTML omitted --> 
 NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
 NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
 NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlData
-<<<<<<< HEAD
-												                      options:options 
-									                       documentAttributes:nil 
-									   			                        error:nil];
-</code></pre>
-
-<p>NSDocumentTypeDocumentAttribute包括:
-<!--https://gist.githubusercontent.com/it-boyer/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
--->
-    NSPlainTextDocumentType     //Plain text document.
-    NSRTFTextDocumentType       //Rich text format document.
-    NSRTFDTextDocumentType      //Rich text format with attachments document.</p>
-
-<p>2.相反，也可以将<code>NSAttributedString</code>对象，解析成HTML片段：</p>
-
-<p>{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}</p>
-
-<h3 id="nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</h3>
-
-<p>首先，创建一个<code>NSAttributedString</code>对象,然后，调用<code>addAttribute:value:range:</code>方法，添加 <code>NSLinkAttributeName</code>属性并赋值，如下：</p>
-
-<pre><code class="language-objc">	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
-=======
 options:options
 documentAttributes:nil
 error:nil];</p>
@@ -335,7 +308,6 @@ error:nil];</p>
 首先，创建一个`NSAttributedString`对象,然后，调用`addAttribute:value:range:`方法，添加 `NSLinkAttributeName`属性并赋值，如下：  
 ``` objc UITextView支持超链接
 	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
->>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 	[attributedString addAttribute:NSLinkAttributeName 
                          value:@&quot;username://marcelofabri_&quot; 
                          range:[[attributedString string] rangeOfString:@&quot;@marcelofabri_&quot;]]; 
