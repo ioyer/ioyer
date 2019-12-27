@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/%E8%A7%A3%E5%86%B3xcode%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD%E5%A4%B1%E6%95%88/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-08-31T16:20:20+00:00" />
 <meta itemprop="name" content="解决Xcode代码高亮提示功能失效">
 <meta itemprop="description" content="方法一 打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..， 删除图上所示的位置目录，重启x">
-
-
 <meta itemprop="datePublished" content="2018-08-31T16:20:20&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-31T16:20:20&#43;00:00" />
 <meta itemprop="wordCount" content="345">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="解决Xcode代码高亮提示功能失效"/>
 <meta name="twitter:description" content="方法一 打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..， 删除图上所示的位置目录，重启x"/>
 
@@ -182,54 +179,43 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#方法一">方法一</a></li>
-<li><a href="#方式二">方式二</a></li>
-<li><a href="#方法三">方法三</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">方法一</a></li>
+        <li><a href="#heading-1">方式二</a></li>
+        <li><a href="#heading-2">方法三</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="方法一">方法一</h3>
-
+      <h3 id="heading">方法一</h3>
 <ol>
 <li>打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..，</li>
-
-<li><p>删除图上所示的位置目录，重启xcode。</p>
-
-<h3 id="方式二">方式二</h3></li>
-
-<li><p>cd进入~/Library/Developer/Xcode/DerivedData</p></li>
-
-<li><p>找到你的项目所用的目录（一般以你的项目名开头）</p></li>
-
-<li><p>cd 目录名</p></li>
-
-<li><p>rm -r Index 删除掉你的项目所用的索引文件夹</p>
-
-<h3 id="方法三">方法三</h3></li>
-
-<li><p>退出 Xcode</p></li>
-
-<li><p>重启电脑</p></li>
-
-<li><p>找到 这个 DerivedData 文件夹 删除 (路径: ~/Library/Developer/Xcode/DerivedData)</p></li>
-
-<li><p>删除这个 com.apple.dt.Xcode 文件 (路径: ~/Library/Caches/com.apple.dt.Xcode)</p></li>
-
-<li><p>运行 Xcode  就好了~~
-&gt;(1) 原文表示删除 ~/Library/Developer/Xcode/DerivedData下所有的文件，我尝试发现只需要删除当前项目相关的索引文件即可
-&gt;(2)  DerivedData从字面上理解应该是收集到的数据，应该是Xcode针对这个项目缓存的一些数据，不会影响项目本身的完整性</p></li>
+<li>删除图上所示的位置目录，重启xcode。</li>
 </ol>
+<h3 id="heading-1">方式二</h3>
+<ol>
+<li>cd进入~/Library/Developer/Xcode/DerivedData</li>
+<li>找到你的项目所用的目录（一般以你的项目名开头）</li>
+<li>cd 目录名</li>
+<li>rm -r Index 删除掉你的项目所用的索引文件夹</li>
+</ol>
+<h3 id="heading-2">方法三</h3>
+<ol>
+<li>退出 Xcode</li>
+<li>重启电脑</li>
+<li>找到 这个 DerivedData 文件夹 删除 (路径: ~/Library/Developer/Xcode/DerivedData)</li>
+<li>删除这个 com.apple.dt.Xcode 文件 (路径: ~/Library/Caches/com.apple.dt.Xcode)</li>
+<li>运行 Xcode  就好了~~</li>
+</ol>
+<blockquote>
+<p>(1) 原文表示删除 ~/Library/Developer/Xcode/DerivedData下所有的文件，我尝试发现只需要删除当前项目相关的索引文件即可
+(2)  DerivedData从字面上理解应该是收集到的数据，应该是Xcode针对这个项目缓存的一些数据，不会影响项目本身的完整性</p>
+</blockquote>
 
     </div>
 

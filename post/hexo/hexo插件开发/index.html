@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/hexo%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-09-07T15:08:22+00:00" />
 <meta itemprop="name" content="Hexo插件开发">
 <meta itemprop="description" content="{% github hexojs site e1839be width = 30% %} Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件： 脚本（Scripts） 如果您的代码">
-
-
 <meta itemprop="datePublished" content="2018-09-07T15:08:22&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-07T15:08:22&#43;00:00" />
 <meta itemprop="wordCount" content="573">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hexo插件开发"/>
 <meta name="twitter:description" content="{% github hexojs site e1839be width = 30% %} Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件： 脚本（Scripts） 如果您的代码"/>
 
@@ -182,44 +179,29 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#脚本-scripts">脚本（Scripts）</a></li>
-<li><a href="#插件-packages">插件（Packages）</a></li>
-<li><a href="#工具">工具</a></li>
-<li><a href="#发布">发布</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#scripts">脚本（Scripts）</a></li>
+    <li><a href="#packages">插件（Packages）</a></li>
+    <li><a href="#heading">工具</a></li>
+    <li><a href="#heading-1">发布</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github hexojs site e1839be width = 30% %}</p>
-
 <p>Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件：</p>
-
-<h2 id="脚本-scripts">脚本（Scripts）</h2>
-
+<h2 id="scripts">脚本（Scripts）</h2>
 <p>如果您的代码很简单，建议您编写脚本，您只需要把 JavaScript 文件放到 <code>scripts</code> 文件夹，在启动时就会自动载入。</p>
-
-<h2 id="插件-packages">插件（Packages）</h2>
-
+<h2 id="packages">插件（Packages）</h2>
 <p>如果您的代码较复杂，或是您想要发布到 NPM 上，建议您编写插件。首先，在 <code>node_modules</code> 文件夹中建立文件夹，文件夹名称开头必须为 <code>hexo-</code>，如此一来 Hexo 才会在启动时载入否则 Hexo 将会忽略它。</p>
-
 <p>文件夹内至少要包含 2 个文件：一个是主程序，另一个是 <code>package.json</code>，描述插件的用途和所依赖的插件。</p>
-
 <pre><code>.
 ├── index.js
 └── package.json
 </code></pre>
-
 <p><code>package.json</code> 中至少要包含 <code>name</code>, <code>version</code>, <code>main</code> 属性，例如：</p>
-
 <pre><code>package.json
 {
 &quot;name&quot;: &quot;hexo-my-plugin&quot;,
@@ -227,31 +209,25 @@ autocomplete('#aa-search-input',
 &quot;main&quot;: &quot;index&quot;
 }
 </code></pre>
-
-<h2 id="工具">工具</h2>
-
+<h2 id="heading">工具</h2>
 <p>您可以使用 Hexo 提供的官方工具插件来加速开发：
 <a href="https://github.com/hexojs/hexo-fs">hexo-fs</a>：文件 IO
 <a href="https://github.com/hexojs/hexo-util">hexo-util</a>：工具程式
 <a href="https://github.com/hexojs/hexo-i18n">hexo-i18n</a>：本地化（i18n）
 <a href="https://github.com/hexojs/hexo-pagination">hexo-pagination</a>：生成分页资料</p>
-
-<h2 id="发布">发布</h2>
-
-<p>当您完成插件后，可以考虑将它发布到 <a href="https://hexo.io/plugins">插件列表</a>，让更多人能够使用您的插件。发布插件的步骤和 <a href="https://hexo.io/zh-cn/docs/contributing.html#更新文件">更新文件</a> 非常类似。</p>
-
+<h2 id="heading-1">发布</h2>
+<p>当您完成插件后，可以考虑将它发布到 <a href="https://hexo.io/plugins">插件列表</a>，让更多人能够使用您的插件。发布插件的步骤和 <a href="https://hexo.io/zh-cn/docs/contributing.html#%E6%9B%B4%E6%96%B0%E6%96%87%E4%BB%B6">更新文件</a> 非常类似。</p>
 <ol>
 <li>Fork <a href="https://github.com/hexojs/site">hexojs/site</a></li>
-
-<li><p>把库（repository）复制到电脑上，并安装所依赖的插件：</p>
-
+<li>把库（repository）复制到电脑上，并安装所依赖的插件：</li>
+</ol>
 <pre><code>$ git clone https://github.com/&lt;username&gt;/site.git
 $ cd site
 $ npm install
-</code></pre></li>
-
-<li><p>编辑 source/_data/plugins.yml，在档案中新增您的插件，例如：</p>
-
+</code></pre>
+<ol start="3">
+<li>编辑 source/_data/plugins.yml，在档案中新增您的插件，例如：</li>
+</ol>
 <pre><code>- name: hexo-server
 description: Server module for Hexo.
 link: https://github.com/hexojs/hexo-server
@@ -259,11 +235,10 @@ tags:
 - official
 - server
 - console
-</code></pre></li>
-
-<li><p>推送（push）分支.</p></li>
-
-<li><p>建立一个新的合并申请（pull request）并描述改动。</p></li>
+</code></pre>
+<ol start="4">
+<li>推送（push）分支.</li>
+<li>建立一个新的合并申请（pull request）并描述改动。</li>
 </ol>
 
     </div>

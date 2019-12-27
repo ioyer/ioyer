@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2014-06-10T18:45:37+08:00" />
 <meta itemprop="name" content="在IOS中像SnapChat一样监控screenshots">
 <meta itemprop="description" content="A number of Stack Overflowquestions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself. The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you">
-
-
 <meta itemprop="datePublished" content="2014-06-10T18:45:37&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-10T18:45:37&#43;08:00" />
 <meta itemprop="wordCount" content="284">
 
 
 
-<meta itemprop="keywords" content="截屏," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="截屏," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在IOS中像SnapChat一样监控screenshots"/>
 <meta name="twitter:description" content="A number of Stack Overflowquestions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself. The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you"/>
 
@@ -181,14 +178,13 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      <p>A <a href="http://stackoverflow.com/questions/2121970/notification-of-or-detecting-screenshot-being-taken/2122117">number</a> of <a href="http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot">Stack</a>  <a href="http://stackoverflow.com/questions/10122212/iphone-screenshot">Overflow</a>questions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself.
-<!-- more-->
-The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you want to protect will require you to have the user to touch the screen to see. If that works for your purposes, the general solution is to simply intercept the touch cancellation, and quickly remove any sensitive information from the screen. If you’re also implementing a screenshot counter, as with SnapChat, you will also need to take into account the other cases when a touch might be cancelled: from a system gesture (Notification Center or the iPad’s multitasking gestures), or by activating other pieces of system UI (the power down menu, or the multitasking switcher).</p>
-
+      <p>A <a href="http://stackoverflow.com/questions/2121970/notification-of-or-detecting-screenshot-being-taken/2122117">number</a> of <a href="http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot">Stack</a>  <a href="http://stackoverflow.com/questions/10122212/iphone-screenshot">Overflow</a>questions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself.</p>
+<!-- raw HTML omitted -->
+<p>The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you want to protect will require you to have the user to touch the screen to see. If that works for your purposes, the general solution is to simply intercept the touch cancellation, and quickly remove any sensitive information from the screen. If you’re also implementing a screenshot counter, as with SnapChat, you will also need to take into account the other cases when a touch might be cancelled: from a system gesture (Notification Center or the iPad’s multitasking gestures), or by activating other pieces of system UI (the power down menu, or the multitasking switcher).</p>
 <p>On a technical level, the two basic pieces are UILongPressGestureRecognizer (or -touchesCancelled:withEvent:, if you want) and UIApplicationDelegate. In your long press handler, you should hide your sensitive information when the gesture recognizer’s state is UIGestureRecognizerStateCancelled, and if you want to track the number of screenshots, increment a counter. Then, in the UIApplicationDelegate, decrement that counter when you receive the -applicationWillEnterBackground: or -applicationDidResignActive: notification to account for the other possibilities for a cancelled touch. You might also need to handle other situations where a touch could be cancelled, if other parts of your app might cause that to happen.</p>
 
     </div>

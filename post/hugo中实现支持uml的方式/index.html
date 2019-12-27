@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hugo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81uml%E7%9A%84%E6%96%B9%E5%BC%8F/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2019-08-09T17:50:14+08:00" />
 <meta itemprop="name" content="hugo中实现支持uml的方式">
 <meta itemprop="description" content="### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes/even/layouts/partials/footer.html &lt;!-- mermaid JS --&gt; &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt; &lt;script&gt; mermaid.initialize({ startOnLoad: true }); &lt;/script&gt; 在md文件中添加代码块 &lt;div class=&quot;mermaid&quot;&gt; graph LR A --- B B--&gt;C[fa:fa-ban forbidden] B--&gt;D(fa:fa-spinner); &lt;/div&gt;">
-
-
 <meta itemprop="datePublished" content="2019-08-08T20:39:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-09T17:50:14&#43;08:00" />
 <meta itemprop="wordCount" content="70">
 
 
 
-<meta itemprop="keywords" content="uml," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="uml," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo中实现支持uml的方式"/>
 <meta name="twitter:description" content="### 使用mermaidjs mermaidjs 引入js文件:mermaid.min.js vi themes/even/layouts/partials/footer.html &lt;!-- mermaid JS --&gt; &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt; &lt;script&gt; mermaid.initialize({ startOnLoad: true }); &lt;/script&gt; 在md文件中添加代码块 &lt;div class=&quot;mermaid&quot;&gt; graph LR A --- B B--&gt;C[fa:fa-ban forbidden] B--&gt;D(fa:fa-spinner); &lt;/div&gt;"/>
 
@@ -181,34 +178,32 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p>### 使用mermaidjs
 <a href="https://mermaidjs.github.io/#/">mermaidjs</a></p>
-
 <ol>
-<li><p>引入js文件:<a href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">mermaid.min.js</a></p>
-
+<li>引入js文件:<a href="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">mermaid.min.js</a></li>
+</ol>
 <pre><code>vi themes/even/layouts/partials/footer.html
 &lt;!-- mermaid JS --&gt;
 &lt;script src=&quot;&lt;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&gt;&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({ startOnLoad: true });
 &lt;/script&gt;
-</code></pre></li>
-
-<li><p>在md文件中添加代码块</p>
-
-<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
-graph LR
-  A --- B
-  B--&gt;C[fa:fa-ban forbidden]
-  B--&gt;D(fa:fa-spinner);
-&lt;/div&gt;
-</code></pre></li>
+</code></pre>
+<ol>
+<li>在md文件中添加代码块</li>
 </ol>
+<pre><code> &lt;div class=&quot;mermaid&quot;&gt;
+  graph LR
+      A --- B
+      B--&gt;C[fa:fa-ban forbidden]
+      B--&gt;D(fa:fa-spinner);
+  &lt;/div&gt;
+</code></pre>
 
     </div>
 

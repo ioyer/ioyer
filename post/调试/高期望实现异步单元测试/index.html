@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/%E9%AB%98%E6%9C%9F%E6%9C%9B%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2017-02-20T23:09:30+00:00" />
 <meta itemprop="name" content="高期望实现异步单元测试">
 <meta itemprop="description" content="异步单元测试 在Xcode 6之前的版本里面并没有内置XCTest，只能是在主线程的RunLoop里面使用一个while循环,然后一直等待响应或">
-
-
 <meta itemprop="datePublished" content="2017-02-20T23:09:30&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-20T23:09:30&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="1900">
+=======
+<meta itemprop="wordCount" content="1899">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="工具,单元测试,UI,测试," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具,单元测试,UI,测试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="高期望实现异步单元测试"/>
 <meta name="twitter:description" content="异步单元测试 在Xcode 6之前的版本里面并没有内置XCTest，只能是在主线程的RunLoop里面使用一个while循环,然后一直等待响应或"/>
 
@@ -173,7 +174,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/xcode/"> xcode </a>
             <a href="/categories/%E6%B5%8B%E8%AF%95/"> 测试 </a>
             </div>
-          <span class="more-meta"> 约 1900 字 </span>
+          <span class="more-meta"> 约 1899 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -183,64 +184,40 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#异步单元测试">异步单元测试</a>
-<ul>
-<li><a href="#常规实现方式">常规实现方式</a></li>
-</ul></li>
-<li><a href="#xctest相关api">XCTest相关API</a>
-<ul>
-<li><a href="#xctestexpection-高期望-high-expectations-的实现和使用">XCTestExpection:高期望(High Expectations)的实现和使用</a>
-<ul>
-<li><a href="#expectation-description-为xctest测试单元设置期望"><code>expectation(description:)</code>:为XCTest测试单元设置期望</a>
-<ul>
-<li><a href="#fulfill-调用它表示测试达到期望值"><code>fulfill()</code>:调用它表示测试达到期望值</a></li>
-</ul></li>
-<li><a href="#waitforexpectations-timeout-handler-在方法底部设置测试期望的时效"><code>waitForExpectations(timeout:handler:)</code>:在方法底部设置测试期望的时效</a></li>
-<li><a href="#expectation-fornotification-object-handler-通知期望">expectation(forNotification:object:handler:):通知期望</a>
-<ul>
-<li><a href="#使用-expectation-description-实现">使用<code>expectation(description:)</code>实现</a></li>
-</ul></li>
-<li><a href="#expectation-for-evaluatedwith-handler-谓词计算测试法">expectation(for:evaluatedWith:handler:):谓词计算测试法</a>
-<ul>
-<li><a href="#使用-expectation-description-实现-1">使用<code>expectation(description:)</code>实现</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#传递expectation在目的方法中再fulfill-实现期望">传递expectation在目的方法中再fulfill()实现期望</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">异步单元测试</a>
+      <ul>
+        <li><a href="#heading-1">常规实现方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#xctestapi">XCTest相关API</a>
+      <ul>
+        <li><a href="#xctestexpectionhigh-expectations">XCTestExpection:高期望(High Expectations)的实现和使用</a></li>
+        <li><a href="#expectationfulfill">传递expectation在目的方法中再fulfill()实现期望</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="异步单元测试">异步单元测试</h2>
-
+      <h2 id="heading">异步单元测试</h2>
 <p>在Xcode 6之前的版本里面并没有内置<code>XCTest</code>，只能是在主线程的<code>RunLoop</code>里面使用一个<code>while循环</code>,然后一直等待响应或者直到<code>timeout</code>.</p>
-
 <p>在Xcode 6里，苹果以<code>XCTestExpection类</code>的方式向<code>XCTest框架</code>里添加了<code>测试期望</code>(test expection)。
 XCTest框架中相关的方法：设置期望，实现期望，通知期望，谓词计算期望等，以及期望的传递。</p>
-
-<h3 id="常规实现方式">常规实现方式</h3>
-
+<h3 id="heading-1">常规实现方式</h3>
 <p>在主线程里，使用<code>while循环</code>每隔10毫秒会执行一次，直到有响应或者5秒之后超出响应时间限制才会跳出：</p>
-
 <p>{% codeblock lang:swift %}
 func testAsyncTheOldWay()
 {
-    let timeoutDate = Date.init(timeIntervalSinceNow: 5.0)
-    var responseHasArrived = false
-    Alamofire.request(&ldquo;<a href="https://www.baidu.com&quot;).responseData{response">https://www.baidu.com&quot;).responseData{response</a> in
-        print(&ldquo;获取到的数据长度：(String(data: response.data!,
-                                   encoding:String.Encoding.utf8)!)&ldquo;)
-        responseHasArrived = true
-        XCTAssert((response.data?.count)! &gt; 0)
-    }</p>
-
+let timeoutDate = Date.init(timeIntervalSinceNow: 5.0)
+var responseHasArrived = false
+Alamofire.request(&ldquo;<a href="https://www.baidu.com%22).responseData%7Bresponse">https://www.baidu.com&quot;).responseData{response</a> in
+print(&ldquo;获取到的数据长度：(String(data: response.data!,
+encoding:String.Encoding.utf8)!)&quot;)
+responseHasArrived = true
+XCTAssert((response.data?.count)! &gt; 0)
+}</p>
 <pre><code>while (responseHasArrived == false 
         &amp;&amp; (timeoutDate.timeIntervalSinceNow &gt; 0)) 
 {
@@ -252,124 +229,100 @@ if (responseHasArrived == false)
     XCTFail(&quot;Test timed out&quot;)
 }
 </code></pre>
-
 <p>}
 {% endcodeblock %}</p>
-
-<h2 id="xctest相关api">XCTest相关API</h2>
-
+<h2 id="xctestapi">XCTest相关API</h2>
 <p>在Xcode 6里，苹果以<code>XCTestExpection类</code>的方式向<code>XCTest框架</code>里添加了<code>测试期望</code>(test expection)。</p>
-
-<h3 id="xctestexpection-高期望-high-expectations-的实现和使用">XCTestExpection:高期望(High Expectations)的实现和使用</h3>
-
+<h3 id="xctestexpectionhigh-expectations">XCTestExpection:高期望(High Expectations)的实现和使用</h3>
 <p>设置期望，实现期望，通知期望，谓词计算期望等，以及期望的传递。</p>
-
-<h4 id="expectation-description-为xctest测试单元设置期望"><code>expectation(description:)</code>:为XCTest测试单元设置期望</h4>
-
+<h4 id="expectationdescriptionxctest"><code>expectation(description:)</code>:为XCTest测试单元设置期望</h4>
 <p>为XCTest单元测试，设置一个测试期望以及错误信息描述，并在某一时刻<code>fulfill</code>实现该期望对象
 {% codeblock lang:swift %}
 //expectation(description: String) -&gt; XCTestExpectation
 let expection = expectation(description: &ldquo;失败时显示原因&rdquo;)
 {% endcodeblock %}</p>
-
-<h5 id="fulfill-调用它表示测试达到期望值"><code>fulfill()</code>:调用它表示测试达到期望值</h5>
-
+<h5 id="fulfill"><code>fulfill()</code>:调用它表示测试达到期望值</h5>
 <p>一般在单元测试通过时调用，告知测试已达期望，这一方法替代了<code>responseHasArrived</code>作为Flag的方式
 {% codeblock lang:swift %}
 //- (void)fulfill;
 expection.fulfill()
 {% endcodeblock %}</p>
-
-<h4 id="waitforexpectations-timeout-handler-在方法底部设置测试期望的时效"><code>waitForExpectations(timeout:handler:)</code>:在方法底部设置测试期望的时效</h4>
-
+<h4 id="waitforexpectationstimeouthandler"><code>waitForExpectations(timeout:handler:)</code>:在方法底部设置测试期望的时效</h4>
 <p>在方法底部指定一个超时，如果测试条件不适合时间范围便会结束执行
 {% codeblock lang:swift %}
 // open func waitForExpectations(timeout: TimeInterval, handler: XCTest.XCWaitCompletionHandler? = nil)
 waitForExpectations(timeout: 5) { error in
-    print(&ldquo;错误信息:(error?.localizedDescription)&ldquo;)
+print(&ldquo;错误信息:(error?.localizedDescription)&quot;)
 }
 {% endcodeblock %}
 如果完成处理的代码在指定时限里执行并调用了<code>fulfill()</code>方法，那么就说明所有的测试期望在此期间都已经被实现。否则就测试就被打断不再执行</p>
-
-<h4 id="expectation-fornotification-object-handler-通知期望">expectation(forNotification:object:handler:):通知期望</h4>
-
+<h4 id="expectationfornotificationobjecthandler">expectation(forNotification:object:handler:):通知期望</h4>
 <p>该方法监听一个通知,如果在规定时间内正确收到通知则测试通过
 {% codeblock lang:swift %}
 //expectation(forNotification notificationName: String, object objectToObserve: Any?, handler: XCTest.XCNotificationExpectationHandler? = nil) -&gt; XCTestExpectation
 //设置一个测试通知期望
 expectation(forNotification: &ldquo;BLDownloadImageNotification&rdquo;,
-                     object: nil)
+object: nil)
 {(notification) -&gt; Bool in
-    let userInfo = notification.userInfo as! [String:String]
-    let name = userInfo[&ldquo;name&rdquo;]
-    print(&ldquo;name:(name)&ldquo;)
-    return true
+let userInfo = notification.userInfo as! [String:String]
+let name = userInfo[&ldquo;name&rdquo;]
+print(&ldquo;name:(name)&quot;)
+return true
 }
 来定义一个通知并发送通知，来测试：
 let notif =  Notification.Name(rawValue: &ldquo;BLDownloadImageNotification&rdquo;)
 NotificationCenter.default.post(name: notif, object: self, userInfo: [&ldquo;name&rdquo;:&ldquo;iTBoyer&rdquo;,&ldquo;sex&rdquo;:&ldquo;man&rdquo;])</p>
-
 <p>//设置延迟多少秒后，如果没有满足测试条件就报错
 waitForExpectations(timeout: 3, handler: nil)
 {% endcodeblock %}</p>
-
-<h5 id="使用-expectation-description-实现">使用<code>expectation(description:)</code>实现</h5>
-
+<h5 id="expectationdescription">使用<code>expectation(description:)</code>实现</h5>
 <p>帮助理解 <code>expectation(forNotification:object:handler:)</code> 方法和 <code>expectation(description:)</code> 的区别
 {% codeblock  lang:swift  %}
 func testAsynForNotificationWithExpectation()
 {
-    let expectation = self.expectation(description: &ldquo;BLDownloadImageNotification&rdquo;)
-    let notif = NSNotification.Name(rawValue: &ldquo;BLDownloadImageNotification&rdquo;)
-    let sub = NotificationCenter.default.addObserver(forName: notif, object: nil, queue: nil) { (notification) -&gt; Void in
-        expectation.fulfill()
-    }
-    //发送一个通知
-    NotificationCenter.default.post(name: notif, object: nil)</p>
-
+let expectation = self.expectation(description: &ldquo;BLDownloadImageNotification&rdquo;)
+let notif = NSNotification.Name(rawValue: &ldquo;BLDownloadImageNotification&rdquo;)
+let sub = NotificationCenter.default.addObserver(forName: notif, object: nil, queue: nil) { (notification) -&gt; Void in
+expectation.fulfill()
+}
+//发送一个通知
+NotificationCenter.default.post(name: notif, object: nil)</p>
 <pre><code>//waitForExpectations
 waitForExpectations(timeout: 1, handler: nil)
 
 //移除通知
 NotificationCenter.default.removeObserver(sub)
 </code></pre>
-
 <p>}</p>
-
 <p>{% endcodeblock %}</p>
-
-<h4 id="expectation-for-evaluatedwith-handler-谓词计算测试法">expectation(for:evaluatedWith:handler:):谓词计算测试法</h4>
-
+<h4 id="expectationforevaluatedwithhandler">expectation(for:evaluatedWith:handler:):谓词计算测试法</h4>
 <p>利用谓词计算，判断<code>button</code>的<code>backgroundImageForState</code>方法，是否正确的获得了<code>backgroundImage</code>，如果<code>20秒</code>内正确获得则通过测试，否则失败
 {% codeblock lang:swift %}
 //open func expectation(for predicate: NSPredicate, evaluatedWith object: Any, handler: XCTest.XCPredicateExpectationHandler? = nil) -&gt; XCTestExpectation
 func testThatBackgroundImageChanges()
 {
-    let viewController = OnclickLikeViewController()
-    //viewController.loadView()  //不执行viewDidload方法
-    let _ = viewController.view
-    let button = viewController.button
-    let img = button.backgroundImage(for: .normal)
-    XCTAssertNil(img,&ldquo;此时img不为nil,中止执行&rdquo;)  //当img不是nil时，执行断言
-    let predicate = NSPredicate.init { (anyobject, bindings) -&gt; Bool in
-        //
-        let button = anyobject as! UIButton
-        return button.backgroundImage(for: UIControlState()) != nil
-    }
-    expectation(for: predicate, evaluatedWith: button, handler: nil)
-    waitForExpectations(timeout: 20, handler: nil)
+let viewController = OnclickLikeViewController()
+//viewController.loadView()  //不执行viewDidload方法
+let _ = viewController.view
+let button = viewController.button
+let img = button.backgroundImage(for: .normal)
+XCTAssertNil(img,&ldquo;此时img不为nil,中止执行&rdquo;)  //当img不是nil时，执行断言
+let predicate = NSPredicate.init { (anyobject, bindings) -&gt; Bool in
+//
+let button = anyobject as! UIButton
+return button.backgroundImage(for: UIControlState()) != nil
+}
+expectation(for: predicate, evaluatedWith: button, handler: nil)
+waitForExpectations(timeout: 20, handler: nil)
 }
 {% endcodeblock %}</p>
-
-<h5 id="使用-expectation-description-实现-1">使用<code>expectation(description:)</code>实现</h5>
-
+<h5 id="expectationdescription-1">使用<code>expectation(description:)</code>实现</h5>
 <p>帮助理解 <code>expectation(for:evaluatedWith:handler:)</code> 方法和 <code>expectation(description:)</code> 的区别
 {% codeblock  lang:swift %}
 func testThatBackgroundImageChanges()
 {
-    //设置期望
-    let expectation = self.expectation(description: &ldquo;backgroundImageForState&rdquo;)</p>
-
+//设置期望
+let expectation = self.expectation(description: &ldquo;backgroundImageForState&rdquo;)</p>
 <pre><code>let viewController = OnclickLikeViewController()
 //viewController.loadView()  //不执行viewDidload方法
 let _ = viewController.view
@@ -387,20 +340,15 @@ let predicate = NSPredicate.init { (anyobject, bindings) -&gt; Bool in
 //等待期望实现
 waitForExpectations(timeout: 20, handler: nil)
 </code></pre>
-
 <p>}</p>
-
 <p>{% endcodeblock %}</p>
-
-<h3 id="传递expectation在目的方法中再fulfill-实现期望">传递expectation在目的方法中再fulfill()实现期望</h3>
-
+<h3 id="expectationfulfill">传递expectation在目的方法中再fulfill()实现期望</h3>
 <p>例如将期望封装在字典中，通过通知来传递给异步下载的方法中调用该期望的<code>fulfill()</code>方法，实现单元测试的期望
 {% codeblock  lang:swift %}
 */
 func testAsynForNotificationWithExpectation2()
 {
-    let expectation = self.expectation(description: &ldquo;BLDownloadImageNotification&rdquo;)</p>
-
+let expectation = self.expectation(description: &ldquo;BLDownloadImageNotification&rdquo;)</p>
 <pre><code>let notif = Notification.Name(rawValue: &quot;BLDownloadImageNotification&quot;)
 NotificationCenter.default.addObserver(self, selector: #selector(AsyncTheOldWayTest.downLoadImage(_:)), name: notif, object: nil)
 
@@ -425,7 +373,6 @@ func downLoadImage(_ notification:Notification)
     expectation.fulfill()
 }
 </code></pre>
-
 <p>}
 {% endcodeblock %}</p>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/shell%E5%91%BD%E4%BB%A4%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-06-23T10:32:45+00:00" />
 <meta itemprop="name" content="shell命令处理字符串">
 <meta itemprop="description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字">
-
-
 <meta itemprop="datePublished" content="2017-06-23T10:32:45&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-23T10:32:45&#43;00:00" />
 <meta itemprop="wordCount" content="377">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="shell命令处理字符串"/>
 <meta name="twitter:description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字"/>
 
@@ -182,21 +179,15 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#截取字符串">截取字符串</a></li>
-<li><a href="#实例">实例</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">截取字符串</a></li>
+    <li><a href="#heading-1">实例</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="截取字符串">截取字符串</h2>
-
+      <h2 id="heading">截取字符串</h2>
 <ol>
 <li><code>%+字符+正则表达式</code> 删除字符及右边内容，从源字符串右边开始匹配
 <code>%</code>  单井号表示一旦匹配成功立即删除
@@ -205,28 +196,23 @@ autocomplete('#aa-search-input',
 <code>#</code>  单井号表示一旦匹配成功立即删除
 <code>##</code> 双井号表示一直等相匹配到最后一个字符时再删除</li>
 </ol>
-
-<h2 id="实例">实例</h2>
-
+<h2 id="heading-1">实例</h2>
 <p>从line指定的路径中截取两个信息，类别和文件名称</p>
-
 <pre><code class="language-sh">line=&quot;shell/shell命令处理字符串.md&quot;
 </code></pre>
-
 <ol>
-<li><p>截取文件类别：shell
-删除最右边的“/shell命令处理字符串.md”</p>
-
+<li>截取文件类别：shell
+删除最右边的“/shell命令处理字符串.md”</li>
+</ol>
 <pre><code class="language-sh">categories=&quot;${line%%/*}&quot;  # %%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符
-</code></pre></li>
-
-<li><p>截取文件名称：shell命令处理字符串
-先删除最左边的“shell/”,再删除最右边的“.md”</p>
-
+</code></pre>
+<ol start="2">
+<li>截取文件名称：shell命令处理字符串
+先删除最左边的“shell/”,再删除最右边的“.md”</li>
+</ol>
 <pre><code class="language-sh">titlemd=&quot;${line##*/}&quot;   # ##*/: 删除&quot;/&quot;左边所有字段即&quot;shell/&quot;
 title=&quot;${titlemd%%\.*}&quot; # 删除.md文件后缀
-</code></pre></li>
-</ol>
+</code></pre>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-06-20T17:22:37+00:00" />
 <meta itemprop="name" content="使用tag管理多个相关组件的版本发布">
 <meta itemprop="description" content="tag标签自增新建脚本 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &quot;version&#43;=1&quot; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 git tag -f v1.0.2.8 服务器已有">
-
-
 <meta itemprop="datePublished" content="2018-06-20T17:22:37&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-20T17:22:37&#43;00:00" />
 <meta itemprop="wordCount" content="181">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用tag管理多个相关组件的版本发布"/>
 <meta name="twitter:description" content="tag标签自增新建脚本 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &quot;version&#43;=1&quot; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 git tag -f v1.0.2.8 服务器已有"/>
 
@@ -182,25 +179,20 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tag标签自增新建脚本">tag标签自增新建脚本</a></li>
-<li><a href="#修改tag版本号的方法">修改tag版本号的方法</a>
-<ul>
-<li><a href="#方法一-覆盖">方法一：覆盖</a></li>
-<li><a href="#方法-删除分支">方法：删除分支</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tag">tag标签自增新建脚本</a></li>
+    <li><a href="#tag-1">修改tag版本号的方法</a>
+      <ul>
+        <li><a href="#heading">方法一：覆盖</a></li>
+        <li><a href="#heading-1">方法：删除分支</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="tag标签自增新建脚本">tag标签自增新建脚本</h2>
-
+      <h2 id="tag">tag标签自增新建脚本</h2>
 <pre><code class="language-sh">#!/bin/sh
 tag=$(git describe --tags `git rev-list --tags --max-count=1`)
 version=${tag##*.}
@@ -208,44 +200,39 @@ let &quot;version+=1&quot;
 newTag=${tag%.*}.${version}
 echo 'Create New Tag '$newTag
 </code></pre>
-
-<h2 id="修改tag版本号的方法">修改tag版本号的方法</h2>
-
-<h3 id="方法一-覆盖">方法一：覆盖</h3>
-
+<h2 id="tag-1">修改tag版本号的方法</h2>
+<h3 id="heading">方法一：覆盖</h3>
 <ol>
-<li><p>已有v1.0.2.8要覆盖该版本</p>
-
+<li>已有v1.0.2.8要覆盖该版本</li>
+</ol>
 <pre><code class="language-git">git tag -f v1.0.2.8
-</code></pre></li>
-
-<li><p>服务器已有v1.0.2.8，强制推到服务器</p>
-
+</code></pre>
+<ol start="2">
+<li>服务器已有v1.0.2.8，强制推到服务器</li>
+</ol>
 <pre><code class="language-git">git push origin -f v1.0.2.8
-</code></pre></li>
-
-<li><p>同步服务器：获取服务器刚刚的v1.0.2.8</p>
-
+</code></pre>
+<ol start="3">
+<li>同步服务器：获取服务器刚刚的v1.0.2.8</li>
+</ol>
 <pre><code>git fetch -–tag
 </code></pre>
-
-<h3 id="方法-删除分支">方法：删除分支</h3></li>
-
-<li><p>删除本地版本</p>
-
-<pre><code class="language-git">git tag -d v1.0.2.8
-</code></pre></li>
-
-<li><p>删除服务器上的分支(用空版本覆盖)</p>
-
-<pre><code class="language-ruby">git push origin :v1.0.2.8
-</code></pre></li>
-
-<li><p>服务器获取刚刚的v1.0.2.8</p>
-
-<pre><code class="language-ruby">git fetch –-tag
-</code></pre></li>
+<h3 id="heading-1">方法：删除分支</h3>
+<ol>
+<li>删除本地版本</li>
 </ol>
+<pre><code class="language-git">git tag -d v1.0.2.8
+</code></pre>
+<ol start="2">
+<li>删除服务器上的分支(用空版本覆盖)</li>
+</ol>
+<pre><code class="language-ruby">git push origin :v1.0.2.8
+</code></pre>
+<ol start="3">
+<li>服务器获取刚刚的v1.0.2.8</li>
+</ol>
+<pre><code class="language-ruby">git fetch –-tag
+</code></pre>
 
     </div>
 

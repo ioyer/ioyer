@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E4%BD%BF%E7%94%A8fastlane%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91/" />
@@ -47,16 +47,18 @@
 <meta property="article:modified_time" content="2018-10-24T12:45:30+00:00" />
 <meta itemprop="name" content="使用Fastlane持续集成开发">
 <meta itemprop="description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <meta itemprop="datePublished" content="2018-10-24T12:45:30&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-24T12:45:30&#43;00:00" />
 <meta itemprop="wordCount" content="640">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Fastlane持续集成开发"/>
 <meta name="twitter:description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的"/>
 
@@ -182,16 +184,14 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#持续集成">持续集成</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">持续集成</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
+<<<<<<< HEAD
       
 
 <!--github库卡片-->
@@ -200,18 +200,17 @@ autocomplete('#aa-search-input',
 
 <h2 id="持续集成">持续集成</h2>
 
+=======
+      <!-- raw HTML omitted -->
+<p>{% github it-boyer  width = 30% %}</p>
+<h2 id="heading">持续集成</h2>
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的维护压力。大部分 CI 环境对于开源项目都是免费的，得益于此，我们可以利用这个星球上最优秀的 CI 来确保我们的代码正常工作。</p>
-
 <p>就 iOS 或者 OSX 开发来说，<code>Travis CI</code>, <code>CircleCI</code>, <code>Coveralls</code>，<code>Codecov</code> 等都是很好的选择。</p>
-
 <p>开发总是有趣的，但是发布一般都很无聊。因为发布流程每次都一样，非常机械。无非就是跑测试，打 tag，上传代码，写 release log，更新 podspec 等等。虽然简单，但是费时费力，容易出错。对于这种情景，自动化流程显然是最好的选择。而相比于自己写发布脚本，在 Cocoa 社区我们有更好的工具，那就是 <a href="https://fastlane.tools">fastlane</a>。</p>
-
 <p>fastlane 是一系列 Cocoa 开发的工具的集合，包括跑测试，打包 app，自动截图，管理 iTunes Connect 等等。</p>
-
 <p>不单单是 app 开发，在框架开发中，我们也可以利用到 fastlane 里很多很方便的命令。</p>
-
 <p>使用 fastlane 做持续发布很简单，建立自己的合适的 Fastfile 文件，然后把你想做什么写进去就好了。比如这里是一个简单的 Fastfile 的例子：</p>
-
 <pre><code># Fastfile
 desc &quot;Release new version&quot;
 lane :release do |options|
@@ -234,7 +233,6 @@ end
 
 $ fastlane release version:1.8.4
 </code></pre>
-
 <p>AFNetworking 在 3.0 版本开始加入了 fastlane 做自动集成和发布，可以说把开源项目的 CI 做到了极致。在这里强烈推荐大家有空可以看一看这个项目，除了使用 fastlane 简化流程以外，这个项目里还介绍了一些发布框架时的最佳实践。</p>
 
     </div>

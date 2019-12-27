@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AF%BC%E5%9B%BE/uml%E6%B4%BB%E5%8A%A8%E5%9B%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2018-06-04T21:27:15+00:00" />
 <meta itemprop="name" content="uml活动图常用语法">
 <meta itemprop="description" content="start :ClickServlet.handleRequest(); :new page; if (Page.onSecurityCheck) then (true) :Page.onInit(); if (isForward?) then (no) :Process controls; if (continue processing?) then (no) stop endif if (isPost?) then (yes) :Page.onPost(); else (no) :Page.onGet(); endif :Page.onRender(); endif else (false) endif if (do redirect?) then (yes) :redirect process; else if (do forward?) then (yes) :Forward request; else (no) :Render page template; endif endif stop start :ClickServlet.handleRequest(); :new page; if (Page.onSecurityCheck) then (true) :Page.onInit(); if (isForward?)">
-
-
 <meta itemprop="datePublished" content="2018-06-04T21:27:15&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-04T21:27:15&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="409">
+=======
+<meta itemprop="wordCount" content="406">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="uml活动图常用语法"/>
 <meta name="twitter:description" content="start :ClickServlet.handleRequest(); :new page; if (Page.onSecurityCheck) then (true) :Page.onInit(); if (isForward?) then (no) :Process controls; if (continue processing?) then (no) stop endif if (isPost?) then (yes) :Page.onPost(); else (no) :Page.onGet(); endif :Page.onRender(); endif else (false) endif if (do redirect?) then (yes) :redirect process; else if (do forward?) then (yes) :Forward request; else (no) :Render page template; endif endif stop start :ClickServlet.handleRequest(); :new page; if (Page.onSecurityCheck) then (true) :Page.onInit(); if (isForward?)"/>
 
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E5%AF%BC%E5%9B%BE/"> 导图 </a>
             </div>
-          <span class="more-meta"> 约 409 字 </span>
+          <span class="more-meta"> 约 406 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -181,7 +182,7 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
@@ -217,7 +218,6 @@ endif
 endif
 stop
 </code></pre>
-
 <pre><code class="language-puml">start
 :ClickServlet.handleRequest();
 :new page;
@@ -251,13 +251,12 @@ endif
 stop
 
 </code></pre>
-
 <p>title <code>uml模型图题目支持MD</code>
 center header
 <code>在此处添加标头</code>
 endheader
 start &lsquo;开始&rsquo;
-&lsquo;&gt;&gt;&gt;&gt;&gt; 活动关系模块 支持嵌套，条件/循环/并行&gt;&gt;&gt;&gt;&gt;&gt;&rsquo;
+&lsquo;&raquo;&raquo;&gt; 活动关系模块 支持嵌套，条件/循环/并行&raquo;&raquo;&raquo;&rsquo;
 if(<code>环境条件</code>) then (<code>分流线名</code>)
 :<code>分支1活动</code>;
 -[<code>颜色</code>]-&gt; <code>线备注</code>;
@@ -269,29 +268,23 @@ elseif(<code>分流线名</code>)
 else (<code>分流线名</code>)
 :<code>分支3活动</code>;
 endif</p>
-
 <p>repeat
 :<code>循环活动</code>;
 repeat while (<code>环境条件</code>)</p>
-
 <p>while (<code>环境条件</code>)
 :<code>循环活动</code>;
 endwhile</p>
-
 <p>fork
 :<code>并行活动</code>;
 fork again
 :<code>并行活动</code>;
 end fork</p>
-
 <p>&lsquo;&amp;&amp;&amp;&amp;&amp; 活动图组合模块 &amp;&amp;&amp;&amp;&amp;&amp;&rsquo;
 partition <code>活动组名</code>{
 :<code>单元活动名称</code>;
 }</p>
-
 <p>|<code>#颜色</code> | <code>泳道名称</code>|
 :<code>当前泳道活动</code>;</p>
-
 <p>stop &lsquo;结束／end关键字&rsquo;
 center footer
 <code>在此处添加脚注</code>

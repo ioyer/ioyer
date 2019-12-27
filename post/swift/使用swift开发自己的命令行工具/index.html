@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/%E4%BD%BF%E7%94%A8swift%E5%BC%80%E5%8F%91%E8%87%AA%E5%B7%B1%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
@@ -47,16 +47,21 @@
 <meta property="article:modified_time" content="2018-10-15T19:30:26+00:00" />
 <meta itemprop="name" content="使用swift开发自己的命令行工具">
 <meta itemprop="description" content="{% github it-boyer Panagram_Final 8023350 width = 30% %} Command Line Programs on macOS Tutorial swift编写命令行工具 更新7/21/17:macOS教程上的命令行程序已经更新为Xcode 9和Swift 4。">
+<<<<<<< HEAD
 
 
 <meta itemprop="datePublished" content="2018-10-15T19:30:26&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-15T19:30:26&#43;00:00" />
 <meta itemprop="wordCount" content="1494">
+=======
+<meta itemprop="datePublished" content="2018-10-15T19:30:26&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-15T19:30:26&#43;00:00" />
+<meta itemprop="wordCount" content="1492">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用swift开发自己的命令行工具"/>
 <meta name="twitter:description" content="{% github it-boyer Panagram_Final 8023350 width = 30% %} Command Line Programs on macOS Tutorial swift编写命令行工具 更新7/21/17:macOS教程上的命令行程序已经更新为Xcode 9和Swift 4。"/>
 
@@ -172,7 +177,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1494 字 </span>
+          <span class="more-meta"> 约 1492 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,105 +187,95 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#开始">开始</a></li>
-<li><a href="#样例介绍">样例介绍</a>
-<ul>
-<li><a href="#the-output-stream">The Output Stream</a></li>
-<li><a href="#command-line-arguments">Command-Line Arguments</a></li>
-<li><a href="#anagrams-and-palindromes">Anagrams and Palindromes</a></li>
-<li><a href="#handle-input-interactively">Handle Input Interactively</a></li>
-<li><a href="#xcode中测试">Xcode中测试</a></li>
-</ul></li>
-<li><a href="#终端启动命令行app">终端启动命令行APP</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">前言</a></li>
+    <li><a href="#heading-1">开始</a></li>
+    <li><a href="#heading-2">样例介绍</a>
+      <ul>
+        <li><a href="#the-output-stream">The Output Stream</a></li>
+        <li><a href="#command-line-arguments">Command-Line Arguments</a></li>
+        <li><a href="#anagrams-and-palindromes">Anagrams and Palindromes</a></li>
+        <li><a href="#handle-input-interactively">Handle Input Interactively</a></li>
+        <li><a href="#xcode">Xcode中测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#app">终端启动命令行APP</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
+<<<<<<< HEAD
       
 
 <!--github库卡片-->
 
+=======
+      <!-- raw HTML omitted -->
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>{% github it-boyer Panagram_Final 8023350 width = 30% %}
 <a href="https://www.raywenderlich.com/511-command-line-programs-on-macos-tutorial">Command Line Programs on macOS Tutorial</a>
 <a href="https://my.oschina.net/uniquejava/blog/685537?p=1">swift编写命令行工具</a></p>
-
 <pre><code>更新7/21/17:macOS教程上的命令行程序已经更新为Xcode 9和Swift 4。
 </code></pre>
-
-<h2 id="前言">前言</h2>
-
+<h2 id="heading">前言</h2>
 <p>典型的Mac用户使用图形用户界面(GUI)与计算机交互。gui，顾名思义，是基于用户通过输入设备(如鼠标)与计算机进行视觉交互，通过选择或操作屏幕元素(如菜单、按钮等)。
 不久前，在GUI出现之前，命令行接口(CLI)还是与计算机交互的主要方法。CLIs是基于文本的接口，用户可以在其中输入要执行的程序名，后面跟着参数。
 尽管gui很流行，命令行程序仍然在当今的计算世界中扮演着重要的角色。命令行程序(如<code>ImageMagick</code>或<code>ffmpeg</code>)在服务器世界中非常重要。事实上，大多数形成Internet的服务器只运行命令行程序。
 甚至Xcode也使用命令行程序!当Xcode构建项目时，它调用xcodebuild，它执行实际的构建。如果构建过程被嵌入到Xcode产品中，持续集成解决方案将很难实现，如果不是不可能的话!</p>
-
-<h2 id="开始">开始</h2>
-
-<p>对于创建命令行程序来说，Swift似乎是一个奇怪的选择，因为C、Perl、Ruby或Java等语言是更传统的选择。但是，有一些很好的理由可以根据您的命令行需求选择Swift:
-* Swift既可以用作解释脚本语言，也可以用作编译语言。这给了您脚本语言的优势，例如零编译时间和易于维护，以及选择编译应用程序以提高执行时间或将其捆绑销售。
-* 你不需要学习其他语言。许多人说程序员应该每年学一门新语言。这不是一个坏主意，但是如果你已经习惯了Swift和它的标准库，你可以通过坚持使用Swift来减少时间投资。</p>
-
-<h2 id="样例介绍">样例介绍</h2>
-
+<h2 id="heading-1">开始</h2>
+<p>对于创建命令行程序来说，Swift似乎是一个奇怪的选择，因为C、Perl、Ruby或Java等语言是更传统的选择。但是，有一些很好的理由可以根据您的命令行需求选择Swift:</p>
+<ul>
+<li>Swift既可以用作解释脚本语言，也可以用作编译语言。这给了您脚本语言的优势，例如零编译时间和易于维护，以及选择编译应用程序以提高执行时间或将其捆绑销售。</li>
+<li>你不需要学习其他语言。许多人说程序员应该每年学一门新语言。这不是一个坏主意，但是如果你已经习惯了Swift和它的标准库，你可以通过坚持使用Swift来减少时间投资。</li>
+</ul>
+<h2 id="heading-2">样例介绍</h2>
 <p>在macOS教程中的命令行程序中，您将编写一个名为Panagram的命令行实用程序。根据传入的选项，它将检测给定输入是回文还是字谜。它可以从预定义的参数开始，或者在交互模式下运行，提示用户输入所需的值。
 通常，命令行程序是从嵌入在工具应用程序(比如macOS中的Terminal)中的shell中启动的。为了简单易学，在本教程中，大部分时间您将使用Xcode来启动Panagram。在本教程的最后，您将学习如何从终端启动Panagram。
-Open Xcode and go to<code>File/New/Project</code>. Find the <code>macOS</code> group, select <code>Application/Command Line Tool</code> and click Next:
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/New-Project-444x320.png" alt="" />
+Open Xcode and go to<code> File/New/Project</code>. Find the <code>macOS</code> group, select <code>Application/Command Line Tool</code> and click Next:
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/New-Project-444x320.png" alt="">
 For <code>Product Name</code>, enter <code>Panagram</code>. Make sure that Language is set to <code>Swift</code>, then click <code>Next</code>.
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/Name-the-New-Project.png" alt="" />
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/Name-the-New-Project.png" alt="">
 In the Project Navigator area you will now see the <code>main.swift</code> file that was created by the <code>Xcode Command Line Tool</code> template.
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/main-swift.png" alt="" />
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/main-swift.png" alt="">
 Many C-like languages have a <code>main</code> function that serves as the entry point — i.e. the code that the operating system will call when the program is executed. This means the program execution starts with the first line of this function. Swift doesn’t have a <code>main</code> function; instead, it has a <code>main file</code>.
 When you run your project, the first line inside the main file that isn’t a method or class declaration is the first one to be executed. It’s a good idea to keep your <code>main.swift</code> file as clean as possible and put all your classes and structs in their own files. This keeps things streamlined and helps you to understand the main execution path.</p>
-
 <h3 id="the-output-stream">The Output Stream</h3>
-
 <h3 id="command-line-arguments">Command-Line Arguments</h3>
-
 <h3 id="anagrams-and-palindromes">Anagrams and Palindromes</h3>
-
 <h3 id="handle-input-interactively">Handle Input Interactively</h3>
-
-<h3 id="xcode中测试">Xcode中测试</h3>
-
+<h3 id="xcode">Xcode中测试</h3>
 <p>Launching Outside Xcode
 Normally, a command-line program is launched from a shell utility like Terminal (vs. launching it from an IDE like Xcode). The following section walks you through launching your app in Terminal.
-There are different ways to launch your program via Terminal. You could find the compiled binary using the Finder and start it directly via Terminal. Or, you could be lazy and tell Xcode to do this for you. First, you&rsquo;ll learn the lazy way.
-1.  Launch your app in Terminal from Xcode
+There are different ways to launch your program via Terminal. You could find the compiled binary using the Finder and start it directly via Terminal. Or, you could be lazy and tell Xcode to do this for you. First, you'll learn the lazy way.</p>
+<ol>
+<li>Launch your app in Terminal from Xcode
 Create a new scheme that will open Terminal and launch Panagram in the Terminal window. Click on the scheme named Panagram in the toolbar and select New Scheme:
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/SelectNewScheme.png" alt="" /></p>
-
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/SelectNewScheme.png" alt=""></li>
+</ol>
 <p>Name the new scheme <code>Panagram on Terminal</code>:
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/NameNewScheme.png" alt="" /></p>
-
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/NameNewScheme.png" alt=""></p>
 <p>Ensure the Panagram on Terminal scheme is selected as the active scheme. Click the scheme and select Edit Scheme&hellip; in the popover.
 Ensure that the Info tab is selected and then click on the Executable drop down and select Other. Now, find the Terminal.app in your Applications/Utilities folder and click Choose. Now that Terminal is your executable, uncheck Debug executable.
-Your Panagram on Terminal scheme&rsquo;s Info tab should look like this:
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/TerminalScheme-650x368.png" alt="" />
-&gt;Note: The downside is that you can&rsquo;t debug your app in Xcode this way because now the executable that Xcode launches during a run is Terminal and not Panagram.</p>
-
+Your Panagram on Terminal scheme's Info tab should look like this:
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/TerminalScheme-650x368.png" alt=""></p>
+<blockquote>
+<p>Note: The downside is that you can't debug your app in Xcode this way because now the executable that Xcode launches during a run is Terminal and not Panagram.</p>
+</blockquote>
 <p>Next, select the Arguments tab, then add one new argument:
 <code>${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}</code>
-<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/passed_arguments2-480x118.png" alt="" />
+<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/passed_arguments2-480x118.png" alt="">
 Finally, click Close.
-Now, make sure you have the scheme <code>Panagram on Terminal</code> selected, then build and run your project. Xcode will open Terminal and pass through the path to your program. Terminal will then launch your program as you&rsquo;d expect.
-<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png" alt="" /></p>
-
-<h2 id="终端启动命令行app">终端启动命令行APP</h2>
-
+Now, make sure you have the scheme <code>Panagram on Terminal</code> selected, then build and run your project. Xcode will open Terminal and pass through the path to your program. Terminal will then launch your program as you'd expect.
+<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png" alt=""></p>
+<h2 id="app">终端启动命令行APP</h2>
 <p>Open Terminal from your Applications/Utilities folder.
-In the Project Navigator select your product under the Products group. Copy your debug folder&rsquo;s Full Path from Xcode&rsquo;s Utility area as shown below (do not include &ldquo;Panagram&rdquo;):
-<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/BuildFullPath.png" alt="" />
-Open a Finder window and select the Go/Go to Folder&hellip; menu item and paste the full path you copied in the previous step into the dialog&rsquo;s text field:
+In the Project Navigator select your product under the Products group. Copy your debug folder's Full Path from Xcode's Utility area as shown below (do not include &ldquo;Panagram&rdquo;):
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/06/BuildFullPath.png" alt="">
+Open a Finder window and select the Go/Go to Folder&hellip; menu item and paste the full path you copied in the previous step into the dialog's text field:
 Click Go and Finder navigates to the folder containing the Panagram executable:
 Drag the Panagram executable from Finder to the Terminal window and drop it there. Switch to the Terminal window and hit Return on the keyboard. Terminal launches Panagram in interactive mode since no arguments were specified:
-<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png" alt="" /></p>
+<img src="https://koenig-media.raywenderlich.com/uploads/2016/03/Finished_Program-e1458913657510-700x267.png" alt=""></p>
 
     </div>
 

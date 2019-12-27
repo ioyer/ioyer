@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/config%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3%E5%BA%93%E4%B8%93%E6%A0%8F/" />
@@ -47,16 +47,21 @@
 <meta property="article:modified_time" content="2018-10-20T13:54:16+00:00" />
 <meta itemprop="name" content="config配置个人文档库专栏">
 <meta itemprop="description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。">
+<<<<<<< HEAD
 
 
 <meta itemprop="datePublished" content="2018-10-20T13:54:16&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-20T13:54:16&#43;00:00" />
 <meta itemprop="wordCount" content="338">
+=======
+<meta itemprop="datePublished" content="2018-10-20T13:54:16&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-20T13:54:16&#43;00:00" />
+<meta itemprop="wordCount" content="339">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="config配置个人文档库专栏"/>
 <meta name="twitter:description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。"/>
 
@@ -172,7 +177,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 338 字 </span>
+          <span class="more-meta"> 约 339 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,20 +187,19 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#忽略配置">忽略配置</a></li>
-<li><a href="#docs配置">docs配置</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">忽略配置</a></li>
+        <li><a href="#docs">docs配置</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
+<<<<<<< HEAD
       
 
 <!--github库卡片-->
@@ -204,34 +208,32 @@ autocomplete('#aa-search-input',
 
 <h3 id="忽略配置">忽略配置</h3>
 
+=======
+      <!-- raw HTML omitted -->
+<p>{% github it-boyer blogDocs 978ed39 width = 30% %}</p>
+<h3 id="heading">忽略配置</h3>
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。故需要通过hexo的<code>skip_render</code>配置机制，来屏蔽一些目录/文件等。</p>
-
 <pre><code>skip_render: [&quot;*.html&quot;,&quot;docs/*/*&quot;]
 </code></pre>
-
 <p>这样，在hexo g过程，跳过这些文件，目录的编辑过程，直接拷贝到public中发布。
 <a href="https://github.com/hexojs/hexo/issues/1146#issuecomment-88380140">skip_render参考</a></p>
-
-<h3 id="docs配置">docs配置</h3>
-
+<h3 id="docs">docs配置</h3>
 <ol>
-<li><p>位置考虑
-<code>docs</code>放在在source目录下，目录结构：</p>
-
-<pre><code>├── souce
-├── _post       //博客
-├── tags        //标签
-├── categories  //分类
-├── docs        //文档库
-    ├── index.md
-    └── kindle笔记
-</code></pre>
-
-<p>其他配置可以按照<code>tag</code>,<code>categories</code>相关配置，显示在网页中。</p></li>
-
-<li><p>版本控制
-考虑<code>docs</code>文档库的容量递增，选择<code>git submodule</code>来管理<code>docs</code>文档库，集成到hexo主库中。</p></li>
+<li>位置考虑
+<code>docs</code>放在在source目录下，目录结构：</li>
 </ol>
+<pre><code>├── souce
+    ├── _post       //博客
+    ├── tags        //标签
+    ├── categories  //分类
+    ├── docs        //文档库
+        ├── index.md
+        └── kindle笔记
+</code></pre>
+<p>其他配置可以按照<code>tag</code>,<code>categories</code>相关配置，显示在网页中。
+2. 版本控制
+考虑<code>docs</code>文档库的容量递增，选择<code>git submodule</code>来管理<code>docs</code>文档库，集成到hexo主库中。</p>
 
     </div>
 

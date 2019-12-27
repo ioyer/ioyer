@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/%E5%AE%89%E8%A3%85material%E4%B8%BB%E9%A2%98/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-12T19:33:01+00:00" />
 <meta itemprop="name" content="安装Material主题">
 <meta itemprop="description" content="Hexo &#43; Material &#43; Github 搭建博客与配置 {% github viosey hexo-theme-material d93c5a8 width = 30% %} 注意！ 在主题的开发迭代过程中，主题的配置文件模板 可能会改动。为了避免使用 git pull 更新主题的用户出现冲突">
-
-
 <meta itemprop="datePublished" content="2018-10-12T19:33:01&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-12T19:33:01&#43;00:00" />
 <meta itemprop="wordCount" content="336">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装Material主题"/>
 <meta name="twitter:description" content="Hexo &#43; Material &#43; Github 搭建博客与配置 {% github viosey hexo-theme-material d93c5a8 width = 30% %} 注意！ 在主题的开发迭代过程中，主题的配置文件模板 可能会改动。为了避免使用 git pull 更新主题的用户出现冲突"/>
 
@@ -182,35 +179,25 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#遇到的问题">遇到的问题</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">遇到的问题</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="https://zdran.com/20180326.html">Hexo + Material + Github 搭建博客与配置</a>
-<!--github库卡片-->
-{% github viosey hexo-theme-material d93c5a8 width = 30% %}</p>
-
+      <p><a href="https://zdran.com/20180326.html">Hexo + Material + Github 搭建博客与配置</a></p>
+<!-- raw HTML omitted -->
+<p>{% github viosey hexo-theme-material d93c5a8 width = 30% %}</p>
 <p>注意！ 在主题的开发迭代过程中，主题的配置文件模板 可能会改动。为了避免使用 git pull 更新主题的用户出现冲突，我们将 主题配置文件模板 命名为 <code>_config.template.yml</code>。配置主题时，你应该拷贝一份 <code>_config.template.yml</code> 并将其重命名为 <code>_config.yml</code>。</p>
-
-<h2 id="遇到的问题">遇到的问题</h2>
-
+<h2 id="heading">遇到的问题</h2>
 <p><a href="https://github.com/viosey/hexo-theme-material/issues/688">issues/688</a>
 在主题文件夹下新建一个_config.yml文件，并将_config.template.yml里的配置复制到_config.yml文件。
 修改layout/_widget/dnsprefetch.ejs文件。修改内容如下：</p>
-
 <pre><code>&lt;% } else if(theme.comment.use.startsWith(&quot;disqus&quot;)) { %&gt;
 // to
 &lt;% } else if(theme.comment.use &amp;&amp; theme.comment.use.startsWith(&quot;disqus&quot;)) { %&gt;
 </code></pre>
-
 <pre><code>ERROR /Users/kai/Code/hexoBlog/themes/material/layout/layout.ejs:3
 1| 
 2| &lt;html style=&quot;display: none;&quot; &lt;% if(config.language !== null) { %&gt;lang=&quot;&lt;%- config.language.substring(0,2) %&gt;&quot;&lt;% } %&gt;&gt;

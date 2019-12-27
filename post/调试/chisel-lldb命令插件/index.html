@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/chisel-lldb%E5%91%BD%E4%BB%A4%E6%8F%92%E4%BB%B6/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2018-08-31T16:20:20+00:00" />
 <meta itemprop="name" content="Chisel-LLDB命令插件">
 <meta itemprop="description" content="{% github facebook chisel 56d0e0d width = 30% %} LLDB 是一个有着 REPL 的特性和 C&#43;&#43; ,Python 插件的开源调试器。LLDB 绑定在 Xcode 内部，存在于主窗口底部的控制台中。调试器允许你在程序运行的特定">
-
-
 <meta itemprop="datePublished" content="2018-08-31T16:20:20&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-31T16:20:20&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="1403">
+=======
+<meta itemprop="wordCount" content="1384">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="调试,插件," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="调试,插件," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chisel-LLDB命令插件"/>
 <meta name="twitter:description" content="{% github facebook chisel 56d0e0d width = 30% %} LLDB 是一个有着 REPL 的特性和 C&#43;&#43; ,Python 插件的开源调试器。LLDB 绑定在 Xcode 内部，存在于主窗口底部的控制台中。调试器允许你在程序运行的特定"/>
 
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 1403 字 </span>
+          <span class="more-meta"> 约 1384 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,40 +183,30 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#pviews">pviews</a></li>
-<li><a href="#pvc">pvc</a></li>
-<li><a href="#visualize">visualize</a></li>
-<li><a href="#fv-fvc">fv &amp; fvc</a></li>
-<li><a href="#show-hide">show &amp; hide</a></li>
-<li><a href="#mask-umask-border-unborder">mask/umask border/unborder</a></li>
-<li><a href="#caflush">caflush</a></li>
-<li><a href="#bmessage">bmessage</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pviews">pviews</a></li>
+        <li><a href="#pvc">pvc</a></li>
+        <li><a href="#visualize">visualize</a></li>
+        <li><a href="#fv--fvc">fv & fvc</a></li>
+        <li><a href="#show--hide">show & hide</a></li>
+        <li><a href="#maskumask-borderunborder">mask/umask border/unborder</a></li>
+        <li><a href="#caflush">caflush</a></li>
+        <li><a href="#bmessage">bmessage</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github facebook chisel 56d0e0d width = 30% %}</p>
-
 <p>LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LLDB 绑定在 Xcode 内部，存在于主窗口底部的控制台中。调试器允许你在程序运行的特定时暂停它，你可以查看变量的值，执行自定的指令，并且按照你所认为合适的步骤来操作程序的进展。(这里有一个关于调试器如何工作的总体的解释。)</p>
-
 <p>Chisel 为lldb提供了新增的便捷命令，是非常实用的命令。</p>
-
 <h3 id="pviews">pviews</h3>
-
 <p>这个命令可以递归打印所有的view，并能标示层级，相当于 UIView 的私有辅助方法 <code>[view recursiveDescription]</code> 。 善用使用这个功能会让你在调试定位问题时省去很多麻烦。</p>
-
 <pre><code>(lldb) pviews view
 &lt;TestView: 0x18df8070; baseClass = UIControl; frame = (144 9; 126 167); layer = &lt;CALayer: 0x18df8150&gt;&gt;
 | &lt;UIView: 0x18df81d0; frame = (0 0; 126 126); userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8240&gt;&gt;
@@ -226,11 +217,8 @@ autocomplete('#aa-search-input',
 |    | &lt;_UILabelContentLayer: 0x131bea10&gt; (layer)
 | &lt;UIImageView: 0x18df88d0; frame = (0 9; 28 27); hidden = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8ba0&gt;&gt;
 </code></pre>
-
 <h3 id="pvc">pvc</h3>
-
 <p>这个命令也是递归打印层级，但是不是view，而是<code>viewController</code>。利用它我们可以对viewController的结构一目了然。 其实苹果在IOS8也默默的添加了 UIViewController 的一个私有辅助方法 <code>[UIViewController _printHierarchy]</code> 同样的效果。</p>
-
 <pre><code>(lldb) pvc
 &lt;TabBarController: 0x13772fd0; view = &lt;UILayoutContainerView; 0x151b3a30&gt;; frame = (0, 0; 414, 736)&gt;
 | &lt;UINavigationController: 0x1602b800; view = &lt;UILayoutContainerView; 0x1b00aca0&gt;; frame = (0, 0; 414, 736)&gt;
@@ -246,18 +234,12 @@ autocomplete('#aa-search-input',
 | &lt;UINavigationController: 0x160eca00; view = &lt;UILayoutContainerView; 0x152f7d90&gt;; frame = (0, 0; 414, 736)&gt;
 |   | &lt;FourViewController: 0x13157cc0; view not loaded&gt;
 </code></pre>
-
 <h3 id="visualize">visualize</h3>
-
 <p>这是个很有意思的功能，它可以让你使用Mac的预览打开一个 UIImage, CGImageRef, UIView, 或 CALayer。 这个功能或许可以帮我们用来截图、用来定位一个view的具体内容。 但是在我试用了一下，发现暂时还是只能在模拟器时使用，真机还不行。</p>
-
 <pre><code>(lldb) visualize imageView
 </code></pre>
-
-<h3 id="fv-fvc">fv &amp; fvc</h3>
-
+<h3 id="fv--fvc">fv &amp; fvc</h3>
 <p><code>fv</code> 和 <code>fvc</code> 这两个命令是用来通过类名搜索当前内存中存在的view和viewController实例的命令，支持正则搜索。</p>
-
 <pre><code>(lldb) fv scrollView
 0x18d3b8c0 UIScrollView
 0x137d0c50 UIScrollView
@@ -268,33 +250,23 @@ autocomplete('#aa-search-input',
 0x138a8e00 HomeFeedsViewController
 (lldb)
 </code></pre>
-
-<h3 id="show-hide">show &amp; hide</h3>
-
+<h3 id="show--hide">show &amp; hide</h3>
 <p>这两个命令用来显示和隐藏一个指定的 UIView . 你甚至不需要Continue Progress. 就可以看到效果。</p>
-
-<h3 id="mask-umask-border-unborder">mask/umask border/unborder</h3>
-
-<p>这两组命令用来标识一个view或layer的位置时用， mask用来在view上覆盖一个半透明的矩形， border可以给view添加边框。<br />
+<h3 id="maskumask-borderunborder">mask/umask border/unborder</h3>
+<p>这两组命令用来标识一个view或layer的位置时用， mask用来在view上覆盖一个半透明的矩形， border可以给view添加边框。<br>
 但是在我实际使用的过程中mask总是会报错，估计是有bug， 那么mask/unmask 一般不要用好了，用border命令是一样的效果，反正二者的用途都是找到一个对应的view.</p>
-
 <h3 id="caflush">caflush</h3>
-
 <p>这个命令会重新渲染，即可以重新绘制界面， 相当于执行了 [CATransaction flush] 方法，要注意如果在动画过程中执行这个命令，就直接渲染出动画结束的效果。
 当你想在调试界面颜色、坐标之类的时候，可以直接在控制台修改属性，然后caflush就可以看到效果啦，是不是要比改代码，然后重新build省事多了呢。
 例, 其中 $122 即是目标UIView：</p>
-
 <pre><code>(lldb) p view
 (long) $122 = 140718754142192
 (lldb) e (void)[$122 setBackgroundColor:[UIColor greenColor]]
 (lldb) caflush
 </code></pre>
-
 <h3 id="bmessage">bmessage</h3>
-
 <p>使用场景：我们想在 <code>[MyViewController viewWillAppear:]</code> 里面打断点，但是 <code>MyViewController</code>并没有实现 <code>viewWillAppear:</code> 方法， 以往的作法可能就是在子类中实现下<code>viewWillAppear:</code>，然后打断点，然后<code>rebuild</code>。
-那么幸好有了 <code>bmessage</code>命令。我们可以不用这样就可以打这个效果的断点：<code>(lldb) bmessage -[MyViewController viewWillAppear:]</code> 上面命令会在其父类的 <code>viewWillAppear:</code>方法中打断点，并添加上了条件：<code>[self isKindOfClass:[MyViewController class]]</code>.</p>
-
+那么幸好有了 <code>bmessage</code>命令。我们可以不用这样就可以打这个效果的断点：<code> (lldb) bmessage -[MyViewController viewWillAppear:]</code> 上面命令会在其父类的 <code>viewWillAppear: </code>方法中打断点，并添加上了条件：<code>[self isKindOfClass:[MyViewController class]]</code>.</p>
 <p><a href="https://blog.cnbluebox.com/blog/2015/03/05/chisel/">Chisel-LLDB命令插件，让调试更Easy</a></p>
 
     </div>

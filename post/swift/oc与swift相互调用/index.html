@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2015-12-01T11:42:18+08:00" />
 <meta itemprop="name" content="OC与swift相互调用">
 <meta itemprop="description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文">
-
-
 <meta itemprop="datePublished" content="2015-12-01T11:42:18&#43;08:00" />
 <meta itemprop="dateModified" content="2015-12-01T11:42:18&#43;08:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="958">
+=======
+<meta itemprop="wordCount" content="991">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="混编," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="混编," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OC与swift相互调用"/>
 <meta name="twitter:description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文"/>
 
@@ -173,7 +174,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/swift/"> swift </a>
             <a href="/categories/oc%E6%B7%B7%E7%BC%96/"> OC混编 </a>
             </div>
-          <span class="more-meta"> 约 958 字 </span>
+          <span class="more-meta"> 约 991 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -183,76 +184,50 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#swift中使用oc的类声明-实现配置-桥接的头文件">Swift中使用OC的类声明  &ndash; 实现配置 桥接的头文件</a>
-<ul>
-<li>
-<ul>
-<li><a href="#方式一-自动添加桥接头文件">方式一：自动添加桥接头文件</a></li>
-<li><a href="#方式二-手动添加桥接头文件">方式二：手动添加桥接头文件</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#oc如何调用swift写的类-为了在-objective-c-中可用-swift-类必须是-objective-c-类的子类-或者用-objective-c-标记">OC如何调用Swift写的类  &ndash;     为了在 Objective-C 中可用， Swift 类必须是 Objective-C 类的子类，或者用 @Objective-C 标记；</a></li>
-<li><a href="#总结">总结：</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="swift中使用oc的类声明-实现配置-桥接的头文件">Swift中使用OC的类声明  &ndash; 实现配置 桥接的头文件</h4>
-
-<h6 id="方式一-自动添加桥接头文件">方式一：自动添加桥接头文件</h6>
-
+      <h4 id="swiftoc------">Swift中使用OC的类声明  &ndash; 实现配置 桥接的头文件</h4>
+<h6 id="heading">方式一：自动添加桥接头文件</h6>
 <ol>
 <li>在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文件。</li>
-<li>点确定这后就会生成一个以<produceName-Bridging-Header.h>的头文件。</li>
+<li>点确定这后就会生成一个以&lt;produceName-Bridging-Header.h&gt;的头文件。</li>
 <li>在targets-&gt;build settings -&gt;Object-C Bridging Header 设为生成的个桥接的头文件即可。</li>
-
-<li><p>把想要在swift类中调用的OC头文件放使用import &ldquo;&rdquo; 写到这个桥接文件中：</p>
-
+<li>把想要在swift类中调用的OC头文件放使用import &quot;&rdquo; 写到这个桥接文件中：</li>
+</ol>
 <pre><code class="language-objc">	//  Use this file to import your target's public headers that you would like to expose to Swift.  
 	//MixDemo/MixDemo-Bridging-Header.h    
 	#import &quot;OCChannel.h&quot;  
-</code></pre></li>
-</ol>
-
-<h6 id="方式二-手动添加桥接头文件">方式二：手动添加桥接头文件</h6>
-
+</code></pre>
+<h6 id="heading-1">方式二：手动添加桥接头文件</h6>
 <p>同样的，当你知道这个swift搜索头文件的关系后，就不需要再理会这个-Bridging-Header.h的文件了。
-完全可以手工建一个并取自己喜欢的名字：
-1. 新建一个头文件，名为:OCContainerHeader.h
-2. 在targets-&gt;build settings -&gt;Object-C Bridging Header 设为生成的个桥接的头文件即可。
-3. 把想要在swift类中调用的OC头文件放使用import &ldquo;&rdquo; 写到这个桥接文件中：</p>
-
+完全可以手工建一个并取自己喜欢的名字：</p>
+<ol>
+<li>新建一个头文件，名为:OCContainerHeader.h</li>
+<li>在targets-&gt;build settings -&gt;Object-C Bridging Header 设为生成的个桥接的头文件即可。</li>
+<li>把想要在swift类中调用的OC头文件放使用import &quot;&rdquo; 写到这个桥接文件中：</li>
+</ol>
 <pre><code class="language-objc">//  Use this file to import your target's public headers that you would like to expose to Swift.  	
 //MixDemo/MixDemo-Bridging-Header.h    
 #import &quot;OCChannel.h&quot;  
 </code></pre>
-
-<h4 id="oc如何调用swift写的类-为了在-objective-c-中可用-swift-类必须是-objective-c-类的子类-或者用-objective-c-标记">OC如何调用Swift写的类  &ndash;     为了在 Objective-C 中可用， Swift 类必须是 Objective-C 类的子类，或者用 @Objective-C 标记；</h4>
-
+<h4 id="ocswift-------objective-c--swift--objective-c--objective-c-">OC如何调用Swift写的类  &ndash; 	为了在 Objective-C 中可用， Swift 类必须是 Objective-C 类的子类，或者用 @Objective-C 标记；</h4>
 <ol>
 <li>选中targets-&gt;build settings -&gt;packing-&gt;Product Module Name 中设置模块名（可以自定义），这个名称很重要 swift 的头文件就是根据这个来命名的，例如：SwiftModule。</li>
-<li>在OC头文件类中，添加import &ldquo;SwiftModule-swift.h&rdquo;但你在整个工程中是找不到这个文件的，但可以使用CMD+ 鼠标点击可看这个头文件中的内容。<br /></li>
+<li>在OC头文件类中，添加import &ldquo;SwiftModule-swift.h&quot;但你在整个工程中是找不到这个文件的，但可以使用CMD+ 鼠标点击可看这个头文件中的内容。</li>
 </ol>
-
-<h4 id="总结">总结：</h4>
-
+<h4 id="heading-2">总结：</h4>
 <p>这样，工程中如查Swift要使用OC,则把需要使用的OC类的头文件，全写在MixDemo-Bridging-Header.h里。同样如果OC中所使用的swift类，只需要Clean一把，再编就可以了，但不要忘了导入SwiftModule-swift.h哦（名称自取，但-swift.h是固定的），另外还有一个需要读者注意的。</p>
-
 <p>注：
-    凡是用Swift写的类，如果不继成自NSObject或NSObject 的派生类，哪么编译后将不会生成对应的转换类。从而使得OC 中找不到相应的声明。
+凡是用Swift写的类，如果不继成自NSObject或NSObject 的派生类，哪么编译后将不会生成对应的转换类。从而使得OC 中找不到相应的声明。
 如我的例子中 class Act 这样不会被编译到SwiftModule-swift.h中，但写为 class Act : NSObject，就可以编译出相应的声明。另外可以使用@objc加以声明，但这个还是一样，类最好继承NSObject下来。</p>
 
     </div>

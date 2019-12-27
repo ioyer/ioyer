@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 1. 配置Package.swi" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
@@ -40,25 +40,26 @@
 
 
 <meta property="og:title" content="swift调用pngquant批量压缩图片" />
-<meta property="og:description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 1. 配置Package.swi" />
+<meta property="og:description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
 <meta property="article:published_time" content="2018-10-15T20:51:45+00:00" />
 <meta property="article:modified_time" content="2018-10-15T20:51:45+00:00" />
 <meta itemprop="name" content="swift调用pngquant批量压缩图片">
-<meta itemprop="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 1. 配置Package.swi">
-
-
+<meta itemprop="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif">
 <meta itemprop="datePublished" content="2018-10-15T20:51:45&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-15T20:51:45&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="714">
+=======
+<meta itemprop="wordCount" content="713">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift调用pngquant批量压缩图片"/>
-<meta name="twitter:description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 1. 配置Package.swi"/>
+<meta name="twitter:description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 714 字 </span>
+          <span class="more-meta"> 约 713 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,29 +183,22 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#安装filesprovider">安装FilesProvider</a></li>
-<li><a href="#单元测试">单元测试</a></li>
-<li><a href="#测通可运行的代码片段">测通可运行的代码片段</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#filesprovider">安装FilesProvider</a></li>
+    <li><a href="#heading">单元测试</a></li>
+    <li><a href="#heading-1">测通可运行的代码片段</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github amosavian FileProvider b597244 width = 30% %}</p>
-
-<h2 id="安装filesprovider">安装FilesProvider</h2>
-
-<p>使用<code>FilesProvider</code>来做文件处理，通过SPM管理库依赖
-1. 配置<code>Package.swift</code></p>
-
+<h2 id="filesprovider">安装FilesProvider</h2>
+<p>使用<code>FilesProvider</code>来做文件处理，通过SPM管理库依赖</p>
+<ol>
+<li>配置<code>Package.swift</code></li>
+</ol>
 <pre><code class="language-json">dependencies: [
     // Dependencies declare other packages that this package depends on.
     // .package(url: /* package url */, from: &quot;1.0.0&quot;), 指定版本。giturl
@@ -215,22 +209,17 @@ autocomplete('#aa-search-input',
         dependencies: [&quot;FilesProvider&quot;]),
 ]
 </code></pre>
-
-<ol>
-<li><p><code>swift build</code></p>
-
-<h2 id="单元测试">单元测试</h2></li>
-
-<li><p><code>FilesProvider</code>异步处理：需要<code>XCTestExpectation</code>辅助测试</p></li>
-
-<li><p><code>FilesProvider</code>在处理文件（拷贝/重命名/删除）时，不能使用绝对路径，应采用文件相对于<code>documentsProvider.baseURL</code>的相对路径。否则，在当给定的路径包含root目录时，例如<code>/Users/nam/file.png</code>会提示失败。</p></li>
-
-<li><p>在swift调用shell时，目前只能使用<code>Process.launchedProcess</code>类方法执行shell脚本命令。
-有可能在单元测试环境，导致其他两种调用shell的失败。</p></li>
+<ol start="2">
+<li><code>swift build</code></li>
 </ol>
-
-<h2 id="测通可运行的代码片段">测通可运行的代码片段</h2>
-
+<h2 id="heading">单元测试</h2>
+<ol>
+<li><code>FilesProvider</code>异步处理：需要<code>XCTestExpectation</code>辅助测试</li>
+<li><code>FilesProvider</code>在处理文件（拷贝/重命名/删除）时，不能使用绝对路径，应采用文件相对于<code>documentsProvider.baseURL</code>的相对路径。否则，在当给定的路径包含root目录时，例如<code>/Users/nam/file.png</code>会提示失败。</li>
+<li>在swift调用shell时，目前只能使用<code>Process.launchedProcess</code>类方法执行shell脚本命令。
+有可能在单元测试环境，导致其他两种调用shell的失败。</li>
+</ol>
+<h2 id="heading-1">测通可运行的代码片段</h2>
 <pre><code class="language-swift">import FilesProvider
 var documentsProvider:LocalFileProvider!
 var pngexpectation: XCTestExpectation! = nil
@@ -343,7 +332,11 @@ func testProcessRunShellScript(filePath:String) {
         id: '2018-10-15 20:51:45 \x2b0000 UTC',
         title: 'swift调用pngquant批量压缩图片',
         link: decodeURI(location.href),
+<<<<<<< HEAD
         desc: '{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 1. 配置Package.swi',
+=======
+        desc: '{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif',
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

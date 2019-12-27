@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/gist%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2018-10-11T17:17:52+00:00" />
 <meta itemprop="name" content="gist命令工具使用">
 <meta itemprop="description" content="{% github defunkt gist 8d86604 width = 30% %} 按照gist 安装gist brew install gist 创建gist 上传a.rb中的代码段： gist a.rb 上传多个文件a.rb,b.rb,c.rb的代码段: gist">
-
-
 <meta itemprop="datePublished" content="2018-10-11T17:17:52&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-11T17:17:52&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="471">
+=======
+<meta itemprop="wordCount" content="409">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gist命令工具使用"/>
 <meta name="twitter:description" content="{% github defunkt gist 8d86604 width = 30% %} 按照gist 安装gist brew install gist 创建gist 上传a.rb中的代码段： gist a.rb 上传多个文件a.rb,b.rb,c.rb的代码段: gist"/>
 
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 471 字 </span>
+          <span class="more-meta"> 约 409 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,156 +183,105 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#安装gist">安装gist</a></li>
-<li><a href="#创建gist">创建gist</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#creating-a-public-gist-from-other-app-response">Creating a public gist from other app response</a></li>
-<li><a href="#creating-a-private-gist-from-other-app-response">Creating a private gist from other app response</a></li>
-<li><a href="#specifying-the-gist-filename">Specifying the gist filename</a></li>
-<li><a href="#sending-files">Sending files</a></li>
-<li><a href="#sending-multiple-files-in-a-private-gist">Sending multiple files in a private gist</a></li>
-<li><a href="#setting-gist-description">Setting gist description</a></li>
-<li><a href="#setting-gist-description-private-and-with-multiple-files">Setting gist description, private and with multiple files</a></li>
-<li><a href="#help">Help</a></li>
-<li><a href="#version">Version</a></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gist">安装gist</a></li>
+        <li><a href="#gist-1">创建gist</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github defunkt gist 8d86604 width = 30% %}
 <a href="http://macappstore.org/gist/">按照gist</a></p>
-
-<h3 id="安装gist">安装gist</h3>
-
+<h3 id="gist">安装gist</h3>
 <pre><code>brew install gist
 </code></pre>
-
-<h3 id="创建gist">创建gist</h3>
-
+<h3 id="gist-1">创建gist</h3>
 <p>上传<code>a.rb</code>中的代码段：</p>
-
 <pre><code>gist a.rb
 </code></pre>
-
 <p>上传多个文件<code>a.rb</code>,<code>b.rb</code>,<code>c.rb</code>的代码段:</p>
-
 <pre><code>gist a b c
 gist *.rb
 </code></pre>
-
 <p>作为文件上传：获取<code>STDIN</code>数据，并使用<code>-f</code>指定文件名<code>test.rb</code>上传：</p>
-
 <pre><code>gist -f test.rb &lt;a.rb
 </code></pre>
-
 <p>直接从剪切板上传文本:</p>
-
 <pre><code>gist -P
 </code></pre>
-
 <p>设置隐私片段 <code>-p</code>:</p>
-
 <pre><code>gist -p a.rb
 </code></pre>
-
 <p>添加片段描述信息<code>-d</code>:</p>
-
 <pre><code>gist -d &quot;Random rbx bug&quot; a.rb
 </code></pre>
-
 <p>更新现有的片段 <code>-u</code>:</p>
-
 <pre><code>gist -u GIST_ID FILE_NAME
 例子：
 gist -u 42f2c239d2eb57299408 test.txt
 </code></pre>
-
-<p>‌If you&rsquo;d like to copy the resulting URL to your clipboard, use <code>-c</code>.</p>
-
+<p>‌If you'd like to copy the resulting URL to your clipboard, use <code>-c</code>.</p>
 <pre><code>gist -c &lt;a.rb
 </code></pre>
-
-<p>‌If you&rsquo;d like to copy the resulting embeddable URL to your clipboard, use <code>-e</code>.</p>
-
+<p>‌If you'd like to copy the resulting embeddable URL to your clipboard, use <code>-e</code>.</p>
 <pre><code>gist -e &lt;a.rb
 </code></pre>
-
 <p>打开浏览器访问片段 <code>-o</code>.</p>
-
 <pre><code>gist -o &lt;a.rb
 </code></pre>
-
 <p>‌To list (public gists or all gists for authed user) gists for user
 <code>gist -l</code> : all gists for authed user
-<code>gist -l defunkt</code> : list defunkt&rsquo;s public gists
+<code>gist -l defunkt</code> : list defunkt's public gists
 To read a gist and print it to STDOUT</p>
-
 <pre><code>gist -r GIST_ID
 例子：
 gist -r 374130
-````
-‌See `gist --help` for more detail.
-
-#### 使用gist命令
-
-
-#### 使用gistit快捷工具
-{% github jrbasso gistit 99fc659 width = 30% %}
-1. [安装](http://macappstore.org/gistit/)
 </code></pre>
-
-<p>brew install gistit</p>
-
-<pre><code>2. [使用说明](http://gistit.herokuapp.com)
+<p>‌See <code>gist --help</code> for more detail.</p>
+<h4 id="gist-2">使用gist命令</h4>
+<h4 id="gistit">使用gistit快捷工具</h4>
+<p>{% github jrbasso gistit 99fc659 width = 30% %}</p>
+<ol>
+<li><a href="http://macappstore.org/gistit/">安装</a></li>
+</ol>
+<pre><code>brew install gistit
 </code></pre>
+<ol start="2">
+<li><a href="http://gistit.herokuapp.com">使用说明</a></li>
+</ol>
+<pre><code># Creating a public gist from other app response
+ls | gistit
 
-<h1 id="creating-a-public-gist-from-other-app-response">Creating a public gist from other app response</h1>
+# Creating a private gist from other app response
+ls | gistit -priv
 
-<p>ls | gistit</p>
+# Specifying the gist filename
+ls | gistit -i list.txt
 
-<h1 id="creating-a-private-gist-from-other-app-response">Creating a private gist from other app response</h1>
+# Sending files
+gistit file.txt
 
-<p>ls | gistit -priv</p>
+# Sending multiple files in a private gist
+gistit -priv file1.txt file2.c
 
-<h1 id="specifying-the-gist-filename">Specifying the gist filename</h1>
+# Setting gist description
+gistit -d &quot;This is just a sample&quot; sample.txt
 
-<p>ls | gistit -i list.txt</p>
+# Setting gist description, private and with multiple files
+gistit -d &quot;Sample&quot; -priv file1.txt file2.txt file3.txt
 
-<h1 id="sending-files">Sending files</h1>
+# Help
+gistit -h
 
-<p>gistit file.txt</p>
-
-<h1 id="sending-multiple-files-in-a-private-gist">Sending multiple files in a private gist</h1>
-
-<p>gistit -priv file1.txt file2.c</p>
-
-<h1 id="setting-gist-description">Setting gist description</h1>
-
-<p>gistit -d &ldquo;This is just a sample&rdquo; sample.txt</p>
-
-<h1 id="setting-gist-description-private-and-with-multiple-files">Setting gist description, private and with multiple files</h1>
-
-<p>gistit -d &ldquo;Sample&rdquo; -priv file1.txt file2.txt file3.txt</p>
-
-<h1 id="help">Help</h1>
-
-<p>gistit -h</p>
-
-<h1 id="version">Version</h1>
-
-<p>gistit -v
-```</p>
+# Version
+gistit -v
+</code></pre>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E4%BD%BF%E7%94%A8swift%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%93%E5%8F%96wwdc%E5%AD%97%E5%B9%95/" />
@@ -47,16 +47,21 @@
 <meta property="article:modified_time" content="2018-11-18T19:10:49+00:00" />
 <meta itemprop="name" content="使用swift命令行抓取WWDC字幕">
 <meta itemprop="description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原">
+<<<<<<< HEAD
 
 
 <meta itemprop="datePublished" content="2018-11-18T19:10:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-18T19:10:49&#43;00:00" />
 <meta itemprop="wordCount" content="341">
+=======
+<meta itemprop="datePublished" content="2018-11-18T19:10:49&#43;00:00" />
+<meta itemprop="dateModified" content="2018-11-18T19:10:49&#43;00:00" />
+<meta itemprop="wordCount" content="340">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用swift命令行抓取WWDC字幕"/>
 <meta name="twitter:description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原"/>
 
@@ -172,7 +177,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 341 字 </span>
+          <span class="more-meta"> 约 340 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,58 +187,48 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#原理">原理</a></li>
-<li><a href="#安装">安装</a></li>
-<li><a href="#抓取字幕">抓取字幕</a></li>
-<li><a href="#如何下载中文">如何下载中文</a></li>
-<li><a href="#如何支持2018下载">如何支持2018下载</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">原理</a></li>
+    <li><a href="#heading-1">安装</a></li>
+    <li><a href="#heading-2">抓取字幕</a></li>
+    <li><a href="#heading-3">如何下载中文</a></li>
+    <li><a href="#2018">如何支持2018下载</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
+<<<<<<< HEAD
       
 
 <!--github库卡片-->
 
+=======
+      <!-- raw HTML omitted -->
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>{% github it-boyer WWDC-Subtitles 84878dc width = 30% %}
 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。</p>
-
-<h2 id="原理">原理</h2>
-
+<h2 id="heading">原理</h2>
 <p><a href="https://github.com/insidegui/WWDC">WWDC客户端</a>作者分享的一个开源项目<a href="https://github.com/rlwimi/jonyfive">jonyfive</a>是把他WWDC项目中抓取字幕文件逻辑抽取出来，就是使用 swift 做的爬虫，可以结合项目做些有趣的东西。
-这边我对该项目进行了一些修改，之前下载的直接就是 vtt 的文件，并没有对文本文件进行处理，我把vtt格式调整了正常阅读的模式，方便大家阅读。
-&gt; 不支持2108下载</p>
-
-<h2 id="安装">安装</h2>
-
+这边我对该项目进行了一些修改，之前下载的直接就是 vtt 的文件，并没有对文本文件进行处理，我把vtt格式调整了正常阅读的模式，方便大家阅读。</p>
+<blockquote>
+<p>不支持2108下载</p>
+</blockquote>
+<h2 id="heading-1">安装</h2>
 <pre><code>$ git clone https://github.com/Danny1451/WWDC-Subtitles.git
 $ cd WWDC-Subtitles
 $ swift build
 </code></pre>
-
-<h2 id="抓取字幕">抓取字幕</h2>
-
+<h2 id="heading-2">抓取字幕</h2>
 <p>获取 2017 年 204 session 的字幕，保存到当前目录的 2017 文件夹</p>
-
 <pre><code>./wwwww subtitle -s 204 -v -y 2017
 </code></pre>
-
 <p>获取 2016 年 204 session 的 meta 信息，以 json 格式并且保存在当前目录的 sessions.json 文件中</p>
-
 <pre><code>./wwwww meta -s 204 -v -y 2016
 </code></pre>
-
-<h2 id="如何下载中文">如何下载中文</h2>
-
-<h2 id="如何支持2018下载">如何支持2018下载</h2>
-
+<h2 id="heading-3">如何下载中文</h2>
+<h2 id="2018">如何支持2018下载</h2>
 <p><a href="http://danny-lau.com/2017/07/19/wwdc-2017-guaka/">WWDC 2017 字幕抓取 &amp; Guaka 介绍</a></p>
-
 <p><a href="https://www.jianshu.com/p/62a822835462">WWDCHelper - 帮你更好下载 WWDC 中文字幕</a></p>
 
     </div>

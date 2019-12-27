@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" />
@@ -43,9 +43,7 @@
 
 <meta property="og:title" content="instrument之Zombie工具" />
 <meta property="og:description" content="Zombie:针对僵尸对象导致应用程序崩溃，即已经deallocated的对象，它们的retainCount计数器已经为0，通过正常的手段是无法在debug中跟踪和观察到的。
-
 如果你开启了 Zombie Enabled ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：
-
  -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
 " />
 <meta property="og:type" content="article" />
@@ -54,26 +52,23 @@
 <meta property="article:modified_time" content="2014-07-01T19:54:02+08:00" />
 <meta itemprop="name" content="instrument之Zombie工具">
 <meta itemprop="description" content="Zombie:针对僵尸对象导致应用程序崩溃，即已经deallocated的对象，它们的retainCount计数器已经为0，通过正常的手段是无法在debug中跟踪和观察到的。
-
 如果你开启了 Zombie Enabled ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：
-
  -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
 ">
-
-
 <meta itemprop="datePublished" content="2014-07-01T19:54:02&#43;08:00" />
 <meta itemprop="dateModified" content="2014-07-01T19:54:02&#43;08:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="592">
+=======
+<meta itemprop="wordCount" content="588">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="Storyboard,工具," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Storyboard,工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="instrument之Zombie工具"/>
 <meta name="twitter:description" content="Zombie:针对僵尸对象导致应用程序崩溃，即已经deallocated的对象，它们的retainCount计数器已经为0，通过正常的手段是无法在debug中跟踪和观察到的。
-
 如果你开启了 Zombie Enabled ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：
-
  -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
 "/>
 
@@ -190,7 +185,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/xcode/"> xcode </a>
             <a href="/categories/instrument/"> instrument </a>
             </div>
-          <span class="more-meta"> 约 592 字 </span>
+          <span class="more-meta"> 约 588 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -199,41 +194,32 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-
 <p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-
 <pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
 </code></pre>
-
 <p>虽然可以看到内存地址，知道是某个指针导致了 <code>Zombie</code> 引用，但对于解决问题却毫无帮助，因为仍不知道该地址到底是哪个对象？原因很显然，既然该对象已经<code>deallocated</code>，就无法再从内存中找回它来。虽然可以以对象的形式打印这个指针：</p>
-
 <pre><code>（GDB）po &lt;内存地址&gt;
 </code></pre>
-
 <p>仍然会得到一个 <strong><code>message sent to deallocated instance</code></strong> 的错误消息。</p>
-
-<p>可以在 <code>Instrument</code> 用 <code>Zombie</code> 模板，来观察到这些 <code>Zombie</code> 对象。
-&gt;提示：只能在模拟器中使用 Zombie 模板，对于在设备中运行的程序， 你只能手动找出<code>Zombie</code>对象，<code>Zombie</code>模板对物理设备无效。</p>
-
+<p>可以在 <code>Instrument</code> 用 <code>Zombie</code> 模板，来观察到这些 <code>Zombie</code> 对象。</p>
+<blockquote>
+<p>提示：只能在模拟器中使用 Zombie 模板，对于在设备中运行的程序， 你只能手动找出<code>Zombie</code>对象，<code>Zombie</code>模板对物理设备无效。</p>
+</blockquote>
 <p>使用操作如下：
 点击 Xcode 的 Project &ndash;&gt; Profile 菜单。在 Instrument 的“模板选择窗口”中，选择“iOSSimulator”下面的 Zombie 模板。
-<img src="/images/templateOfTraceDcument.jpg" alt="image" />
+<img src="/images/templateOfTraceDcument.jpg" alt="image">
 在模拟器中调试程序，如果 Zombie 问题出现，程序将崩溃，同时 Instrument 会弹出一个“Zombie 消息报告”，同时程序将在此处中断，如下图所示。
-<img src="/images/ZombieMsgAlert.jpg" alt="image" /></p>
-
+<img src="/images/ZombieMsgAlert.jpg" alt="image"></p>
 <p>点击地址 (0x158b3c00) 右边的箭头，将列出该 Zombie 对象曾经发生过的 retain/release 动作。</p>
-
 <p>从列表中找到 retain count 在变为 -1 之前的那行,打开 View -&gt; Extended detail，将显示导致了过渡释放的代码调用：
-<img src="/images/ErrCodeline.jpg" alt="image" /></p>
-
+<img src="/images/ErrCodeline.jpg" alt="image"></p>
 <p>双击这句代码，将在源文件中高亮显示该语句：</p>
-
-<p><img src="/images/Errorcode.png" alt="image" />
+<p><img src="/images/Errorcode.png" alt="image">
 现在，知道问题出在哪里了吧？</p>
     </div>
 
@@ -294,7 +280,11 @@ autocomplete('#aa-search-input',
         id: '2014-07-01 19:54:02 \x2b0800 CST',
         title: 'instrument之Zombie工具',
         link: decodeURI(location.href),
+<<<<<<< HEAD
         desc: '\x3cp\x3eZombie:针对\x3cstrong\x3e僵尸对象\x3c\/strong\x3e导致应用程序崩溃，即已经\x3ccode\x3edeallocated\x3c\/code\x3e的对象，它们的\x3ccode\x3eretainCount\x3c\/code\x3e计数器已经为0，通过正常的手段是无法在\x3ccode\x3edebug\x3c\/code\x3e中跟踪和观察到的。\x3c\/p\x3e\n\n\x3cp\x3e如果你开启了 \x3ccode\x3eZombie Enabled\x3c\/code\x3e ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3e -[CALayer retainCount]: message sent to deallocated instance \x26lt;memoryaddress\x26gt;\n\x3c\/code\x3e\x3c\/pre\x3e',
+=======
+        desc: '\x3cp\x3eZombie:针对\x3cstrong\x3e僵尸对象\x3c\/strong\x3e导致应用程序崩溃，即已经\x3ccode\x3edeallocated\x3c\/code\x3e的对象，它们的\x3ccode\x3eretainCount\x3c\/code\x3e计数器已经为0，通过正常的手段是无法在\x3ccode\x3edebug\x3c\/code\x3e中跟踪和观察到的。\x3c\/p\x3e\n\x3cp\x3e如果你开启了 \x3ccode\x3eZombie Enabled\x3c\/code\x3e ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：\x3c\/p\x3e\n\x3cpre\x3e\x3ccode\x3e -[CALayer retainCount]: message sent to deallocated instance \x26lt;memoryaddress\x26gt;\n\x3c\/code\x3e\x3c\/pre\x3e',
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

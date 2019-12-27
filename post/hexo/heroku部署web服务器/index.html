@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/heroku%E9%83%A8%E7%BD%B2web%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-03T12:29:51+00:00" />
 <meta itemprop="name" content="Heroku部署web服务器">
 <meta itemprop="description" content="安装Heroku CLI工具 Mac端 brew install heroku/brew/heroku Heroku CLI 命令 heroku -h heroku login Creating Apps from the CLI $ mkdir example $ cd example $ git init $ heroku apps:create example Creating ⬢ example... done https://example.herokuapp.com/ | https://git.heroku.com/example.git Git remote heroku added 查看现有APP信息 heroku apps //">
-
-
 <meta itemprop="datePublished" content="2018-10-03T12:29:51&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-03T12:29:51&#43;00:00" />
 <meta itemprop="wordCount" content="468">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Heroku部署web服务器"/>
 <meta name="twitter:description" content="安装Heroku CLI工具 Mac端 brew install heroku/brew/heroku Heroku CLI 命令 heroku -h heroku login Creating Apps from the CLI $ mkdir example $ cd example $ git init $ heroku apps:create example Creating ⬢ example... done https://example.herokuapp.com/ | https://git.heroku.com/example.git Git remote heroku added 查看现有APP信息 heroku apps //"/>
 
@@ -182,37 +179,29 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#用例-在heroku上部署-gh-oauth-server-服务">用例：在heroku上部署<code>gh-oauth-server</code>服务</a></li>
-<li><a href="#进入heroku服务器命令行">进入heroku服务器命令行</a>
-<ul>
-<li><a href="#参考">参考</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#herokugh-oauth-server">用例：在heroku上部署gh-oauth-server服务</a></li>
+    <li><a href="#heroku">进入heroku服务器命令行</a>
+      <ul>
+        <li><a href="#heading">参考</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install">安装Heroku CLI工具</a>
+      <p><a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install">安装Heroku CLI工具</a>
 Mac端</p>
-
 <pre><code>brew install heroku/brew/heroku
 </code></pre>
-
 <p><a href="https://devcenter.heroku.com/articles/heroku-cli-commands">Heroku CLI 命令</a></p>
-
 <pre><code>heroku -h
 heroku login
 </code></pre>
-
 <ol>
-<li><p><a href="https://devcenter.heroku.com/articles/creating-apps">Creating Apps from the CLI</a></p>
-
+<li><a href="https://devcenter.heroku.com/articles/creating-apps">Creating Apps from the CLI</a></li>
+</ol>
 <pre><code>$ mkdir example
 $ cd example
 $ git init
@@ -220,16 +209,16 @@ $ heroku apps:create example
 Creating ⬢ example... done
 https://example.herokuapp.com/ | https://git.heroku.com/example.git
 Git remote heroku added
-</code></pre></li>
-
-<li><p><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-info">查看现有APP信息</a></p>
-
+</code></pre>
+<ol start="2">
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-info">查看现有APP信息</a></li>
+</ol>
 <pre><code>heroku apps      //所有应用列表
 heroku apps:info //查看所有应用的详细信息
-</code></pre></li>
-
-<li><p><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-open-path">在浏览器中访问APP页面</a></p>
-
+</code></pre>
+<ol start="3">
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-open-path">在浏览器中访问APP页面</a></li>
+</ol>
 <pre><code>USAGE
 $ heroku apps:open [PATH]
 
@@ -243,23 +232,17 @@ $ heroku open -a myapp
 
 $ heroku open -a myapp /foo
 # opens https://myapp.herokuapp.com/foo
-</code></pre></li>
-</ol>
-
-<h2 id="用例-在heroku上部署-gh-oauth-server-服务">用例：在heroku上部署<code>gh-oauth-server</code>服务</h2>
-
+</code></pre>
+<h2 id="herokugh-oauth-server">用例：在heroku上部署<code>gh-oauth-server</code>服务</h2>
 <p><a href="https://github.com/imsun/gitment/issues/170">issues:object ProgressEvent</a>
 下载服务器源代码<a href="https://github.com/imsun/gh-oauth-server">gh-oauth-server</a> ,由于是<code>nodejs</code>写的所以需要安装<code>nodejs</code>环境 如何安装自己Google; 然后<code>git clone</code> 该项目并进入目录, 执行<code>npm install</code> 安装依赖, 依赖安装成功后执行<code>npm start</code>, 如果输出<code>start on port 300</code>表示开启成功,;为了支持<code>ssl</code> 可以安装<code>nginx代理</code>, 这个可以自己百度, 有很多教程的.</p>
-
 <pre><code>git clone https://github.com/imsun/gh-oauth-server
 cd gh-oauth-server
 heroku create gitment-hexo   //创建herokua应用
 git push heroku master       //会自动安装package.json依赖库。
 heroku open -a gitment-hexo  //浏览器打开
 </code></pre>
-
-<h2 id="进入heroku服务器命令行">进入heroku服务器命令行</h2>
-
+<h2 id="heroku">进入heroku服务器命令行</h2>
 <pre><code>$heroku run bash
 Running `bash` attached to terminal... up, run.3052
 ~ $ ls
@@ -267,9 +250,7 @@ Procfile  README.md  composer.json  composer.lock  vendor  views  web
 ~ $ exit
 exit
 </code></pre>
-
-<h3 id="参考">参考</h3>
-
+<h3 id="heading">参考</h3>
 <p><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#prepare-the-app">Getting Started on Heroku with Node.js</a>
 <a href="https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment">把已经存在的应用部署到heroku上</a>learn how to prepare it for Heroku deployment.</p>
 

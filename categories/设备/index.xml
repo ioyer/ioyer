@@ -17,8 +17,12 @@
       <pubDate>Tue, 17 Jun 2014 15:12:53 +0800</pubDate>
       
       <guid>https://it-boyer.github.io/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/</guid>
+<<<<<<< HEAD
       <description>&lt;h3 id=&#34;uidevice-h&#34;&gt;UIDevice.h&lt;/h3&gt;
 
+=======
+      <description>&lt;h3 id=&#34;uideviceh&#34;&gt;UIDevice.h&lt;/h3&gt;
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 &lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;+ (UIDevice *)currentDevice; 		  // 获取当前设备
 
 NSString    *name;               	  // e.g. &amp;quot;My iPhone&amp;quot;  
@@ -29,7 +33,6 @@ NSString    *systemVersion;   	  // e.g. @&amp;quot;4.0&amp;quot;
 UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
 NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;    UIDeviceOrientationUnknown,
     UIDeviceOrientationPortrait,                    // 竖向，头向上
     UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
@@ -38,8 +41,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
     UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
     UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;//使用内置的宏定义的函数，根据&lt;strong&gt;orientation&lt;/strong&gt;判断设备方向,返回值类型&lt;strong&gt;BOOL&lt;/strong&gt;.&lt;br /&gt;
+&lt;p&gt;//使用内置的宏定义的函数，根据&lt;strong&gt;orientation&lt;/strong&gt;判断设备方向,返回值类型&lt;strong&gt;BOOL&lt;/strong&gt;.&lt;br&gt;
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
 #define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
 {%endcodeblock %}

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -45,12 +45,13 @@
 <meta property="og:description" content="不物喜,不己悲;善假物,易参行." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://it-boyer.github.io/" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <meta property="og:updated_time" content="2019-09-12T18:56:00+08:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
-<meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="不物喜,不己悲;善假物,易参行."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
 <meta name="twitter:description" content="不物喜,不己悲;善假物,易参行."/>
 
@@ -189,83 +190,75 @@ autocomplete('#aa-search-input',
           <a href="/categories/xcode/"> xcode </a>
           <a href="/categories/sb/"> SB </a>
           </div>
-        <span class="more-meta"> 约 2604 字 </span>
+        <span class="more-meta"> 约 2605 字 </span>
         <span class="more-meta"> 预计阅读 6 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h2 id="按比例缩放">按比例缩放</h2>
-
-<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br />
+      <h2 id="heading">按比例缩放</h2>
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
 而在代码中，有如下两种实现方式:</p>
-
 <ol>
-<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。<br /></li>
-<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。<br /></li>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
 </ol>
-
-<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br />
+<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br>
 {%codeblock lang:objc%}
-    UIButton *btn;<br />
+UIButton *btn;<br>
 {%endcodeblock%}</p>
-
-<h4 id="需求-1">需求 1：</h4>
-
+<h4 id="-1">需求 1：</h4>
 <ol>
 <li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
-<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br />
+<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br>
 {%codeblock lang:objc%}</li>
-
-<li><p>(void)viewDidLoad
+</ol>
+<ul>
+<li>
+<p>(void)viewDidLoad
 {
 [super viewDidLoad];</p>
-
 <p>//创建UIButton，不需要设置frame
 btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 [btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
 btn.backgroundColor = [UIColor greenColor];
 [self.view addSubview:btn];</p>
-
 <p>//禁止自动转换AutoresizingMask
 btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
-
 <p>//居中
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeCenterX
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeCenterX
-                          multiplier:1
-                          constant:0]];</p>
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];</p>
 <p>//距离底部20单位
 //注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeBottom
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeBottom
-                          multiplier:1
-                          constant:-20]];</p>
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];</p>
 <p>//定义高度是父View的三分之一
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeHeight
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeHeight
-                          multiplier:0.3
-                          constant:0]];</p>
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];</p>
 <p>//注册KVO方法
-[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil];<br />
-}</p></li>
-</ol>
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
+}</p>
+</li>
+</ul>
     </div>
     <div class="read-more">
       <a href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
@@ -282,7 +275,7 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
           <a href="/categories/ios/"> iOS </a>
           <a href="/categories/schemes/"> schemes </a>
           </div>
-        <span class="more-meta"> 约 1466 字 </span>
+        <span class="more-meta"> 约 1464 字 </span>
         <span class="more-meta"> 预计阅读 3 分钟 </span>
     </div>
   </header>
@@ -290,22 +283,14 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
   <div class="post-content">
     <div class="post-summary">
       <h4 id="url-schemes">URL Schemes</h4>
-
 <p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
-
 <p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
-
-<h4 id="注册自定义url协议">注册自定义URL协议</h4>
-
+<h4 id="url">注册自定义URL协议</h4>
 <p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
-
 <p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
-
-<h6 id="step1-右键-选择-add-row-在下拉选框中选择-url-types-类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
-
-<h6 id="step2-打开-item-0-类型为dic-添加新key为-url-identifier-类型为string-可以是任何值-但建议用-反域名-例如-com-myapp">Step2. 打开“Item 0″类型为Dic,添加新key为&rdquo;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
-
-<h5 id="step3-打开-item-0-类型为dic-添加新key为-url-schemes-类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+<h6 id="step1-add-rowurl-typesarray">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+<h6 id="step2-item-0dickeyurl-identifierstring-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h5 id="step3-item-0dickeyurl-schemesarray">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
     </div>
     <div class="read-more">
       <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
@@ -322,7 +307,7 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
           <a href="/categories/xcode/"> xcode </a>
           <a href="/categories/%E6%96%87%E6%A1%A3/"> 文档 </a>
           </div>
-        <span class="more-meta"> 约 4561 字 </span>
+        <span class="more-meta"> 约 4559 字 </span>
         <span class="more-meta"> 预计阅读 10 分钟 </span>
     </div>
   </header>
@@ -330,24 +315,17 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
   <div class="post-content">
     <div class="post-summary">
       <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
-
 <p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
-
 <p>通过本教程，将学习如下几点：</p>
-
 <ul>
 <li>如何书写 HeaderDoc 风格的注释</li>
 <li>分如何在 Xcode 中预览文档</li>
 <li>如何生成 HTML 文档</li>
 <li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
 </ul>
-
-<h4 id="准备工作">准备工作</h4>
-
+<h4 id="heading">准备工作</h4>
 <p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
-
 <p>这个简单的示例程序只包含了两个类：</p>
-
 <ul>
 <li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
 <li>MathAPI: 包含了1个方法，用于累加两个数。
@@ -369,25 +347,22 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
           <a href="/categories/xcode/"> xcode </a>
           <a href="/categories/sb/"> SB </a>
           </div>
-        <span class="more-meta"> 约 1385 字 </span>
+        <span class="more-meta"> 约 1380 字 </span>
         <span class="more-meta"> 预计阅读 3 分钟 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h5 id="segue原理">Segue原理:</h5>
-
+      <h5 id="segue">Segue原理:</h5>
 <p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
-
 <ol>
 <li>实例化目标视图控制器</li>
 <li>实例化一个新segue对象，该对象持有所有的信息</li>
 <li>调用源视图控制器的prepareForSegue:sender:方法，</li>
-<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br />
+<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br>
 这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。</li>
 </ol>
-
 <p>在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。</p>
     </div>
     <div class="read-more">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2018-06-20T11:14:00+00:00" />
 <meta itemprop="name" content="使用curl命令管理远程github库">
 <meta itemprop="description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;&amp; git add . &amp;&amp; git commit -m &#39;some">
-
-
 <meta itemprop="datePublished" content="2018-06-20T11:14:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-20T11:14:00&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="1194">
+=======
+<meta itemprop="wordCount" content="1193">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用curl命令管理远程github库"/>
 <meta name="twitter:description" content="使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 git init &amp;&amp; git add . &amp;&amp; git commit -m &#39;some"/>
 
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 1194 字 </span>
+          <span class="more-meta"> 约 1193 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,181 +183,155 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#新建远程仓库">新建远程仓库</a>
-<ul>
-<li><a href="#基础命令">基础命令</a></li>
-<li><a href="#bash-形式">bash 形式</a></li>
-<li><a href="#bash形式-简化版">bash形式&ndash;简化版</a></li>
-</ul></li>
-<li><a href="#查询现有库">查询现有库</a></li>
-<li><a href="#初始化远程仓库">初始化远程仓库</a></li>
-<li><a href="#删除远程仓库">删除远程仓库</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">新建远程仓库</a>
+      <ul>
+        <li><a href="#heading-1">基础命令</a></li>
+        <li><a href="#bash-">bash 形式</a></li>
+        <li><a href="#bash--">bash形式&ndash;简化版</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">查询现有库</a></li>
+    <li><a href="#heading-3">初始化远程仓库</a></li>
+    <li><a href="#heading-4">删除远程仓库</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>使用<code>curl</code>命令管理远程github库</p>
-
-<h2 id="新建远程仓库">新建远程仓库</h2>
-
+      <p>使用<code>curl</code>命令管理远程github库</p>
+<h2 id="heading">新建远程仓库</h2>
 <ol>
-<li><p>在本地准备工作
+<li>在本地准备工作
 进入一个目录，这个目录是本地仓库的目录；
-在本地建立仓库</p>
-
-<pre><code class="language-sh">git init &amp;&amp; git add . &amp;&amp; git commit -m 'some information'
-</code></pre></li>
-
-<li><p>新建一个<code>API token</code>
-打开此链接，<a href="https://github.com/settings/tokens">generate new token</a>，写入<code>description</code>，选择<code>scopes</code>（设置此token持有者的权限）。记住<code>personal access token</code>（也就是那一串字符和数字）！这一串东西只出现一次，下次查看不到。</p></li>
+在本地建立仓库</li>
 </ol>
-
-<h3 id="基础命令">基础命令</h3>
-
+<pre><code class="language-sh">git init &amp;&amp; git add . &amp;&amp; git commit -m 'some information'
+</code></pre>
+<ol start="2">
+<li>新建一个<code>API token</code>
+打开此链接，<a href="https://github.com/settings/tokens">generate new token</a>，写入<code>description</code>，选择<code>scopes</code>（设置此token持有者的权限）。记住<code>personal access token</code>（也就是那一串字符和数字）！这一串东西只出现一次，下次查看不到。</li>
+</ol>
+<h3 id="heading-1">基础命令</h3>
 <p>这是最直接的一种形式，直接把参数写到命令行搞定：</p>
-
 <pre><code class="language-git">curl -u git账号 -d '{&quot;name&quot;:&quot;新库名&quot;,&quot;description&quot;:&quot;库描述&quot;}' https://api.github.com/user/repos
 curl -u &quot;$username:$token&quot; https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}'
 </code></pre>
-
 <blockquote>
 <p>注：这里需要把<code>$username</code>和<code>$token</code>分别换成实际的用户名和刚才记住的<code>personal access token</code>，把<code>$repo_name</code>换成任何想要的<code>repo name</code>。</p>
-
-<h3 id="bash-形式">bash 形式</h3>
-
-<p>我们可以把命令行写成bash脚本，下次只要执行里面的简单命令就可以执行以上整条命令。
-1. 把<code>username</code>和<code>token</code>写入(apend或者修改)<code>~/.gitconfig</code>，形式如下：</p>
-
+</blockquote>
+<h3 id="bash-">bash 形式</h3>
+<p>我们可以把命令行写成bash脚本，下次只要执行里面的简单命令就可以执行以上整条命令。</p>
+<ol>
+<li>把<code>username</code>和<code>token</code>写入(apend或者修改)<code>~/.gitconfig</code>，形式如下：</li>
+</ol>
 <pre><code>[github]
     user = your user name 
     token = the token you get
 </code></pre>
-
-<ol>
-<li><p>把如下 <code>bash code</code>写入（append）<code>~/.bash_profile</code>文件</p>
-
-<pre><code class="language-bash">github-create() {
-repo_name=$1
-
-dir_name=`basename $(pwd)`
-
-if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
-echo &quot;Repo name (hit enter to use '$dir_name')?&quot;
-    read repo_name
-fi
-
-if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
-    repo_name=$dir_name
-fi
-
-username=`git config github.user`
-if [ &quot;$username&quot; = &quot;&quot; ]; then
-    echo &quot;Could not find username, run 'git config --global github.user &lt;username&gt;'&quot;
-    invalid_credentials=1
-fi
-
-token=`git config github.token`
-if [ &quot;$token&quot; = &quot;&quot; ]; then
-    echo &quot;Could not find token, run 'git config --global github.token &lt;token&gt;'&quot;
-    invalid_credentials=1
-fi
-
-if [ &quot;$invalid_credentials&quot; == &quot;1&quot; ]; then
-    return 1
-fi
-
-echo -n &quot;Creating Github repository '$repo_name' ...&quot;
-curl -u &quot;$username:$token&quot; https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}' &gt; /dev/null 2&gt;&amp;1
-echo &quot; done.&quot;
-
-echo -n &quot;Pushing local code to remote ...&quot;
-git remote add origin git@github.com:$username/$repo_name.git &gt; /dev/null 2&gt;&amp;1
-git push -u origin master &gt; /dev/null 2&gt;&amp;1
-echo &quot; done.&quot;
-}
-</code></pre></li>
+<ol start="2">
+<li>把如下 <code>bash code</code>写入（append）<code>~/.bash_profile</code>文件</li>
 </ol>
+<pre><code class="language-bash">github-create() {
+    repo_name=$1
 
+    dir_name=`basename $(pwd)`
+
+    if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
+    echo &quot;Repo name (hit enter to use '$dir_name')?&quot;
+        read repo_name
+    fi
+
+    if [ &quot;$repo_name&quot; = &quot;&quot; ]; then
+        repo_name=$dir_name
+    fi
+
+    username=`git config github.user`
+    if [ &quot;$username&quot; = &quot;&quot; ]; then
+        echo &quot;Could not find username, run 'git config --global github.user &lt;username&gt;'&quot;
+        invalid_credentials=1
+    fi
+
+    token=`git config github.token`
+    if [ &quot;$token&quot; = &quot;&quot; ]; then
+        echo &quot;Could not find token, run 'git config --global github.token &lt;token&gt;'&quot;
+        invalid_credentials=1
+    fi
+
+    if [ &quot;$invalid_credentials&quot; == &quot;1&quot; ]; then
+        return 1
+    fi
+
+    echo -n &quot;Creating Github repository '$repo_name' ...&quot;
+    curl -u &quot;$username:$token&quot; https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}' &gt; /dev/null 2&gt;&amp;1
+    echo &quot; done.&quot;
+
+    echo -n &quot;Pushing local code to remote ...&quot;
+    git remote add origin git@github.com:$username/$repo_name.git &gt; /dev/null 2&gt;&amp;1
+    git push -u origin master &gt; /dev/null 2&gt;&amp;1
+    echo &quot; done.&quot;
+}
+</code></pre>
 <ul>
-<li><p>也可以将脚本保存在<code>github-create.sh</code>文件中，让后在<code>~/.bash_profile</code>添加导入语句</p>
-
+<li>也可以将脚本保存在<code>github-create.sh</code>文件中，让后在<code>~/.bash_profile</code>添加导入语句</li>
+</ul>
 <pre><code>. &quot;$HOME/your path/github-create.sh&quot;
-</code></pre></li>
-
-<li><p>也可以导入到<code>oh-my-zsh</code>配置文件<code>zshrc.zsh-template</code>中，每次创建myzsh窗口时，<code>github-create</code>方法会初始化在环境中：</p>
-
+</code></pre>
+<ul>
+<li>也可以导入到<code>oh-my-zsh</code>配置文件<code>zshrc.zsh-template</code>中，每次创建myzsh窗口时，<code>github-create</code>方法会初始化在环境中：</li>
+</ul>
 <pre><code>. &quot;$HOME/hsg/hexo/Util/tool/github-create.sh&quot;
-</code></pre></li>
-
-<li><p>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</p>
-
+</code></pre>
+<ol start="3">
+<li>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</li>
+</ol>
 <pre><code>Source  ~/.bash_profile
-</code></pre></li>
-
-<li><p>然后就可以用如下命令创建远程仓库了</p>
-
+</code></pre>
+<ol start="4">
+<li>然后就可以用如下命令创建远程仓库了</li>
+</ol>
 <pre><code>github-create [repo name]
 </code></pre>
-
 <p>如果你不想用默认<code>repo name</code>（也就是当前目录名）创建repo可以重新输入另一个名字，否则直接按回车执行。</p>
-
-<h3 id="bash形式-简化版">bash形式&ndash;简化版</h3></li>
-
-<li><p>把如下<code>bash code</code>写入（append）<code>~/.bash_profile</code>文件。第十行按照形式一处理一下。</p>
-
-<pre><code>simple-create() {
-if [ $1 ]
-then
-    repo_name=$1
-else
-    echo &quot;Repo name?&quot;
-    read repo_name
-fi
-    
-curl -u '$username:$token' https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}'
-git remote add origin git@github.com:efatsi/$repo_name.git
-git push -u origin master
-}
-</code></pre></li>
-</ul>
-
+<h3 id="bash--">bash形式&ndash;简化版</h3>
 <ol>
-<li><p>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</p>
-
-<pre><code>Source  ~/.bash_profile
-</code></pre></li>
-
-<li><p>执行命令</p>
-
-<pre><code>simple-create [repo name]
-</code></pre></li>
+<li>把如下<code>bash code</code>写入（append）<code>~/.bash_profile</code>文件。第十行按照形式一处理一下。</li>
 </ol>
-</blockquote>
-
-<h2 id="查询现有库">查询现有库</h2>
-
+<pre><code>simple-create() {
+    if [ $1 ]
+    then
+        repo_name=$1
+    else
+        echo &quot;Repo name?&quot;
+        read repo_name
+    fi
+    
+    curl -u '$username:$token' https://api.github.com/user/repos -d '{&quot;name&quot;:&quot;'$repo_name'&quot;}'
+    git remote add origin git@github.com:efatsi/$repo_name.git
+    git push -u origin master
+}
+</code></pre>
+<ol start="2">
+<li>重新打开或新启动一个终端窗口，或者也可以在当前<code>Terminal</code>下运行如下命令</li>
+</ol>
+<pre><code>Source  ~/.bash_profile
+</code></pre>
+<ol start="3">
+<li>执行命令</li>
+</ol>
+<pre><code>simple-create [repo name]
+</code></pre>
+<h2 id="heading-2">查询现有库</h2>
 <pre><code>curl -u git账号 https://api.github.com/repos/账号/库名
 </code></pre>
-
-<h2 id="初始化远程仓库">初始化远程仓库</h2>
-
+<h2 id="heading-3">初始化远程仓库</h2>
 <p>找到仓库路径的字段<code>clone_url</code>或者</p>
-
 <pre><code class="language-git">git remote add origin clone_url
 //或者使用ssh,避免输入密码
 //git remote add origin ssh_url
 git push origin master
 </code></pre>
-
-<h2 id="删除远程仓库">删除远程仓库</h2>
-
+<h2 id="heading-4">删除远程仓库</h2>
 <pre><code class="language-ruby">githubDelRepo(){
     if [[ $# != 2 ]] ; then
         echo &quot;Needs username and repo-name as args 1 and 2 respectively.&quot;

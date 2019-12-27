@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/hexo%E5%8D%9A%E6%96%87%E7%BD%AE%E9%A1%B6%E6%96%B9%E6%B3%95/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-05-31T11:44:33+00:00" />
 <meta itemprop="name" content="hexo博文置顶方法">
 <meta itemprop="description" content="修改 hero-generator-index 插件，把文件：node_modules/hexo-generator-index/lib/generator.js 内的代码替换为： &#39;use strict&#39;;">
-
-
 <meta itemprop="datePublished" content="2018-05-31T11:44:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-05-31T11:44:33&#43;00:00" />
 <meta itemprop="wordCount" content="322">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hexo博文置顶方法"/>
 <meta name="twitter:description" content="修改 hero-generator-index 插件，把文件：node_modules/hexo-generator-index/lib/generator.js 内的代码替换为： &#39;use strict&#39;;"/>
 
@@ -181,12 +178,11 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p>修改 <code>hero-generator-index</code> 插件，把文件：<code>node_modules/hexo-generator-index/lib/generator.js</code> 内的代码替换为：</p>
-
 <pre><code class="language-js">'use strict';
 var pagination = require('hexo-pagination');
 module.exports = function(locals){
@@ -216,9 +212,7 @@ var posts = locals.posts;
     });
 };
 </code></pre>
-
 <p>在文章中添加 <code>top</code> 值，数值越大文章越靠前:</p>
-
 <pre><code>title: 解决Charles乱码问题
 date: 2017-05-22 22:45:48
 tags: 技巧
@@ -226,7 +220,6 @@ categories: 技巧
 copyright: true
 top: 100
 </code></pre>
-
 <p>转：<a href="https://segmentfault.com/a/1190000009544924">hexo的next主题个性化配置教程</a></p>
 
     </div>

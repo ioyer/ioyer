@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/swift%E5%8D%95%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
@@ -47,16 +47,17 @@
 <meta property="article:modified_time" content="2018-10-01T21:02:49+00:00" />
 <meta itemprop="name" content="Swift单文件相关命令行工具">
 <meta itemprop="description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件">
-
-
 <meta itemprop="datePublished" content="2018-10-01T21:02:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-01T21:02:49&#43;00:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="482">
+=======
+<meta itemprop="wordCount" content="480">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift单文件相关命令行工具"/>
 <meta name="twitter:description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件"/>
 
@@ -172,7 +173,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 482 字 </span>
+          <span class="more-meta"> 约 480 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,48 +183,39 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#直接用-swift-命令执行">直接用 swift 命令执行</a></li>
-<li><a href="#swiftc">swiftc</a></li>
-<li><a href="#swiftc-g-支持lldb调试"><code>swiftc -g</code>支持lldb调试</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#-swift-">直接用 swift 命令执行</a></li>
+    <li><a href="#swiftc">swiftc</a></li>
+    <li><a href="#swiftc--glldb">swiftc -g支持lldb调试</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="直接用-swift-命令执行">直接用 swift 命令执行</h2>
-
-<p><code>xcrun swift</code>可以直接将一个 <code>.swift</code>文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 <code>.swift</code> 文件最上面加上命令行工具的路径，然后将文件权限改为可执行，之后就可以直接执行这个 .swift 文件了：
-1. hello.swift</p>
-
+      <h2 id="-swift-">直接用 swift 命令执行</h2>
+<p><code>xcrun swift</code>可以直接将一个 <code>.swift</code>文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 <code>.swift</code> 文件最上面加上命令行工具的路径，然后将文件权限改为可执行，之后就可以直接执行这个 .swift 文件了：</p>
+<ol>
+<li>hello.swift</li>
+</ol>
 <pre><code class="language-sh">#!/usr/bin/env xcrun swift 
 println(&quot;hello&quot;) 
 </code></pre>
-
-<ol>
-<li><p>终端设置为可执行权限，并运行打印：</p>
-
+<ol start="2">
+<li>终端设置为可执行权限，并运行打印：</li>
+</ol>
 <pre><code class="language-sh">&gt; chmod 755 hello.swift 
 &gt; ./hello.swift 
 // 输出： 
 hello 
 </code></pre>
-
 <blockquote>
 <p>这些特性与其他的解释性语言表现得完全一样</p>
-</blockquote></li>
-</ol>
-
+</blockquote>
 <h2 id="swiftc">swiftc</h2>
-
-<p>相对于直接用 swift 命令执行，Swift 命令行工具的另一个常用的地方是直接脱离 Xcode 环境进行编译和生成可执行的二进制文件。我们可以使用 swiftc 来进行编译，比如下面的例子：
-1. MyClass.swift</p>
-
+<p>相对于直接用 swift 命令执行，Swift 命令行工具的另一个常用的地方是直接脱离 Xcode 环境进行编译和生成可执行的二进制文件。我们可以使用 swiftc 来进行编译，比如下面的例子：</p>
+<ol>
+<li>MyClass.swift</li>
+</ol>
 <pre><code class="language-swift">class MyClass { 
     let name = &quot;XiaoMing&quot; 
     func hello() { 
@@ -231,31 +223,24 @@ hello
         } 
 } 
 </code></pre>
-
-<ol>
-<li><p>main.swift</p>
-
+<ol start="2">
+<li>main.swift</li>
+</ol>
 <pre><code class="language-swift">let object = MyClass() 
 object.hello() 
-</code></pre></li>
-
-<li><p>终端编译运行，将生成一个名叫 <code>main</code> 的可执行文件：</p>
-
+</code></pre>
+<ol start="3">
+<li>终端编译运行，将生成一个名叫 <code>main</code> 的可执行文件：</li>
+</ol>
 <pre><code class="language-sh">&gt; xcrun swiftc MyClass.swift main.swift
 &gt; ./main  //运行main文件
 </code></pre>
-
-<p>利用这个方法，我们就可以用 Swift 写出一些命令行的程序了。</p></li>
-</ol>
-
+<p>利用这个方法，我们就可以用 Swift 写出一些命令行的程序了。</p>
 <p>最后想说明的一个 Swift 命令行工具的使用案例是生成汇编级别的代码。有时候我们想要确认经过优化后的汇编代码实际上做了些什么。swiftc 提供了参数来生成 asm 级别的汇编代码：</p>
-
 <pre><code class="language-sh">swiftc -O hello.swift &gt; hello.asm
 </code></pre>
-
 <p>Swift 的命令行工具还有不少强大的功能，对此感兴趣的读者不妨使用 <code>xcrun swift --help</code> 以及 <code>xcrun swiftc --help</code> 来查看具体还有哪些参数可以使用。</p>
-
-<h2 id="swiftc-g-支持lldb调试"><code>swiftc -g</code>支持lldb调试</h2>
+<h2 id="swiftc--glldb"><code>swiftc -g</code>支持lldb调试</h2>
 
     </div>
 

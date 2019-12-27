@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%95%E7%A4%BA%E5%9E%8B%E6%8E%A7%E5%88%B6%E5%99%A8/" />
@@ -47,16 +47,21 @@
 <meta property="article:modified_time" content="2017-02-17T12:26:11+00:00" />
 <meta itemprop="name" content="自定义展示型控制器">
 <meta itemprop="description" content="{% github it-boyer PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控">
+<<<<<<< HEAD
 
 
 <meta itemprop="datePublished" content="2017-02-17T12:26:11&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-17T12:26:11&#43;00:00" />
 <meta itemprop="wordCount" content="6247">
+=======
+<meta itemprop="datePublished" content="2017-02-17T12:26:11&#43;00:00" />
+<meta itemprop="dateModified" content="2017-02-17T12:26:11&#43;00:00" />
+<meta itemprop="wordCount" content="6217">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="转场,动画," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="转场,动画," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义展示型控制器"/>
 <meta name="twitter:description" content="{% github it-boyer PresentationsDemo 2cce4c908 width = 30% %} 触发转场的方式 官方支持的自定义转场 在 UINavigationController 中 push 和 pop; 在 UITabBarController 中切换 Tab; Modal 转场：presentation 和 dismissal，俗称视图控"/>
 
@@ -173,7 +178,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E8%BD%AC%E5%9C%BA/"> 转场 </a>
             </div>
-          <span class="more-meta"> 约 6247 字 </span>
+          <span class="more-meta"> 约 6217 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -183,66 +188,45 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#触发转场的方式">触发转场的方式</a>
-<ul>
-<li><a href="#官方支持的自定义转场">官方支持的自定义转场</a></li>
-<li><a href="#相关触发转场的动作">相关触发转场的动作</a>
-<ul>
-<li><a href="#uinavigationcontroller">UINavigationController</a></li>
-<li><a href="#uitabbarcontroller">UITabBarController</a></li>
-<li><a href="#modal-转场">Modal 转场：</a></li>
-<li><a href="#segue">Segue</a></li>
-<li><a href="#ios-8-的变化">iOS 8 的变化</a></li>
-</ul></li>
-<li><a href="#转场五大工具">转场五大工具</a>
-<ul>
-<li><a href="#转场代理-transition-delegate">转场代理(Transition Delegate)：</a></li>
-<li><a href="#动画控制器-animation-controller">动画控制器(Animation Controller)：</a></li>
-<li><a href="#交互控制器-interaction-controller">交互控制器(Interaction Controller)：</a></li>
-<li><a href="#转场环境-transition-context">转场环境(Transition Context):</a></li>
-<li><a href="#转场协调器-transition-coordinator">转场协调器(Transition Coordinator)：</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#特殊的-modal-转场">特殊的 Modal 转场</a>
-<ul>
-<li><a href="#ios-8引入的uipresentationcontroller">iOS 8引入的UIPresentationController</a></li>
-<li><a href="#定制presentedview">定制presentedView</a>
-<ul>
-<li><a href="#外观-重载size方法和frameofpresentedviewincontainerview属性">外观：重载size方法和frameOfPresentedViewInContainerView属性</a></li>
-<li><a href="#过渡动画-转场协调器-transition-coordinator">过渡动画，转场协调器(Transition Coordinator)</a>
-<ul>
-<li><a href="#转场开始">转场开始</a></li>
-<li><a href="#转场结束">转场结束</a></li>
-</ul></li>
-<li><a href="#适配屏幕旋转">适配屏幕旋转</a></li>
-<li><a href="#modal的两种presentationstyle">Modal的两种PresentationStyle</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#交互式转场">交互式转场</a>
-<ul>
-<li><a href="#实现交互化">实现交互化</a></li>
-<li><a href="#使用一个变量来标记交互状态配合转场交互">使用一个变量来标记交互状态配合转场交互</a></li>
-<li><a href="#转场动画控制器-向转场中添加视图-执行转场动画">转场动画控制器：向转场中添加视图，执行转场动画</a></li>
-</ul></li>
-<li><a href="#转场代理协议-transition-delegate">转场代理协议(Transition Delegate)</a>
-<ul>
-<li><a href="#实现转场代理协议方法-整合动画控制器和自定义展示控制器">实现转场代理协议方法，整合动画控制器和自定义展示控制器</a></li>
-<li><a href="#使用自定义的转场的代理">使用自定义的转场的代理</a></li>
-</ul></li>
-<li><a href="#两种常规的转场方式">两种常规的转场方式</a>
-<ul>
-<li><a href="#uiview方式-transitionfromview">UIView方式:transitionFromView</a></li>
-<li><a href="#uiviewcontroller方式-在子-vc-间转换的方法">UIViewController方式：在子 VC 间转换的方法</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">触发转场的方式</a>
+      <ul>
+        <li><a href="#heading-1">官方支持的自定义转场</a></li>
+        <li><a href="#heading-2">相关触发转场的动作</a></li>
+        <li><a href="#heading-3">转场五大工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#-modal-">特殊的 Modal 转场</a>
+      <ul>
+        <li><a href="#ios-8uipresentationcontroller">iOS 8引入的UIPresentationController</a></li>
+        <li><a href="#presentedview">定制presentedView</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-7">交互式转场</a>
+      <ul>
+        <li><a href="#heading-8">实现交互化</a></li>
+        <li><a href="#heading-9">使用一个变量来标记交互状态配合转场交互</a></li>
+        <li><a href="#heading-10">转场动画控制器：向转场中添加视图，执行转场动画</a></li>
+      </ul>
+    </li>
+    <li><a href="#transition-delegate-1">转场代理协议(Transition Delegate)</a>
+      <ul>
+        <li><a href="#heading-11">实现转场代理协议方法，整合动画控制器和自定义展示控制器</a></li>
+        <li><a href="#heading-12">使用自定义的转场的代理</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-13">两种常规的转场方式</a>
+      <ul>
+        <li><a href="#uiviewtransitionfromview">UIView方式:transitionFromView</a></li>
+        <li><a href="#uiviewcontroller-vc-">UIViewController方式：在子 VC 间转换的方法</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
+<<<<<<< HEAD
       
 
 <p>{% github it-boyer PresentationsDemo 2cce4c908 width = 30% %}</p>
@@ -251,18 +235,20 @@ autocomplete('#aa-search-input',
 
 <h3 id="官方支持的自定义转场">官方支持的自定义转场</h3>
 
+=======
+      <p>{% github it-boyer PresentationsDemo 2cce4c908 width = 30% %}</p>
+<h2 id="heading">触发转场的方式</h2>
+<h3 id="heading-1">官方支持的自定义转场</h3>
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <ul>
 <li>在 <code>UINavigationController</code> 中 <code>push</code> 和 <code>pop</code>;</li>
 <li>在 <code>UITabBarController</code> 中切换 <code>Tab</code>;</li>
-
-<li><p>Modal 转场：<code>presentation</code> 和 <code>dismissal</code>，俗称视图控制器的模态显示和消失，仅限于<code>modalPresentationStyle</code>属性为 <code>UIModalPresentationFullScreen</code> 或 <code>UIModalPresentationCustom</code> 这两种模式;
+<li>Modal 转场：<code>presentation</code> 和 <code>dismissal</code>，俗称视图控制器的模态显示和消失，仅限于<code>modalPresentationStyle</code>属性为 <code>UIModalPresentationFullScreen</code> 或 <code>UIModalPresentationCustom</code> 这两种模式;
 <code>UICollectionViewController</code> 的布局转场：仅限于 <code>UICollectionViewController</code> 与 <code>UINavigationController</code> 结合的转场方式，与上面三种都有点不同，不过实现很简单，可跳转至该链接查看。
-官方的支持包含了 iOS 中的大部分转场方式，还有一种自定义容器中的转场并没有得到系统的直接支持，不过借助协议这种灵活的方式，我们依然能够实现对自定义容器控制器转场的定制，在压轴环节我们将实现这一点。</p>
-
-<h3 id="相关触发转场的动作">相关触发转场的动作</h3>
-
+官方的支持包含了 iOS 中的大部分转场方式，还有一种自定义容器中的转场并没有得到系统的直接支持，不过借助协议这种灵活的方式，我们依然能够实现对自定义容器控制器转场的定制，在压轴环节我们将实现这一点。</li>
+</ul>
+<h3 id="heading-2">相关触发转场的动作</h3>
 <h4 id="uinavigationcontroller">UINavigationController</h4>
-
 <p><code>UINavigationController</code> 中所有修改其<code>viewControllers</code>栈中 <code>VC</code> 的方法都可以自定义转场动画：
 {% codeblock swift lang:swift %}
 //我们使用的最广泛的 push 和 pop 方法
@@ -274,9 +260,7 @@ func popToRootViewControllerAnimated(_ animated: Bool) -&gt; [UIViewController]?
 //这个方法有有点特别，是对 VC 栈的整体更新，开启动画后的执行比较复杂，具体参考文档说明。不建议在这种情况下开启转场动画。
 func setViewControllers(_ viewControllers: [UIViewController], animated animated: Bool)
 {% endcodeblock %}</p>
-
 <h4 id="uitabbarcontroller">UITabBarController</h4>
-
 <p>{% codeblock swift lang:swift %}
 //注意传递的参数必须是其下的子 VC
 unowned(unsafe) var selectedViewController: UIViewController?
@@ -284,23 +268,16 @@ var selectedIndex: Int
 //和上面类似的整体更新
 func setViewControllers(_ viewControllers: [UIViewController]?, animated animated: Bool)
 {% endcodeblock %}</p>
-
-<h4 id="modal-转场">Modal 转场：</h4>
-
+<h4 id="modal-">Modal 转场：</h4>
 <p>{% codeblock swift lang:swift %}
 // Presentation 转场
 func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion completion: (() -&gt; Void)?)
 // Dismissal 转场
 func dismissViewControllerAnimated(_ flag: Bool, completion completion: (() -&gt; Void)?)
 {% endcodeblock %}</p>
-
 <h4 id="segue">Segue</h4>
-
-<p>在 <code>storyboard</code> 里设置 <code>segue</code>有两种方式：<code>Button to VC</code>，这种在点击 <code>Button</code> 的时候触发转场；<code>VC to VC</code>，这种需要在代码中调用<code>performSegueWithIdentifier:sender:</code>。<code>prepareForSegue:sender:</code>方法是在转场发生前修改转场参数的最后机会。这点对于 <code>Modal</code> 转场比较重要，因为在 <code>storyboard</code>里 <code>Modal</code> 转场的 <code>Segue</code> 类型不支持选择 <code>Custom</code> 模式，使用 <code>segue</code> 方式触发时必须在<code>prepareForSegue:sender:</code>里修改模式。</p></li>
-</ul>
-
-<h4 id="ios-8-的变化">iOS 8 的变化</h4>
-
+<p>在 <code>storyboard</code> 里设置 <code>segue</code>有两种方式：<code>Button to VC</code>，这种在点击 <code>Button</code> 的时候触发转场；<code>VC to VC</code>，这种需要在代码中调用<code>performSegueWithIdentifier:sender:</code>。<code>prepareForSegue:sender:</code>方法是在转场发生前修改转场参数的最后机会。这点对于 <code>Modal</code> 转场比较重要，因为在 <code>storyboard </code>里 <code>Modal</code> 转场的 <code>Segue</code> 类型不支持选择 <code>Custom</code> 模式，使用 <code>segue</code> 方式触发时必须在<code>prepareForSegue:sender:</code>里修改模式。</p>
+<h4 id="ios-8-">iOS 8 的变化</h4>
 <p>iOS 8 引入了适应性布局，由此添加了两种新的方式来显示一个视图控制器：
 {% codeblock swift lang:swift %}
 func showViewController(_ vc: UIViewController, sender sender: AnyObject?)
@@ -318,52 +295,36 @@ func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
 |:&mdash;&mdash;-|:&mdash;&mdash;-|:&mdash;&mdash;&ndash;|
 |showViewController:sender: |Push(by NavigationController)| Presentation(by TabBarController) |
 |showDetailViewController:sender: |Presentation(by NavigationController)| Presentation(by TabBarController) |</p>
-
-<h3 id="转场五大工具">转场五大工具</h3>
-
+<h3 id="heading-3">转场五大工具</h3>
 <p>iOS 7 以协议的方式开放了自定义转场的 API，协议的好处是不再拘泥于具体的某个类，只要是遵守该协议的对象都能参与转场，非常灵活。转场协议由5种协议组成，在实际中只需要我们提供其中的两个或三个便能实现绝大部分的转场动画：</p>
-
-<h4 id="转场代理-transition-delegate">转场代理(Transition Delegate)：</h4>
-
+<h4 id="transition-delegate">转场代理(Transition Delegate)：</h4>
 <p>有如下三种容器转场代理，对应上面三种类型的转场：
 {% codeblock lang:swift %}
-<UINavigationControllerDelegate> //UINavigationController 的 delegate 属性遵守该协议。
-<UITabBarControllerDelegate> //UITabBarController 的 delegate 属性遵守该协议。
-<UIViewControllerTransitioningDelegate> //UIViewController 的 transitioningDelegate 属性遵守该协议。
+<!-- raw HTML omitted --> //UINavigationController 的 delegate 属性遵守该协议。
+<!-- raw HTML omitted --> //UITabBarController 的 delegate 属性遵守该协议。
+<!-- raw HTML omitted --> //UIViewController 的 transitioningDelegate 属性遵守该协议。
 {% endcodeblock %}
-这里除了<UIViewControllerTransitioningDelegate>是 iOS 7 新增的协议，其他两种在 iOS 2 里就存在了，在 iOS 7 时扩充了这两种协议来支持自定义转场。</p>
-
-<h4 id="动画控制器-animation-controller">动画控制器(Animation Controller)：</h4>
-
-<p>最重要的部分，负责添加视图以及执行动画；遵守<UIViewControllerAnimatedTransitioning>协议；由我们实现。</p>
-
-<h4 id="交互控制器-interaction-controller">交互控制器(Interaction Controller)：</h4>
-
-<p>通过交互手段，通常是手势来驱动动画控制器实现的动画，使得用户能够控制整个过程；遵守<UIViewControllerInteractiveTransitioning>协议；系统已经打包好现成的类供我们使用。</p>
-
-<h4 id="转场环境-transition-context">转场环境(Transition Context):</h4>
-
-<p>提供转场中需要的数据；遵守<UIViewControllerContextTransitioning>协议；由 UIKit 在转场开始前生成并提供给我们提交的动画控制器和交互控制器使用。</p>
-
-<h4 id="转场协调器-transition-coordinator">转场协调器(Transition Coordinator)：</h4>
-
-<p>可在转场动画发生的同时并行执行其他的动画，其作用与其说协调不如说辅助，主要在 Modal 转场和交互转场取消时使用，其他时候很少用到；遵守<UIViewControllerTransitionCoordinator>协议；由 UIKit 在转场时生成，UIViewController 在 iOS 7 中新增了方法transitionCoordinator()返回一个遵守该协议的对象，且该方法只在该控制器处于转场过程中才返回一个此类对象，不参与转场时返回 nil。</p>
-
+这里除了<!-- raw HTML omitted -->是 iOS 7 新增的协议，其他两种在 iOS 2 里就存在了，在 iOS 7 时扩充了这两种协议来支持自定义转场。</p>
+<h4 id="animation-controller">动画控制器(Animation Controller)：</h4>
+<p>最重要的部分，负责添加视图以及执行动画；遵守<!-- raw HTML omitted -->协议；由我们实现。</p>
+<h4 id="interaction-controller">交互控制器(Interaction Controller)：</h4>
+<p>通过交互手段，通常是手势来驱动动画控制器实现的动画，使得用户能够控制整个过程；遵守<!-- raw HTML omitted -->协议；系统已经打包好现成的类供我们使用。</p>
+<h4 id="transition-context">转场环境(Transition Context):</h4>
+<p>提供转场中需要的数据；遵守<!-- raw HTML omitted -->协议；由 UIKit 在转场开始前生成并提供给我们提交的动画控制器和交互控制器使用。</p>
+<h4 id="transition-coordinator">转场协调器(Transition Coordinator)：</h4>
+<p>可在转场动画发生的同时并行执行其他的动画，其作用与其说协调不如说辅助，主要在 Modal 转场和交互转场取消时使用，其他时候很少用到；遵守<!-- raw HTML omitted -->协议；由 UIKit 在转场时生成，UIViewController 在 iOS 7 中新增了方法transitionCoordinator()返回一个遵守该协议的对象，且该方法只在该控制器处于转场过程中才返回一个此类对象，不参与转场时返回 nil。</p>
 <p>总结下，5个协议只需要我们操心3个；实现一个最低限度可用的转场动画，我们只需要提供上面五个组件里的两个：转场代理和动画控制器即可，还有一个转场环境是必需的，不过这由系统提供；当进一步实现交互转场时，还需要我们提供交互控制器，也有现成的类供我们使用。</p>
-
-<h2 id="特殊的-modal-转场">特殊的 Modal 转场</h2>
-
+<h2 id="-modal-">特殊的 Modal 转场</h2>
 <p>容器类 VC 的转场里 <code>fromView</code> 和 <code>toView</code> 是 <code>containerView</code> 的子层次的视图，而 Modal 转场里 <code>presentingView</code> 与 <code>containerView</code> 是同层次的视图，只有 <code>presentedView</code> 是 <code>containerView</code> 的子层次视图。</p>
-
-<h3 id="ios-8引入的uipresentationcontroller">iOS 8引入的UIPresentationController</h3>
-
+<h3 id="ios-8uipresentationcontroller">iOS 8引入的UIPresentationController</h3>
 <p><code>UIPresentationController</code>类，该类接管了 <code>UIViewController</code> 的显示过程，为其提供转场和视图管理支持。在 iOS 8.0 以上的系统里，你可以在 <code>presentation</code> 转场结束后打印视图控制器的结构，会发现 <code>presentedVC</code> 是由一个<code>UIPresentationController</code>对象来显示的，查看视图结构也能看到 <code>presentedView</code> 是 <code>UIView</code> 私有子类的<code>UITtansitionView</code>的子视图，这就是前面 <code>containerView</code> 的真面目.
 当<code>UIViewController</code>的<code>modalPresentationStyle</code>属性为<code>.Custom</code>时(不支持.FullScreen)，我们有机会通过控制器的转场代理提供<code>UIPresentationController</code>的子类对 <code>Modal 转场</code>进行进一步的定制。实际上该类也可以在<code>.FullScreen</code>模式下使用，但是会丢失由该类负责的动画，保险起见还是遵循官方的建议，只在<code>.Custom</code>模式下使用该类。
-<code>UIPresentationController</code>类赋予 Modal 转场以下特性：
-1. 定制 <code>presentedView</code> 的外观，尺寸以及在 <code>containerView</code> 中添加自定义视图并为这些视图添加动画；
-2. 可以选择是否移除 <code>presentingView</code>
-3. 可以在不需要动画控制器的情况下单独工作
-4. iOS 8 中的自适应适应性布局
+<code>UIPresentationController</code>类赋予 Modal 转场以下特性：</p>
+<ol>
+<li>定制 <code>presentedView</code> 的外观，尺寸以及在 <code>containerView</code> 中添加自定义视图并为这些视图添加动画；</li>
+<li>可以选择是否移除 <code>presentingView</code></li>
+<li>可以在不需要动画控制器的情况下单独工作</li>
+<li>iOS 8 中的自适应适应性布局
 <code>UIPresentationController</code>类提供了如下的方法参与转场，对转场过程实现了更加细致的控制，从命名便可以看出与动画控制器里的<code>animateTransition:</code>的关系：
 {% codeblock swift lang:swift   %}
 func presentationTransitionWillBegin()
@@ -379,41 +340,34 @@ var presentingViewController: UIViewController { get }
 var presentedViewController: UIViewController { get }
 var containerView: UIView? { get }
 //提供给动画控制器使用的视图，默认返回 presentedVC.view，通过重写该方法返回其他视图，但一定要是 presentedVC.view 的上层视图。
-func presentedView() -&gt; UIView?<br />
+func presentedView() -&gt; UIView? <br>
 {% endcodeblock %}
-没有 <code>presentingView</code> 是因为 <code>Custom</code> 模式下 <code>presentingView</code> 不受 <code>containerView</code> 管理，<code>UIPresentationController</code>类并没有改变这一点。iOS 8 扩充了转场环境协议，可以通过<code>viewForKey:</code>方便获取转场的视图，而该方法在 <code>Modal</code> 转场中获取的是<code>presentedView()</code>返回的视图。因此我们可以在子类中将 <code>presentedView</code> 包装在其他视图后重写该方法返回包装后的视图当做 <code>presentedView</code> 在动画控制器中使用。</p>
-
-<h3 id="定制presentedview">定制presentedView</h3>
-
-<h4 id="外观-重载size方法和frameofpresentedviewincontainerview属性">外观：重载size方法和frameOfPresentedViewInContainerView属性</h4>
-
+没有 <code>presentingView</code> 是因为 <code>Custom</code> 模式下 <code>presentingView</code> 不受 <code>containerView</code> 管理，<code>UIPresentationController</code>类并没有改变这一点。iOS 8 扩充了转场环境协议，可以通过<code>viewForKey:</code>方便获取转场的视图，而该方法在 <code>Modal</code> 转场中获取的是<code>presentedView()</code>返回的视图。因此我们可以在子类中将 <code>presentedView</code> 包装在其他视图后重写该方法返回包装后的视图当做 <code>presentedView</code> 在动画控制器中使用。</li>
+</ol>
+<h3 id="presentedview">定制presentedView</h3>
+<h4 id="sizeframeofpresentedviewincontainerview">外观：重载size方法和frameOfPresentedViewInContainerView属性</h4>
 <p>重载存储属性：get方法返回登场页面的位置和大小
 {% codeblock lang:swift %}
 override var frameOfPresentedViewInContainerView: CGRect
 {
-    var presentViewFrame = CGRect.zero
-    let containerBounds = containerView?.bounds
-    //登场控制器内容页面的大小
-    presentViewFrame.size = size(forChildContentContainer: presentedViewController,
-                                  withParentContainerSize: (containerBounds?.size)!)
-    presentViewFrame.origin.x = (containerBounds?.size.width)! - presentViewFrame.size.width
-    return presentViewFrame
+var presentViewFrame = CGRect.zero
+let containerBounds = containerView?.bounds
+//登场控制器内容页面的大小
+presentViewFrame.size = size(forChildContentContainer: presentedViewController,
+withParentContainerSize: (containerBounds?.size)!)
+presentViewFrame.origin.x = (containerBounds?.size.width)! - presentViewFrame.size.width
+return presentViewFrame
 }</p>
-
 <p>//返回登场控制器内容页面的大小，在这里设置为屏幕宽度的三分之一款
 override func size(forChildContentContainer container: UIContentContainer,
-                   withParentContainerSize parentSize: CGSize) -&gt; CGSize
+withParentContainerSize parentSize: CGSize) -&gt; CGSize
 {
-    return CGSize.init(width:CGFloat(floorf(Float(parentSize.width/3.0))), height: parentSize.height)
+return CGSize.init(width:CGFloat(floorf(Float(parentSize.width/3.0))), height: parentSize.height)
 }
 {% endcodeblock %}</p>
-
-<h4 id="过渡动画-转场协调器-transition-coordinator">过渡动画，转场协调器(Transition Coordinator)</h4>
-
+<h4 id="transition-coordinator-1">过渡动画，转场协调器(Transition Coordinator)</h4>
 <p>参与角色都准备好了，但有个问题，无法直接访问动画控制器，不知道转场的持续时间，怎么与转场过程同步？这时候前面提到的用处甚少的转场协调器(Transition Coordinator)将在这里派上用场。该对象可通过 <code>UIViewController</code> 的<code>transitionCoordinator()</code>方法获取，这是 iOS 7 为自定义转场新增的 API，该方法只在控制器处于转场过程中才返回一个与当前转场有关的有效对象，其他时候返回 <code>nil</code>。</p>
-
-<h5 id="转场开始">转场开始</h5>
-
+<h5 id="heading-4">转场开始</h5>
 <ol>
 <li>在<code>containerView</code>中插入过渡视图<code>chromeView</code></li>
 <li>为转场中<code>chromeView</code>过渡视图添加转场动画</li>
@@ -423,61 +377,55 @@ override func presentationTransitionWillBegin()
 {
 chromeView.frame = (self.containerView?.bounds)!
 chromeView.alpha = 0.0
-//在<code>containerView</code>中插入视图<code>chromeView</code><br />
+//在<code>containerView</code>中插入视图<code>chromeView</code> <br>
 containerView?.insertSubview(chromeView, at:0)
 //coordinator转场协调器负责转场动画的呈现和dismissal
 let coordinator = presentedViewController.transitionCoordinator
 if (coordinator != nil) {
-    //添加登场动画
-    coordinator!.animate(alongsideTransition: {
-    (context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
-        //animate the alpha to 1.0.
-        self.chromeView.alpha = 1.0
-    }, completion:nil)
+//添加登场动画
+coordinator!.animate(alongsideTransition: {
+(context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
+//animate the alpha to 1.0.
+self.chromeView.alpha = 1.0
+}, completion:nil)
 }
 else
 {
-    chromeView.alpha = 1.0
+chromeView.alpha = 1.0
 }
 }
 {% endcodeblock %}</li>
 </ol>
-
-<h5 id="转场结束">转场结束</h5>
-
+<h5 id="heading-5">转场结束</h5>
 <p>在<code>presentedViewController.transitionCoordinator</code>转场协调器中添加转场的退场动画
 {% codeblock dismissalTransitionWillBegin lang:swift %}
 override func dismissalTransitionWillBegin()
 {
-    let coordinator = presentedViewController.transitionCoordinator
-    if (coordinator != nil)
-    {
-        //添加退场动画
-        coordinator!.animate(alongsideTransition: {
-        (context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
-            self.chromeView.alpha = 0.0
-        }, completion:nil)
-    }
-    else
-    {
-        chromeView.alpha = 0.0
-    }
+let coordinator = presentedViewController.transitionCoordinator
+if (coordinator != nil)
+{
+//添加退场动画
+coordinator!.animate(alongsideTransition: {
+(context:UIViewControllerTransitionCoordinatorContext!) -&gt; Void in
+self.chromeView.alpha = 0.0
+}, completion:nil)
+}
+else
+{
+chromeView.alpha = 0.0
+}
 }
 {% endcodeblock %}</p>
-
-<h4 id="适配屏幕旋转">适配屏幕旋转</h4>
-
+<h4 id="heading-6">适配屏幕旋转</h4>
 <p>在设备旋转的情况下，重置背景视图的外观和登场控制器内容的外观
 {% codeblock lang:swift %}
 override func containerViewWillLayoutSubviews()
 {
-    chromeView.frame = (containerView?.bounds)!
-    presentedView?.frame = frameOfPresentedViewInContainerView
+chromeView.frame = (containerView?.bounds)!
+presentedView?.frame = frameOfPresentedViewInContainerView
 }
 {% endcodeblock %}</p>
-
-<h4 id="modal的两种presentationstyle">Modal的两种PresentationStyle</h4>
-
+<h4 id="modalpresentationstyle">Modal的两种PresentationStyle</h4>
 <ol>
 <li>设置整个转场动画是否将覆盖全屏幕
 <code>.OverFullScreen</code>: 浮动式全屏，即：登场视图下方的视图不会完全被遮挡
@@ -489,44 +437,41 @@ override var shouldPresentInFullscreen: Bool
 return true
 }</li>
 </ol>
-
 <p>override var adaptivePresentationStyle: UIModalPresentationStyle
 {
-    return UIModalPresentationStyle.fullScreen
+return UIModalPresentationStyle.fullScreen
 }
 {% endcodeblock %}</p>
-
-<h2 id="交互式转场">交互式转场</h2>
-
-<h3 id="实现交互化">实现交互化</h3>
-
+<h2 id="heading-7">交互式转场</h2>
+<h3 id="heading-8">实现交互化</h3>
 <p>在非交互转场的基础上将之交互化需要两个条件：
-由转场代理提供交互控制器，这是一个遵守<UIViewControllerInteractiveTransitioning>协议的对象，不过系统已经打包好了现成的类<code>UIPercentDrivenInteractiveTransition</code>供我们使用。我们不需要做任何配置，仅仅在转场代理的相应方法中提供一个该类实例便能工作。另外交互控制器必须有动画控制器才能工作。
+由转场代理提供交互控制器，这是一个遵守<!-- raw HTML omitted -->协议的对象，不过系统已经打包好了现成的类<code>UIPercentDrivenInteractiveTransition</code>供我们使用。我们不需要做任何配置，仅仅在转场代理的相应方法中提供一个该类实例便能工作。另外交互控制器必须有动画控制器才能工作。
 交互控制器还需要交互手段的配合，最常见的是使用手势，或是其他事件，来驱动整个转场进程。</p>
-
-<h3 id="使用一个变量来标记交互状态配合转场交互">使用一个变量来标记交互状态配合转场交互</h3>
-
+<h3 id="heading-9">使用一个变量来标记交互状态配合转场交互</h3>
 <p>如果在转场代理中提供了交互控制器，而转场发生时并没有方法来驱动转场进程(比如手势)，转场过程将一直处于开始阶段无法结束。
-在两个容器控制器<code>NavigationController</code>和<code>TabBarController</code>转场为例：
-1. 在 <code>NavigationController</code> 中点击 <code>NavigationBar</code> 也能实现 <code>pop</code> 返回操作，但此时没有了交互手段的支持，转场过程卡壳；
-2. 在 <code>TabBarController</code> 的代理里提供交互控制器存在同样的问题，点击 <code>TabBar</code> 切换页面时也没有实现交互控制。因此仅在确实处于交互状态时才提供交互控制器，可以使用一个变量来标记交互状态，该变量由交互手势来更新状态。</p>
-
-<h3 id="转场动画控制器-向转场中添加视图-执行转场动画">转场动画控制器：向转场中添加视图，执行转场动画</h3>
-
+在两个容器控制器<code>NavigationController</code>和<code>TabBarController</code>转场为例：</p>
+<ol>
+<li>在 <code>NavigationController</code> 中点击 <code>NavigationBar</code> 也能实现 <code>pop</code> 返回操作，但此时没有了交互手段的支持，转场过程卡壳；</li>
+<li>在 <code>TabBarController</code> 的代理里提供交互控制器存在同样的问题，点击 <code>TabBar</code> 切换页面时也没有实现交互控制。因此仅在确实处于交互状态时才提供交互控制器，可以使用一个变量来标记交互状态，该变量由交互手势来更新状态。</li>
+</ol>
+<h3 id="heading-10">转场动画控制器：向转场中添加视图，执行转场动画</h3>
 <p>转场 API 是协议的好处是不受限于具体的类，只要对象实现该协议便能参与转场过程，这也带来另外一个好处：封装便于复用，尽管三大转场代理协议的方法不尽相同。
 但它们返回的动画控制器遵守的是同一个协议，因此可以将动画控制器封装作为第三方动画控制器在其他控制器的转场过程中使用。
-<code>UIViewControllerAnimatedTransitioning</code>代理协议方法，提供了转场所需要的重要数据：
-1. <code>containerView()</code>：运行转场动画的容器视图
-2. 转场视图控制器
-    * 方法一：<code>viewController(forKey:)</code>：<code>UITransitionContextViewControllerKey</code>枚举值：<code>from</code>，<code>to</code>
-    * 方法二：<code>viewForKey(_ key: String) -&gt; UIView? AVAILABLE_IOS(8_0)</code>:iOS 8新增 API 用于方便获取参与转场的视图.两个键值：<code>UITransitionContextFromViewKey</code>,<code>UITransitionContextToViewKey</code>.</p>
-
+<code>UIViewControllerAnimatedTransitioning</code>代理协议方法，提供了转场所需要的重要数据：</p>
+<ol>
+<li><code>containerView()</code>：运行转场动画的容器视图</li>
+<li>转场视图控制器
+<ul>
+<li>方法一：<code>viewController(forKey:)</code>：<code>UITransitionContextViewControllerKey</code>枚举值：<code>from</code>，<code>to</code></li>
+<li>方法二：<code>viewForKey(_ key: String) -&gt; UIView? AVAILABLE_IOS(8_0)</code>:iOS 8新增 API 用于方便获取参与转场的视图.两个键值：<code>UITransitionContextFromViewKey</code>,<code>UITransitionContextToViewKey</code>.</li>
+</ul>
+</li>
+</ol>
 <p>{% codeblock lang:swift %}
 class ExampleAnimatedTransitioning: NSObject,UIViewControllerAnimatedTransitioning
 {
-    //used to determine if the presentation animation is presenting (as opposed to dismissing).
-    var isPresentation : Bool = false</p>
-
+//used to determine if the presentation animation is presenting (as opposed to dismissing).
+var isPresentation : Bool = false</p>
 <pre><code>//returns the duration in seconds of the transition animation.
 func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -&gt; TimeInterval
 {
@@ -590,34 +535,29 @@ func animationEnded(_ transitionCompleted: Bool) {
     //
 }
 </code></pre>
-
 <p>}
 {% endcodeblock %}</p>
-
-<h2 id="转场代理协议-transition-delegate">转场代理协议(Transition Delegate)</h2>
-
+<h2 id="transition-delegate-1">转场代理协议(Transition Delegate)</h2>
 <p>自定义转场的第一步便是提供转场代理，告诉系统使用我们提供的代理而不是系统的默认代理来执行转场。</p>
-
-<h3 id="实现转场代理协议方法-整合动画控制器和自定义展示控制器">实现转场代理协议方法，整合动画控制器和自定义展示控制器</h3>
-
+<h3 id="heading-11">实现转场代理协议方法，整合动画控制器和自定义展示控制器</h3>
 <ol>
 <li>返回管理用户信息视图控制器如何展示的控制器。前面实现的<code>ExamplePresentationViewController</code>类可同时处理 <code>presentation</code>转场 和 <code>dismissal</code> 转场。</li>
-<li>动画控制器为 <code>presentation</code> 和 <code>dismissal</code> 转场分别提供了动画控制器。
-&gt;<code>UIPresentationController</code>只在 iOS 8中可用，通过available关键字可以解决 API 的版本差异。</li>
+<li>动画控制器为 <code>presentation</code> 和 <code>dismissal</code> 转场分别提供了动画控制器。</li>
 </ol>
-
+<blockquote>
+<p><code>UIPresentationController</code>只在 iOS 8中可用，通过available关键字可以解决 API 的版本差异。</p>
+</blockquote>
 <p>{% codeblock  lang:swift %}
 class ExampleTransitioningDelegate: NSObject,UIViewControllerTransitioningDelegate
 {
-    //returns a presentation controller that manages the presentation of a view controller.
-    func presentationController(forPresented presented: UIViewController,
-                                            presenting: UIViewController?,
-                                                source: UIViewController) -&gt; UIPresentationController?
-    {
-        //presentation动画控制器
-        let presentationController = ExamplePresentationViewController(presentedViewController:presented,
-                                                                                    presenting:presenting)</p>
-
+//returns a presentation controller that manages the presentation of a view controller.
+func presentationController(forPresented presented: UIViewController,
+presenting: UIViewController?,
+source: UIViewController) -&gt; UIPresentationController?
+{
+//presentation动画控制器
+let presentationController = ExamplePresentationViewController(presentedViewController:presented,
+presenting:presenting)</p>
 <pre><code>    return presentationController
 }
 
@@ -641,33 +581,28 @@ func animationController(forDismissed dismissed: UIViewController) -&gt; UIViewC
     return animator
 }
 </code></pre>
-
 <p>}
 {% endcodeblock %}</p>
-
-<h3 id="使用自定义的转场的代理">使用自定义的转场的代理</h3>
-
+<h3 id="heading-12">使用自定义的转场的代理</h3>
 <p>自定义转场的第一步便是提供转场代理，告诉系统使用我们提供的代理而不是系统的默认代理来执行转场。
-UIViewControllerTransitioningDelegate转场代理：
-1. 强引用代理变量:强引用的变量来维护该代理
-2. Modal转场代理的特性：由presentedVC自身来遵循转场代理<code>presentedVC.modalPresentationStyle</code>，和前两个容器控制器转场代理不同。
-3. 两种支持自定义转场模式：<code>.Custom</code>或<code>.FullScreen</code>,默认值为<code>.FullScreen</code>
+UIViewControllerTransitioningDelegate转场代理：</p>
+<ol>
+<li>强引用代理变量:强引用的变量来维护该代理</li>
+<li>Modal转场代理的特性：由presentedVC自身来遵循转场代理<code>presentedVC.modalPresentationStyle</code>，和前两个容器控制器转场代理不同。</li>
+<li>两种支持自定义转场模式：<code>.Custom</code>或<code>.FullScreen</code>,默认值为<code>.FullScreen</code>
 {% codeblock fromVC.class lang:swift %}
 //强引用的变量来维护该代理
 let exampleTransitionDelegate = ExampleTransitioningDelegate()
 //create an instance of ExampleViewController which will provide the content to display.
 let presentedVC = ExampleViewController()
 presentedVC.modalPresentationStyle = .custom
-presentedVC.transitioningDelegate = exampleTransitionDelegate</p>
-
+presentedVC.transitioningDelegate = exampleTransitionDelegate</li>
+</ol>
 <p>//present this view controller.
 present(toVC, animated: true, completion: nil)
 {% endcodeblock %}</p>
-
-<h2 id="两种常规的转场方式">两种常规的转场方式</h2>
-
-<h3 id="uiview方式-transitionfromview">UIView方式:transitionFromView</h3>
-
+<h2 id="heading-13">两种常规的转场方式</h2>
+<h3 id="uiviewtransitionfromview">UIView方式:transitionFromView</h3>
 <p>不需要获取 <code>containerView</code> 以及手动添加 <code>toView</code> 就能实现一个指定类型的转场动画，而缺点则是只能使用指定类型的动画。
 {% codeblock lang:swift %}
 UIView.transitionFromView(fromView, toView: toView, duration: durantion, options: .TransitionCurlDown, completion: { _ in
@@ -675,16 +610,15 @@ let isCancelled = transitionContext.transitionWasCancelled()
 transitionContext.completeTransition(!isCancelled)
 })
 {% endcodeblock %}</p>
-
-<h3 id="uiviewcontroller方式-在子-vc-间转换的方法">UIViewController方式：在子 VC 间转换的方法</h3>
-
+<h3 id="uiviewcontroller-vc-">UIViewController方式：在子 VC 间转换的方法</h3>
 <p>该方法用 toVC 的视图转换 fromVC 的视图在父视图中的位置，并且执行<code>animations闭包</code>里的动画。
 {% codeblock lang:swift %}
 transitionFromViewController:toViewController:duration:options:animations:completion:
 {% endcodeblock %}
-该方法仅限于在自定义容器控制器里使用，如果直接使用 <code>UINavigationController</code> 和 <code>UITabBarController</code> 调用该方法执行子VC间转换会抛出异常。
-&gt;不过 iOS 7 中这两个容器控制器开放的自定义转场做的是同样的事情，回头再看第一章 Transition 解释，转场协议 API 将这个方法拆分成了上面的几个组件，并且加入了激动人心的交互控制，以便我们能够方便定制转场动画。</p>
-
+该方法仅限于在自定义容器控制器里使用，如果直接使用 <code>UINavigationController</code> 和 <code>UITabBarController</code> 调用该方法执行子VC间转换会抛出异常。</p>
+<blockquote>
+<p>不过 iOS 7 中这两个容器控制器开放的自定义转场做的是同样的事情，回头再看第一章 Transition 解释，转场协议 API 将这个方法拆分成了上面的几个组件，并且加入了激动人心的交互控制，以便我们能够方便定制转场动画。</p>
+</blockquote>
 <p><a href="http://www.appcoda.com/presentation-controllers-tutorial/">原文</a></p>
 
     </div>

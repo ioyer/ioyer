@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E4%BF%AE%E6%94%B9mac%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%BC%E8%87%B4%E4%B8%A2%E5%A4%B1%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E4%BF%AE%E5%A4%8D/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-09-25T19:16:53+00:00" />
 <meta itemprop="name" content="修改Mac用户名导致丢失管理员权限问题修复">
 <meta itemprop="description" content="出现的问题主要有两点 数据恢复问题 1）修改用户名后，mac系统认为是创建了一个新的用户，这时候，之前管理员账号的数据在当前用户的finder里">
-
-
 <meta itemprop="datePublished" content="2018-09-25T19:16:53&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-25T19:16:53&#43;00:00" />
 <meta itemprop="wordCount" content="338">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改Mac用户名导致丢失管理员权限问题修复"/>
 <meta name="twitter:description" content="出现的问题主要有两点 数据恢复问题 1）修改用户名后，mac系统认为是创建了一个新的用户，这时候，之前管理员账号的数据在当前用户的finder里"/>
 
@@ -182,39 +179,30 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#出现的问题主要有两点">出现的问题主要有两点</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">出现的问题主要有两点</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="出现的问题主要有两点">出现的问题主要有两点</h2>
-
+      <h2 id="heading">出现的问题主要有两点</h2>
 <ol>
 <li>数据恢复问题
 1）修改用户名后，mac系统认为是创建了一个新的用户，这时候，之前管理员账号的数据在当前用户的finder里是看不到的。这时候可以去到桌面，点击又上角的“前往” 。</li>
 <li>管理员权限问题
 虽然数据问题恢复了，但是另外一个更严重的问题又出现了。新的用户名账号只是一个普通用户账号，没有管理员权限没有管理员权限了。在需要管理员权限的操作中输入具有管理员权限的前用户名和密码也不认了。
 解决办法：</li>
-
-<li><p>创建一个新的具有管理员权限的用户
+<li>创建一个新的具有管理员权限的用户
 第一步：重启电脑，并长按组合键：<code>command+s</code>进入Single User Model模式，出现像DOS一样的提示符 。
-第二步：在命令行顺序输入命令：</p>
-
+第二步：在命令行顺序输入命令：</li>
+</ol>
 <pre><code>fsck -y
 mount -uaw /
 rm /var/db/.AppleSetupDone
 reboot
 </code></pre>
-
-<p>苹果电脑会重启，并且在开机后出现新装机时的欢迎界面。重新建立一个新的管理员账号。</p></li>
-</ol>
+<p>苹果电脑会重启，并且在开机后出现新装机时的欢迎界面。重新建立一个新的管理员账号。</p>
 
     </div>
 

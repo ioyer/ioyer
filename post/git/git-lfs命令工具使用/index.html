@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/git-lfs%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-11T17:58:15+00:00" />
 <meta itemprop="name" content="git-lfs命令工具使用">
 <meta itemprop="description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件">
-
-
 <meta itemprop="datePublished" content="2018-10-11T17:58:15&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-11T17:58:15&#43;00:00" />
 <meta itemprop="wordCount" content="500">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-lfs命令工具使用"/>
 <meta name="twitter:description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件"/>
 
@@ -182,73 +179,62 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#安装-http-macappstore-org-git-lfs"><a href="http://macappstore.org/git-lfs/">安装</a></a></li>
-<li><a href="#配置git库支持git-lfs">配置git库支持git-lfs</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#httpmacappstoreorggit-lfs">安装</a></li>
+        <li><a href="#gitgit-lfs">配置git库支持git-lfs</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github git-lfs git-lfs 45c4568 width = 30% %}
 <a href="https://git-lfs.github.com">git-lfs官网</a>
 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件替换成了一个指针文件交给git进行版本管理；
 在pull/push等这些操作中，lfs又通过lfs服务器把这些文件的真身给下载或上传回来；
 通过这样的手段，使得本地仓库的体积大大减小，而不会出现随着这些文件的版本增多而体积剧烈膨胀的情况；
 个人觉得这种把存储负担转移给了服务器的做法，是不是有违git去中心化的理念，毕竟lfs这样做其实算是强依赖于这个lfs服务器了，本地仓库并不是一个完整的仓库</p>
-
-<h3 id="安装-http-macappstore-org-git-lfs"><a href="http://macappstore.org/git-lfs/">安装</a></h3>
-
+<h3 id="httpmacappstoreorggit-lfs"><a href="http://macappstore.org/git-lfs/">安装</a></h3>
 <pre><code>brew install git-lfs
 </code></pre>
-
-<h3 id="配置git库支持git-lfs">配置git库支持git-lfs</h3>
-
+<h3 id="gitgit-lfs">配置git库支持git-lfs</h3>
 <ol>
-<li><p>Git命令行扩展工具<code>git-lfs</code>,您只需设置一次<code>Git LFS</code>。</p>
-
+<li>Git命令行扩展工具<code>git-lfs</code>,您只需设置一次<code>Git LFS</code>。</li>
+</ol>
 <pre><code>#设置库支持
 git lfs install
 #删除库支持
 git lfs uninstall
 </code></pre>
-
 <blockquote>
 <p>当使用gitee时，push远程库：WARNING: Authentication error: Authentication required: not a enterprise project</p>
-</blockquote></li>
-
-<li><p>配置<code>.gitattribute</code>文件，添加需要<code>Git LFS</code>管理的文件类型。也可<code>track</code>命令添加其他类型</p>
-
+</blockquote>
+<ol start="2">
+<li>配置<code>.gitattribute</code>文件，添加需要<code>Git LFS</code>管理的文件类型。也可<code>track</code>命令添加其他类型</li>
+</ol>
 <pre><code># 添加
 git lfs track &quot;*.psd&quot;
 # 查看规则
 git lfs track
 # 查看跟踪的文件清单
 git lfs ls-files
-</code></pre></li>
-
-<li><p>确保跟踪<code>.gitattributes</code></p>
-
+</code></pre>
+<ol start="3">
+<li>确保跟踪<code>.gitattributes</code></li>
+</ol>
 <pre><code>git add .gitattributes
-</code></pre></li>
-
-<li><p>像往常一样提交并推送到GitHub。</p>
-
+</code></pre>
+<ol start="4">
+<li>像往常一样提交并推送到GitHub。</li>
+</ol>
 <pre><code>git add file.psd
 git commit -m &quot;Add design file&quot;
 git push origin master
-</code></pre></li>
-</ol>
+</code></pre>
 
     </div>
 

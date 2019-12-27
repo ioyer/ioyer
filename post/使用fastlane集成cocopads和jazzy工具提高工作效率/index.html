@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置文件使" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%BD%BF%E7%94%A8fastlane%E9%9B%86%E6%88%90cocopads%E5%92%8Cjazzy%E5%B7%A5%E5%85%B7%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/" />
@@ -40,25 +40,26 @@
 
 
 <meta property="og:title" content="总结集成工具使用文档" />
-<meta property="og:description" content="DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置文件使" />
+<meta property="og:description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E4%BD%BF%E7%94%A8fastlane%E9%9B%86%E6%88%90cocopads%E5%92%8Cjazzy%E5%B7%A5%E5%85%B7%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/" />
 <meta property="article:published_time" content="2019-09-07T20:47:00+08:00" />
 <meta property="article:modified_time" content="2019-09-07T20:47:29+08:00" />
 <meta itemprop="name" content="总结集成工具使用文档">
-<meta itemprop="description" content="DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置文件使">
-
-
+<meta itemprop="description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置">
 <meta itemprop="datePublished" content="2019-09-07T20:47:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-07T20:47:29&#43;08:00" />
+<<<<<<< HEAD
 <meta itemprop="wordCount" content="846">
+=======
+<meta itemprop="wordCount" content="858">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="proj,BLOG," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="proj,BLOG," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="总结集成工具使用文档"/>
-<meta name="twitter:description" content="DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置文件使"/>
+<meta name="twitter:description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -170,7 +171,7 @@ autocomplete('#aa-search-input',
       <div class="post-meta">
         <span class="post-time"> 2019-09-07 </span>
         
-          <span class="more-meta"> 约 846 字 </span>
+          <span class="more-meta"> 约 858 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,34 +181,31 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#jazzy工具使用实现基本的文档的生成-并同步到hugo目录中"><span class="org-todo done DONE">DONE</span> jazzy工具使用实现基本的文档的生成,并同步到hugo目录中</a>
-<ul>
-<li><a href="#在xcode-11-bata5之后-无法显示类结构问题"><span class="org-todo done DONE">DONE</span> 在Xcode 11 bata5之后,无法显示类结构问题</a></li>
-</ul></li>
-<li><a href="#cocoapods私库的使用-在ismallapp中使用私库"><span class="org-todo done DONE">DONE</span> cocoapods私库的使用,在iSmallAPP中使用私库</a></li>
-<li><a href="#fastlane工具使用-编译xcode工程-并发布到蒲公英"><span class="org-todo done DONE">DONE</span> fastlane工具使用,编译Xcode工程,并发布到蒲公英</a></li>
-<li><a href="#类似jenkins的工具学习集成的基本操作流程">类似jenkins的工具学习集成的基本操作流程</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#jazzy工具使用实现基本的文档的生成-并同步到hugo目录中">DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中</a>
+      <ul>
+        <li><a href="#在xcode-11-bata5之后-无法显示类结构问题">DONE 在Xcode 11 bata5之后,无法显示类结构问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#cocoapods私库的使用-在ismallapp中使用私库">DONE cocoapods私库的使用,在iSmallAPP中使用私库</a></li>
+    <li><a href="#fastlane工具使用-编译xcode工程-并发布到蒲公英">DONE fastlane工具使用,编译Xcode工程,并发布到蒲公英</a></li>
+    <li><a href="#类似jenkins的工具学习集成的基本操作流程">类似jenkins的工具学习集成的基本操作流程</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="jazzy工具使用实现基本的文档的生成-并同步到hugo目录中"><span class="org-todo done DONE">DONE</span> jazzy工具使用实现基本的文档的生成,并同步到hugo目录中</h2>
-
+      <h2 id="jazzy工具使用实现基本的文档的生成-并同步到hugo目录中"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> jazzy工具使用实现基本的文档的生成,并同步到hugo目录中</h2>
 <p>支持oc/swift文档</p>
-
 <ol>
-<li>swift文档</li>
-<li>oc 文档</li>
-
-<li><p>.jazzy.yaml配置文件使用</p>
-
+<li>
+<p>swift文档</p>
+</li>
+<li>
+<p>oc 文档</p>
+</li>
+<li>
+<p>.jazzy.yaml配置文件使用</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">    author: Alamofire Software Foundation
     author_url: http://alamofire.org/
     github_url: https://github.com/Alamofire/Alamofire
@@ -217,69 +215,57 @@ autocomplete('#aa-search-input',
     theme: fullwidth
     xcodebuild_arguments: <span style="color:#f92672">[</span>-workspace, <span style="color:#e6db74">&#39;Alamofire.xcworkspace&#39;</span>, -scheme, <span style="color:#e6db74">&#39;Alamofire iOS&#39;</span><span style="color:#f92672">]</span>
     </code></pre></div>
-
 <p>使用test.sh</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">    <span style="color:#75715e">#!/bin/bash</span>
     jazzy --config .custom.jazzy.yaml
     jazzy --config .admin.jazzy.yaml
     jazzy --config .swiftfire.jazzy.yaml
     echo <span style="color:#e6db74">&#34;Jazzy completed&#34;</span>
-    </code></pre></div></li>
+    </code></pre></div>
+</li>
 </ol>
-
-<h3 id="在xcode-11-bata5之后-无法显示类结构问题"><span class="org-todo done DONE">DONE</span> 在Xcode 11 bata5之后,无法显示类结构问题</h3>
-
+<h3 id="在xcode-11-bata5之后-无法显示类结构问题"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> 在Xcode 11 bata5之后,无法显示类结构问题</h3>
 <p>参看:<a href="https://github.com/realm/jazzy/issues/1095#issue-488350044">https://github.com/realm/jazzy/issues/1095#issue-488350044</a></p>
-
-<h2 id="cocoapods私库的使用-在ismallapp中使用私库"><span class="org-todo done DONE">DONE</span> cocoapods私库的使用,在iSmallAPP中使用私库</h2>
-
+<h2 id="cocoapods私库的使用-在ismallapp中使用私库"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> cocoapods私库的使用,在iSmallAPP中使用私库</h2>
 <ol>
-<li>在ismallAPP的bundle中发布一个私库</li>
-<li>总结发布流程,运用到工作中,并发布jazzy文档</li>
-
-<li><p>使用fastlane发布cocopods私库</p>
-
+<li>
+<p>在ismallAPP的bundle中发布一个私库</p>
+</li>
+<li>
+<p>总结发布流程,运用到工作中,并发布jazzy文档</p>
+</li>
+<li>
+<p>使用fastlane发布cocopods私库</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">    - ERROR | <span style="color:#f92672">[</span>iOS<span style="color:#f92672">]</span> unknown: Encountered an unknown error <span style="color:#f92672">(</span>Could not find a <span style="color:#e6db74">`</span>ios<span style="color:#e6db74">`</span> simulator <span style="color:#f92672">(</span>valid values: <span style="color:#f92672">)</span>. Ensure that Xcode -&gt; Window -&gt; Devices has at least one <span style="color:#e6db74">`</span>ios<span style="color:#e6db74">`</span> simulator listed or otherwise add one.<span style="color:#f92672">)</span> during validation.
     </code></pre></div>
-
-<p>解决办法: 升级CocoaPods（使用的gem 源： <a href="https://gems.ruby-china.com/">https://gems.ruby-china.com/</a>）</p></li>
+<p>解决办法: 升级CocoaPods（使用的gem 源： <a href="https://gems.ruby-china.com/">https://gems.ruby-china.com/</a>）</p>
+</li>
 </ol>
-
-<!--listend-->
-
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  sudo gem install cocoapods
   fastlane podPushLane version:1.3 project:LogSwift
 或
 pod lib lint LogSwift.podspec --allow-warnings</code></pre></div>
-
 <p>错误2</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- NOTE  | xcodebuild:  error: SWIFT_VERSION <span style="color:#e6db74">&#39;3.0&#39;</span> is unsupported, supported versions are: <span style="color:#ae81ff">4</span>.0, <span style="color:#ae81ff">4</span>.2, <span style="color:#ae81ff">5</span>.0. <span style="color:#f92672">(</span>in target <span style="color:#e6db74">&#39;LogSwift&#39;</span> from project <span style="color:#e6db74">&#39;Pods&#39;</span><span style="color:#f92672">)</span></code></pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">- NOTE  | xcodebuild:  error: SWIFT_VERSION <span style="color:#e6db74">&#39;3.0&#39;</span> is unsupported, supported versions are: 4.0, 4.2, 5.0. <span style="color:#f92672">(</span>in target <span style="color:#e6db74">&#39;LogSwift&#39;</span> from project <span style="color:#e6db74">&#39;Pods&#39;</span><span style="color:#f92672">)</span></code></pre></div>
 <p>原因:  Usage of the `.swift_version` file has been deprecated! Please delete the file and use the `swift_versions` attribute within your podspec instead.
 解决: 删除目录下.swift_version</p>
-
 <p>错误3:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Validating spec
--&gt; LogSwift <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span>.6<span style="color:#f92672">)</span>
-- ERROR | <span style="color:#f92672">[</span>iOS<span style="color:#f92672">]</span> unknown: Encountered an unknown error <span style="color:#f92672">(</span>Unable to find a specification <span style="color:#66d9ef">for</span> <span style="color:#e6db74">`</span>RNCryptor <span style="color:#f92672">(</span>~&gt; <span style="color:#ae81ff">5</span>.1.0<span style="color:#f92672">)</span><span style="color:#e6db74">`</span> depended upon by <span style="color:#e6db74">`</span>LogSwift<span style="color:#e6db74">`</span>
+-&gt; LogSwift <span style="color:#f92672">(</span>1.6<span style="color:#f92672">)</span>
+- ERROR | <span style="color:#f92672">[</span>iOS<span style="color:#f92672">]</span> unknown: Encountered an unknown error <span style="color:#f92672">(</span>Unable to find a specification <span style="color:#66d9ef">for</span> <span style="color:#e6db74">`</span>RNCryptor <span style="color:#f92672">(</span>~&gt; 5.1.0<span style="color:#f92672">)</span><span style="color:#e6db74">`</span> depended upon by <span style="color:#e6db74">`</span>LogSwift<span style="color:#e6db74">`</span>
 
                                                        You have either:
                                                        * out-of-date source repos which you can update with <span style="color:#e6db74">`</span>pod repo update<span style="color:#e6db74">`</span> or with <span style="color:#e6db74">`</span>pod install --repo-update<span style="color:#e6db74">`</span>.
                                                        * mistyped the name or version.
                                                        * not added the source repo that hosts the Podspec to your Podfile.
 
-                                                       Note: as of CocoaPods <span style="color:#ae81ff">1</span>.0, <span style="color:#e6db74">`</span>pod repo update<span style="color:#e6db74">`</span> does not happen on <span style="color:#e6db74">`</span>pod install<span style="color:#e6db74">`</span> by default.
+                                                       Note: as of CocoaPods 1.0, <span style="color:#e6db74">`</span>pod repo update<span style="color:#e6db74">`</span> does not happen on <span style="color:#e6db74">`</span>pod install<span style="color:#e6db74">`</span> by default.
                                                       <span style="color:#f92672">)</span> during validation.
 
 <span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> The <span style="color:#e6db74">`</span>LogSwift.podspec<span style="color:#e6db74">`</span> specification does not validate.</code></pre></div>
-
 <p>解决方法: pod repo update 更新pod索引库重新发布: pod repo push PodRepo &lsquo;LogSwift.podspec&rsquo; &ndash;allow-warnings</p>
-
 <p>问题4</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> The repo <span style="color:#e6db74">`</span>PodRepo<span style="color:#e6db74">`</span> at <span style="color:#e6db74">`</span>../../../../.cocoapods/repos/PodRepo<span style="color:#e6db74">`</span> is not clean
 
 原因:
@@ -291,24 +277,18 @@ LogSwift/.DS_Store
 MusicLrc/.DS_Store
 
 $ git clean <span style="color:#f92672">[</span>参数<span style="color:#f92672">]</span> //-n 显示将要删除的文件和目录 -f 删除文件 -df 删除文件和目录</code></pre></div>
-
 <ol>
 <li>使用fastlane生成jazzy私库</li>
 </ol>
-
-<h2 id="fastlane工具使用-编译xcode工程-并发布到蒲公英"><span class="org-todo done DONE">DONE</span> fastlane工具使用,编译Xcode工程,并发布到蒲公英</h2>
-
+<h2 id="fastlane工具使用-编译xcode工程-并发布到蒲公英"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> fastlane工具使用,编译Xcode工程,并发布到蒲公英</h2>
 <pre><code>使用fastlane编译APP生成ipa(暂不支持personal teams)
 &gt;Xcode已经支持个人账号(不是开发者账号)运行在真机,在这种情况下,如何使用
 fastlane编译app并运行到真机上?
 </code></pre>
-
-<p><a href="https://github.com/fastlane/fastlane/issues/9041#issuecomment-298867242">fastlane doesn&rsquo;t support personal Apple IDs for now</a>
-    上传ipa到蒲公英</p>
-
+<p><a href="https://github.com/fastlane/fastlane/issues/9041#issuecomment-298867242">fastlane doesn't support personal Apple IDs for now</a>
+上传ipa到蒲公英</p>
 <h2 id="类似jenkins的工具学习集成的基本操作流程">类似jenkins的工具学习集成的基本操作流程</h2>
-
-<p><span class="timestamp-wrapper"><span class="timestamp">[2019-08-30 Fri 09:55]</span></span></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->[2019-08-30 Fri 09:55]<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
     </div>
 
@@ -369,7 +349,11 @@ fastlane编译app并运行到真机上?
         id: '2019-09-07 20:47:00 \x2b0800 CST',
         title: '总结集成工具使用文档',
         link: decodeURI(location.href),
+<<<<<<< HEAD
         desc: 'DONE jazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc\/swift文档 swift文档 oc 文档 .jazzy.yaml配置文件使',
+=======
+        desc: 'DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc\/swift文档 swift文档 oc 文档 .jazzy.yaml配置',
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

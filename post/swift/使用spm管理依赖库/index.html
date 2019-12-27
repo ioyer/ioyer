@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/%E4%BD%BF%E7%94%A8spm%E7%AE%A1%E7%90%86%E4%BE%9D%E8%B5%96%E5%BA%93/" />
@@ -47,16 +47,21 @@
 <meta property="article:modified_time" content="2018-10-01T23:57:27+00:00" />
 <meta itemprop="name" content="使用SPM管理依赖库">
 <meta itemprop="description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被">
+<<<<<<< HEAD
 
 
 <meta itemprop="datePublished" content="2018-10-01T23:57:27&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-01T23:57:27&#43;00:00" />
 <meta itemprop="wordCount" content="2873">
+=======
+<meta itemprop="datePublished" content="2018-10-01T23:57:27&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-01T23:57:27&#43;00:00" />
+<meta itemprop="wordCount" content="2874">
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用SPM管理依赖库"/>
 <meta name="twitter:description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被"/>
 
@@ -172,7 +177,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 2873 字 </span>
+          <span class="more-meta"> 约 2874 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,53 +187,49 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概念概述">概念概述</a>
-<ul>
-<li><a href="#modules模块">Modules模块</a></li>
-<li><a href="#packages包">Packages包</a></li>
-<li><a href="#products产品">Products产品</a></li>
-<li><a href="#dependencies依赖">Dependencies依赖</a></li>
-</ul></li>
-<li><a href="#用例">用例</a>
-<ul>
-<li><a href="#创建依赖库lib-package">创建依赖库lib Package</a></li>
-<li><a href="#使用-if-else-endif-构建配置语句">使用 <code>#if #else #endif</code>构建配置语句</a></li>
-<li><a href="#依赖库导入及使用">依赖库导入及使用</a></li>
-</ul></li>
-<li><a href="#解决依赖传递关系">解决依赖传递关系</a>
-<ul>
-<li><a href="#构建并运行可执行文件">构建并运行可执行文件</a></li>
-<li><a href="#两个坑">两个坑</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概念概述</a>
+      <ul>
+        <li><a href="#modules">Modules模块</a></li>
+        <li><a href="#packages">Packages包</a></li>
+        <li><a href="#products">Products产品</a></li>
+        <li><a href="#dependencies">Dependencies依赖</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-1">用例</a>
+      <ul>
+        <li><a href="#lib-package">创建依赖库lib Package</a></li>
+        <li><a href="#-if-else-endif">使用 #if #else #endif构建配置语句</a></li>
+        <li><a href="#heading-2">依赖库导入及使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-3">解决依赖传递关系</a>
+      <ul>
+        <li><a href="#heading-4">构建并运行可执行文件</a></li>
+        <li><a href="#heading-5">两个坑</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="概念概述">概念概述</h2>
-
+      <h2 id="heading">概念概述</h2>
 <p><a href="https://swift.org/package-manager/#conceptual-overview">Package Manager</a>
 {% github it-boyer PerfectTemplate 20294e56 width = 30% %}</p>
+<<<<<<< HEAD
 
 <h3 id="modules模块">Modules模块</h3>
 
+=======
+<h3 id="modules">Modules模块</h3>
+>>>>>>> ad4f4ac480a182203e203c6694e62acd89743c1b
 <p>在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被访问控制的。</p>
-
 <p>一个程序可以将它所有代码聚合在一个模块中，也可以将它作为依赖关系导入到其他模块。除了少量系统提供的模块，像 OS X 中的 Darwin 或者 Linux 中的 Glibc 等的大多数依赖需要代码被下载或者内置才能被使用。</p>
-
 <p>当你将编写的解决特定问题的代码独立成一个模块时，这段代码可以在其他情况下被重新利用。例如，一个模块提供了发起网络请求的功能，在一个照片分享的 app 或者 一个天气的 app 里它都是可以使用的。使用模块可以让你的代码建立在其他开发者的代码之上，而不是你自己去重复实现相同的功能。</p>
-
-<h3 id="packages包">Packages包</h3>
-
+<h3 id="packages">Packages包</h3>
 <p>一个包由 Swift 源文件和一个清单文件组成。这个清单文件称为 <code>Package.swift</code>，定义包名或者它的内容使用<code>PackageDescription</code> 模块。
 一个包有一个或者多个目标，每个目标指定一个产品并且可能声明一个或者多个依赖。</p>
-
 <pre><code class="language-sh">import PackageDescription
 let package = Package(
     name: &quot;DeckOfPlayingCards&quot;,
@@ -250,52 +251,42 @@ let package = Package(
     ]
 )
 </code></pre>
-
-<h3 id="products产品">Products产品</h3>
-
+<h3 id="products">Products产品</h3>
 <p>一个<code>target</code>可能构建一个<code>.library()库</code>或者一个<code>.executable()可执行文件</code>作为其产品。
 <code>.library(name: &quot;&quot;, targets: [])</code>库:是包含用于其他Swift 代码导入该模块
 <code>.executable(name: &quot;&quot;, targets: [])</code>可执行文件:是一段可以被操作系统运行的程序。</p>
-
-<h3 id="dependencies依赖">Dependencies依赖</h3>
-
+<h3 id="dependencies">Dependencies依赖</h3>
 <p><code>Dependencies</code>依赖是指<code>Package</code>中代码必须添加的<code>Modules</code>块。<code>Dependencies</code>由<code>.package</code>资源的<code>绝对路径</code>或<code>相对 URL</code> 和<code>包的版本</code>组成。
 包管理器的作用是通过自动为工程下载和编译所有依赖的过程中，减少协调的成本。这是一个递归的过程：依赖能有自己的依赖，其中每一个也可以具有依赖，形成了一个依赖相关图。</p>
-
-<h2 id="用例">用例</h2>
-
-<h3 id="创建依赖库lib-package">创建依赖库lib Package</h3>
-
+<h2 id="heading-1">用例</h2>
+<h3 id="lib-package">创建依赖库lib Package</h3>
 <ol>
-<li><p>建一个<code>target</code>表示标准的52张扑克牌的<code>PlayingCard</code>：</p>
-
+<li>建一个<code>target</code>表示标准的52张扑克牌的<code>PlayingCard</code>：</li>
+</ol>
 <pre><code>mkdir PlayingCard
 cd PlayingCard
 swift package init
-</code></pre></li>
-
-<li><p>创建公共实现类
-<code>PlayingCard</code>定义<code>PlayingCard</code>类型，它由<code>Suit</code>枚举值(梅花、方块、红心、黑桃)和<code>Rank</code>枚举值(Ace、2、3、…、Jack、Queen、King)组成。</p>
-
+</code></pre>
+<ol start="2">
+<li>创建公共实现类
+<code>PlayingCard</code>定义<code>PlayingCard</code>类型，它由<code>Suit</code>枚举值(梅花、方块、红心、黑桃)和<code>Rank</code>枚举值(Ace、2、3、…、Jack、Queen、King)组成。</li>
+</ol>
 <pre><code>public enum Rank : Int {
-case Ace = 1
-case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
-case Jack, Queen, King
+    case Ace = 1
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
 }
 
 public enum Suit: String {
-case Spades, Hearts, Diamonds, Clubs
+    case Spades, Hearts, Diamonds, Clubs
 }
 
 public struct PlayingCard {
-let rank: Rank
-let suit: Suit
+    let rank: Rank
+    let suit: Suit
 }
-</code></pre></li>
-</ol>
-
+</code></pre>
 <p>按照约定，一个<code>target</code>所有的源文件都存在相应的<code>Sources/&lt;target-name&gt;</code>目录下，默认情况下，<code>库模块</code>使用<code>public</code>来声明类型和方法，这些类型和方法位于<code>Sources/&lt;target-name&gt;</code>中：</p>
-
 <pre><code>example-package-playingcard
 ├── Sources
 │   └── PlayingCard
@@ -304,30 +295,23 @@ let suit: Suit
 │       └── Suit.swift
 └── Package.swift
 </code></pre>
-
 <p><code>PlayingCard</code>因为不生成<code>executable</code>可执行文件，这种类型的<code>target</code>成为<code>库</code>，当构建一个模块可以被依赖导入使用。</p>
-
-<ol>
+<ol start="3">
 <li>运行<code>swift build</code>命令，将编译生成<code>PlayingCard</code>模块。</li>
 </ol>
-
-<h3 id="使用-if-else-endif-构建配置语句">使用 <code>#if #else #endif</code>构建配置语句</h3>
-
+<h3 id="-if-else-endif">使用 <code>#if #else #endif</code>构建配置语句</h3>
 <ol>
-<li><p>创建<code>fisher</code>模块</p>
-
+<li>创建<code>fisher</code>模块</li>
+</ol>
 <pre><code>mkdir fisher
 cd fisher
 swift package init
 </code></pre>
-
-<p><code>fisher</code>与<code>PlayingCard</code>不同，此模块不定义任何新类型。相反，它扩展了现有的类型(特别是<code>CollectionType</code>和<code>MutableCollectionType</code>协议)，以添加<code>shuffle()</code>方法和它的变体副本<code>shuffleInPlace()</code>。</p></li>
-
-<li><p>使用构建配置语句 <code>#if #else #endif</code>
+<p><code>fisher</code>与<code>PlayingCard</code>不同，此模块不定义任何新类型。相反，它扩展了现有的类型(特别是<code>CollectionType</code>和<code>MutableCollectionType</code>协议)，以添加<code>shuffle()</code>方法和它的变体副本<code>shuffleInPlace()</code>。
+2. 使用构建配置语句 <code>#if #else #endif</code>
 <code>shuffleInPlace()</code>的实现使用<code>Fisher-Yates</code>算法随机排列集合中的元素。因为Swift标准库不提供随机数生成器，所以该方法必须调用从系统模块导入的函数。为了使该函数与<code>macOS</code>和<code>Linux</code>兼容，代码使用构建配置语句。
 在<code>macOS</code>中，系统模块是<code>Darwin</code>，它提供了<code>arc4random_uniform(_:)</code>函数。
 在<code>Linux</code>中，系统模块为<code>Glibc</code>，它提供了<code>random()</code>函数:</p>
-
 <pre><code>#if os(Linux)
 import Glibc
 #else
@@ -335,28 +319,24 @@ import Darwin.C
 #endif
 
 public extension MutableCollectionType where Index == Int {
-mutating func shuffleInPlace() {
-    if count &lt;= 1 { return }
+    mutating func shuffleInPlace() {
+        if count &lt;= 1 { return }
 
-    for i in 0..&lt;count - 1 {
-        #if os(Linux)
-            let j = Int(random() % (count - i)))) + i
-        #else
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
-        #endif
-            if i == j { continue }
-            swap(&amp;self[i], &amp;self[j])
+        for i in 0..&lt;count - 1 {
+            #if os(Linux)
+                let j = Int(random() % (count - i)))) + i
+            #else
+                let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            #endif
+                if i == j { continue }
+                swap(&amp;self[i], &amp;self[j])
+        }
     }
 }
-}
-</code></pre></li>
-</ol>
-
-<h3 id="依赖库导入及使用">依赖库导入及使用</h3>
-
+</code></pre>
+<h3 id="heading-2">依赖库导入及使用</h3>
 <p><code>DeckOfPlayingCards</code>包将前两个包组合在一起:它定义了一种桥牌类型，该类型在一个<code>PlayingCard</code>值数组上使用<code>fisher()</code>方法。
 要使用<code>fisher</code>和<code>PlayingCards</code>模块，必须在<code>DeckOfPlayingCards</code>模块的清单文件<code>Package.swift</code>中声明为它们<code>package</code>依赖项。</p>
-
 <pre><code>// swift-tools-version:4.0
 import PackageDescription
 
@@ -379,16 +359,12 @@ let package = Package(
     ]
 )
 </code></pre>
-
 <p>每个依赖项指定源<code>URL</code>和<code>from:</code>版本号。
 <code>源URL</code>是解析到Git存储库的当前用户可以访问的URL。版本需求遵循语义版本控制(SemVer)约定，用于确定签出哪个Git标签并使用它来构建依赖关系。对于依赖项<code>FisherYates</code> ，将使用最新版本主版本为2(例如，2.0.4)。类似地，<code>PlayingCard</code>依赖项将使用最新版本主版本为3。
 当运行<code>swift build</code>命令时，包管理器下载所有依赖项，编译、并链接到包模块。这样<code>DeckOfPlayingCards</code>使用<code>import</code>语句来访问依赖模块中<code>public</code>类型的属性和方法。
 您可以在项目根目录下的<code>.build/checkouts</code>目录中看到下载的源代码，在项目根目录下的<code>.build</code>目录中看到中间的构建产品。</p>
-
-<h2 id="解决依赖传递关系">解决依赖传递关系</h2>
-
+<h2 id="heading-3">解决依赖传递关系</h2>
 <p>构建<code>Dealer</code>模块,它依赖于<code>DeckOfPlayingCards</code>包，而<code>DeckOfPlayingCards</code>包又依赖于<code>PlayingCard</code>和<code>fisher</code>包。然而，由于Swift包管理器自动解析传递依赖项，您只需将<code>DeckOfPlayingCards</code>包声明为依赖项即可。</p>
-
 <pre><code>// swift-tools-version:4.0
 
 import PackageDescription
@@ -408,9 +384,7 @@ let package = Package(
     ]
 )
 </code></pre>
-
-<p>依赖传递关系也体现在Swift源文件代码<code>import</code>导入一个模块，就可以使用该某块下所有依赖库的类型。例如<code>Dealer</code>模块的<code>main.swift</code>文件。在<code>DeckOfPlayingCards</code>中的<code>Deck</code>类型和<code>PlayingCard</code>中的<code>PlayingCard</code>类型。尽管<code>Deck</code>类型的<code>shuffle()</code>方法在内部使用了<code>fisher</code>模块，但该模块不需要在<code>main.swift</code>中导入。</p>
-
+<p>依赖传递关系也体现在Swift源文件代码<code>import</code>导入一个模块，就可以使用该某块下所有依赖库的类型。例如<code>Dealer</code>模块的<code>main.swift </code>文件。在<code>DeckOfPlayingCards</code>中的<code>Deck</code>类型和<code>PlayingCard</code>中的<code>PlayingCard</code>类型。尽管<code>Deck</code>类型的<code>shuffle()</code>方法在内部使用了<code>fisher</code>模块，但该模块不需要在<code>main.swift</code>中导入。</p>
 <pre><code>import PlayingCard
 import DeckOfPlayingCards
 
@@ -427,12 +401,9 @@ for _ in 1...numberOfCards {
     print(card)
 }
 </code></pre>
-
-<h3 id="构建并运行可执行文件">构建并运行可执行文件</h3>
-
+<h3 id="heading-4">构建并运行可执行文件</h3>
 <p>根据约定，一个<code>target</code>的根目录中包含一个名为<code>main.swift</code>文件，可以构建成一个可执行文件。
 运行<code>swift build</code>命令，然后运行<code>.build/debug</code>目录下的<code>Dealer</code>可执行文件。</p>
-
 <pre><code>$ swift build
 $ ./.build/debug/Dealer
 ♠︎6
@@ -446,12 +417,9 @@ $ ./.build/debug/Dealer
 ♡Q
 ♡7
 </code></pre>
-
-<h3 id="两个坑">两个坑</h3>
-
+<h3 id="heading-5">两个坑</h3>
 <pre><code>swift package generate-xcodeproj
 </code></pre>
-
 <ol>
 <li>每次更新或添加库或框架，xcodeproj就需要重新创建一次，不然无法引用到新库或新框架；</li>
 <li>在source文件夹如果发生任何改动，库或框架的更新就会失败。
