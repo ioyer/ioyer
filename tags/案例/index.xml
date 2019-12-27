@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>案例 on Even - A super concise theme for Hugo</title>
-    <link>https://huos3203.github.io/tags/%E6%A1%88%E4%BE%8B/</link>
+    <link>https://it-boyer.github.io/tags/%E6%A1%88%E4%BE%8B/</link>
     <description>Recent content in 案例 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 03 Jul 2014 17:29:00 +0800</lastBuildDate>
     
-	<atom:link href="https://huos3203.github.io/tags/%E6%A1%88%E4%BE%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://it-boyer.github.io/tags/%E6%A1%88%E4%BE%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TextKit之便笺实战</title>
-      <link>https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</link>
+      <link>https://it-boyer.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</link>
       <pubDate>Thu, 03 Jul 2014 17:29:00 +0800</pubDate>
       
-      <guid>https://huos3203.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</guid>
+      <guid>https://it-boyer.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</guid>
       <description>&lt;h2 id=&#34;便笺练习功能点&#34;&gt;便笺练习功能点:&lt;/h2&gt;
 
 &lt;p&gt;通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。
@@ -27,7 +27,7 @@
 
 &lt;p&gt;这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
 效果图:&lt;br /&gt;
-&lt;img src=&#34;https://huos3203.github.io/images/bianqian.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;https://it-boyer.github.io/images/bianqian.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
 App开始运行后自动生成一组便笺实例并利用&lt;code&gt;tableViewController&lt;/code&gt;显示出来。&lt;code&gt;Storyboards&lt;/code&gt;和&lt;code&gt;segues&lt;/code&gt;会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：&lt;a href=&#34;http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip&#34;&gt;Notepad.zip&lt;/a&gt;&lt;/p&gt;
 
@@ -36,11 +36,11 @@ App开始运行后自动生成一组便笺实例并利用&lt;code&gt;tableViewCo
 &lt;p&gt;&lt;code&gt;动态样式（Dynamic type）&lt;/code&gt;是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 &lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt; 或 &lt;strong&gt;通用-&amp;gt;辅助功能&lt;/strong&gt; 来查看app中的字体设置。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://huos3203.github.io/images/UserTextPreferences.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;p&gt;&lt;img src=&#34;https://it-boyer.github.io/images/UserTextPreferences.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
 iOS 7 支持通过&lt;code&gt;粗体&lt;/code&gt;、&lt;code&gt;设置字体大小&lt;/code&gt;等方式提高支持动态文本的应用的易读性。
 例如&lt;strong&gt;&lt;code&gt;UIFont&lt;/code&gt;&lt;/strong&gt;新增的一个方法： &lt;strong&gt;&lt;code&gt;preferredFontForTextStyle&lt;/code&gt;&lt;/strong&gt; 用来根据用户对字体大小的设置来自动制定字体样式。&lt;br /&gt;
 下面表格中是六种可用字体样式的示例：&lt;br /&gt;
-&lt;img src=&#34;https://huos3203.github.io/images/TextStyles.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;https://it-boyer.github.io/images/TextStyles.png&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。&lt;/p&gt;
 
 &lt;h3 id=&#34;使用系统动态字体样式&#34;&gt;使用系统动态字体样式&lt;/h3&gt;
@@ -74,7 +74,7 @@ cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 &lt;li&gt;设置系统字体
 返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置.
 再运行App, &lt;strong&gt;Note&lt;/strong&gt;页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。&lt;br /&gt;
-&lt;img src=&#34;https://huos3203.github.io/images/NotepadWithDynamicType.png&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;https://it-boyer.github.io/images/NotepadWithDynamicType.png&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;设置系统字体生效
 当我们返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置. 再打开&lt;strong&gt;Note&lt;/strong&gt;页面, 会发现app并没有&lt;strong&gt;立即&lt;/strong&gt;对字体设置的变化做出相应反应。&lt;/li&gt;
 &lt;/ol&gt;

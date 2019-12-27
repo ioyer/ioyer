@@ -36,7 +36,7 @@
 <meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
-<link rel="canonical" href="https://huos3203.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -89,9 +89,9 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huos3203.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
+<meta property="og:url" content="https://it-boyer.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
 <meta property="article:published_time" content="2014-07-01T23:12:01+08:00" />
-<meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
+<meta property="article:modified_time" content="2014-07-01T23:12:01+08:00" />
 <meta itemprop="name" content="iOS Document Interaction 编程指南">
 <meta itemprop="description" content="关于 Document Interaction
 
@@ -134,7 +134,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 
 
 <meta itemprop="datePublished" content="2014-07-01T23:12:01&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
+<meta itemprop="dateModified" content="2014-07-01T23:12:01&#43;08:00" />
 <meta itemprop="wordCount" content="3992">
 
 
@@ -578,8 +578,8 @@ UIApplicationLaunchOptionsSourceApplicationKey      //源程序向目标程序�
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-08-08
-        <a href="iEmacsd/commit/ccacacd56ce82e709b32bc57ad0c707301dbd1e0" title="迁移md文档">(ccacacd)</a>
+        2014-07-01
+        
     </span>
   </p>
   
@@ -627,8 +627,8 @@ UIApplicationLaunchOptionsSourceApplicationKey      //源程序向目标程序�
         title: 'iOS Document Interaction 编程指南',
         link: decodeURI(location.href),
         desc: '\x3ch4 id=\x22关于-document-interaction\x22\x3e关于 Document Interaction\x3c\/h4\x3e\n\n\x3cp\x3eiOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/UIKit\/Reference\/UIDocumentInteractionController_class\/Reference\/Reference.html\x22\x3eUIDocumentInteractionController\x3c\/a\x3e类，以及\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/QuickLook\/Reference\/QuickLookFrameworkReference_iPhoneOS\/_index.html\x22\x3eQuick Look\x3c\/a\x3e框架。\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e######预览文档和呈现选项菜单\x3cbr \/\x3e\n如果app需要打开自身并不支持的文件时，就需要使用\x3cstrong\x3eUIDocumentInteractionController\x3c\/strong\x3e。一个\x3cstrong\x3edocument interaction controller\x3c\/strong\x3e通过\x3cstrong\x3eQuick Look框架\x3c\/strong\x3e判断文档是否能被另一个app打开和预览。也就是说，app可以通过\x3cstrong\x3edocumentinteraction controller\x3c\/strong\x3e提供一些支持打开该文件方式的菜单。\n\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3e具体实现需要以下步骤：\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e* 需要通过其他APP打开的文件，来实例化\x3ccode\x3eUIDocumentInteractionController\x3c\/code\x3e实例对象。\x3cbr \/\x3e\x3c\/li\x3e\n\x3cli\x3e* 在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。\x3c\/li\x3e\n\x3cli\x3e* 用户交互，如触摸这个控件，则调用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e对象。\x3cbr \/\x3e\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3e三种交互界面:\n    1. 预览文件的内容。\n    2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。\n    3. 一个菜单，仅包含“以其它方式打开”操作。\x3c\/p\x3e\n\n\x3cp\x3e同时，\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e内置了一些手势，必要时可以直接实现它们。\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e\x3cp\x3e######使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e的场景:\x3cstrong\x3e与文件交互的app都可以使用。\x3c\/strong\x3e\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cul\x3e\n\x3cli\x3e需要从网络下载文件的APP:\x3cbr \/\x3e\n例如，email程序需要打开和预览邮件附件。\x3c\/li\x3e\n\x3c\/ul\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cul\x3e\n\x3cli\x3e不下载文件的APP:\x3cbr \/\x3e\n例如，APP需要支持文件共享（参考“File-Sharing Support” in \x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/Miscellaneous\/Conceptual\/iPhoneOSTechOverview\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007898\x22\x3eiOS Technology Overview\x3c\/a\x3e), 即可以对同步到app Documents\/Shared目录下的文件使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e。\x3c\/li\x3e\n\x3c\/ul\x3e\x3c\/li\x3e\n\x3c\/ul\x3e',
-        owner: 'huos3203',
-        repo: 'huos3203.github.io',
+        owner: 'it-boyer',
+        repo: 'it-boyer.github.io',
         oauth: {
           client_id: 'd46ea301857e36a08319',
           client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
@@ -648,12 +648,12 @@ UIApplicationLaunchOptionsSourceApplicationKey      //源程序向目标程序�
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:iTBoyer@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/huos3203" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/it-boyer" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/1791281385" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://huos3203.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
