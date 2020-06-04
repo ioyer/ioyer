@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/javascript%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%84%E4%BB%B6oc%E6%A1%A5%E6%8E%A5/" />
@@ -182,10 +182,10 @@ autocomplete('#aa-search-input',
     <nav id="TableOfContents">
   <ul>
     <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#heading">数据类型</a></li>
-    <li><a href="#heading-1">实例化的类和调用方法</a>
+    <li><a href="#数据类型">数据类型</a></li>
+    <li><a href="#实例化的类和调用方法">实例化的类和调用方法</a>
       <ul>
-        <li><a href="#-objc-properties">访问 ObjC Properties</a></li>
+        <li><a href="#访问-objc-properties">访问 ObjC Properties</a></li>
       </ul>
     </li>
   </ul>
@@ -210,14 +210,14 @@ arpa/inet, asl, copyfile, dispatch, dyld, errno, getopt, glob, grp, ifaddrs, lau
 {% codeblock lang:js %}
 ObjC.import('/Library/Frameworks/Awesome.framework&rsquo;)
 {% endcodeblock %}</p>
-<h2 id="heading">数据类型</h2>
+<h2 id="数据类型">数据类型</h2>
 <p>原始的<code>JavaScript数据类型</code>映射到<code>C数据类型</code>。例如，一个<code>JavaScript字符串</code>映射为<code>char *</code>，而<code>JavaScript整数</code>映射到<code>int</code>。使用<code>objc API</code>返回一个<code>char *</code>时，会得到一个<code>JS 字符串</code></p>
 <p>原始的<code>JavaScript数据类型</code>将被自动转换为<code>ObjC对象类型</code>，并能作为一个预期的对象类型的参数传递给ObjC方法。
 例如，一个<code>JS字符串</code>将被转换为一个<code>NSString对象</code>如果是什么方法签名说应该是输入。</p>
 <blockquote>
 <p>注意，然而，ObjC方法返回的ObjC对象类型是不会自动转换为原始的JavaScript的数据类型。</p>
 </blockquote>
-<h2 id="heading-1">实例化的类和调用方法</h2>
+<h2 id="实例化的类和调用方法">实例化的类和调用方法</h2>
 <p>所有类都定义为<code>$对象</code>的属性。ObjC对象的方法有两种方式调用，根据是否需要参数的方法。
 如果ObjC方法不带参数，然后调用<code>JavaScript属性名</code>访问<code>属性值</code>。这个例子中实例化一个空的字符串。
 {% codeblock lang:js %}
@@ -235,7 +235,7 @@ str.writeToFileAtomically('/tmp/foo&rsquo;, true)
 {% codeblock lang:js %}
 $.NSNumber.numberWithInt(99).intValue
 {% endcodeblock %}</p>
-<h3 id="-objc-properties">访问 ObjC Properties</h3>
+<h3 id="访问-objc-properties">访问 ObjC Properties</h3>
 <p><code>ObjC属性</code>也可以通过<code>JavaScript属性</code>来访问，很像调用无参数方法。
 当一个<code>桥接对象属性</code>的被访问时，ObjC属性列表是第一参考，如果列表中存在该名称对应的属性，那么就调用相应属性的<code>getter</code>或<code>setter</code>选择器。如果该名称的ObjC属性不在类中属性的列表中，那么该属性名称就作为<code>方法选择器</code>来调用。
 使用自定义<code>getter</code>名定义一个属性，你可以使用<code>属性</code>名 或 <code>getter</code>名，并得到相同的结果。

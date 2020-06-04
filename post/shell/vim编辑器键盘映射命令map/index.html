@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84%E5%91%BD%E4%BB%A4map/" />
@@ -180,11 +180,11 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">不同模式下的键盘映射</a>
+    <li><a href="#不同模式下的键盘映射">不同模式下的键盘映射</a>
       <ul>
-        <li><a href="#heading-1">查看键盘映射</a></li>
-        <li><a href="#heading-2">取消键盘映射</a></li>
-        <li><a href="#heading-3">参考文章</a></li>
+        <li><a href="#查看键盘映射">查看键盘映射</a></li>
+        <li><a href="#取消键盘映射">取消键盘映射</a></li>
+        <li><a href="#参考文章">参考文章</a></li>
       </ul>
     </li>
   </ul>
@@ -198,7 +198,7 @@ autocomplete('#aa-search-input',
 </code></pre>
 <p>执行过程：<code>i{</code>将插入字符<code>{</code>，然后使用<code>Esc</code>退回到命令状态；接着用<code>e</code>移到单词结尾，<code>a}</code>增加字符<code>}</code>，最后退至命令状态。
 在执行以上命令之后，光标定位在一个单词上（例如amount），按下F5键，这时字符就会变成{amount}的形式。</p>
-<h2 id="heading">不同模式下的键盘映射</h2>
+<h2 id="不同模式下的键盘映射">不同模式下的键盘映射</h2>
 <p>使用下表中不同形式的map命令，可以针对特定的模式设置键盘映射：</p>
 <table>
 <thead>
@@ -270,16 +270,16 @@ autocomplete('#aa-search-input',
 </tr>
 </tbody>
 </table>
-<h3 id="heading-1">查看键盘映射</h3>
+<h3 id="查看键盘映射">查看键盘映射</h3>
 <pre><code>:map
 </code></pre>
-<h3 id="heading-2">取消键盘映射</h3>
+<h3 id="取消键盘映射">取消键盘映射</h3>
 <pre><code>:unmap &lt;F10&gt; #参数
 </code></pre>
 <p>注意：必须为:unmap命令指定一个参数。如果未指定任何参数，那么系统将会报错，而不会取消所有的键盘映射。
 针对不同模式下的键盘映射，需要使用与其相对应的unmap命令。例如：使用:iunmap命令，取消插入模式下的键盘映射；而取消常规模式下的键盘映射，则需要使用:nunmap命令。
 如果想要取消所有映射，可以使用:mapclear命令。请注意，这个命令将会移除所有用户定义和系统默认的键盘映射。</p>
-<h3 id="heading-3">参考文章</h3>
+<h3 id="参考文章">参考文章</h3>
 <p><a href="http://blog.csdn.net/daofengdeba/article/details/7605124">VIM键盘映射 (Map)</a>
 <a href="http://www.pythonclub.org/vim/map-basic">Vim按键映射</a></p>
 

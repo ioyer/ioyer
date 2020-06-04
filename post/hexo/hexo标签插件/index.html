@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/hexo%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6/" />
@@ -243,45 +243,45 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">引用块</a>
+    <li><a href="#引用块">引用块</a>
       <ul>
-        <li><a href="#-quote">别号： quote</a></li>
+        <li><a href="#别号-quote">别号： quote</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">代码块</a>
+    <li><a href="#代码块">代码块</a>
       <ul>
-        <li><a href="#code">别名:code</a></li>
+        <li><a href="#别名code">别名:code</a></li>
       </ul>
     </li>
-    <li><a href="#-md">反引号代码块 (MD语法)</a>
+    <li><a href="#反引号代码块-md语法">反引号代码块 (MD语法)</a>
       <ul>
-        <li><a href="#heading-10">样例</a></li>
+        <li><a href="#样例-2">样例</a></li>
       </ul>
     </li>
-    <li><a href="#heading-14">表格</a>
+    <li><a href="#表格">表格</a>
       <ul>
-        <li><a href="#heading-15">样例</a></li>
+        <li><a href="#样例-3">样例</a></li>
       </ul>
     </li>
     <li><a href="#pull-quote">Pull Quote</a></li>
     <li><a href="#jsfiddle">jsFiddle</a></li>
     <li><a href="#gist">Gist</a></li>
     <li><a href="#iframe">iframe</a></li>
-    <li><a href="#heading-20">插入图片</a>
+    <li><a href="#插入图片">插入图片</a>
       <ul>
-        <li><a href="#heading-21">样例</a></li>
+        <li><a href="#样例-4">样例</a></li>
       </ul>
     </li>
-    <li><a href="#heading-24">超链接</a>
+    <li><a href="#超链接">超链接</a>
       <ul>
-        <li><a href="#heading-25">样例</a></li>
+        <li><a href="#样例-5">样例</a></li>
       </ul>
     </li>
     <li><a href="#include-code">Include Code</a></li>
     <li><a href="#youtube">Youtube</a></li>
     <li><a href="#vimeo">Vimeo</a></li>
-    <li><a href="#heading-28">引用文章</a></li>
-    <li><a href="#heading-29">引用资源</a></li>
+    <li><a href="#引用文章">引用文章</a></li>
+    <li><a href="#引用资源">引用资源</a></li>
     <li><a href="#raw">Raw</a></li>
   </ul>
 </nav>
@@ -289,18 +289,18 @@ autocomplete('#aa-search-input',
 </div>
     <div class="post-content">
       <p>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。</p>
-<h2 id="heading">引用块</h2>
+<h2 id="引用块">引用块</h2>
 <hr>
 <p>在文章中插入引言，可包含作者、来源和标题。</p>
-<h3 id="-quote">别号： quote</h3>
+<h3 id="别号-quote">别号： quote</h3>
 <hr>
 <pre><code class="language-js">{% blockquote [author[, source]] [link] [source_link_title] %}
 content
 {% endblockquote %}
 </code></pre>
-<h4 id="heading-1">样例</h4>
+<h4 id="样例">样例</h4>
 <hr>
-<h5 id="blockquote">无参普通blockquote</h5>
+<h5 id="无参普通blockquote">无参普通blockquote</h5>
 <hr>
 <pre><code class="language-js">{% blockquote %}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
@@ -309,7 +309,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 <p>{% blockquote %}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.
 {% endblockquote %}</p>
-<h5 id="heading-2">引用书上的句子</h5>
+<h5 id="引用书上的句子">引用书上的句子</h5>
 <hr>
 <pre><code class="language-js">{% blockquote David Levithan, Wide Awake %}
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
@@ -318,7 +318,7 @@ Do not just seek happiness for yourself. Seek happiness for all. Through kindnes
 <p>{% blockquote boyer huo , Wide Awake %}
 Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
 {% endblockquote %}</p>
-<h5 id="-twitter">引用 Twitter</h5>
+<h5 id="引用-twitter">引用 Twitter</h5>
 <hr>
 <pre><code class="language-js">{% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}
 NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
@@ -327,7 +327,7 @@ NEW: DevDocs now comes with syntax highlighting. http://devdocs.io
 <p>{% blockquote @DevDocs <a href="https://twitter.com/devdocs/status/356095192085962752">https://twitter.com/devdocs/status/356095192085962752</a> %}
 NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io">http://devdocs.io</a>
 {% endblockquote %}</p>
-<h5 id="heading-3">引用网络上的文章</h5>
+<h5 id="引用网络上的文章">引用网络上的文章</h5>
 <hr>
 <pre><code class="language-js">{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}
 Every interaction is both precious and an opportunity to delight.
@@ -336,18 +336,18 @@ Every interaction is both precious and an opportunity to delight.
 <p>{% blockquote Seth Godin <a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html</a> Welcome to Island Marketing %}
 Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}</p>
-<h2 id="heading-4">代码块</h2>
+<h2 id="代码块">代码块</h2>
 <hr>
 <p>在文章中插入代码。</p>
-<h3 id="code">别名:code</h3>
+<h3 id="别名code">别名:code</h3>
 <hr>
 <pre><code class="language-js">{% codeblock [title] [lang:language] [url] [link text] %}
 code snippet
 {% endcodeblock %}
 </code></pre>
-<h4 id="heading-5">样例</h4>
+<h4 id="样例-1">样例</h4>
 <hr>
-<h5 id="heading-6">普通的代码块</h5>
+<h5 id="普通的代码块">普通的代码块</h5>
 <hr>
 <pre><code class="language-js">{% codeblock %}
 alert('Hello World!');
@@ -356,7 +356,7 @@ alert('Hello World!');
 <p>{% codeblock %}
 alert(&lsquo;Hello World!');
 {% endcodeblock %}</p>
-<h5 id="heading-7">指定语言</h5>
+<h5 id="指定语言">指定语言</h5>
 <hr>
 <pre><code class="language-js">{% codeblock lang:objc %}
 [rectangle setX: 10 y: 10 width: 20 height: 20];
@@ -365,7 +365,7 @@ alert(&lsquo;Hello World!');
 <p>{% codeblock lang:objc %}
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}</p>
-<h5 id="heading-8">附加说明</h5>
+<h5 id="附加说明">附加说明</h5>
 <hr>
 <pre><code class="language-js">{% codeblock Array.map %}
 array.map(callback[, thisArg])
@@ -375,7 +375,7 @@ array.map(callback[, thisArg])
 Array.map
 array.map(callback[, thisArg])
 {% endcodeblock %}</p>
-<h5 id="heading-9">附加说明和网址</h5>
+<h5 id="附加说明和网址">附加说明和网址</h5>
 <hr>
 <pre><code class="language-js">{% codeblock _.compact http://underscorejs.org/#compact Underscore.js %}
 _.compact([0, 1, false, 2, '', 3]);
@@ -387,22 +387,22 @@ _.compactUnderscore.js
 _.compact([0, 1, false, 2, &lsquo;', 3]);
 =&gt; [1, 2, 3]
 {% endcodeblock %}</p>
-<h2 id="-md">反引号代码块 (MD语法)</h2>
+<h2 id="反引号代码块-md语法">反引号代码块 (MD语法)</h2>
 <hr>
-<h3 id="heading-10">样例</h3>
+<h3 id="样例-2">样例</h3>
 <hr>
-<h4 id="heading-11">行内代码块</h4>
+<h4 id="行内代码块">行内代码块</h4>
 <hr>
 <pre><code class="language-md">行内 `code 块 `
 </code></pre>
-<h4 id="heading-12">缩进代码块</h4>
+<h4 id="缩进代码块">缩进代码块</h4>
 <hr>
 <pre><code class="language-md">    // Some comments
     line 1 of code
     line 2 of code
     line 3 of code
 </code></pre>
-<h4 id="heading-13">多行代码块</h4>
+<h4 id="多行代码块">多行代码块</h4>
 <hr>
 <pre><code class="language-md">``` [language] [title] [url] [link text] 
 
@@ -411,11 +411,11 @@ _.compact([0, 1, false, 2, &lsquo;', 3]);
  `` `   
 
 </code></pre>
-<h2 id="heading-14">表格</h2>
+<h2 id="表格">表格</h2>
 <hr>
-<h3 id="heading-15">样例</h3>
+<h3 id="样例-3">样例</h3>
 <hr>
-<h4 id="heading-16">默认左对齐</h4>
+<h4 id="默认左对齐">默认左对齐</h4>
 <hr>
 <pre><code class="language-md">|参数|描述|默认值|
 |-------|-------|----------|
@@ -472,7 +472,7 @@ _.compact([0, 1, false, 2, &lsquo;', 3]);
 </tr>
 </tbody>
 </table>
-<h4 id="heading-17">向右对齐</h4>
+<h4 id="向右对齐">向右对齐</h4>
 <hr>
 <pre><code class="language-md">|参数|描述|默认值|
 |-------:|-------:|-------:|
@@ -500,7 +500,7 @@ _.compact([0, 1, false, 2, &lsquo;', 3]);
 </tr>
 </tbody>
 </table>
-<h4 id="heading-18">向左对齐</h4>
+<h4 id="向左对齐">向左对齐</h4>
 <hr>
 <pre><code class="language-md">|参数|描述|默认值|
 |:------|:------|:------|
@@ -540,7 +540,7 @@ _.compact([0, 1, false, 2, &lsquo;', 3]);
 </tr>
 </tbody>
 </table>
-<h4 id="heading-19">居中对齐</h4>
+<h4 id="居中对齐">居中对齐</h4>
 <hr>
 <pre><code class="language-md">|参数|描述|默认值|
 |:------:|:------:|:------:|
@@ -599,23 +599,23 @@ content
 <p>在文章中插入 iframe。</p>
 <pre><code class="language-js">{% iframe url [width] [height] %}
 </code></pre>
-<h2 id="heading-20">插入图片</h2>
+<h2 id="插入图片">插入图片</h2>
 <hr>
-<h3 id="heading-21">样例</h3>
+<h3 id="样例-4">样例</h3>
 <hr>
-<h4 id="hexo">Hexo语法</h4>
+<h4 id="hexo语法">Hexo语法</h4>
 <hr>
 <p>在文章中插入指定大小的图片。</p>
 <pre><code class="language-js">{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 </code></pre>
-<h4 id="md">MD语法</h4>
+<h4 id="md语法">MD语法</h4>
 <hr>
-<h5 id="tooltip">原图+toolTip</h5>
+<h5 id="原图tooltip">原图+toolTip</h5>
 <hr>
 <pre><code>![boyer logo](http://boyers.coding.me/img/logo.png &quot;这是我的logo图片&quot;)
 </code></pre>
 <p><img src="http://boyers.coding.me/img/logo.png" alt="boyer logo" title="这是我的logo图片"></p>
-<h5 id="heading-22">注脚语法</h5>
+<h5 id="注脚语法">注脚语法</h5>
 <hr>
 <p>可以在稍後的文件中再定义图片地址</p>
 <pre><code>![boyer logo][logo]
@@ -623,32 +623,32 @@ content
 </code></pre>
 <p>![boyer logo][logo]
 [logo]: <a href="http://boyers.coding.me/img/logo.png">http://boyers.coding.me/img/logo.png</a>  &ldquo;这是我的logo图片&rdquo;</p>
-<h5 id="heading-23">指定图片大小</h5>
+<h5 id="指定图片大小">指定图片大小</h5>
 <pre><code>![boyer logo](http://boyers.coding.me/img/logo.png [200] [200] &quot;这是我的logo图片&quot;)
 </code></pre>
 <p>![boyer logo](<a href="http://boyers.coding.me/img/logo.png">http://boyers.coding.me/img/logo.png</a> [200] [200] &ldquo;这是我的logo图片&rdquo;)</p>
-<h2 id="heading-24">超链接</h2>
+<h2 id="超链接">超链接</h2>
 <hr>
-<h3 id="heading-25">样例</h3>
+<h3 id="样例-5">样例</h3>
 <hr>
-<h4 id="hexo-1">Hexo语法</h4>
+<h4 id="hexo语法-1">Hexo语法</h4>
 <hr>
 <p>在文章中插入链接，并自动给外部链接添加 target=&rdquo;_blank&rdquo; 属性。</p>
 <pre><code class="language-js">{% link text url [external] [title] %}
 </code></pre>
-<h4 id="md-1">MD语法</h4>
+<h4 id="md语法-1">MD语法</h4>
 <hr>
-<h5 id="heading-26">智能识别超链接</h5>
+<h5 id="智能识别超链接">智能识别超链接</h5>
 <hr>
 <pre><code>http://boyers.coding.me
 </code></pre>
 <p><a href="http://boyers.coding.me">http://boyers.coding.me</a></p>
-<h5 id="heading-27">文本式</h5>
+<h5 id="文本式">文本式</h5>
 <hr>
 <pre><code class="language-md">[boyer Blog](http://boyers.coding.me)
 </code></pre>
 <p><a href="http://boyers.coding.me">boyer Blog</a></p>
-<h5 id="tooltip-1">toolTip式</h5>
+<h5 id="tooltip式">toolTip式</h5>
 <hr>
 <pre><code class="language-md">[boyer Blog](http://boyers.coding.me &quot;这是我的博客首页&quot;)
 </code></pre>
@@ -668,7 +668,7 @@ content
 <p>在文章中插入 Vimeo 视频。</p>
 <pre><code class="language-js">{% vimeo video_id %}
 </code></pre>
-<h2 id="heading-28">引用文章</h2>
+<h2 id="引用文章">引用文章</h2>
 <hr>
 <p>根据服务器根目录分为两种方式：</p>
 <pre><code class="language-js">{% post_path slug %}
@@ -689,7 +689,7 @@ content
 {% post_link Docker使用 Docker使用 %}</p>
 </li>
 </ol>
-<h2 id="heading-29">引用资源</h2>
+<h2 id="引用资源">引用资源</h2>
 <hr>
 <p>引用文章的资源。
 Assets指的是那些不在source目录下的资源，比如图片、CSS文件或者Javascript文件。Hexo提供一种更方便的方法来管理这些资源（Assets）。想使其生效，首先修改 post_asset_folder 字段的设置，将其值改为 true 。
@@ -765,7 +765,7 @@ content
         id: '2017-01-23 15:17:33 \x2b0000 UTC',
         title: 'Hexo标签插件',
         link: decodeURI(location.href),
-        desc: '\x3cp\x3e标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。\x3c\/p\x3e\n\x3ch2 id=\x22heading\x22\x3e引用块\x3c\/h2\x3e\n\x3chr\x3e\n\x3cp\x3e在文章中插入引言，可包含作者、来源和标题。\x3c\/p\x3e\n\x3ch3 id=\x22-quote\x22\x3e别号： quote\x3c\/h3\x3e\n\x3chr\x3e\n\x3cpre\x3e\x3ccode class=\x22language-js\x22\x3e{% blockquote [author[, source]] [link] [source_link_title] %}\ncontent\n{% endblockquote %}\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3ch4 id=\x22heading-1\x22\x3e样例\x3c\/h4\x3e\n\x3chr\x3e\n\x3ch5 id=\x22blockquote\x22\x3e无参普通blockquote\x3c\/h5\x3e\n\x3chr\x3e\n\x3cpre\x3e\x3ccode class=\x22language-js\x22\x3e{% blockquote %}\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.\n{% endblockquote %}\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3cp\x3e{% blockquote %}\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.\n{% endblockquote %}\x3c\/p\x3e',
+        desc: '\x3cp\x3e标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。\x3c\/p\x3e\n\x3ch2 id=\x22引用块\x22\x3e引用块\x3c\/h2\x3e\n\x3chr\x3e\n\x3cp\x3e在文章中插入引言，可包含作者、来源和标题。\x3c\/p\x3e\n\x3ch3 id=\x22别号-quote\x22\x3e别号： quote\x3c\/h3\x3e\n\x3chr\x3e\n\x3cpre\x3e\x3ccode class=\x22language-js\x22\x3e{% blockquote [author[, source]] [link] [source_link_title] %}\ncontent\n{% endblockquote %}\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3ch4 id=\x22样例\x22\x3e样例\x3c\/h4\x3e\n\x3chr\x3e\n\x3ch5 id=\x22无参普通blockquote\x22\x3e无参普通blockquote\x3c\/h5\x3e\n\x3chr\x3e\n\x3cpre\x3e\x3ccode class=\x22language-js\x22\x3e{% blockquote %}\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.\n{% endblockquote %}\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3cp\x3e{% blockquote %}\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.\n{% endblockquote %}\x3c\/p\x3e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

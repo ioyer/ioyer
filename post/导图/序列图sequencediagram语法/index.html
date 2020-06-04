@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AF%BC%E5%9B%BE/%E5%BA%8F%E5%88%97%E5%9B%BEsequencediagram%E8%AF%AD%E6%B3%95/" />
@@ -180,18 +180,18 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#markdown">MarkDown插件</a></li>
-    <li><a href="#heading">官方</a></li>
-    <li><a href="#heading-1">概述</a></li>
-    <li><a href="#heading-2">元素</a>
+    <li><a href="#markdown插件">MarkDown插件</a></li>
+    <li><a href="#官方">官方</a></li>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#元素">元素</a>
       <ul>
-        <li><a href="#actor">角色Actor</a></li>
-        <li><a href="#heading-3">标题</a></li>
-        <li><a href="#object">对象Object</a></li>
-        <li><a href="#lifeline">生命线Lifeline</a></li>
-        <li><a href="#activation">激活期Activation</a></li>
-        <li><a href="#message">消息Message</a></li>
-        <li><a href="#heading-4">效果实现：</a></li>
+        <li><a href="#角色actor">角色Actor</a></li>
+        <li><a href="#标题">标题</a></li>
+        <li><a href="#对象object">对象Object</a></li>
+        <li><a href="#生命线lifeline">生命线Lifeline</a></li>
+        <li><a href="#激活期activation">激活期Activation</a></li>
+        <li><a href="#消息message">消息Message</a></li>
+        <li><a href="#效果实现">效果实现：</a></li>
       </ul>
     </li>
   </ul>
@@ -199,31 +199,31 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="markdown">MarkDown插件</h2>
+      <h2 id="markdown插件">MarkDown插件</h2>
 <p>{% github bubkoo hexo-filter-sequence  4ab9c15  width = 30% %}
 这个插件在markdown暂时无法渲染出图像，不建议使用。</p>
-<h2 id="heading">官方</h2>
+<h2 id="官方">官方</h2>
 <p><a href="https://bramp.github.io/js-sequence-diagrams/">序列图预览工具</a></p>
-<h2 id="heading-1">概述</h2>
+<h2 id="概述">概述</h2>
 <p>序列图(sequence diagram)，又称时序图。</p>
 <ol>
 <li>通过描述对象之间发送消息的时间顺序</li>
 <li>显示多个对象之间的动态协作</li>
 </ol>
-<h2 id="heading-2">元素</h2>
+<h2 id="元素">元素</h2>
 <p>=====</p>
 <pre><code class="language-sequence">Alice-&gt;Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob--&gt;Alice: I am good thanks!
 </code></pre>
-<h3 id="actor">角色Actor</h3>
+<h3 id="角色actor">角色Actor</h3>
 <p>系统角色。
 <a href="http://blog.csdn.net/ethmery/article/details/50670284">http://blog.csdn.net/ethmery/article/details/50670284</a></p>
-<h3 id="heading-3">标题</h3>
+<h3 id="标题">标题</h3>
 <p>MarkDown语法：</p>
 <pre><code>Title:[标题]
 </code></pre>
-<h3 id="object">对象Object</h3>
+<h3 id="对象object">对象Object</h3>
 <p>位于序列图顶部，代表参与交互行为的对象。常见的命名方式：</p>
 <ol>
 <li>类名+对象名</li>
@@ -252,13 +252,13 @@ Note over A,B: 这是A和B共有的注释
 Note over [对象名]: [注释]
 Note over [多个对象，之间以,隔开]: [注释]
 </code></pre>
-<h3 id="lifeline">生命线Lifeline</h3>
+<h3 id="生命线lifeline">生命线Lifeline</h3>
 <ol>
 <li>序列图中的对象在一段时间内的存在</li>
 <li>以从对象底部中心延伸出的竖直虚线表示</li>
 <li>对象之间的消息传递发生于生命线之间</li>
 </ol>
-<h3 id="activation">激活期Activation</h3>
+<h3 id="激活期activation">激活期Activation</h3>
 <ol>
 <li>序列图中的对象执行一项操作的时期
 <ul>
@@ -268,7 +268,7 @@ Note over [多个对象，之间以,隔开]: [注释]
 </li>
 <li>以生命线上相应时间段内窄矩形表示</li>
 </ol>
-<h3 id="message">消息Message</h3>
+<h3 id="消息message">消息Message</h3>
 <ol>
 <li>用于对对象间通信内容进行建模的类</li>
 <li>以垂直于生命线的单方向箭头表示</li>
@@ -284,7 +284,7 @@ MarkDown语法：</li>
 </ol>
 <pre><code>[发送对象][箭头符号][接收对象]: [消息]
 </code></pre>
-<h3 id="heading-4">效果实现：</h3>
+<h3 id="效果实现">效果实现：</h3>
 <pre><code class="language-sequence">A-&gt;B: -&gt;
 B--&gt;C: --&gt;
 B-&gt;&gt;A: -&gt;&gt;

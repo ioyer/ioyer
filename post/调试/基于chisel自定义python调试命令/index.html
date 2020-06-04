@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/%E5%9F%BA%E4%BA%8Echisel%E8%87%AA%E5%AE%9A%E4%B9%89python%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/" />
@@ -180,9 +180,9 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#lldbinit">管理.lldbinit</a></li>
-    <li><a href="#heading">创建加载自定义命令</a></li>
-    <li><a href="#heading-1">开发调试命令的流程</a></li>
+    <li><a href="#管理lldbinit">管理.lldbinit</a></li>
+    <li><a href="#创建加载自定义命令">创建加载自定义命令</a></li>
+    <li><a href="#开发调试命令的流程">开发调试命令的流程</a></li>
   </ul>
 </nav>
   </div>
@@ -190,7 +190,7 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <!-- raw HTML omitted -->
 <p>{% github it-boyer chisel 56d0e0d width = 30% %}</p>
-<h2 id="lldbinit">管理.lldbinit</h2>
+<h2 id="管理lldbinit">管理.lldbinit</h2>
 <p>.lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。</p>
 <pre><code>script fblldb.loadCommandsInDirectory('/magical/commands/')
 </code></pre>
@@ -208,7 +208,7 @@ echo &quot;sh脚本文件的绝对路径：$basepath&quot;
 ln -fs $basepath/lldbinit ~/.lldbinit
 echo &quot;done&quot;
 </code></pre>
-<h2 id="heading">创建加载自定义命令</h2>
+<h2 id="创建加载自定义命令">创建加载自定义命令</h2>
 <p>无论是本地使用还是提交到<code>Chisel</code>贡献，工作流程都是一样的。</p>
 <ol>
 <li>在便于管理的目录下，新建python文件 <code>vi example.py</code>，在chisel会通过该目录路径来加载新命令：</li>
@@ -248,7 +248,7 @@ script fblldb.loadCommandsInDirectory('/magical/commands/')
 <p>更方便的方式：命令文件直接放在chisel源码中的<code>mcommands</code>目录中，这样会自动加载，就不用在lldbinit中配置了。
 因为内置的支持，新命令也可以轻松使用<code>arguments</code>参数和<code>options</code>选项的相关功能。请参阅<code>border</code>和<code>pinvocation</code>命令的用法。</p>
 </blockquote>
-<h2 id="heading-1">开发调试命令的流程</h2>
+<h2 id="开发调试命令的流程">开发调试命令的流程</h2>
 <p>无论是本地使用还是提交到<code>Chisel</code>贡献，都是相同的工作流。</p>
 <ol>
 <li>启动<code>LLDB</code></li>

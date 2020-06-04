@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E5%9C%A8mac%E5%AE%89%E8%A3%85fiddler/" />
@@ -182,14 +182,14 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#mono">安装Mono</a></li>
-        <li><a href="#mono-1">配置Mono环境</a></li>
+        <li><a href="#安装mono">安装Mono</a></li>
+        <li><a href="#配置mono环境">配置Mono环境</a></li>
       </ul>
     </li>
     <li><a href="#fiddler">Fiddler</a>
       <ul>
-        <li><a href="#heading">安装</a></li>
-        <li><a href="#heading-1">运行</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#运行">运行</a></li>
       </ul>
     </li>
   </ul>
@@ -197,10 +197,10 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h3 id="mono">安装Mono</h3>
+      <h3 id="安装mono">安装Mono</h3>
 <p>Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案<code>Mono</code>(现阶段微软已推出跨平台的方案.Net Core，不过暂时只支持控制台程序)。
 <a href="http://www.mono-project.com/download/stable/#download-mac">下载地址</a></p>
-<h3 id="mono-1">配置Mono环境</h3>
+<h3 id="配置mono环境">配置Mono环境</h3>
 <ol>
 <li>下载证书
 从Mozilla LXR上下载所有受信任的root证书，存于Mono的证书库里。root证书能用于请求https地址：</li>
@@ -220,9 +220,9 @@ export PATH=$PATH:$MONO_HOME/bin
 </code></pre>
 <h2 id="fiddler">Fiddler</h2>
 <p><a href="http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/InstallFiddler">官方文档</a></p>
-<h3 id="heading">安装</h3>
+<h3 id="安装">安装</h3>
 <p>下载<a href="https://www.telerik.com/download/fiddler">Fiddler-mac.zip</a>压缩包，解压到非中文字符的路径下。</p>
-<h3 id="heading-1">运行</h3>
+<h3 id="运行">运行</h3>
 <p>打开Terminal，进入到刚才解压的Fiddler路径，执行命令运行：</p>
 <pre><code>sudo mono Fiddler.exe
 </code></pre>

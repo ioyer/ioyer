@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/xcode8%E4%B8%ADsb%E9%80%82%E9%85%8D%E6%A8%AA%E7%AB%96%E5%B1%8F%E6%8C%89%E9%92%AEvaryfortraits/" />
@@ -183,8 +183,8 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">添加竖屏约束</a></li>
-        <li><a href="#ipad">iPad适配时无法区分横竖屏</a></li>
+        <li><a href="#添加竖屏约束">添加竖屏约束</a></li>
+        <li><a href="#ipad适配时无法区分横竖屏">iPad适配时无法区分横竖屏</a></li>
       </ul>
     </li>
   </ul>
@@ -194,7 +194,7 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <p>升级xcode8之后，打开storyboard发现xcode7适配界面的size class被Trait Variations所取代:
 Trait Variations只是size class的直观表现方式，改善了原本九宫格选取过于抽象的问题，直接选机型很清晰直观，但本质未变。</p>
-<h3 id="heading">添加竖屏约束</h3>
+<h3 id="添加竖屏约束">添加竖屏约束</h3>
 <p>xcode8版本的选择器，由原来的九宫格形式，改进为机型选择器：</p>
 <p>以前版本：</p>
 <h4 id="vary-for-traits">Vary for Traits</h4>
@@ -206,7 +206,7 @@ Trait Variations只是size class的直观表现方式，改善了原本九宫格
 接下来为竖屏状态的界面添加约束，</li>
 <li>点击Done Varying按钮完成对约束的添加</li>
 </ol>
-<h3 id="ipad">iPad适配时无法区分横竖屏</h3>
+<h3 id="ipad适配时无法区分横竖屏">iPad适配时无法区分横竖屏</h3>
 <p>对比iPhone横竖屏：
 竖屏状态是wC：hR 横屏下是wC：hC (w是width h是height，C是Compact R是Regular) ，所以可以方便横竖屏俩套UI是由于横竖屏的size class是不同的。<br>
 但iPad横竖屏都是wR：hR, 所以在竖屏设置的约束同样会应用到横屏上。

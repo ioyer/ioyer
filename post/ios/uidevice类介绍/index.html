@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" />
@@ -294,7 +294,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
 {%codeblock lang:java 横向宏定义,返回YES:横向%}
 #define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
 {%endcodeblock%}</p>
-<h4 id="heading">横竖屏相关参数,方法与通知</h4>
+<h4 id="横竖屏相关参数方法与通知">横竖屏相关参数,方法与通知</h4>
 <ul>
 <li>检测当前设备是否生成设备转向通知
 {%codeblock lang:objc%}
@@ -341,7 +341,7 @@ UIKIT_EXTERN NSString *const UIDeviceBatteryStateDidChangeNotification   NS_AVAI
 UIKIT_EXTERN NSString *const UIDeviceBatteryLevelDidChangeNotification   NS_AVAILABLE_IOS(3_0);
 {%endcodeblock%}</li>
 </ul>
-<h4 id="heading-1">设备的其他属性及方法</h4>
+<h4 id="设备的其他属性及方法">设备的其他属性及方法</h4>
 <p>{%codeblock lang:objc %}
 BOOL proximityMonitoringEnabled // 是否启动接近监控（例如接电话时脸靠近屏幕），默认为NO</p>
 <p>BOOL proximityState // 如果设备不具备接近感应器，则总是返回NO</p>
@@ -361,7 +361,7 @@ UIUserInterfaceIdiomPad,              // iPad 风格
 {%codeblock lang:java 获取当前用户界面模式的宏定义%}
 #define UI_USER_INTERFACE_IDIOM() ([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom)] ? [[UIDevice currentDevice] userInterfaceIdiom] : UIUserInterfaceIdiomPhone)
 {%endcodeblock%}</p>
-<h4 id="heading-2">一些协议的定义</h4>
+<h4 id="一些协议的定义">一些协议的定义</h4>
 <p>{%codeblock lang:objc%}
 @protocol UIInputViewAudioFeedback
 @optional
@@ -369,7 +369,7 @@ UIUserInterfaceIdiomPad,              // iPad 风格
 @property (nonatomic, readonly) BOOL enableInputClicksWhenVisible;
 @end
 {%endcodeblock%}</p>
-<h4 id="heading-3">其他通知</h4>
+<h4 id="其他通知">其他通知</h4>
 <p>{%codeblock lang:objc 接近状态变化通知%}
 UIKIT_EXTERN NSString *const UIDeviceProximityStateDidChangeNotification NS_AVAILABLE_IOS(3_0);
 {%endcodeblock%}</p>

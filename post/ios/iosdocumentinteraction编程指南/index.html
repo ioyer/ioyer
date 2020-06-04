@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
@@ -334,7 +334,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h4 id="-document-interaction">关于 Document Interaction</h4>
+      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
 <p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
 <ul>
 <li>######预览文档和呈现选项菜单<br>
@@ -380,7 +380,7 @@ autocomplete('#aa-search-input',
 </ul>
 </li>
 </ul>
-<h4 id="document-interaction-controller">创建Document Interaction Controller</h4>
+<h4 id="创建document-interaction-controller">创建Document Interaction Controller</h4>
 <p>创建时，通过需要其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象，并设置它的<code>delegate</code>属性。<br>
 <code>delegate</code>对象负责告诉<strong>document  interaction controller</strong>呈现视图时需要的信息，以及当视图显示和用户交互时要执行的动作。<br>
 如以下代码所示。注意方法的调用者必须返回对象。</p>
@@ -397,7 +397,7 @@ autocomplete('#aa-search-input',
 <p>实例创建后，可以通过它的属性来读取与之关联的文件信息，包括文件名、类型和URL。该实例中还有一个<code>icons</code>属性，其中包含了多个 <code>UIImage</code> 对象,可以用于表示该文档的多个大小的图标。这些信息可用于UI。</p>
 <p>如果用其他APP打开该文件，可以利用该实例的 <code>annotation</code> 属性，该属性包含了其他APP所需的附加信息。当然信息的格式必须能够被该APP识别。<br>
 例如:当程序想与套件中的其他程序进行交互时，就可以使用<code>annotation</code> 属性。当被调用应用程序打开一个文件时，<code>option</code> 字典中会包含 <code>annotation</code> 的值，可以使用<!-- raw HTML omitted -->UIApplicationLaunchOptionsAnnotationKey<!-- raw HTML omitted --> 作为键在<code>option</code>字典中检索它。</p>
-<h4 id="-document-interaction-controller">呈现 Document Interaction Controller</h4>
+<h4 id="呈现-document-interaction-controller">呈现 Document Interaction Controller</h4>
 <p>用户可以通过 <code>Document interaction controller</code>实例，来预览该文件，或者通过弹出菜单让用户选择相应的动作。</p>
 <ul>
 <li>模式化显示文件预览窗口，调用如下方法:
@@ -449,7 +449,7 @@ autocomplete('#aa-search-input',
 以上几种方法都会显示一个视图或一个预览窗口或是弹出菜单。任何一个方法的调用，都要检查返回值。返回值为 <code>NO</code>，表示这个视图没有任何内容，将不能显示。<br>
 例如，<strong><code>presentOpenInMenuFromRect:inView:animated:</code></strong>方法返回<code>NO</code>,表明已安装的程序中没有任何程序能够打开该文档。</li>
 </ul>
-<h4 id="heading">注册应用程序支持的文档类型</h4>
+<h4 id="注册应用程序支持的文档类型">注册应用程序支持的文档类型</h4>
 <p>如果你的程序可以打开某种特定的文件类型，则可以通过<strong>Info.plist</strong>文件注册程序所能打开的文档类型。当其他程序向系统询问哪些程序可以识别该类型的文件时，你的程序就会被列到选项菜单中，供用户选择。</p>
 <ul>
 <li>
@@ -495,7 +495,7 @@ LSHandlerRank 				//表示应用程序是“拥有”还是仅仅是“打开”
 <!-- raw HTML omitted -->
 {%endcodeblock%}</li>
 </ul>
-<h4 id="heading-1">打开支持的文件类型</h4>
+<h4 id="打开支持的文件类型">打开支持的文件类型</h4>
 <p>系统可能会请求某个程序打开某种文件，并呈现给用户。这种情况通常发生在某个应用程序调用 <strong><code>document interaction controller</code></strong> 去处理某个文件的时候。<br>
 这时应用程序可以通过委托方法:
 {%codeblock lang:objc 获得文件的信息 Declared In UIApplication.h <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didFinishLaunchingWithOptions:">https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didFinishLaunchingWithOptions:</a> %}
@@ -514,12 +514,12 @@ UIApplicationLaunchOptionsSourceApplicationKey 	//发送请求的应用程序的
 UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递的与该文件相关的属性列表对象
 {%endcodeblock%}
 如果 <strong><code>UIApplicationLaunchOptionsURLKey</code></strong> 键存在，你的程序应当立即用该<strong><code>URL</code></strong>打开该文件并将内容呈现给用户。其他键可用于收集与打开的文件相关的参数和信息。</p>
-<h4 id="-quick-look-">使用 Quick Look 框架</h4>
+<h4 id="使用-quick-look-框架">使用 Quick Look 框架</h4>
 <p><strong><code>Quick Look</code></strong>框架提供了增强的预览功能，可以选择呈现预览窗口时的动画风格，并可以像预览单个文件一样预览多个文件。<br>
 该框架主要提供了 <strong><code>QLPreviewController</code></strong> 类。该类依赖于委托对象响应预览动作，以及一个用于提供预览文件的数据源，内置了所支持的文件类型的 <strong>AirPrint</strong> 打印。</p>
 <ul>
 <li>
-<h6 id="quick-look-previews-">Quick Look Previews 中的预览及打印</h6>
+<h6 id="quick-look-previews-中的预览及打印">Quick Look Previews 中的预览及打印</h6>
 </li>
 </ul>
 <p>从 iOS 4.2 开始，<strong><code>QLPreviewController</code></strong> 提供了包含了一个 <code>action</code> 按钮（即打印按钮）的预览视图。对于 <strong><code>QLPreviewController</code></strong> 能预览的文件，不用编写任何打印代码，只需点击<code>action</code>按钮就能直接打印该文档。</p>
@@ -546,7 +546,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
 </blockquote>
 <ul>
 <li>
-<h6 id="qlpreviewcontroller"><strong><code>QLPreviewController</code></strong>能够预览下列文件：</h6>
+<h6 id="qlpreviewcontroller能够预览下列文件"><strong><code>QLPreviewController</code></strong>能够预览下列文件：</h6>
 </li>
 <li>
 <ul>
@@ -643,7 +643,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
         id: '2014-07-01 23:12:01 \x2b0800 CST',
         title: 'iOS Document Interaction 编程指南',
         link: decodeURI(location.href),
-        desc: '\x3ch4 id=\x22-document-interaction\x22\x3e关于 Document Interaction\x3c\/h4\x3e\n\x3cp\x3eiOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/UIKit\/Reference\/UIDocumentInteractionController_class\/Reference\/Reference.html\x22\x3eUIDocumentInteractionController\x3c\/a\x3e类，以及\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/QuickLook\/Reference\/QuickLookFrameworkReference_iPhoneOS\/_index.html\x22\x3eQuick Look\x3c\/a\x3e框架。\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e######预览文档和呈现选项菜单\x3cbr\x3e\n如果app需要打开自身并不支持的文件时，就需要使用\x3cstrong\x3eUIDocumentInteractionController\x3c\/strong\x3e。一个\x3cstrong\x3edocument interaction controller\x3c\/strong\x3e通过\x3cstrong\x3eQuick Look框架\x3c\/strong\x3e判断文档是否能被另一个app打开和预览。也就是说，app可以通过\x3cstrong\x3edocumentinteraction controller\x3c\/strong\x3e提供一些支持打开该文件方式的菜单。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3cp\x3e具体实现需要以下步骤：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e需要通过其他APP打开的文件，来实例化\x3ccode\x3eUIDocumentInteractionController\x3c\/code\x3e实例对象。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e用户交互，如触摸这个控件，则调用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e对象。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3cp\x3e三种交互界面:\n1. 预览文件的内容。\n2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。\n3. 一个菜单，仅包含“以其它方式打开”操作。\x3c\/p\x3e\n\x3cp\x3e同时，\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e内置了一些手势，必要时可以直接实现它们。\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cp\x3e######使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e的场景:\x3cstrong\x3e与文件交互的app都可以使用。\x3c\/strong\x3e\x3c\/p\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e需要从网络下载文件的APP:\x3cbr\x3e\n例如，email程序需要打开和预览邮件附件。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e不下载文件的APP:\x3cbr\x3e\n例如，APP需要支持文件共享（参考“File-Sharing Support” in \x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/Miscellaneous\/Conceptual\/iPhoneOSTechOverview\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007898\x22\x3eiOS Technology Overview\x3c\/a\x3e), 即可以对同步到app Documents\/Shared目录下的文件使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e',
+        desc: '\x3ch4 id=\x22关于-document-interaction\x22\x3e关于 Document Interaction\x3c\/h4\x3e\n\x3cp\x3eiOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/UIKit\/Reference\/UIDocumentInteractionController_class\/Reference\/Reference.html\x22\x3eUIDocumentInteractionController\x3c\/a\x3e类，以及\x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/QuickLook\/Reference\/QuickLookFrameworkReference_iPhoneOS\/_index.html\x22\x3eQuick Look\x3c\/a\x3e框架。\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e######预览文档和呈现选项菜单\x3cbr\x3e\n如果app需要打开自身并不支持的文件时，就需要使用\x3cstrong\x3eUIDocumentInteractionController\x3c\/strong\x3e。一个\x3cstrong\x3edocument interaction controller\x3c\/strong\x3e通过\x3cstrong\x3eQuick Look框架\x3c\/strong\x3e判断文档是否能被另一个app打开和预览。也就是说，app可以通过\x3cstrong\x3edocumentinteraction controller\x3c\/strong\x3e提供一些支持打开该文件方式的菜单。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3cp\x3e具体实现需要以下步骤：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e需要通过其他APP打开的文件，来实例化\x3ccode\x3eUIDocumentInteractionController\x3c\/code\x3e实例对象。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e用户交互，如触摸这个控件，则调用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e对象。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3cp\x3e三种交互界面:\n1. 预览文件的内容。\n2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。\n3. 一个菜单，仅包含“以其它方式打开”操作。\x3c\/p\x3e\n\x3cp\x3e同时，\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e内置了一些手势，必要时可以直接实现它们。\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cp\x3e######使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e的场景:\x3cstrong\x3e与文件交互的app都可以使用。\x3c\/strong\x3e\x3c\/p\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e需要从网络下载文件的APP:\x3cbr\x3e\n例如，email程序需要打开和预览邮件附件。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3cli\x3e\n\x3cul\x3e\n\x3cli\x3e不下载文件的APP:\x3cbr\x3e\n例如，APP需要支持文件共享（参考“File-Sharing Support” in \x3ca href=\x22https:\/\/developer.apple.com\/library\/ios\/documentation\/Miscellaneous\/Conceptual\/iPhoneOSTechOverview\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007898\x22\x3eiOS Technology Overview\x3c\/a\x3e), 即可以对同步到app Documents\/Shared目录下的文件使用\x3ccode\x3edocumentinteractioncontroller\x3c\/code\x3e。\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

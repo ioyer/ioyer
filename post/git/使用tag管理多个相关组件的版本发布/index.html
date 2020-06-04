@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" />
@@ -180,11 +180,11 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#tag">tag标签自增新建脚本</a></li>
-    <li><a href="#tag-1">修改tag版本号的方法</a>
+    <li><a href="#tag标签自增新建脚本">tag标签自增新建脚本</a></li>
+    <li><a href="#修改tag版本号的方法">修改tag版本号的方法</a>
       <ul>
-        <li><a href="#heading">方法一：覆盖</a></li>
-        <li><a href="#heading-1">方法：删除分支</a></li>
+        <li><a href="#方法一覆盖">方法一：覆盖</a></li>
+        <li><a href="#方法删除分支">方法：删除分支</a></li>
       </ul>
     </li>
   </ul>
@@ -192,7 +192,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="tag">tag标签自增新建脚本</h2>
+      <h2 id="tag标签自增新建脚本">tag标签自增新建脚本</h2>
 <pre><code class="language-sh">#!/bin/sh
 tag=$(git describe --tags `git rev-list --tags --max-count=1`)
 version=${tag##*.}
@@ -200,8 +200,8 @@ let &quot;version+=1&quot;
 newTag=${tag%.*}.${version}
 echo 'Create New Tag '$newTag
 </code></pre>
-<h2 id="tag-1">修改tag版本号的方法</h2>
-<h3 id="heading">方法一：覆盖</h3>
+<h2 id="修改tag版本号的方法">修改tag版本号的方法</h2>
+<h3 id="方法一覆盖">方法一：覆盖</h3>
 <ol>
 <li>已有v1.0.2.8要覆盖该版本</li>
 </ol>
@@ -217,7 +217,7 @@ echo 'Create New Tag '$newTag
 </ol>
 <pre><code>git fetch -–tag
 </code></pre>
-<h3 id="heading-1">方法：删除分支</h3>
+<h3 id="方法删除分支">方法：删除分支</h3>
 <ol>
 <li>删除本地版本</li>
 </ol>

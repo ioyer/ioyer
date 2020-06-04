@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -45,7 +45,7 @@
 <meta property="og:description" content="不物喜,不己悲;善假物,易参行." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://it-boyer.github.io/" />
-<meta property="og:updated_time" content="2020-03-24T16:19:44+08:00" />
+<meta property="og:updated_time" content="2015-12-22T12:39:04+00:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
@@ -180,14 +180,14 @@ autocomplete('#aa-search-input',
 <li><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></li>
 <li><!-- raw HTML omitted -->从储藏中创建分支<!-- raw HTML omitted --></li>
 </ol>
-<h3 id="a-namestashinggit---stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
+<h3 id="a-namestashinggit工具---储藏stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
 <hr>
 <p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
 <p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
 <p>解决：<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令。</p>
 <p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
-<h3 id="a-nameworka"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
+<h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
 <hr>
 <ol>
 <li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
@@ -231,7 +231,7 @@ stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
 stash@{2}: WIP on master: 21d80a5 added number to log
 {%endcodeblock%}
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
-<h3 id="a-nameapplya"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
+<h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
 <hr>
 <p>执行<strong><!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted --></strong>命令, 可以重新应用最近的一次储藏；
 执行<strong><!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted --></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
@@ -291,7 +291,7 @@ $ git stash apply</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <h2 id="heading">按比例缩放</h2>
+      <h2 id="按比例缩放">按比例缩放</h2>
 <p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
 而在代码中，有如下两种实现方式:</p>
 <ol>
@@ -302,7 +302,7 @@ $ git stash apply</p>
 {%codeblock lang:objc%}
 UIButton *btn;<br>
 {%endcodeblock%}</p>
-<h4 id="-1">需求 1：</h4>
+<h4 id="需求-1">需求 1：</h4>
 <ol>
 <li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
 <li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br>
@@ -379,12 +379,12 @@ constant:0]];</p>
       <h4 id="url-schemes">URL Schemes</h4>
 <p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
 <p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
-<h4 id="url">注册自定义URL协议</h4>
+<h4 id="注册自定义url协议">注册自定义URL协议</h4>
 <p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
 <p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
-<h6 id="step1-add-rowurl-typesarray">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
-<h6 id="step2-item-0dickeyurl-identifierstring-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
-<h5 id="step3-item-0dickeyurl-schemesarray">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+<h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
     </div>
     <div class="read-more">
       <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
@@ -417,7 +417,7 @@ constant:0]];</p>
 <li>如何生成 HTML 文档</li>
 <li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
 </ul>
-<h4 id="heading">准备工作</h4>
+<h4 id="准备工作">准备工作</h4>
 <p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
 <p>这个简单的示例程序只包含了两个类：</p>
 <ul>

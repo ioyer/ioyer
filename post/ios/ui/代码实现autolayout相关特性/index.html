@@ -36,7 +36,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" />
@@ -377,7 +377,7 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">按比例缩放</a>
+    <li><a href="#按比例缩放">按比例缩放</a>
       <ul>
         <li></li>
       </ul>
@@ -387,7 +387,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">按比例缩放</h2>
+      <h2 id="按比例缩放">按比例缩放</h2>
 <p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
 而在代码中，有如下两种实现方式:</p>
 <ol>
@@ -398,7 +398,7 @@ autocomplete('#aa-search-input',
 {%codeblock lang:objc%}
 UIButton *btn;<br>
 {%endcodeblock%}</p>
-<h4 id="-1">需求 1：</h4>
+<h4 id="需求-1">需求 1：</h4>
 <ol>
 <li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
 <li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br>
@@ -462,7 +462,7 @@ if (object == btn &amp;&amp; [keyPath isEqualToString:@&ldquo;bounds&rdquo;])
 运行结果：</li>
 </ul>
 <!-- raw HTML omitted -->
-<h4 id="-2">需求 2：</h4>
+<h4 id="需求-2">需求 2：</h4>
 <ol>
 <li>在横向的显示中，Button的高度只有96，所以要求Button的最小高度为150。</li>
 </ol>
@@ -497,7 +497,7 @@ multiplier:1
 constant:150]];
 {%endcodeblock%}<br>
 运行后，横向屏幕中的Button高度成了150：</p>
-<h4 id="intrinsiccontentsize-">intrinsicContentSize 控件的内置大小</h4>
+<h4 id="intrinsiccontentsize-控件的内置大小">intrinsicContentSize 控件的内置大小</h4>
 <p>控件的内置大小是由控件本身的内容所决定的，比如一个<code>UILabel</code>的文字很长，那么该<code>UILabel</code>的内置大小自然会很长。<br>
 在代码中获取控件的内置大小的方法：</p>
 <ol>
@@ -565,7 +565,7 @@ view2.translatesAutoresizingMaskIntoConstraints = NO;<br>
 [self setEdge:self.view view:view2 attr:NSLayoutAttributeRight constant:-20];<br>
 {%endcodeblock%}</li>
 </ul>
-<h4 id="heading-1">需求：</h4>
+<h4 id="需求">需求：</h4>
 <ol>
 <li>
 <p>通过代码加入Autolayout中的间距，命令view1和view2上下必须间隔20个单位。
@@ -667,7 +667,7 @@ constant:20]
         id: '2014-09-02 15:53:11 \x2b0800 CST',
         title: '代码实现AutoLayout相关特性',
         link: decodeURI(location.href),
-        desc: '\x3ch2 id=\x22heading\x22\x3e按比例缩放\x3c\/h2\x3e\n\x3cp\x3e按比例缩放，这是在Interface Builder中无法设置的内容。\x3cbr\x3e\n而在代码中，有如下两种实现方式:\x3c\/p\x3e\n\x3col\x3e\n\x3cli\x3e使用\x3ccode\x3eNSLayoutConstraint\x3c\/code\x3e类型的初始化函数中的\x3ccode\x3emultiplier\x3c\/code\x3e参数就可以非常简单的设置按比例缩放。\x3c\/li\x3e\n\x3cli\x3e同时也可以设置不同\x3ccode\x3eNSLayoutAttribute\x3c\/code\x3e参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cp\x3e现在就拿一个简单的\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e做示例，在ViewController中创建一个UIButton字段：\x3cbr\x3e\n{%codeblock lang:objc%}\nUIButton *btn;\x3cbr\x3e\n{%endcodeblock%}\x3c\/p\x3e\n\x3ch4 id=\x22-1\x22\x3e需求 1：\x3c\/h4\x3e\n\x3col\x3e\n\x3cli\x3e要求\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e水平居中，始终距离父View底部\x3cstrong\x3e20\x3c\/strong\x3e单位，其高度是父View高度的三分之一。\x3c\/li\x3e\n\x3cli\x3e使用\x3cstrong\x3eKVO\x3c\/strong\x3e来监控\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e的大小并实时输出到屏幕上。\x3cbr\x3e\n{%codeblock lang:objc%}\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cp\x3e(void)viewDidLoad\n{\n[super viewDidLoad];\x3c\/p\x3e\n\x3cp\x3e\/\/创建UIButton，不需要设置frame\nbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];\n[btn setTitle:@\x26ldquo;mgen\x26rdquo; forState:UIControlStateNormal];\nbtn.backgroundColor = [UIColor greenColor];\n[self.view addSubview:btn];\x3c\/p\x3e\n\x3cp\x3e\/\/禁止自动转换AutoresizingMask\nbtn.translatesAutoresizingMaskIntoConstraints = NO;\x3c\/p\x3e\n\x3cp\x3e\/\/居中\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeCenterX\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeCenterX\nmultiplier:1\nconstant:0]];\x3c\/p\x3e\n\x3cp\x3e\/\/距离底部20单位\n\/\/注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeBottom\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeBottom\nmultiplier:1\nconstant:-20]];\x3c\/p\x3e\n\x3cp\x3e\/\/定义高度是父View的三分之一\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeHeight\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeHeight\nmultiplier:0.3\nconstant:0]];\x3c\/p\x3e\n\x3cp\x3e\/\/注册KVO方法\n[btn addObserver:self forKeyPath:@\x26ldquo;bounds\x26rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; \x3cbr\x3e\n}\x3c\/p\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e',
+        desc: '\x3ch2 id=\x22按比例缩放\x22\x3e按比例缩放\x3c\/h2\x3e\n\x3cp\x3e按比例缩放，这是在Interface Builder中无法设置的内容。\x3cbr\x3e\n而在代码中，有如下两种实现方式:\x3c\/p\x3e\n\x3col\x3e\n\x3cli\x3e使用\x3ccode\x3eNSLayoutConstraint\x3c\/code\x3e类型的初始化函数中的\x3ccode\x3emultiplier\x3c\/code\x3e参数就可以非常简单的设置按比例缩放。\x3c\/li\x3e\n\x3cli\x3e同时也可以设置不同\x3ccode\x3eNSLayoutAttribute\x3c\/code\x3e参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cp\x3e现在就拿一个简单的\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e做示例，在ViewController中创建一个UIButton字段：\x3cbr\x3e\n{%codeblock lang:objc%}\nUIButton *btn;\x3cbr\x3e\n{%endcodeblock%}\x3c\/p\x3e\n\x3ch4 id=\x22需求-1\x22\x3e需求 1：\x3c\/h4\x3e\n\x3col\x3e\n\x3cli\x3e要求\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e水平居中，始终距离父View底部\x3cstrong\x3e20\x3c\/strong\x3e单位，其高度是父View高度的三分之一。\x3c\/li\x3e\n\x3cli\x3e使用\x3cstrong\x3eKVO\x3c\/strong\x3e来监控\x3cstrong\x3e\x3ccode\x3eUIButton\x3c\/code\x3e\x3c\/strong\x3e的大小并实时输出到屏幕上。\x3cbr\x3e\n{%codeblock lang:objc%}\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3cul\x3e\n\x3cli\x3e\n\x3cp\x3e(void)viewDidLoad\n{\n[super viewDidLoad];\x3c\/p\x3e\n\x3cp\x3e\/\/创建UIButton，不需要设置frame\nbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];\n[btn setTitle:@\x26ldquo;mgen\x26rdquo; forState:UIControlStateNormal];\nbtn.backgroundColor = [UIColor greenColor];\n[self.view addSubview:btn];\x3c\/p\x3e\n\x3cp\x3e\/\/禁止自动转换AutoresizingMask\nbtn.translatesAutoresizingMaskIntoConstraints = NO;\x3c\/p\x3e\n\x3cp\x3e\/\/居中\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeCenterX\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeCenterX\nmultiplier:1\nconstant:0]];\x3c\/p\x3e\n\x3cp\x3e\/\/距离底部20单位\n\/\/注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeBottom\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeBottom\nmultiplier:1\nconstant:-20]];\x3c\/p\x3e\n\x3cp\x3e\/\/定义高度是父View的三分之一\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeHeight\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeHeight\nmultiplier:0.3\nconstant:0]];\x3c\/p\x3e\n\x3cp\x3e\/\/注册KVO方法\n[btn addObserver:self forKeyPath:@\x26ldquo;bounds\x26rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; \x3cbr\x3e\n}\x3c\/p\x3e\n\x3c\/li\x3e\n\x3c\/ul\x3e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

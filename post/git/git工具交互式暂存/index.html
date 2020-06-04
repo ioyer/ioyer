@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/git%E5%B7%A5%E5%85%B7%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9A%82%E5%AD%98/" />
@@ -180,15 +180,15 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">交互式暂存</a></li>
-    <li><a href="#heading-1">暂存与取消暂存文件</a></li>
-    <li><a href="#heading-2">暂存补丁</a></li>
+    <li><a href="#交互式暂存">交互式暂存</a></li>
+    <li><a href="#暂存与取消暂存文件">暂存与取消暂存文件</a></li>
+    <li><a href="#暂存补丁">暂存补丁</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">交互式暂存</h2>
+      <h2 id="交互式暂存">交互式暂存</h2>
 <p>Git 自带的一些脚本可以使在命令行下工作更容易。 本节的几个互交命令可以帮助你将文件的特定部分组合成提交。 当你修改一组文件后，希望这些改动能放到若干提交而不是混杂在一起成为一个提交时，这几个工具会非常有用。 通过这种方式，可以确保提交是逻辑上独立的变更集，同时也会使其他开发者在与你工作时很容易地审核。 如果运行 git add 时使用 -i 或者 &ndash;interactive 选项，Git 将会进入一个交互式终端模式，显示类似下面的东西：</p>
 <pre><code class="language-git">$ git add -i
 staged     unstaged path
@@ -203,7 +203,7 @@ What now&gt;
 </code></pre>
 <p>可以看到这个命令以非常不同的视图显示了暂存区 - 基本上与 <code>git status</code> 是相同的信息，但是更简明扼要一些。 它将暂存的修改列在左侧，未暂存的修改列在右侧。</p>
 <p>在这块区域后是命令区域。 在这里你可以做一些工作，包括暂存文件、取消暂存文件、暂存文件的一部分、添加未被追踪的文件、查看暂存内容的区别。</p>
-<h2 id="heading-1">暂存与取消暂存文件</h2>
+<h2 id="暂存与取消暂存文件">暂存与取消暂存文件</h2>
 <p>如果在 What now&gt; 提示符后键入 2 或 u，脚本将会提示想要暂存哪个文件：</p>
 <pre><code class="language-git">What now&gt; 2
 staged     unstaged path
@@ -282,7 +282,7 @@ index 4d07108..4335f49 100644
 &lt;script type=&quot;text/javascript&quot;&gt;
 </code></pre>
 <p>通过这些基本命令，可以使用交互式添加模式来轻松地处理暂存区。</p>
-<h2 id="heading-2">暂存补丁</h2>
+<h2 id="暂存补丁">暂存补丁</h2>
 <p>Git 也可以暂存文件的特定部分。 例如，如果在 simplegit.rb 文件中做了两处修改，但只想要暂存其中的一个而不是另一个，Git 会帮你轻松地完成。 从交互式提示符中，输入 5 或 p（补丁）。 Git 会询问你想要部分暂存哪些文件；然后，对已选择文件的每一个部分，它都会一个个地显示文件区别并询问你是否想要暂存它们：</p>
 <pre><code class="language-git">diff --git a/lib/simplegit.rb b/lib/simplegit.rb
 index dd5ecc4..57399e0 100644

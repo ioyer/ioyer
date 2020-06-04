@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%85%B6%E4%BB%96/docker%E4%BD%BF%E7%94%A8/" />
@@ -180,25 +180,25 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#docker-for-machttpswwwdockercomproductsdockermac">安装Docker for Mac</a>
+    <li><a href="#安装docker-for-machttpswwwdockercomproductsdockermac">安装<a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a></a>
       <ul>
-        <li><a href="#-docker-">配置 Docker 加速器镜像源</a></li>
-        <li><a href="#heading">安装主机监控程序加速器</a></li>
-        <li><a href="#docker-hub-">从Docker Hub 仓库中获取一个镜像</a></li>
+        <li><a href="#配置-docker-加速器镜像源">配置 Docker 加速器镜像源</a></li>
+        <li><a href="#安装主机监控程序加速器">安装主机监控程序加速器</a></li>
+        <li><a href="#从docker-hub-仓库中获取一个镜像">从Docker Hub 仓库中获取一个镜像</a></li>
       </ul>
     </li>
-    <li><a href="#docker-">Docker 命令创建管理容器</a>
+    <li><a href="#docker-命令创建管理容器">Docker 命令创建管理容器</a>
       <ul>
-        <li><a href="#heading-1">获取镜像的两种方式</a></li>
-        <li><a href="#heading-2">通过镜像创建容器</a></li>
-        <li><a href="#ps-">ps 查看容器状态</a></li>
-        <li><a href="#id">容器ID标识</a></li>
-        <li><a href="#heading-3">启动/退出/移除容器</a></li>
+        <li><a href="#获取镜像的两种方式">获取镜像的两种方式</a></li>
+        <li><a href="#通过镜像创建容器">通过镜像创建容器</a></li>
+        <li><a href="#ps-查看容器状态">ps 查看容器状态</a></li>
+        <li><a href="#容器id标识">容器ID标识</a></li>
+        <li><a href="#启动退出移除容器">启动/退出/移除容器</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">创建管理镜像</a>
+    <li><a href="#创建管理镜像">创建管理镜像</a>
       <ul>
-        <li><a href="#heading-5">将容器创建为镜像</a></li>
+        <li><a href="#将容器创建为镜像">将容器创建为镜像</a></li>
         <li><a href="#dockerfile">Dockerfile</a></li>
       </ul>
     </li>
@@ -207,7 +207,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="docker-for-machttpswwwdockercomproductsdockermac">安装<a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a></h2>
+      <h2 id="安装docker-for-machttpswwwdockercomproductsdockermac">安装<a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a></h2>
 <p>在Mac上运行Docker。系统要求，OS X 10.10.3 或者更高版本，至少4G内存，4.3.30版本以前的VirtualBox会与Docker for Mac产生冲突，所以请卸载旧版本的VitrualBox。</p>
 <pre><code class="language-ruby">echo '下载dmg...'
 curl -o Docker.dmg https://dn-dao-github-mirror.qbox.me/docker/install/mac/Docker.dmg
@@ -217,13 +217,13 @@ MOUNTDIR=$(echo `hdiutil mount Docker.dmg | tail -1 \
 &amp;&amp; cd ${MOUNTDIR} &amp;&amp; cp -R Docker.app /Applications/ \
 &amp;&amp; open /Applications/Docker.app
 </code></pre>
-<h3 id="-docker-">配置 Docker 加速器镜像源</h3>
+<h3 id="配置-docker-加速器镜像源">配置 Docker 加速器镜像源</h3>
 <p><a href="https://www.daocloud.io/mirror">国内加速器</a>
 右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Advanced 标签下的 Registry mirrors 列表中加入下面的镜像地址:</p>
 <pre><code>http://f1361db2.m.daocloud.io
 </code></pre>
 <p>点击 Apply &amp; Restart 按钮使设置生效。</p>
-<h3 id="heading">安装主机监控程序加速器</h3>
+<h3 id="安装主机监控程序加速器">安装主机监控程序加速器</h3>
 <hr>
 <ol>
 <li>登录到 <code>DaoCloud 控制台</code>，点击「我的集群」按钮，在「接入自有主机」界面，点击 Mac 按钮。</li>
@@ -252,23 +252,23 @@ docker-machine create -d virtualbox default
 <li>执行<code>Dao Pull</code>命令,高速下载<code>Docker Hub</code>镜像文件
 这台 Docker 主机已经被接入 DaoCloud 平台，用户可以在 DaoCloud 控制台的「我的集群」页面发现这台主机，可以执行管理和部署应用的操作。</li>
 </ol>
-<h3 id="docker-hub-">从Docker Hub 仓库中获取一个镜像</h3>
+<h3 id="从docker-hub-仓库中获取一个镜像">从Docker Hub 仓库中获取一个镜像</h3>
 <hr>
 <p>Docker 使用类似 git 的方式管理镜像。通过基本的镜像可以定制创建出来不同种应用的 Docker 镜像。Docker Hub 是 Docker 官方提供的镜像中心。在这里可以很方便地找到各类应用、环境的镜像。由于 Docker 使用联合文件系统，所以镜像就像是夹心饼干一样一层层构成，相同底层的镜像可以共享。所以 Docker 还是相当节约磁盘空间的。要使用一 个镜像，需要先从远程的镜像注册中心拉取，这点非常类似 git。</p>
 <pre><code class="language-ruby">docker pull ubuntu
 </code></pre>
-<h2 id="docker-">Docker 命令创建管理容器</h2>
+<h2 id="docker-命令创建管理容器">Docker 命令创建管理容器</h2>
 <hr>
-<h3 id="heading-1">获取镜像的两种方式</h3>
+<h3 id="获取镜像的两种方式">获取镜像的两种方式</h3>
 <hr>
-<h4 id="1-docker-pull">1. <code>docker pull</code>命令</h4>
+<h4 id="1-docker-pull命令">1. <code>docker pull</code>命令</h4>
 <pre><code class="language-ruby">docker search perfectlysoft/ubuntu
 docker pull perfectlysoft/ubuntu
 </code></pre>
-<h4 id="2-docker-import">2. <code>docker import</code>命令</h4>
+<h4 id="2-docker-import命令">2. <code>docker import</code>命令</h4>
 <pre><code class="language-ruby">docker import myubuntu.tar.gz
 </code></pre>
-<h3 id="heading-2">通过镜像创建容器</h3>
+<h3 id="通过镜像创建容器">通过镜像创建容器</h3>
 <hr>
 <p>创建一个容器有两种方式：</p>
 <pre><code class="language-ruby">docker create 镜像名
@@ -279,7 +279,7 @@ docker run   镜像名   //立即启动容器 等价于：create + start 命令�
 app  boot  etc   lib    media  opt   root  sbin  sys  usr
 bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 </code></pre>
-<h4 id="docker-run-images"><code>docker run images</code>命令</h4>
+<h4 id="docker-run-images命令"><code>docker run images</code>命令</h4>
 <ol>
 <li>样例1
 执行<code>run images</code>，并将 Ubuntu 的 Shell 作为入口，进入Docker容器环境操作</li>
@@ -292,7 +292,7 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 </ol>
 <pre><code>docker start -i 容器ID/容器名
 </code></pre>
-<h4 id="kitematicgui">从<code>Kitematic</code>GUI进入容器环境</h4>
+<h4 id="从kitematicgui进入容器环境">从<code>Kitematic</code>GUI进入容器环境</h4>
 <pre><code class="language-ruby">bash -c &quot;clear &amp;&amp; docker exec -it perfectswift sh&quot;
 </code></pre>
 <blockquote>
@@ -301,16 +301,16 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 -t 指为这个容器分配一个终端</p>
 </blockquote>
 <p>这时候我们成功创建了一个 Ubuntu 的容器，并将当前终端连接为这个 Ubuntu 的 bash shell。这时候就可以愉快地使用 Ubuntu 的相关命令了。</p>
-<h3 id="ps-">ps 查看容器状态</h3>
+<h3 id="ps-查看容器状态">ps 查看容器状态</h3>
 <hr>
 <p>在容器运行期间，我们可以通过 <code>docker ps</code> 命令看到所有当前正在运行的容器。
 添加-a参数可以看到所有创建的容器：</p>
 <pre><code class="language-ruby">docker ps -a
 </code></pre>
-<h3 id="id">容器ID标识</h3>
+<h3 id="容器id标识">容器ID标识</h3>
 <hr>
 <p>每个容器都有一个唯一的 ID 标识，通过 ID 可以对这个容器进行管理和操作。在创建容器时，我们可以通过 &ndash;name 参数指定一个容器名称，如果没有指定系统将会分配一个，就像这里的「trusting_morse」。</p>
-<h3 id="heading-3">启动/退出/移除容器</h3>
+<h3 id="启动退出移除容器">启动/退出/移除容器</h3>
 <hr>
 <p>启动：<code>start</code></p>
 <pre><code class="language-ruby">docker start -i trusting_morse
@@ -326,7 +326,7 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var
 <p>重命名：<code>rename</code></p>
 <pre><code>docker rename 容器ID newName
 </code></pre>
-<h2 id="heading-4">创建管理镜像</h2>
+<h2 id="创建管理镜像">创建管理镜像</h2>
 <hr>
 <p>Docker 强大的威力在于可以把自己开发的应用随同各种依赖环境一起打包、分发、运行。要创建一个新的 Docker 镜像，通常基于一个已有的 Docker 镜像来创建。
 Docker 提供了两种方式来创建镜像：</p>
@@ -334,7 +334,7 @@ Docker 提供了两种方式来创建镜像：</p>
 <li>把容器创建为一个新的镜像</li>
 <li>使用 Dockerfile 创建镜像。</li>
 </ol>
-<h3 id="heading-5">将容器创建为镜像</h3>
+<h3 id="将容器创建为镜像">将容器创建为镜像</h3>
 <hr>
 <ol>
 <li>为了创建一个新的镜像，我们先创建一个新的容器作为基底：</li>
@@ -371,7 +371,7 @@ Docker 提供了两种方式来创建镜像：</p>
 </code></pre>
 <h3 id="dockerfile">Dockerfile</h3>
 <hr>
-<h4 id="dockerfile-1">通过<code>Dockerfile</code>创建镜像</h4>
+<h4 id="通过dockerfile创建镜像">通过<code>Dockerfile</code>创建镜像</h4>
 <pre><code class="language-ruby">docker build yourDir/Dockerfile
 </code></pre>
 <blockquote>
@@ -441,7 +441,7 @@ Dockerfile 非常简单，仅有以下命令在 Dockerfile 中常被使用：</p
 </tr>
 </tbody>
 </table>
-<h4 id="dockerfile-2">配置Dockerfile</h4>
+<h4 id="配置dockerfile">配置Dockerfile</h4>
 <hr>
 <p>下面是一个 Dockerfile 的例子：</p>
 <pre><code class="language-ruby"># This is a comment
@@ -450,13 +450,13 @@ MAINTAINER Kate Smith &lt;ksmith@example.com&gt;
 RUN apt-get update &amp;&amp; apt-get install -y ruby ruby-dev
 RUN gem install sinatra
 </code></pre>
-<h5 id="cmd"><code>CMD</code>命令</h5>
+<h5 id="cmd命令"><code>CMD</code>命令</h5>
 <hr>
 <p><code>CMD</code>: 命令可用指定 Docker 容器启动时默认的命令</p>
 <pre><code>docker run -it ubuntu:latest sh -c '/bin/bash'
 </code></pre>
 <p>其中 <code>sh -c '/bin/bash'</code> 就是手工指定的<code>CMD</code>,否则容器将会使用默认 <code>CMD</code> 指定的命令启动。</p>
-<h5 id="entrypoint"><code>ENTRYPOINT</code>命令</h5>
+<h5 id="entrypoint命令"><code>ENTRYPOINT</code>命令</h5>
 <hr>
 <p>用来指定可执行文件、Shell 脚本，同时会并把启动参数或 CMD 指定的默认值，当作附加参数传递给 执行文件、Shell 脚本。</p>
 <pre><code class="language-ruby">ENTRYPOINT ['/usr/bin/mysql']
@@ -467,7 +467,7 @@ CMD ['-h 192.168.100.128', '-p']
 <a href="https://github.com/starlight36/SimpleOA/blob/master/Dockerfile">https://github.com/starlight36/SimpleOA/blob/master/Dockerfile</a>
 <a href="https://github.com/starlight36/SimpleOA/blob/master/docker-entrypoint.sh">https://github.com/starlight36/SimpleOA/blob/master/docker-entrypoint.sh</a>
 在准备好 Dockerfile 之后，我们就可以创建镜像了：</p>
-<h4 id="heading-6">创建镜像</h4>
+<h4 id="创建镜像">创建镜像</h4>
 <pre><code class="language-ruby">docker build -t starlight36/simpleoa .
 </code></pre>
 

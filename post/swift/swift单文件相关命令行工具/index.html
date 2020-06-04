@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/swift%E5%8D%95%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
@@ -180,15 +180,15 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#-swift-">直接用 swift 命令执行</a></li>
+    <li><a href="#直接用-swift-命令执行">直接用 swift 命令执行</a></li>
     <li><a href="#swiftc">swiftc</a></li>
-    <li><a href="#swiftc--glldb">swiftc -g支持lldb调试</a></li>
+    <li><a href="#swiftc--g支持lldb调试"><code>swiftc -g</code>支持lldb调试</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="-swift-">直接用 swift 命令执行</h2>
+      <h2 id="直接用-swift-命令执行">直接用 swift 命令执行</h2>
 <p><code>xcrun swift</code>可以直接将一个 <code>.swift</code>文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 <code>.swift</code> 文件最上面加上命令行工具的路径，然后将文件权限改为可执行，之后就可以直接执行这个 .swift 文件了：</p>
 <ol>
 <li>hello.swift</li>
@@ -236,7 +236,7 @@ object.hello()
 <pre><code class="language-sh">swiftc -O hello.swift &gt; hello.asm
 </code></pre>
 <p>Swift 的命令行工具还有不少强大的功能，对此感兴趣的读者不妨使用 <code>xcrun swift --help</code> 以及 <code>xcrun swiftc --help</code> 来查看具体还有哪些参数可以使用。</p>
-<h2 id="swiftc--glldb"><code>swiftc -g</code>支持lldb调试</h2>
+<h2 id="swiftc--g支持lldb调试"><code>swiftc -g</code>支持lldb调试</h2>
 
     </div>
 

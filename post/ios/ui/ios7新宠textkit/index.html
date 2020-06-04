@@ -28,7 +28,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" />
@@ -210,8 +210,8 @@ autocomplete('#aa-search-input',
     <nav id="TableOfContents">
   <ul>
     <li><a href="#text-kit">Text Kit</a></li>
-    <li><a href="#text-kit4">Text Kit中4个重要的角色</a></li>
-    <li><a href="#text-kit-1">Text Kit示例</a></li>
+    <li><a href="#text-kit中4个重要的角色">Text Kit中4个重要的角色</a></li>
+    <li><a href="#text-kit示例">Text Kit示例</a></li>
   </ul>
 </nav>
   </div>
@@ -226,7 +226,7 @@ autocomplete('#aa-search-input',
 <p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br>
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br>
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：</p>
-<h2 id="text-kit4">Text Kit中4个重要的角色</h2>
+<h2 id="text-kit中4个重要的角色">Text Kit中4个重要的角色</h2>
 <ul>
 <li>
 <ul>
@@ -254,7 +254,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 </ul>
 </li>
 </ul>
-<h2 id="text-kit-1">Text Kit示例</h2>
+<h2 id="text-kit示例">Text Kit示例</h2>
 <ol>
 <li>打开Xcode 5，新建一个Single View Application模板的程序，将工程命名为ExclusionPath。</li>
 <li>打开Main.storyboard文件，然后再默认View Controller的View里面分别添加一个UITextView和UIImageView。并将这两个控件连接到ViewController.h中(名称分别为textView何imageView)。然后给textView设置一些字符串，imageView设置一个图片。</li>

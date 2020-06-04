@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AF%BC%E5%9B%BE/%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
@@ -180,10 +180,10 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">子类场景</a></li>
-    <li><a href="#heading-1">子类的场景替代方案</a></li>
-    <li><a href="#viper">简明架构：VIPER模式：单一职责，</a></li>
-    <li><a href="#--">基于用例的应用设计  待办事项清单示例</a></li>
+    <li><a href="#子类场景">子类场景</a></li>
+    <li><a href="#子类的场景替代方案">子类的场景替代方案</a></li>
+    <li><a href="#简明架构viper模式单一职责">简明架构：VIPER模式：单一职责，</a></li>
+    <li><a href="#基于用例的应用设计--待办事项清单示例">基于用例的应用设计  待办事项清单示例</a></li>
   </ul>
 </nav>
   </div>
@@ -199,7 +199,7 @@ ISP接口分离原则：模块间的功能通过抽象接口隔离</p>
 <p>封装：将抽象事物的特征，行为，转化为代码中的类：属性和方法即为封装，体现2.对属性和方法的访问权限的控制 私有，公有不同级别的保护。
 继承：广义上也是一种对代码的复用。继承有两种方式：实现继承和接口继承。</p>
 <p>多态：一个类实例的同一个方法，在不同情形有不同的表现形式。类似多个构造器和便利构造器，实现的功能都是初始化类实例的作用</p>
-<h2 id="heading">子类场景</h2>
+<h2 id="子类场景">子类场景</h2>
 <p>优点：代码封装，重用组件</p>
 <ol>
 <li>自定义系统控件时： 如：对UITableViewCell等视图，自定义布局。</li>
@@ -207,7 +207,7 @@ ISP接口分离原则：模块间的功能通过抽象接口隔离</p>
 实现：创建一个基类，创建iPhone子类／iPad子类来继承重写特性方法。</li>
 <li>子类化模型对象，继承isEqual:,hash,copyWithZone:和description等方法，参考开源框架<a href="http://southpeak.github.io/2015/01/11/sourcecode-mantle/">Mantle</a></li>
 </ol>
-<h2 id="heading-1">子类的场景替代方案</h2>
+<h2 id="子类的场景替代方案">子类的场景替代方案</h2>
 <p>深层次的集成的替代方案：</p>
 <ol>
 <li>子类使用相同的接口，协议替代，</li>
@@ -216,7 +216,7 @@ ISP接口分离原则：模块间的功能通过抽象接口隔离</p>
 <li>重写一堆相同方法子类时，使用配置对象代替</li>
 <li>当重用某些功能时，使用组合多个对象来代替，而不是扩展它们</li>
 </ol>
-<h2 id="viper">简明架构：VIPER模式：单一职责，</h2>
+<h2 id="简明架构viper模式单一职责">简明架构：VIPER模式：单一职责，</h2>
 <p>将APP逻辑结构划分为不同的责任层：
 View视图，Interactor交互器，Presenter展示器，Entity实体，Routing路由</p>
 <ol>
@@ -224,7 +224,7 @@ View视图，Interactor交互器，Presenter展示器，Entity实体，Routing�
 <li>单一职责原则：利于测试各层间边界处的交互。</li>
 <li>轻量化VC，提高可读性，维护性。</li>
 </ol>
-<h2 id="--">基于用例的应用设计  待办事项清单示例</h2>
+<h2 id="基于用例的应用设计--待办事项清单示例">基于用例的应用设计  待办事项清单示例</h2>
 <p>用例别称为验收标准，或行为集，它们用来描述应用的用途。独立于用户界面，主要针对在应用程序中的负责业务逻辑层的测试操作。
 举例：清单可以根据时间，类型以及名字排序，这就是一个用例。
 特征：足够小，良好的定义。
@@ -253,7 +253,7 @@ DTrace脚本是在内核中运行中的，需要IB工具做缓冲区，来封装
 <p>废除功能：
 run Browser浏览器功能
 UI automation功能</p>
-<h1 id="view">view属性的自动布局</h1>
+<h1 id="view属性的自动布局">view属性的自动布局</h1>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" />
@@ -180,15 +180,15 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">问题</a></li>
-    <li><a href="#spm">采用SPM来管理依赖库</a></li>
-    <li><a href="#heading-1">命令行的单元测试赏析</a></li>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#采用spm来管理依赖库">采用SPM来管理依赖库</a></li>
+    <li><a href="#命令行的单元测试赏析">命令行的单元测试赏析</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">问题</h2>
+      <h2 id="问题">问题</h2>
 <p><a href="ttps://github.com/CocoaPods/CocoaPods/issues/3707">#3707</a></p>
 <pre><code>dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
 </code></pre>
@@ -196,7 +196,7 @@ autocomplete('#aa-search-input',
 <p><a href="https://stackoverflow.com/questions/41258187/cocoapods-command-line-tool-dyld-library-not-loaded-rpath-realm-framework">Cocoapods + Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm</a>
 cocoa pods不支持<code>Command Line Tool</code>项目
 <a href="https://github.com/CocoaPods/CocoaPods/issues/3707">Command Line Tool + CocoaPods frameworks breaks</a></p>
-<h2 id="spm">采用SPM来管理依赖库</h2>
+<h2 id="采用spm来管理依赖库">采用SPM来管理依赖库</h2>
 <ol>
 <li>使用SPM创建可执行模版</li>
 </ol>
@@ -234,7 +234,7 @@ let package = Package(
 <blockquote>
 <p>每次执行swift build ，须重新生成xcodeproj工程文件，再重新打开workspace即可。</p>
 </blockquote>
-<h2 id="heading-1">命令行的单元测试赏析</h2>
+<h2 id="命令行的单元测试赏析">命令行的单元测试赏析</h2>
 <pre><code class="language-swift">final class SPMCmdLineToolTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.

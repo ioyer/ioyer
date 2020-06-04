@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E4%BD%BF%E7%94%A8nvm%E6%88%96n%E7%AE%A1%E7%90%86node%E5%92%8Cnpm%E7%89%88%E6%9C%AC/" />
@@ -180,8 +180,8 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#nvm">nvm工具</a></li>
-    <li><a href="#node">工具包升级node</a></li>
+    <li><a href="#nvm工具">nvm工具</a></li>
+    <li><a href="#工具包升级node">工具包升级node</a></li>
   </ul>
 </nav>
   </div>
@@ -193,7 +193,7 @@ autocomplete('#aa-search-input',
 #FailureMessage Object: 0x7ffeefbf25c0[1]    22749 illegal hardware instruction  he
 </code></pre>
 <p>参考<a href="https://stackoverflow.com/questions/45623774/fatal-error-in-deps-v8-src-api-cc-line-1197-when-gulp-watch">Fatal error in ../deps/v8/src/api.cc, line 1197 when gulp watch</a>,需要降级node版本。</p>
-<h2 id="nvm">nvm工具</h2>
+<h2 id="nvm工具">nvm工具</h2>
 <p>nvm是node版本管理工具，参考<a href="https://github.com/creationix/nvm#installation">官网nvm安装指南</a></p>
 <ol>
 <li>安装</li>
@@ -221,7 +221,7 @@ npm version //查看当前目录使用的node详情，即node_modules安装时�
 <blockquote>
 <p>注意：在hexo执行，npm install 之后，hexo g 失败时，需要降级npm版本，这是无论怎么使用nvm use 来设置当前node，都无效，必须删除node_modules目录，再使用nvm use切换低版本，重新安装package.json插件才行。</p>
 </blockquote>
-<h2 id="node">工具包升级node</h2>
+<h2 id="工具包升级node">工具包升级node</h2>
 <p><a href="https://github.com/everblogjs/everblog/issues/10#issuecomment-431242848">issue-431242848</a>
 node有一个专门管理node.js的版本工具模块n
 首先安装n模块：<code>npm install -g n</code>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -180,20 +180,20 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#perfect">Perfect简介</a></li>
-    <li><a href="#http">搭建HTTP服务器</a>
+    <li><a href="#perfect简介">Perfect简介</a></li>
+    <li><a href="#搭建http服务器">搭建HTTP服务器</a>
       <ul>
-        <li><a href="#web">创建Web应用</a></li>
+        <li><a href="#创建web应用">创建Web应用</a></li>
       </ul>
     </li>
-    <li><a href="#perfect-httpserver">设置Perfect HTTPServer服务器</a>
+    <li><a href="#设置perfect-httpserver服务器">设置<strong>Perfect HTTPServer</strong>服务器</a>
       <ul>
-        <li><a href="#heading">注册路由和请求／响应句柄</a></li>
+        <li><a href="#注册路由和请求响应句柄">注册路由和请求／响应句柄</a></li>
       </ul>
     </li>
-    <li><a href="#xcode">使用Xcode调试服务器</a>
+    <li><a href="#使用xcode调试服务器">使用Xcode调试服务器</a>
       <ul>
-        <li><a href="#heading-1">递归编译设置</a></li>
+        <li><a href="#递归编译设置">递归编译设置</a></li>
       </ul>
     </li>
   </ul>
@@ -201,15 +201,15 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="perfect">Perfect简介</h2>
+      <h2 id="perfect简介">Perfect简介</h2>
 <p>{% github PerfectlySoft Perfect 60e44e4 width = 30% %}
 目前比较流行服务端框架主要有<code>Vapor</code>、<code>Perfect</code>、<code>Kitura</code>和<code>Zewo</code>，他们各有长短，本人这次主要是使用<code>Perfect</code>来写的，因为<code>Perfect</code>的功能比较完善，在GitHub上具有1W+的星，而且有一个非常重要的原因提供了<a href="https://github.com/PerfectlySoft/PerfectDocs/blob/master/README.zh_CN.md">Perfect 中文文档</a>。</p>
 <p><strong>Perfect</strong> 包括了您所期待的所有基本功能，包括<code>路由</code>、<code>websockets</code> 基于 HTTP 的网络套接字、<code>TLS</code>（SSL）通信加密、<code>Mustache</code> 模板和 <code>Markdown</code> 模板、<code>JSON</code> 结构化数据等等，以及全部其他所有 Swift 后台框架加在一起才有的 XML 结构化数据、苹果推送消息 <code>APNS</code>、<code>MqTT</code> 消息队列和 <code>SMTP</code> 邮件发送，甚至大数据也支持。Perfect 的数据库支持非常广泛，其<strong>原生SQL驱动</strong>包括 <code>MySQL</code>、<code>SQLite</code>、<code>PostgreSQL</code> 和 <code>MariaDB</code>，还支持 <code>MongoDB</code>、<code>Redis</code>、<code>CouchDB</code> 甚至还包括 <code>FileMaker</code>（苹果自己的数据库 Swift 都不支持，Perfect 反过来支持——译者注）。<strong>Perfect</strong> 据说还部分支持微软的 <code>ODBC</code>，即多种数据库的底层兼容界面——有点像 <code>ORM</code>，但是以 C 函数库为基础。提到 <code>ORM</code> 数据库对象关系自动化管理，<strong>Perfect</strong>有 <code>StORM</code> 并完整实现了 <code>PostgreSQL</code>、<code>MySQL</code>、<code>CouchDB</code> 和 <code>SQLite</code>。</p>
 <p><a href="https://github.com/PerfectlySoft/PerfectDocGenerator">Perfect文档生成器</a></p>
-<h2 id="http">搭建HTTP服务器</h2>
+<h2 id="搭建http服务器">搭建HTTP服务器</h2>
 <p>{% github it-boyer PerfectTemplate 20294e56 width = 30% %}
 本章将引导您使用Swift和Perfect软件框架逐步设置一个简单的HTTP服务器。</p>
-<h3 id="web">创建Web应用</h3>
+<h3 id="创建web应用">创建Web应用</h3>
 <p><a href="https://github.com/PerfectlySoft/PerfectDocs/blob/master/guide/gettingStartedFromScratch.md">原文</a></p>
 <ol>
 <li>新建一个文件夹保存项目文件：</li>
@@ -267,8 +267,8 @@ echo 'print(&quot;您好！&quot;)' &gt;&gt; Sources/iPerfect/main.swift
 <p>成功之后，会打印：</p>
 <pre><code>你好！！！
 </code></pre>
-<h2 id="perfect-httpserver">设置<strong>Perfect HTTPServer</strong>服务器</h2>
-<h3 id="heading">注册路由和请求／响应句柄</h3>
+<h2 id="设置perfect-httpserver服务器">设置<strong>Perfect HTTPServer</strong>服务器</h2>
+<h3 id="注册路由和请求响应句柄">注册路由和请求／响应句柄</h3>
 <p>打开<code>Sources/iPerfect/main.swift</code>文件，把内容替换为以下程序：</p>
 <pre><code class="language-swift">import PerfectHTTP
 import PerfectHTTPServer
@@ -300,12 +300,12 @@ $ .build/debug/iPerfect
 </code></pre>
 <p>在浏览器上打开<code>http://127.0.0.1:8181/</code>
 终止服务器：在终端控制台上用组合键<code>control-c</code>可以随时停止服务器。</p>
-<h2 id="xcode">使用Xcode调试服务器</h2>
+<h2 id="使用xcode调试服务器">使用Xcode调试服务器</h2>
 <p>生成<strong>iPerfect.xcodeproj</strong>
 Swift软件包管理器（SPM）能够为您的项目<code>iPerfect</code>生成Xcode工程：</p>
 <pre><code>swift package generate-xcodeproj
 </code></pre>
-<h3 id="heading-1">递归编译设置</h3>
+<h3 id="递归编译设置">递归编译设置</h3>
 <ol>
 <li>设置递归编译项目目录中的所有<code>target</code>
 打开<code>iPerfect.xcodeproj</code>，在检索项目软件库<code>Library Search Paths</code>字典中新增路径：<code>$(PROJECT_DIR)</code> ，路径属性修改为<code>recursive</code>。

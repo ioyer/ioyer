@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/" />
@@ -180,15 +180,15 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#linux-">Linux 编译事项</a></li>
-    <li><a href="#macos-">MacOS 编译事项</a></li>
-    <li><a href="#heading">快速上手</a>
+    <li><a href="#linux-编译事项">Linux 编译事项</a></li>
+    <li><a href="#macos-编译事项">MacOS 编译事项</a></li>
+    <li><a href="#快速上手">快速上手</a>
       <ul>
-        <li><a href="#python">导入Python函数库模块</a></li>
-        <li><a href="#python-1">访问Python变量</a></li>
-        <li><a href="#python-2">执行Python函数</a></li>
-        <li><a href="#python-3">Python类对象</a></li>
-        <li><a href="#heading-1">回调函数</a></li>
+        <li><a href="#导入python函数库模块">导入Python函数库模块</a></li>
+        <li><a href="#访问python变量">访问Python变量</a></li>
+        <li><a href="#执行python函数">执行Python函数</a></li>
+        <li><a href="#python类对象">Python类对象</a></li>
+        <li><a href="#回调函数">回调函数</a></li>
       </ul>
     </li>
   </ul>
@@ -202,13 +202,13 @@ autocomplete('#aa-search-input',
 <p>本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。</p>
 <p>本项目采用Swift Package Manager 软件包管理器编译，是<a href="https://github.com/PerfectlySoft/Perfect">Perfect</a> 项目的一部分，但是也可以独立运行</p>
 <p>在使用之前请准备好最新的Swift 4.1.2 工具链</p>
-<h2 id="linux-">Linux 编译事项</h2>
+<h2 id="linux-编译事项">Linux 编译事项</h2>
 <p>首先请确保 libpython2.7-dev 已经在 Ubuntu 16.04 上正确安装：</p>
 <pre><code>$ sudo apt-get install libpython2.7-dev
 </code></pre>
-<h2 id="macos-">MacOS 编译事项</h2>
+<h2 id="macos-编译事项">MacOS 编译事项</h2>
 <p>请确定 Xcode 9.0 以上版本已经正确安装</p>
-<h2 id="heading">快速上手</h2>
+<h2 id="快速上手">快速上手</h2>
 <p>首先在Package.swift中增加依存关系：</p>
 <pre><code class="language-swift">.package(url: &quot;https://github.com/PerfectlySoft/Perfect-Python.git&quot;, 
 from: &quot;3.2.0&quot;)
@@ -225,11 +225,11 @@ import PerfectPython
 <p>请注意在任何程序调用之前，必须调用<code>Py_Initialize()</code>函数初始化python嵌入环境：</p>
 <pre><code class="language-swift">Py_Initialize()
 </code></pre>
-<h3 id="python">导入Python函数库模块</h3>
+<h3 id="导入python函数库模块">导入Python函数库模块</h3>
 <p>使用 <code>PyObj</code> 类对象用于导入python模块。下列参考范例中，一个名为<code>/tmp/clstest.py</code>的脚本被动态导入到当前Swift运行环境：</p>
 <pre><code class="language-swift">let pymod = try PyObj(path: &quot;/tmp&quot;, import: &quot;clstest&quot;)
 </code></pre>
-<h3 id="python-1">访问Python变量</h3>
+<h3 id="访问python变量">访问Python变量</h3>
 <p>导入模块后，您可以使用<code>PyObj.load()</code>函数加载任何一个变量；也可以反过来用 <code>PyObj.save()</code>命令保存当前变量为一个新的值。</p>
 <p>比如，以下python脚本中有个叫做 <code>stringVar</code> 的字符串变量：</p>
 <pre><code class="language-python">stringVar = 'Hello, world'
@@ -282,7 +282,7 @@ print(str)
 </table>
 <p>比如，您可以把一个字符串 <code>String</code> 转换为 <code>PyObj</code>，通过 <code>let pystr = &quot;Hello&quot;.python()</code> 或者 <code>let pystr = try PyObj(value:&quot;Hello&quot;)</code> 完成转换。</p>
 <p>反过来，如果要把 <code>PyObj</code> 类转换为Swift数据类型，比如字符串，则仍然有两种方法：<code>let str = pystr.value as? String</code> 和 <code>let str = String(python: pystr)</code>。</p>
-<h3 id="python-2">执行Python函数</h3>
+<h3 id="执行python函数">执行Python函数</h3>
 <p>方法 <code>PyObj.call()</code> 用于带参数执行某个python函数。以如下python脚本为例：</p>
 <pre><code class="language-python">def mymul(num1, num2):
 return num1 * num2
@@ -293,7 +293,7 @@ print(res)
 // 结果为 6
 }
 </code></pre>
-<h3 id="python-3">Python类对象</h3>
+<h3 id="python类对象">Python类对象</h3>
 <p>请同样使用 <code>PyObj.load()</code> 函数用于家在Python类对象，但是注意后面一定要紧跟一个<code>PyObj.construct()</code> 用于初始化类对象实例。该方法同样支持用一个任意类型的数组作为参数进行对象构造。</p>
 <p>假设如下脚本的典型python类对象 <code>Person</code>，该类有两个属性姓名<code>name</code> 和年龄<code>age</code>，还有一个名为“自我介绍”的类对象方法<code>intro()</code>:</p>
 <pre><code class="language-python">class Person:
@@ -317,7 +317,7 @@ let intro = person.call(&quot;intro&quot;, args: [])?.value as? String {
 print(name, age, intro)
 }
 </code></pre>
-<h3 id="heading-1">回调函数</h3>
+<h3 id="回调函数">回调函数</h3>
 <p>参考以下python代码，此时如果执行 <code>x = caller('Hello', callback)</code> 则可以将函数作为参数进行回调:</p>
 <pre><code class="language-python">def callback(msg):
 return 'callback: ' + msg

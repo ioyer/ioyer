@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
@@ -181,18 +181,18 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">性能提高以及被遗弃的功能</a>
+    <li><a href="#性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</a>
       <ul>
-        <li><a href="#uiapplicationuserdidtakescreenshotnotification">新增截屏通知:UIApplicationUserDidTakeScreenshotNotification</a></li>
-        <li><a href="#-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</a></li>
-        <li><a href="#--instancetype">新增返回类型 – instancetype</a></li>
-        <li><a href="#uiscrollviewuiscrollviewkeyboarddismissmode">UIScrollView新增属性：UIScrollViewKeyboardDismissMode</a></li>
-        <li><a href="#uikitnsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring-classhtmltextkithttp">UIKit使用[NSAttributedString](()显示HTML，TextKit</a></li>
-        <li><a href="#tint-images-with-uiimagerenderingmode">Tint images with UIImage.renderingMode</a></li>
+        <li><a href="#新增截屏通知uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></a></li>
+        <li><a href="#新增手势-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</a></li>
+        <li><a href="#新增返回类型--instancetype">新增返回类型 – <code>instancetype</code></a></li>
+        <li><a href="#uiscrollview新增属性uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></a></li>
+        <li><a href="#uikit使用nsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring_class显示htmltextkithttp">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>)显示HTML，<a href="http://">TextKit</a></a></li>
+        <li><a href="#tint-images-with-uiimagerenderingmode">Tint images with <code>UIImage.renderingMode</code></a></li>
         <li><a href="#usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</a></li>
         <li><a href="#check-which-wireless-routes-are-available">Check which wireless routes are available</a></li>
-        <li><a href="#-nsarray-firstobject">-[NSArray firstObject]的实现</a></li>
-        <li><a href="#uibuttontyperoundrectuibuttontypesystem">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a></li>
+        <li><a href="#-nsarray-firstobject的实现"><code>-[NSArray firstObject]</code>的实现</a></li>
+        <li><a href="#uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a></li>
       </ul>
     </li>
   </ul>
@@ -200,8 +200,8 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">性能提高以及被遗弃的功能</h2>
-<h3 id="uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></h3>
+      <h2 id="性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</h2>
+<h3 id="新增截屏通知uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></h3>
 <p>在IOS 7之前，开发者使用了一种**<a href="http://dlj.bz/XflV">很赞的方法</a>**，来**拦截**截屏事件的.<br>
 比如，Snapchat的实现原理: 用户通过**Snapchat**发送的照片将会在数秒内自动被删除，而且在浏览照片时，必须将手指按在屏幕上，否则会立即关闭。然而，在 iOS 6 中，<!-- raw HTML omitted -->**截屏将打断触控操作**<!-- raw HTML omitted -->，开发者就利用这个功能点，在恰当时机捕捉到了截屏事件。</p>
 <p>在iOS 7中，专门为<!-- raw HTML omitted --><strong>截屏完成后</strong><!-- raw HTML omitted -->提供了一个通知:
@@ -215,7 +215,7 @@ autocomplete('#aa-search-input',
 <p>Note:<br>
 1.This notification is posted after the screenshot is taken.
 2.This notification does not contain a userInfo dictionary.</p>
-<h3 id="-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</h3>
+<h3 id="新增手势-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</h3>
 <p><code>UIScreenEdgePanGestureRecognizer</code> inherits from <code>UIPanGestureRecognizer</code> and lets you <strong>detect gestures starting near the edge of the screen</strong>.
 Using this new gesture recognizer is quite simple, as shown below:</p>
 <pre><code class="language-objc">	UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] 
@@ -226,7 +226,7 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 	[self.view addGestureRecognizer:recognizer];
 </code></pre>
 <!-- raw HTML omitted -->
-<h3 id="--instancetype">新增返回类型 – <code>instancetype</code></h3>
+<h3 id="新增返回类型--instancetype">新增返回类型 – <code>instancetype</code></h3>
 <p>苹果改变了大部分 initializer和简易构造函数（convenience constructors），<code>instancetype</code>可以代替<code>id</code>作返回类型。</p>
 <pre><code>   instancetype 作用：
         1.作为从Objective-C方法的返回类型。
@@ -263,7 +263,7 @@ NSLog(@&quot;%i&quot;, d.count);
 <p>w00t — now that’s helpful! You now have the opportunity to fix the problem before it turns into a crash later down the line.</p>
 <p>Initializers are also candidates for using this new return type. The compiler has warned you for some time now if you set the return type of an initializer to that of an incompatible type. But presumably it’s just implicitly converting the id return type to instancetype under the hood. You should still use instancetype for initializers though, because it’s better to be explicit for habit’s sake.</p>
 <p>Strive to use instancetype as much as possible going forward; it’s become a standard for Apple — and you never know when it will save you some painful debugging time later on.</p>
-<h3 id="uiscrollviewuiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></h3>
+<h3 id="uiscrollview新增属性uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></h3>
 <p>像Messages app一样在滚动的时候，将键盘隐藏，是一种非常好的体验。<br>
 在以前，将这项功能整合到app很难，现在仅仅只需要在Storyboard中简单的改变一个属性值，或者增加一行代码即可。</p>
 <p>这个属性使用了新的<code>UIScrollViewKeyboardDismissMode</code> enum枚举类型。这个enum枚举类型可能的值如下：</p>
@@ -276,7 +276,7 @@ NSLog(@&quot;%i&quot;, d.count);
 </code></pre>
 <p>在storyboard中设置该属性值:<br>
 <img src="/images/UIScrollViewKeyboardDismissMode.png" alt="UIScrollViewKeyboardDismissMode"></p>
-<h3 id="uikitnsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring-classhtmltextkithttp">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>)显示HTML，<a href="http://">TextKit</a></h3>
+<h3 id="uikit使用nsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring_class显示htmltextkithttp">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>)显示HTML，<a href="http://">TextKit</a></h3>
 <p>在app中使用Webviews有时会让人非常沮丧，即使只是显示少量的HTML内容 ,Webviews也会消耗大量的内存。
 现在提供了一种全新的简单易用的方式来展示HTML内容，适用于任意的<code>UIKit</code>控件，如<code>UILabel</code>或<code>UITextField</code>等。<br>
 1.用少量HTML片段，初始化<code>NSAttributedString</code>对象:</p>
@@ -375,7 +375,7 @@ The following two new properties and notifications have been added to MPVolumeVi
   NSString *const MPVolumeViewWirelessRoutesAvailableDidChangeNotification;
 	NSString *const MPVolumeViewWirelessRouteActiveDidChangeNotification;
 </code></pre>
-<h3 id="-nsarray-firstobject"><code>-[NSArray firstObject]</code>的实现</h3>
+<h3 id="-nsarray-firstobject的实现"><code>-[NSArray firstObject]</code>的实现</h3>
 <p><code>-[NSArray firstObject]</code>可能是Objective-C中被调用做多的API。 在iOS4.0中<code>firstObject</code>已经被使用，但是那时仅仅是一个私有方法。在iOS7以前，常用方法：</p>
 <pre><code class="language-objc">	NSArray *arr = @[]; 
 	id item = [arr firstObject]; 
@@ -384,12 +384,12 @@ The following two new properties and notifications have been added to MPVolumeVi
 </code></pre>
 <p>因为上面的方式很常用，一般创建一个类别实现该方法<code>firstObject</code>增加到NSArray中。</p>
 <p>这个方法的问题:<code>方法名</code>必须是唯一的，否则,这个方法所引发的问题无法预估。所以在<code>NSArray</code>中最好不要重载<code>firstObject</code>方法，是有风险的。</p>
-<h3 id="uibuttontyperoundrectuibuttontypesystem">UIButtonTypeRoundRect被UIButtonTypeSystem取代</h3>
+<h3 id="uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</h3>
 <p><img src="http://cdn1.raywenderlich.com/wp-content/uploads/2010/05/Rate.jpg" alt="alt text" title="UIButtonTypeRoundRect被UIButtonTypeSystem取代"></p>
-<h4 id="uipasteboard"><code>UIPasteboard</code>由共享变为沙盒化了</h4>
+<h4 id="uipasteboard由共享变为沙盒化了"><code>UIPasteboard</code>由共享变为沙盒化了</h4>
 <p>UIPasteboard过去是用来做app之间的数据分享的。开发者一般使用它来存储标识符，比如:OpenUDID。<br>
 但在在iOS7中，使用 <code>+[UIPasteboard pasteboardWithName:create:]</code>和 <code>+[UIPasteboard pasteboardWithUniqueName]</code>创建剪贴板，而且只对相同的app group可见，这样再和其他的相关app分享以前的OpenUDID等标识符时，就会出现问题。</p>
-<h4 id="mac"><code>MAC地址</code>:被统一化</h4>
+<h4 id="mac地址被统一化"><code>MAC地址</code>:被统一化</h4>
 <p>在IOS7之前，生成iOS设备唯一标示符的方法是使用iOS设备的Media Access Control（MAC）地址。 一个MAC地址是一个唯一的号码，它是物理网络层级方面分配给网络适配器的。
 然而，苹果并不希望有人通过MAC地址来分辨用户，在iOS7以上，查询MAC地址，它现在只会返回02:00:00:00:00:00。<br>
 目前，苹果推荐开发者使用以下两种方式，来获取作为框架和应用的唯一标示符：</p>
@@ -398,7 +398,7 @@ The following two new properties and notifications have been added to MPVolumeVi
 </code></pre>
 <p><code>identifierForVendor</code>：由同一个公司发行的的app在相同的设备上运行的时候都会有这个相同的标识符。然而，如果用户删除了这个供应商的app然后再重新安装的话，这个标识符就会不一致。
 <code>advertisingIdentifier</code>：返回给在这个设备上所有软件供应商公用的唯一值，所以只能在广告的时候使用。这个值会因为很多情况而有所变化，比如说用户初始化设备的时候便会改变。</p>
-<h4 id="app">app启动麦克风，需争征得用户同意</h4>
+<h4 id="app启动麦克风需争征得用户同意">app启动麦克风，需争征得用户同意</h4>
 <p>以前如果app需要使用用户的位置，通讯录，日历，提醒以及照片，接受推送消息，使用用户的社交网络的时候需要征得用户的同意。
 现在在iOS7当中，使用麦克风也需要取得用户同意了。如果用户不允许app使用麦克风的话，那么需要使用麦克风的app就不能接收不到任何声音。
 以下的代码是用来查询用户是否允许app使用麦克风：</p>

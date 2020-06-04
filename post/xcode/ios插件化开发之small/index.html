@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
@@ -182,12 +182,12 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#ios">基于iOS组件化基础</a></li>
-        <li><a href="#smalll">使用Small模版新建l项目</a></li>
-        <li><a href="#heading">解读插件路由配置</a></li>
-        <li><a href="#heading-2">插件命名规则和入口设置</a></li>
-        <li><a href="#heading-3">集成插件到主工程</a></li>
-        <li><a href="#smalldemo">small的两种开发模式的demo</a></li>
+        <li><a href="#基于ios组件化基础">基于iOS组件化基础</a></li>
+        <li><a href="#使用small模版新建l项目">使用Small模版新建l项目</a></li>
+        <li><a href="#解读插件路由配置">解读插件路由配置</a></li>
+        <li><a href="#插件命名规则和入口设置">插件命名规则和入口设置</a></li>
+        <li><a href="#集成插件到主工程">集成插件到主工程</a></li>
+        <li><a href="#small的两种开发模式的demo">small的两种开发模式的demo</a></li>
       </ul>
     </li>
   </ul>
@@ -199,7 +199,7 @@ autocomplete('#aa-search-input',
 <p><a href="http://code.wequick.net/Small/cn/home">官网</a>
 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团内部的应用引擎模块化方案中，本篇博文主要讲述本人基于small在iOS平台实现的定制化APP方案（运营自由配置、自由组合、自动打包）~
 <a href="http://code.wequick.net/Small/cn/feature">特性与功能</a></p>
-<h3 id="ios">基于iOS组件化基础</h3>
+<h3 id="基于ios组件化基础">基于iOS组件化基础</h3>
 <p>iOS组件化基于<a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/Framework.html#//apple_ref/doc/uid/TP40008195-CH56-SW1">Cocoa Touch Framework</a>（以下简称CTF）通过<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/index.html#//apple_ref/occ/cl/NSBundle">NSBundle</a>实现。</p>
 <ul>
 <li>CTF首次公开在WWDC2014，要求Xcode6 beta以上版本。</li>
@@ -208,7 +208,7 @@ small是android与iOS平台比较出名的轻巧的跨平台插件化框架，�
 受苹果官方限制，如果你的CTF没有签名，将无法实现代码级别更新。</li>
 </ul>
 <p>Framework 模式无法上传到App Store。只能应用到企业版</p>
-<h3 id="smalll">使用Small模版新建l项目</h3>
+<h3 id="使用small模版新建l项目">使用Small模版新建l项目</h3>
 <p>Small提供了<code>Small-pods</code>模版，安装Xcode模版创建空白的Small项目。</p>
 <ol>
 <li><strong>安装Xcode模板</strong></li>
@@ -253,7 +253,7 @@ end
 pod install --no-repo-update
 open *.xcworkspace
 </code></pre>
-<h3 id="heading">解读插件路由配置</h3>
+<h3 id="解读插件路由配置">解读插件路由配置</h3>
 <p><a href="http://code.wequick.net/Small/cn/router">插件路由</a>:为了方便插件之间的跨平台调用，Small 提供了 <code>bundle.json</code> 来完成插件路由。
 bundle.json路由配置包括<code>version</code>:指定插件的版本号，<code>bundles</code>:插件注册的清单数组，其中插件清单的每个插件四个属性，来确定加载组件的方式：
 <code>uri</code>：指定加载插件的跟路径</p>
@@ -294,7 +294,7 @@ Small.openUri(&quot;fixurl&quot;, from: self)
 + (UIViewController *)controllerForUri:(NSString *)uri;
 + (UIViewController *)controllerForURL:(NSURL *)url;
 </code></pre>
-<h4 id="storyboard">支持Storyboard作为启动页的解析</h4>
+<h4 id="支持storyboard作为启动页的解析">支持Storyboard作为启动页的解析</h4>
 <p>根据<code>SMBundle</code>路由配置信息，通过<code>SMAppBundleLauncher</code>的实例方法<code>_controllerForBundle:</code>加载Framework，支持storyboard加载。</p>
 <ol>
 <li>路由<code>rules</code>字典</li>
@@ -344,7 +344,7 @@ if (bundle.queryParams != nil) {
     [controller setValuesForKeysWithDictionary:bundle.queryParams];
 }
 </code></pre>
-<h4 id="heading-1">参数传递</h4>
+<h4 id="参数传递">参数传递</h4>
 <p>使用 <a href="https://en.wikipedia.org/wiki/Query_string">Query标准</a>来传递参数，即在 <code>uri</code> 之后加上 <code>?</code> 再带上键值对，多个键值对用<code>&amp;</code> 来分开。</p>
 <ol>
 <li>传值方式  <code>detail?id=1000&amp;title=test</code>。</li>
@@ -367,7 +367,7 @@ if (bundle.queryParams != nil) {
     [controller setValuesForKeysWithDictionary:bundle.queryParams];
 }
 </code></pre>
-<h3 id="heading-2">插件命名规则和入口设置</h3>
+<h3 id="插件命名规则和入口设置">插件命名规则和入口设置</h3>
 <p>路由配置对插件包的命名有严格要求，<code>SMBundle</code>主要通过<code>pkg</code>名称包含<code>.app.</code>(模块库)/<code>.lib.</code>(工具库)来定位插件包的，否则全部默认加载bundle包。
 <strong>模块命名规范</strong></p>
 <ul>
@@ -410,7 +410,7 @@ bundleName = [bundleName stringByAppendingFormat:@&quot;.%@&quot;, bundleSuffix]
 <blockquote>
 <p><strong>bundle.json</strong>中配置的入口，优先于<code>info.plist</code>中的<code>Principal class</code>的入口。</p>
 </blockquote>
-<h3 id="heading-3">集成插件到主工程</h3>
+<h3 id="集成插件到主工程">集成插件到主工程</h3>
 <ol>
 <li><strong>插件集成</strong>
 就是将<code>framework</code>添加到主工程，不能以Linked方式进行添加，使用<code>Build Phases</code>中的<code>Copy Bundle Resources</code> 选项，将<code>framework</code>拖动添加其中即可，这样可以完成对<code>framework</code>编译完后的拷贝.</li>
@@ -449,7 +449,7 @@ for (NSString *aBundlePath in bundlePaths) {
 <img src="https://img-blog.csdn.net/20160718094828722?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
 <img src="https://img-blog.csdn.net/20160718094836316?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></li>
 </ol>
-<h3 id="smalldemo">small的两种开发模式的demo</h3>
+<h3 id="small的两种开发模式的demo">small的两种开发模式的demo</h3>
 <ol>
 <li>使用者模式
 使用场景：作为第三方集成到自己的项目，包含两个特殊的文件<code>podfile</code>和<code>Small-subprojects.rb</code>安装脚本文件。

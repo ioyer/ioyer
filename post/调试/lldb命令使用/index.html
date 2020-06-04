@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" />
@@ -183,8 +183,8 @@ autocomplete('#aa-search-input',
     <li>
       <ul>
         <li><a href="#help">help</a></li>
-        <li><a href="#heading">打印变量</a></li>
-        <li><a href="#heading-1">完全在调试器内运行</a></li>
+        <li><a href="#打印变量">打印变量</a></li>
+        <li><a href="#完全在调试器内运行">完全在调试器内运行</a></li>
       </ul>
     </li>
   </ul>
@@ -196,7 +196,7 @@ autocomplete('#aa-search-input',
 <p>{% github it-boyer  width = 30% %}</p>
 <h3 id="help">help</h3>
 <p>最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help <!-- raw HTML omitted --> 来了解更多细节，例如 help print 或者 help thread。如果你甚至忘记了 help 命令是做什么的，你可以试试 help help。不过你如果知道这么做，那就说明你大概还没有忘光这个命令。</p>
-<h3 id="heading">打印变量</h3>
+<h3 id="打印变量">打印变量</h3>
 <p>可以给 print 指定不同的打印格式。它们都是以 <code>print/&lt;fmt&gt;</code> 或者简化的 <code>p/&lt;fmt&gt;</code> 格式书写。
 下面是一些例子：
 默认的格式:</p>
@@ -215,7 +215,7 @@ autocomplete('#aa-search-input',
 </code></pre>
 <p>你也可以使用 <code>p/c</code> 打印字符，或者 <code>p/s</code> 打印以空终止的字符串 (译者注：以 &lsquo;\0&rsquo; 结尾的字符串)。
 <a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html">这里</a>是格式的完整清单。</p>
-<h3 id="heading-1">完全在调试器内运行</h3>
+<h3 id="完全在调试器内运行">完全在调试器内运行</h3>
 <p>在开始舞蹈之前，还有一件事要看一看。实际上你可以在调试器中执行任何 <code>C/Objective-C/C++/Swift</code> 的命令。唯一的缺点就是不能创建新函数&hellip; 这意味着不能创建新的类，block，函数，有虚拟函数的 C++ 类等等。除此之外，它都可以做。</p>
 
     </div>

@@ -17,7 +17,7 @@
       <pubDate>Thu, 03 Jul 2014 17:29:00 +0800</pubDate>
       
       <guid>https://it-boyer.github.io/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;便笺练习功能点:&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;便笺练习功能点&#34;&gt;便笺练习功能点:&lt;/h2&gt;
 &lt;p&gt;通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;动态样式（Dynamic type）&lt;/li&gt;
@@ -30,7 +30,7 @@
 &lt;img src=&#34;https://it-boyer.github.io/images/bianqian.png&#34; alt=&#34;image&#34;&gt;&lt;br&gt;
 App开始运行后自动生成一组便笺实例并利用&lt;code&gt;tableViewController&lt;/code&gt;显示出来。&lt;code&gt;Storyboards&lt;/code&gt;和&lt;code&gt;segues&lt;/code&gt;会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：&lt;a href=&#34;http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip&#34;&gt;Notepad.zip&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;heading-1&#34;&gt;动态样式&lt;/h2&gt;
+&lt;h2 id=&#34;动态样式&#34;&gt;动态样式&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;动态样式（Dynamic type）&lt;/code&gt;是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 &lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt; 或 &lt;strong&gt;通用-&amp;gt;辅助功能&lt;/strong&gt; 来查看app中的字体设置。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://it-boyer.github.io/images/UserTextPreferences.png&#34; alt=&#34;image&#34;&gt;&lt;br&gt;
@@ -39,9 +39,9 @@ iOS 7 支持通过&lt;code&gt;粗体&lt;/code&gt;、&lt;code&gt;设置字体大�
 下面表格中是六种可用字体样式的示例：&lt;br&gt;
 &lt;img src=&#34;https://it-boyer.github.io/images/TextStyles.png&#34; alt=&#34;image&#34;&gt;&lt;br&gt;
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。&lt;/p&gt;
-&lt;h3 id=&#34;heading-2&#34;&gt;使用系统动态字体样式&lt;/h3&gt;
+&lt;h3 id=&#34;使用系统动态字体样式&#34;&gt;使用系统动态字体样式&lt;/h3&gt;
 &lt;p&gt;使用动态文本，是通过给&lt;code&gt;文本字体&lt;/code&gt;设置字体样式&lt;strong&gt;style&lt;/strong&gt;而不是指定具体的&lt;code&gt;字体名称&lt;/code&gt;和&lt;code&gt;大小&lt;/code&gt;。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。&lt;/p&gt;
-&lt;h4 id=&#34;preferredfontfortextstyle&#34;&gt;&lt;code&gt;preferredFontForTextStyle:&lt;/code&gt;方法设置字体样式&lt;/h4&gt;
+&lt;h4 id=&#34;preferredfontfortextstyle方法设置字体样式&#34;&gt;&lt;code&gt;preferredFontForTextStyle:&lt;/code&gt;方法设置字体样式&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;打开 &lt;code&gt;NoteEditorViewController.m/swift&lt;/code&gt; 在&lt;code&gt;viewDidLoad：&lt;/code&gt;方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -62,7 +62,7 @@ cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 &lt;blockquote&gt;
 &lt;p&gt;字体样式：通过语义法命名字体，例如 &lt;code&gt;UIFontTextStyleSubHeadline&lt;/code&gt;, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&#34;app&#34;&gt;APP响应用户字体设置&lt;/h4&gt;
+&lt;h4 id=&#34;app响应用户字体设置&#34;&gt;APP响应用户字体设置&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;设置系统字体
 返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置.
@@ -71,7 +71,7 @@ cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 &lt;li&gt;设置系统字体生效
 当我们返回到&lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt;重新修改字体设置. 再打开&lt;strong&gt;Note&lt;/strong&gt;页面, 会发现app并没有&lt;strong&gt;立即&lt;/strong&gt;对字体设置的变化做出相应反应。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h5 id=&#34;app-1&#34;&gt;监听系统通知：实现APP响应用户字体设置&lt;/h5&gt;
+&lt;h5 id=&#34;监听系统通知实现app响应用户字体设置&#34;&gt;监听系统通知：实现APP响应用户字体设置&lt;/h5&gt;
 &lt;p&gt;当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，&lt;code&gt;preferredFontForTextStyle:&lt;/code&gt;方法返回的字体也会变化。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;添加监听系统通知&lt;code&gt;UIContentSizeCategoryDidChangeNotification&lt;/code&gt;通知APP响应用户字体设置的变化

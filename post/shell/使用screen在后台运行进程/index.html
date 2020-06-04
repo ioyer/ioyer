@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E4%BD%BF%E7%94%A8screen%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E8%BF%9B%E7%A8%8B/" />
@@ -185,7 +185,7 @@ autocomplete('#aa-search-input',
         <li></li>
       </ul>
     </li>
-    <li><a href="#mosh">什么是Mosh</a></li>
+    <li><a href="#什么是mosh">什么是Mosh</a></li>
   </ul>
 </nav>
   </div>
@@ -202,7 +202,7 @@ autocomplete('#aa-search-input',
 Screen可以让一个或多个用户从不同终端登录一个会话，并共享会话。使用户登陆同一会话的用户看到同一会话内容。
 同时它可以提供窗口访问权限的设置，对窗口进行密码保护。</li>
 </ol>
-<h4 id="screen-1">screen参数</h4>
+<h4 id="screen参数">screen参数</h4>
 <pre><code>-A 　          将所有的视窗都调整为目前终端机的大小
 -d  　         将指定的screen作业离线
 -h  　         指定视窗的缓冲区行数
@@ -216,7 +216,7 @@ Screen可以让一个或多个用户从不同终端登录一个会话，并共�
 -ls或-list 　  显示目前所有的screen作业
 -wipe 　       检查目前所有的screen作业，并删除已经无法使用的screen作业
 </code></pre>
-<h4 id="screen-2">screen命令</h4>
+<h4 id="screen命令">screen命令</h4>
 <ol>
 <li>自定义shell脚本启动一个进程</li>
 </ol>
@@ -245,13 +245,13 @@ C-a d       暂时断开screen会话
 C-a k       杀掉当前窗口
 C-a [       进入拷贝/回滚模式
 </code></pre>
-<h4 id="screen-3">退出screen</h4>
+<h4 id="退出screen">退出screen</h4>
 <p>退出screen的作业时，有两种方式：</p>
 <pre><code>Crtl + a +d     保存进程并退出作业(程序在screen中继续运行，screen -ls 可查看)
 Crtl + alt + a + d  进入后台运行进程
 exit            退出作业和进程(程序终止，screen -ls 不可查看)
 </code></pre>
-<h2 id="mosh">什么是Mosh</h2>
+<h2 id="什么是mosh">什么是Mosh</h2>
 <p><strong>Mosh</strong>表示<code>移动Shell</code>(Mobile Shell)，是一个用于从客户端跨互联网连接远程服务器的命令行工具。它能用于<code>SSH</code>连接，但是比<code>Secure Shell</code>功能更多。它是一个类似于<code>SSH</code>而带有更多功能的应用。程序最初由Keith Winstein 编写，用于类Unix的操作系统中，发布于GNU GPL V3协议下。
 <strong>Mosh</strong>最大的特点是基于UDP方式传输，支持在服务端创建一个临时的Key供客户端一次性连接，退出后失效；也支持通过SSH的配置进行认证，但数据传输本身还是自身的UDP方式。</p>
 <ul>

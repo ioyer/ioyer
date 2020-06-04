@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/swiftlint%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8/" />
@@ -182,9 +182,9 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#swiftlint">安装配置swiftlint语法矫正工具</a></li>
-        <li><a href="#swiftlintyml">规则配置文件.swiftlint.yml</a></li>
-        <li><a href="#swiftlint-2">终端插件集成swiftLint</a></li>
+        <li><a href="#安装配置swiftlint语法矫正工具">安装配置<code>swiftlint</code>语法矫正工具</a></li>
+        <li><a href="#规则配置文件swiftlintyml">规则配置文件<code>.swiftlint.yml</code></a></li>
+        <li><a href="#终端插件集成swiftlint">终端插件集成swiftLint</a></li>
       </ul>
     </li>
   </ul>
@@ -194,8 +194,8 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <!-- raw HTML omitted -->
 <p>{% github realm SwiftLint 8deb453 width = 30% %}</p>
-<h3 id="swiftlint">安装配置<code>swiftlint</code>语法矫正工具</h3>
-<h4 id="heading">安装包方式</h4>
+<h3 id="安装配置swiftlint语法矫正工具">安装配置<code>swiftlint</code>语法矫正工具</h3>
+<h4 id="安装包方式">安装包方式</h4>
 <p><code>brew install swiftlint</code> 或下载[swiftlint.pkg][https://github.com/realm/SwiftLint/releases/latest]
 2. Xcode项目支持
 在<code>Xcode build Phase</code>新增 &ldquo;Run Script Phase&rdquo;:</p>
@@ -205,7 +205,7 @@ else
 echo &quot;warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint&quot;
 fi
 </code></pre>
-<h4 id="swiftlint-1">单个项目安装swiftlint</h4>
+<h4 id="单个项目安装swiftlint">单个项目安装swiftlint</h4>
 <ol>
 <li>通过cocoapods对单个项目安装swiftlint</li>
 </ol>
@@ -219,7 +219,7 @@ fi
 <blockquote>
 <p>注意：pod服务器上有时并不是最新版本，尝试<code>:=&gt; githuburl</code>无用。这种情况智能使用安装包方式。</p>
 </blockquote>
-<h3 id="swiftlintyml">规则配置文件<code>.swiftlint.yml</code></h3>
+<h3 id="规则配置文件swiftlintyml">规则配置文件<code>.swiftlint.yml</code></h3>
 <p>让 <code>SwiftLint</code> 在做代码规范检查时，不想检查某些源码，可以隔离规则，来自动忽略，例如： <code>CocoaPods</code>、<code>Carthage</code>、<code>SPM</code> 引入的第三方库文件。
 在项目中新建 <code>.swiftlint.yml</code> 的配置文件：</p>
 <pre><code>$ cd your-project
@@ -232,10 +232,10 @@ excluded:
 <strong>支持嵌套</strong>：
 <code>.swiftlint.yml</code> 配置文件支持嵌套，可以给每个文件夹下的代码单独指定不同的规则，每个文件会匹配距离自己层级最近的父文件夹中的配置文件
 嵌套的配置文件中的 <code>excluded</code> 和 <code>included</code> 配置会被忽略。</p>
-<h3 id="swiftlint-2">终端插件集成swiftLint</h3>
+<h3 id="终端插件集成swiftlint">终端插件集成swiftLint</h3>
 <p>支持vim编辑器：
 <a href="https://github.com/keith/swift.vim">keith/swift.vim</a></p>
-<h4 id="-syntastichttpsgithubcomscrooloosesyntastic">安装 <a href="https://github.com/scrooloose/syntastic/">syntastic</a></h4>
+<h4 id="安装-syntastichttpsgithubcomscrooloosesyntastic">安装 <a href="https://github.com/scrooloose/syntastic/">syntastic</a></h4>
 <p>使用<a href="https://github.com/tpope/vim-pathogen.git">vim-pathogen</a>安装syntastic，</p>
 <ol>
 <li>第一步安装 <code>pathogen.vim</code></li>
@@ -252,7 +252,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 <pre><code class="language-sh">cd ~/.vim/bundle &amp;&amp; \
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 </code></pre>
-<h4 id="heading-1">终端集成使用</h4>
+<h4 id="终端集成使用">终端集成使用</h4>
 <p>在<code>vimrc</code>中添加配置，当启动vim即可使用：</p>
 <pre><code class="language-sh">let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 </code></pre>

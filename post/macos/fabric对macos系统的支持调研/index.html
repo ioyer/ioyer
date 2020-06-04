@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/fabric%E5%AF%B9macos%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%94%AF%E6%8C%81%E8%B0%83%E7%A0%94/" />
@@ -183,8 +183,8 @@ autocomplete('#aa-search-input',
   <ul>
     <li><a href="#fabric">Fabric</a>
       <ul>
-        <li><a href="#crashlyticsmacos">crashlytics支持macOS</a></li>
-        <li><a href="#cause-a-test-crashhttpsdocsfabricioapplecrashlyticstest-crashhtml">Cause a Test Crash教程</a></li>
+        <li><a href="#crashlytics支持macos">crashlytics支持macOS</a></li>
+        <li><a href="#cause-a-test-crash教程httpsdocsfabricioapplecrashlyticstest-crashhtml"><a href="https://docs.fabric.io/apple/crashlytics/test-crash.html">Cause a Test Crash教程</a></a></li>
       </ul>
     </li>
   </ul>
@@ -196,7 +196,7 @@ autocomplete('#aa-search-input',
 <p><code>Fabric</code> 是Twitter的移动应用开发平台，一个模块化、跨平台的移动开发套件，该博文主要研究<code>crashlytics</code>在app中的运用。
 <a href="https://try.crashlytics.com/">注册新的账户</a>登录，审核通过时间为几个小时或者1到2天不等。然后注册时候输入的邮箱就会收到如下的邀请涵
 <a href="https://docs.fabric.io/apple/crashlytics/os-x.html#macos-support">浏览官方文档</a></p>
-<h3 id="crashlyticsmacos">crashlytics支持macOS</h3>
+<h3 id="crashlytics支持macos">crashlytics支持macOS</h3>
 <p>对<code>macOS</code>的支持中出现的问题
 问题：<code>NSApplicationCrashOnExceptions</code> is not set. This will result in poor <code>top-level</code> uncaught exception reporting
 官方解释：
@@ -212,7 +212,7 @@ Of course, this is all optional. Crashlytics will warn about NSApplicationCrashO
 {% endblockquote %}
 拦截和报告未捕获的异常在MacOS比iOS更复杂。在MacOS，AppKit会抓住扔在主线程异常，防止应用程序崩溃，也防止crashlytics报告他们。更糟糕的是，Apple’s frameworks也不例外。这意味着AppKit可以防止你的应用程序崩溃，也可能破坏你的进程的状态，包括AppKit本身。通常情况下，一旦涉及到用户界面交互的异常被抛出，它将阻止您的应用程序从正确的工作从那一刻起。
 以上情况，可以通过设置：<code>NSApplicationCrashOnExceptions</code> 改变系统默认的值，达到像iOS端一样抓去异常。如果没有设置会提示：NSApplicationCrashOnExceptions not set</p>
-<h3 id="cause-a-test-crashhttpsdocsfabricioapplecrashlyticstest-crashhtml"><a href="https://docs.fabric.io/apple/crashlytics/test-crash.html">Cause a Test Crash教程</a></h3>
+<h3 id="cause-a-test-crash教程httpsdocsfabricioapplecrashlyticstest-crashhtml"><a href="https://docs.fabric.io/apple/crashlytics/test-crash.html">Cause a Test Crash教程</a></h3>
 <p>崩溃日志是在重启APP程序的同时进行的，要确保程序在前台全屏显示。
 Xcode调试器会阻止我们捕捉崩溃报告，所以在抓取崩溃报告时，要保证在非调试状态下进行。如果你的移动设备连接到Mac机上，Xcode仍然可以进入调试状态。</p>
 <ol>

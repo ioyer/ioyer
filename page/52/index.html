@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -45,7 +45,7 @@
 <meta property="og:description" content="不物喜,不己悲;善假物,易参行." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://it-boyer.github.io/" />
-<meta property="og:updated_time" content="2020-03-24T16:19:44+08:00" />
+<meta property="og:updated_time" content="2015-12-22T12:39:04+00:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
@@ -170,7 +170,7 @@ autocomplete('#aa-search-input',
   
   <div class="post-content">
     <div class="post-summary">
-      <h5 id="segue">Segue原理:</h5>
+      <h5 id="segue原理">Segue原理:</h5>
 <p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
 <ol>
 <li>实例化目标视图控制器</li>
@@ -203,7 +203,7 @@ autocomplete('#aa-search-input',
   
   <div class="post-content">
     <div class="post-summary">
-      <h2 id="heading">便笺练习功能点:</h2>
+      <h2 id="便笺练习功能点">便笺练习功能点:</h2>
 <p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。</p>
 <ul>
 <li>动态样式（Dynamic type）</li>
@@ -216,7 +216,7 @@ autocomplete('#aa-search-input',
 <img src="/images/bianqian.png" alt="image"><br>
 App开始运行后自动生成一组便笺实例并利用<code>tableViewController</code>显示出来。<code>Storyboards</code>和<code>segues</code>会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
 项目开发包：<a href="http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip">Notepad.zip</a></p>
-<h2 id="heading-1">动态样式</h2>
+<h2 id="动态样式">动态样式</h2>
 <p><code>动态样式（Dynamic type）</code>是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
 选择 <strong>通用-&gt;文字大小</strong> 或 <strong>通用-&gt;辅助功能</strong> 来查看app中的字体设置。</p>
 <p><img src="/images/UserTextPreferences.png" alt="image"><br>
@@ -225,9 +225,9 @@ iOS 7 支持通过<code>粗体</code>、<code>设置字体大小</code>等方式
 下面表格中是六种可用字体样式的示例：<br>
 <img src="/images/TextStyles.png" alt="image"><br>
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。</p>
-<h3 id="heading-2">使用系统动态字体样式</h3>
+<h3 id="使用系统动态字体样式">使用系统动态字体样式</h3>
 <p>使用动态文本，是通过给<code>文本字体</code>设置字体样式<strong>style</strong>而不是指定具体的<code>字体名称</code>和<code>大小</code>。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。</p>
-<h4 id="preferredfontfortextstyle"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
+<h4 id="preferredfontfortextstyle方法设置字体样式"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
 <ol>
 <li>打开 <code>NoteEditorViewController.m/swift</code> 在<code>viewDidLoad：</code>方法实现的最后面加入以下代码：
 {%codeblock lang:objc%}
@@ -248,7 +248,7 @@ cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 <blockquote>
 <p>字体样式：通过语义法命名字体，例如 <code>UIFontTextStyleSubHeadline</code>, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。</p>
 </blockquote>
-<h4 id="app">APP响应用户字体设置</h4>
+<h4 id="app响应用户字体设置">APP响应用户字体设置</h4>
 <ol>
 <li>设置系统字体
 返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置.
@@ -257,7 +257,7 @@ cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
 <li>设置系统字体生效
 当我们返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置. 再打开<strong>Note</strong>页面, 会发现app并没有<strong>立即</strong>对字体设置的变化做出相应反应。</li>
 </ol>
-<h5 id="app-1">监听系统通知：实现APP响应用户字体设置</h5>
+<h5 id="监听系统通知实现app响应用户字体设置">监听系统通知：实现APP响应用户字体设置</h5>
 <p>当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，<code>preferredFontForTextStyle:</code>方法返回的字体也会变化。</p>
 <ol>
 <li>添加监听系统通知<code>UIContentSizeCategoryDidChangeNotification</code>通知APP响应用户字体设置的变化
@@ -317,7 +317,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
   
   <div class="post-content">
     <div class="post-summary">
-      <h4 id="-document-interaction">关于 Document Interaction</h4>
+      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
 <p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
 <ul>
 <li>######预览文档和呈现选项菜单<br>

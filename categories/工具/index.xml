@@ -27,14 +27,14 @@
 &lt;li&gt;&lt;!-- raw HTML omitted --&gt;新建stash-unapply别名&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
 &lt;li&gt;&lt;!-- raw HTML omitted --&gt;从储藏中创建分支&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;a-namestashinggit---stashingagit&#34;&gt;&lt;!-- raw HTML omitted --&gt;Git工具 - 储藏（Stashing）&lt;!-- raw HTML omitted --&gt;git&lt;/h3&gt;
+&lt;h3 id=&#34;a-namestashinggit工具---储藏stashingagit&#34;&gt;&lt;!-- raw HTML omitted --&gt;Git工具 - 储藏（Stashing）&lt;!-- raw HTML omitted --&gt;git&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86&#34;&gt;原文&lt;/a&gt;
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。&lt;/p&gt;
 &lt;p&gt;问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。&lt;/p&gt;
 &lt;p&gt;解决：&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令。&lt;/p&gt;
 &lt;p&gt;“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。&lt;/p&gt;
-&lt;h3 id=&#34;a-nameworka&#34;&gt;&lt;!-- raw HTML omitted --&gt;储藏工作&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-namework储藏工作a&#34;&gt;&lt;!-- raw HTML omitted --&gt;储藏工作&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li&gt;进入项目目录，修改某个文件，有可能还暂存其中的一个变更。&lt;/li&gt;
@@ -78,7 +78,7 @@ stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo;
 stash@{2}: WIP on master: 21d80a5 added number to log
 {%endcodeblock%}
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。&lt;/p&gt;
-&lt;h3 id=&#34;a-nameapplya&#34;&gt;&lt;!-- raw HTML omitted --&gt;应用储藏&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-nameapply应用储藏a&#34;&gt;&lt;!-- raw HTML omitted --&gt;应用储藏&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;执行&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash apply&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令, 可以重新应用最近的一次储藏；
 执行&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash apply stash@{2}&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令，即通过指定储藏的名字，来应用更早的储藏。

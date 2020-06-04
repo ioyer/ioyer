@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/nsurlsession%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -181,19 +181,19 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#nsurlconnection">NSURLConnection机制</a>
+    <li><a href="#nsurlconnection机制">NSURLConnection机制</a>
       <ul>
-        <li><a href="#heading">缓存策略</a></li>
-        <li><a href="#heading-1">鉴权查询</a></li>
+        <li><a href="#缓存策略">缓存策略</a></li>
+        <li><a href="#鉴权查询">鉴权查询</a></li>
       </ul>
     </li>
-    <li><a href="#nsurlsession">NSURLSession成员</a>
+    <li><a href="#nsurlsession成员">NSURLSession成员</a>
       <ul>
         <li><a href="#nsurlsessiontask">NSURLSessionTask</a></li>
         <li><a href="#nsurlsessionconfiguration">NSURLSessionConfiguration</a></li>
       </ul>
     </li>
-    <li><a href="#heading-13">结论</a></li>
+    <li><a href="#结论">结论</a></li>
   </ul>
 </nav>
   </div>
@@ -201,17 +201,17 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <p>iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。</p>
 <p>现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。</p>
-<h2 id="nsurlconnection">NSURLConnection机制</h2>
+<h2 id="nsurlconnection机制">NSURLConnection机制</h2>
 <p><code>NSURLConnection</code> 作为 Core Foundation / CFNetwork 框架的 API 之上的一个抽象，在 2003 年，随着第一版的 Safari 的发布就发布了。<code>NSURLConnection</code> 这个名字，实际上是指代的 Foundation 框架的 URL 加载系统中一系列有关联的组件：<code>NSURLRequest</code>、<code>NSURLResponse</code>、<code>NSURLProtocol</code>、 <code>NSURLCache</code>、 <code>NSHTTPCookieStorage</code>、<code>NSURLCredentialStorage</code> 以及同名类 <code>NSURLConnection</code>。</p>
 <p><code>NSURLRequest</code> 被传递给 <code>NSURLConnection</code>。被委托对象（遵守以前的非正式协议 <code>&lt;NSURLConnectionDelegate&gt;</code> 和 <code>&lt;NSURLConnectionDataDelegate&gt;</code>）异步地返回一个 <code>NSURLResponse</code> 以及包含服务器返回信息的 <code>NSData</code>。</p>
-<h3 id="heading">缓存策略</h3>
+<h3 id="缓存策略">缓存策略</h3>
 <p>在一个请求被发送到服务器之前，系统会先查询共享的缓存信息，然后根据**策略（policy）<strong>以及</strong>可用性（availability）**的不同，一个已经被缓存的响应可能会被立即返回。如果没有缓存的响应可用，则这个请求将根据我们指定的策略来缓存它的响应以便将来的请求可以使用。</p>
-<h3 id="heading-1">鉴权查询</h3>
+<h3 id="鉴权查询">鉴权查询</h3>
 <p>在把请求发送给服务器的过程中，服务器可能会发出<strong>鉴权查询（authentication challenge）</strong>，这可以由共享的 cookie 或**机密存储（credential storage）**来自动响应，或者由被委托对象来响应。发送中的请求也可以被注册的 <code>NSURLProtocol</code> 对象所拦截，以便在必要的时候无缝地改变其加载行为。</p>
 <p>不管怎样，<code>NSURLConnection</code> 作为网络基础架构，已经服务了成千上万的 iOS 和 Mac OS 程序，并且做的还算相当不错。但是这些年，一些用例——尤其是在 iPhone 和 iPad 上面——已经对 <code>NSURLConnection</code> 的几个核心概念提出了挑战，让苹果有理由对它进行重构。</p>
 <p>在 2013 的 WWDC 上，苹果推出了 <code>NSURLConnection</code> 的继任者：<code>NSURLSession</code>。</p>
 <hr>
-<h2 id="nsurlsession">NSURLSession成员</h2>
+<h2 id="nsurlsession成员">NSURLSession成员</h2>
 <p>和 <code>NSURLConnection</code> 一样，<code>NSURLSession</code> 指的也不仅是同名类 <code>NSURLSession</code>，还包括一系列相互关联的类。<code>NSURLSession</code> 包括了与之前相同的组件，<code>NSURLRequest</code> 与 <code>NSURLCache</code>，但是把 <code>NSURLConnection</code> 替换成了 <code>NSURLSession</code>、<code>NSURLSessionConfiguration</code> 以及 <code>NSURLSessionTask</code> 的 3 个子类：<code>NSURLSessionDataTask</code>，<code>NSURLSessionUploadTask</code>，<code>NSURLSessionDownloadTask</code>。</p>
 <ol>
 <li>NSURLSessionConfiguration可配置性初始化
@@ -229,7 +229,7 @@ autocomplete('#aa-search-input',
 </ol>
 <!-- raw HTML omitted -->
 <p>所有的 task 都是可以取消，暂停或者恢复的。当一个 download task 取消时，可以通过选项来创建一个<strong>恢复数据（resume data）</strong>，然后可以传递给下一次新创建的 download task，以便继续之前的下载。</p>
-<h4 id="heading-2">工厂方法</h4>
+<h4 id="工厂方法">工厂方法</h4>
 <p>不同于直接使用 <code>alloc-init</code> 初始化方法，task 是由一个 <code>NSURLSession</code> 创建的。每个 task 的构造方法都对应有或者没有 <code>completionHandler</code> 这个 block 的两个版本:</p>
 <ol>
 <li>block回调构造方式: <code>–dataTaskWithRequest:completionHandler:</code>
@@ -238,7 +238,7 @@ autocomplete('#aa-search-input',
 对于需要 <code>override</code> 原有 session task 的 delegate 的默认行为的情况,使用代理回调</li>
 </ol>
 <p>这里不会立即运行 task，而是将该 task 对象先返回，允许我们进一步的配置，然后可以使用 <code>resume</code> 方法来让它开始运行。</p>
-<h5 id="heading-3">数据加载工厂</h5>
+<h5 id="数据加载工厂">数据加载工厂</h5>
 <p>Data task 可以通过 <code>NSURL</code> 或 <code>NSURLRequest</code> 创建（使用前者相当于是使用一个对于该 URL 进行标准 <code>GET</code> 请求的 <code>NSURLRequest</code>，这是一种快捷方法）：</p>
 <pre><code class="language-objc">NSURL *URL = [NSURL URLWithString:@&quot;http://example.com&quot;];
 NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -252,7 +252,7 @@ completionHandler:
 
 [task resume];
 </code></pre>
-<h5 id="heading-4">数据上传工厂</h5>
+<h5 id="数据上传工厂">数据上传工厂</h5>
 <p>Upload task 的创建需要使用一个 request，另外加上一个要上传的 <code>NSData</code> 对象或者是一个本地文件的路径对应的 <code>NSURL</code>：</p>
 <pre><code class="language-objc">NSURL *URL = [NSURL URLWithString:@&quot;http://example.com/upload&quot;];
 NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -268,7 +268,7 @@ completionHandler:
 
 [uploadTask resume];
 </code></pre>
-<h5 id="heading-5">数据下载工厂</h5>
+<h5 id="数据下载工厂">数据下载工厂</h5>
 <p>Download task 也需要一个 request，不同之处在于 <code>completionHandler</code> 这个 block。Data task 和 upload task 会在任务完成时一次性返回，但是 Download task 是将数据一点点地写入本地的临时文件。所以在 <code>completionHandler</code> 这个 block 里，我们需要把文件从一个临时地址移动到一个永久的地址保存起来：</p>
 <pre><code class="language-objc">NSURL *URL = [NSURL URLWithString:@&quot;http://example.com/file.zip&quot;];
 NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -288,9 +288,9 @@ NSURL *newFileLocation = [documentsDirectoryURL URLByAppendingPathComponent:[[re
 <blockquote>
 <p><!-- raw HTML omitted -->编者注<!-- raw HTML omitted --> 原文中这块代码以及上文的表述中存有一些问题，详见这个 <a href="https://github.com/objcio/articles/issues/24">issue</a>，本文已进行更正，如果您有不同意见，欢迎在 <a href="https://github.com/objccn/articles">Github</a> 上给我们反馈。</p>
 </blockquote>
-<h4 id="nsurlsession--delegate-">NSURLSession 的 delegate 方法</h4>
+<h4 id="nsurlsession-的-delegate-方法">NSURLSession 的 delegate 方法</h4>
 <p><code>NSURLSession</code> 的 delegate 方法是 <code>NSURLConnection</code> 的演化的十年中对于 ad-hoc 模式的一个显著改善。您可以查看这个<a href="https://gist.github.com/floriankugler/6870499">映射表</a>来进行一个完整的概览。</p>
-<h5 id="heading-6">连接层/任务层代理</h5>
+<h5 id="连接层任务层代理">连接层/任务层代理</h5>
 <p><code>NSURLSession</code> 既拥有 seesion 的 delegate 方法，又拥有 task 的 delegate 方法用来处理鉴权查询。</p>
 <ol>
 <li>session 的 delegate 方法处理连接层的问题：诸如服务器信任，客户端证书的评估，<a href="http://en.wikipedia.org/wiki/NTLM">NTLM</a> 和 <a href="http://zh.wikipedia.org/wiki/Kerberos">Kerberos</a> 协议这类问题。</li>
@@ -306,7 +306,7 @@ NSURL *newFileLocation = [documentsDirectoryURL URLByAppendingPathComponent:[[re
 </ol>
 </li>
 </ol>
-<h5 id="block">block参数回调代理模式</h5>
+<h5 id="block参数回调代理模式">block参数回调代理模式</h5>
 <p><code>NSURLSession</code> 给 Foundation 框架引入了一种全新的模式：即 代理方法中以<code>completionHandler:</code>  这种block 作为参数的方式。</p>
 <ol>
 <li>这种模式允许 delegate 方法可以安全地在主线程与运行，而不会阻塞主线程；</li>
@@ -330,17 +330,17 @@ NSURL *newFileLocation = [documentsDirectoryURL URLByAppendingPathComponent:[[re
 <li>配置加载机制
 <code>NSURLSession</code> 在初始化时会把配置它的 <code>NSURLSessionConfiguration</code> 对象进行一次 copy，并保存到自己的 <code>configuration</code> 属性中，而且这个属性是只读的。因此之后再修改最初配置 session 的那个 configuration 对象对于 session 是没有影响的。也就是说，configuration 只在初始化时被读取一次，之后都是不会变化的。</li>
 </ol>
-<h4 id="heading-7">三个配置类工厂方法</h4>
+<h4 id="三个配置类工厂方法">三个配置类工厂方法</h4>
 <p>针对<code>NSURLSession</code> 不同的使用场景，如下三个配置类方法：</p>
 <ol>
 <li><code>+defaultSessionConfiguration</code>： 返回一个标准的 configuration，这个配置实际上与 <code>NSURLConnection</code> 的**网络堆栈（networking stack）**是一样的，具有相同的共享 <code>NSHTTPCookieStorage</code>，共享 <code>NSURLCache</code> 和共享 <code>NSURLCredentialStorage</code>。</li>
 <li><code>+ephemeralSessionConfiguration</code>： 返回一个预设配置，这个配置中不会对缓存，Cookie 和证书进行持久性的存储。这对于实现像秘密浏览这种功能来说是很理想的。</li>
 <li><code>+backgroundSessionConfiguration:(NSString *)identifier</code> 的独特之处在于，它会创建一个<em>后台 session</em>。后台 session 不同于常规的，普通的 session，它甚至可以在应用程序挂起，退出或者崩溃的情况下运行上传和下载任务。初始化时指定的标识符，被用于向任何可能在进程外恢复后台传输的**守护进程（daemon）**提供上下文。</li>
 </ol>
-<p>想要查看更多关于后台 session 的信息，可以查看 <a href="http://asciiwwdc.com/2013/sessions/204">WWDC Session 204: &ldquo;What's New with Multitasking&rdquo;</a></p>
-<h4 id="heading-8">配置属性</h4>
+<p>想要查看更多关于后台 session 的信息，可以查看 <a href="http://asciiwwdc.com/2013/sessions/204">WWDC Session 204: &ldquo;What&rsquo;s New with Multitasking&rdquo;</a></p>
+<h4 id="配置属性">配置属性</h4>
 <p><code>NSURLSessionConfiguration</code> 拥有 20 个配置属性。熟练掌握这些配置属性的用处，可以让应用程序充分地利用其网络环境。</p>
-<h5 id="heading-9">基本配置</h5>
+<h5 id="基本配置">基本配置</h5>
 <ol>
 <li><code>HTTPAdditionalHeaders</code>: 指定了一组默认的可以设置**出站请求（outbound request）**的数据头。这对于跨 session 共享信息，如内容类型，语言，用户代理和身份认证，是很有用的。</li>
 </ol>
@@ -367,27 +367,27 @@ configuration.HTTPAdditionalHeaders = @{@&quot;Accept&quot;: @&quot;application/
 <blockquote>
 <p>关于连接代理的更多信息可以在 <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Reference/CFProxySupport/Reference/reference.html"><code>CFProxySupport</code> Reference</a> 找到。</p>
 </blockquote>
-<h5 id="cookie-">Cookie 策略</h5>
+<h5 id="cookie-策略">Cookie 策略</h5>
 <ol>
 <li><code>HTTPCookieStorage</code>: 存储了 session 所使用的 cookie。默认情况下会使用 <code>NSHTTPCookieShorage</code> 的 <code>+sharedHTTPCookieStorage</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</li>
 <li><code>HTTPCookieAcceptPolicy</code>: 决定了什么情况下 session 应该接受从服务器发出的 cookie。</li>
 <li><code>HTTPShouldSetCookies</code>: 指定了请求是否应该使用 session 存储的 cookie，即 <code>HTTPCookieSorage</code> 属性的值。</li>
 </ol>
-<h5 id="heading-10">安全策略</h5>
+<h5 id="安全策略">安全策略</h5>
 <ol>
 <li><code>URLCredentialStorage</code>: 存储了 session 所使用的证书。默认情况下会使用 <code>NSURLCredentialStorage</code> 的 <code>+sharedCredentialStorage</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</li>
 <li><code>TLSMaximumSupportedProtocol</code> 和 <code>TLSMinimumSupportedProtocol</code> 确定 session 是否支持 <a href="http://zh.wikipedia.org/wiki/%E5%AE%89%E5%85%A8%E5%A5%97%E6%8E%A5%E5%B1%82">SSL 协议</a>。</li>
 </ol>
-<h5 id="heading-11">缓存策略</h5>
+<h5 id="缓存策略-1">缓存策略</h5>
 <ol>
 <li><code>URLCache</code> : 是 session 使用的缓存。默认情况下会使用 <code>NSURLCache</code> 的 <code>+sharedURLCache</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</li>
 <li><code>requestCachePolicy</code> : 指定了一个请求的缓存响应应该在什么时候返回。这相当于 <code>NSURLRequest</code> 的 <code>-cachePolicy</code> 方法。</li>
 </ol>
-<h5 id="heading-12">自定义协议</h5>
+<h5 id="自定义协议">自定义协议</h5>
 <ol>
 <li><code>protocolClasses</code>: 用来配置特定某个 session 所使用的自定义协议（该协议是 <code>NSURLProtocol</code> 的子类）的数组。</li>
 </ol>
-<h2 id="heading-13">结论</h2>
+<h2 id="结论">结论</h2>
 <p>iOS 7 和 Mac OS X 10.9 Mavericks 中 URL 加载系统的变化，是对 <code>NSURLConnection</code> 进行深思熟虑后的一个自然而然的进化。总体而言，苹果的 Foundation 框架团队干了一件令人钦佩的的工作，他们研究并预测了移动开发者现有的和新兴的用例，创造了能够满足日常任务而且非常好用的 API 。</p>
 <p>尽管在这个体系结构中，某些决定对于可组合性和可扩展性而言是一种倒退，但是 <code>NSURLSession</code> 仍然是实现更高级别网络功能的一个强大的基础框架。</p>
 <hr>

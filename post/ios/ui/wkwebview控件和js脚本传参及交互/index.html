@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ui/wkwebview%E6%8E%A7%E4%BB%B6%E5%92%8Cjs%E8%84%9A%E6%9C%AC%E4%BC%A0%E5%8F%82%E5%8F%8A%E4%BA%A4%E4%BA%92/" />
@@ -183,8 +183,8 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#webkit">WebKit简介</a></li>
-        <li><a href="#iosapijs">iOS原生API调用JS脚本</a></li>
+        <li><a href="#webkit简介">WebKit简介</a></li>
+        <li><a href="#ios原生api调用js脚本">iOS原生API调用JS脚本</a></li>
       </ul>
     </li>
   </ul>
@@ -192,7 +192,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h3 id="webkit">WebKit简介</h3>
+      <h3 id="webkit简介">WebKit简介</h3>
 <p>{% github it-boyer WKWebView-JS d03bc0e width = 30% %}
 自iOS8 以后，苹果推出了新框架 WebKit，提供了替换 UIWebView 的组件 WKWebView。各种 UIWebView 的性能问题没有了，速度更快了，占用内存少了，体验更好了，下面列举一些其它的优势:
 1、在性能、稳定性、功能方面有很大提升（加载速度，内存的提升谁用谁知道）
@@ -280,14 +280,14 @@ center footer
 boyer模型
 endfooter
 </code></pre>
-<h4 id="js">添加监听代理和JS接口</h4>
+<h4 id="添加监听代理和js接口">添加监听代理和JS接口</h4>
 <p>在OC中添加监听的接口清单：以JS脚本的接口<code>showMobile</code>为例：</p>
 <pre><code class="language-objc">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 WKUserContentController *userCC = config.userContentController;
 //MARK:在OC中添加监听的接口清单：JS脚本的接口名
 [userCC addScriptMessageHandler:self name:@&quot;showMobile&quot;];
 </code></pre>
-<h4 id="wkusercontentcontroller">设置WKUserContentController的代理</h4>
+<h4 id="设置wkusercontentcontroller的代理">设置WKUserContentController的代理</h4>
 <ol>
 <li>设置代理类遵守<code>WKScriptMessageHandler</code>协议</li>
 </ol>
@@ -305,7 +305,7 @@ WKUserContentController *userCC = config.userContentController;
 NSLog(@&quot;%@&quot;,message.body);
 }
 </code></pre>
-<h4 id="js-1">JS脚本接口</h4>
+<h4 id="js脚本接口">JS脚本接口</h4>
 <p>js接口声明格式：</p>
 <pre><code class="language-js">window.webkit.messageHandlers.接口名.postMessage('参数')
 </code></pre>
@@ -329,7 +329,7 @@ NSLog(@&quot;%@&quot;,message.body);
 例如:当传递一个电话，一条信息，需要封装为<code>['13300001111','Go Climbing This Weekend !!!']</code></p>
 <pre><code class="language-js">window.webkit.messageHandlers.showSendMsg.postMessage(['13300001111', 'Go Climbing This Weekend !!!'])
 </code></pre>
-<h3 id="iosapijs">iOS原生API调用JS脚本</h3>
+<h3 id="ios原生api调用js脚本">iOS原生API调用JS脚本</h3>
 <p>在网页加载完成之后调用JS代码才会执行，因为这个时候html页面已经注入到webView中并且可以响应到对应方法。<!-- raw HTML omitted -->
 例如调用JS函数<code>alertMobile()</code>：</p>
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;alertMobile()&quot; completionHandler:^(id _Nullable response, NSError * _Nullable error) {
@@ -337,7 +337,7 @@ NSLog(@&quot;%@&quot;,message.body);
 NSLog(@&quot;%@ %@&quot;,response,error);
 }];
 </code></pre>
-<h4 id="ocjs">在OC中为JS定义属性/函数</h4>
+<h4 id="在oc中为js定义属性函数">在OC中为JS定义属性/函数</h4>
 <ul>
 <li>当注入的类型字符串类型时，必须用<code>''</code>括起来。<!-- raw HTML omitted --></li>
 <li>OC注入的参数为全局属性，在html中的JS脚本可以直接调用属性名来获取值。<!-- raw HTML omitted --></li>
@@ -354,7 +354,7 @@ WKUserContentController *userCC = config.userContentController;
 <p>方式二：使用WKWebView实例方法<code>evaluateJavaScript</code>动态注入JS脚本</p>
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;var number=0;&quot; completionHandler:nil];
 </code></pre>
-<h4 id="iosapijs-1">iOS原生API调用JS函数</h4>
+<h4 id="ios原生api调用js函数">iOS原生API调用JS函数</h4>
 <p>使用WKWebView实例方法<code>evaluateJavaScript</code>动态调用JS函数</p>
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;alertSendMsg('18870707070','下午好！')&quot; completionHandler:nil];
 </code></pre>

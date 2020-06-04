@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/config%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3%E5%BA%93%E4%B8%93%E6%A0%8F/" />
@@ -182,8 +182,8 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">忽略配置</a></li>
-        <li><a href="#docs">docs配置</a></li>
+        <li><a href="#忽略配置">忽略配置</a></li>
+        <li><a href="#docs配置">docs配置</a></li>
       </ul>
     </li>
   </ul>
@@ -193,13 +193,13 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <!-- raw HTML omitted -->
 <p>{% github it-boyer blogDocs 978ed39 width = 30% %}</p>
-<h3 id="heading">忽略配置</h3>
+<h3 id="忽略配置">忽略配置</h3>
 <p>文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。故需要通过hexo的<code>skip_render</code>配置机制，来屏蔽一些目录/文件等。</p>
 <pre><code>skip_render: [&quot;*.html&quot;,&quot;docs/*/*&quot;]
 </code></pre>
 <p>这样，在hexo g过程，跳过这些文件，目录的编辑过程，直接拷贝到public中发布。
 <a href="https://github.com/hexojs/hexo/issues/1146#issuecomment-88380140">skip_render参考</a></p>
-<h3 id="docs">docs配置</h3>
+<h3 id="docs配置">docs配置</h3>
 <ol>
 <li>位置考虑
 <code>docs</code>放在在source目录下，目录结构：</li>

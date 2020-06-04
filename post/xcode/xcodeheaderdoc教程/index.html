@@ -28,7 +28,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" />
@@ -253,7 +253,7 @@ autocomplete('#aa-search-input',
 <li>如何生成 HTML 文档</li>
 <li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
 </ul>
-<h4 id="heading">准备工作</h4>
+<h4 id="准备工作">准备工作</h4>
 <p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
 <p>这个简单的示例程序只包含了两个类：</p>
 <ul>
@@ -261,7 +261,7 @@ autocomplete('#aa-search-input',
 <li>MathAPI: 包含了1个方法，用于累加两个数。
 现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
 </ul>
-<h4 id="headerdoc-">HeaderDoc 注释</h4>
+<h4 id="headerdoc-注释">HeaderDoc 注释</h4>
 <p><strong>HeaderDoc</strong> 可以从命令行中运行，也可以通过 Xcode 运行。它扫描文件中以某种格式书写的注释,包括这3种形式：
 这3中语法在 Xcode 中产生同样效果的文档</p>
 <pre><code>注释 1. 一般用于单行注释
@@ -273,7 +273,7 @@ autocomplete('#aa-search-input',
 
 注意：在注释2和注释3中，在每一行开头都会有一个额外的*，直至结尾的 */。这仅仅是为了美观，而不是必须的。
 </code></pre>
-<h4 id="headerdoc--1">HeaderDoc 标签</h4>
+<h4 id="headerdoc-标签">HeaderDoc 标签</h4>
 <p>当 <strong>HeaderDoc</strong> 发现上述3种注释，它就开始寻找其中的<strong>HeaderDoc 标签</strong>。<strong>HeaderDoc 标签</strong> 用来修饰<strong>HeaderDoc 注释</strong>。</p>
 <p><strong>HeaderDoc 标签</strong>以 <strong>@</strong> 符号开头，然后是关键字，然后是一个空格，最后才是相应的文本（例如 @param foo）。
 HeaderDoc 标签可以分为两种：</p>
@@ -297,10 +297,10 @@ HeaderDoc 标签可以分为两种：</p>
 </li>
 </ol>
 <!-- raw HTML omitted -->
-<h4 id="heading-1">具体实现</h4>
+<h4 id="具体实现">具体实现</h4>
 <ul>
 <li>
-<h6 id="heading-2">属性的文档化</h6>
+<h6 id="属性的文档化">属性的文档化</h6>
 </li>
 </ul>
 <p>用 Xcode 打开<strong>DocumentationExamples</strong> 项目, 打开<strong>ViewController.h</strong>,
@@ -313,7 +313,7 @@ HeaderDoc 标签可以分为两种：</p>
 另一种方法:切换到Utitlities 面板的<strong>Quick Help</strong> 检查器窗口。点击 <strong>car</strong> 变量名，通过<strong>Quick Help</strong>,你将看到如下效果：</p>
 <ul>
 <li>
-<h6 id="heading-3">方法的文档化</h6>
+<h6 id="方法的文档化">方法的文档化</h6>
 </li>
 </ul>
 <p><strong>MathAPI</strong>包含一个方法需要文档化。打开<strong>MathAPI.h</strong>,找到<code>addNumber:toNumber:</code>。</p>
@@ -336,7 +336,7 @@ HeaderDoc 标签可以分为两种：</p>
 <pre><code>* @warning Please make note that this method is only good for adding non-negative numbers.
 </code></pre>
 <p>编译项目，然后使用 alt+左键。我们添加的 @warning 标签效果如下：</p>
-<h4 id="code-snippets">Code Snippets，让一切变得更简单:</h4>
+<h4 id="code-snippets让一切变得更简单">Code Snippets，让一切变得更简单:</h4>
 <p>一个<strong>snippet</strong> 是一个可以重用的代码块（存储在 snippet 库中）。<strong>Snippets</strong> 甚至可以包含一些需要你去填充的占位符。
 这意味着, 可以用 <strong>snipppet</strong>来进行文档化。</p>
 <p>在 <strong>MathAPI.h</strong> 中，在原有的注释上面加入以下内容：</p>
@@ -348,7 +348,7 @@ HeaderDoc 标签可以分为两种：</p>
 */
 </code></pre>
 <p>注意，当粘贴上述代码时，“”之间的内容会变成一个<strong>token</strong>,意味着可以通过 <strong>tab 键</strong>在 <strong>token</strong> 之间来回切换。就像编写代码时的自动完成功能。</p>
-<h6 id="code-snippets-1">学习使用Code Snippets工具</h6>
+<h6 id="学习使用code-snippets工具">学习使用Code Snippets工具</h6>
 <p>打开 <strong>Utilities 面板</strong>中的 <strong>CodeSnippets Library 检查器</strong>窗口，选中上述注释块，将它拖到该检查器窗口中（从某个 token 例如开始拖）:
 将会弹出一个编辑窗口让输入 snippet 的某些信息，并以此来创建一个<strong>自动完成快捷方式</strong>。要修改某个<strong>snippet</strong>时,直接点击 <strong>Code Snippet Library</strong> 中的 snippet，然后点 Edit 按钮。按照如下形式填写：</p>
 <p>要想让 <strong>snippet</strong> 生效，首先删除原有注释，然后将鼠标放到addNumber:toNumber: 方法的 + 号前面,输入<strong>doccomment</strong>，然后回车，该<strong>snippet</strong> 将自动生成。然后，通过 Tab 键在3个 token 间移动，并填充它们。最终完成的文档化结果如下:</p>
@@ -364,7 +364,7 @@ HeaderDoc 标签可以分为两种：</p>
 */
 </code></pre>
 <p><strong>@param 标签</strong>和 <strong>@warning 标签</strong>需要手动书写。</p>
-<h4 id="typedefs">Typedefs的文档化</h4>
+<h4 id="typedefs的文档化">Typedefs的文档化</h4>
 <p>打开 Car.h，在 class 之,有一个NS_ENUM，即 typedef enum，一个块，几个属性，一个空方法等，需要文档化。</p>
 <p>还记得 @typedef 标签吗？
 这个顶级标签稍微特殊一点。它可以对<strong>typedef enum</strong> 或者 <strong>typedef struct</strong> 的类型进行注释。
@@ -407,7 +407,7 @@ typedef enum {
 */
 </code></pre>
 <p>注意:这个enum 是通过宏来声明的，悲催的 Xcode 不能完全支持和 <strong>typedef enum</strong> 一样的文档特性，虽然<strong>NS_ENUM</strong> 实际上是声明 enums 的推荐的方法。</p>
-<h4 id="typedef-block-">typedef block 文档化</h4>
+<h4 id="typedef-block-文档化">typedef block 文档化</h4>
 <pre><code>/*!  * @brief A block that makes the car drive.
      * @param distance The distance is equal to a distance driven when the block is ready to execute. It could be miles, or kilometers, but not both. Just pick one and stick with it. ;]
 */
@@ -419,7 +419,7 @@ typedef void(^driveCompletion)(CGFloat distance);
 <li>一个 @brief 标签，简单说明了一下这个块的作用。</li>
 <li>一个 @param 标签，说明调用块时需要传递的参数。</li>
 </ul>
-<h4 id="heading-4">添加格式化代码到文档中</h4>
+<h4 id="添加格式化代码到文档中">添加格式化代码到文档中</h4>
 <p>例如，Car 类的 <strong>driveCarWithComplete:</strong> 方法。</p>
 <p>这个方法以块作为参数，因为块对于新手来说一般比较困难，因此最好是告诉程序员如何使用这个方法。</p>
 <p>这需要使用 <strong>@code 标签</strong>。在 <strong>driveCarWithCompletion</strong>方法声明之前添加如下内容：</p>
@@ -435,12 +435,12 @@ typedef void(^driveCompletion)(CGFloat distance);
 */
 </code></pre>
 <p>编译，在方法名上使用<strong>alt+左键</strong>。如下图所示：</p>
-<h4 id="heading-5">检查文档</h4>
+<h4 id="检查文档">检查文档</h4>
 <p>学会了如何添加注释，如果 <strong>Xcode</strong> 能帮你检查你的工作，就像Xcode会自动检查代码中的语法错误，那岂不是更好？有一个好消息，Clang 有一个标志，叫做“<strong>CLANG_WARN_DOCUMENTATION_COMMENTS</strong>”,可以用于检查 <strong>HeaderDoc</strong> 格式的注释。</p>
 <p>打开 <strong>DocumentationExamples</strong>的项目设置，点击 <strong>Build Settings</strong>，找到 <strong>DocumentationComments</strong>, 将值设置为 <strong>YES</strong>。
 如下，打开 <strong>MathAPI.h</strong>，将第一个 @param 标签的参数名由<strong>firstNumber</strong> 修改为 <strong>thirdNumber</strong>,然后编译。
 有一个警告发生，甚至提出了修改建议。它不会影响任何事情，但有助于检查文档中的错误。</p>
-<h4 id="heading-6">特殊注释</h4>
+<h4 id="特殊注释">特殊注释</h4>
 <p><strong>Xcode</strong> 还支持几种特殊注释，对于你或者使用你代码的人非常有用。</p>
 <p>打开 Car.m，在 <strong>driveCarWithCompletion:</strong> 方法中，在调用<strong>completion</strong> 块之前添加下列注释：</p>
 <pre><code>// FIXME: This is broken
@@ -567,7 +567,7 @@ typedef void(^driveCompletion)(CGFloat distance);
         id: '2014-08-28 15:18:41 \x2b0800 CST',
         title: 'XcodeHeaderDoc教程',
         link: decodeURI(location.href),
-        desc: '\x3cp\x3eHeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。\x3c\/p\x3e\n\x3cp\x3e另外，Xcode 还会在 quick look 面板中以\x3cstrong\x3eHeaderDoc\x3c\/strong\x3e风格显示你的注释。\x3c\/p\x3e\n\x3cp\x3e通过本教程，将学习如下几点：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e如何书写 HeaderDoc 风格的注释\x3c\/li\x3e\n\x3cli\x3e分如何在 Xcode 中预览文档\x3c\/li\x3e\n\x3cli\x3e如何生成 HTML 文档\x3c\/li\x3e\n\x3cli\x3e如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3ch4 id=\x22heading\x22\x3e准备工作\x3c\/h4\x3e\n\x3cp\x3e下载本教程中用到的 \x3ca href=\x22http:\/\/cdn2.raywenderlich.com\/wp-content\/uploads\/2014\/03\/DocumentationExamples_Starter.zip\x22\x3e示例项目\x3c\/a\x3e\x3c\/p\x3e\n\x3cp\x3e这个简单的示例程序只包含了两个类：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3eCar: 包含几个属性及一个 “drive” 方法以及一个 completion 块。\x3c\/li\x3e\n\x3cli\x3eMathAPI: 包含了1个方法，用于累加两个数。\n现在，这两个类还没有任何注释。以便演示如何通过 \x3cstrong\x3eHeaderDoc\x3c\/strong\x3e 为这两个类创建文档。\x3c\/li\x3e\n\x3c\/ul\x3e',
+        desc: '\x3cp\x3eHeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。\x3c\/p\x3e\n\x3cp\x3e另外，Xcode 还会在 quick look 面板中以\x3cstrong\x3eHeaderDoc\x3c\/strong\x3e风格显示你的注释。\x3c\/p\x3e\n\x3cp\x3e通过本教程，将学习如下几点：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3e如何书写 HeaderDoc 风格的注释\x3c\/li\x3e\n\x3cli\x3e分如何在 Xcode 中预览文档\x3c\/li\x3e\n\x3cli\x3e如何生成 HTML 文档\x3c\/li\x3e\n\x3cli\x3e如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)\x3c\/li\x3e\n\x3c\/ul\x3e\n\x3ch4 id=\x22准备工作\x22\x3e准备工作\x3c\/h4\x3e\n\x3cp\x3e下载本教程中用到的 \x3ca href=\x22http:\/\/cdn2.raywenderlich.com\/wp-content\/uploads\/2014\/03\/DocumentationExamples_Starter.zip\x22\x3e示例项目\x3c\/a\x3e\x3c\/p\x3e\n\x3cp\x3e这个简单的示例程序只包含了两个类：\x3c\/p\x3e\n\x3cul\x3e\n\x3cli\x3eCar: 包含几个属性及一个 “drive” 方法以及一个 completion 块。\x3c\/li\x3e\n\x3cli\x3eMathAPI: 包含了1个方法，用于累加两个数。\n现在，这两个类还没有任何注释。以便演示如何通过 \x3cstrong\x3eHeaderDoc\x3c\/strong\x3e 为这两个类创建文档。\x3c\/li\x3e\n\x3c\/ul\x3e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

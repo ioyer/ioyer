@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
@@ -180,9 +180,9 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#filesprovider">安装FilesProvider</a></li>
-    <li><a href="#heading">单元测试</a></li>
-    <li><a href="#heading-1">测通可运行的代码片段</a></li>
+    <li><a href="#安装filesprovider">安装FilesProvider</a></li>
+    <li><a href="#单元测试">单元测试</a></li>
+    <li><a href="#测通可运行的代码片段">测通可运行的代码片段</a></li>
   </ul>
 </nav>
   </div>
@@ -190,7 +190,7 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <!-- raw HTML omitted -->
 <p>{% github amosavian FileProvider b597244 width = 30% %}</p>
-<h2 id="filesprovider">安装FilesProvider</h2>
+<h2 id="安装filesprovider">安装FilesProvider</h2>
 <p>使用<code>FilesProvider</code>来做文件处理，通过SPM管理库依赖</p>
 <ol>
 <li>配置<code>Package.swift</code></li>
@@ -208,14 +208,14 @@ autocomplete('#aa-search-input',
 <ol start="2">
 <li><code>swift build</code></li>
 </ol>
-<h2 id="heading">单元测试</h2>
+<h2 id="单元测试">单元测试</h2>
 <ol>
 <li><code>FilesProvider</code>异步处理：需要<code>XCTestExpectation</code>辅助测试</li>
 <li><code>FilesProvider</code>在处理文件（拷贝/重命名/删除）时，不能使用绝对路径，应采用文件相对于<code>documentsProvider.baseURL</code>的相对路径。否则，在当给定的路径包含root目录时，例如<code>/Users/nam/file.png</code>会提示失败。</li>
 <li>在swift调用shell时，目前只能使用<code>Process.launchedProcess</code>类方法执行shell脚本命令。
 有可能在单元测试环境，导致其他两种调用shell的失败。</li>
 </ol>
-<h2 id="heading-1">测通可运行的代码片段</h2>
+<h2 id="测通可运行的代码片段">测通可运行的代码片段</h2>
 <pre><code class="language-swift">import FilesProvider
 var documentsProvider:LocalFileProvider!
 var pngexpectation: XCTestExpectation! = nil

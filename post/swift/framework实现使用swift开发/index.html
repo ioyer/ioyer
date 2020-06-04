@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/framework%E5%AE%9E%E7%8E%B0%E4%BD%BF%E7%94%A8swift%E5%BC%80%E5%8F%91/" />
@@ -180,13 +180,13 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#swift">在静态库组件中使用swift开发</a>
+    <li><a href="#在静态库组件中使用swift开发">在静态库组件中使用swift开发</a>
       <ul>
-        <li><a href="#heading">创建三个角色</a></li>
-        <li><a href="#1">静态库：问题1</a></li>
-        <li><a href="#framework2">Framework：问题2</a></li>
-        <li><a href="#framework-3">Framework: 问题3</a></li>
-        <li><a href="#heading-1">总结</a></li>
+        <li><a href="#创建三个角色">创建三个角色</a></li>
+        <li><a href="#静态库问题1">静态库：问题1</a></li>
+        <li><a href="#framework问题2">Framework：问题2</a></li>
+        <li><a href="#framework-问题3">Framework: 问题3</a></li>
+        <li><a href="#总结">总结</a></li>
       </ul>
     </li>
   </ul>
@@ -196,9 +196,9 @@ autocomplete('#aa-search-input',
     <div class="post-content">
       <!-- raw HTML omitted -->
 <p>{% github it-boyer JHHomeAPP 813e4b width = 30% %}</p>
-<h2 id="swift">在静态库组件中使用swift开发</h2>
+<h2 id="在静态库组件中使用swift开发">在静态库组件中使用swift开发</h2>
 <p>基于静态库的开发，实现封装静态库/Framework并使用swiftOC混编开发</p>
-<h3 id="heading">创建三个角色</h3>
+<h3 id="创建三个角色">创建三个角色</h3>
 <ol>
 <li>主项目：<code>JHHomeAPP</code></li>
 <li>静态库组件：<code>FirstPlug</code>
@@ -208,7 +208,7 @@ autocomplete('#aa-search-input',
 </li>
 <li>动态库<code>secondFramework</code></li>
 </ol>
-<h3 id="1">静态库：问题1</h3>
+<h3 id="静态库问题1">静态库：问题1</h3>
 <p>当静态库组件中存在swift源码时，依赖该组件的主工程会报错：</p>
 <pre><code>ld: warning: Auto-Linking library not found for -lswiftDispatch
 ld: warning: Auto-Linking library not found for -lswiftCoreFoundation
@@ -227,7 +227,7 @@ ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
 在主工程中新建一个空的swift源文件，不需要自动新建<code>$(SWIFT_MODULE_NAME)-Swift.h</code>映射文件和<code>JHHomeAPP/JHHomeAPP-Bridging-Header.h</code>头文件。
 <strong>使用方法2，问题1就不存在了，证明了在静态库中可以使用swift源码文件进行开发,同样证明了静态库可以封装包含swift源码的静态库。</strong></li>
 </ol>
-<h3 id="framework2">Framework：问题2</h3>
+<h3 id="framework问题2">Framework：问题2</h3>
 <ol>
 <li>在动态库中objc源码方法可以封装到静态库，并在可执行文件中调用。</li>
 <li>当在Framework中新建swift源文件时，第一次编译运行出现崩溃问题：</li>
@@ -237,7 +237,7 @@ Referenced from: .../../Debug-iphonesimulator/SecondFramework.framework/SecondFr
 Reason: image not found
 </code></pre>
 <p>解决办法：需要在<code>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</code>设置为<code>YES</code>.再次编译出现问题3。</p>
-<h3 id="framework-3">Framework: 问题3</h3>
+<h3 id="framework-问题3">Framework: 问题3</h3>
 <p>当在oc源码文件中用引用<code>-Swift.h</code>头文件时，出现一下问题:</p>
 <pre><code>'SecondFramework-Swift.h' file not found
 #import &quot;SecondFramework-Swift.h&quot;
@@ -247,7 +247,7 @@ Reason: image not found
 <blockquote>
 <p>验证：framework可以封装到静态库中，当有swift源码实现时需要设置ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES</p>
 </blockquote>
-<h3 id="heading-1">总结</h3>
+<h3 id="总结">总结</h3>
 <ol>
 <li>Product Module Name: 该项默认为项目名或自定义的名称</li>
 <li>Defines Module: 设置为YES （framework默认为YES，静态库默认为NO）</li>

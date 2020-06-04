@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%A7%88%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" />
@@ -182,9 +182,9 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">环境搭建说明</a></li>
-        <li><a href="#pkg">发布pkg包</a></li>
-        <li><a href="#heading-1">脚本清单</a></li>
+        <li><a href="#环境搭建说明">环境搭建说明</a></li>
+        <li><a href="#发布pkg包">发布pkg包</a></li>
+        <li><a href="#脚本清单">脚本清单</a></li>
       </ul>
     </li>
   </ul>
@@ -192,7 +192,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h3 id="heading">环境搭建说明</h3>
+      <h3 id="环境搭建说明">环境搭建说明</h3>
 <ol>
 <li>迁出项目
 mupdf已合并到<code>PBBReader_Mac</code>项目中，迁出库即可</li>
@@ -202,7 +202,7 @@ mupdf已合并到<code>PBBReader_Mac</code>项目中，迁出库即可</li>
 <ol start="2">
 <li>运行PBB Reader项目</li>
 </ol>
-<h3 id="pkg">发布pkg包</h3>
+<h3 id="发布pkg包">发布pkg包</h3>
 <p>运行target :<code>MakeInstaller</code>，它依赖<code>PBB Reader</code>项目,当运行时，如下过程：</p>
 <ol>
 <li>编译生成运行<code>PBB Reader.app</code>包</li>
@@ -219,7 +219,7 @@ echo &quot;导入SVN成功：$SVNURL/${timeDir}/${ProductName}.pkg&quot;
 fi
 </code></pre>
 <p>通过SVN脚本上传时，可以直接在<code>Distribution/releaseNote.md</code>文件中输入提交信息。</p>
-<h3 id="heading-1">脚本清单</h3>
+<h3 id="脚本清单">脚本清单</h3>
 <p>发布脚本目录：<code>Distribution/Packages/Script</code></p>
 <ol>
 <li><code>PreInstall.sh</code>:发布脚本,Xcode运行<code>MakeInstaller</code>执行的脚本。</li>

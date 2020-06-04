@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -191,7 +191,7 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h4 id="heading">必要配置</h4>
+      <h4 id="必要配置">必要配置</h4>
 <pre><code>*创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组
 *开启gitlab用户的远程登录
 </code></pre>
@@ -202,10 +202,10 @@ autocomplete('#aa-search-input',
 <p>显示git用户</p>
 <pre><code>sudo defaults delete /Library/Preferences/com.apple.loginwindow HiddenUsersList
 </code></pre>
-<h4 id="gitlab">添加系统账户gitlab</h4>
-<h6 id="gitlab-1">生成gitlab服务器目录，即用户根目录</h6>
+<h4 id="添加系统账户gitlab">添加系统账户gitlab</h4>
+<h6 id="生成gitlab服务器目录即用户根目录">生成gitlab服务器目录，即用户根目录</h6>
 <p>进入<strong>系统偏好设置&hellip;</strong>,在管理<strong>用户与群组</strong>中，添加其他用户，暂时定为：gitlab ，登录密码假设为：gitlab，添加完成后，会自动在/Users目录下，生成用户根目录gitlab.</p>
-<h6 id="-gitlab-shell">安装 Gitlab Shell</h6>
+<h6 id="安装-gitlab-shell">安装 Gitlab Shell</h6>
 <pre><code>cd /Users/gitlab
 sudo -u gitlab git clone https://github.com/gitlabhq/gitlab-shell.git
 cd gitlab-shell
@@ -219,7 +219,7 @@ sudo -u gitlab cp config.yml.example config.yml
 sudo -u gitlab sed -i &quot;&quot; &quot;s/\/usr\/bin\/redis-cli/\/usr\/local\/bin\/redis-cli/&quot; config.yml
 </code></pre>
 <p>然后执行安装脚本：<code>sudo -u gitlab -H ./bin/install</code>  <strong>//需在gitlab-shell目录下载执行</strong></p>
-<h6 id="gitlab-2">安装gitlab</h6>
+<h6 id="安装gitlab">安装gitlab</h6>
 <p>先下载gitlab</p>
 <pre><code>cd /Users/gitlab
 sudo -u gitlab git clone https://github.com/gitlabhq/gitlabhq.git
@@ -245,7 +245,7 @@ mysql&gt; CREATE USER 'gitlab'@'localhost' IDENTIFIED BY '$password';
 # Grant proper permissions to the MySQL User
 mysql&gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON `gitlabhq_production`.* TO 'gitlab'@'localhost';
 </code></pre>
-<h6 id="-gitolitegit">安装 Gitolite帮助管理git内部用户</h6>
+<h6 id="安装-gitolite帮助管理git内部用户">安装 Gitolite帮助管理git内部用户</h6>
 <p>克隆gitlab的gitolite分支源代码：</p>
 <pre><code>sudo -H -u gitlab git clone -b gl-v304 https://github.com/gitlabhq/gitolite.git /Users/gitlab/gitolite
 </code></pre>

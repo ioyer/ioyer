@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/" />
@@ -180,30 +180,30 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#nstaskapplescript">NSTask调用AppleScript</a>
+    <li><a href="#nstask调用applescript">NSTask调用AppleScript</a>
       <ul>
-        <li><a href="#processnstaskmainscpt">用Process(原NStask)进行调用main.scpt脚本</a></li>
-        <li><a href="#nsapplescriptapplescript">NSAppleScript调用AppleScript</a></li>
+        <li><a href="#用process原nstask进行调用mainscpt脚本">用<code>Process</code>(原<code>NStask</code>)进行调用<code>main.scpt</code>脚本</a></li>
+        <li><a href="#nsapplescript调用applescript">NSAppleScript调用AppleScript</a></li>
       </ul>
     </li>
-    <li><a href="#applescriptshell-">AppleScript调用shell  </a></li>
-    <li><a href="#osascriptapplescript">终端osascript调用AppleScript</a>
+    <li><a href="#applescript调用shell-">AppleScript调用shell  </a></li>
+    <li><a href="#终端osascript调用applescript">终端<code>osascript</code>调用<code>AppleScript</code></a>
       <ul>
-        <li><a href="#heading">语法</a></li>
-        <li><a href="#finder">打开Finder窗口</a></li>
-        <li><a href="#hello-world">打开某个程序同时弹出"Hello World"提示框</a></li>
-        <li><a href="#0-7">设置音量，音量大小范围（0-7）</a></li>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#打开finder窗口">打开Finder窗口</a></li>
+        <li><a href="#打开某个程序同时弹出hello-world提示框">打开某个程序同时弹出&quot;Hello World&quot;提示框</a></li>
+        <li><a href="#设置音量音量大小范围0-7">设置音量，音量大小范围（0-7）</a></li>
       </ul>
     </li>
-    <li><a href="#cshell">c语言调用shell</a></li>
+    <li><a href="#c语言调用shell">c语言调用shell</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通的桥梁。</p>
-<h2 id="nstaskapplescript">NSTask调用AppleScript</h2>
-<h3 id="processnstaskmainscpt">用<code>Process</code>(原<code>NStask</code>)进行调用<code>main.scpt</code>脚本</h3>
+<h2 id="nstask调用applescript">NSTask调用AppleScript</h2>
+<h3 id="用process原nstask进行调用mainscpt脚本">用<code>Process</code>(原<code>NStask</code>)进行调用<code>main.scpt</code>脚本</h3>
 <ol start="2">
 <li>swift两种方式</li>
 </ol>
@@ -220,7 +220,7 @@ if let scriptPath = bundle.pathForResource(&quot;main&quot;, ofType: &quot;scpt&
     Process.launchedProcess(launchPath: &quot;/usr/bin/osascript&quot;, arguments: paths)
 }
 </code></pre>
-<h3 id="nsapplescriptapplescript">NSAppleScript调用AppleScript</h3>
+<h3 id="nsapplescript调用applescript">NSAppleScript调用AppleScript</h3>
 <p><code>NSAppleScript</code>语法：<code>do shell script &quot;shell语句&quot;</code>，必须在<code>on run {变量名称，逗号隔开}</code> 以<code>end run</code>结束的闭包里运行。
 调用APPleScript脚本片段样例：</p>
 <pre><code class="language-swift">let bundle = NSBundle.mainBundle()
@@ -241,7 +241,7 @@ if let scriptObject = NSAppleScript(source: myAppleScript) {
 <p><a href="http://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">oc调用AppleScript</a>
 <a href="https://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">Can you execute an Applescript script from a Swift Application</a>
                       </p>
-<h2 id="applescriptshell-">AppleScript调用shell  </h2>
+<h2 id="applescript调用shell-">AppleScript调用shell  </h2>
 <p>在<code>NSAppleScript</code>语法中调用shell语句</p>
 <pre><code>do shell script &quot;shell语句&quot;`
 </code></pre>
@@ -252,25 +252,25 @@ if let scriptObject = NSAppleScript(source: myAppleScript) {
     tell application &quot;mpv&quot; to activate
 end run
 </code></pre>
-<h2 id="osascriptapplescript">终端<code>osascript</code>调用<code>AppleScript</code></h2>
+<h2 id="终端osascript调用applescript">终端<code>osascript</code>调用<code>AppleScript</code></h2>
 <p><a href="http://www.hackmac.org/tutorials/run-applescript-from-the-command-line/">参考</a></p>
-<h3 id="heading">语法</h3>
+<h3 id="语法">语法</h3>
 <p>{% codeblock lang:shell %}
 osascript -e &lsquo;applescript command&rsquo; #单引号
 {% endcodeblock %}</p>
-<h3 id="finder">打开Finder窗口</h3>
+<h3 id="打开finder窗口">打开Finder窗口</h3>
 <p>{% codeblock lang:shell %}
 osascript -e &lsquo;tell app &ldquo;Finder&rdquo; to make new Finder window&rsquo;
 {% endcodeblock %}</p>
-<h3 id="hello-world">打开某个程序同时弹出&quot;Hello World&quot;提示框</h3>
+<h3 id="打开某个程序同时弹出hello-world提示框">打开某个程序同时弹出&quot;Hello World&quot;提示框</h3>
 <p>{% codeblock  lang:js %}
 osascript -e &lsquo;tell app &ldquo;applicationname&rdquo; to display dialog &ldquo;Hello World&rdquo;&rsquo;
 {% endcodeblock %}</p>
-<h3 id="0-7">设置音量，音量大小范围（0-7）</h3>
+<h3 id="设置音量音量大小范围0-7">设置音量，音量大小范围（0-7）</h3>
 <p>{% codeblock  lang:js %}
 osascript -e &ldquo;set volume number&rdquo;
 {% endcodeblock %}</p>
-<h2 id="cshell">c语言调用shell</h2>
+<h2 id="c语言调用shell">c语言调用shell</h2>
 <p>可以用c语言的<code>#include  system</code>
 函数库：<code>include&lt;stdlib.h&gt;</code>
 函数说明:

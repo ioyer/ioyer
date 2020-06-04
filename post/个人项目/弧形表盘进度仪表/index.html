@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%BC%A7%E5%BD%A2%E8%A1%A8%E7%9B%98%E8%BF%9B%E5%BA%A6%E4%BB%AA%E8%A1%A8/" />
@@ -183,13 +183,13 @@ autocomplete('#aa-search-input',
     <li><a href="#example">Example</a></li>
     <li><a href="#requirements">Requirements</a></li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#api">API使用</a>
+    <li><a href="#api使用">API使用</a>
       <ul>
-        <li><a href="#heading">独立进度表盘加载</a></li>
-        <li><a href="#heading-1">完整控制器页面</a></li>
+        <li><a href="#独立进度表盘加载">独立进度表盘加载</a></li>
+        <li><a href="#完整控制器页面">完整控制器页面</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">静态库开发：</a></li>
+    <li><a href="#静态库开发">静态库开发：</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#license">License</a></li>
   </ul>
@@ -208,15 +208,15 @@ autocomplete('#aa-search-input',
 it, simply add the following line to your Podfile:</p>
 <pre><code class="language-ruby">pod 'ArcProgressUI'
 </code></pre>
-<h2 id="api">API使用</h2>
-<h3 id="heading">独立进度表盘加载</h3>
+<h2 id="api使用">API使用</h2>
+<h3 id="独立进度表盘加载">独立进度表盘加载</h3>
 <pre><code class="language-objc">#import &quot;ArcProgressView.h&quot;
 NSArray *viewArr = [[NSBundle mainBundle] loadNibNamed:@&quot;ArcProgressView&quot; owner:nil options:nil];
 UIView *arcView = viewArr.lastObject;
 arcView.backgroundColor = [UIColor redColor];
 [self.view addSubview:arcView];
 </code></pre>
-<h3 id="heading-1">完整控制器页面</h3>
+<h3 id="完整控制器页面">完整控制器页面</h3>
 <pre><code class="language-objc">#import &quot;PatrolScoreViewController.h&quot;
 +(PatrolScoreViewController *)withStoryboard:(PatrolScoreStyle)style{
 NSBundle *podbundle = [NSBundle bundleForClass:[PatrolScoreViewController class]];
@@ -228,7 +228,7 @@ VC.scoreViewStyle = style;
 return VC;
 }
 </code></pre>
-<h2 id="heading-2">静态库开发：</h2>
+<h2 id="静态库开发">静态库开发：</h2>
 <p>设想：通过cocoapod管理静态库的依赖关系。在项目调用静态库</p>
 <ol>
 <li>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/%E4%BA%92%E5%8A%A8%E6%80%A7%E7%9A%84%E6%95%99%E5%AD%A6%E5%B7%A5%E5%85%B7xcplayground/" />
@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Playground 展示语法和实时执行真实数据的特性，为编写方法和库接口提供了很好的机会，通过实时编译我们能了解语法、写出例子以及获得方法如何使用的说明，所有">
 <meta itemprop="datePublished" content="2017-03-01T17:27:16&#43;00:00" />
 <meta itemprop="dateModified" content="2017-03-01T17:27:16&#43;00:00" />
-<meta itemprop="wordCount" content="3815">
+<meta itemprop="wordCount" content="3821">
 
 
 
@@ -170,7 +170,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/swift/"> swift </a>
             <a href="/categories/playground/"> playground </a>
             </div>
-          <span class="more-meta"> 约 3815 字 </span>
+          <span class="more-meta"> 约 3821 字 </span>
           <span class="more-meta"> 预计阅读 8 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,23 +182,23 @@ autocomplete('#aa-search-input',
     <nav id="TableOfContents">
   <ul>
     <li><a href="#sources">Sources</a></li>
-    <li><a href="#frameworks">导入Frameworks</a>
+    <li><a href="#导入frameworks">导入Frameworks</a>
       <ul>
-        <li><a href="#cocoa-touch-frameworkplayground">手动配置cocoa touch Framework来桥接playground</a></li>
-        <li><a href="#cocopads">导入cocopads管理的依赖库</a></li>
+        <li><a href="#手动配置cocoa-touch-framework来桥接playground">手动配置cocoa touch Framework来桥接playground</a></li>
+        <li><a href="#导入cocopads管理的依赖库">导入cocopads管理的依赖库</a></li>
       </ul>
     </li>
-    <li><a href="#playgroundresources">Playground沙盒Resources</a></li>
-    <li><a href="#-bundle">本地 bundle访问本地资源</a></li>
-    <li><a href="#-documents">共享 访问Documents共享目录</a></li>
+    <li><a href="#playground沙盒resources">Playground沙盒Resources</a></li>
+    <li><a href="#本地-bundle访问本地资源">本地 bundle访问本地资源</a></li>
+    <li><a href="#共享-访问documents共享目录">共享 访问Documents共享目录</a></li>
     <li><a href="#playgroundsupport">PlaygroundSupport</a>
       <ul>
-        <li><a href="#liveview">liveView视图代理</a></li>
-        <li><a href="#xcpcapturevaluexcplayground">捕获值（XCPCaptureValue在XCPlayground中过时）</a></li>
-        <li><a href="#asynchronous-execution">异步执行（Asynchronous Execution）</a></li>
+        <li><a href="#liveview视图代理">liveView视图代理</a></li>
+        <li><a href="#捕获值xcpcapturevalue在xcplayground中过时">捕获值（XCPCaptureValue在XCPlayground中过时）</a></li>
+        <li><a href="#异步执行asynchronous-execution">异步执行（Asynchronous Execution）</a></li>
       </ul>
     </li>
-    <li><a href="#markdown">支持Markdown格式的文档</a></li>
+    <li><a href="#支持markdown格式的文档">支持Markdown格式的文档</a></li>
     <li><a href="#headers-of-all-sizes">Headers of All Sizes</a>
       <ul>
         <li><a href="#lists-of-links">Lists of Links</a></li>
@@ -224,9 +224,9 @@ autocomplete('#aa-search-input',
 <blockquote>
 <p>注意：由于此目录下的文件都是被编译成模块导入的，只有被设置成 public 的类型，属性或方法才能在 Playground 中使用。</p>
 </blockquote>
-<h2 id="frameworks">导入Frameworks</h2>
+<h2 id="导入frameworks">导入Frameworks</h2>
 <p>如果想要导入外部 framework，创建一个 Xcode Workspace 包含了 framework 项目和你的 Playground。在 Build 之后，就可以通过常规的import命令导入对应的包。</p>
-<h3 id="cocoa-touch-frameworkplayground">手动配置cocoa touch Framework来桥接playground</h3>
+<h3 id="手动配置cocoa-touch-framework来桥接playground">手动配置cocoa touch Framework来桥接playground</h3>
 <p>在Playgroud中使用个人项目中的类相关方法，需要借助于Custom Frameworks桥接
 注：.swift的文件中的方法必须是public修饰。
 参考文档：<code>Playground help -&gt; Importing Custom Frameworks into a Playground</code></p>
@@ -241,7 +241,7 @@ Workspace相关设置，build生成的目录：xcode偏好设置要和项目中�
 <li>xcode的偏好设置中 -&gt;Locations -&gt; Locations -&gt;点击打开 Advanced&hellip;在弹出框中设置Unique选项.</li>
 <li>在workspace中选中菜单 File -&gt; workspace settings&hellip; -&gt; 在弹出框中设置为Unique选项.</li>
 </ol>
-<h3 id="cocopads">导入cocopads管理的依赖库</h3>
+<h3 id="导入cocopads管理的依赖库">导入cocopads管理的依赖库</h3>
 <p>xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库
 解决办法：http://stackoverflow.com/questions/38216238/xcode-playground-with-cocoapods#
 {% codeblock  lang:bash %}
@@ -249,7 +249,7 @@ Workspace相关设置，build生成的目录：xcode偏好设置要和项目中�
 post_install do |installer|
 installer.pods_project.targets.each do |target|
 if target.name != &lsquo;CocoaAsyncSocket&rsquo;
-#playground相关配置，会导致'GCDAsyncSocket.h&rsquo; file not found
+#playground相关配置，会导致&rsquo;GCDAsyncSocket.h&rsquo; file not found
 target.build_configurations.each do |config|
 config.build_settings[&lsquo;CONFIGURATION_BUILD_DIR&rsquo;] = &lsquo;$PODS_CONFIGURATION_BUILD_DIR&rsquo;</p>
 <pre><code>            #Use Legacy Swift Language Version” (SWIFT_VERSION):
@@ -267,9 +267,9 @@ end
 </code></pre>
 <p>end
 {% endcodeblock %}</p>
-<h2 id="playgroundresources">Playground沙盒Resources</h2>
+<h2 id="playground沙盒resources">Playground沙盒Resources</h2>
 <p>Playgrounds 有两个与相关的Resources关联起来：一个是每一个独立的 playground 本地的，另一个则是 playground 之间共享的。在你的实验过程中，Playgrounds 能够支持 XML，JSON 数据，XIB，和图像文件。这也增加了其使用可用性。</p>
-<h2 id="-bundle">本地 bundle访问本地资源</h2>
+<h2 id="本地-bundle访问本地资源">本地 bundle访问本地资源</h2>
 <p>Resources 文件夹, 与 Sources 文件夹一样在 Playground 的包路径中, 通过 Project Navigator 就可见了——只需要简单的拖拽图像和数据文件，就可以在 Playground 中使用了。对应的内容在 main bundle 中也是可见的。比如，我们可以像这样非常快捷的加载一个包含天气数据的 JSON 文件：
 {% codeblock lang:swift %}
 let jsonPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(&ldquo;weather.json&rdquo;)
@@ -280,7 +280,7 @@ json = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil
 // &hellip;
 }
 {% endcodeblock %}</p>
-<h2 id="-documents">共享 访问Documents共享目录</h2>
+<h2 id="共享-访问documents共享目录">共享 访问Documents共享目录</h2>
 <p>&ldquo;共享 Playground 数据&quot;的内容在你的&quot;Documents&quot;文件夹路径下，也同样对于你创建的任何 Playground 都可见。我们通过XCPSharedDataDirectoryPath常量来访问该共享文件夹。</p>
 <p>如果你自习想尝试，需要在 &ldquo;~/Documents/Shared Playground Data&rdquo; 下简历一个文件夹。 这里我们尝试载入一个名字叫做 &ldquo;image.png&rdquo; 的图片文件:</p>
 <p>{% codeblock lang:swift %}
@@ -290,7 +290,7 @@ if let image = UIImage(contentsOfFile: sharedImagePath) {
 }
 {% endcodeblock %}</p>
 <h2 id="playgroundsupport">PlaygroundSupport</h2>
-<h3 id="liveview">liveView视图代理</h3>
+<h3 id="liveview视图代理">liveView视图代理</h3>
 <p>实现在playground中实现UI显示及交互操作
 liveView定义：
 {% codeblock lang:swift %}
@@ -307,7 +307,7 @@ public var liveView: XCPlaygroundLiveViewable?
 PlaygroundPage.current.liveView = UIView()／NSViewController()
 {% endcodeblock %}</li>
 </ol>
-<h3 id="xcpcapturevaluexcplayground">捕获值（XCPCaptureValue在XCPlayground中过时）</h3>
+<h3 id="捕获值xcpcapturevalue在xcplayground中过时">捕获值（XCPCaptureValue在XCPlayground中过时）</h3>
 <p><a href="http://swifter.tips/playground-capture/">冒泡排序可视化预览</a>
 {% codeblock XCPlayground Module lang:swift %}
 /// This function has been deprecated.
@@ -332,7 +332,7 @@ XCPCaptureValue(&ldquo;Temperature&rdquo;, temperature)
 }
 {% endcodeblock %}</p>
 <p>另一种可选的方式是, 选择 Editor → Show Result For Current Line 就会捕获当前线的数值并且直接以图表的形势显示在 Playground 流中：</p>
-<h3 id="asynchronous-execution">异步执行（Asynchronous Execution）</h3>
+<h3 id="异步执行asynchronous-execution">异步执行（Asynchronous Execution）</h3>
 <p>不同于大部分 Swift 代码，是作为框架或者应用的一部分，Playgrounds 被当做是 高级代码。Playground 中的高级代码是按照指令接着指令的顺序从上到下执行的。
 这种无容器风格的代码执行提供了立即反馈，但是存在着一个问题：在执行到了 Playground 底部后，会立即停止。网络请求，计时器，以及长时间运行的后台队列都会在提供反馈成功或者失败之前被立即终止。
 <code>PlaygroundSupport</code> 模块包含一个能够延长该过程的函数：
@@ -357,7 +357,7 @@ let image = UIImage(data: data)
 <p>}
 task.resume()
 {% endcodeblock %}</p>
-<h2 id="markdown">支持Markdown格式的文档</h2>
+<h2 id="支持markdown格式的文档">支持Markdown格式的文档</h2>
 <p><a href="https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/">官方文档</a>
 除了实验用途，Playgrounds 在展示 Swift 语言的工具和框架中也一样强大。特别文档部分可以作为丰富格式的方式展示出来，以提供对于代码的清晰解释从而展示某个技术或者正确使用某个 Library 的方式。</p>
 <p>不同于<a href="http://nshipster.cn/swift-documentation/">Swift代码中的注释文档语法</a>, <code>Swift Playgrounds</code> 使用 <code>Markdown</code> 来显示多格式的文档。

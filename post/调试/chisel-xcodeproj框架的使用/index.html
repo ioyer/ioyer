@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/chisel-xcodeproj%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -182,8 +182,8 @@ autocomplete('#aa-search-input',
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">开发使用</a></li>
-        <li><a href="#heading-1">安装</a></li>
+        <li><a href="#开发使用">开发使用</a></li>
+        <li><a href="#安装">安装</a></li>
       </ul>
     </li>
   </ul>
@@ -208,7 +208,7 @@ findinstances UIView subviews.@count == 0
 findinstances NSDictionary any @allKeys beginswith 'perf_'
 findinstances NSArray @count &gt; 100
 </code></pre>
-<h3 id="heading">开发使用</h3>
+<h3 id="开发使用">开发使用</h3>
 <p>构建Xcode项目，并获得到<code>Chisel Framework</code>的路径。:</p>
 <pre><code>/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
 </code></pre>
@@ -247,7 +247,7 @@ frame.EvaluateExpression('(void)PrintInstances(&quot;{}&quot;, &quot;{}&quot;)'.
 def __lldb_init_module(debugger, _):
 debugger.HandleCommand('command script add -f findinstances.findinstances findinstances')
 </code></pre>
-<h3 id="heading-1">安装</h3>
+<h3 id="安装">安装</h3>
 <p><a href="https://github.com/facebook/chisel/pull/214">Add Makefile for installing framework</a>
 This allows you to run make install with optional environment variables
 in order to build and install Chisel.framework.</p>

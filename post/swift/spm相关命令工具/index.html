@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
@@ -180,12 +180,12 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概念概述</a></li>
-    <li><a href="#swift">使用Swift编译系统</a>
+    <li><a href="#概念概述">概念概述</a></li>
+    <li><a href="#使用swift编译系统">使用Swift编译系统</a>
       <ul>
-        <li><a href="#swift-">swift 工具</a></li>
-        <li><a href="#swift-packagehellospm">swift package创建一个HelloSPM</a></li>
-        <li><a href="#spm">创建一个可执行的SPM</a></li>
+        <li><a href="#swift-工具">swift 工具</a></li>
+        <li><a href="#swift-package创建一个hellospm"><code>swift package</code>创建一个<code>Hello</code>SPM</a></li>
+        <li><a href="#创建一个可执行的spm">创建一个可执行的SPM</a></li>
       </ul>
     </li>
   </ul>
@@ -193,12 +193,12 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">概念概述</h2>
+      <h2 id="概念概述">概念概述</h2>
 <p><a href="https://swift.org/getting-started">getting-started</a>
 {% github it-boyer PerfectTemplate 20294e56 width = 30% %}</p>
-<h2 id="swift">使用Swift编译系统</h2>
+<h2 id="使用swift编译系统">使用Swift编译系统</h2>
 <p>Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。</p>
-<h3 id="swift-">swift 工具</h3>
+<h3 id="swift-工具">swift 工具</h3>
 <ul>
 <li>swift package</li>
 <li>swift package generate-xcodeproj</li>
@@ -206,7 +206,7 @@ autocomplete('#aa-search-input',
 <li>swift build</li>
 <li>swift test</li>
 </ul>
-<h3 id="swift-packagehellospm"><code>swift package</code>创建一个<code>Hello</code>SPM</h3>
+<h3 id="swift-package创建一个hellospm"><code>swift package</code>创建一个<code>Hello</code>SPM</h3>
 <ol>
 <li>创建<code>Hello</code>目录，目录名会作为SPM名称：</li>
 </ol>
@@ -251,7 +251,7 @@ Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
 Test Suite 'All tests' passed at 2016-08-29 08:00:31.455.
 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
 </code></pre>
-<h3 id="spm">创建一个可执行的SPM</h3>
+<h3 id="创建一个可执行的spm">创建一个可执行的SPM</h3>
 <p>可运行的SPM必须包含<code>main.swift</code>文件。SPM会把<code>main.swift</code>编译成可执行文件的二进制文件。
 在本例中，SPM将生成一个名为<code>Hello</code>的可执行文件，输出“Hello, world!”</p>
 <ol>

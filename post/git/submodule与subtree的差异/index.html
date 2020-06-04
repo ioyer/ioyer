@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
@@ -180,10 +180,10 @@ autocomplete('#aa-search-input',
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">核心区别</a>
+    <li><a href="#核心区别">核心区别</a>
       <ul>
-        <li><a href="#submodule">submodule命令</a></li>
-        <li><a href="#subtree">subtree命令</a></li>
+        <li><a href="#submodule命令">submodule命令</a></li>
+        <li><a href="#subtree命令">subtree命令</a></li>
       </ul>
     </li>
   </ul>
@@ -191,9 +191,9 @@ autocomplete('#aa-search-input',
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">核心区别</h2>
+      <h2 id="核心区别">核心区别</h2>
 <p><code>git submodule</code>类似于引用，而<code>git subtree</code>类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，<code>git submodule</code>是使用那篇博客的链接，而<code>git subtree</code>则是将内容完全copy过来。</p>
-<h3 id="submodule">submodule命令</h3>
+<h3 id="submodule命令">submodule命令</h3>
 <ol>
 <li>添加submodule</li>
 </ol>
@@ -245,7 +245,7 @@ git add .
 git commit -m &quot;remove moduleA&quot;
 git push origin master
 </code></pre>
-<h3 id="subtree">subtree命令</h3>
+<h3 id="subtree命令">subtree命令</h3>
 <ol>
 <li><code>subtree</code>添加子模块
 通过<code>subtree</code>添加子模块,<code>–squash</code>可省略，其功能是只有最新的提交记录被引入，去掉后则是引入所有历史提交记录</li>
