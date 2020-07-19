@@ -156,6 +156,244 @@ autocomplete('#aa-search-input',
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-19 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+          </div>
+        <span class="more-meta"> 约 1698 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <ol>
+<li><!-- raw HTML omitted -->Stashing<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->被暂存的文件重新暂存<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用后，移除储藏的内容<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->取消储藏(Un-applying a Stash)<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->从储藏中创建分支<!-- raw HTML omitted --></li>
+</ol>
+<h3 id="a-namestashinggit工具---储藏stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
+<hr>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
+<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
+<p>解决：<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令。</p>
+<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
+<h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
+<hr>
+<ol>
+<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
+<li><strong><!-- raw HTML omitted -->git status <!-- raw HTML omitted --></strong>命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status</li>
+</ol>
+<h1 id="on-branch-master">On branch master</h1>
+<h1 id="changes-to-be-committed">Changes to be committed:</h1>
+<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <!-- raw HTML omitted -->&hellip;&rdquo; to unstage)</h1>
+<h1 id="heading"></h1>
+<h1 id="modified---indexhtml">modified:   index.html</h1>
+<h1 id="heading-1"></h1>
+<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-2"></h1>
+<h1 id="modified---libsimplegitrb">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-3"></h1>
+<p>{%endcodeblock%}
+3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state<br>
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+4. 执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+5. 使用<strong><!-- raw HTML omitted -->git stash list<!-- raw HTML omitted --></strong>要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
+<h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
+<hr>
+<p>执行<strong><!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted --></strong>命令, 可以重新应用最近的一次储藏；
+执行<strong><!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted --></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply</p>
+<h1 id="on-branch-master-1">On branch master</h1>
+<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-4"></h1>
+<h1 id="modified---indexhtml-1">modified:   index.html</h1>
+<h1 id="modified---libsimplegitrb-1">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-5"></h1>
+<p>{%endcodeblock%}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">XMPP简单研究[转]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-06 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%BC%80%E6%BA%90%E5%BA%93/"> 开源库 </a>
+          </div>
+        <span class="more-meta"> 约 2853 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      最近想做一个游戏服务器和 IM 互通的服务。最初的想法是可以增进游戏帐号的安全，比如游戏用户可以通过绑定一个 IM 帐号，从而不用登陆游戏就向游戏服务器
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/sb/"> SB </a>
+          </div>
+        <span class="more-meta"> 约 2605 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="按比例缩放">按比例缩放</h2>
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
+而在代码中，有如下两种实现方式:</p>
+<ol>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
+</ol>
+<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br>
+{%codeblock lang:objc%}
+UIButton *btn;<br>
+{%endcodeblock%}</p>
+<h4 id="需求-1">需求 1：</h4>
+<ol>
+<li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br>
+{%codeblock lang:objc%}</li>
+</ol>
+<ul>
+<li>
+<p>(void)viewDidLoad
+{
+[super viewDidLoad];</p>
+<p>//创建UIButton，不需要设置frame
+btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
+btn.backgroundColor = [UIColor greenColor];
+[self.view addSubview:btn];</p>
+<p>//禁止自动转换AutoresizingMask
+btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
+<p>//居中
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];</p>
+<p>//距离底部20单位
+//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];</p>
+<p>//定义高度是父View的三分之一
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];</p>
+<p>//注册KVO方法
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
+}</p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/schemes/"> schemes </a>
+          </div>
+        <span class="more-meta"> 约 1464 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="url-schemes">URL Schemes</h4>
+<p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
+<p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
+<h4 id="注册自定义url协议">注册自定义URL协议</h4>
+<p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
+<p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
+<h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-08-28 </span>
@@ -190,249 +428,6 @@ autocomplete('#aa-search-input',
     </div>
     <div class="read-more">
       <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/storyboard%E4%B9%8Bsegue/">Storyboard之Segue</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-22 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/sb/"> SB </a>
-          </div>
-        <span class="more-meta"> 约 1380 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h5 id="segue原理">Segue原理:</h5>
-<p>在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：</p>
-<ol>
-<li>实例化目标视图控制器</li>
-<li>实例化一个新segue对象，该对象持有所有的信息</li>
-<li>调用源视图控制器的prepareForSegue:sender:方法，</li>
-<li>调用segue的 perform 方法将目标控制器带到屏幕上。<br>
-这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。</li>
-</ol>
-<p>在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ui/storyboard%E4%B9%8Bsegue/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/">TextKit之便笺实战</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-03 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/%E6%8E%A7%E4%BB%B6/"> 控件 </a>
-          </div>
-        <span class="more-meta"> 约 9467 字 </span>
-        <span class="more-meta"> 预计阅读 19 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="便笺练习功能点">便笺练习功能点:</h2>
-<p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。</p>
-<ul>
-<li>动态样式（Dynamic type）</li>
-<li>凸版印刷效果（Letterpress effects）</li>
-<li>环绕路径（Exclusion paths）</li>
-<li>动态文本格式及存储（Dynamic text formatting and storage）</li>
-</ul>
-<p>这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。
-效果图:<br>
-<img src="/images/bianqian.png" alt="image"><br>
-App开始运行后自动生成一组便笺实例并利用<code>tableViewController</code>显示出来。<code>Storyboards</code>和<code>segues</code>会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。
-项目开发包：<a href="http://cdn4.raywenderlich.com/wp-content/uploads/2013/09/TextKitNotepad-starter.zip">Notepad.zip</a></p>
-<h2 id="动态样式">动态样式</h2>
-<p><code>动态样式（Dynamic type）</code>是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。
-选择 <strong>通用-&gt;文字大小</strong> 或 <strong>通用-&gt;辅助功能</strong> 来查看app中的字体设置。</p>
-<p><img src="/images/UserTextPreferences.png" alt="image"><br>
-iOS 7 支持通过<code>粗体</code>、<code>设置字体大小</code>等方式提高支持动态文本的应用的易读性。
-例如<strong><code>UIFont</code></strong>新增的一个方法： <strong><code>preferredFontForTextStyle</code></strong> 用来根据用户对字体大小的设置来自动制定字体样式。<br>
-下面表格中是六种可用字体样式的示例：<br>
-<img src="/images/TextStyles.png" alt="image"><br>
-最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。</p>
-<h3 id="使用系统动态字体样式">使用系统动态字体样式</h3>
-<p>使用动态文本，是通过给<code>文本字体</code>设置字体样式<strong>style</strong>而不是指定具体的<code>字体名称</code>和<code>大小</code>。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。</p>
-<h4 id="preferredfontfortextstyle方法设置字体样式"><code>preferredFontForTextStyle:</code>方法设置字体样式</h4>
-<ol>
-<li>打开 <code>NoteEditorViewController.m/swift</code> 在<code>viewDidLoad：</code>方法实现的最后面加入以下代码：
-{%codeblock lang:objc%}
-self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-{%endcodeblock%}
-{% codeblock  lang:swift %}
-self.textView.font = UIFont.preferredFont(forTextStyle: .body)
-{% endcodeblock %}</li>
-<li>打开 <code>NotesListViewController.m/swift</code> 在 <code>tableView:cellForRowAtIndexPath:</code> 方法中增加如下代码:
-{%codeblock lang:objc%}
-cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-{%endcodeblock%}
-{% codeblock  lang:swift %}
-cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-{% endcodeblock %}
-上面两行代码都用到了新版iOS的字体样式.</li>
-</ol>
-<blockquote>
-<p>字体样式：通过语义法命名字体，例如 <code>UIFontTextStyleSubHeadline</code>, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。</p>
-</blockquote>
-<h4 id="app响应用户字体设置">APP响应用户字体设置</h4>
-<ol>
-<li>设置系统字体
-返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置.
-再运行App, <strong>Note</strong>页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。<br>
-<img src="/images/NotepadWithDynamicType.png" alt="image"></li>
-<li>设置系统字体生效
-当我们返回到<strong>通用-&gt;文字大小</strong>重新修改字体设置. 再打开<strong>Note</strong>页面, 会发现app并没有<strong>立即</strong>对字体设置的变化做出相应反应。</li>
-</ol>
-<h5 id="监听系统通知实现app响应用户字体设置">监听系统通知：实现APP响应用户字体设置</h5>
-<p>当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，<code>preferredFontForTextStyle:</code>方法返回的字体也会变化。</p>
-<ol>
-<li>添加监听系统通知<code>UIContentSizeCategoryDidChangeNotification</code>通知APP响应用户字体设置的变化
-打开 <code>NoteEditorViewController.m</code> 并在 <code>viewDidLoad</code> 方法的实现的最后加入以下代码：
-{%codeblock lang:objc%}
-[[NSNotificationCenter defaultCenter]
-addObserver:self
-selector:@selector(preferredContentSizeChanged:)
-name:UIContentSizeCategoryDidChangeNotification
-object:nil];
-{%endcodeblock%}
-{%codeblock lang:swift%}
-//字体变化通知:调用preferredContentSizeChanged:方法
-NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
-{%endcodeblock%}</li>
-<li>添加系统通知响应事件
-收到用于指定本类接收字体设定变化的通知后，调用<code>preferredContentSizeChanged:</code>方法
-在<code>NoteEditorViewController.m</code>中<code>viewDidLoad</code>方法之后紧接着添加以下方法：
-{%codeblock lang:objc%}</li>
-</ol>
-<ul>
-<li>(void)preferredContentSizeChanged:(NSNotification *)notification
-{
-self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-}
-{%endcodeblock%}
-{%codeblock lang:swift %}
-//字体变化通知时调用
-func preferredContentSizeChanged(_ notification:NSNotification)
-{
-self.textView.font = UIFont.preferredFont(forTextStyle: .body)
-}
-{%endcodeblock%}
-这一方法作用是根据新的字体设置来设定<code>textView</code>中的字体。 <br>
-Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/api/"> API </a>
-          </div>
-        <span class="more-meta"> 约 3968 字 </span>
-        <span class="more-meta"> 预计阅读 8 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
-<p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
-<ul>
-<li>######预览文档和呈现选项菜单<br>
-如果app需要打开自身并不支持的文件时，就需要使用<strong>UIDocumentInteractionController</strong>。一个<strong>document interaction controller</strong>通过<strong>Quick Look框架</strong>判断文档是否能被另一个app打开和预览。也就是说，app可以通过<strong>documentinteraction controller</strong>提供一些支持打开该文件方式的菜单。</li>
-</ul>
-<p>具体实现需要以下步骤：</p>
-<ul>
-<li>
-<ul>
-<li>需要通过其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>用户交互，如触摸这个控件，则调用<code>documentinteractioncontroller</code>对象。</li>
-</ul>
-</li>
-</ul>
-<p>三种交互界面:
-1. 预览文件的内容。
-2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。
-3. 一个菜单，仅包含“以其它方式打开”操作。</p>
-<p>同时，<code>documentinteractioncontroller</code>内置了一些手势，必要时可以直接实现它们。</p>
-<ul>
-<li>
-<p>######使用<code>documentinteractioncontroller</code>的场景:<strong>与文件交互的app都可以使用。</strong></p>
-</li>
-<li>
-<ul>
-<li>需要从网络下载文件的APP:<br>
-例如，email程序需要打开和预览邮件附件。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>不下载文件的APP:<br>
-例如，APP需要支持文件共享（参考“File-Sharing Support” in <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898">iOS Technology Overview</a>), 即可以对同步到app Documents/Shared目录下的文件使用<code>documentinteractioncontroller</code>。</li>
-</ul>
-</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/instrument/"> instrument </a>
-          </div>
-        <span class="more-meta"> 约 588 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-<p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-<pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
