@@ -156,6 +156,46 @@ autocomplete('#aa-search-input',
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/%E6%96%87%E6%A1%A3/"> 文档 </a>
+          </div>
+        <span class="more-meta"> 约 4559 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
+<p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
+<p>通过本教程，将学习如下几点：</p>
+<ul>
+<li>如何书写 HeaderDoc 风格的注释</li>
+<li>分如何在 Xcode 中预览文档</li>
+<li>如何生成 HTML 文档</li>
+<li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
+</ul>
+<h4 id="准备工作">准备工作</h4>
+<p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
+<p>这个简单的示例程序只包含了两个类：</p>
+<ul>
+<li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
+<li>MathAPI: 包含了1个方法，用于累加两个数。
+现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/ui/storyboard%E4%B9%8Bsegue/">Storyboard之Segue</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-07-22 </span>
@@ -393,55 +433,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-17 </span>
-      <div class="post-category">
-          <a href="/categories/ios/"> iOS </a>
-          <a href="/categories/%E8%AE%BE%E5%A4%87/"> 设备 </a>
-          </div>
-        <span class="more-meta"> 约 802 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h3 id="uideviceh">UIDevice.h</h3>
-<pre><code class="language-objc">+ (UIDevice *)currentDevice; 		  // 获取当前设备
-
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
-NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
-UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</code></pre>
-<pre><code class="language-objc">    UIDeviceOrientationUnknown,
-    UIDeviceOrientationPortrait,                    // 竖向，头向上
-    UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
-    UIDeviceOrientationLandscapeLeft,         		// 横向，头向左
-    UIDeviceOrientationLandscapeRight,       		// 横向，头向右
-    UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
-    UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
-</code></pre>
-<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
-{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
-#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
-{%endcodeblock %}
-{%codeblock lang:java 横向宏定义,返回YES:横向%}
-#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
-{%endcodeblock%}</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

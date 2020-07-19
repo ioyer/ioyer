@@ -156,6 +156,55 @@ autocomplete('#aa-search-input',
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-06-17 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          <a href="/categories/%E8%AE%BE%E5%A4%87/"> 设备 </a>
+          </div>
+        <span class="more-meta"> 约 802 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h3 id="uideviceh">UIDevice.h</h3>
+<pre><code class="language-objc">+ (UIDevice *)currentDevice; 		  // 获取当前设备
+
+NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
+NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
+NSString    *localizedModel;     	  // localized version of model  
+NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
+NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
+UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
+NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+</code></pre>
+<pre><code class="language-objc">    UIDeviceOrientationUnknown,
+    UIDeviceOrientationPortrait,                    // 竖向，头向上
+    UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
+    UIDeviceOrientationLandscapeLeft,         		// 横向，头向左
+    UIDeviceOrientationLandscapeRight,       		// 横向，头向右
+    UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
+    UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
+</code></pre>
+<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
+{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
+#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
+{%endcodeblock %}
+{%codeblock lang:java 横向宏定义,返回YES:横向%}
+#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
+{%endcodeblock%}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/">IOS7新宠TextKit</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-06-16 </span>
@@ -255,29 +304,6 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/">初步搭建Octopress</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-09 </span>
-      <div class="post-category">
-          <a href="/categories/hexo/"> hexo </a>
-          </div>
-        <span class="more-meta"> 约 2958 字 </span>
-        <span class="more-meta"> 预计阅读 6 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      软件支持： Github:后台新建项目，点击下载 iTerm2:可以替代mac终端，相当强大。下载 ruby:ruby安装包 下载 Mou:MarkD
-    </div>
-    <div class="read-more">
-      <a href="/post/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -285,7 +311,10 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/54/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
