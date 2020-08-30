@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/heroku%E7%9A%84ssh%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-09-05T14:03:39+00:00" />
 <meta itemprop="name" content="heroku的SSH终端命令">
 <meta itemprop="description" content="启动heroku 终端 Heroku Exec (SSH Tunneling) 每个Heroku exec连接最多持续一个小时。一小时后，您可能需要重新连接。Heroku exec在对Shield">
+
+
 <meta itemprop="datePublished" content="2018-09-05T14:03:39&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T14:03:39&#43;00:00" />
 <meta itemprop="wordCount" content="154">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="heroku的SSH终端命令"/>
 <meta name="twitter:description" content="启动heroku 终端 Heroku Exec (SSH Tunneling) 每个Heroku exec连接最多持续一个小时。一小时后，您可能需要重新连接。Heroku exec在对Shield"/>
 
@@ -179,47 +182,57 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#启动heroku-终端">启动heroku 终端</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#启动heroku-终端">启动heroku 终端</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="启动heroku-终端">启动heroku 终端</h2>
+      
+
+<h2 id="启动heroku-终端">启动heroku 终端</h2>
+
 <p><a href="(https://devcenter.heroku.com/articles/exec)">Heroku Exec (SSH Tunneling)</a>
 每个<code>Heroku exec</code>连接最多持续一个小时。一小时后，您可能需要重新连接。<code>Heroku exec</code>在对Shield Private Spaces是不限制的。</p>
+
 <p>先在该目录初始化环境</p>
+
 <pre><code>heroku create myhexo
 </code></pre>
+
 <ol>
-<li>创建</li>
-</ol>
+<li><p>创建</p>
+
 <pre><code>heroku ps:exec
-</code></pre>
-<ol>
-<li>bash</li>
-</ol>
+</code></pre></li>
+
+<li><p>bash</p>
+
 <pre><code>heroku run bash
 //
 Heroku ps:stop run #停止所有的dynos
 再执行heroku run bash
-</code></pre>
-<ol start="3">
-<li>查看正在运行的bash</li>
-</ol>
+</code></pre></li>
+
+<li><p>查看正在运行的bash</p>
+
 <pre><code>Heroku run:detached ls
-</code></pre>
-<ol start="4">
-<li>退出</li>
-</ol>
+</code></pre></li>
+
+<li><p>退出</p>
+
 <pre><code>Heroku dyno:kill dyno
-</code></pre>
-<ol start="5">
-<li>重启</li>
-</ol>
+</code></pre></li>
+
+<li><p>重启</p>
+
 <pre><code>Heroku dyno:restart [dyno]
-</code></pre>
+</code></pre></li>
+</ol>
 
     </div>
 

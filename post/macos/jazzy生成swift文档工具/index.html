@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/jazzy%E7%94%9F%E6%88%90swift%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-09-05T15:52:33+00:00" />
 <meta itemprop="name" content="Jazzy生成Swift文档工具">
 <meta itemprop="description" content="{% github realm jazzy 6932e5e width = 30% %} demo {% github appcoda SwiftDocSample 24c1649 width = 30% %} 使用 Jazzy 产生代码文档 Jazzy 是一款可以为 Swift 和 Objective-C 代码产生具有 Apple 风格的代码文档工具。事实上，Jazzy 会为你创建一">
+
+
 <meta itemprop="datePublished" content="2018-09-05T15:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T15:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="708">
+<meta itemprop="wordCount" content="735">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Jazzy生成Swift文档工具"/>
 <meta name="twitter:description" content="{% github realm jazzy 6932e5e width = 30% %} demo {% github appcoda SwiftDocSample 24c1649 width = 30% %} 使用 Jazzy 产生代码文档 Jazzy 是一款可以为 Swift 和 Objective-C 代码产生具有 Apple 风格的代码文档工具。事实上，Jazzy 会为你创建一"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 708 字 </span>
+          <span class="more-meta"> 约 735 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,66 +182,94 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#使用-jazzy-产生代码文档">使用 Jazzy 产生代码文档</a>
-      <ul>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#使用">使用</a></li>
-        <li><a href="#生成指定的swift版本">生成指定的swift版本</a></li>
-      </ul>
-    </li>
-    <li><a href="#帮助">帮助</a>
-      <ul>
-        <li><a href="#集成xcode">集成Xcode</a></li>
-      </ul>
-    </li>
-    <li><a href="#工具推荐">工具推荐</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#使用-jazzy-产生代码文档">使用 Jazzy 产生代码文档</a>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#使用">使用</a></li>
+<li><a href="#生成指定的swift版本">生成指定的swift版本</a></li>
+</ul></li>
+<li><a href="#帮助">帮助</a>
+<ul>
+<li><a href="#集成xcode">集成Xcode</a></li>
+</ul></li>
+<li><a href="#工具推荐">工具推荐</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
+      
+
+<!--github库卡片-->
+
 <p>{% github realm jazzy 6932e5e width = 30% %}</p>
+
 <p>demo
 {% github appcoda SwiftDocSample 24c1649 width = 30% %}</p>
+
 <h2 id="使用-jazzy-产生代码文档">使用 Jazzy 产生代码文档</h2>
+
 <p>Jazzy 是一款可以为 Swift 和 Objective-C 代码产生具有 Apple 风格的代码文档工具。事实上，Jazzy 会为你创建一个链接所有代码文档的独立网页。它是一款命令行工具，但还是很容易使用的。
 <a href="https://www.jianshu.com/p/7847a5dc52e2">在 Xcode 中使用 Markdown 生成 Swift 代码文档</a></p>
+
 <h3 id="安装">安装</h3>
+
 <pre><code>$ sudo gem install jazzy
 </code></pre>
+
 <p>gem source不稳定常会导致无法找到jazzy</p>
+
 <pre><code>$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
 $ gem sources -l
 https://gems.ruby-china.com
 # 确保只有 gems.ruby-china.com
 </code></pre>
-<p>腾讯云：<code> https://gems.ruby-china.com/</code>
+
+<p>腾讯云：<code>https://gems.ruby-china.com/</code>
 淘宝：<code>https://ruby.taobao.org/</code></p>
+
 <h3 id="使用">使用</h3>
+
 <p>使用 cd 命令将目录切换到工程对应的目录：</p>
+
 <pre><code>cd path_to_project_folder
 Jazzy 
 </code></pre>
+
 <p>输入 <code>Jazzy</code> 之后敲回车,会将标注为 <code>public</code> 的结构写入代码文档。
 如果你想要包含所有的实体，就输入一下：</p>
+
 <pre><code>jazzy --min-acl internal
 </code></pre>
+
 <p>默认输出的文件夹位于工程的根目录（你也可以更改输出路径），叫 <code>docs</code>。
 当jazzy不支持swift版本时，会导致错误：</p>
+
 <pre><code>Could not parse compiler arguments from `xcodebuild` output.
 Please confirm that `xcodebuild` is building a Swift module.
 </code></pre>
+
 <p>这是就需要在<code>build settings</code>中设置<code>swift Language Version</code>版本号。</p>
+
 <h3 id="生成指定的swift版本">生成指定的swift版本</h3>
+
 <p>如果不是 Swift 的最新版本，发现使用 Jazzy 后没有效果的话，需要先指定 Xcode 支持的 Swift 版本：</p>
+
 <pre><code>jazzy --swift-version 2.1.1 --min-acl internal
 </code></pre>
+
 <h2 id="帮助">帮助</h2>
+
 <p><code>jazzy -help</code>查看使用 Jazzy 时可能使用到的参数。当然，你完全可以根据自己的喜好来得到最终的结果。</p>
+
 <h3 id="集成xcode">集成Xcode</h3>
+
 <p>在项目中添加运行脚本，或创建 其他&ndash;&gt;<code>Aggregate</code>在<code>build phases</code>下添加<code>New run script phase</code></p>
+
 <pre><code>author=&quot;iTBoyer&quot;;
 author_url=&quot;http://it-boyer.github.io&quot;;
 github_url=&quot;https://github.com/it-boyer&quot;;
@@ -262,23 +293,28 @@ echo &quot;${output}/docsets/${PROJECT_NAME}.docset&quot;
 pwd
 cp -r &quot;${output}/docsets/${PROJECT_NAME}.docset&quot; &quot;${docSetDir}&quot;
 </code></pre>
+
 <p>安装到Xcode，在编写代码时，可以快速查看帮助。</p>
+
 <pre><code>#拷贝到xcode文档目录中
 echo &quot;${output}/docsets/${PROJECT_NAME}.docset&quot;
 pwd
 cp -r &quot;${output}/docsets/${PROJECT_NAME}.docset&quot; &quot;${docSetDir}&quot;
 </code></pre>
+
 <h2 id="工具推荐">工具推荐</h2>
+
 <ul>
-<li><a href="https://github.com/tomaz/appledoc">appledoc</a>工具install 方法和更新方法相同</li>
-</ul>
+<li><p><a href="https://github.com/tomaz/appledoc">appledoc</a>工具install 方法和更新方法相同</p>
+
 <pre><code class="language-ruby">git clone git://github.com/tomaz/appledoc.git
 cd ./appledoc
 sudo sh install-appledoc.sh
-</code></pre>
-<ul>
-<li><a href="https://github.com/omz/Dash-Plugin-for-Xcode#readme">dash插件</a>的使用</li>
-<li><a href="https://kapeli.com/dash">下载</a></li>
+</code></pre></li>
+
+<li><p><a href="https://github.com/omz/Dash-Plugin-for-Xcode#readme">dash插件</a>的使用</p></li>
+
+<li><p><a href="https://kapeli.com/dash">下载</a></p></li>
 </ul>
 
     </div>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E5%9C%A8codeanywhere%E4%B8%8A%E4%BD%BF%E7%94%A8zsh%E7%BB%88%E7%AB%AF%E5%8F%8A%E9%AB%98%E4%BA%AE%E6%A0%B7%E5%BC%8F/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-09-13T11:25:14+00:00" />
 <meta itemprop="name" content="在Codeanywhere上使用zsh终端及高亮样式">
 <meta itemprop="description" content="检查是否安装： chsh 打印： 安装 Debian / Ubuntu 安装： $ sudo apt-get install zsh zsh直接启动： zsh 安装oh-my-zsh样式工具 在hexoDeploy项目根目录执行： sh Util/oh-my-zsh/installTemplate.sh 会">
+
+
 <meta itemprop="datePublished" content="2018-09-13T11:25:14&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-13T11:25:14&#43;00:00" />
 <meta itemprop="wordCount" content="200">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在Codeanywhere上使用zsh终端及高亮样式"/>
 <meta name="twitter:description" content="检查是否安装： chsh 打印： 安装 Debian / Ubuntu 安装： $ sudo apt-get install zsh zsh直接启动： zsh 安装oh-my-zsh样式工具 在hexoDeploy项目根目录执行： sh Util/oh-my-zsh/installTemplate.sh 会"/>
 
@@ -179,62 +182,91 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#检查是否安装">检查是否安装：</a></li>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#安装oh-my-zsh样式工具">安装oh-my-zsh样式工具</a></li>
-        <li><a href="#安装space-vim工具">安装space-vim工具</a></li>
-        <li><a href="#安装vim插件">安装vim插件</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#检查是否安装">检查是否安装：</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#安装oh-my-zsh样式工具">安装oh-my-zsh样式工具</a></li>
+<li><a href="#安装space-vim工具">安装space-vim工具</a></li>
+<li><a href="#安装vim插件">安装vim插件</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h3 id="检查是否安装">检查是否安装：</h3>
+      
+
+<h3 id="检查是否安装">检查是否安装：</h3>
+
 <pre><code>chsh
 </code></pre>
+
 <p>打印：</p>
+
 <h3 id="安装">安装</h3>
+
 <p>Debian / Ubuntu 安装：</p>
+
 <pre><code>$ sudo apt-get install zsh
 </code></pre>
+
 <p>zsh直接启动：</p>
+
 <pre><code>zsh
 </code></pre>
+
 <h3 id="安装oh-my-zsh样式工具">安装oh-my-zsh样式工具</h3>
+
 <p>在hexoDeploy项目根目录执行：</p>
+
 <pre><code>sh Util/oh-my-zsh/installTemplate.sh
 </code></pre>
+
 <p>会提示<code>sed</code>文件修改失败的错误：</p>
+
 <pre><code>sed: can't read s#export ZSH=.*#export ZSH='/home/cabox/workspace/it-boyer.github.io/Util/oh-my-zsh'#g: No such file or directory
 </code></pre>
+
 <p>暂时通过手动来修改：</p>
+
 <pre><code>vi ../oh-my-zsh/templates/zshrc.zsh-template
 </code></pre>
+
 <p>修改如下：</p>
+
 <pre><code>export ZSH='/home/cabox/workspace/it-boyer.github.io/Util/oh-my-zsh'
 </code></pre>
+
 <h3 id="安装space-vim工具">安装space-vim工具</h3>
+
 <ol>
-<li>执行</li>
-</ol>
+<li><p>执行</p>
+
 <pre><code>sh Util/space-vim/Manualinstall.sh
 </code></pre>
+
 <p>创建替身失败的提示：</p>
+
 <pre><code>/home/cabox/workspace/it-boyer.github.io
 已经存在
 Util/space-vim/Manualinstall.sh: 18: Util/space-vim/Manualinstall.sh: Syntax error: &quot;(&quot; unexpected
 </code></pre>
+
 <p>手动解决创建替身的：</p>
+
 <pre><code>$ ln -fs /home/cabox/workspace/it-boyer.github.io/Util/space-vim/init.vim ~/.vimrc
 $ ln -fs /home/cabox/workspace/it-boyer.github.io/Util/space-vim/init.spacevim ~/.spacevim
 </code></pre>
+
 <h3 id="安装vim插件">安装vim插件</h3>
-<p>启动vim工具，终端自动安装相关插件。</p>
+
+<p>启动vim工具，终端自动安装相关插件。</p></li>
+</ol>
 
     </div>
 

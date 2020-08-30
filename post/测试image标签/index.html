@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="在org-mode中插入图片远程路径 在org文件中使用 [`!`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ! ! 超链接" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="在org-mode中插入图片远程路径 在org文件中使用 [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ![]()" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E6%B5%8B%E8%AF%95image%E6%A0%87%E7%AD%BE/" />
@@ -40,22 +40,25 @@
 
 
 <meta property="og:title" content="测试图片标签的使用方式" />
-<meta property="og:description" content="在org-mode中插入图片远程路径 在org文件中使用 [`!`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ! ! 超链接" />
+<meta property="og:description" content="在org-mode中插入图片远程路径 在org文件中使用 [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ![]()" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E6%B5%8B%E8%AF%95image%E6%A0%87%E7%AD%BE/" />
 <meta property="article:published_time" content="2019-09-12T18:56:00+08:00" />
 <meta property="article:modified_time" content="2019-09-12T18:56:00+08:00" />
 <meta itemprop="name" content="测试图片标签的使用方式">
-<meta itemprop="description" content="在org-mode中插入图片远程路径 在org文件中使用 [`!`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ! ! 超链接">
+<meta itemprop="description" content="在org-mode中插入图片远程路径 在org文件中使用 [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ![]()">
+
+
 <meta itemprop="datePublished" content="2019-09-12T18:56:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-12T18:56:00&#43;08:00" />
-<meta itemprop="wordCount" content="94">
+<meta itemprop="wordCount" content="97">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="测试图片标签的使用方式"/>
-<meta name="twitter:description" content="在org-mode中插入图片远程路径 在org文件中使用 [`!`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ! ! 超链接"/>
+<meta name="twitter:description" content="在org-mode中插入图片远程路径 在org文件中使用 [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ![]()"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -167,7 +170,7 @@ autocomplete('#aa-search-input',
       <div class="post-meta">
         <span class="post-time"> 2019-09-12 </span>
         
-          <span class="more-meta"> 约 94 字 </span>
+          <span class="more-meta"> 约 97 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -177,25 +180,37 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#在org-mode中插入图片远程路径">在org-mode中插入图片远程路径</a></li>
-    <li><a href="#超链接">超链接</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#在org-mode中插入图片远程路径">在org-mode中插入图片远程路径</a></li>
+<li><a href="#超链接">超链接</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="在org-mode中插入图片远程路径">在org-mode中插入图片远程路径</h2>
-<p>在org文件中使用  [`!<a href=""></a>`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。</p>
+      
+
+<h2 id="在org-mode中插入图片远程路径">在org-mode中插入图片远程路径</h2>
+
+<p>在org文件中使用  [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。</p>
+
 <blockquote>
-<p>!<a href=""></a></p>
+<p>![]()</p>
 </blockquote>
-<p>!<a href="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://it-boyer.github.io/iDocs/uml/booknote-class.plantuml"></a></p>
+
+<p><img src="http://www.plantuml.com/plantuml/proxy?cache=no&amp;src=https://it-boyer.github.io/iDocs/uml/booknote-class.plantuml" alt="" /></p>
+
 <h2 id="超链接">超链接</h2>
+
 <p>[<a href="http://baidu.com">http://baidu.com</a>][百度]</p>
+
 <blockquote>
 <p><a href="http://baidu.com">baidu</a></p>
 </blockquote>
+
 <p><a href="http://baidu.com">baidu</a></p>
 
     </div>
@@ -254,7 +269,7 @@ autocomplete('#aa-search-input',
         id: '2019-09-12 18:56:00 \x2b0800 CST',
         title: '测试图片标签的使用方式',
         link: decodeURI(location.href),
-        desc: '在org-mode中插入图片远程路径 在org文件中使用 [`!`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ! ! 超链接',
+        desc: '在org-mode中插入图片远程路径 在org文件中使用 [`![]()`]md语法插入图片的绝对路径，这种方式支持org转md后，md识别。 ![]()',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

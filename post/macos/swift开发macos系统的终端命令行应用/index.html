@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/swift%E5%BC%80%E5%8F%91macos%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-05-29T13:00:08+00:00" />
 <meta itemprop="name" content="swift开发macOS系统的终端命令行应用">
 <meta itemprop="description" content="教程 命令行程序MacOS的教程 使用swift创建一个命令行程序，相比其他语言如C、Perl、Ruby或java。 选用SWIFT的理由： Swi">
+
+
 <meta itemprop="datePublished" content="2017-05-29T13:00:08&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-29T13:00:08&#43;00:00" />
-<meta itemprop="wordCount" content="400">
+<meta itemprop="wordCount" content="402">
 
 
 
-<meta itemprop="keywords" content="工具," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift开发macOS系统的终端命令行应用"/>
 <meta name="twitter:description" content="教程 命令行程序MacOS的教程 使用swift创建一个命令行程序，相比其他语言如C、Perl、Ruby或java。 选用SWIFT的理由： Swi"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/%E7%BB%88%E7%AB%AF/"> 终端 </a>
             </div>
-          <span class="more-meta"> 约 400 字 </span>
+          <span class="more-meta"> 约 402 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,43 +183,53 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#教程">教程</a></li>
-        <li><a href="#mainswift主体">main.swift主体</a></li>
-        <li><a href="#终端调用程序">终端调用程序</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#教程">教程</a></li>
+<li><a href="#main-swift主体">main.swift主体</a></li>
+<li><a href="#终端调用程序">终端调用程序</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h3 id="教程">教程</h3>
+      
+
+<h3 id="教程">教程</h3>
+
 <p><a href="https://www.raywenderlich.com:443/128039/command-line-programs-macos-tutorial">命令行程序MacOS的教程</a></p>
+
 <p>使用swift创建一个命令行程序，相比其他语言如C、Perl、Ruby或java。
 选用SWIFT的理由：
 Swift可以用作解释脚本语言，也可以用作编译语言。这使您具有脚本语言的优势，如零编译时间和易于维护，以及选择编译应用程序，以提高执行时间或捆绑出售给公众。</p>
-<h3 id="mainswift主体">main.swift主体</h3>
+
+<h3 id="main-swift主体">main.swift主体</h3>
+
 <p>许多C语言的main函数作为切入点，例如当操作系统调用这个程序时执行的代码入口。这意味着程序的执行始于这个函数的第一行。
 Swift没有一个main函数，而是main.swift文件。这样在运行Swift项目时，直接运行的事main.swift文件，执行入口开始于第一行代码。</p>
+
 <h3 id="终端调用程序">终端调用程序</h3>
-<p>命令行可分两种模式</p>
-<ul>
-<li>静态可执行模式：通过终端app直接运行命令行工具，执行固有功能。</li>
-<li>交互命令行模式 ：需要用户通过使用说明信息，对命令行程序输入交互命令，执行相应的功能。</li>
-</ul>
+
+<p>命令行可分两种模式
+* 静态可执行模式：通过终端app直接运行命令行工具，执行固有功能。
+* 交互命令行模式 ：需要用户通过使用说明信息，对命令行程序输入交互命令，执行相应的功能。</p>
+
 <ol>
-<li>在同一个目录下执行</li>
-</ol>
+<li><p>在同一个目录下执行</p>
+
 <pre><code>./Panagram
-</code></pre>
-<ol start="2">
-<li>相对路径执行</li>
-</ol>
+</code></pre></li>
+
+<li><p>相对路径执行</p>
+
 <pre><code>Debug/Panagram
-</code></pre>
+</code></pre></li>
+</ol>
 
     </div>
 

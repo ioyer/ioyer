@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-15T17:22:37+00:00" />
 <meta itemprop="name" content="Swift直接调用Python函数库">
 <meta itemprop="description" content="{% github PerfectlySoft Perfect-Python 63589be width = 30% %} Perfect - Python 本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。 本项目采用Swift Package Manager 软件包管理器">
+
+
 <meta itemprop="datePublished" content="2018-10-15T17:22:37&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-15T17:22:37&#43;00:00" />
 <meta itemprop="wordCount" content="1319">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift直接调用Python函数库"/>
 <meta name="twitter:description" content="{% github PerfectlySoft Perfect-Python 63589be width = 30% %} Perfect - Python 本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。 本项目采用Swift Package Manager 软件包管理器"/>
 
@@ -179,37 +182,54 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#linux-编译事项">Linux 编译事项</a></li>
-    <li><a href="#macos-编译事项">MacOS 编译事项</a></li>
-    <li><a href="#快速上手">快速上手</a>
-      <ul>
-        <li><a href="#导入python函数库模块">导入Python函数库模块</a></li>
-        <li><a href="#访问python变量">访问Python变量</a></li>
-        <li><a href="#执行python函数">执行Python函数</a></li>
-        <li><a href="#python类对象">Python类对象</a></li>
-        <li><a href="#回调函数">回调函数</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li><a href="#perfect-python">Perfect - Python</a>
+<ul>
+<li><a href="#linux-编译事项">Linux 编译事项</a></li>
+<li><a href="#macos-编译事项">MacOS 编译事项</a></li>
+<li><a href="#快速上手">快速上手</a>
+<ul>
+<li><a href="#导入python函数库模块">导入Python函数库模块</a></li>
+<li><a href="#访问python变量">访问Python变量</a></li>
+<li><a href="#执行python函数">执行Python函数</a></li>
+<li><a href="#python类对象">Python类对象</a></li>
+<li><a href="#回调函数">回调函数</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
+      
+
+<!--github库卡片-->
+
 <p>{% github PerfectlySoft Perfect-Python 63589be width = 30% %}</p>
-<h1 id="perfect---python">Perfect - Python</h1>
+
+<h1 id="perfect-python">Perfect - Python</h1>
+
 <p>本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。</p>
+
 <p>本项目采用Swift Package Manager 软件包管理器编译，是<a href="https://github.com/PerfectlySoft/Perfect">Perfect</a> 项目的一部分，但是也可以独立运行</p>
+
 <p>在使用之前请准备好最新的Swift 4.1.2 工具链</p>
+
 <h2 id="linux-编译事项">Linux 编译事项</h2>
+
 <p>首先请确保 libpython2.7-dev 已经在 Ubuntu 16.04 上正确安装：</p>
+
 <pre><code>$ sudo apt-get install libpython2.7-dev
 </code></pre>
+
 <h2 id="macos-编译事项">MacOS 编译事项</h2>
+
 <p>请确定 Xcode 9.0 以上版本已经正确安装</p>
+
 <h2 id="快速上手">快速上手</h2>
+
 <p>首先在Package.swift中增加依存关系：</p>
+
 <pre><code class="language-swift">.package(url: &quot;https://github.com/PerfectlySoft/Perfect-Python.git&quot;, 
 from: &quot;3.2.0&quot;)
 
@@ -218,32 +238,49 @@ from: &quot;3.2.0&quot;)
 // name: &quot;your project name&quot;,
 dependencies: [&quot;PerfectPython&quot;, &quot;PythonAPI&quot;]),
 </code></pre>
+
 <p>然后将下列头文件导入Swift源代码：</p>
+
 <pre><code class="language-swift">import PythonAPI
 import PerfectPython
 </code></pre>
+
 <p>请注意在任何程序调用之前，必须调用<code>Py_Initialize()</code>函数初始化python嵌入环境：</p>
+
 <pre><code class="language-swift">Py_Initialize()
 </code></pre>
+
 <h3 id="导入python函数库模块">导入Python函数库模块</h3>
+
 <p>使用 <code>PyObj</code> 类对象用于导入python模块。下列参考范例中，一个名为<code>/tmp/clstest.py</code>的脚本被动态导入到当前Swift运行环境：</p>
+
 <pre><code class="language-swift">let pymod = try PyObj(path: &quot;/tmp&quot;, import: &quot;clstest&quot;)
 </code></pre>
+
 <h3 id="访问python变量">访问Python变量</h3>
+
 <p>导入模块后，您可以使用<code>PyObj.load()</code>函数加载任何一个变量；也可以反过来用 <code>PyObj.save()</code>命令保存当前变量为一个新的值。</p>
+
 <p>比如，以下python脚本中有个叫做 <code>stringVar</code> 的字符串变量：</p>
+
 <pre><code class="language-python">stringVar = 'Hello, world'
 </code></pre>
+
 <p>那么要取得这个字符串的值只需要这样做：</p>
+
 <pre><code class="language-swift">if let str = pymod.load(&quot;stringVar&quot;)?.value as? String {
 print(str)
 // 会打印变量的字符串值 &quot;Hello, world!&quot;
 }
 </code></pre>
+
 <p>此时您还可以为该变量直接写入新的字符串值：</p>
+
 <pre><code class="language-swift">try pymod.save(&quot;stringVar&quot;, newValue: &quot;Hola, 🇨🇳🇨🇦！&quot;)
 </code></pre>
+
 <p><strong>注意</strong> 目前，Perfect-Python仅支持如下Swift / Python数据类型自动转换：</p>
+
 <table>
 <thead>
 <tr>
@@ -252,27 +289,32 @@ print(str)
 <th>备注</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td>int</td>
 <td>Int</td>
 <td></td>
 </tr>
+
 <tr>
 <td>float</td>
 <td>Double</td>
 <td></td>
 </tr>
+
 <tr>
 <td>str</td>
 <td>String</td>
 <td></td>
 </tr>
+
 <tr>
 <td>list</td>
 <td>[Any]</td>
 <td>递归转换</td>
 </tr>
+
 <tr>
 <td>dict</td>
 <td>[String:Any]</td>
@@ -280,22 +322,33 @@ print(str)
 </tr>
 </tbody>
 </table>
+
 <p>比如，您可以把一个字符串 <code>String</code> 转换为 <code>PyObj</code>，通过 <code>let pystr = &quot;Hello&quot;.python()</code> 或者 <code>let pystr = try PyObj(value:&quot;Hello&quot;)</code> 完成转换。</p>
+
 <p>反过来，如果要把 <code>PyObj</code> 类转换为Swift数据类型，比如字符串，则仍然有两种方法：<code>let str = pystr.value as? String</code> 和 <code>let str = String(python: pystr)</code>。</p>
+
 <h3 id="执行python函数">执行Python函数</h3>
+
 <p>方法 <code>PyObj.call()</code> 用于带参数执行某个python函数。以如下python脚本为例：</p>
+
 <pre><code class="language-python">def mymul(num1, num2):
 return num1 * num2
 </code></pre>
+
 <p>Perfect-Python 可以用下列方法封装并调用以上函数，您所需要注意的仅仅是其函数名称以及参数。其中函数名称用字符串代替，而参数用一个数组表达：</p>
+
 <pre><code class="language-swift">if let res = pymod.call(&quot;mymul&quot;, args: [2,3])?.value as? Int {
 print(res)
 // 结果为 6
 }
 </code></pre>
+
 <h3 id="python类对象">Python类对象</h3>
+
 <p>请同样使用 <code>PyObj.load()</code> 函数用于家在Python类对象，但是注意后面一定要紧跟一个<code>PyObj.construct()</code> 用于初始化类对象实例。该方法同样支持用一个任意类型的数组作为参数进行对象构造。</p>
+
 <p>假设如下脚本的典型python类对象 <code>Person</code>，该类有两个属性姓名<code>name</code> 和年龄<code>age</code>，还有一个名为“自我介绍”的类对象方法<code>intro()</code>:</p>
+
 <pre><code class="language-python">class Person:
 def __init__(self, name, age):
 self.name = name
@@ -304,28 +357,37 @@ self.age = age
 def intro(self):
 return 'Name: ' + self.name + ', Age: ' + str(self.age)
 </code></pre>
+
 <p>在Swift中初始化上述类对象的方法需要进行以下两步走：</p>
+
 <pre><code class="language-swift">if let personClass = pymod.load(&quot;Person&quot;),
 let person = personClass.construct([&quot;rocky&quot;, 24]) {
 // person is now the object instance
 }
 </code></pre>
+
 <p>之后就可以访问类实例的属性变量和方法了，如同上文所提到的普通变量和函数调用的方法一样：</p>
+
 <pre><code class="language-swift">if let name = person.load(&quot;name&quot;)?.value as? String,
 let age = person.load(&quot;age&quot;)?.value as? Int,
 let intro = person.call(&quot;intro&quot;, args: [])?.value as? String {
 print(name, age, intro)
 }
 </code></pre>
+
 <h3 id="回调函数">回调函数</h3>
+
 <p>参考以下python代码，此时如果执行 <code>x = caller('Hello', callback)</code> 则可以将函数作为参数进行回调:</p>
+
 <pre><code class="language-python">def callback(msg):
 return 'callback: ' + msg
 
 def caller(info, func):
 return func(info)
 </code></pre>
+
 <p>在Swift中等效的代码平淡无奇，只不过将待调函数作为参数而已：:</p>
+
 <pre><code class="language-swift">if let fun = pymod.load(&quot;callback&quot;),
 let result = pymod.call(&quot;caller&quot;, args: [&quot;Hello&quot;, fun]),
 let v = result.value as? String {
@@ -333,6 +395,7 @@ print(v)
 // 结果是 &quot;callback: Hello&quot;
 }
 </code></pre>
+
 <p><a href="https://segmentfault.com/a/1190000010917250">你没看错：Swift可以直接调用Python函数库</a></p>
 
     </div>

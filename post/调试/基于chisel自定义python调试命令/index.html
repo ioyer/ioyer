@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/%E5%9F%BA%E4%BA%8Echisel%E8%87%AA%E5%AE%9A%E4%B9%89python%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-21T09:03:35+00:00" />
 <meta itemprop="name" content="基于Chisel自定义python调试命令">
 <meta itemprop="description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。">
+
+
 <meta itemprop="datePublished" content="2018-10-21T09:03:35&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-21T09:03:35&#43;00:00" />
-<meta itemprop="wordCount" content="792">
+<meta itemprop="wordCount" content="800">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于Chisel自定义python调试命令"/>
 <meta name="twitter:description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 792 字 </span>
+          <span class="more-meta"> 约 800 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,22 +182,33 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#管理lldbinit">管理.lldbinit</a></li>
-    <li><a href="#创建加载自定义命令">创建加载自定义命令</a></li>
-    <li><a href="#开发调试命令的流程">开发调试命令的流程</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#管理-lldbinit">管理.lldbinit</a></li>
+<li><a href="#创建加载自定义命令">创建加载自定义命令</a></li>
+<li><a href="#开发调试命令的流程">开发调试命令的流程</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
+      
+
+<!--github库卡片-->
+
 <p>{% github it-boyer chisel 56d0e0d width = 30% %}</p>
-<h2 id="管理lldbinit">管理.lldbinit</h2>
+
+<h2 id="管理-lldbinit">管理.lldbinit</h2>
+
 <p>.lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。</p>
+
 <pre><code>script fblldb.loadCommandsInDirectory('/magical/commands/')
 </code></pre>
+
 <p>现在将lldbinit原文件放在自己便于管理的地方，便于导入python命令</p>
+
 <pre><code class="language-sh">#!/bin/sh
 
 #  installChisel.sh
@@ -208,11 +222,12 @@ echo &quot;sh脚本文件的绝对路径：$basepath&quot;
 ln -fs $basepath/lldbinit ~/.lldbinit
 echo &quot;done&quot;
 </code></pre>
+
 <h2 id="创建加载自定义命令">创建加载自定义命令</h2>
-<p>无论是本地使用还是提交到<code>Chisel</code>贡献，工作流程都是一样的。</p>
-<ol>
-<li>在便于管理的目录下，新建python文件 <code>vi example.py</code>，在chisel会通过该目录路径来加载新命令：</li>
-</ol>
+
+<p>无论是本地使用还是提交到<code>Chisel</code>贡献，工作流程都是一样的。
+1. 在便于管理的目录下，新建python文件 <code>vi example.py</code>，在chisel会通过该目录路径来加载新命令：</p>
+
 <pre><code>#!/usr/bin/python
 # Example file with custom commands, located at /magical/commands/example.py
 
@@ -234,31 +249,34 @@ def run(self, arguments, options):
     # values and arguments. LLDB can't always find them on its own.
     lldb.debugger.HandleCommand('p (CGFloat)[(id)[(id)[UIApplication sharedApplication] keyWindow] windowLevel]')
 </code></pre>
-<ol start="2">
-<li>加载新建的命令
+
+<ol>
+<li><p>加载新建的命令
 可以使用<code>Chisel</code>提供的函数<code>loadCommandsInDirectory</code>加载，在<code>fblldb.py</code>中声明的方法。
-在<code>~/.lldbinit</code>新增如下：</li>
-</ol>
+在<code>~/.lldbinit</code>新增如下：</p>
+
 <pre><code># ~/.lldbinit
 ...
 command script import /path/to/fblldb.py
 script fblldb.loadCommandsInDirectory('/magical/commands/')
 </code></pre>
+
 <blockquote>
 <p>更方便的方式：命令文件直接放在chisel源码中的<code>mcommands</code>目录中，这样会自动加载，就不用在lldbinit中配置了。
 因为内置的支持，新命令也可以轻松使用<code>arguments</code>参数和<code>options</code>选项的相关功能。请参阅<code>border</code>和<code>pinvocation</code>命令的用法。</p>
-</blockquote>
-<h2 id="开发调试命令的流程">开发调试命令的流程</h2>
-<p>无论是本地使用还是提交到<code>Chisel</code>贡献，都是相同的工作流。</p>
-<ol>
-<li>启动<code>LLDB</code></li>
-<li>拦截断点(或者通过Xcode的调试栏中的<code>pause</code>按钮暂停执行，或者直接<code>process interrupt</code>进程中断)</li>
-<li>执行命令<code>source ~/.lldbinit</code>，在LLDB中提供命令源</li>
-<li>运行您正在执行的命令</li>
-<li>修改命令</li>
-<li>重新加载脚本<code>script reload(modulename)</code></li>
-<li>重复3-6步骤，直到自定义命令达到预期效果。</li>
+</blockquote></li>
 </ol>
+
+<h2 id="开发调试命令的流程">开发调试命令的流程</h2>
+
+<p>无论是本地使用还是提交到<code>Chisel</code>贡献，都是相同的工作流。
+1. 启动<code>LLDB</code>
+2. 拦截断点(或者通过Xcode的调试栏中的<code>pause</code>按钮暂停执行，或者直接<code>process interrupt</code>进程中断)
+3. 执行命令<code>source ~/.lldbinit</code>，在LLDB中提供命令源
+4. 运行您正在执行的命令
+5. 修改命令
+6. 重新加载脚本<code>script reload(modulename)</code>
+7. 重复3-6步骤，直到自定义命令达到预期效果。</p>
 
     </div>
 

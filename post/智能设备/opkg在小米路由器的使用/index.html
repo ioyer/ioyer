@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/opkg%E5%9C%A8%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-14T23:27:01+00:00" />
 <meta itemprop="name" content="opkg在小米路由器的使用">
 <meta itemprop="description" content="{% github openwrt openwrt 759f111 width = 30% %} openwrt.io 小米路由器固件信息 路由器read-only file system怎么改权限 mount -o remount,rw / 新建配置 备份初始conf mv /etc/opkg.conf /etc/opkg.conf.bak 开始配置 vim /etc/opkg.conf src/gz attitude_adjustment_base">
+
+
 <meta itemprop="datePublished" content="2018-10-14T23:27:01&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-14T23:27:01&#43;00:00" />
-<meta itemprop="wordCount" content="595">
+<meta itemprop="wordCount" content="596">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="opkg在小米路由器的使用"/>
 <meta name="twitter:description" content="{% github openwrt openwrt 759f111 width = 30% %} openwrt.io 小米路由器固件信息 路由器read-only file system怎么改权限 mount -o remount,rw / 新建配置 备份初始conf mv /etc/opkg.conf /etc/opkg.conf.bak 开始配置 vim /etc/opkg.conf src/gz attitude_adjustment_base"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
             </div>
-          <span class="more-meta"> 约 595 字 </span>
+          <span class="more-meta"> 约 596 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,39 +182,43 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading"></a></li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#opkg安装命令">opkg安装命令</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li><a href="#新建配置">新建配置</a>
+<ul>
+<li>
+<ul>
+<li><a href="#opkg安装命令">opkg安装命令</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
+      
+
+<!--github库卡片-->
+
 <p>{% github openwrt openwrt 759f111 width = 30% %}
 <a href="https://openwrt.io">openwrt.io</a>
 <a href="https://openwrt.io/docs/miwifi/">小米路由器固件信息</a></p>
-<h2 id="heading"></h2>
+
 <p>路由器read-only file system怎么改权限</p>
+
 <pre><code>mount -o remount,rw /
 </code></pre>
+
 <h1 id="新建配置">新建配置</h1>
+
 <ol>
-<li>备份初始conf</li>
-</ol>
+<li><p>备份初始conf</p>
+
 <pre><code>mv /etc/opkg.conf /etc/opkg.conf.bak
-</code></pre>
-<ol start="2">
-<li>开始配置
-<code>vim /etc/opkg.conf</code></li>
-</ol>
+</code></pre></li>
+
+<li><p>开始配置
+<code>vim /etc/opkg.conf</code></p>
+
 <pre><code>src/gz attitude_adjustment_base http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base
 src/gz attitude_adjustment_packages http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/packages/
 src/gz attitude_adjustment_luci http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/luci/
@@ -227,47 +234,54 @@ option overlay_root /data
 arch all 100
 arch ramips 200
 arch ramips_24kec 300
-</code></pre>
-<ol start="3">
-<li>更新库</li>
-</ol>
+</code></pre></li>
+
+<li><p>更新库</p>
+
 <pre><code>$ opkg update
 Downloading http://downloads.openwrt.org/..../generic/packages/packages/Packages.gz.
 Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
 </code></pre>
+
 <blockquote>
-<p>注：如果下载失败，请确认是否是http而非https。另外如果链接失效可能是更新了包，可以到https://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/搜索libc_找到最新下载地址。</p>
-</blockquote>
+<p>注：如果下载失败，请确认是否是http而非https。另外如果链接失效可能是更新了包，可以到<a href="https://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/搜索libc_找到最新下载地址。">https://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/搜索libc_找到最新下载地址。</a></p>
+</blockquote></li>
+</ol>
+
 <p>经过用上操作，opkg就可以正常使用了</p>
+
 <h3 id="opkg安装命令">opkg安装命令</h3>
+
 <p><code>opkg install 软件包名</code>:一律安装在/data/usr/bin目录中
 <code>opkg upgrade 软件包名</code>: 升级软件包
 <code>opkg list-installed</code>:查看已经安装的包
 <code>opkg list-upgradable</code>:查看可以升级的包
 <code>opkg update</code> 更新可以获取的软件包列表
 <code>opkg remove 软件包名</code> 卸载已经安装的指定的软件包
-<code>opkg list</code> 获取软件列表</p>
-<ol>
-<li>安装基础包libc*
-安装其他库的时候，经常会提示错误，缺少<code>libc*</code>。这里他没办法直接安装，只能手工操作:</li>
-</ol>
+<code>opkg list</code> 获取软件列表
+1. 安装基础包libc*
+安装其他库的时候，经常会提示错误，缺少<code>libc*</code>。这里他没办法直接安装，只能手工操作:</p>
+
 <pre><code>$  opkg install http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/libc_0.9.33.2-1_ramips_24kec.ipk
 </code></pre>
-<ol start="2">
-<li>接下来就可以安装一些自己需求的软件包:
-例如：安装git命令工具</li>
-</ol>
+
+<ol>
+<li><p>接下来就可以安装一些自己需求的软件包:
+例如：安装git命令工具</p>
+
 <pre><code>$ opkg install git
-</code></pre>
-<ol start="5">
-<li>配置系统环境
+</code></pre></li>
+
+<li><p>配置系统环境
 由于没有配置 /etc/profile,导致：运行命令时，提示no fond
-例如：#python    no fond</li>
-</ol>
+例如：#python    no fond</p>
+
 <pre><code>export PATH=/data/usr/bin:$PATH
 $ source /etc/profile //命令生效
 </code></pre>
-<p><a href="http://www.liwangmeng.com/openwrt%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%BD%92%E7%BA%B3/">OpenWRT基本知识整理</a></p>
+
+<p><a href="http://www.liwangmeng.com/openwrt基本知识归纳/">OpenWRT基本知识整理</a></p></li>
+</ol>
 
     </div>
 

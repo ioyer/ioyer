@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/xcode10%E6%96%B0%E7%89%B9%E6%80%A7/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-02T13:18:21+00:00" />
 <meta itemprop="name" content="Xcode10新特性">
 <meta itemprop="description" content="Xcode 10 Xcode 10在macOS Mojave的黑暗模式下看起来非常棒，也让你很容易在macOS应用程序中采用新的外观。Xcode 10测试版包括Swif">
+
+
 <meta itemprop="datePublished" content="2018-10-02T13:18:21&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-02T13:18:21&#43;00:00" />
 <meta itemprop="wordCount" content="1972">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xcode10新特性"/>
 <meta name="twitter:description" content="Xcode 10 Xcode 10在macOS Mojave的黑暗模式下看起来非常棒，也让你很容易在macOS应用程序中采用新的外观。Xcode 10测试版包括Swif"/>
 
@@ -179,95 +182,113 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#dark模式界面和mac程序支持">Dark模式界面和Mac程序支持</a></li>
-    <li><a href="#source-control">Source Control</a></li>
-    <li><a href="#编辑器的改进">编辑器的改进</a></li>
-    <li><a href="#playgrounds支持机器学习">Playgrounds支持机器学习</a></li>
-    <li><a href="#测试和调试">测试和调试</a></li>
-    <li><a href="#构建性能">构建性能</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#dark模式界面和mac程序支持">Dark模式界面和Mac程序支持</a></li>
+<li><a href="#source-control">Source Control</a></li>
+<li><a href="#编辑器的改进">编辑器的改进</a></li>
+<li><a href="#playgrounds支持机器学习">Playgrounds支持机器学习</a></li>
+<li><a href="#测试和调试">测试和调试</a></li>
+<li><a href="#构建性能">构建性能</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>Xcode 10
+      
+
+<p>Xcode 10
 Xcode 10在macOS Mojave的黑暗模式下看起来非常棒，也让你很容易在macOS应用程序中采用新的外观。Xcode 10测试版包括Swift 4.2和beta sdk，适用于iOS 12、watchOS 5、tvOS 12和macOS Mojave。</p>
+
 <h2 id="dark模式界面和mac程序支持">Dark模式界面和Mac程序支持</h2>
+
 <ul>
-<li>全新的<code>dark</code>外观贯穿<code>Xcode</code>和<code>Instruments</code>
-在终端中输入命令，Xcode10开启dark mode:</li>
-</ul>
+<li><p>全新的<code>dark</code>外观贯穿<code>Xcode</code>和<code>Instruments</code>
+在终端中输入命令，Xcode10开启dark mode:</p>
+
 <pre><code>defaults write com.apple.dt.Xcode NSWindowDarkChocolate -bool true
 </code></pre>
-<pre><code>使用低版本的macOS,使用此命令可能会造成Xcode interface损坏(测试系统 macOS High Sierra
-10.13.4),只能使用macOS Mojave 10.14+才能使用暗黑模式
-</code></pre>
-<ul>
-<li><code>Asset catalogs</code>为自定义<code>colors assets</code> 和 <code>image assets</code> 添加了深色和浅色变体，支持不同的图像与颜色assets的亮暗与高对比度表现。
+
+<p>使用低版本的macOS,使用此命令可能会造成Xcode interface损坏(测试系统 macOS High Sierra
+10.13.4),只能使用macOS Mojave 10.14+才能使用暗黑模式</p></li>
+
+<li><p><code>Asset catalogs</code>为自定义<code>colors assets</code> 和 <code>image assets</code> 添加了深色和浅色变体，支持不同的图像与颜色assets的亮暗与高对比度表现。
 支持CarPlay assets.
 支持ARKit 3D ARReferenceObject assets.
-Asset目录与视图调试器(view debugger)的背景可以被明确设定成亮或暗，这样前景的元素就会明显看出来。</li>
-<li><code>Interface Builder</code>支持<code>dark</code>和<code>light</code>预览之间切换
-调试您的Mac应用程序在黑暗或光明的变种，而不改变OS设置</li>
-</ul>
-<h2 id="source-control">Source Control</h2>
-<ol>
-<li>在共享服务器上的本地存储库或上游的更改直接在编辑器中突出显示。乍一看，你会发现:
-修改代码。
+Asset目录与视图调试器(view debugger)的背景可以被明确设定成亮或暗，这样前景的元素就会明显看出来。</p></li>
+
+<li><p><code>Interface Builder</code>支持<code>dark</code>和<code>light</code>预览之间切换
+调试您的Mac应用程序在黑暗或光明的变种，而不改变OS设置</p>
+
+<h2 id="source-control">Source Control</h2></li>
+
+<li><p>在共享服务器上的本地存储库或上游的更改直接在编辑器中突出显示。乍一看，你会发现:
+修改代码。</p>
+
 <ul>
 <li>更改尚未推入共享存储库。</li>
 <li>其他人已经做出了上游的改变。源编辑器(source editor)会显示出某个开发者做出的改变并展示其他开发者做出的还未添加到项目中的改变。</li>
-<li>在承诺之前，你应该解决冲突。
+
+<li><p>在承诺之前，你应该解决冲突。
 支持Atlassian Bitbucket提供的云托管和自托管Git服务器，以及与现有GitHub支持一起使用的GitLab。
 Xcode提供了在从存储库中提取最新版本的代码时重新设置更改的基础。
-如果需要，将生成SSH密钥，并将其上载到服务提供者。</li>
-</ul>
-</li>
-</ol>
-<h2 id="编辑器的改进">编辑器的改进</h2>
-<ul>
-<li>在代码编辑器中放置多个游标，以便同时进行许多更改。
-Xcode 10 Source Editor现在支持多光标编辑，允许你快速同时编辑多范围的代码。你可以通过多种方式放置额外的光标，包括鼠标点击方式<code>⌃+⇧+Click</code>，或通过选择列<code>⌥+Click+Drag</code>，或通过键盘的<code>⌃+⇧+Up</code>选择上一列，或<code>⌃+⇧+Down</code>选择下一列。</li>
-<li>代码折叠带现在可以隐藏任何被大括号包围的代码块。</li>
-<li>Over-scroll功能可以方便地将屏幕中间的最后几行代码居中。</li>
-<li>库(Library)内容从Inspector区的底部移动到了一个重叠窗口中，这个窗口可以移动或调整大小，就像Spotlight search一样。在拖动物品时它会解除，但在拖动前按住Option键，它就会为一个额外的拖动保持开启。</li>
-</ul>
-<h2 id="playgrounds支持机器学习">Playgrounds支持机器学习</h2>
-<ul>
-<li><code>REPL-like</code> model 立即重新运行您现有的playground代码。</li>
-<li>代码运行到指定的行，或键入<code>shift-return</code>来运行刚刚添加的代码。</li>
-<li>import<a href="https://developer.apple.com/machine-learning/build-a-model/">Create ML  Framework</a>以交互式地培训新模型，然后在playground上编写代码的测试模型。完成后，将模型拖放到应用程序中。</li>
-</ul>
-<h2 id="测试和调试">测试和调试</h2>
-<ul>
-<li><code>Debugging symbols</code>从新设备下载的速度比以前快了五倍。</li>
-<li>Xcode将生成一组完全相同的模拟器，以充分利用多核Mac的优势，并通过风扇测试并行运行，以更快的速度完成测试套件。</li>
-<li>以随机或线性顺序运行测试。</li>
-<li>Instruments工具会自动显示添加到代码中的OSLog路标。</li>
-<li>构建并共享您自己的定制<code>instruments package</code>，为您自己的代码提供独特的数据可视化和分析。</li>
-<li><code>Memory</code>内存调试器使用紧凑的布局，以便更容易地研究内存图。</li>
-<li><code>Metal shader</code>调试器允许您轻松地检查顶点、片段、计算和平铺着色器代码的执行。</li>
-<li><code>Metal dependency viewer</code>可以预览在你的<code>Metal-based</code>应用程序中如何使用资源的详细图表。</li>
-<li>Xcode的视图调试器添加了一个选项，可以选择亮暗canvas背景色。
+如果需要，将生成SSH密钥，并将其上载到服务提供者。</p>
+
+<h2 id="编辑器的改进">编辑器的改进</h2></li>
+</ul></li>
+
+<li><p>在代码编辑器中放置多个游标，以便同时进行许多更改。
+Xcode 10 Source Editor现在支持多光标编辑，允许你快速同时编辑多范围的代码。你可以通过多种方式放置额外的光标，包括鼠标点击方式<code>⌃+⇧+Click</code>，或通过选择列<code>⌥+Click+Drag</code>，或通过键盘的<code>⌃+⇧+Up</code>选择上一列，或<code>⌃+⇧+Down</code>选择下一列。</p></li>
+
+<li><p>代码折叠带现在可以隐藏任何被大括号包围的代码块。</p></li>
+
+<li><p>Over-scroll功能可以方便地将屏幕中间的最后几行代码居中。</p></li>
+
+<li><p>库(Library)内容从Inspector区的底部移动到了一个重叠窗口中，这个窗口可以移动或调整大小，就像Spotlight search一样。在拖动物品时它会解除，但在拖动前按住Option键，它就会为一个额外的拖动保持开启。</p>
+
+<h2 id="playgrounds支持机器学习">Playgrounds支持机器学习</h2></li>
+
+<li><p><code>REPL-like</code> model 立即重新运行您现有的playground代码。</p></li>
+
+<li><p>代码运行到指定的行，或键入<code>shift-return</code>来运行刚刚添加的代码。</p></li>
+
+<li><p>import<a href="https://developer.apple.com/machine-learning/build-a-model/">Create ML  Framework</a>以交互式地培训新模型，然后在playground上编写代码的测试模型。完成后，将模型拖放到应用程序中。</p>
+
+<h2 id="测试和调试">测试和调试</h2></li>
+
+<li><p><code>Debugging symbols</code>从新设备下载的速度比以前快了五倍。</p></li>
+
+<li><p>Xcode将生成一组完全相同的模拟器，以充分利用多核Mac的优势，并通过风扇测试并行运行，以更快的速度完成测试套件。</p></li>
+
+<li><p>以随机或线性顺序运行测试。</p></li>
+
+<li><p>Instruments工具会自动显示添加到代码中的OSLog路标。</p></li>
+
+<li><p>构建并共享您自己的定制<code>instruments package</code>，为您自己的代码提供独特的数据可视化和分析。</p></li>
+
+<li><p><code>Memory</code>内存调试器使用紧凑的布局，以便更容易地研究内存图。</p></li>
+
+<li><p><code>Metal shader</code>调试器允许您轻松地检查顶点、片段、计算和平铺着色器代码的执行。</p></li>
+
+<li><p><code>Metal dependency viewer</code>可以预览在你的<code>Metal-based</code>应用程序中如何使用资源的详细图表。</p></li>
+
+<li><p>Xcode的视图调试器添加了一个选项，可以选择亮暗canvas背景色。
 你可以改变你macOS应用运行时的外观，通过使用<code>Debug &gt; View Debugging &gt; Appearance menu</code>，或调试栏中的<code>Override Appearance</code>菜单，或接触栏(touch bar)
-检查器(inspector)中展示的已命名颜色在调试时会显示它们的名字以及它们是否为系统颜色。</li>
-</ul>
-<h2 id="构建性能">构建性能</h2>
-<ul>
-<li>
-<p>默认情况下启用<code>New build system</code>，改进了整个系统的性能。
+检查器(inspector)中展示的已命名颜色在调试时会显示它们的名字以及它们是否为系统颜色。</p>
+
+<h2 id="构建性能">构建性能</h2></li>
+
+<li><p>默认情况下启用<code>New build system</code>，改进了整个系统的性能。
 Xcode 10使用了一个新的创建系统。新创建系统提供了更好的可靠性与创建性能，它可以获取项目配置问题，而legacy创建系统则不能。
-Legacy创建系统在Xcode 10中依旧可用。要想使用的话，在File &gt; Project/Workspace Settings页选择它。为legacy创建系统配置过的项目会在Activity View显示一个橘黄锤子标签</p>
-</li>
-<li>
-<p>Swift编译器构建每个单独的文件要快得多。</p>
-</li>
-<li>
-<p>使用<code>incremental build setting</code>增量构建设置时，用于调试的大型Swift项目的构建速度要快得多。
+Legacy创建系统在Xcode 10中依旧可用。要想使用的话，在File &gt; Project/Workspace Settings页选择它。为legacy创建系统配置过的项目会在Activity View显示一个橘黄锤子标签</p></li>
+
+<li><p>Swift编译器构建每个单独的文件要快得多。</p></li>
+
+<li><p>使用<code>incremental build setting</code>增量构建设置时，用于调试的大型Swift项目的构建速度要快得多。
 <a href="https://www.ithome.com.tw/news/123646">《WWDC》Xcode 10也有暗黑模式，現在整合GitLab程式碼託管服務</a>
-<a href="https://blog.csdn.net/u010960265/article/details/80630118">Xcode10新功能新内容（Beta版下载链接）</a></p>
-</li>
+<a href="https://blog.csdn.net/u010960265/article/details/80630118">Xcode10新功能新内容（Beta版下载链接）</a></p></li>
 </ul>
 
     </div>

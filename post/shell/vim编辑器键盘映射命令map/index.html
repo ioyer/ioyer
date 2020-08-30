@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84%E5%91%BD%E4%BB%A4map/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-07-04T15:06:52+00:00" />
 <meta itemprop="name" content="vim编辑器键盘映射命令map">
 <meta itemprop="description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{将">
+
+
 <meta itemprop="datePublished" content="2017-07-04T15:06:52&#43;00:00" />
 <meta itemprop="dateModified" content="2017-07-04T15:06:52&#43;00:00" />
 <meta itemprop="wordCount" content="517">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim编辑器键盘映射命令map"/>
 <meta name="twitter:description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{将"/>
 
@@ -179,27 +182,36 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#不同模式下的键盘映射">不同模式下的键盘映射</a>
-      <ul>
-        <li><a href="#查看键盘映射">查看键盘映射</a></li>
-        <li><a href="#取消键盘映射">取消键盘映射</a></li>
-        <li><a href="#参考文章">参考文章</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#不同模式下的键盘映射">不同模式下的键盘映射</a>
+<ul>
+<li><a href="#查看键盘映射">查看键盘映射</a></li>
+<li><a href="#取消键盘映射">取消键盘映射</a></li>
+<li><a href="#参考文章">参考文章</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>使用<code>:map</code>命令，可以将键盘上的某个按键与Vim的命令绑定起来。
+      
+
+<p>使用<code>:map</code>命令，可以将键盘上的某个按键与Vim的命令绑定起来。
 例如使用以下命令，可以通过F5键将单词用花括号括起来：</p>
+
 <pre><code>:map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt;
 </code></pre>
+
 <p>执行过程：<code>i{</code>将插入字符<code>{</code>，然后使用<code>Esc</code>退回到命令状态；接着用<code>e</code>移到单词结尾，<code>a}</code>增加字符<code>}</code>，最后退至命令状态。
 在执行以上命令之后，光标定位在一个单词上（例如amount），按下F5键，这时字符就会变成{amount}的形式。</p>
+
 <h2 id="不同模式下的键盘映射">不同模式下的键盘映射</h2>
+
 <p>使用下表中不同形式的map命令，可以针对特定的模式设置键盘映射：</p>
+
 <table>
 <thead>
 <tr>
@@ -211,6 +223,7 @@ autocomplete('#aa-search-input',
 <th align="center">Command Line 命令行模式</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td align="center">:map</td>
@@ -220,6 +233,7 @@ autocomplete('#aa-search-input',
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+
 <tr>
 <td align="center">:nmap</td>
 <td align="center">y</td>
@@ -228,6 +242,7 @@ autocomplete('#aa-search-input',
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+
 <tr>
 <td align="center">:vmap</td>
 <td align="center"></td>
@@ -236,6 +251,7 @@ autocomplete('#aa-search-input',
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+
 <tr>
 <td align="center">:omap</td>
 <td align="center"></td>
@@ -244,6 +260,7 @@ autocomplete('#aa-search-input',
 <td align="center"></td>
 <td align="center"></td>
 </tr>
+
 <tr>
 <td align="center">:map!</td>
 <td align="center"></td>
@@ -252,14 +269,16 @@ autocomplete('#aa-search-input',
 <td align="center">y</td>
 <td align="center">y</td>
 </tr>
+
 <tr>
 <td align="center">:imap</td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center">y</td>
-<td></td>
+<td align="center"></td>
 </tr>
+
 <tr>
 <td align="center">:cmap</td>
 <td align="center"></td>
@@ -270,16 +289,23 @@ autocomplete('#aa-search-input',
 </tr>
 </tbody>
 </table>
+
 <h3 id="查看键盘映射">查看键盘映射</h3>
+
 <pre><code>:map
 </code></pre>
+
 <h3 id="取消键盘映射">取消键盘映射</h3>
+
 <pre><code>:unmap &lt;F10&gt; #参数
 </code></pre>
+
 <p>注意：必须为:unmap命令指定一个参数。如果未指定任何参数，那么系统将会报错，而不会取消所有的键盘映射。
 针对不同模式下的键盘映射，需要使用与其相对应的unmap命令。例如：使用:iunmap命令，取消插入模式下的键盘映射；而取消常规模式下的键盘映射，则需要使用:nunmap命令。
 如果想要取消所有映射，可以使用:mapclear命令。请注意，这个命令将会移除所有用户定义和系统默认的键盘映射。</p>
+
 <h3 id="参考文章">参考文章</h3>
+
 <p><a href="http://blog.csdn.net/daofengdeba/article/details/7605124">VIM键盘映射 (Map)</a>
 <a href="http://www.pythonclub.org/vim/map-basic">Vim按键映射</a></p>
 

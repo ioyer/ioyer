@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/%E5%9C%A8playground%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-12T19:56:59+00:00" />
 <meta itemprop="name" content="在playground中执行异步方法">
 <meta itemprop="description" content="PLAYGROUND 延时运行引入 Playground 的XCPlayground扩展包框架,其中就包括使 Playground 能延时执行的黑魔法，needsIndefiniteExecution(需">
+
+
 <meta itemprop="datePublished" content="2018-10-12T19:56:59&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-12T19:56:59&#43;00:00" />
 <meta itemprop="wordCount" content="285">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在playground中执行异步方法"/>
 <meta name="twitter:description" content="PLAYGROUND 延时运行引入 Playground 的XCPlayground扩展包框架,其中就包括使 Playground 能延时执行的黑魔法，needsIndefiniteExecution(需"/>
 
@@ -178,12 +181,13 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    
   </div>
 </div>
     <div class="post-content">
       <p><a href="http://swifter.tips/playground-delay/">PLAYGROUND 延时运行</a>引入 Playground 的<code>XCPlayground</code>扩展包框架,其中就包括使 Playground 能延时执行的黑魔法，<code>needsIndefiniteExecution</code>(需要无限期执行)使 Playground 具有延时运行的功能.
 在实际使用和开发中，我们最经常面临的异步需求可能就是网络请求了，如果我们想要在 Playground 里验证某个 API 是否正确工作的话，使用 XCPlayground 的这个方法开启延时执行也是必要的：</p>
+
 <pre><code class="language-swift">let url = NSURL(string: &quot;http://httpbin.org/get&quot;)!
 let getTask = URLSession.shared.dataTask(with: url as URL) {
     (data, response, error) -&gt; Void in
@@ -192,6 +196,7 @@ let getTask = URLSession.shared.dataTask(with: url as URL) {
 }
 getTask.resume()
 </code></pre>
+
 <p>之前有30s限制，目前可以无限执行。
 ~~可以通过 Alt + Cmd + 回车 来打开辅助编辑器。在这里你会看到控制台输出和时间轴，将右下角的 30 改成你想要的数字，就可以对延时运行的最长时间进行设定了。 ~~</p>
 

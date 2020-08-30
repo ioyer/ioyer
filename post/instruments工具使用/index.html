@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/instruments%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" />
@@ -47,12 +47,15 @@
 <meta property="article:modified_time" content="2020-07-19T21:41:43+08:00" />
 <meta itemprop="name" content="Instruments 工具使用">
 <meta itemprop="description" content="指南 Xcode调试工具Instruments指南 - CSDN博客 Time Profiler：CPU 分析工具分析代码的执行时间。 Core Animation：离">
+
+
 <meta itemprop="dateModified" content="2020-07-19T21:41:43&#43;08:00" />
-<meta itemprop="wordCount" content="420">
+<meta itemprop="wordCount" content="424">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instruments 工具使用"/>
 <meta name="twitter:description" content="指南 Xcode调试工具Instruments指南 - CSDN博客 Time Profiler：CPU 分析工具分析代码的执行时间。 Core Animation：离"/>
 
@@ -166,7 +169,7 @@ autocomplete('#aa-search-input',
       <div class="post-meta">
         <span class="post-time"> 2020-07-19 </span>
         
-          <span class="more-meta"> 约 420 字 </span>
+          <span class="more-meta"> 约 424 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -176,61 +179,63 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#指南">指南</a></li>
-    <li><a href="#学习调试案例">学习调试案例</a>
-      <ul>
-        <li><a href="#调用树-call-tree">调用树（call tree）</a></li>
-      </ul>
-    </li>
-    <li><a href="#创建自定义的-instrument">创建自定义的 Instrument</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#指南">指南</a></li>
+<li><a href="#学习调试案例">学习调试案例</a>
+<ul>
+<li><a href="#调用树-call-tree">调用树（call tree）</a></li>
+</ul></li>
+<li><a href="#创建自定义的-instrument">创建自定义的 Instrument</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="指南">指南</h2>
+      
+
+<h2 id="指南">指南</h2>
+
 <p><a href="http://100000p.com/article/2c9f60ef66f1c8bb0166f299f42e0030">Xcode调试工具Instruments指南 - CSDN博客</a></p>
+
 <ol>
-<li>
-<p>Time Profiler：CPU 分析工具分析代码的执行时间。</p>
-</li>
-<li>
-<p>Core Animation：离屏渲染，图层混合等 GPU 耗时。</p>
-</li>
-<li>
-<p>Leaks：内存检测，内存泄漏检测工具。</p>
-</li>
-<li>
-<p>Energy Log：耗电检测工具。</p>
-</li>
-<li>
-<p>Network：流量检测工具。</p>
-</li>
+<li><p>Time Profiler：CPU 分析工具分析代码的执行时间。</p></li>
+
+<li><p>Core Animation：离屏渲染，图层混合等 GPU 耗时。</p></li>
+
+<li><p>Leaks：内存检测，内存泄漏检测工具。</p></li>
+
+<li><p>Energy Log：耗电检测工具。</p></li>
+
+<li><p>Network：流量检测工具。</p></li>
 </ol>
+
 <h2 id="学习调试案例">学习调试案例</h2>
-<p><a href="http://www.cocoachina.com/articles/12237">如何使用Instruments诊断App（Swift版）：起步 - CocoaChina_一站式开发者成长社区</a><br>
-<a href="https://wpfrank.com/how-to-get-flickr-api-key/">How to get Flickr API Key - WP Frank</a><br>
+
+<p><a href="http://www.cocoachina.com/articles/12237">如何使用Instruments诊断App（Swift版）：起步 - CocoaChina_一站式开发者成长社区</a><br />
+<a href="https://wpfrank.com/how-to-get-flickr-api-key/">How to get Flickr API Key - WP Frank</a><br />
 解决两个问题：</p>
-<ul>
-<li>
-<p><input disabled="" type="checkbox"> 笨重问题进入一个详情界面非常慢，另外滑动查询结果的列表也是慢得难以置信&ndash;这是一款笨重的 app</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> 泄漏问题</p>
-</li>
-<li>
-<p>怎样使用 Time Profiler 工具来定位你的代码中的&quot;高消耗点（hot-spot）&quot;，从而让你的代码更加有效率。</p>
-</li>
-<li>
-<p>怎样使用 Allocations 工具来检测和改正代码中的内存管理问题，例如循环强引用。</p>
-</li>
+
+<ul class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> 笨重问题进入一个详情界面非常慢，另外滑动查询结果的列表也是慢得难以置信&ndash;这是一款笨重的 app</label></li>
+
+<li><p>[ ] 泄漏问题</p></li>
+
+<li><p>怎样使用 Time Profiler 工具来定位你的代码中的&rdquo;高消耗点（hot-spot）&rdquo;，从而让你的代码更加有效率。</p></li>
+
+<li><p>怎样使用 Allocations 工具来检测和改正代码中的内存管理问题，例如循环强引用。</p></li>
 </ul>
+
 <h3 id="调用树-call-tree">调用树（call tree）</h3>
+
 <ol>
 <li>Separate by Thread：每个线程被单独考虑。这能让你知道哪一个线程占用 CPU 最多。</li>
 </ol>
+
 <h2 id="创建自定义的-instrument">创建自定义的 Instrument</h2>
+
 <p><a href="https://juejin.im/post/5b1cd1025188257d72709d7f">WWDC 2018：创建自定义的 Instrument - 掘金</a></p>
 
     </div>

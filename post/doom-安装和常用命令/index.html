@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/doom-%E5%AE%89%E8%A3%85%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
@@ -47,12 +47,15 @@
 <meta property="article:modified_time" content="2020-07-19T21:41:57+08:00" />
 <meta itemprop="name" content="doom 使用">
 <meta itemprop="description" content="编辑命令 撤销：undo (u) 重做：C &#43; r :undo-fu-only-redo 只读：spc t r 浏览编辑历史树：M-x: undo-tree-visualize(C-x u) 安装和配置 dotfile 中的配置 hugo 项目中管理 doom 版本 doom 工具的基本命令（i">
+
+
 <meta itemprop="dateModified" content="2020-07-19T21:41:57&#43;08:00" />
-<meta itemprop="wordCount" content="1409">
+<meta itemprop="wordCount" content="1415">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="doom 使用"/>
 <meta name="twitter:description" content="编辑命令 撤销：undo (u) 重做：C &#43; r :undo-fu-only-redo 只读：spc t r 浏览编辑历史树：M-x: undo-tree-visualize(C-x u) 安装和配置 dotfile 中的配置 hugo 项目中管理 doom 版本 doom 工具的基本命令（i"/>
 
@@ -166,7 +169,7 @@ autocomplete('#aa-search-input',
       <div class="post-meta">
         <span class="post-time"> 2020-07-19 </span>
         
-          <span class="more-meta"> 约 1409 字 </span>
+          <span class="more-meta"> 约 1415 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -176,149 +179,222 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#编辑命令">编辑命令</a></li>
-    <li><a href="#安装和配置">安装和配置</a>
-      <ul>
-        <li><a href="#dotfile-中的配置">dotfile 中的配置</a></li>
-        <li><a href="#hugo-项目中管理-doom-版本">hugo 项目中管理 doom 版本</a></li>
-        <li><a href="#doom-工具的基本命令-install-refresh-upgrade-使用">doom 工具的基本命令（install/refresh/upgrade）使用</a></li>
-        <li><a href="#doom-中的-module-创建和实现-helloword-加载实现">doom 中的 module 创建和实现 helloword 加载实现</a></li>
-        <li><a href="#doom-帮助文档的使用">doom 帮助文档的使用</a></li>
-      </ul>
-    </li>
-    <li><a href="#统计命令">统计命令</a></li>
-    <li><a href="#插入命令">插入命令</a></li>
-    <li><a href="#目录命令">目录命令</a>
-      <ul>
-        <li><a href="#进入-dired-模式-spc-f-d">进入 Dired 模式：spc f d</a></li>
-        <li><a href="#启动-treemacs-模式-spc-o-p">启动 treemacs 模式：spc o p</a></li>
-      </ul>
-    </li>
-    <li><a href="#搜索">搜索</a>
-      <ul>
-        <li><a href="#文件名搜索">文件名搜索</a></li>
-        <li><a href="#文本搜索替换">文本搜索替换</a></li>
-      </ul>
-    </li>
-    <li><a href="#agenda-命令">agenda 命令</a>
-      <ul>
-        <li><a href="#编辑-tag--提炼任务-矩阵化">编辑 tag(提炼任务，矩阵化)</a></li>
-        <li><a href="#过滤任务">过滤任务</a></li>
-        <li><a href="#安排行程">安排行程</a></li>
-        <li><a href="#跟进进度">跟进进度</a></li>
-      </ul>
-    </li>
-    <li><a href="#导出-markdown">导出 markdown</a></li>
-    <li><a href="#tree-结构">tree 结构</a>
-      <ul>
-        <li><a href="#升-将级节点">升/将级节点</a></li>
-        <li><a href="#定位-展开-关闭当前节点">定位/展开/关闭当前节点</a></li>
-        <li><a href="#新增节点">新增节点</a></li>
-        <li><a href="#新增-todo-节点">新增 TODO 节点</a></li>
-        <li><a href="#新增-checkbox">新增 checkbox</a></li>
-      </ul>
-    </li>
-    <li><a href="#eww-浏览器">eww 浏览器</a>
-      <ul>
-        <li><a href="#配置默认搜索引擎">配置默认搜索引擎</a></li>
-        <li><a href="#常用命令-m-x-eww">常用命令：M-x: eww</a></li>
-        <li><a href="#打开文本链接-link">打开文本链接 Link</a></li>
-      </ul>
-    </li>
-    <li><a href="#表格编辑">表格编辑</a></li>
-    <li><a href="#脚本运行命令">脚本运行命令</a></li>
-    <li><a href="#emacs-配置命令">emacs 配置命令</a>
-      <ul>
-        <li><a href="#yasnippet-使用">yasnippet 使用</a></li>
-        <li><a href="#magit-版本控制命令">magit 版本控制命令</a></li>
-      </ul>
-    </li>
-    <li><a href="#在-treemacs-中无法启动-file-templates-问题">在 treemacs 中无法启动 file-templates 问题</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#编辑命令">编辑命令</a></li>
+<li><a href="#安装和配置">安装和配置</a>
+<ul>
+<li><a href="#dotfile-中的配置">dotfile 中的配置</a></li>
+<li><a href="#hugo-项目中管理-doom-版本">hugo 项目中管理 doom 版本</a></li>
+<li><a href="#doom-工具的基本命令-install-refresh-upgrade-使用">doom 工具的基本命令（install/refresh/upgrade）使用</a>
+<ul>
+<li><a href="#升级-doom-和-package">升级 doom 和 package</a></li>
+<li><a href="#仅升级-package">仅升级 package</a></li>
+<li><a href="#重装-doom-环境">重装 doom 环境</a></li>
+</ul></li>
+<li><a href="#doom-中的-module-创建和实现-helloword-加载实现">doom 中的 module 创建和实现 helloword 加载实现</a></li>
+<li><a href="#doom-帮助文档的使用">doom 帮助文档的使用</a></li>
+</ul></li>
+<li><a href="#统计命令">统计命令</a></li>
+<li><a href="#插入命令">插入命令</a></li>
+<li><a href="#目录命令">目录命令</a>
+<ul>
+<li><a href="#进入-dired-模式-spc-f-d">进入 Dired 模式：spc f d</a></li>
+<li><a href="#启动-treemacs-模式-spc-o-p">启动 treemacs 模式：spc o p</a></li>
+</ul></li>
+<li><a href="#搜索">搜索</a>
+<ul>
+<li><a href="#文件名搜索">文件名搜索</a></li>
+<li><a href="#文本搜索替换">文本搜索替换</a></li>
+</ul></li>
+<li><a href="#agenda-命令">agenda 命令</a>
+<ul>
+<li><a href="#编辑-tag--提炼任务-矩阵化">编辑 tag(提炼任务，矩阵化)</a></li>
+<li><a href="#过滤任务">过滤任务</a>
+<ul>
+<li><a href="#标签过滤">标签过滤</a></li>
+<li><a href="#进度过滤">进度过滤</a></li>
+</ul></li>
+<li><a href="#安排行程">安排行程</a></li>
+<li><a href="#跟进进度">跟进进度</a></li>
+</ul></li>
+<li><a href="#导出-markdown">导出 markdown</a></li>
+<li><a href="#tree-结构">tree 结构</a>
+<ul>
+<li><a href="#升-将级节点">升/将级节点</a></li>
+<li><a href="#定位-展开-关闭当前节点">定位/展开/关闭当前节点</a></li>
+<li><a href="#新增节点">新增节点</a>
+<ul>
+<li><a href="#同级节点-org-insert-heading">同级节点: org-insert-heading</a></li>
+<li><a href="#子节点-org-insert-subheading">子节点: org-insert-subheading</a></li>
+</ul></li>
+<li><a href="#新增-todo-节点">新增 TODO 节点</a></li>
+<li><a href="#新增-checkbox">新增 checkbox</a></li>
+</ul></li>
+<li><a href="#eww-浏览器">eww 浏览器</a>
+<ul>
+<li><a href="#配置默认搜索引擎">配置默认搜索引擎</a></li>
+<li><a href="#常用命令-m-x-eww">常用命令：M-x: eww</a>
+<ul>
+<li><a href="#书签">书签：</a></li>
+<li><a href="#修改路径">修改路径</a></li>
+</ul></li>
+<li><a href="#打开文本链接-link">打开文本链接 Link</a></li>
+</ul></li>
+<li><a href="#表格编辑">表格编辑</a></li>
+<li><a href="#脚本运行命令">脚本运行命令</a></li>
+<li><a href="#emacs-配置命令">emacs 配置命令</a>
+<ul>
+<li><a href="#yasnippet-使用">yasnippet 使用</a></li>
+<li><a href="#magit-版本控制命令">magit 版本控制命令</a></li>
+</ul></li>
+<li><a href="#在-treemacs-中无法启动-file-templates-问题">在 treemacs 中无法启动 file-templates 问题</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="编辑命令">编辑命令</h2>
-<p>撤销：undo (u)<br>
-重做：C + r :undo-fu-only-redo<br>
-只读：spc t r<br>
+      
+
+<h2 id="编辑命令">编辑命令</h2>
+
+<p>撤销：undo (u)<br />
+重做：C + r :undo-fu-only-redo<br />
+只读：spc t r<br />
 浏览编辑历史树：M-x: undo-tree-visualize(C-x u)</p>
+
 <h2 id="安装和配置">安装和配置</h2>
+
 <h3 id="dotfile-中的配置">dotfile 中的配置</h3>
+
 <h3 id="hugo-项目中管理-doom-版本">hugo 项目中管理 doom 版本</h3>
+
 <h3 id="doom-工具的基本命令-install-refresh-upgrade-使用">doom 工具的基本命令（install/refresh/upgrade）使用</h3>
+
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-03-24 二 15:46]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-03-24 二 15:46]</span></span></li>
 </ul>
+
 <p>`控制工作`：任务任用</p>
+
 <h4 id="升级-doom-和-package">升级 doom 和 package</h4>
+
 <p>方式一：</p>
-<!-- raw HTML omitted -->
-<p>doom upgrade   # or &lsquo;doom up'自动升级</p>
-<!-- raw HTML omitted -->
+
+<div class="shell">
+  <div></div>
+
+<p>doom upgrade   # or &lsquo;doom up&rsquo;自动升级</p>
+
+<p></div></p>
+
 <p>方式二：手动升级</p>
-<!-- raw HTML omitted -->
-<p>cd ~/.emacs.d<br>
-git pull        # updates Doom<br>
-doom clean      # Ensure your config isn&rsquo;t byte-compiled<br>
-doom sync       # synchronizes your config with Doom Emacs<br>
+
+<div class="shell">
+  <div></div>
+
+<p>cd ~/.emacs.d<br />
+git pull        # updates Doom<br />
+doom clean      # Ensure your config isn&rsquo;t byte-compiled<br />
+doom sync       # synchronizes your config with Doom Emacs<br />
 doom update     # updates installed packages</p>
-<!-- raw HTML omitted -->
+
+<p></div></p>
+
 <h4 id="仅升级-package">仅升级 package</h4>
+
 <p>To upgrade only your packages (and not Doom itself):</p>
-<!-- raw HTML omitted -->
+
+<div class="shell">
+  <div></div>
+
 <p>doom upgrade &ndash;packages</p>
-<!-- raw HTML omitted -->
+
+<p></div></p>
+
 <h4 id="重装-doom-环境">重装 doom 环境</h4>
+
 <p><a href="https://github.com/hlissner/doom-emacs/blob/develop/docs/getting%5Fstarted.org#updowngrading-emacs">重装两种方式：</a></p>
-<!-- raw HTML omitted -->
-<p>rm -rf ~/.emacs.d/.local<br>
+
+<div class="emacs">
+  <div></div>
+
+<p>rm -rf ~/.emacs.d/.local<br />
 doom sync</p>
-<!-- raw HTML omitted -->
+
+<p></div></p>
+
 <h3 id="doom-中的-module-创建和实现-helloword-加载实现">doom 中的 module 创建和实现 helloword 加载实现</h3>
+
 <h3 id="doom-帮助文档的使用">doom 帮助文档的使用</h3>
+
 <h2 id="统计命令">统计命令</h2>
-<p>org-insert-columns-dblock C-c C-x i 对任务列表生成列表视图.C-c C-x C-c 生成临时的任务列表<br>
-org-clock-in  C-x C-x C-i 统计实际任务执行时间<br>
-org-clock-out C-c C-x C-o 统计任务结束的总时长<br>
+
+<p>org-insert-columns-dblock C-c C-x i 对任务列表生成列表视图.C-c C-x C-c 生成临时的任务列表<br />
+org-clock-in  C-x C-x C-i 统计实际任务执行时间<br />
+org-clock-out C-c C-x C-o 统计任务结束的总时长<br />
 org-clock-report C-c C-x C-r 统计光标的任务时间报告</p>
+
 <h2 id="插入命令">插入命令</h2>
-<p>插入代码片段:<br>
-C-c C-q 标签命令<br>
-C-c i s 插入脚本<br>
-, i h 插入同级节点<br>
-C-c C-w org 文件之间迁移节点<br>
+
+<p>插入代码片段:<br />
+C-c C-q 标签命令<br />
+C-c i s 插入脚本<br />
+, i h 插入同级节点<br />
+C-c C-w org 文件之间迁移节点<br />
 , i p 添加 org 属性</p>
+
 <h2 id="目录命令">目录命令</h2>
+
 <h3 id="进入-dired-模式-spc-f-d">进入 Dired 模式：spc f d</h3>
+
 <h3 id="启动-treemacs-模式-spc-o-p">启动 treemacs 模式：spc o p</h3>
+
 <h2 id="搜索">搜索</h2>
+
 <h3 id="文件名搜索">文件名搜索</h3>
-<p>find-dired<br>
-find-grep-dired 递归所有子目录<br>
+
+<p>find-dired<br />
+find-grep-dired 递归所有子目录<br />
 grep 在当前目录中查找指定的 regexp</p>
+
 <h3 id="文本搜索替换">文本搜索替换</h3>
+
 <p>grep-find 显示包含字段的行，递归子目录</p>
+
 <h2 id="agenda-命令">agenda 命令</h2>
+
 <h3 id="编辑-tag--提炼任务-矩阵化">编辑 tag(提炼任务，矩阵化)</h3>
-<p>在 buffer 中：spc + m + q<br>
+
+<p>在 buffer 中：spc + m + q<br />
 在 agenda 中：c t</p>
+
 <h3 id="过滤任务">过滤任务</h3>
+
 <p>在 agenda 视图中：s 筛选任务</p>
+
 <h4 id="标签过滤">标签过滤</h4>
+
 <h4 id="进度过滤">进度过滤</h4>
+
 <h3 id="安排行程">安排行程</h3>
+
 <p>spc m s :org-schedule 设置日期在 agenda 中：t 打开状态视图在 org 文件中：shift + 左右键</p>
+
 <h3 id="跟进进度">跟进进度</h3>
+
 <p>在 agenda 中：a 给任务添加备注信息在 agenda 中：c T 设置番茄钟倒计时</p>
+
 <h2 id="导出-markdown">导出 markdown</h2>
-<p>spc + m + e 导出窗口<br>
-spc + m + o 设置条目属性：EXPORT_FILE_NAME<br>
-<a href="http://holbrook.github.io/2012/04/12/emacs%5Forgmode%5Feditor.html">http://holbrook.github.io/2012/04/12/emacs%5Forgmode%5Feditor.html</a><br>
-文档元数据<br>
+
+<p>spc + m + e 导出窗口<br />
+spc + m + o 设置条目属性：EXPORT_FILE_NAME<br />
+<a href="http://holbrook.github.io/2012/04/12/emacs%5Forgmode%5Feditor.html">http://holbrook.github.io/2012/04/12/emacs%5Forgmode%5Feditor.html</a><br />
+文档元数据<br />
 ##+OPTIONS 是复合的选项：支持在文档头部定义，也可以在条目下:PROPERTIES:属性中定义。</p>
+
 <ol>
 <li><strong>todo:</strong> off:不显示任务条目的状态符号（TODO，DONE）等。</li>
 <li><strong>tasks:</strong> nil:移除所有的任务项 todo:保留 todo 状态任务 done:保留 done 状态任务不设置时，显示所有任务项</li>
@@ -326,85 +402,130 @@ spc + m + o 设置条目属性：EXPORT_FILE_NAME<br>
 <li><strong>&lt;:</strong> 时间戳</li>
 <li></li>
 </ol>
+
 <h2 id="tree-结构">tree 结构</h2>
+
 <h3 id="升-将级节点">升/将级节点</h3>
+
 <p>option + 左右键（升/将）编辑状态下，Tab 当前节点</p>
+
 <h3 id="定位-展开-关闭当前节点">定位/展开/关闭当前节点</h3>
-<p>定位：C+x n s org-narrow-to-subtree<br>
-定位 buffer：spc b -<br>
-展开：z a org/taggle-fold<br>
-关闭：z c org/close-fold<br>
+
+<p>定位：C+x n s org-narrow-to-subtree<br />
+定位 buffer：spc b -<br />
+展开：z a org/taggle-fold<br />
+关闭：z c org/close-fold<br />
 关闭父节点：shift + tab</p>
+
 <h3 id="新增节点">新增节点</h3>
+
 <h4 id="同级节点-org-insert-heading">同级节点: org-insert-heading</h4>
+
 <p>热键：option + 回车终端：C+c return</p>
+
 <h4 id="子节点-org-insert-subheading">子节点: org-insert-subheading</h4>
+
 <p>option + command + 回车</p>
+
 <h3 id="新增-todo-节点">新增 TODO 节点</h3>
-<p>org-insert-todo-heading    : 同级 todo<br>
+
+<p>org-insert-todo-heading    : 同级 todo<br />
 org-insert-todo-subheading : 子节点 todo</p>
+
 <h3 id="新增-checkbox">新增 checkbox</h3>
+
 <p>markdown-insert-gfm-checkbox</p>
+
 <h2 id="eww-浏览器">eww 浏览器</h2>
+
 <h3 id="配置默认搜索引擎">配置默认搜索引擎</h3>
+
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-05-06 三 16:15]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-05-06 三 16:15]</span></span></li>
 </ul>
-<p>在 config 中配置：默认搜索引擎<br>
-(setq eww-search-prefix &ldquo;<a href="https://github.com/search?q">https://github.com/search?q</a>=&rdquo;)</p>
+
+<p>在 config 中配置：默认搜索引擎<br />
+(setq eww-search-prefix &ldquo;<a href="https://github.com/search?q">https://github.com/search?q</a>=&ldquo;)</p>
+
 <h3 id="常用命令-m-x-eww">常用命令：M-x: eww</h3>
+
 <h4 id="书签">书签：</h4>
+
 <ol>
-<li>收藏：m<br>
+<li>收藏：m<br />
 收藏列表：g b</li>
 <li>历史记录：g h</li>
 </ol>
+
 <h4 id="修改路径">修改路径</h4>
-<p>o:打开地址栏<br>
+
+<p>o:打开地址栏<br />
 H:返回上一页</p>
+
 <h3 id="打开文本链接-link">打开文本链接 Link</h3>
+
 <p>M-x: org-agenda-open-link:在系统浏览器中打开 org 中的超文本链接</p>
+
 <h2 id="表格编辑">表格编辑</h2>
-<p>新建：M-x table-insert 或 org-table-create<br>
+
+<p>新建：M-x table-insert 或 org-table-create<br />
 编辑：M-x org-edit-speical (spc  m  &lsquo;)</p>
+
 <h2 id="脚本运行命令">脚本运行命令</h2>
+
 <p>C-c C-c: 执行命令,光标必须定位在 BEGIN_SRC 模块</p>
+
 <h2 id="emacs-配置命令">emacs 配置命令</h2>
-<p>SPC f e d 打开配置文件<br>
-SPC f e R 重加载配置文件<br>
+
+<p>SPC f e d 打开配置文件<br />
+SPC f e R 重加载配置文件<br />
 Shift h 查看当前 buffer 启动的 mode</p>
-<p>我最近开始使用 emacs 。Evil 和 org 模式。 当在组织模式下记录时，程序会进入 <!-- raw HTML omitted --> 模式，我可以在框架底部的状态栏上看到。 启动 emacs 时，我通常在状态栏上看到一个 <!-- raw HTML omitted --> 。我认为<br>
-<!-- raw HTML omitted --> - 用于正常模式<br>
-<!-- raw HTML omitted --> - 用于插入模式什么是 <!-- raw HTML omitted --> 模式？如何在不重新启动 emacs 的情况下返回到正常模式？<br>
-<a href="https://ask.helplib.com/emacs/post%5F12452808">Emacs Evil <!-- raw HTML omitted --> 模式和org模式_emacs_HELPLIB 编程知识库</a></p>
+
+<p>我最近开始使用 emacs 。Evil 和 org 模式。 当在组织模式下记录时，程序会进入 <E> 模式，我可以在框架底部的状态栏上看到。 启动 emacs 时，我通常在状态栏上看到一个 <N> 。我认为<br />
+<N> - 用于正常模式<br />
+<I> - 用于插入模式什么是 <E> 模式？如何在不重新启动 emacs 的情况下返回到正常模式？<br />
+<a href="https://ask.helplib.com/emacs/post%5F12452808">Emacs Evil <E> 模式和org模式_emacs_HELPLIB 编程知识库</a></p>
+
 <h3 id="yasnippet-使用">yasnippet 使用</h3>
+
 <p>暂时把所有的 snippet 都移动到 org-mode 中，可以正常加载使用</p>
-<pre><code class="language-nil" data-lang="nil">mv plantuml-mode org-mode</code></pre>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nil" data-lang="nil">mv plantuml-mode org-mode</code></pre></div>
+
 <p>仅支持在 org 文件内，使用`Tab`展开。</p>
+
 <h3 id="magit-版本控制命令">magit 版本控制命令</h3>
-<p>spc g s 进入 status 窗口<br>
-? 进入 git 帮助窗口<br>
-c commit 输入提交信息<br>
-C-c C-c 完成提交<br>
-C-c C-k 取消提交操作<br>
-l 查看 git 日志<br>
-z stash 命令<br>
-F pull 命令<br>
-' submodule 命令<br>
-&quot; subtree 命令</p>
+
+<p>spc g s 进入 status 窗口<br />
+   ? 进入 git 帮助窗口<br />
+   c commit 输入提交信息<br />
+   C-c C-c 完成提交<br />
+   C-c C-k 取消提交操作<br />
+   l 查看 git 日志<br />
+   z stash 命令<br />
+   F pull 命令<br />
+   &lsquo; submodule 命令<br />
+   &ldquo; subtree 命令</p>
+
 <h2 id="在-treemacs-中无法启动-file-templates-问题">在 treemacs 中无法启动 file-templates 问题</h2>
+
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-05-11 一 09:35]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-05-11 一 09:35]</span></span></li>
 </ul>
+
 <p>在 ~/.doom.d/config.el 加入如下脚本：</p>
-<!-- raw HTML omitted -->
-<p>(add-hook! &lsquo;treemacs-create-file-functions<br>
-(defun expand-file-template (file)<br>
-(with-current-buffer (or (get-file-buffer file)<br>
-(find-file-noselect file))<br>
-(when-let (rule (cl-find-if #&lsquo;+file-template-p +file-templates-alist))<br>
-(apply #&lsquo;+file-templates&ndash;expand rule)))))</p>
-<!-- raw HTML omitted -->
+
+<div class="elisp">
+  <div></div>
+
+<p>(add-hook! &lsquo;treemacs-create-file-functions<br />
+  (defun expand-file-template (file)<br />
+    (with-current-buffer (or (get-file-buffer file)<br />
+                             (find-file-noselect file))<br />
+      (when-let (rule (cl-find-if #&lsquo;+file-template-p +file-templates-alist))<br />
+        (apply #&lsquo;+file-templates&ndash;expand rule)))))</p>
+
+<p></div></p>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/coreml%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-06-24T22:10:44+00:00" />
 <meta itemprop="name" content="CoreML机器学习初级教程">
 <meta itemprop="description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating">
+
+
 <meta itemprop="datePublished" content="2017-06-24T22:10:44&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-24T22:10:44&#43;00:00" />
-<meta itemprop="wordCount" content="2218">
+<meta itemprop="wordCount" content="2233">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoreML机器学习初级教程"/>
 <meta name="twitter:description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/api/"> API </a>
             </div>
-          <span class="more-meta"> 约 2218 字 </span>
+          <span class="more-meta"> 约 2233 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,85 +183,100 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#资源">资源</a></li>
-        <li><a href="#配置-将-core-ml-模型集成到你的-app">配置 ：将 Core ML 模型集成到你的 App</a></li>
-        <li><a href="#实现vision工作流程">实现Vision工作流程</a></li>
-        <li><a href="#创建并运行vnimagerequesthandler请求处理程序">创建并运行VNImageRequestHandler请求处理程序</a></li>
-        <li><a href="#使用模型来自动识别场景">使用模型来自动识别场景</a></li>
-        <li><a href="#什么是深度学习">什么是深度学习</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#资源">资源</a></li>
+<li><a href="#配置-将-core-ml-模型集成到你的-app">配置 ：将 Core ML 模型集成到你的 App</a></li>
+<li><a href="#实现vision工作流程">实现Vision工作流程</a></li>
+<li><a href="#创建并运行vnimagerequesthandler请求处理程序">创建并运行VNImageRequestHandler请求处理程序</a></li>
+<li><a href="#使用模型来自动识别场景">使用模型来自动识别场景</a></li>
+<li><a href="#什么是深度学习">什么是深度学习</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h3 id="资源">资源</h3>
+      
+
+<h3 id="资源">资源</h3>
+
 <p><a href="https://developer.apple.com/documentation/coreml">Core ML开发文档</a>
 <a href="https://developer.apple.com/machine-learning/">ML模型资源页面</a>
 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。
 <a href="https://developer.apple.com/documentation/coreml/integrating_a_core_ml_model_into_your_app">Integrating a Core ML Model into Your App</a></p>
+
 <p><a href="https://docs-assets.developer.apple.com/published/51ff0c1668/IntegratingaCoreMLModelintoYourApp.zip">官方Core ML文档示例 App</a>
 MarsHabitatPricePredictor 模型的输入只是数字，因此代码直接使用生成的 MarsHabitatPricer 方法和属性，而不是将模型包装在 Vision 模型中。每次都改一下参数，很容易看出模型只是一个线性回归：
 137 * solarPanels + 653.50 * greenHouses + 5854 * acres</p>
+
 <h3 id="配置-将-core-ml-模型集成到你的-app">配置 ：将 Core ML 模型集成到你的 App</h3>
-<p>本教程使用 Places205-GoogLeNet 模型，可以从苹果的<a href="https://developer.apple.com/machine-learning/">ML</a>页面下载。往下滑找到 Working with Models，下载第一个。还在这个页面，注意一下其它三个模型，它们都用于在图片中检测物体——树、动物、人等等。</p>
-<blockquote>
-<p>注意：如果你有一个训练过的模型，并且是使用受支持的机器学习工具训练的，例如 Caffe、Keras 或 scikit-learn，Converting Trained Models to Core ML 介绍了如何将其转换为 Core ML 格式。</p>
-</blockquote>
+
+<p>本教程使用 Places205-GoogLeNet 模型，可以从苹果的<a href="https://developer.apple.com/machine-learning/">ML</a>页面下载。往下滑找到 Working with Models，下载第一个。还在这个页面，注意一下其它三个模型，它们都用于在图片中检测物体——树、动物、人等等。
+&gt;注意：如果你有一个训练过的模型，并且是使用受支持的机器学习工具训练的，例如 Caffe、Keras 或 scikit-learn，Converting Trained Models to Core ML 介绍了如何将其转换为 Core ML 格式。</p>
+
 <ol>
 <li>添加模型
 下载 GoogLeNetPlaces.mlmodel 后，把它从 Finder 拖到项目导航器的 Resources 组里：
-<img src="http://upload-images.jianshu.io/upload_images/861914-5425960c41207b82.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<img src="http://upload-images.jianshu.io/upload_images/861914-5425960c41207b82.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></li>
 <li>生成模型类
 选择该文件，然后等一会儿。Xcode 生成了模型类后会显示一个箭头：
-<img src="http://upload-images.jianshu.io/upload_images/861914-e00a802f64f0ae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<img src="http://upload-images.jianshu.io/upload_images/861914-e00a802f64f0ae13.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></li>
 <li>查看模型类
 点击箭头，查看生成的类：
-<img src="http://upload-images.jianshu.io/upload_images/861914-1268b5b918fccf07.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">
+<img src="http://upload-images.jianshu.io/upload_images/861914-1268b5b918fccf07.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" />
 三个类：
 <code>GoogLeNetPlaces</code>: 主类，包含一个 model 属性和两个 prediction 方法
 <code>GoogLeNetPlacesInput</code>: 输入类,包含一个 CVPixelBuffer 类型的 sceneImage 属性，Vision 框架会负责把我们熟悉的图片格式转换成正确的输入类型。
 <code>GoogLeNetPlacesOutput</code>：输出属性,Vision 框架会将 <code>GoogLeNetPlacesOutput</code> 属性转换为自己的 <code>results</code> 类型.</li>
 </ol>
+
 <h3 id="实现vision工作流程">实现Vision工作流程</h3>
+
 <p>标准的 Vision 工作流程是创建模型，创建一或多个请求，然后创建并运行请求处理程序。
-并管理对 <code>prediction </code>方法的调用，所以在所有生成的代码中，我们只会使用 <code>model</code> 属性。</p>
+并管理对 <code>prediction</code>方法的调用，所以在所有生成的代码中，我们只会使用 <code>model</code> 属性。</p>
+
 <ol>
-<li>创建模型：在 <code>Vision Model</code> 中包装 <code>Core ML Model</code>
+<li><p>创建模型：在 <code>Vision Model</code> 中包装 <code>Core ML Model</code>
 CoreML模型 是用于 Vision 请求的 Core ML 模型的容器
-打开 ViewController.swift，并在 import UIKit 下面 import 两个框架：</li>
-</ol>
+打开 ViewController.swift，并在 import UIKit 下面 import 两个框架：</p>
+
 <pre><code class="language-swift">import CoreML
 import Vision
-</code></pre>
-<ol start="2">
-<li>创建<code>VNCoreMLRequest</code>图像分析请求
+</code></pre></li>
+
+<li><p>创建<code>VNCoreMLRequest</code>图像分析请求
 <code>VNCoreMLRequest</code> 是一个图像分析请求，它使用 Core ML 模型来完成工作。它的 completion handler 接收 request 和 error 对象。
-Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预测一个特征：图像的场景分类。这时request.results 是 <code>VNClassificationObservation</code> 对象数组。</li>
-</ol>
+Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预测一个特征：图像的场景分类。这时request.results 是 <code>VNClassificationObservation</code> 对象数组。</p>
+
 <pre><code>// 创建一个带有 completion handler 的 Vision 请求
 let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-    guard let results = request.results as? [VNClassificationObservation],
-    let topResult = results.first else {
-    fatalError(&quot;unexpected result type from VNCoreMLRequest&quot;)
+guard let results = request.results as? [VNClassificationObservation],
+let topResult = results.first else {
+fatalError(&quot;unexpected result type from VNCoreMLRequest&quot;)
 }
 
 // 在主线程上更新 UI
 let article = (self?.vowels.contains(topResult.identifier.first!))! ? &quot;an&quot; : &quot;a&quot;
-    DispatchQueue.main.async { [weak self] in
-        self?.answerLabel.text = &quot;\(Int(topResult.confidence * 100))% it's \(article) \(topResult.identifier)&quot;
-    }
+DispatchQueue.main.async { [weak self] in
+    self?.answerLabel.text = &quot;\(Int(topResult.confidence * 100))% it's \(article) \(topResult.identifier)&quot;
 }
-</code></pre>
+}
+</code></pre></li>
+</ol>
+
 <p>VNClassificationObservation 有两个属性：identifier - 一个 String，以及 confidence - 介于0和1之间的数字，这个数字是是分类正确的概率。使用对象检测模型时，你可能只会看到那些 confidence 大于某个阈值的对象，例如 30％ 的阈值。
 然后取第一个结果，它会具有最高的 confidence 值，然后根据 identifier 的首字母把不定冠词设置为“a”或“an”。最后，dispatch 回到主线程来更新 label。你很快会明白分类工作为什么不在主线程，因为它会很慢。</p>
+
 <h3 id="创建并运行vnimagerequesthandler请求处理程序">创建并运行VNImageRequestHandler请求处理程序</h3>
+
 <p><code>VNImageRequestHandler</code> 是标准的 Vision 框架请求处理程序；不特定于 Core ML 模型。给它 image 作为 detectScene(image:) 的参数。然后调用它的 perform 方法来运行处理程序，传入请求数组。在这个例子里，我们只有一个请求。
 把下面几行添加到 <code>detectScene(image:)</code> 的末尾：</p>
+
 <pre><code class="language-swift">// 在主线程上运行 Core ML GoogLeNetPlaces 分类器
 let handler = VNImageRequestHandler(ciImage: image)
 DispatchQueue.global(qos: .userInteractive).async {
@@ -269,25 +287,29 @@ DispatchQueue.global(qos: .userInteractive).async {
     }
 }
 </code></pre>
+
 <h3 id="使用模型来自动识别场景">使用模型来自动识别场景</h3>
-<p>在两个地方调用 <code>detectScene(image:) </code>
+
+<p>在两个地方调用 <code>detectScene(image:)</code>
 把下面几行添加到 viewDidLoad() 的末端和 imagePickerController(_:didFinishPickingMediaWithInfo:) 的末端：</p>
+
 <pre><code>guard let ciImage = CIImage(image: image) else {
     fatalError(&quot;couldn't convert UIImage to CIImage&quot;)
 }
 
 detectScene(image: ciImage)
 </code></pre>
-<p>现在构建并运行。</p>
-<ol>
-<li>场景一:
+
+<p>现在构建并运行。
+1. 场景一:
 机器识别出了50%的概率是摩天大厦
-<img src="http://upload-images.jianshu.io/upload_images/861914-bb5bec38118f91ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>场景二
+<img src="http://upload-images.jianshu.io/upload_images/861914-bb5bec38118f91ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" />
+2. 场景二
 机器人识别出了75%的概率是水族池
-<img src="http://upload-images.jianshu.io/upload_images/861914-e194482f995324a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-</ol>
+<img src="http://upload-images.jianshu.io/upload_images/861914-e194482f995324a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
+
 <h3 id="什么是深度学习">什么是深度学习</h3>
+
 <p>自20世纪50年代以来，AI 研究人员开发了许多机器学习方法。苹果的 Core ML 框架支持神经网络、树组合、支持向量机、广义线性模型、特征工程和流水线模型。但是，神经网络最近已经取得了很多极为神奇的成功，开始于 2012 年谷歌使用 YouTube 视频训练 AI 来识别猫和人。仅仅五年后，谷歌正在赞助一场确定 5000 种植物和动物的比赛。像 Siri 和 Alexa 这样的 App 也存在它们自己的神经网络。
 神经网络尝试用节点层来模拟人脑流程，并将节点层用不同的方式连接在一起。每增加一层都需要增加大量计算能力：Inception v3，一个对象识别模型，有48层以及大约2000万个参数。但计算基本上都是矩阵乘法，GPU 来处理会非常有效。GPU 成本的下降使我们能够创建多层深度神经网络，此为深度学习。
 神经网络，circa 2016

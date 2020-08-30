@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/javascript%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BB%84%E4%BB%B6oc%E6%A1%A5%E6%8E%A5/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-02-15T17:19:30+00:00" />
 <meta itemprop="name" content="JavaScript自动化组件OC桥接">
 <meta itemprop="description" content="文档 JavaScript自动化有一个内置的Objective-C Bridge，使您能够访问文件系统，创建Cocoa应用程序。 Objective-C Bridge的">
+
+
 <meta itemprop="datePublished" content="2017-02-15T17:19:30&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-15T17:19:30&#43;00:00" />
-<meta itemprop="wordCount" content="1368">
+<meta itemprop="wordCount" content="1369">
 
 
 
-<meta itemprop="keywords" content="工具,搭建,语法,测试,管理,混编," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具,搭建,语法,测试,管理,混编," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JavaScript自动化组件OC桥接"/>
 <meta name="twitter:description" content="文档 JavaScript自动化有一个内置的Objective-C Bridge，使您能够访问文件系统，创建Cocoa应用程序。 Objective-C Bridge的"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/js/"> JS </a>
             </div>
-          <span class="more-meta"> 约 1368 字 </span>
+          <span class="more-meta"> 约 1369 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,23 +183,29 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#frameworks">Frameworks</a></li>
-    <li><a href="#数据类型">数据类型</a></li>
-    <li><a href="#实例化的类和调用方法">实例化的类和调用方法</a>
-      <ul>
-        <li><a href="#访问-objc-properties">访问 ObjC Properties</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#frameworks">Frameworks</a></li>
+<li><a href="#数据类型">数据类型</a></li>
+<li><a href="#实例化的类和调用方法">实例化的类和调用方法</a>
+<ul>
+<li><a href="#访问-objc-properties">访问 ObjC Properties</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p><a href="https://developer.apple.com/library/content/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW8">文档</a>
+      
+
+<p><a href="https://developer.apple.com/library/content/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW8">文档</a>
 <code>JavaScript自动化</code>有一个内置的<code>Objective-C Bridge</code>，使您能够访问文件系统，创建Cocoa应用程序。
 <code>Objective-C Bridge</code>的主要接入点是全局属性<code>objc</code>和<code>$</code>。</p>
+
 <h2 id="frameworks">Frameworks</h2>
+
 <p><code>Foundation framework</code>中的语法默认支持<code>JavaScript自动化</code>。也可以通过使用<code>ObjC.import()</code>方法导入其他Frameworks 和 libraries。
 例如，使用<code>Cocoa框架</code>中的<code>NSBeep()</code>函数，需要导入<code>Cocoa框架</code>
 {% codeblock lang:js %}
@@ -204,20 +213,23 @@ ObjC.import(&lsquo;Cocoa&rsquo;)
 $.NSBeep()
 {% endcodeblock %}
 除了系统框架之外，一些系统库的功能也被暴露出来。这个功能可以通过<code>头文件</code>的名称来暴漏出来（不带.h）
-例如：<br>
+例如：<br />
 arpa/inet, asl, copyfile, dispatch, dyld, errno, getopt, glob, grp, ifaddrs, launch, membership, netdb, netinet/in, notify, objc, paths, pwd, readline, removefile, signal, spawn, sqlite3, stdio, stdlib, string, sys/fcntl, sys/file, sys/ioctl, sys/mount, sys/param, sys/resource, sys/socket, sys/stat, sys/sysctl, sys/time, sys/times, sys/types, sys/wait, sys/xattr, syslog, time, unistd, uuid/uuid, vImage, vecLib, vmnet, xpc, 和 zlib.
 导入框架时，系统将参考桥接支持文件。除了内置的框架和库，您可以导入任何具有桥接支持的框架，只需要将完整路径传递给框架，如下示例：
 {% codeblock lang:js %}
-ObjC.import('/Library/Frameworks/Awesome.framework&rsquo;)
+ObjC.import(&lsquo;/Library/Frameworks/Awesome.framework&rsquo;)
 {% endcodeblock %}</p>
+
 <h2 id="数据类型">数据类型</h2>
+
 <p>原始的<code>JavaScript数据类型</code>映射到<code>C数据类型</code>。例如，一个<code>JavaScript字符串</code>映射为<code>char *</code>，而<code>JavaScript整数</code>映射到<code>int</code>。使用<code>objc API</code>返回一个<code>char *</code>时，会得到一个<code>JS 字符串</code></p>
+
 <p>原始的<code>JavaScript数据类型</code>将被自动转换为<code>ObjC对象类型</code>，并能作为一个预期的对象类型的参数传递给ObjC方法。
-例如，一个<code>JS字符串</code>将被转换为一个<code>NSString对象</code>如果是什么方法签名说应该是输入。</p>
-<blockquote>
-<p>注意，然而，ObjC方法返回的ObjC对象类型是不会自动转换为原始的JavaScript的数据类型。</p>
-</blockquote>
+例如，一个<code>JS字符串</code>将被转换为一个<code>NSString对象</code>如果是什么方法签名说应该是输入。
+&gt; 注意，然而，ObjC方法返回的ObjC对象类型是不会自动转换为原始的JavaScript的数据类型。</p>
+
 <h2 id="实例化的类和调用方法">实例化的类和调用方法</h2>
+
 <p>所有类都定义为<code>$对象</code>的属性。ObjC对象的方法有两种方式调用，根据是否需要参数的方法。
 如果ObjC方法不带参数，然后调用<code>JavaScript属性名</code>访问<code>属性值</code>。这个例子中实例化一个空的字符串。
 {% codeblock lang:js %}
@@ -228,14 +240,17 @@ str = $.NSMutableString.alloc.init
 这个例子说明<code>JavaScript字符串</code>转为<code>NSString</code>然后写入到一个文件
 {% codeblock lang:js %}
 str = $.NSString.alloc.initWithUTF8String(&lsquo;foo&rsquo;)
-str.writeToFileAtomically('/tmp/foo&rsquo;, true)
+str.writeToFileAtomically(&lsquo;/tmp/foo&rsquo;, true)
 {% endcodeblock %}</p>
+
 <p>如果你调用一个方法，如<code>-intValue</code>，返回<code>C数据类型</code>而不是一个对象，然后你会回到原始的<code>JavaScript数据类型</code>。
 此示例返回原始的JavaScript的整数，99。
 {% codeblock lang:js %}
 $.NSNumber.numberWithInt(99).intValue
 {% endcodeblock %}</p>
+
 <h3 id="访问-objc-properties">访问 ObjC Properties</h3>
+
 <p><code>ObjC属性</code>也可以通过<code>JavaScript属性</code>来访问，很像调用无参数方法。
 当一个<code>桥接对象属性</code>的被访问时，ObjC属性列表是第一参考，如果列表中存在该名称对应的属性，那么就调用相应属性的<code>getter</code>或<code>setter</code>选择器。如果该名称的ObjC属性不在类中属性的列表中，那么该属性名称就作为<code>方法选择器</code>来调用。
 使用自定义<code>getter</code>名定义一个属性，你可以使用<code>属性</code>名 或 <code>getter</code>名，并得到相同的结果。
@@ -246,7 +261,7 @@ task.running == task.isRunning
 另外，不同的参数方法，<code>桥接对象属性</code>映射到<code>ObjC属性</code>也可以设置为（read/write属性）。下面的两行定义了一个ObjC属性：<code>launchPath</code>。
 {% codeblock  lang:js %}
 task.launchPath = &lsquo;/bin/sleep&rsquo;
-task.setLaunchPath('/bin/sleep&rsquo;)
+task.setLaunchPath(&lsquo;/bin/sleep&rsquo;)
 {% endcodeblock %}</p>
 
     </div>

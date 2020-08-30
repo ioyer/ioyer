@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/guaka%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BAswift%E5%91%BD%E4%BB%A4%E8%A1%8Ccli%E7%9A%84%E5%B7%A5%E5%85%B7/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-11-18T19:10:49+00:00" />
 <meta itemprop="name" content="Guaka快速创建swift命令行CLI的工具">
 <meta itemprop="description" content="{% github nsomar Guaka 7d6135f width = 30% %} Guaka介绍 通过 Guaka Framework 来实现 CLI(command-line interface)。 该框架可以快速实现如下的效果： git checkout -v &quot;url&quot; git 就是一个 CLI，checkou">
+
+
 <meta itemprop="datePublished" content="2018-11-18T19:10:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-18T19:10:49&#43;00:00" />
-<meta itemprop="wordCount" content="382">
+<meta itemprop="wordCount" content="390">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Guaka快速创建swift命令行CLI的工具"/>
 <meta name="twitter:description" content="{% github nsomar Guaka 7d6135f width = 30% %} Guaka介绍 通过 Guaka Framework 来实现 CLI(command-line interface)。 该框架可以快速实现如下的效果： git checkout -v &quot;url&quot; git 就是一个 CLI，checkou"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 382 字 </span>
+          <span class="more-meta"> 约 390 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,85 +182,104 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#guaka介绍">Guaka介绍</a></li>
-        <li><a href="#guaka快速上手">Guaka快速上手</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#guaka介绍">Guaka介绍</a></li>
+<li><a href="#guaka快速上手">Guaka快速上手</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <!-- raw HTML omitted -->
+      
+
+<!--github库卡片-->
+
 <p>{% github nsomar Guaka 7d6135f width = 30% %}</p>
+
 <h3 id="guaka介绍">Guaka介绍</h3>
+
 <p>通过 Guaka Framework 来实现 CLI(command-line interface)。
 该框架可以快速实现如下的效果：</p>
+
 <pre><code>git checkout -v &quot;url&quot;
 </code></pre>
-<p><code>git</code> 就是一个 <strong>CLI</strong>，<code>checkout</code>是这个<strong>CLI</strong>的子命令，并接受一个<code> String</code> 作为他的参数。</p>
-<p>对应上述的命令可以为分为：</p>
-<ul>
-<li><code>git</code> 主命令</li>
-<li><code>checkout</code> 子命令</li>
-<li><code>-v/–v</code> 命令所接收的 flag</li>
-</ul>
+
+<p><code>git</code> 就是一个 <strong>CLI</strong>，<code>checkout</code>是这个<strong>CLI</strong>的子命令，并接受一个<code>String</code> 作为他的参数。</p>
+
+<p>对应上述的命令可以为分为：
+* <code>git</code> 主命令
+* <code>checkout</code> 子命令
+* <code>-v/–v</code> 命令所接收的 flag</p>
+
 <pre><code>└── git
     ├── checkout -v
     └── push -f
     └── ...
 </code></pre>
+
 <p>在 Guaka 中代码表现基本就是这样子的：</p>
+
 <pre><code class="language-swift">let flag = Flag(longName: &quot;v&quot;, value: false, description: &quot;Show verbose&quot;)
 let command = Command(usage: &quot;git&quot;, flags: [flag]) { flags, args in
     let showVerbose = flags.getBool(name: &quot;v&quot;)
     // args the positional arguments passed to the command
 }
 </code></pre>
+
 <p>上面就是 git 的 -v 指令，是否打印过程.</p>
+
 <h3 id="guaka快速上手">Guaka快速上手</h3>
+
 <ol>
-<li>安装</li>
-</ol>
+<li><p>安装</p>
+
 <pre><code>&gt; brew install oarrabi/tap/guaka
-</code></pre>
-<ol start="2">
-<li>新建工程
-假设我们要建立一个 <strong>papa</strong> 的CLI指令</li>
-</ol>
+</code></pre></li>
+
+<li><p>新建工程
+假设我们要建立一个 <strong>papa</strong> 的CLI指令</p>
+
 <pre><code>cd 到需要建立工程的目录
 guaka create papa
 </code></pre>
+
 <p>会生成如下路径
 ├── Package.swift
 └── Sources
 ├── main.swift
 ├── root.swift
-└── setup.swift</p>
-<ol start="3">
-<li>增加指令
-给 <strong>papa</strong> 增加个子命令叫做 check</li>
-</ol>
+└── setup.swift</p></li>
+
+<li><p>增加指令
+给 <strong>papa</strong> 增加个子命令叫做 check</p>
+
 <pre><code>guaka add check
 </code></pre>
+
 <p>增加 flag
-增加 flag 就要去 Source 下面对应的 Swift 文件中修改。</p>
-<ol start="4">
-<li>编译执行 Swift build</li>
-</ol>
+增加 flag 就要去 Source 下面对应的 Swift 文件中修改。</p></li>
+
+<li><p>编译执行 Swift build</p>
+
 <pre><code>swift build
 </code></pre>
+
 <p>// 会编译生成可执行文件
-// .build/debug/papa &ndash;help</p>
-<ol start="5">
-<li>运行<strong>papa</strong>可执行文件</li>
-</ol>
+// .build/debug/papa &ndash;help</p></li>
+
+<li><p>运行<strong>papa</strong>可执行文件</p>
+
 <pre><code>.build/debug/papa check
 </code></pre>
-<p>增加逻辑就在对应的 Swift 文件中增加.</p>
+
+<p>增加逻辑就在对应的 Swift 文件中增加.</p></li>
+</ol>
 
     </div>
 

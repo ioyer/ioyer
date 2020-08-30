@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%BC%80%E5%8F%91%E9%9B%86%E9%85%8D%E9%97%A8%E5%BA%97%E6%8F%92%E4%BB%B6%E7%BB%A7%E6%89%BF%E5%88%B0%E9%97%A8%E5%BA%97%E8%AF%A6%E6%83%85/" />
@@ -40,22 +40,25 @@
 
 
 <meta property="og:title" content="集配门店样式和跳转功能" />
-<meta property="og:description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新" />
+<meta property="og:description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E5%BC%80%E5%8F%91%E9%9B%86%E9%85%8D%E9%97%A8%E5%BA%97%E6%8F%92%E4%BB%B6%E7%BB%A7%E6%89%BF%E5%88%B0%E9%97%A8%E5%BA%97%E8%AF%A6%E6%83%85/" />
 <meta property="article:published_time" content="2019-08-21T11:32:00+08:00" />
 <meta property="article:modified_time" content="2019-08-21T11:50:28+08:00" />
 <meta itemprop="name" content="集配门店样式和跳转功能">
-<meta itemprop="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新">
+<meta itemprop="description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S">
+
+
 <meta itemprop="datePublished" content="2019-08-21T11:32:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-21T11:50:28&#43;08:00" />
-<meta itemprop="wordCount" content="898">
+<meta itemprop="wordCount" content="892">
 
 
 
-<meta itemprop="keywords" content="developer,proj,BLOG," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="developer,proj,BLOG," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="集配门店样式和跳转功能"/>
-<meta name="twitter:description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新"/>
+<meta name="twitter:description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/home/"> Home </a>
             </div>
-          <span class="more-meta"> 约 898 字 </span>
+          <span class="more-meta"> 约 892 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,66 +182,85 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#ui实现"><!-- raw HTML omitted -->STARTED<!-- raw HTML omitted --> UI实现</a>
-      <ul>
-        <li><a href="#门店详情-插件框架理解">门店详情,插件框架理解</a></li>
-      </ul>
-    </li>
-    <li><a href="#api实现">API实现</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#ui实现"><span class="org-todo todo STARTED">STARTED</span> UI实现</a>
+<ul>
+<li><a href="#门店详情-插件框架理解">门店详情,插件框架理解</a></li>
+</ul></li>
+<li><a href="#api实现">API实现</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="ui实现"><!-- raw HTML omitted -->STARTED<!-- raw HTML omitted --> UI实现</h2>
+      
+
+<h2 id="ui实现"><span class="org-todo todo STARTED">STARTED</span> UI实现</h2>
+
 <p>新建列表UI,继承到门店详情中,实现跳转流程.</p>
+
 <ol>
-<li>
-<p>集配门店code:StoreDistribution</p>
-</li>
-<li>
-<p>UI:在gb组件中新建实体类:StoreDistribution,实现列表</p>
-</li>
-<li>
-<p>跳转:集配门店模块跳转到门店需要接口提供的门店的相关数据:</p>
+<li>集配门店code:StoreDistribution</li>
+<li>UI:在gb组件中新建实体类:StoreDistribution,实现列表</li>
+
+<li><p>跳转:集配门店模块跳转到门店需要接口提供的门店的相关数据:</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">    <span style="color:#f92672">-</span> (<span style="color:#66d9ef">void</span>)showDetailContentWithStoreId:(NSString <span style="color:#f92672">*</span>)storeId
     shopId:(NSString <span style="color:#f92672">*</span>)shopId
     storeAppId:(NSString <span style="color:#f92672">*</span>)storeAppid
     storeName:(NSString <span style="color:#f92672">*</span>)storeName
     storeState:(NSString <span style="color:#f92672">*</span>)stState
     userCoordinate:(CLLocationCoordinate2D)userCoordinate
-    </code></pre></div>
-</li>
+    </code></pre></div></li>
 </ol>
+
 <h3 id="门店详情-插件框架理解">门店详情,插件框架理解</h3>
+
 <ol>
 <li>StoreCustomCommomCell模式</li>
 </ol>
+
 <p>为其他库提供自定义门店插件cell的支持.插件code需要对应cell类名,并且该类需要实现,StoreCustomCommomCell是基于方式二的一种特殊情况</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">+(UIView <span style="color:#f92672">*</span>)<span style="color:#a6e22e">contentViewWithAppid:</span>(NSString <span style="color:#f92672">*</span>)appid <span style="color:#a6e22e">shopAppid:</span>(NSString <span style="color:#f92672">*</span>)shopId <span style="color:#a6e22e">storeId:</span>(NSString <span style="color:#f92672">*</span>)storeId <span style="color:#a6e22e">containsVC:</span>(UIViewController <span style="color:#f92672">*</span>)vc <span style="color:#a6e22e">delegate:</span>(<span style="color:#66d9ef">id</span>)delegate <span style="color:#a6e22e">title:</span>(NSString <span style="color:#f92672">*</span>)title;</code></pre></div>
+
 <p>自适应cell高度的方法:
 在实现上述方法的基础上,回去到cell指针,调用contentViewHeightHasChanged:方法来修改cell高度.</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">((<span style="color:#66d9ef">void</span>(<span style="color:#f92672">*</span>)(<span style="color:#66d9ef">id</span>,<span style="color:#66d9ef">SEL</span>,CGFloat))objc_msgSend)(delegate,NSSelectorFromString(<span style="color:#e6db74">@&#34;contentViewHeightHasChanged:&#34;</span>),<span style="color:#ae81ff">190</span>);</code></pre></div>
+
 <p>该方法会创建一个view,当门店详情中,配置了该插件的code,就会创建该view,显示在门店详情对应的cell中</p>
+
 <ol>
 <li>方式二:在liveplay组件中创建一个插件</li>
 </ol>
+
 <p>以StoreDistributionCell为例.新建StoreDistributionCell继承TMPItemBaseCell,然后在StoreTemplateManager中注册插件code,指定cell的高度属性StoreDistributionCell上.</p>
+
 <p>父类TMPItemBaseCell中两个重要的方法:
-属性cell高度的接口:可以通过该方法来刷新cell.
-在异步请求结束时,可以通过该方法属性cell数据样式.</p>
+ 属性cell高度的接口:可以通过该方法来刷新cell.
+ 在异步请求结束时,可以通过该方法属性cell数据样式.</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">sendNotificationForFreshUI</span>;</code></pre></div>
+
 <p>cell加载数据接口:
 在cell加载完毕之后,会触发这个接口,便于在此处添加请求接口.</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - requestAPI
 </span><span style="color:#75715e"></span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">requestToShowContent</span>;</code></pre></div>
+
 <p>2.1 声明插件code
 code由后端和前端协商确定,会通过接口返回插件code,加载插件视图,例如:当门店详情接口返回插件code:StoreDistribution等</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - 集配门店
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> NSString <span style="color:#f92672">*</span>TemplateStoreDistribution <span style="color:#f92672">=</span> <span style="color:#e6db74">@&#34;StoreDistribution&#34;</span>;</code></pre></div>
+
 <p>2.2 映射code到实现类管理加载插件的字典,将code映射到实现类上:例如将StoreDistribution插件code映射到
 StoreDistributionCell上.</p>
+
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - 集配门店
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> NSString <span style="color:#f92672">*</span>TemplateStoreDistribution <span style="color:#f92672">=</span> <span style="color:#e6db74">@&#34;StoreDistribution&#34;</span>;
 - (NSDictionary <span style="color:#f92672">*</span>)<span style="color:#a6e22e">templateClassNamesDict</span>{
@@ -248,6 +270,7 @@ StoreDistributionCell上.</p>
         <span style="color:#66d9ef">return</span> _templateClassNamesDict;
         }
      }</code></pre></div>
+
 <h2 id="api实现">API实现</h2>
 
     </div>
@@ -310,7 +333,7 @@ StoreDistributionCell上.</p>
         id: '2019-08-21 11:32:00 \x2b0800 CST',
         title: '集配门店样式和跳转功能',
         link: decodeURI(location.href),
-        desc: 'STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新',
+        desc: 'STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

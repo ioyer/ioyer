@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2014-06-11T10:17:19+08:00" />
 <meta itemprop="name" content="IOS7的变革">
 <meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7">
+
+
 <meta itemprop="datePublished" content="2014-06-11T10:17:19&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-11T10:17:19&#43;08:00" />
-<meta itemprop="wordCount" content="4123">
+<meta itemprop="wordCount" content="4060">
 
 
 
-<meta itemprop="keywords" content="IOS7," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="IOS7," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IOS7的变革"/>
 <meta name="twitter:description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E7%89%B9%E6%80%A7/"> 特性 </a>
             </div>
-          <span class="more-meta"> 约 4123 字 </span>
+          <span class="more-meta"> 约 4060 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,44 +183,62 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</a>
-      <ul>
-        <li><a href="#新增截屏通知uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></a></li>
-        <li><a href="#新增手势-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</a></li>
-        <li><a href="#新增返回类型--instancetype">新增返回类型 – <code>instancetype</code></a></li>
-        <li><a href="#uiscrollview新增属性uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></a></li>
-        <li><a href="#uikit使用nsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring_class显示htmltextkithttp">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>)显示HTML，<a href="http://">TextKit</a></a></li>
-        <li><a href="#tint-images-with-uiimagerenderingmode">Tint images with <code>UIImage.renderingMode</code></a></li>
-        <li><a href="#usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</a></li>
-        <li><a href="#check-which-wireless-routes-are-available">Check which wireless routes are available</a></li>
-        <li><a href="#-nsarray-firstobject的实现"><code>-[NSArray firstObject]</code>的实现</a></li>
-        <li><a href="#uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</a>
+<ul>
+<li><a href="#新增截屏通知-uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></a></li>
+<li><a href="#新增手势-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</a></li>
+<li><a href="#新增返回类型-instancetype">新增返回类型 – <code>instancetype</code></a></li>
+<li><a href="#uiscrollview新增属性-uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></a></li>
+<li><a href="#uikit使用-nsattributedstring-http-developer-apple-com-documentation-cocoa-reference-foundation-classes-nsattributedstring-class-显示html-textkit-http">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://</a>)</a></li>
+<li><a href="#nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</a></li>
+<li><a href="#tint-images-with-uiimage-renderingmode">Tint images with <code>UIImage.renderingMode</code></a></li>
+<li><a href="#usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</a></li>
+<li><a href="#check-which-wireless-routes-are-available">Check which wireless routes are available</a></li>
+<li><a href="#nsarray-firstobject-的实现"><code>-[NSArray firstObject]</code>的实现</a></li>
+<li><a href="#uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</a>
+<ul>
+<li><a href="#uipasteboard-由共享变为沙盒化了"><code>UIPasteboard</code>由共享变为沙盒化了</a></li>
+<li><a href="#mac地址-被统一化"><code>MAC地址</code>:被统一化</a></li>
+<li><a href="#app启动麦克风-需争征得用户同意">app启动麦克风，需争征得用户同意</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</h2>
-<h3 id="新增截屏通知uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></h3>
-<p>在IOS 7之前，开发者使用了一种**<a href="http://dlj.bz/XflV">很赞的方法</a>**，来**拦截**截屏事件的.<br>
-比如，Snapchat的实现原理: 用户通过**Snapchat**发送的照片将会在数秒内自动被删除，而且在浏览照片时，必须将手指按在屏幕上，否则会立即关闭。然而，在 iOS 6 中，<!-- raw HTML omitted -->**截屏将打断触控操作**<!-- raw HTML omitted -->，开发者就利用这个功能点，在恰当时机捕捉到了截屏事件。</p>
-<p>在iOS 7中，专门为<!-- raw HTML omitted --><strong>截屏完成后</strong><!-- raw HTML omitted -->提供了一个通知:
-<code>UIApplicationUserDidTakeScreenshotNotification</code>.同时，也规避了IOS 6中<!-- raw HTML omitted --><strong>截屏将打断触控操作</strong><!-- raw HTML omitted -->的关键功能点。以至于在截屏之前，无法拦截用户的截屏操作。<br>
-注册<!-- raw HTML omitted --><strong>截屏完成后</strong><!-- raw HTML omitted -->通知:</p>
+      
+
+<h2 id="性能提高以及被遗弃的功能">性能提高以及被遗弃的功能</h2>
+
+<h3 id="新增截屏通知-uiapplicationuserdidtakescreenshotnotification">新增截屏通知:<code>UIApplicationUserDidTakeScreenshotNotification</code></h3>
+
+<p>在IOS 7之前，开发者使用了一种<strong><a href="http://dlj.bz/XflV">很赞的方法</a></strong>，来<strong>拦截</strong>截屏事件的.<br />
+比如，Snapchat的实现原理: 用户通过<strong>Snapchat</strong>发送的照片将会在数秒内自动被删除，而且在浏览照片时，必须将手指按在屏幕上，否则会立即关闭。然而，在 iOS 6 中，<font color=red><strong>截屏将打断触控操作</strong></font>，开发者就利用这个功能点，在恰当时机捕捉到了截屏事件。</p>
+
+<p>在iOS 7中，专门为<font color=red><strong>截屏完成后</strong></font>提供了一个通知:
+  <code>UIApplicationUserDidTakeScreenshotNotification</code>.同时，也规避了IOS 6中<font color=red><strong>截屏将打断触控操作</strong></font>的关键功能点。以至于在截屏之前，无法拦截用户的截屏操作。<br />
+注册<font color=red><strong>截屏完成后</strong></font>通知:</p>
+
 <pre><code class="language-objc">	[[NSNotificationCenter defaultCenter]  addObserver:self 
 											  selector:@selector(mymethod:)
 											  	    name:UIApplicationUserDidTakeScreenshotNotification 
 											    object:nil]; 
 </code></pre>
-<p>Note:<br>
-1.This notification is posted after the screenshot is taken.
-2.This notification does not contain a userInfo dictionary.</p>
+
+<p>Note:<br />
+    1.This notification is posted after the screenshot is taken.
+    2.This notification does not contain a userInfo dictionary.</p>
+
 <h3 id="新增手势-uiscreenedgepangesturerecognizer">新增手势: UIScreenEdgePanGestureRecognizer</h3>
+
 <p><code>UIScreenEdgePanGestureRecognizer</code> inherits from <code>UIPanGestureRecognizer</code> and lets you <strong>detect gestures starting near the edge of the screen</strong>.
 Using this new gesture recognizer is quite simple, as shown below:</p>
+
 <pre><code class="language-objc">	UIScreenEdgePanGestureRecognizer *recognizer = [[UIScreenEdgePanGestureRecognizer alloc] 
 														initWithTarget:self 
 															action:@selector(handleScreenEdgeRecognizer:)];
@@ -225,48 +246,73 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 	recognizer.edges = UIRectEdgeLeft; 
 	[self.view addGestureRecognizer:recognizer];
 </code></pre>
-<!-- raw HTML omitted -->
-<h3 id="新增返回类型--instancetype">新增返回类型 – <code>instancetype</code></h3>
+
+<!-- more-->
+
+<h3 id="新增返回类型-instancetype">新增返回类型 – <code>instancetype</code></h3>
+
 <p>苹果改变了大部分 initializer和简易构造函数（convenience constructors），<code>instancetype</code>可以代替<code>id</code>作返回类型。</p>
+
 <pre><code>   instancetype 作用：
         1.作为从Objective-C方法的返回类型。
         2.在编译时，该方法的返回类型将是该方法所属的类的实例，编译器就会对返回的实例做一些检查，有bug及时发现及时解决。这一点优于id类型。
         3.在调用子类方法时，就可以省去对返回值的强制类型转换。
 </code></pre>
+
 <p>举例:</p>
+
 <pre><code class="language-objc">NSDictionary *d = [NSArray arrayWithObjects:@(1),@(2), nil];
 NSLog(@&quot;%i&quot;, d.count);
 </code></pre>
+
 <p>这段代码显然有错误，但在Xcode4.6上是可以编译通过的。是由于Objective-C是动态性语言。</p>
+
 <pre><code class="language-objc">+ (id)arrayWithObjects:(id)firstObj, ...;
 </code></pre>
+
 <p>并且，arrayWithObjects:返回<code>id</code>类型：是运行时的动态类型，编译器无法知道它的真实类型，即使调用一个id类型没有的方法，也不会产生编译警告。</p>
+
 <p>那么，为什么<code>arrayWithObjects:</code>方法的返回类型还是<code>id</code>类型？来看看<code>NSArray</code>子类：</p>
+
 <pre><code class="language-objc">	@interface MyArray : NSArray
 	@end
 </code></pre>
+
 <p>Now consider the use of your new subclass in the code below:</p>
+
 <pre><code class="language-objc">	MyArray *array = [MyArray arrayWithObjects:@(1), @(2), nil];
 </code></pre>
+
 <p>如果方法<code>arrayWithObjects:</code>返回值的类型是<code>NSArray *</code>，那么子类<code>MyArray</code>就需要被强制转换为所需的类<code>NSArray</code>。这是正是<code>instancetype</code>返回类型的用武之地。
 在iPhone 7.0 SDK的NSArray中的头文件，已更新为：</p>
+
 <pre><code class="language-objc">	+ (instancetype)arrayWithObjects:(id)firstObj, ...;
 </code></pre>
-<p>唯一的区别是返回类<code>instancetype</code>取代<code>id</code>。这种新的返回类型会告知编译器，返回值是该方法所属的类的实例对象。<br>
+
+<p>唯一的区别是返回类<code>instancetype</code>取代<code>id</code>。这种新的返回类型会告知编译器，返回值是该方法所属的类的实例对象。<br />
 也就是说:当<code>NSArray</code>调用<code>arrayWithObjects:</code>时，返回类型推断为NSArray*;
 当<code>MyArray</code>调用<code>arrayWithObjects:</code>时，返回类型推断为MyArray*。</p>
+
 <p><code>instancetype</code>解决<code>id</code>类型的问题，同时也继承<code>id</code>类型功能。如果编译在Xcode 5的原代码，你会看到下面的警告：</p>
+
 <pre><code class="language-objc">	warning: incompatible pointer types initializing 'NSDictionary *' with an expression of type 'NSArray *' [-Wincompatible-pointer-types]
     NSDictionary *d = [NSArray arrayWithObjects:@(1), @(2), nil];
                 ^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 </code></pre>
+
 <p>w00t — now that’s helpful! You now have the opportunity to fix the problem before it turns into a crash later down the line.</p>
+
 <p>Initializers are also candidates for using this new return type. The compiler has warned you for some time now if you set the return type of an initializer to that of an incompatible type. But presumably it’s just implicitly converting the id return type to instancetype under the hood. You should still use instancetype for initializers though, because it’s better to be explicit for habit’s sake.</p>
+
 <p>Strive to use instancetype as much as possible going forward; it’s become a standard for Apple — and you never know when it will save you some painful debugging time later on.</p>
-<h3 id="uiscrollview新增属性uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></h3>
-<p>像Messages app一样在滚动的时候，将键盘隐藏，是一种非常好的体验。<br>
+
+<h3 id="uiscrollview新增属性-uiscrollviewkeyboarddismissmode">UIScrollView新增属性：<code>UIScrollViewKeyboardDismissMode</code></h3>
+
+<p>像Messages app一样在滚动的时候，将键盘隐藏，是一种非常好的体验。<br />
 在以前，将这项功能整合到app很难，现在仅仅只需要在Storyboard中简单的改变一个属性值，或者增加一行代码即可。</p>
+
 <p>这个属性使用了新的<code>UIScrollViewKeyboardDismissMode</code> enum枚举类型。这个enum枚举类型可能的值如下：</p>
+
 <pre><code class="language-objc">	// the keyboard is not dismissed automatically when scrolling
 		UIScrollViewKeyboardDismissModeNone   
     // dismisses the keyboard when a drag begins 
@@ -274,40 +320,46 @@ NSLog(@&quot;%i&quot;, d.count);
     // the keyboard follows the dragging touch off screen, and may be pulled upward again to cancel the dismiss 
 		UIScrollViewKeyboardDismissModeInteractive  
 </code></pre>
-<p>在storyboard中设置该属性值:<br>
-<img src="/images/UIScrollViewKeyboardDismissMode.png" alt="UIScrollViewKeyboardDismissMode"></p>
-<h3 id="uikit使用nsattributedstringhttpdeveloperapplecomdocumentationcocoareferencefoundationclassesnsattributedstring_class显示htmltextkithttp">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>)显示HTML，<a href="http://">TextKit</a></h3>
+
+<p>在storyboard中设置该属性值:<br />
+<img src="/images/UIScrollViewKeyboardDismissMode.png" alt="UIScrollViewKeyboardDismissMode" /></p>
+
+<h3 id="uikit使用-nsattributedstring-http-developer-apple-com-documentation-cocoa-reference-foundation-classes-nsattributedstring-class-显示html-textkit-http">UIKit使用[NSAttributedString]((<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/)显示HTML，[TextKit](http://</a>)</h3>
+
 <p>在app中使用Webviews有时会让人非常沮丧，即使只是显示少量的HTML内容 ,Webviews也会消耗大量的内存。
-现在提供了一种全新的简单易用的方式来展示HTML内容，适用于任意的<code>UIKit</code>控件，如<code>UILabel</code>或<code>UITextField</code>等。<br>
+现在提供了一种全新的简单易用的方式来展示HTML内容，适用于任意的<code>UIKit</code>控件，如<code>UILabel</code>或<code>UITextField</code>等。<br />
 1.用少量HTML片段，初始化<code>NSAttributedString</code>对象:</p>
+
 <p>{% codeblock lang:objc Time to be Awesome - awesome.rb %}
-NSString *html = @&ldquo;<!-- raw HTML omitted -->Wow!<!-- raw HTML omitted --> Now <!-- raw HTML omitted -->iOS<!-- raw HTML omitted --> can create <!-- raw HTML omitted -->NSAttributedString<!-- raw HTML omitted --> from HTMLs!&quot;;
+    NSString *html = @&rdquo;<bold>Wow!</bold> Now <em>iOS</em> can create <h3>NSAttributedString</h3> from HTMLs!&ldquo;;
 NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
 {% endcodeblock %}</p>
-<p>``` objc 用少量HTML片段，初始化<code>NSAttributedString</code>对象 <a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/">http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/</a>
-NSString *html = @&ldquo;<!-- raw HTML omitted -->Wow!<!-- raw HTML omitted --> Now <!-- raw HTML omitted -->iOS<!-- raw HTML omitted --> can create <!-- raw HTML omitted -->NSAttributedString<!-- raw HTML omitted --> from HTMLs!&quot;;
+
+<pre><code class="language-objc">NSString *html = @&quot;&lt;bold&gt;Wow!&lt;/bold&gt; Now &lt;em&gt;iOS&lt;/em&gt; can create &lt;h3&gt;NSAttributedString&lt;/h3&gt; from HTMLs!&quot;;
 NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
 NSData *htmlData = [html dataUsingEncoding:NSUTF8StringEncoding];
 NSAttributedString *attrString = [[NSAttributedString alloc] initWithData:htmlData
-options:options
-documentAttributes:nil
-error:nil];</p>
-<pre><code>NSDocumentTypeDocumentAttribute包括:
-&lt;!--https://gist.githubusercontent.com/it-boyer/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
---&gt;
-	NSPlainTextDocumentType		//Plain text document.
-    NSRTFTextDocumentType		//Rich text format document.
-    NSRTFDTextDocumentType		//Rich text format with attachments document.
+												                      options:options 
+									                       documentAttributes:nil 
+									   			                        error:nil];
+</code></pre>
 
-2.相反，也可以将`NSAttributedString`对象，解析成HTML片段：
+<p>NSDocumentTypeDocumentAttribute包括:
+<!--https://gist.githubusercontent.com/it-boyer/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
+-->
+    NSPlainTextDocumentType     //Plain text document.
+    NSRTFTextDocumentType       //Rich text format document.
+    NSRTFDTextDocumentType      //Rich text format with attachments document.</p>
 
-{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}	
+<p>2.相反，也可以将<code>NSAttributedString</code>对象，解析成HTML片段：</p>
 
-### NSLinkAttributeName让标签（UILabel,UITextView）支持超链接
- 
-首先，创建一个`NSAttributedString`对象,然后，调用`addAttribute:value:range:`方法，添加 `NSLinkAttributeName`属性并赋值，如下：  
-``` objc UITextView支持超链接
-	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
+<p>{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}</p>
+
+<h3 id="nslinkattributename让标签-uilabel-uitextview-支持超链接">NSLinkAttributeName让标签（UILabel,UITextView）支持超链接</h3>
+
+<p>首先，创建一个<code>NSAttributedString</code>对象,然后，调用<code>addAttribute:value:range:</code>方法，添加 <code>NSLinkAttributeName</code>属性并赋值，如下：</p>
+
+<pre><code class="language-objc">	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&quot;This is an example by @marcelofabri_&quot;]; 
 	[attributedString addAttribute:NSLinkAttributeName 
                          value:@&quot;username://marcelofabri_&quot; 
                          range:[[attributedString string] rangeOfString:@&quot;@marcelofabri_&quot;]]; 
@@ -319,7 +371,9 @@ error:nil];</p>
 	textView.attributedText = attributedString; 
 	textView.delegate = self; 
 </code></pre>
-<p>当然，也可以使用<code>UITextViewDelegate</code>新增的协议方法<!-- raw HTML omitted --><strong>shouldInteractWithURL</strong><!-- raw HTML omitted -->，来自定义点击事件：</p>
+
+<p>当然，也可以使用<code>UITextViewDelegate</code>新增的协议方法<font color=red><strong>shouldInteractWithURL</strong></font>，来自定义点击事件：</p>
+
 <pre><code class="language-objc">	- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL 
 											               inRange:(NSRange)characterRange { 
 				    if ([[URL scheme] isEqualToString:@&quot;username&quot;]) { 
@@ -331,9 +385,12 @@ error:nil];</p>
 				    return YES; // let the system open this URL 
 	} 
 </code></pre>
-<h3 id="tint-images-with-uiimagerenderingmode">Tint images with <code>UIImage.renderingMode</code></h3>
-<p>Tinting is a big part of the new look and feel of iOS 7, and you have control whether your image is tinted or not when rendered.<br>
+
+<h3 id="tint-images-with-uiimage-renderingmode">Tint images with <code>UIImage.renderingMode</code></h3>
+
+<p>Tinting is a big part of the new look and feel of iOS 7, and you have control whether your image is tinted or not when rendered.<br />
 UIImage now has a read-only property named <code>renderingMode</code> as well as a new method <code>imageWithRenderingMode:</code> which uses the new enum <code>UIImageRenderingMode</code> containing the following possible values:</p>
+
 <pre><code>	// Use the default rendering mode for the context where the image is used
 		UIImageRenderingModeAutomatic  
 	// Always draw the original image, without treating it as a template
@@ -341,17 +398,23 @@ UIImage now has a read-only property named <code>renderingMode</code> as well as
 	// Always draw the image as a template image, ignoring its color information
 		UIImageRenderingModeAlwaysTemplate 
 </code></pre>
+
 <p>The code below shows how easy it is to create an image with a given rendering mode:</p>
+
 <pre><code class="language-objc">	UIImage *img = [UIImage imageNamed:@&quot;myimage&quot;]; 
 	img = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]; 
 </code></pre>
-<p>The default value of renderingMode is UIImageRenderingModeAutomatic.<br>
-Whether the image will be tinted or not depends on where it’s being displayed as shown by the examples below:<br>
-<img src="/images/uiimagerenderingmode.png" alt="image"></p>
+
+<p>The default value of renderingMode is UIImageRenderingModeAutomatic.<br />
+Whether the image will be tinted or not depends on where it’s being displayed as shown by the examples below:<br />
+<img src="/images/uiimagerenderingmode.png" alt="image" /></p>
+
 <h3 id="usage-of-tintcolor-vs-bartintcolor">Usage of tintColor vs barTintColor</h3>
-<p>In iOS 7 you can tint your entire app with a given color or even implement color themes to help your app stand out from the rest.Setting the tint color of your app is as easy as using the new property <code>tintColor</code> of <code>UIView</code>.<br>
-Does that property sound familiar? it should — some classes such as <code>UINavigationBar</code>, <code>UISearchBar</code>, <code>UITabBar</code> and <code>UIToolbar</code> already had a property with this name. They now have a new property: <code>barTintColor</code>.<br>
+
+<p>In iOS 7 you can tint your entire app with a given color or even implement color themes to help your app stand out from the rest.Setting the tint color of your app is as easy as using the new property <code>tintColor</code> of <code>UIView</code>.<br />
+Does that property sound familiar? it should — some classes such as <code>UINavigationBar</code>, <code>UISearchBar</code>, <code>UITabBar</code> and <code>UIToolbar</code> already had a property with this name. They now have a new property: <code>barTintColor</code>.<br />
 In order to avoid getting tripped up by the new property, you should perform the following check if your app needs to support iOS 6 or earlier:</p>
+
 <pre><code class="language-objc">UINavigationBar *bar = self.navigationController.navigationBar;
 UIColor *color = [UIColor greenColor];
 
@@ -363,10 +426,13 @@ if ([bar respondsToSelector:@selector(setBarTintColor:)]) {
 		    bar.tintColor = color;
 }
 </code></pre>
+
 <h3 id="check-which-wireless-routes-are-available">Check which wireless routes are available</h3>
-<p>The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a <code>MPVolumeView</code>.<br>
-In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.<br>
+
+<p>The ability to customize a video player (and friends) has evolved throughout the past few iOS versions. As an example, prior to iOS 6 you couldn’t change the AirPlay icon on a <code>MPVolumeView</code>.<br />
+In iOS 7, you’re finally able to know if a remote device is available via AirPlay, Bluetooth, or some other wireless mechanism. This allows your app to behave appropriately, such as hiding an AirPlay icon when that service isn’t available on other devices.<br />
 The following two new properties and notifications have been added to MPVolumeView:</p>
+
 <pre><code class="language-objc">// is there a route that the device can connect to?
 	@property (nonatomic, readonly) BOOL wirelessRoutesAvailable;
 	
@@ -375,33 +441,49 @@ The following two new properties and notifications have been added to MPVolumeVi
   NSString *const MPVolumeViewWirelessRoutesAvailableDidChangeNotification;
 	NSString *const MPVolumeViewWirelessRouteActiveDidChangeNotification;
 </code></pre>
-<h3 id="-nsarray-firstobject的实现"><code>-[NSArray firstObject]</code>的实现</h3>
+
+<h3 id="nsarray-firstobject-的实现"><code>-[NSArray firstObject]</code>的实现</h3>
+
 <p><code>-[NSArray firstObject]</code>可能是Objective-C中被调用做多的API。 在iOS4.0中<code>firstObject</code>已经被使用，但是那时仅仅是一个私有方法。在iOS7以前，常用方法：</p>
+
 <pre><code class="language-objc">	NSArray *arr = @[]; 
 	id item = [arr firstObject]; 
 	// 前你需要做以下工作 
 	id item = [arr count] &gt; 0 ? arr[0] : nil;
 </code></pre>
+
 <p>因为上面的方式很常用，一般创建一个类别实现该方法<code>firstObject</code>增加到NSArray中。</p>
+
 <p>这个方法的问题:<code>方法名</code>必须是唯一的，否则,这个方法所引发的问题无法预估。所以在<code>NSArray</code>中最好不要重载<code>firstObject</code>方法，是有风险的。</p>
+
 <h3 id="uibuttontyperoundrect被uibuttontypesystem取代">UIButtonTypeRoundRect被UIButtonTypeSystem取代</h3>
-<p><img src="http://cdn1.raywenderlich.com/wp-content/uploads/2010/05/Rate.jpg" alt="alt text" title="UIButtonTypeRoundRect被UIButtonTypeSystem取代"></p>
-<h4 id="uipasteboard由共享变为沙盒化了"><code>UIPasteboard</code>由共享变为沙盒化了</h4>
-<p>UIPasteboard过去是用来做app之间的数据分享的。开发者一般使用它来存储标识符，比如:OpenUDID。<br>
+
+<p><img src="http://cdn1.raywenderlich.com/wp-content/uploads/2010/05/Rate.jpg" alt="alt text" title="UIButtonTypeRoundRect被UIButtonTypeSystem取代" /></p>
+
+<h4 id="uipasteboard-由共享变为沙盒化了"><code>UIPasteboard</code>由共享变为沙盒化了</h4>
+
+<p>UIPasteboard过去是用来做app之间的数据分享的。开发者一般使用它来存储标识符，比如:OpenUDID。<br />
 但在在iOS7中，使用 <code>+[UIPasteboard pasteboardWithName:create:]</code>和 <code>+[UIPasteboard pasteboardWithUniqueName]</code>创建剪贴板，而且只对相同的app group可见，这样再和其他的相关app分享以前的OpenUDID等标识符时，就会出现问题。</p>
-<h4 id="mac地址被统一化"><code>MAC地址</code>:被统一化</h4>
+
+<h4 id="mac地址-被统一化"><code>MAC地址</code>:被统一化</h4>
+
 <p>在IOS7之前，生成iOS设备唯一标示符的方法是使用iOS设备的Media Access Control（MAC）地址。 一个MAC地址是一个唯一的号码，它是物理网络层级方面分配给网络适配器的。
-然而，苹果并不希望有人通过MAC地址来分辨用户，在iOS7以上，查询MAC地址，它现在只会返回02:00:00:00:00:00。<br>
+然而，苹果并不希望有人通过MAC地址来分辨用户，在iOS7以上，查询MAC地址，它现在只会返回02:00:00:00:00:00。<br />
 目前，苹果推荐开发者使用以下两种方式，来获取作为框架和应用的唯一标示符：</p>
+
 <pre><code class="language-objc">	NSString *identifierForVendor = [[UIDevice currentDevice].identifierForVendor UUIDString]; 
 	NSString *identifierForAdvertising = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 </code></pre>
+
 <p><code>identifierForVendor</code>：由同一个公司发行的的app在相同的设备上运行的时候都会有这个相同的标识符。然而，如果用户删除了这个供应商的app然后再重新安装的话，这个标识符就会不一致。
 <code>advertisingIdentifier</code>：返回给在这个设备上所有软件供应商公用的唯一值，所以只能在广告的时候使用。这个值会因为很多情况而有所变化，比如说用户初始化设备的时候便会改变。</p>
-<h4 id="app启动麦克风需争征得用户同意">app启动麦克风，需争征得用户同意</h4>
+
+<h4 id="app启动麦克风-需争征得用户同意">app启动麦克风，需争征得用户同意</h4>
+
 <p>以前如果app需要使用用户的位置，通讯录，日历，提醒以及照片，接受推送消息，使用用户的社交网络的时候需要征得用户的同意。
-现在在iOS7当中，使用麦克风也需要取得用户同意了。如果用户不允许app使用麦克风的话，那么需要使用麦克风的app就不能接收不到任何声音。
-以下的代码是用来查询用户是否允许app使用麦克风：</p>
+  现在在iOS7当中，使用麦克风也需要取得用户同意了。如果用户不允许app使用麦克风的话，那么需要使用麦克风的app就不能接收不到任何声音。
+  以下的代码是用来查询用户是否允许app使用麦克风：</p>
+
 <pre><code class="language-objc">	//第一次调用这个方法的时候，系统会提示用户让他同意你的app获取麦克风的数据 
 	// 其他时候调用方法的时候，则不会提醒用户 
 	// 而会传递之前的值来要求用户同意 
@@ -414,8 +496,9 @@ The following two new properties and notifications have been added to MPVolumeVi
 										    }
     ];
 </code></pre>
+
 <p>如果没有经过用户同意，就调用麦克风，iOS系统自动弹出以下警示栏：
-<img src="/images/microphone.jpg" alt="image"></p>
+<img src="/images/microphone.jpg" alt="image" /></p>
 
     </div>
 

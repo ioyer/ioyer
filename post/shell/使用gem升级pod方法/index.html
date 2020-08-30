@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云： https://gems.ruby-china.com/ 淘宝：https://rub" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云：https://gems.ru" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E4%BD%BF%E7%94%A8gem%E5%8D%87%E7%BA%A7pod%E6%96%B9%E6%B3%95/" />
@@ -40,22 +40,25 @@
 
 
 <meta property="og:title" content="使用gem升级pod方法" />
-<meta property="og:description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云： https://gems.ruby-china.com/ 淘宝：https://rub" />
+<meta property="og:description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云：https://gems.ru" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/shell/%E4%BD%BF%E7%94%A8gem%E5%8D%87%E7%BA%A7pod%E6%96%B9%E6%B3%95/" />
 <meta property="article:published_time" content="2018-10-06T14:50:12+00:00" />
 <meta property="article:modified_time" content="2018-10-06T14:50:12+00:00" />
 <meta itemprop="name" content="使用gem升级pod方法">
-<meta itemprop="description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云： https://gems.ruby-china.com/ 淘宝：https://rub">
+<meta itemprop="description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云：https://gems.ru">
+
+
 <meta itemprop="datePublished" content="2018-10-06T14:50:12&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-06T14:50:12&#43;00:00" />
-<meta itemprop="wordCount" content="83">
+<meta itemprop="wordCount" content="110">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用gem升级pod方法"/>
-<meta name="twitter:description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云： https://gems.ruby-china.com/ 淘宝：https://rub"/>
+<meta name="twitter:description" content="升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ $ gem sources -l https://gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云：https://gems.ru"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 83 字 </span>
+          <span class="more-meta"> 约 110 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -178,11 +181,18 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#升级cocopods">升级cocopods</a></li>
+</ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="升级cocopods">升级cocopods</h1>
+      
+
+<h1 id="升级cocopods">升级cocopods</h1>
+
 <pre><code class="language-shell">sudo gem update --system
 gem source -l
 pod setup
@@ -190,13 +200,16 @@ pod repo update --verbose
 sudo gem install cocoapods --pre
 sudo gem cleanup
 </code></pre>
+
 <p>gem source</p>
+
 <pre><code>$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
 $ gem sources -l
 https://gems.ruby-china.com
 # 确保只有 gems.ruby-china.com
 </code></pre>
-<p>腾讯云：<code> https://gems.ruby-china.com/</code>
+
+<p>腾讯云：<code>https://gems.ruby-china.com/</code>
 淘宝：<code>https://ruby.taobao.org/</code></p>
 
     </div>
@@ -255,7 +268,7 @@ https://gems.ruby-china.com
         id: '2018-10-06 14:50:12 \x2b0000 UTC',
         title: '使用gem升级pod方法',
         link: decodeURI(location.href),
-        desc: '升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https:\/\/gems.ruby-china.com\/ --remove https:\/\/rubygems.org\/ $ gem sources -l https:\/\/gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云： https:\/\/gems.ruby-china.com\/ 淘宝：https:\/\/rub',
+        desc: '升级cocopods sudo gem update --system gem source -l pod setup pod repo update --verbose sudo gem install cocoapods --pre sudo gem cleanup gem source $ gem sources --add https:\/\/gems.ruby-china.com\/ --remove https:\/\/rubygems.org\/ $ gem sources -l https:\/\/gems.ruby-china.com # 确保只有 gems.ruby-china.com 腾讯云：https:\/\/gems.ru',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

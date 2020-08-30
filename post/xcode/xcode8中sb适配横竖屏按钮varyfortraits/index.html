@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/xcode8%E4%B8%ADsb%E9%80%82%E9%85%8D%E6%A8%AA%E7%AB%96%E5%B1%8F%E6%8C%89%E9%92%AEvaryfortraits/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-06-13T17:33:59+00:00" />
 <meta itemprop="name" content="Xcode8中SB适配横竖屏按钮VaryforTraits">
 <meta itemprop="description" content="升级xcode8之后，打开storyboard发现xcode7适配界面的size class被Trait Variations所取代: Trait Vari">
+
+
 <meta itemprop="datePublished" content="2017-06-13T17:33:59&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-13T17:33:59&#43;00:00" />
-<meta itemprop="wordCount" content="687">
+<meta itemprop="wordCount" content="689">
 
 
 
-<meta itemprop="keywords" content="工具," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xcode8中SB适配横竖屏按钮VaryforTraits"/>
 <meta name="twitter:description" content="升级xcode8之后，打开storyboard发现xcode7适配界面的size class被Trait Variations所取代: Trait Vari"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/xcode/"> xcode </a>
             <a href="/categories/sb/"> SB </a>
             </div>
-          <span class="more-meta"> 约 687 字 </span>
+          <span class="more-meta"> 约 689 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,35 +183,47 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#添加竖屏约束">添加竖屏约束</a></li>
-        <li><a href="#ipad适配时无法区分横竖屏">iPad适配时无法区分横竖屏</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#添加竖屏约束">添加竖屏约束</a>
+<ul>
+<li><a href="#vary-for-traits">Vary for Traits</a></li>
+</ul></li>
+<li><a href="#ipad适配时无法区分横竖屏">iPad适配时无法区分横竖屏</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>升级xcode8之后，打开storyboard发现xcode7适配界面的size class被Trait Variations所取代:
+      
+
+<p>升级xcode8之后，打开storyboard发现xcode7适配界面的size class被Trait Variations所取代:
 Trait Variations只是size class的直观表现方式，改善了原本九宫格选取过于抽象的问题，直接选机型很清晰直观，但本质未变。</p>
+
 <h3 id="添加竖屏约束">添加竖屏约束</h3>
+
 <p>xcode8版本的选择器，由原来的九宫格形式，改进为机型选择器：</p>
+
 <p>以前版本：</p>
+
 <h4 id="vary-for-traits">Vary for Traits</h4>
-<p>对不同设备和方向上添加约束</p>
-<ol>
-<li>点击右侧的Vary for Traits 会弹出选择Width／Height或组合, 左边的会立即显示将适配的所有机型和方向，即此时新增的约束应用到的不同方向的所有机型<br>
+
+<p>对不同设备和方向上添加约束
+1. 点击右侧的Vary for Traits 会弹出选择Width／Height或组合, 左边的会立即显示将适配的所有机型和方向，即此时新增的约束应用到的不同方向的所有机型<br />
 假如：选width，会发现约束会同时应用到iPhone的横竖屏：
-选中了Height之后（这里Width选不选中都是可以的），会发现左侧横屏的设备消失，接下来添加的约束就只会运用到竖屏界面上了<br>
-接下来为竖屏状态的界面添加约束，</li>
-<li>点击Done Varying按钮完成对约束的添加</li>
-</ol>
+选中了Height之后（这里Width选不选中都是可以的），会发现左侧横屏的设备消失，接下来添加的约束就只会运用到竖屏界面上了<br />
+接下来为竖屏状态的界面添加约束，
+3. 点击Done Varying按钮完成对约束的添加</p>
+
 <h3 id="ipad适配时无法区分横竖屏">iPad适配时无法区分横竖屏</h3>
+
 <p>对比iPhone横竖屏：
-竖屏状态是wC：hR 横屏下是wC：hC (w是width h是height，C是Compact R是Regular) ，所以可以方便横竖屏俩套UI是由于横竖屏的size class是不同的。<br>
+竖屏状态是wC：hR 横屏下是wC：hC (w是width h是height，C是Compact R是Regular) ，所以可以方便横竖屏俩套UI是由于横竖屏的size class是不同的。<br />
 但iPad横竖屏都是wR：hR, 所以在竖屏设置的约束同样会应用到横屏上。
 所以iPad横竖屏布局还得监听屏幕旋转更改约束，或者在layoutSubview中修改frame了。所以就目前而言一套界面同时适配iPhone与iPad横竖屏这4种界面还是有些困难，也很少(没有？)有应用这样干，大多数应用还是单独做了HD版本，或者直接用iPhone的布局方案。</p>
 

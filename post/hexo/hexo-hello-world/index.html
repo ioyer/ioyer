@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/hexo-hello-world/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2019-08-08T17:46:02+08:00" />
 <meta itemprop="name" content="Hexo-hello-world">
 <meta itemprop="description" content="什么是 Hexo？ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成">
+
+
 <meta itemprop="datePublished" content="2016-12-20T18:02:13&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-08T17:46:02&#43;08:00" />
-<meta itemprop="wordCount" content="1033">
+<meta itemprop="wordCount" content="1034">
 
 
 
-<meta itemprop="keywords" content="语法," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="语法," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hexo-hello-world"/>
 <meta name="twitter:description" content="什么是 Hexo？ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 1033 字 </span>
+          <span class="more-meta"> 约 1034 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,139 +182,190 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#什么是-hexo">什么是 Hexo？</a></li>
-    <li><a href="#quick-start">Quick Start</a></li>
-    <li><a href="#安装-nodejs">安装 Node.js</a></li>
-    <li><a href="#安装-hexo">安装 Hexo</a></li>
-    <li><a href="#建站">建站</a>
-      <ul>
-        <li><a href="#create-a-new-post">Create a new post</a></li>
-        <li><a href="#run-server">Run server</a></li>
-        <li><a href="#generate-static-files">Generate static files</a></li>
-        <li><a href="#deploy-to-remote-sites">Deploy to remote sites</a></li>
-        <li><a href="#安装插件">安装插件</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#什么是-hexo">什么是 Hexo？</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#安装-node-js">安装 Node.js</a></li>
+<li><a href="#安装-hexo">安装 Hexo</a></li>
+<li><a href="#建站">建站</a>
+<ul>
+<li><a href="#create-a-new-post">Create a new post</a></li>
+<li><a href="#run-server">Run server</a></li>
+<li><a href="#generate-static-files">Generate static files</a></li>
+<li><a href="#deploy-to-remote-sites">Deploy to remote sites</a></li>
+<li><a href="#安装插件">安装插件</a>
+<ul>
+<li><a href="#安装同步到git-插件">安装同步到git 插件</a></li>
+<li><a href="#安装生成rss支持插件">安装生成RSS支持插件</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="什么是-hexo">什么是 Hexo？</h2>
+      
+
+<h2 id="什么是-hexo">什么是 Hexo？</h2>
+
 <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
 Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+
 <h2 id="quick-start">Quick Start</h2>
-<h2 id="安装-nodejs">安装 Node.js</h2>
+
+<h2 id="安装-node-js">安装 Node.js</h2>
+
 <p>安装 <code>Node.js</code> 的最佳方式是使用 <code>nvm</code>,或者您也可以下载 <a href="http://nodejs.org/">node.js安装包</a>来安装。</p>
+
 <ol>
-<li>安装<code>nvm</code>
-方式一：cURL命令</li>
-</ol>
+<li><p>安装<code>nvm</code>
+方式一：cURL命令</p>
+
 <pre><code>$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
-</code></pre>
+</code></pre></li>
+</ol>
+
 <p>方式二：linux方法Wget命令</p>
+
 <pre><code>$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
 </code></pre>
+
 <p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
+
 <pre><code>$ nvm install stable
 </code></pre>
-<ol start="2">
-<li>更新npm命令工具至最新版本</li>
-</ol>
+
+<ol>
+<li><p>更新npm命令工具至最新版本</p>
+
 <pre><code>npm install -g npm
-</code></pre>
+</code></pre></li>
+</ol>
+
 <h2 id="安装-hexo">安装 Hexo</h2>
+
 <p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+
 <pre><code>$ npm install -g hexo-cli
 </code></pre>
+
 <h2 id="建站">建站</h2>
+
 <p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+
 <pre><code>$ hexo init &lt;folder&gt;
 $ cd &lt;folder&gt;
 $ npm install
 </code></pre>
-<p>为了便于在多台电脑上部署博客，可以使用使用git版本库来管理个人博客的内容：<br>
+
+<p>为了便于在多台电脑上部署博客，可以使用使用git版本库来管理个人博客的内容：<br />
 具体部署过程：</p>
+
 <pre><code>git clone https://xxxxx/boyer.git boyer
 cd boyer
 npm install  #安装package.json是插件包，使用git管理更加便于管理安装的完整性。
 </code></pre>
+
 <p>新建完成后，指定文件夹的目录如下：
-.
-├── _config.yml     # 网站的 配置 信息，您可以在此配置大部分的参数。
-├── package.json    # 应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装。
-├── scaffolds       # 模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes</p>
-<ol>
-<li>
-<p>scaffolds<br>
+    .
+    ├── _config.yml     # 网站的 配置 信息，您可以在此配置大部分的参数。
+    ├── package.json    # 应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装。
+    ├── scaffolds       # 模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
+    ├── source
+    |   ├── _drafts
+    |   └── _posts
+    └── themes
+1. scaffolds<br />
 模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
 Hexo的模板是指在新建的markdown文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
-</li>
-<li>
-<p>source<br>
-资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-</li>
-<li>
-<p>themes<br>
-主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
-</li>
+
+<ol>
+<li>source<br />
+资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</li>
+<li>themes<br />
+主题 文件夹。Hexo 会根据主题来生成静态页面。</li>
 </ol>
+
 <h3 id="create-a-new-post">Create a new post</h3>
+
 <pre><code class="language-bash">$ hexo new &quot;My New Post&quot;
 </code></pre>
+
 <pre><code class="language-bash">$ hexo new draft &quot;草稿名&quot; 
 </code></pre>
+
 <pre><code class="language-bash">$ hexo publish &quot;草稿名&quot;  #Moves a draft post from _drafts to _posts folder.
 </code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+
 <h3 id="run-server">Run server</h3>
+
 <pre><code class="language-bash">$ hexo server
 </code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+
 <h3 id="generate-static-files">Generate static files</h3>
+
 <pre><code class="language-bash">$ hexo generate
 </code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+
 <pre><code class="language-bash">$ hexo deploy
 </code></pre>
+
 <p>在我们开始之前,你必须在 <code>_config.yml</code> 修改设置。一个有效的部署设置必须有 <code>type</code> 字段。例如:</p>
+
 <pre><code class="language-bash">deploy:
     type: git
 </code></pre>
+
 <p>你可用同时部署到多个type，Hexo将依次执行每个部署。</p>
+
 <pre><code class="language-bash">deploy:
     - type: git
       repo:
     - type: heroku
       repo:
 </code></pre>
+
 <h3 id="安装插件">安装插件</h3>
+
 <h4 id="安装同步到git-插件">安装同步到git 插件</h4>
+
 <pre><code class="language-bash">$ npm install hexo-deployer-git --save 
 </code></pre>
+
 <p>编辑<code>_config.yml</code>设置：</p>
+
 <pre><code class="language-bash">deploy:
     type: git
     repo: &lt;repository url&gt;
     branch: [branch]
     message: [message]
 </code></pre>
+
 <h4 id="安装生成rss支持插件">安装生成RSS支持插件</h4>
+
 <pre><code class="language-bash">$ npm install  hexo-generator-feed --save
 </code></pre>
+
 <p>编辑<code>_config.yml</code>设置：</p>
+
 <pre><code class="language-bash">feed:
     type: atom
     path: atom.xml
     limit: 20
     hub:
 </code></pre>
+
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 
     </div>

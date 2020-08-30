@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/ui/wkwebview%E6%8E%A7%E4%BB%B6%E5%92%8Cjs%E8%84%9A%E6%9C%AC%E4%BC%A0%E5%8F%82%E5%8F%8A%E4%BA%A4%E4%BA%92/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2017-07-07T09:54:41+00:00" />
 <meta itemprop="name" content="WKWebView控件和JS脚本传参及交互">
 <meta itemprop="description" content="WebKit简介 {% github it-boyer WKWebView-JS d03bc0e width = 30% %} 自iOS8 以后，苹果推出了新框架 WebKit，提供了替换 UIWebView 的组件 WKWebView。各种 UIWebView 的性能问题没有了">
+
+
 <meta itemprop="datePublished" content="2017-07-07T09:54:41&#43;00:00" />
 <meta itemprop="dateModified" content="2017-07-07T09:54:41&#43;00:00" />
-<meta itemprop="wordCount" content="2208">
+<meta itemprop="wordCount" content="2209">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="WKWebView控件和JS脚本传参及交互"/>
 <meta name="twitter:description" content="WebKit简介 {% github it-boyer WKWebView-JS d03bc0e width = 30% %} 自iOS8 以后，苹果推出了新框架 WebKit，提供了替换 UIWebView 的组件 WKWebView。各种 UIWebView 的性能问题没有了"/>
 
@@ -170,7 +173,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E6%8E%A7%E4%BB%B6/"> 控件 </a>
             </div>
-          <span class="more-meta"> 约 2208 字 </span>
+          <span class="more-meta"> 约 2209 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -180,19 +183,33 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#webkit简介">WebKit简介</a></li>
-        <li><a href="#ios原生api调用js脚本">iOS原生API调用JS脚本</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#webkit简介">WebKit简介</a>
+<ul>
+<li><a href="#添加监听代理和js接口">添加监听代理和JS接口</a></li>
+<li><a href="#设置wkusercontentcontroller的代理">设置WKUserContentController的代理</a></li>
+<li><a href="#js脚本接口">JS脚本接口</a></li>
+</ul></li>
+<li><a href="#ios原生api调用js脚本">iOS原生API调用JS脚本</a>
+<ul>
+<li><a href="#在oc中为js定义属性-函数">在OC中为JS定义属性/函数</a></li>
+<li><a href="#ios原生api调用js函数">iOS原生API调用JS函数</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h3 id="webkit简介">WebKit简介</h3>
+      
+
+<h3 id="webkit简介">WebKit简介</h3>
+
 <p>{% github it-boyer WKWebView-JS d03bc0e width = 30% %}
 自iOS8 以后，苹果推出了新框架 WebKit，提供了替换 UIWebView 的组件 WKWebView。各种 UIWebView 的性能问题没有了，速度更快了，占用内存少了，体验更好了，下面列举一些其它的优势:
 1、在性能、稳定性、功能方面有很大提升（加载速度，内存的提升谁用谁知道）
@@ -200,6 +217,7 @@ autocomplete('#aa-search-input',
 3、官方宣称的高达60fps的滚动刷新率以及内置手势
 4、Safari 相同的 JavaScript 引擎
 5、将 UIWebViewDelegate 与 UIWebView 拆分成了14类与3个协议，包含该更细节功能的实现。</p>
+
 <pre><code class="language-puml">title WKWebView和JS脚本
 center header
 了解传参原理和交互机制
@@ -280,70 +298,94 @@ center footer
 boyer模型
 endfooter
 </code></pre>
+
 <h4 id="添加监听代理和js接口">添加监听代理和JS接口</h4>
+
 <p>在OC中添加监听的接口清单：以JS脚本的接口<code>showMobile</code>为例：</p>
+
 <pre><code class="language-objc">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 WKUserContentController *userCC = config.userContentController;
 //MARK:在OC中添加监听的接口清单：JS脚本的接口名
 [userCC addScriptMessageHandler:self name:@&quot;showMobile&quot;];
 </code></pre>
+
 <h4 id="设置wkusercontentcontroller的代理">设置WKUserContentController的代理</h4>
+
 <ol>
-<li>设置代理类遵守<code>WKScriptMessageHandler</code>协议</li>
-</ol>
+<li><p>设置代理类遵守<code>WKScriptMessageHandler</code>协议</p>
+
 <pre><code class="language-objc">@interface ViewController () &lt;WKScriptMessageHandler&gt;
-</code></pre>
-<ol start="2">
-<li>注册对JS接口监听，注入代理类</li>
-</ol>
+</code></pre></li>
+
+<li><p>注册对JS接口监听，注入代理类</p>
+
 <pre><code class="language-objc">[userCC addScriptMessageHandler:self name:@&quot;showMobile&quot;];
-</code></pre>
-<ol start="3">
-<li>实现<code>WKUserContentController</code>代理的回调方法,响应JS接口事件</li>
-</ol>
+</code></pre></li>
+
+<li><p>实现<code>WKUserContentController</code>代理的回调方法,响应JS接口事件</p>
+
 <pre><code class="language-objc">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
 NSLog(@&quot;%@&quot;,message.body);
 }
-</code></pre>
+</code></pre></li>
+</ol>
+
 <h4 id="js脚本接口">JS脚本接口</h4>
+
 <p>js接口声明格式：</p>
+
 <pre><code class="language-js">window.webkit.messageHandlers.接口名.postMessage('参数')
 </code></pre>
+
 <p>接口名: 在WKWebView中，当JS执行该接口时，OC会拦截预先监听的接口，并处理相关事件。</p>
+
 <p>参数：object类型，多个参数时需要封装为集合类型来实现多参传递。</p>
+
 <p>当OC拦截到该接口时，可以在<code>WKScriptMessageHandler</code>回调方法中的<code>WKScriptMessage</code>参数实例中获取该参数值: <code>message.body</code>。</p>
-<p>三个例子：</p>
-<ol>
-<li>JS无参调用OC<!-- raw HTML omitted -->
-当无参调用OC时，参数必须为<code>null</code></li>
-</ol>
+
+<p>三个例子：
+1. JS无参调用OC<br/>
+当无参调用OC时，参数必须为<code>null</code></p>
+
 <pre><code class="language-js">window.webkit.messageHandlers.showMobile.postMessage(null)
 </code></pre>
-<ol start="2">
-<li>JS传参调用OC<!-- raw HTML omitted -->
-传递单个参数时，直接写入即可，例如：<code>xiao黄</code></li>
-</ol>
+
+<ol>
+<li><p>JS传参调用OC<br/>
+传递单个参数时，直接写入即可，例如：<code>xiao黄</code></p>
+
 <pre><code class="language-js">window.webkit.messageHandlers.showName.postMessage('xiao黄')
 </code></pre>
-<p>传递多个参数时，需要封装为集合类型实现多参传递。<!-- raw HTML omitted -->
+
+<p>传递多个参数时，需要封装为集合类型实现多参传递。<br/>
 例如:当传递一个电话，一条信息，需要封装为<code>['13300001111','Go Climbing This Weekend !!!']</code></p>
+
 <pre><code class="language-js">window.webkit.messageHandlers.showSendMsg.postMessage(['13300001111', 'Go Climbing This Weekend !!!'])
 </code></pre>
+
 <h3 id="ios原生api调用js脚本">iOS原生API调用JS脚本</h3>
-<p>在网页加载完成之后调用JS代码才会执行，因为这个时候html页面已经注入到webView中并且可以响应到对应方法。<!-- raw HTML omitted -->
+
+<p>在网页加载完成之后调用JS代码才会执行，因为这个时候html页面已经注入到webView中并且可以响应到对应方法。<br/>
 例如调用JS函数<code>alertMobile()</code>：</p>
+
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;alertMobile()&quot; completionHandler:^(id _Nullable response, NSError * _Nullable error) {
 //TODO
 NSLog(@&quot;%@ %@&quot;,response,error);
 }];
-</code></pre>
-<h4 id="在oc中为js定义属性函数">在OC中为JS定义属性/函数</h4>
+</code></pre></li>
+</ol>
+
+<h4 id="在oc中为js定义属性-函数">在OC中为JS定义属性/函数</h4>
+
 <ul>
-<li>当注入的类型字符串类型时，必须用<code>''</code>括起来。<!-- raw HTML omitted --></li>
-<li>OC注入的参数为全局属性，在html中的JS脚本可以直接调用属性名来获取值。<!-- raw HTML omitted --></li>
+<li>当注入的类型字符串类型时，必须用<code>''</code>括起来。<br/></li>
+<li>OC注入的参数为全局属性，在html中的JS脚本可以直接调用属性名来获取值。<br/></li>
 </ul>
+
 <p>通过NSString形式，编写JS脚本，通过以下两种方式注入网页</p>
+
 <p>方式一：在初始化<code>WKWebView</code>时，通过配置<code>WKWebViewConfiguration&gt;userContentController</code>注入JS脚本  。</p>
+
 <pre><code class="language-objc">//MARK:向网页中注入JS脚本例如，参数/函数等
 WKUserScript *script = [[WKUserScript alloc] initWithSource:@&quot;var number=0;&quot;
 injectionTime:WKUserScriptInjectionTimeAtDocumentStart
@@ -351,11 +393,16 @@ forMainFrameOnly:YES];
 WKUserContentController *userCC = config.userContentController;
 [userCC addUserScript:script];
 </code></pre>
+
 <p>方式二：使用WKWebView实例方法<code>evaluateJavaScript</code>动态注入JS脚本</p>
+
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;var number=0;&quot; completionHandler:nil];
 </code></pre>
+
 <h4 id="ios原生api调用js函数">iOS原生API调用JS函数</h4>
+
 <p>使用WKWebView实例方法<code>evaluateJavaScript</code>动态调用JS函数</p>
+
 <pre><code class="language-objc">[self.wkWebView evaluateJavaScript:@&quot;alertSendMsg('18870707070','下午好！')&quot; completionHandler:nil];
 </code></pre>
 

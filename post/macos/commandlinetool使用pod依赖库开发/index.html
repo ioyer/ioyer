@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-10-16T17:08:15+00:00" />
 <meta itemprop="name" content="CommandLineTool使用pod依赖库开发">
 <meta itemprop="description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目">
+
+
 <meta itemprop="datePublished" content="2018-10-16T17:08:15&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-16T17:08:15&#43;00:00" />
-<meta itemprop="wordCount" content="483">
+<meta itemprop="wordCount" content="484">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CommandLineTool使用pod依赖库开发"/>
 <meta name="twitter:description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目"/>
 
@@ -169,7 +172,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 483 字 </span>
+          <span class="more-meta"> 约 484 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -179,62 +182,75 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#问题">问题</a></li>
-    <li><a href="#采用spm来管理依赖库">采用SPM来管理依赖库</a></li>
-    <li><a href="#命令行的单元测试赏析">命令行的单元测试赏析</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#问题">问题</a></li>
+<li><a href="#采用spm来管理依赖库">采用SPM来管理依赖库</a></li>
+<li><a href="#命令行的单元测试赏析">命令行的单元测试赏析</a></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="问题">问题</h2>
+      
+
+<h2 id="问题">问题</h2>
+
 <p><a href="ttps://github.com/CocoaPods/CocoaPods/issues/3707">#3707</a></p>
+
 <pre><code>dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
 </code></pre>
+
 <p>结论：cocoa pods不支持<code>Command Line Tool</code>项目</p>
+
 <p><a href="https://stackoverflow.com/questions/41258187/cocoapods-command-line-tool-dyld-library-not-loaded-rpath-realm-framework">Cocoapods + Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm</a>
 cocoa pods不支持<code>Command Line Tool</code>项目
 <a href="https://github.com/CocoaPods/CocoaPods/issues/3707">Command Line Tool + CocoaPods frameworks breaks</a></p>
+
 <h2 id="采用spm来管理依赖库">采用SPM来管理依赖库</h2>
+
 <ol>
-<li>使用SPM创建可执行模版</li>
-</ol>
+<li><p>使用SPM创建可执行模版</p>
+
 <pre><code>$ mkdir SPMCmdLineTool
 $ swift package init --type=executable
-</code></pre>
-<ol start="2">
-<li>配置<code>Package.swift</code></li>
-</ol>
+</code></pre></li>
+
+<li><p>配置<code>Package.swift</code></p>
+
 <pre><code class="language-swift">import PackageDescription
 let package = Package(
+name: &quot;SPMCmdLineTool&quot;,
+dependencies: [
+    // Dependencies declare other packages that this package depends on.
+    // .package(url: /* package url */, from: &quot;1.0.0&quot;),
+    .package(path: &quot;/Users/admin/hsg/FileProvider&quot;)
+],
+.target(
     name: &quot;SPMCmdLineTool&quot;,
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: &quot;1.0.0&quot;),
-        .package(path: &quot;/Users/admin/hsg/FileProvider&quot;)
-    ],
-    .target(
-        name: &quot;SPMCmdLineTool&quot;,
-        dependencies: [&quot;FilesProvider&quot;]),
+    dependencies: [&quot;FilesProvider&quot;]),
         
-    .testTarget(
-        name: &quot;SPMCmdLineToolTests&quot;,
-        dependencies: [&quot;SPMCmdLineTool&quot;]),
-    ]
+.testTarget(
+    name: &quot;SPMCmdLineToolTests&quot;,
+    dependencies: [&quot;SPMCmdLineTool&quot;]),
+]
 )
-</code></pre>
-<ol start="3">
-<li>使用workspace管理
-先生成一个Xcode工程文件：<code>SPMCmdLineTool.xcodeproj</code></li>
-</ol>
+</code></pre></li>
+
+<li><p>使用workspace管理
+先生成一个Xcode工程文件：<code>SPMCmdLineTool.xcodeproj</code></p>
+
 <pre><code class="language-sh">$ swift package generate-xcodeproj
 </code></pre>
-<p>再把<code>SPMCmdLineTool.xcodeproj</code>拖入现有的workspace中来管理。</p>
-<blockquote>
-<p>每次执行swift build ，须重新生成xcodeproj工程文件，再重新打开workspace即可。</p>
-</blockquote>
+
+<p>再把<code>SPMCmdLineTool.xcodeproj</code>拖入现有的workspace中来管理。
+&gt; 每次执行swift build ，须重新生成xcodeproj工程文件，再重新打开workspace即可。</p></li>
+</ol>
+
 <h2 id="命令行的单元测试赏析">命令行的单元测试赏析</h2>
+
 <pre><code class="language-swift">final class SPMCmdLineToolTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.

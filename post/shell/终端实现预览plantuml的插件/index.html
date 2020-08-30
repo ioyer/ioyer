@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E7%BB%88%E7%AB%AF%E5%AE%9E%E7%8E%B0%E9%A2%84%E8%A7%88plantuml%E7%9A%84%E6%8F%92%E4%BB%B6/" />
@@ -47,13 +47,16 @@
 <meta property="article:modified_time" content="2018-05-29T11:32:04+00:00" />
 <meta itemprop="name" content="终端实现预览plantuml的插件">
 <meta itemprop="description" content="{% github weirongxu plantuml-previewer.vim bf4b3e5 width = 30% %} 安装依赖 Plug &#39;it-boyer/plantuml-syntax&#39; &quot;plantuml语法高亮 Plug &#39;aklt/plantuml-syntax&#39; Plug &#39;tyru/open-browser.vim&#39; Plug &#39;weirongxu/plantuml-previewer.vim&#39; &quot;在线工具：http://sujoyu.github">
+
+
 <meta itemprop="datePublished" content="2018-05-29T11:32:04&#43;00:00" />
 <meta itemprop="dateModified" content="2018-05-29T11:32:04&#43;00:00" />
 <meta itemprop="wordCount" content="182">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="终端实现预览plantuml的插件"/>
 <meta name="twitter:description" content="{% github weirongxu plantuml-previewer.vim bf4b3e5 width = 30% %} 安装依赖 Plug &#39;it-boyer/plantuml-syntax&#39; &quot;plantuml语法高亮 Plug &#39;aklt/plantuml-syntax&#39; Plug &#39;tyru/open-browser.vim&#39; Plug &#39;weirongxu/plantuml-previewer.vim&#39; &quot;在线工具：http://sujoyu.github"/>
 
@@ -179,47 +182,66 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#安装依赖">安装依赖</a>
-      <ul>
-        <li><a href="#graphviz">Graphviz</a></li>
-        <li><a href="#打开浏览器safari插件工具">打开浏览器safari插件工具</a></li>
-        <li><a href="#语法高亮插件">语法高亮插件</a></li>
-      </ul>
-    </li>
-    <li><a href="#使用">使用</a>
-      <ul>
-        <li><a href="#创建uml文件">创建uml文件</a></li>
-        <li><a href="#预览uml图">预览uml图</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#安装依赖">安装依赖</a>
+<ul>
+<li><a href="#graphviz">Graphviz</a></li>
+<li><a href="#打开浏览器safari插件工具">打开浏览器safari插件工具</a></li>
+<li><a href="#语法高亮插件">语法高亮插件</a></li>
+</ul></li>
+<li><a href="#使用">使用</a>
+<ul>
+<li><a href="#创建uml文件">创建uml文件</a></li>
+<li><a href="#预览uml图">预览uml图</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>{% github weirongxu plantuml-previewer.vim  bf4b3e5 width = 30% %}</p>
+      
+
+<p>{% github weirongxu plantuml-previewer.vim  bf4b3e5 width = 30% %}</p>
+
 <h2 id="安装依赖">安装依赖</h2>
+
 <pre><code class="language-sh">Plug 'it-boyer/plantuml-syntax'  &quot;plantuml语法高亮 Plug 'aklt/plantuml-syntax'
 Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim' &quot;在线工具：http://sujoyu.github.io/plantuml-previewer/
 </code></pre>
+
 <h3 id="graphviz">Graphviz</h3>
+
 <p><a href="https://www.graphviz.org/download/">下载地址</a></p>
+
 <pre><code>brew install graphviz
 </code></pre>
+
 <h3 id="打开浏览器safari插件工具">打开浏览器safari插件工具</h3>
+
 <p>open-browser.vim</p>
+
 <h3 id="语法高亮插件">语法高亮插件</h3>
+
 <p>aklt/plantuml-syntax (vim syntax file for plantuml)</p>
+
 <h2 id="使用">使用</h2>
+
 <h3 id="创建uml文件">创建uml文件</h3>
+
 <pre><code>vi test.uml
 </code></pre>
+
 <h3 id="预览uml图">预览uml图</h3>
+
 <p>通过命令打开浏览器预览界面</p>
+
 <pre><code>:PlantumlOpen
 </code></pre>
+
 <p>在vi中执行保存命令<code>:w</code>,预览界面会自动刷新</p>
 
     </div>
