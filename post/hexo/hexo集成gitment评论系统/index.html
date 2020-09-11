@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/hexo%E9%9B%86%E6%88%90gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-03T00:54:35+00:00" />
 <meta itemprop="name" content="hexo集成gitment评论系统">
 <meta itemprop="description" content="安装gitment 在package.json文件添加gitment依赖： &quot;gitment&quot;: &quot;^0.0.3&quot; 安装 npm install 申请应用 首先去New OAuth App为你的博客应用一个密钥: Application n">
-
-
 <meta itemprop="datePublished" content="2018-10-03T00:54:35&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-03T00:54:35&#43;00:00" />
 <meta itemprop="wordCount" content="901">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hexo集成gitment评论系统"/>
 <meta name="twitter:description" content="安装gitment 在package.json文件添加gitment依赖： &quot;gitment&quot;: &quot;^0.0.3&quot; 安装 npm install 申请应用 首先去New OAuth App为你的博客应用一个密钥: Application n"/>
 
@@ -182,54 +179,39 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#安装-gitment">安装<code>gitment</code></a></li>
-<li><a href="#申请应用">申请应用</a></li>
-<li><a href="#配置">配置</a></li>
-<li><a href="#开通评论">开通评论</a></li>
-<li><a href="#问题">问题</a></li>
-<li><a href="#参考">参考</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#安装gitment">安装<code>gitment</code></a></li>
+        <li><a href="#申请应用">申请应用</a></li>
+        <li><a href="#配置">配置</a></li>
+        <li><a href="#开通评论">开通评论</a></li>
+        <li><a href="#问题">问题</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="安装-gitment">安装<code>gitment</code></h3>
-
+      <h3 id="安装gitment">安装<code>gitment</code></h3>
 <p>在<code>package.json</code>文件添加gitment依赖：</p>
-
 <pre><code>&quot;gitment&quot;: &quot;^0.0.3&quot;
 </code></pre>
-
 <p>安装</p>
-
 <pre><code>npm install
 </code></pre>
-
 <h3 id="申请应用">申请应用</h3>
-
 <p>首先去<a href="https://github.com/settings/applications/new">New OAuth App</a>为你的博客应用一个密钥:</p>
-
 <pre><code>Application name:随便写
 Homepage URL:这个也可以随意写,就写你的博客地址就行
 Application description:描述,也可以随意写
 Authorization callback URL:这个必须写你的博客地址
 </code></pre>
-
 <p>申请好之后点注册,然后就可以看到两个东西ClientID和Client Secret,后面会用到.</p>
-
 <h3 id="配置">配置</h3>
-
 <p>下面就是配置<code>Gitment</code>,主要编辑在<code>themes/next/_config.yml</code>:</p>
-
 <pre><code class="language-js"># Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
 gitment:
@@ -246,16 +228,11 @@ gitment:
     proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
     redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 </code></pre>
-
 <h3 id="开通评论">开通评论</h3>
-
 <p>注意到这里基本上已经OK了,再看你的博客应该可以显示评论了.不过每篇博客都需要你手动初始化评论功能(如果你的历史博客很多那就一篇一篇去点吧，不过貌似有人写了批量处理脚本,没试过哈).</p>
-
 <h3 id="问题">问题</h3>
-
 <p><a href="https://github.com/imsun/gitment/issues/170">object ProgressEvent</a>
 由于引入的 gitment.js 中有这样的一段代码：</p>
-
 <pre><code class="language-js">_utils.http.post('https://gh-oauth.imsun.net', {
         code: code,
         client_id: client_id,
@@ -268,15 +245,12 @@ gitment:
         alert(e);
 });
 </code></pre>
-
 <p>请求了一个服务接口，由于这个跨域服务接口是作者自己搭建的，已经停止了。
 有博主 fork 源作者的 repo ，在这个基础上改的，修改了一些地方接入自己通用的服务<a href="https://github.com/jjeejj/CORS-Proxy-Server">CORS-Proxy-Server</a>.
 现在直接把这个文件 <code>https://imsun.github.io/gitment/dist/gitment.browser.js</code> 替换为 <code>https://www.wenjunjiang.win/js/gitment.js</code> 就可以了.
 原理：
-hexo 这个评论接了一个自己写的一个通用的跨域服务 <code>https://cors.wenjunjiang.win/</code> github地址为：<code>https://github.com/jjeejj/CORS-Proxy-Server</code>，代替作者的 <code>https://gh-oauth.imsun.net</code> 这个接口地址，去请求 github的接口。 可以自己搭建，可以转发所有的前端跨域服务。要注意的是： 在向 github 请求 <code>access_token</code>时 需要带上<code>Accept: application/json</code> 或者<code>Accept: application/xml</code>请求头， 否则回报 406 的错误.</p>
-
+hexo 这个评论接了一个自己写的一个通用的跨域服务 <code>https://cors.wenjunjiang.win/</code> github地址为：<code>https://github.com/jjeejj/CORS-Proxy-Server </code>，代替作者的 <code>https://gh-oauth.imsun.net</code> 这个接口地址，去请求 github的接口。 可以自己搭建，可以转发所有的前端跨域服务。要注意的是： 在向 github 请求 <code>access_token</code>时 需要带上<code>Accept: application/json</code> 或者<code>Accept: application/xml</code>请求头， 否则回报 406 的错误.</p>
 <h3 id="参考">参考</h3>
-
 <p><a href="https://www.wenjunjiang.win/2017/07/02/gitment%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97%E6%8E%A5%E5%85%A5hexo/">gitment评论模块接入hexo</a>
 <a href="https://xiaotiandi.github.io/publicBlog/2018-09-19-d196c9ad.html">hexo博客配置-添加评论系统-gitment和valine-需注册</a>
 <a href="https://imsun.net/posts/gitment-introduction/">Gitment：使用 GitHub Issues 搭建评论系统</a></p>

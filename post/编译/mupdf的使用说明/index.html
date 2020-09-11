@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/mupdf%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-06-19T18:25:32+00:00" />
 <meta itemprop="name" content="mupdf使用说明">
 <meta itemprop="description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android">
-
-
 <meta itemprop="datePublished" content="2017-06-19T18:25:32&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-19T18:25:32&#43;00:00" />
 <meta itemprop="wordCount" content="387">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mupdf使用说明"/>
 <meta name="twitter:description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android"/>
 
@@ -183,25 +180,20 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#需求描述">需求描述</a></li>
-<li><a href="#使用apple-官方提供的demo-来分析pdf结构-显示pdf内容">使用apple 官方提供的demo，来分析pdf结构，显示pdf内容。</a></li>
-<li><a href="#mupdf源码库集成加密">mupdf源码库集成加密</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#需求描述">需求描述</a></li>
+        <li><a href="#使用apple-官方提供的demo来分析pdf结构显示pdf内容">使用apple 官方提供的demo，来分析pdf结构，显示pdf内容。</a></li>
+        <li><a href="#mupdf源码库集成加密">mupdf源码库集成加密</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="需求描述">需求描述</h3>
-
+      <h3 id="需求描述">需求描述</h3>
 <p>目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。
 资源获取如下：
 {% blockquote     %}
@@ -214,19 +206,13 @@ iPad and iPhone version on the App Store.
 The latest development source is available directly from the git repository:
 git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 {% endblockquote %}</p>
-
 <p>总结：没有适配osx版本，放弃。</p>
-
-<h3 id="使用apple-官方提供的demo-来分析pdf结构-显示pdf内容">使用apple 官方提供的demo，来分析pdf结构，显示pdf内容。</h3>
-
+<h3 id="使用apple-官方提供的demo来分析pdf结构显示pdf内容">使用apple 官方提供的demo，来分析pdf结构，显示pdf内容。</h3>
 <p>猜想：这样以来，使用苹果提供相关API，将无法定制底层操作，即无法实现密文浏览功能，故先从明文阅读器开发开始。</p>
-
 <h3 id="mupdf源码库集成加密">mupdf源码库集成加密</h3>
-
-<p>最新整合集成加密到源码库，并发布到git服务器上，便于协作维护:<a href="https://server.local/git/mupdf.git">https://server.local/git/mupdf.git</a>
+<p>最新整合集成加密到源码库，并发布到git服务器上，便于协作维护:https://server.local/git/mupdf.git
 协作过程：
 在服务器端添加账号：test  test123</p>
-
 <pre><code class="language-ruby">$ git clone https://server.local/git/mupdf.git mupdf
 $ cd mupdf/thirdparty/
 $ git submodule init
@@ -234,10 +220,8 @@ $ git submodule update
 $ open mupdf/platform/ios/MuPDF.xcodeproj
 $ build &amp; run
 </code></pre>
-
 <p>封装MuPDFFramework便于集成至PBBReader中：
 初始化mupdf页面接口：</p>
-
 <pre><code class="language-objc">MuPDFViewController *bindingPhone = [[MuPDFViewController alloc] initWithNibName:nil bundle:nil];
 bindingPhone.filename=filename;
 bindingPhone.openfilepath=select_files;

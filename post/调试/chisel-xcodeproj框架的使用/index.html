@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/chisel-xcodeproj%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-09T13:05:46+00:00" />
 <meta itemprop="name" content="Chisel-xcodeproj框架的使用">
 <meta itemprop="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。">
-
-
 <meta itemprop="datePublished" content="2018-11-09T13:05:46&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-09T13:05:46&#43;00:00" />
 <meta itemprop="wordCount" content="1059">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chisel-xcodeproj框架的使用"/>
 <meta name="twitter:description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。"/>
 
@@ -182,35 +179,27 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#开发使用">开发使用</a></li>
-<li><a href="#安装">安装</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#开发使用">开发使用</a></li>
+        <li><a href="#安装">安装</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github it-boyer chisel f331dc6 width = 30% %}
 这个pull请求添加<code>findinstances命令</code>，该命令完成<a href="https://github.com/facebook/chisel/pull/197">Add findinstances, and new support framework in Chisel.xcodeproj </a>和<a href="https://github.com/facebook/chisel/pull/214">Add Makefile for installing framework</a>的工作。
 用户可以运行<code>help findinstances</code>获取<code>findinstances</code>的详细信息。简要总结一下，<code>findinstances</code>可以找到给定<code>class</code>类或<code>protocol</code>协议的所有实例，并使用谓词表达式过滤这些结果。
 如果您有一个名为<code>XXSocialUser</code>的类，那么您可以通过运行<code>findinstances XXSocialUser == 'curry'</code>来找到一个特定的用户。</p>
-
 <p><code>Chisel.xcodeproj</code>为新建<code>findinstance</code>提供了凿子框架支持。
 使用<code>Chisel.xcodeproj</code>支持新建<code>chisel Framework</code>通过本地代码实现<code>command</code>,<code>findinstances</code>等功能。也可以通过这种方式来实现更多<code>chisel命令</code>。</p>
-
 <p><code>findinstance</code>命令通过扫描<strong>iOS/macOS</strong><code>malloc API</code>。对于每个<code>allocation</code>分配，都会使用<code>heuristics</code>来识别可能的<code>Objective-C实例</code>。<code>heuristics</code>不调用对象上的method，而是依赖<code>objc runtime</code>运行时函数,基于<code>class metadata</code>类元数据来匹配到<code>oc实例</code>。这避免了在<code>objc运行时</code>机制下分配和有状态副作用。
 在第一次传递之后，候选对象将通过第二次传递，检查它们是否与可选的<code>NSPredicate</code>匹配。如果没有谓词，则输出对象的信息最少。如果有谓词，并且对象传递谓词，那么对象将输出更多细节，特别是谓词中查询的细节。</p>
-
 <pre><code>findinstances UIView
 findinstances *UIView
 findinstances UIScrollViewDelegate
@@ -219,32 +208,23 @@ findinstances UIView subviews.@count == 0
 findinstances NSDictionary any @allKeys beginswith 'perf_'
 findinstances NSArray @count &gt; 100
 </code></pre>
-
 <h3 id="开发使用">开发使用</h3>
-
 <p>构建Xcode项目，并获得到<code>Chisel Framework</code>的路径。:</p>
-
 <pre><code>/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
 </code></pre>
-
 <p>在lldb环境下执行：</p>
-
 <pre><code>$ lldb
 &gt;&gt;&gt; expr -l objc -- (void*)dlopen(&quot;/path/to/Chisel.framework/Chisel&quot;, 2)
 script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression('(void)PrintInstances(&quot;&lt;classname&gt;&quot;, &quot;&lt;predicate&gt;&quot;)', o)
 </code></pre>
-
 <p><code>&lt;classname&gt;</code>:可以是<code>class</code>类名或<code>protocol</code>协议名
 <code>&lt;predicate&gt;</code>:是一个可由<code>NSPredicate</code>解析的字符串
 可以使用<code>regex command 命令</code>:
 (注意，<code>findinstance</code>后面必须换行)</p>
-
 <pre><code>command regex findinstances
 s/(\S+) *(.*)/script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression('(void)PrintInstances(&quot;%1&quot;, &quot;%2&quot;)', o)/
 </code></pre>
-
 <p>或者，作为<code>python命令</code>，存储在<code>path/to/findinstances.py</code>中:</p>
-
 <pre><code>import lldb
 
 def findinstances(debugger, command, exe_ctx, result, _):
@@ -267,13 +247,10 @@ frame.EvaluateExpression('(void)PrintInstances(&quot;{}&quot;, &quot;{}&quot;)'.
 def __lldb_init_module(debugger, _):
 debugger.HandleCommand('command script add -f findinstances.findinstances findinstances')
 </code></pre>
-
 <h3 id="安装">安装</h3>
-
 <p><a href="https://github.com/facebook/chisel/pull/214">Add Makefile for installing framework</a>
 This allows you to run make install with optional environment variables
 in order to build and install Chisel.framework.</p>
-
 <pre><code>PREFIX ?= /usr/local/lib
 
 export INSTALL_NAME =

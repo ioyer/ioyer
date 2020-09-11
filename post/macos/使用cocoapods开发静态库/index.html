@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E4%BD%BF%E7%94%A8cocoapods%E5%BC%80%E5%8F%91%E9%9D%99%E6%80%81%E5%BA%93/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-06-21T21:37:16+00:00" />
 <meta itemprop="name" content="使用CocoaPods开发静态库">
 <meta itemprop="description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发">
-
-
 <meta itemprop="datePublished" content="2018-06-21T21:37:16&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-21T21:37:16&#43;00:00" />
 <meta itemprop="wordCount" content="802">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用CocoaPods开发静态库"/>
 <meta name="twitter:description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发"/>
 
@@ -182,74 +179,52 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#开发静态库-static-library">开发静态库（Static Library）</a>
-<ul>
-<li><a href="#搭建pod静态库项目">搭建pod静态库项目</a>
-<ul>
-<li><a href="#不基于pod手动创建-deprecated">不基于pod手动创建(deprecated)</a></li>
-<li><a href="#基于pod自动创建">基于pod自动创建</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#打包类库">打包类库</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#开发静态库static-library">开发静态库（Static Library）</a>
+      <ul>
+        <li><a href="#搭建pod静态库项目">搭建pod静态库项目</a></li>
+      </ul>
+    </li>
+    <li><a href="#打包类库">打包类库</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发一个用pod管理依赖关系的静态类库给其他人使用，而又不愿意公开源代码，比如一些SDK，那么就需要打包成.a文件。本文将以一个依赖于ASIHTTPRequest的静态类库，来演示如何创建使用了CocoaPods的静态类库以及打包的过程。</p>
-
-<h2 id="开发静态库-static-library">开发静态库（Static Library）</h2>
-
+      <p>Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发一个用pod管理依赖关系的静态类库给其他人使用，而又不愿意公开源代码，比如一些SDK，那么就需要打包成.a文件。本文将以一个依赖于ASIHTTPRequest的静态类库，来演示如何创建使用了CocoaPods的静态类库以及打包的过程。</p>
+<h2 id="开发静态库static-library">开发静态库（Static Library）</h2>
 <h3 id="搭建pod静态库项目">搭建pod静态库项目</h3>
-
-<h4 id="不基于pod手动创建-deprecated">不基于pod手动创建(deprecated)</h4>
-
+<h4 id="不基于pod手动创建deprecated">不基于pod手动创建(deprecated)</h4>
 <ol>
 <li>在Xcode中创建一个Cocoa Touch Static Library；</li>
 <li>创建Podfile文件；</li>
 <li>执行pod install完成整个项目的搭建；</li>
 <li>如果需要demo，手动创建示例程序，使用pod添加对私有静态库的依赖，重复执行pod install完成示例项目的搭建。</li>
 </ol>
-
 <h4 id="基于pod自动创建">基于pod自动创建</h4>
-
 <p>只需要输入<code>pod lib</code>命令即可完成初始项目的搭建，下面详细说明具体步骤，以<code>JHLib</code>作为项目名演示。
 1.执行命令<code>pod lib create JHLib</code>。在此期间需要确认下面4个问题。</p>
-
 <h2 id="打包类库">打包类库</h2>
-
 <p>需要使用一个cocoapods的插件<code>cocoapods-packager</code>来完成类库的打包。当然也可以手动编译打包，但是过程会相当繁琐。</p>
-
 <ol>
-<li><p>安装打包插件
-终端执行以下命令</p>
-
+<li>安装打包插件
+终端执行以下命令</li>
+</ol>
 <pre><code class="language-sh">sudo gem install cocoapods-packager
-</code></pre></li>
-
-<li><p>打包
-命令很简单，执行</p>
-
+</code></pre>
+<ol start="2">
+<li>打包
+命令很简单，执行</li>
+</ol>
 <pre><code class="language-sh">pod package BZLib.podspec --library --force
 </code></pre>
-
 <p>其中<code>--library</code>指定打包成.a文件，如果不带上将会打包成.framework文件。<code>--force</code>是指强制覆盖。最终的目录结构如下</p>
-
 <pre><code>|____BZLib.podspec
 |____ios
 | |____libBZLib.a
 </code></pre>
-
 <p>需要特别强调的是，该插件通过对引用的三方库进行重命名很好的解决了类库命名冲突的问题。
-比如你的类库使用了ASI，然后打包成静态库.a文件。外部调用的项目也使用了ASI，那么不会造成冲突。因为在打包的时候，你的类库里的ASI被重命名为项目+ASI的前缀。</p></li>
-</ol>
-
+比如你的类库使用了ASI，然后打包成静态库.a文件。外部调用的项目也使用了ASI，那么不会造成冲突。因为在打包的时候，你的类库里的ASI被重命名为项目+ASI的前缀。</p>
 <p><a href="https://onevcat.com/2016/01/create-framework/">如何打造一个让人愉快的框架</a>
 <a href="http://www.cnblogs.com/brycezhang/p/4117180.html">使用CocoaPods开发并打包静态库</a>
 <a href="https://www.jianshu.com/p/2ea267bf0363">iOS动态库,静态库以及framework</a></p>

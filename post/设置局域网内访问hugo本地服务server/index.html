@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%AE%BE%E7%BD%AE%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E8%AE%BF%E9%97%AEhugo%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1server/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2020-03-23T15:33:01+08:00" />
 <meta itemprop="name" content="设置局域网内访问hugo本地服务server">
 <meta itemprop="description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&ndash;bind`选">
-
-
 <meta itemprop="datePublished" content="2019-08-09T19:53:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-23T15:33:01&#43;08:00" />
-<meta itemprop="wordCount" content="127">
+<meta itemprop="wordCount" content="126">
 
 
 
-<meta itemprop="keywords" content="org," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="org," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="设置局域网内访问hugo本地服务server"/>
 <meta name="twitter:description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&ndash;bind`选"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/hugo/"> hugo </a>
             </div>
-          <span class="more-meta"> 约 127 字 </span>
+          <span class="more-meta"> 约 126 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -181,21 +178,17 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p><strong>*</strong> 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">server</span>
 </code></pre></div>
-
-<p>想在同一局域网的其他设备访问,必须借助`&ndash;bind`选项,设置为&rdquo;0.0.0.0&rdquo;</p>
-
+<p>想在同一局域网的其他设备访问,必须借助`&ndash;bind`选项,设置为&quot;0.0.0.0&rdquo;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
 <span style="color:#a6e22e">Web</span> <span style="color:#a6e22e">Server</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">available</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">:</span><span style="color:#75715e">//localhost:1313/ (bind address 0.0.0.0)
 </span></code></pre></div>
-
 <p>此时就可以在其他设备访问hugo服务.</p>
 
     </div>

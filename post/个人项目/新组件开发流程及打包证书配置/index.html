@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E6%96%B0%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%89%93%E5%8C%85%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-22T16:52:33+00:00" />
 <meta itemprop="name" content="新组件开发流程及打包证书配置">
 <meta itemprop="description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包">
-
-
 <meta itemprop="datePublished" content="2018-10-22T16:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-22T16:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="978">
+<meta itemprop="wordCount" content="975">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="新组件开发流程及打包证书配置"/>
 <meta name="twitter:description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 978 字 </span>
+          <span class="more-meta"> 约 975 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,120 +179,91 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#新组件开发-发布的流程">新组件开发/发布的流程</a>
-<ul>
-<li><a href="#创建库组件">创建库组件</a>
-<ul>
-<li><a href="#创建一个xcode工程项目-在工程中新建组件target">创建一个xcode工程项目，在工程中新建组件target</a>
-<ul>
-<li><a href="#集成库">集成库</a></li>
-<li><a href="#加载库">加载库</a></li>
-</ul></li>
-<li><a href="#资源bundle包-主要配合-a-静态库使用">资源bundle包，主要配合<code>.a</code>静态库使用</a></li>
-</ul></li>
-<li><a href="#将组件注册到打包平台">将组件注册到打包平台</a></li>
-</ul></li>
-<li><a href="#平台打包证书配置">平台打包证书配置</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#新组件开发发布的流程">新组件开发/发布的流程</a>
+      <ul>
+        <li><a href="#创建库组件">创建库组件</a></li>
+        <li><a href="#将组件注册到打包平台">将组件注册到打包平台</a></li>
+      </ul>
+    </li>
+    <li><a href="#平台打包证书配置">平台打包证书配置</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="新组件开发-发布的流程">新组件开发/发布的流程</h2>
-
+      <h2 id="新组件开发发布的流程">新组件开发/发布的流程</h2>
 <p>原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来<code>other linker flags</code>进行删减更新，仅保留依赖包的配置，这样以来，就可以针对打包平台提供的APP依赖，来生成相应的产品APP。
-<strong>添加新组件的步骤</strong>
-1. 在平台注册组件名称
-2. 在主工程配置<code>other linker flags</code>（支持静态库/Framework）
-3. 把组件包集成到主工程中，取消在项目的勾选</p>
-
+<strong>添加新组件的步骤</strong></p>
+<ol>
+<li>在平台注册组件名称</li>
+<li>在主工程配置<code>other linker flags</code>（支持静态库/Framework）</li>
+<li>把组件包集成到主工程中，取消在项目的勾选</li>
+</ol>
 <h3 id="创建库组件">创建库组件</h3>
-
-<h4 id="创建一个xcode工程项目-在工程中新建组件target">创建一个xcode工程项目，在工程中新建组件target</h4>
-
+<h4 id="创建一个xcode工程项目在工程中新建组件target">创建一个xcode工程项目，在工程中新建组件target</h4>
 <p>代码编写完成后，编译生成新库包</p>
-
 <h5 id="集成库">集成库</h5>
-
 <ol>
 <li>将<code>.a/.Framework</code>库包拖入主项目，设置依赖类型：必需/可选
-
 <ol>
 <li>必需：默认类型，直接拖入主项目，Xcode默认会勾选中</li>
 <li>可选： 拖入主项目中，取消默认的勾选即可</li>
-</ol></li>
+</ol>
+</li>
 <li>配置<code>other linker flags</code>
-
 <ol>
 <li>当是<code>.a</code>静态库时，新增<code>-force_load</code>和<code>静态库路径</code>相邻的两行</li>
-<li>当<code>framework</code>时，新增<code>-framework</code>和<code>Framework名称</code>相邻的两行
+<li>当<code>framework</code>时，新增<code> -framework</code>和<code>Framework名称</code>相邻的两行
 （测试有问题，预测需要填写framework项目路径）</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <h5 id="加载库">加载库</h5>
-
 <ol>
 <li>API类的方式加载
 需要运行时，反射的方式加载</li>
-
-<li><p>资源包的方式加载</p>
-
+<li>资源包的方式加载
 <ol>
 <li>.a 静态库可以借助<code>storyboard/xib</code>来实现组件的装载。</li>
-
-<li><p><code>.Framework</code>可以直接作为<code>bundle</code>资源库装载，需要把库包拖入<code>Copy bundle Resources</code></p>
-
-<pre><code>NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@&quot;jinher_app_IntelDecision&quot; ofType:@&quot;framework&quot;];
-NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
-UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;IntelDecision&quot; bundle:resourceBundle];
-UIViewController *ygPatrolNav = [storyboard instantiateViewControllerWithIdentifier:@&quot;RoomListViewController&quot;];    
+<li><code>.Framework</code>可以直接作为<code>bundle</code>资源库装载，需要把库包拖入<code>Copy bundle Resources</code></li>
+</ol>
+</li>
+</ol>
+<pre><code>    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@&quot;jinher_app_IntelDecision&quot; ofType:@&quot;framework&quot;];
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;IntelDecision&quot; bundle:resourceBundle];
+    UIViewController *ygPatrolNav = [storyboard instantiateViewControllerWithIdentifier:@&quot;RoomListViewController&quot;];    
 </code></pre>
-
-<h4 id="资源bundle包-主要配合-a-静态库使用">资源bundle包，主要配合<code>.a</code>静态库使用</h4>
-
-<p>选择macOS平台—&gt;<code>Framework&amp;Library</code>—&gt;<code>Bundle</code>,创建之后，设置为iOS平台的支持：</p></li>
-</ol></li>
-
-<li><p>在<code>build settings</code> 配置:<code>base SDK</code>:<code>lastest ios</code></p></li>
-
-<li><p>建议删除<code>plist</code>: 删除资源库的<code>plist</code>文件，否则审核不通过</p></li>
-
-<li><p>把资源包库包拖入<code>Copy bundle Resources</code>
-加载资源包的方式案例：</p>
-
+<h4 id="资源bundle包主要配合a静态库使用">资源bundle包，主要配合<code>.a</code>静态库使用</h4>
+<p>选择macOS平台—&gt;<code>Framework&amp;Library</code>—&gt;<code>Bundle</code>,创建之后，设置为iOS平台的支持：</p>
+<ol>
+<li>在<code>build settings</code> 配置:<code>base SDK</code>:<code>lastest ios</code></li>
+<li>建议删除<code>plist</code>: 删除资源库的<code>plist</code>文件，否则审核不通过</li>
+<li>把资源包库包拖入<code>Copy bundle Resources</code>
+加载资源包的方式案例：</li>
+</ol>
 <pre><code class="language-objc">NSBundle *bundle = [NSBundle bundleWithURL: [[NSBundle mainBundle] URLForResource:@&quot;JHAudioPlayResources&quot; withExtension:@&quot;bundle&quot;]];
 NSArray *apparray= [bundle loadNibNamed:@&quot;mycell&quot; owner:nil options:nil];  
 </code></pre>
-
 <h3 id="将组件注册到打包平台">将组件注册到打包平台</h3>
-
 <p>组件配置文件<code>ComponentInfomation.plst</code>:在iMac编译服务器上的核心文件
-结构</p></li>
-
-<li><p><strong>Component Infomation</strong>:组件清单字典，其中元素即为一个组件</p>
-
+结构</p>
 <ol>
-<li>库配置：<br />
-        <code>ios_payment</code>: 组件名称，在打包平台创建功能组件时，保持一致。
+<li><strong>Component Infomation</strong>:组件清单字典，其中元素即为一个组件
+<ol>
+<li>库配置：<br>
+<code>ios_payment</code>: 组件名称，在打包平台创建功能组件时，保持一致。
 <code>libName</code> :静态库名(可选)
 <code>Resource</code>: 静态库依赖的bundle资源库（可选）
 <code>Framework</code>: 配置framework（可选）最动态库的支持</li>
-</ol></li>
-
-<li><p><strong>Component Dependence</strong>
-暂时没有用到</p></li>
-
-<li><p><strong>Filter List</strong>
-所有组件名的列表清单，(组件索引，便于后台过滤组件)，就是在<strong>Component Infomation</strong>新增的组件名称，需要在这里同步配置。</p></li>
 </ol>
-
+</li>
+<li><strong>Component Dependence</strong>
+暂时没有用到</li>
+<li><strong>Filter List</strong>
+所有组件名的列表清单，(组件索引，便于后台过滤组件)，就是在<strong>Component Infomation</strong>新增的组件名称，需要在这里同步配置。</li>
+</ol>
 <h2 id="平台打包证书配置">平台打包证书配置</h2>
 
     </div>

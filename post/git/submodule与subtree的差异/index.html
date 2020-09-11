@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-05-17T11:23:22+00:00" />
 <meta itemprop="name" content="SubModule与SubTree的差异">
 <meta itemprop="description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul">
-
-
 <meta itemprop="datePublished" content="2017-05-17T11:23:22&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-17T11:23:22&#43;00:00" />
 <meta itemprop="wordCount" content="978">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SubModule与SubTree的差异"/>
 <meta name="twitter:description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul"/>
 
@@ -182,109 +179,92 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#核心区别">核心区别</a>
-<ul>
-<li><a href="#submodule命令">submodule命令</a></li>
-<li><a href="#subtree命令">subtree命令</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#核心区别">核心区别</a>
+      <ul>
+        <li><a href="#submodule命令">submodule命令</a></li>
+        <li><a href="#subtree命令">subtree命令</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="核心区别">核心区别</h2>
-
+      <h2 id="核心区别">核心区别</h2>
 <p><code>git submodule</code>类似于引用，而<code>git subtree</code>类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，<code>git submodule</code>是使用那篇博客的链接，而<code>git subtree</code>则是将内容完全copy过来。</p>
-
 <h3 id="submodule命令">submodule命令</h3>
-
 <ol>
-<li><p>添加submodule</p>
-
+<li>添加submodule</li>
+</ol>
 <pre><code>git submodule add -b branchA http://github.com/../repoA.git pathA
 git submodule add http://github.com/../repoB.git pathB
 </code></pre>
-
 <p>执行以上命令后会生成<code>.gitmodule</code>的文件，文件存储子模块信息:</p>
-
 <pre><code class="language-sh">[submodule &quot;repoA&quot;]
-path = pathA
-url = http://github.com/../repoA.git
-branch = branchA
+    path = pathA
+    url = http://github.com/../repoA.git
+    branch = branchA
 [submodule &quot;ModuleB&quot;]
-path = ModuleB
-url = http://github.com/../repoB.git
+    path = ModuleB
+    url = http://github.com/../repoB.git
 </code></pre>
-
 <p>提交<code>.gitmodule</code>文件</p>
-
 <pre><code>git commit -m 'add submodule'
 git push
-</code></pre></li>
-
-<li><p>clone新库初始化submodule
-clone之后各模块内容为空目录，需要执行：</p>
-
+</code></pre>
+<ol start="2">
+<li>clone新库初始化submodule
+clone之后各模块内容为空目录，需要执行：</li>
+</ol>
 <pre><code>git submodule init
-</code></pre></li>
-
-<li><p>拉取所有子模块
-需要在<code>.gitmodules</code>文件中指定<code>branch:分支名</code></p>
-
-<pre><code>git submodule foreach git pull
-或
-git submodule foreach git pull origin master
-</code></pre></li>
-
-<li><p>更新所有模块
+</code></pre>
+<ol start="3">
+<li>拉取所有子模块
+需要在<code>.gitmodules</code>文件中指定<code>branch:分支名</code></li>
+</ol>
+<pre><code> git submodule foreach git pull
+ 或
+ git submodule foreach git pull origin master
+</code></pre>
+<ol start="4">
+<li>更新所有模块
 更新后每个子模块并非在指定分支上，而是关联最近一次commitID。
-使用<code>git submodule foreach</code>为每一个子模块执行切换命令:</p>
-
+使用<code>git submodule foreach</code>为每一个子模块执行切换命令:</li>
+</ol>
 <pre><code>git submodule foreach git checkout master
 </code></pre>
-
-<p>切换到所有master分支上（ModuleB为ResourceEvaluate，暂时需要单独执行）</p></li>
-
-<li><p>删除子模块</p>
-
+<p>切换到所有master分支上（ModuleB为ResourceEvaluate，暂时需要单独执行）</p>
+<ol start="5">
+<li>删除子模块</li>
+</ol>
 <pre><code>git rm --cached moduleA
 rm -rf moduleA
 vi .gitmodules //删除moduleA相关的内容
 git add .
 git commit -m &quot;remove moduleA&quot;
 git push origin master
-</code></pre></li>
-</ol>
-
+</code></pre>
 <h3 id="subtree命令">subtree命令</h3>
-
 <ol>
-<li><p><code>subtree</code>添加子模块
-通过<code>subtree</code>添加子模块,<code>–squash</code>可省略，其功能是只有最新的提交记录被引入，去掉后则是引入所有历史提交记录</p>
-
+<li><code>subtree</code>添加子模块
+通过<code>subtree</code>添加子模块,<code>–squash</code>可省略，其功能是只有最新的提交记录被引入，去掉后则是引入所有历史提交记录</li>
+</ol>
 <pre><code>#增加远程仓库并设置引用名`ModuleA`，此步可省略，主要是为了简化后面的操作
 git remote add ModuleA http://github.com/../ModuleA.git master
 #`subtree`添加子模块
 git subtree add --prefix=ModuleA --squash  ModuleA master
-</code></pre></li>
-
-<li><p><code>subtree</code>更新</p>
-
-<pre><code>git subtree pull -P ModuleA ModuleA master
-</code></pre></li>
-
-<li><p><code>subtree</code>提交</p>
-
-<pre><code>git subtree push --prefix=ModuleA ModuleA master
-</code></pre></li>
+</code></pre>
+<ol start="3">
+<li><code>subtree</code>更新</li>
 </ol>
-
+<pre><code>git subtree pull -P ModuleA ModuleA master
+</code></pre>
+<ol start="4">
+<li><code>subtree</code>提交</li>
+</ol>
+<pre><code>git subtree push --prefix=ModuleA ModuleA master
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -294,7 +274,6 @@ git subtree add --prefix=ModuleA --squash  ModuleA master
 <th align="center">结果</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">远程仓库空间占用</td>
@@ -302,28 +281,24 @@ git subtree add --prefix=ModuleA --squash  ModuleA master
 <td align="center">子模块copy，会占用较大的额外空间</td>
 <td align="center">submodule占用空间较小，略优</td>
 </tr>
-
 <tr>
 <td align="center">本地空间占用</td>
 <td align="center">可根据需要下载</td>
 <td align="center">会下载整个项目</td>
 <td align="center">所有模块基本都要下载，二者差异不大</td>
 </tr>
-
 <tr>
 <td align="center">仓库克隆</td>
 <td align="center">克降后所有子模块为空，需要注册及更新，同时更新后还需切换分支</td>
 <td align="center">克隆之后即可使用</td>
 <td align="center">submodule步骤略多，subtree占优</td>
 </tr>
-
 <tr>
 <td align="center">更新本地仓库</td>
 <td align="center">更新后所有子模块后指向最后一次提交，更新后需要重新切回分支，所有子模块只需一条更新语句即可</td>
 <td align="center">所有子模块需要单独更新</td>
 <td align="center">各有优劣，相对subtree更好用一些</td>
 </tr>
-
 <tr>
 <td align="center">提交本地修改</td>
 <td align="center">只需关心子模块即可，子模块的所有操作与普通git项目相同</td>

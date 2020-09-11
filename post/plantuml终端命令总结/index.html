@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/plantuml%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" />
@@ -47,15 +47,12 @@
 <meta property="article:modified_time" content="2020-08-30T23:02:53+08:00" />
 <meta itemprop="name" content="plantuml 使用">
 <meta itemprop="description" content="下载历史 jar包plantuml.jar历史版本路径 命令行 uml 预览 您也可以使用下面的命令行运行 PlantUML: java -jar plantuml.jar file1 file2 file3 这将在 file1, file2 和 file3 中寻找 @startX">
-
-
 <meta itemprop="dateModified" content="2020-08-30T23:02:53&#43;08:00" />
 <meta itemprop="wordCount" content="522">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="plantuml 使用"/>
 <meta name="twitter:description" content="下载历史 jar包plantuml.jar历史版本路径 命令行 uml 预览 您也可以使用下面的命令行运行 PlantUML: java -jar plantuml.jar file1 file2 file3 这将在 file1, file2 和 file3 中寻找 @startX"/>
 
@@ -179,161 +176,108 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#命令行-uml-预览">命令行 uml 预览</a></li>
-<li><a href="#m-x-plantuml-download-jar">M-x: plantuml-download-jar</a></li>
-<li><a href="#安装-graphviz-28-dot-6">安装 graphviz@28.6</a></li>
-<li><a href="#plantuml-安装第三方服务器">plantuml 安装第三方服务器</a></li>
-<li><a href="#proone-电脑上-plantuml-mode-失效问题">ProOne 电脑上 plantuml-mode 失效问题</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#命令行-uml-预览">命令行 uml 预览</a></li>
+    <li><a href="#m-x-plantuml-download-jar">M-x: plantuml-download-jar</a></li>
+    <li><a href="#安装-graphviz-28-dot-6">安装 <a href="mailto:graphviz@28.6">graphviz@28.6</a></a></li>
+    <li><a href="#plantuml-安装第三方服务器">plantuml 安装第三方服务器</a></li>
+    <li><a href="#proone-电脑上-plantuml-mode-失效问题">ProOne 电脑上 plantuml-mode 失效问题</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>下载历史 jar包<a href="https://sourceforge.net/projects/plantuml/files/">plantuml.jar历史版本路径</a></p>
-
+      <p>下载历史 jar包<a href="https://sourceforge.net/projects/plantuml/files/">plantuml.jar历史版本路径</a></p>
 <h2 id="命令行-uml-预览">命令行 uml 预览</h2>
-
 <ol>
-<li>您也可以使用下面的命令行运行 PlantUML:<br />
-java -jar plantuml.jar file1 file2 file3<br />
+<li>您也可以使用下面的命令行运行 PlantUML:<br>
+java -jar plantuml.jar file1 file2 file3<br>
 这将在 file1, file2 和 file3 中寻找 @startXYZ。 对于每个图表, 都将创建一个 .png 文件。</li>
-<li>对于处理整个文件夹, 您可以使用:<br />
-java -jar plantuml.jar &ldquo;c:/directory1&rdquo; &ldquo;c:/directory2&rdquo;<br />
+<li>对于处理整个文件夹, 您可以使用:<br>
+java -jar plantuml.jar &ldquo;c:/directory1&rdquo; &ldquo;c:/directory2&rdquo;<br>
 此命令将寻找 @startXYZ 和 @endXYZ 位于 c:/directory1 和 c:/directory2 目录中的 .c, .h, .cpp, .txt, .pu, .tex, .html, .htm 或.java 文件。</li>
-<li>辅助方法在 dotfiles/doom/aliases.zsh 中添加别名。<br />
-alias plantuml=&lsquo;java -jar ~/.emacs.d/.local/etc/plantuml.jar&rsquo;</li>
+<li>辅助方法在 dotfiles/doom/aliases.zsh 中添加别名。<br>
+alias plantuml='java -jar ~/.emacs.d/.local/etc/plantuml.jar&rsquo;</li>
 </ol>
-
 <h2 id="m-x-plantuml-download-jar">M-x: plantuml-download-jar</h2>
-
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-04-10 Fri 17:31]</span></span></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-04-10 Fri 17:31]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
 </ul>
-
 <p>当缺少 jar 时，使用命令该命令安装 jar</p>
-
-<h2 id="安装-graphviz-28-dot-6">安装 graphviz@28.6</h2>
-
+<h2 id="安装-graphviz-28-dot-6">安装 <a href="mailto:graphviz@28.6">graphviz@28.6</a></h2>
 <ul>
-<li>State &ldquo;CANCEL&rdquo;     from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-04-20 Mon 13:41] </span></span> <br />
+<li>State &ldquo;CANCEL&rdquo;     from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-04-20 Mon 13:41] <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->
 暂时不知道怎么安装旧版本</li>
 </ul>
-
 <p>需要安装老版本，官方提示：2.40.1 版本存在问题，目前无法找到旧版的安装方法</p>
-
-<div class="shell">
-  <div></div>
-
-<p>brew install libtool<br />
-brew link libtool<br />
-brew install graphviz<br />
+<!-- raw HTML omitted -->
+<p>brew install libtool<br>
+brew link libtool<br>
+brew install graphviz<br>
 brew link &ndash;overwrite graphviz</p>
-
-<p></div></p>
-
+<!-- raw HTML omitted -->
 <p><a href="https://plantuml.com/zh/graphviz-dot">graphviz安装说明</a></p>
-
 <h2 id="plantuml-安装第三方服务器">plantuml 安装第三方服务器</h2>
-
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-04-20 Mon 13:42]</span></span></li>
-
-<li><p><a href="https://github.com/plantuml/plantuml-server">官网服务器</a></p>
-
-<div class="shell">
-  <div></div>
-    
-
-<p>docker run -d -p 8080:8080 plantuml/plantuml-server:jetty<br />
+<li>
+<p>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-04-20 Mon 13:42]<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><a href="https://github.com/plantuml/plantuml-server">官网服务器</a></p>
+<!-- raw HTML omitted -->
+<p>docker run -d -p 8080:8080 plantuml/plantuml-server:jetty<br>
 docker run -d -p 8080:8080 plantuml/plantuml-server:tomcat</p>
-
-<p></div></p></li>
-
-<li><p><a href="https://github.com/iT-Boyer/plantuml-editor">在线预览韩国版</a></p>
-
-<div class="shell">
-  <div></div>
-    
-
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p><a href="https://github.com/iT-Boyer/plantuml-editor">在线预览韩国版</a></p>
+<!-- raw HTML omitted -->
 <p>npm install</p>
-
 <p>npm run flow-typed</p>
-
 <p>npm run serve</p>
-
 <p>npm run build</p>
-
 <p>npm run test:unit</p>
-
 <p>npm run test:e2e</p>
-
-<p></div></p>
-
+<!-- raw HTML omitted -->
 <ol>
-<li><p>问题问题 1：npm run flow-typed 执行命令失败问题 2: 访问<a href="http://localhost:8080">http://localhost:8080</a> 提示如下：</p>
-
-<div class="log">
-  <div></div>
-        
-
+<li>
+<p>问题问题 1：npm run flow-typed 执行命令失败问题 2: 访问<a href="http://localhost:8080">http://localhost:8080</a> 提示如下：</p>
+<!-- raw HTML omitted -->
 <p>Failed to compile.</p>
-
-<p>./src/components/UmlSvg.vue<br />
+<p>./src/components/UmlSvg.vue<br>
 Module Error (from ./node_modules/eslint-loader/index.js):</p>
-
-<p>/Users/jhmac/hsg/plantuml-editor/src/components/UmlSvg.vue<br />
-  7:19  error  Cannot resolve module `axios`  flowtype-errors/show-errors</p>
-
+<p>/Users/jhmac/hsg/plantuml-editor/src/components/UmlSvg.vue<br>
+7:19  error  Cannot resolve module `axios`  flowtype-errors/show-errors</p>
 <p>✖ 1 problem (1 error, 0 warnings)</p>
-
-<p></div></p></li>
-</ol></li>
-
-<li><p><a href="https://github.com/iT-Boyer/haha98k/">haha98k</a></p>
-
-<div class="shell">
-  <div></div>
-    
-
-<p>$ git clone <a href="https://github.com/iT-Boyer/haha98k.git">https://github.com/iT-Boyer/haha98k.git</a><br />
+<!-- raw HTML omitted -->
+</li>
+</ol>
+</li>
+<li>
+<p><a href="https://github.com/iT-Boyer/haha98k/">haha98k</a></p>
+<!-- raw HTML omitted -->
+<p>$ git clone <a href="https://github.com/iT-Boyer/haha98k.git">https://github.com/iT-Boyer/haha98k.git</a><br>
 $ cd web</p>
-
 <p>$ yarn install</p>
-
 <p>$ yarn run dev</p>
-
-<p>$ yarn run build<br />
+<p>$ yarn run build<br>
 $ yarn start</p>
-
 <p>$ yarn run generate</p>
-
-<p></div></p></li>
+<!-- raw HTML omitted -->
+</li>
 </ul>
-
 <h2 id="proone-电脑上-plantuml-mode-失效问题">ProOne 电脑上 plantuml-mode 失效问题</h2>
-
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-04-10 Fri 17:31]</span></span></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-04-10 Fri 17:31]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
 </ul>
-
-<p><a href="https://github.com/hlissner/doom-emacs/issues/2864">plantuml-mode丢失问题</a><br />
+<p><a href="https://github.com/hlissner/doom-emacs/issues/2864">plantuml-mode丢失问题</a><br>
 解决办法：~/.emacs.d/.local/straight/repos/plantuml-mode</p>
-
-<div class="shell">
-  <div></div>
-
-<p>git reset HEAD .<br />
-git checkout .<br />
-doom sync<br />
+<!-- raw HTML omitted -->
+<p>git reset HEAD .<br>
+git checkout .<br>
+doom sync<br>
 doom refresh</p>
-
-<p></div></p>
+<!-- raw HTML omitted -->
 
     </div>
 

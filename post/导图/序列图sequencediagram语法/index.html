@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AF%BC%E5%9B%BE/%E5%BA%8F%E5%88%97%E5%9B%BEsequencediagram%E8%AF%AD%E6%B3%95/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-06-24T16:00:03+00:00" />
 <meta itemprop="name" content="序列图sequence语法插件">
 <meta itemprop="description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc">
-
-
 <meta itemprop="datePublished" content="2017-06-24T16:00:03&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-24T16:00:03&#43;00:00" />
-<meta itemprop="wordCount" content="783">
+<meta itemprop="wordCount" content="776">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="序列图sequence语法插件"/>
 <meta name="twitter:description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E5%AF%BC%E5%9B%BE/"> 导图 </a>
             </div>
-          <span class="more-meta"> 约 783 字 </span>
+          <span class="more-meta"> 约 776 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,86 +179,65 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#markdown插件">MarkDown插件</a></li>
-<li><a href="#官方">官方</a></li>
-<li><a href="#概述">概述</a></li>
-<li><a href="#元素">元素</a>
-<ul>
-<li><a href="#角色actor">角色Actor</a></li>
-<li><a href="#标题">标题</a></li>
-<li><a href="#对象object">对象Object</a></li>
-<li><a href="#生命线lifeline">生命线Lifeline</a></li>
-<li><a href="#激活期activation">激活期Activation</a></li>
-<li><a href="#消息message">消息Message</a></li>
-<li><a href="#效果实现">效果实现：</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#markdown插件">MarkDown插件</a></li>
+    <li><a href="#官方">官方</a></li>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#元素">元素</a>
+      <ul>
+        <li><a href="#角色actor">角色Actor</a></li>
+        <li><a href="#标题">标题</a></li>
+        <li><a href="#对象object">对象Object</a></li>
+        <li><a href="#生命线lifeline">生命线Lifeline</a></li>
+        <li><a href="#激活期activation">激活期Activation</a></li>
+        <li><a href="#消息message">消息Message</a></li>
+        <li><a href="#效果实现">效果实现：</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="markdown插件">MarkDown插件</h2>
-
+      <h2 id="markdown插件">MarkDown插件</h2>
 <p>{% github bubkoo hexo-filter-sequence  4ab9c15  width = 30% %}
 这个插件在markdown暂时无法渲染出图像，不建议使用。</p>
-
 <h2 id="官方">官方</h2>
-
 <p><a href="https://bramp.github.io/js-sequence-diagrams/">序列图预览工具</a></p>
-
 <h2 id="概述">概述</h2>
-
 <p>序列图(sequence diagram)，又称时序图。</p>
-
 <ol>
 <li>通过描述对象之间发送消息的时间顺序</li>
-
-<li><p>显示多个对象之间的动态协作</p>
-
+<li>显示多个对象之间的动态协作</li>
+</ol>
 <h2 id="元素">元素</h2>
-
 <p>=====</p>
-
 <pre><code class="language-sequence">Alice-&gt;Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob--&gt;Alice: I am good thanks!
-</code></pre></li>
-</ol>
-
+</code></pre>
 <h3 id="角色actor">角色Actor</h3>
-
 <p>系统角色。
 <a href="http://blog.csdn.net/ethmery/article/details/50670284">http://blog.csdn.net/ethmery/article/details/50670284</a></p>
-
 <h3 id="标题">标题</h3>
-
 <p>MarkDown语法：</p>
-
 <pre><code>Title:[标题]
 </code></pre>
-
 <h3 id="对象object">对象Object</h3>
-
-<p>位于序列图顶部，代表参与交互行为的对象。常见的命名方式：
-1. 类名+对象名
-2. 类名，无对象名（匿名对象）
-3. 对象名，无类名
-对象(object)是对客观事物的抽象，类(class)是对对象的抽象。
-1. 一个对象可以通过发送消息来创建另一个对象
-2. 一个对象可以被删除/自我删除，此时以”×”表示
-MarkDown语法：
-1. 声明一个或多个对象</p>
-
+<p>位于序列图顶部，代表参与交互行为的对象。常见的命名方式：</p>
+<ol>
+<li>类名+对象名</li>
+<li>类名，无对象名（匿名对象）</li>
+<li>对象名，无类名
+对象(object)是对客观事物的抽象，类(class)是对对象的抽象。</li>
+<li>一个对象可以通过发送消息来创建另一个对象</li>
+<li>一个对象可以被删除/自我删除，此时以”×”表示
+MarkDown语法：</li>
+<li>声明一个或多个对象</li>
+</ol>
 <pre><code>participant [对象名1]
 participant [对象名2]
 </code></pre>
-
 <pre><code class="language-sequence">participant A
 participant B
 Note left of A: 这是对A的注释
@@ -269,70 +245,58 @@ Note right of B: 这是对B的注释
 Note over A: 这是A上的注释
 Note over A,B: 这是A和B共有的注释
 </code></pre>
-
-<ol>
-<li><p>为对象添加注释</p>
-
+<ol start="2">
+<li>为对象添加注释</li>
+</ol>
 <pre><code>Note left/right to [对象名]: [注释]
 Note over [对象名]: [注释]
 Note over [多个对象，之间以,隔开]: [注释]
-</code></pre></li>
-</ol>
-
+</code></pre>
 <h3 id="生命线lifeline">生命线Lifeline</h3>
-
 <ol>
 <li>序列图中的对象在一段时间内的存在</li>
 <li>以从对象底部中心延伸出的竖直虚线表示</li>
 <li>对象之间的消息传递发生于生命线之间</li>
 </ol>
-
 <h3 id="激活期activation">激活期Activation</h3>
-
 <ol>
 <li>序列图中的对象执行一项操作的时期
-
 <ul>
 <li>或执行其自身的代码</li>
 <li>或等待另一个对象的返回信息</li>
-</ul></li>
+</ul>
+</li>
 <li>以生命线上相应时间段内窄矩形表示</li>
 </ol>
-
 <h3 id="消息message">消息Message</h3>
-
 <ol>
 <li>用于对对象间通信内容进行建模的类</li>
 <li>以垂直于生命线的单方向箭头表示</li>
 <li>消息包含内容：
-
 <ul>
 <li>消息名称</li>
 <li>消息参数</li>
 <li>可能带有条件表达式，以确定是否发送/发送分支
 MarkDown语法：</li>
-</ul></li>
-
-<li><p>语法格式：</p>
-
+</ul>
+</li>
+<li>语法格式：</li>
+</ol>
 <pre><code>[发送对象][箭头符号][接收对象]: [消息]
 </code></pre>
-
 <h3 id="效果实现">效果实现：</h3>
-
 <pre><code class="language-sequence">A-&gt;B: -&gt;
 B--&gt;C: --&gt;
 B-&gt;&gt;A: -&gt;&gt;
 C--&gt;&gt;A: --&gt;&gt;
-</code></pre></li>
-
-<li><p>定义箭头语法：
+</code></pre>
+<ol start="2">
+<li>定义箭头语法：
 -&gt; 实线黑色三角箭头
 –-&gt; 虚线黑色三角箭头
--&gt;&gt; 实线开放箭头
-–-&gt;&gt; 虚线开放箭头</p></li>
-
-<li><p>消息显示顺序与代码中消息编写顺序一致</p></li>
+-&raquo; 实线开放箭头
+–-&raquo; 虚线开放箭头</li>
+<li>消息显示顺序与代码中消息编写顺序一致</li>
 </ol>
 
     </div>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode%E5%AE%89%E8%A3%85xvim2%E6%8F%92%E4%BB%B6%E6%96%B9%E6%B3%95/" />
@@ -47,15 +47,12 @@
 <meta property="article:modified_time" content="2020-07-19T21:40:00+08:00" />
 <meta itemprop="name" content="XVim 插件">
 <meta itemprop="description" content="Xcode 重签名证书：钥匙串访问—证书助理：创建证书 — 名称：XcodeResign 类型：代码签名签名：sudo codesign -f -s XcodeResign（证书名）">
-
-
 <meta itemprop="dateModified" content="2020-07-19T21:40:00&#43;08:00" />
 <meta itemprop="wordCount" content="171">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="XVim 插件"/>
 <meta name="twitter:description" content="Xcode 重签名证书：钥匙串访问—证书助理：创建证书 — 名称：XcodeResign 类型：代码签名签名：sudo codesign -f -s XcodeResign（证书名）"/>
 
@@ -178,30 +175,27 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <ul>
 <li>Xcode 重签名证书：钥匙串访问—证书助理：创建证书 — 名称：XcodeResign  类型：代码签名签名：sudo codesign -f -s XcodeResign（证书名） /Applications/Xcode.app</li>
 </ul>
-
-<p>签名问题<br />
-/Applications/Xcode.app: replacing existing signature<br />
-/Applications/Xcode.app: resource fork, Finder information, or similar detritus not allowed<br />
-解决命令：<br />
+<p>签名问题<br>
+/Applications/Xcode.app: replacing existing signature<br>
+/Applications/Xcode.app: resource fork, Finder information, or similar detritus not allowed<br>
+解决命令：<br>
 sudo xattr -cr /Applications/Xcode.app</p>
-
-<p>查看 Xcode 签名 UUID：defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID<br />
-替换插件的 UUID：<br />
+<p>查看 Xcode 签名 UUID：defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID<br>
+替换插件的 UUID：<br>
 find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID`</p>
-
-<p>安装 Xvim2<br />
-git clone <a href="https://github.com/XVimProject/XVim2.git">https://github.com/XVimProject/XVim2.git</a><br />
-cd XVim2<br />
-git checkout xcode10.1<br />
-make<br />
-defaults delete  com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-x-x<br />
+<p>安装 Xvim2<br>
+git clone <a href="https://github.com/XVimProject/XVim2.git">https://github.com/XVimProject/XVim2.git</a><br>
+cd XVim2<br>
+git checkout xcode10.1<br>
+make<br>
+defaults delete  com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-x-x<br>
 完成后，重启 Xcode</p>
 
     </div>

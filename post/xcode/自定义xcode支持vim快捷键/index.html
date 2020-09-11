@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/xcode/%E8%87%AA%E5%AE%9A%E4%B9%89xcode%E6%94%AF%E6%8C%81vim%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-09-20T21:12:51+00:00" />
 <meta itemprop="name" content="自定义Xcode支持Vim快捷键">
 <meta itemprop="description" content="使用了Vim之后，被其强大的文本编辑能力吸引, 于是每天都在寻找 Vim 插件, 试图用 Vim 代替 Xcode 进行日常开发. 直到有一天突然发现, 我想要的就是一个拥有强">
-
-
 <meta itemprop="datePublished" content="2018-09-20T21:12:51&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-20T21:12:51&#43;00:00" />
-<meta itemprop="wordCount" content="663">
+<meta itemprop="wordCount" content="644">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义Xcode支持Vim快捷键"/>
 <meta name="twitter:description" content="使用了Vim之后，被其强大的文本编辑能力吸引, 于是每天都在寻找 Vim 插件, 试图用 Vim 代替 Xcode 进行日常开发. 直到有一天突然发现, 我想要的就是一个拥有强"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/xcode/"> xcode </a>
             </div>
-          <span class="more-meta"> 约 663 字 </span>
+          <span class="more-meta"> 约 644 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,61 +179,51 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#常用操作">常用操作</a></li>
-<li><a href="#系统自带快捷操作">系统自带快捷操作</a></li>
-<li><a href="#自定义快捷操作">自定义快捷操作</a>
-<ul>
-<li><a href="#自定义快捷键">自定义快捷键</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#常用操作">常用操作</a></li>
+    <li><a href="#系统自带快捷操作">系统自带快捷操作</a></li>
+    <li><a href="#自定义快捷操作">自定义快捷操作</a>
+      <ul>
+        <li><a href="#自定义快捷键">自定义快捷键</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>使用了Vim之后，被其强大的文本编辑能力吸引, 于是每天都在寻找 Vim 插件, 试图用 Vim 代替 Xcode 进行日常开发. 直到有一天突然发现, 我想要的就是一个<strong>拥有强大文本编辑能力的 Xcode.</strong>
+      <p>使用了Vim之后，被其强大的文本编辑能力吸引, 于是每天都在寻找 Vim 插件, 试图用 Vim 代替 Xcode 进行日常开发. 直到有一天突然发现, 我想要的就是一个<strong>拥有强大文本编辑能力的 Xcode.</strong>
 分享一个<a href="https://github.com/Scyano/XcodeKeyBindingSet.git">自定义快捷键完整版</a></p>
-
 <h2 id="常用操作">常用操作</h2>
-
-<p>Xcode虽然没有 Vim 的模式切换, 但是也可以使用大部分文本操作, 这里主要用到的是:
-1. 删除: 完全删除单行, 删除单行到行首, 删除词组, 删除单词, 删除段落
-2. 替换: 替换单行, 替换词组
-3. 复制: 复制行尾词组, 复制词组, 复制单行.
-另外还有向前删除单行, 向后删除单行, 全局替换, 剪切单行, 格式化粘贴单行等.</p>
-
+<p>Xcode虽然没有 Vim 的模式切换, 但是也可以使用大部分文本操作, 这里主要用到的是:</p>
+<ol>
+<li>删除: 完全删除单行, 删除单行到行首, 删除词组, 删除单词, 删除段落</li>
+<li>替换: 替换单行, 替换词组</li>
+<li>复制: 复制行尾词组, 复制词组, 复制单行.
+另外还有向前删除单行, 向后删除单行, 全局替换, 剪切单行, 格式化粘贴单行等.</li>
+</ol>
 <h2 id="系统自带快捷操作">系统自带快捷操作</h2>
-
-<p>首先 Xcode 原生自带的快捷键就非常实用了, <code>CMD+</code>, 打开<code>Preferences</code>-&gt;<code>Code Binding</code>-&gt;<code>Text</code>可以看到常用的选择, 删除, 搜索等快捷操作, 如 <code>Move Word Right</code> =&gt; <code>⌥+→</code> : 光标向右按单词移动.</p>
-
+<p>首先 Xcode 原生自带的快捷键就非常实用了, <code>CMD+</code>, 打开<code>Preferences</code>-&gt;<code>Code Binding</code>-&gt;<code>Text </code>可以看到常用的选择, 删除, 搜索等快捷操作, 如 <code>Move Word Right</code> =&gt; <code>⌥+→</code> : 光标向右按单词移动.</p>
 <h2 id="自定义快捷操作">自定义快捷操作</h2>
-
 <p>实际使用时发现系统提供的删除只可以删除单词或词组某一方向的字符:
 系统快捷键演示：
-<img src="https://upload-images.jianshu.io/upload_images/1253941-d451d9eadbbb6fa5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="" /></p>
-
+<img src="https://upload-images.jianshu.io/upload_images/1253941-d451d9eadbbb6fa5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p>
 <h3 id="自定义快捷键">自定义快捷键</h3>
-
-<p>所以, 决定自行添加快捷操作, 而 Xcode 本身就是一个OSX 应用程序, 所以我们可以找到相关文件去配置快捷操作。
-1. 了解并编辑<code>IDETextKeyBindingSet.plist</code>
+<p>所以, 决定自行添加快捷操作, 而 Xcode 本身就是一个OSX 应用程序, 所以我们可以找到相关文件去配置快捷操作。</p>
+<ol>
+<li>了解并编辑<code>IDETextKeyBindingSet.plist</code>
 <code>Application</code>-&gt;<code>Xcode.app</code>-&gt;<code>Contents</code>-&gt;<code>Frameworks</code>-&gt;<code>IDEKit.framework</code>-&gt;<code>Resources</code>-&gt;<code>IDETextKeyBindingSet.plist</code>
-使用编辑器打开IDETextKeyBindingSet.plist, 自行添加快捷操作:</p>
-
+使用编辑器打开IDETextKeyBindingSet.plist, 自行添加快捷操作:</li>
+</ol>
 <pre><code>&lt;key&gt;Delete Current Word&lt;/key&gt;
 &lt;string&gt;moveLeft:, moveWordRight:, deleteWordBackward:&lt;/string&gt;
 </code></pre>
-
 <p>自定义快捷键演示
-<img src="https://upload-images.jianshu.io/upload_images/1253941-a04470b8b26e6fe8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="" />
+<img src="https://upload-images.jianshu.io/upload_images/1253941-a04470b8b26e6fe8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="">
 其中<code>Cut Current Line</code> 是显示在 Xcode 偏好设置内的快捷操作.<code>moveToEndOfLine</code> 是编辑器的文本操作相关的 <code>编辑器API</code>, 可以组合类似的 <code>API</code> 自定义操作.
 2. 更新到xcode设置快捷键
 编辑完成后, 重新打开 <code>Xcode-&gt;Preferences-&gt;Key Bindings-&gt;Customized</code>, 为自定义的快捷操作添加快捷键.
-<img src="https://upload-images.jianshu.io/upload_images/1253941-717652603f41af8d?imageMogr2/auto-orient/strip%7CimageView2/2/w/960" alt="" />
+<img src="https://upload-images.jianshu.io/upload_images/1253941-717652603f41af8d?imageMogr2/auto-orient/strip%7CimageView2/2/w/960" alt="">
 分享一个<a href="https://github.com/Scyano/XcodeKeyBindingSet.git">自定义快捷键完整版</a></p>
 
     </div>

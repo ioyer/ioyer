@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E7%BB%88%E7%AB%AF%E6%94%AF%E6%8C%81swift%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-08-21T15:48:24+00:00" />
 <meta itemprop="name" content="终端支持swift自动补齐">
 <meta itemprop="description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem">
-
-
 <meta itemprop="datePublished" content="2018-08-21T15:48:24&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-21T15:48:24&#43;00:00" />
 <meta itemprop="wordCount" content="601">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="终端支持swift自动补齐"/>
 <meta name="twitter:description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem"/>
 
@@ -182,64 +179,45 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#终端支持swift自动补齐">终端支持swift自动补齐</a>
-<ul>
-<li><a href="#第一步安装sourcekitten">第一步安装sourcekitten</a></li>
-<li><a href="#第二步安装-sourcekittendaemon">第二步安装:SourceKittenDaemon</a></li>
-</ul></li>
-<li><a href="#使用">使用</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#终端支持swift自动补齐">终端支持swift自动补齐</a></li>
+        <li><a href="#使用">使用</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="终端支持swift自动补齐">终端支持swift自动补齐</h3>
-
-<p>keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaemon。这意味着你可以在vim中开发swift项目<br />
+      <h3 id="终端支持swift自动补齐">终端支持swift自动补齐</h3>
+<p>keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaemon。这意味着你可以在vim中开发swift项目<br>
 需要两步：安装sourcekitten,</p>
-
 <h4 id="第一步安装sourcekitten">第一步安装sourcekitten</h4>
-
 <ol>
-<li>安装<br />
-方式一：<code>brew install sourcekitten</code><br />
-方式二：clone源码 ,运行<code>swift build</code><br />
-方式三：clone 源码，运行 <code>make install</code><br />
-方式三：<a href="https://github.com/jpsim/SourceKitten/releases">pkg安装包</a><br /></li>
-<li>执行<code>sourcekitten help</code>验证安装成功。<br /></li>
+<li>安装<br>
+方式一：<code>brew install sourcekitten</code><br>
+方式二：clone源码 ,运行<code>swift build</code><br>
+方式三：clone 源码，运行 <code>make install</code><br>
+方式三：<a href="https://github.com/jpsim/SourceKitten/releases">pkg安装包</a></li>
+<li>执行<code>sourcekitten help</code>验证安装成功。</li>
 </ol>
-
-<h4 id="第二步安装-sourcekittendaemon">第二步安装:SourceKittenDaemon</h4>
-
+<h4 id="第二步安装sourcekittendaemon">第二步安装:SourceKittenDaemon</h4>
 <ol>
-<li>安装SourceKittenDaemon环境<br />
-安装并设置<a href="https://github.com/terhechte/SourceKittenDaemon">SourceKittenDaemon</a><br />
-方式一：<a href="https://github.com/terhechte/SourceKittenDaemon/releases/">pkg安装包</a><br />
-方式二: 1. Clone the repository   2. 安装 <code>make install</code><br /></li>
-<li>执行<code>SourceKittenDaemon help</code>验证安装成功。<br /></li>
+<li>安装SourceKittenDaemon环境<br>
+安装并设置<a href="https://github.com/terhechte/SourceKittenDaemon">SourceKittenDaemon</a><br>
+方式一：<a href="https://github.com/terhechte/SourceKittenDaemon/releases/">pkg安装包</a><br>
+方式二: 1. Clone the repository   2. 安装 <code>make install</code></li>
+<li>执行<code>SourceKittenDaemon help</code>验证安装成功。</li>
 </ol>
-
 <h3 id="使用">使用</h3>
-
 <p>启动后台驻守服务HTTP：<a href="https://github.com/terhechte/SourceKittenDaemon/blob/master/Protocol.org">参考Protocol.org</a></p>
-
 <pre><code>SourceKittenDaemon start --port 44876 --project /private/tmp/abcde/abcde.xcodeproj
 </code></pre>
-
 <p><code>--port</code>: 服务使用的端口号，默认为<code>8081</code>，vim目前不支持指定SourceKittenDaemon端口，使用默认的8081。
 <code>--project=</code>: 指定服务将要加载的<code>.xcodeproj</code>文件路径，不支持指定<code>.xcworkspaces</code>文件路径</p>
-
 <p>使用get方法请求后驻服务：</p>
-
 <pre><code>/complete  # X-Offset|X-Path|X-File
 /stop     # 停止后驻服务. 一般用于为其他target提供服务时，重新启动服务。
 /ping     # ping后驻服务，运行正常 return OK

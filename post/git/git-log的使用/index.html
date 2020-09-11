@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/git-log%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -40,25 +40,22 @@
 
 
 <meta property="og:title" content="git-log的使用" />
-<meta property="og:description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/" />
+<meta property="og:description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/git/git-log%E7%9A%84%E4%BD%BF%E7%94%A8/" />
 <meta property="article:published_time" content="2018-09-05T15:52:33+00:00" />
 <meta property="article:modified_time" content="2018-09-05T15:52:33+00:00" />
 <meta itemprop="name" content="git-log的使用">
-<meta itemprop="description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/">
-
-
+<meta itemprop="description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件">
 <meta itemprop="datePublished" content="2018-09-05T15:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T15:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="190">
+<meta itemprop="wordCount" content="184">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-log的使用"/>
-<meta name="twitter:description" content="trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/"/>
+<meta name="twitter:description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 190 字 </span>
+          <span class="more-meta"> 约 184 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,26 +179,18 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#trello-卡片">trello 卡片</a></li>
-<li><a href="#gitk图形工具">gitk图形工具</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#trello-卡片">trello 卡片</a></li>
+    <li><a href="#gitk图形工具">gitk图形工具</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="trello-卡片">trello 卡片</h2>
-
-<p><blockquote class="trello-card"><a href="https://trello.com/c/RWMUfhlD/4-git-log%E4%BD%BF%E7%94%A8">git log使用</a></blockquote><script src="https://p.trellocdn.com/embed.min.js"></script></p>
-
+      <h2 id="trello-卡片">trello 卡片</h2>
+<!-- raw HTML omitted -->
 <p><a href="http://iissnan.com/progit/html/zh/ch2_3.html">查看提交历史</a>
 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件），可以用下面的查询命令：</p>
-
 <pre><code class="language-bash">$ git log --pretty=&quot;%h - %s&quot; --author=gitster --since=&quot;2008-10-01&quot; \
 --before=&quot;2008-11-01&quot; --no-merges -- t/
 5610e3b - Fix testcase failure when extended attribute
@@ -211,12 +200,9 @@ d1a43f2 - reset --hard/read-tree --reset -u: remove un
 51a94af - Fix &quot;checkout --track -b newbranch&quot; on detac
 b0ad11e - pull: allow &quot;git pull origin $something:$cur
 </code></pre>
-
 <p>Git 项目有 20,000 多条提交，但我们给出搜索选项后，仅列出了其中满足条件的 6 条。</p>
-
 <h2 id="gitk图形工具">gitk图形工具</h2>
-
-<p><img src="http://iissnan.com/progit/book_src/figures/18333fig0202-tn.png" alt="" /></p>
+<p><img src="http://iissnan.com/progit/book_src/figures/18333fig0202-tn.png" alt=""></p>
 
     </div>
 
@@ -274,7 +260,7 @@ b0ad11e - pull: allow &quot;git pull origin $something:$cur
         id: '2018-09-05 15:52:33 \x2b0000 UTC',
         title: 'git-log的使用',
         link: decodeURI(location.href),
-        desc: 'trello 卡片 git log使用 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t\/',
+        desc: 'trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t\/ 目录下的文件',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {

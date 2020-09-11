@@ -62,7 +62,7 @@
       <pubDate>Thu, 15 Jun 2017 16:54:38 +0000</pubDate>
       
       <guid>https://it-boyer.github.io/post/xcode/xcode9%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-      <description>无线调试 升级设备系统 体验iOS11系统需要几步操作： 1. 下载配置文件：iOS_11_beta_Configuration_Profile，在手</description>
+      <description>无线调试 升级设备系统 体验iOS11系统需要几步操作： 下载配置文件：iOS_11_beta_Configuration_Profile，在手机</description>
     </item>
     
     <item>
@@ -117,75 +117,67 @@
       
       <guid>https://it-boyer.github.io/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/</guid>
       <description>&lt;h2 id=&#34;按比例缩放&#34;&gt;按比例缩放&lt;/h2&gt;
-
-&lt;p&gt;按比例缩放，这是在Interface Builder中无法设置的内容。&lt;br /&gt;
+&lt;p&gt;按比例缩放，这是在Interface Builder中无法设置的内容。&lt;br&gt;
 而在代码中，有如下两种实现方式:&lt;/p&gt;
-
 &lt;ol&gt;
-&lt;li&gt;使用&lt;code&gt;NSLayoutConstraint&lt;/code&gt;类型的初始化函数中的&lt;code&gt;multiplier&lt;/code&gt;参数就可以非常简单的设置按比例缩放。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;同时也可以设置不同&lt;code&gt;NSLayoutAttribute&lt;/code&gt;参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;NSLayoutConstraint&lt;/code&gt;类型的初始化函数中的&lt;code&gt;multiplier&lt;/code&gt;参数就可以非常简单的设置按比例缩放。&lt;/li&gt;
+&lt;li&gt;同时也可以设置不同&lt;code&gt;NSLayoutAttribute&lt;/code&gt;参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;现在就拿一个简单的&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;做示例，在ViewController中创建一个UIButton字段：&lt;br /&gt;
+&lt;p&gt;现在就拿一个简单的&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;做示例，在ViewController中创建一个UIButton字段：&lt;br&gt;
 {%codeblock lang:objc%}
-    UIButton *btn;&lt;br /&gt;
+UIButton *btn;&lt;br&gt;
 {%endcodeblock%}&lt;/p&gt;
-
 &lt;h4 id=&#34;需求-1&#34;&gt;需求 1：&lt;/h4&gt;
-
 &lt;ol&gt;
 &lt;li&gt;要求&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;水平居中，始终距离父View底部&lt;strong&gt;20&lt;/strong&gt;单位，其高度是父View高度的三分之一。&lt;/li&gt;
-&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;的大小并实时输出到屏幕上。&lt;br /&gt;
+&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;的大小并实时输出到屏幕上。&lt;br&gt;
 {%codeblock lang:objc%}&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;(void)viewDidLoad
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;(void)viewDidLoad
 {
 [super viewDidLoad];&lt;/p&gt;
-
 &lt;p&gt;//创建UIButton，不需要设置frame
 btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 [btn setTitle:@&amp;ldquo;mgen&amp;rdquo; forState:UIControlStateNormal];
 btn.backgroundColor = [UIColor greenColor];
 [self.view addSubview:btn];&lt;/p&gt;
-
 &lt;p&gt;//禁止自动转换AutoresizingMask
 btn.translatesAutoresizingMaskIntoConstraints = NO;&lt;/p&gt;
-
 &lt;p&gt;//居中
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeCenterX
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeCenterX
-                          multiplier:1
-                          constant:0]];&lt;/p&gt;
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];&lt;/p&gt;
 &lt;p&gt;//距离底部20单位
 //注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeBottom
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeBottom
-                          multiplier:1
-                          constant:-20]];&lt;/p&gt;
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];&lt;/p&gt;
 &lt;p&gt;//定义高度是父View的三分之一
 [self.view addConstraint:[NSLayoutConstraint
-                          constraintWithItem:btn
-                          attribute:NSLayoutAttributeHeight
-                          relatedBy:NSLayoutRelationEqual
-                          toItem:self.view
-                          attribute:NSLayoutAttributeHeight
-                          multiplier:0.3
-                          constant:0]];&lt;/p&gt;
-
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];&lt;/p&gt;
 &lt;p&gt;//注册KVO方法
-[btn addObserver:self forKeyPath:@&amp;ldquo;bounds&amp;rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil];&lt;br /&gt;
-}&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+[btn addObserver:self forKeyPath:@&amp;ldquo;bounds&amp;rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; &lt;br&gt;
+}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -195,24 +187,17 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;&lt;/p&gt;
       
       <guid>https://it-boyer.github.io/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/</guid>
       <description>&lt;p&gt;HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。&lt;/p&gt;
-
 &lt;p&gt;另外，Xcode 还会在 quick look 面板中以&lt;strong&gt;HeaderDoc&lt;/strong&gt;风格显示你的注释。&lt;/p&gt;
-
 &lt;p&gt;通过本教程，将学习如下几点：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;如何书写 HeaderDoc 风格的注释&lt;/li&gt;
 &lt;li&gt;分如何在 Xcode 中预览文档&lt;/li&gt;
 &lt;li&gt;如何生成 HTML 文档&lt;/li&gt;
 &lt;li&gt;如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id=&#34;准备工作&#34;&gt;准备工作&lt;/h4&gt;
-
 &lt;p&gt;下载本教程中用到的 &lt;a href=&#34;http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip&#34;&gt;示例项目&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;这个简单的示例程序只包含了两个类：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。&lt;/li&gt;
 &lt;li&gt;MathAPI: 包含了1个方法，用于累加两个数。
@@ -227,17 +212,14 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;&lt;/p&gt;
       
       <guid>https://it-boyer.github.io/post/ios/ui/storyboard%E4%B9%8Bsegue/</guid>
       <description>&lt;h5 id=&#34;segue原理&#34;&gt;Segue原理:&lt;/h5&gt;
-
 &lt;p&gt;在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;实例化目标视图控制器&lt;/li&gt;
 &lt;li&gt;实例化一个新segue对象，该对象持有所有的信息&lt;/li&gt;
 &lt;li&gt;调用源视图控制器的prepareForSegue:sender:方法，&lt;/li&gt;
-&lt;li&gt;调用segue的 perform 方法将目标控制器带到屏幕上。&lt;br /&gt;
+&lt;li&gt;调用segue的 perform 方法将目标控制器带到屏幕上。&lt;br&gt;
 这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;p&gt;在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。&lt;/p&gt;</description>
     </item>
     
@@ -248,9 +230,7 @@ btn.translatesAutoresizingMaskIntoConstraints = NO;&lt;/p&gt;
       
       <guid>https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;p&gt;Zombie:针对&lt;strong&gt;僵尸对象&lt;/strong&gt;导致应用程序崩溃，即已经&lt;code&gt;deallocated&lt;/code&gt;的对象，它们的&lt;code&gt;retainCount&lt;/code&gt;计数器已经为0，通过正常的手段是无法在&lt;code&gt;debug&lt;/code&gt;中跟踪和观察到的。&lt;/p&gt;
-
 &lt;p&gt;如果你开启了 &lt;code&gt;Zombie Enabled&lt;/code&gt; ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt; -[CALayer retainCount]: message sent to deallocated instance &amp;lt;memoryaddress&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;</description>
     </item>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/shell/%E5%AE%89%E8%A3%85ruby%E5%8F%8Achruby%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-10-19T15:58:23+00:00" />
 <meta itemprop="name" content="安装ruby及chruby版本管理">
 <meta itemprop="description" content="{% github postmodern ruby-install ea2b8bb width = 30% %} 安装工具ruby-install $ brew install ruby-install 安装指定 Ruby 版本 方式一：使用Homebrew安装 $ ruby-install ruby 2.4.1 $ ruby-install --system ruby #覆盖系统版本 但Ma">
-
-
 <meta itemprop="datePublished" content="2018-10-19T15:58:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-19T15:58:23&#43;00:00" />
 <meta itemprop="wordCount" content="348">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装ruby及chruby版本管理"/>
 <meta name="twitter:description" content="{% github postmodern ruby-install ea2b8bb width = 30% %} 安装工具ruby-install $ brew install ruby-install 安装指定 Ruby 版本 方式一：使用Homebrew安装 $ ruby-install ruby 2.4.1 $ ruby-install --system ruby #覆盖系统版本 但Ma"/>
 
@@ -182,89 +179,70 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#安装工具ruby-install">安装工具ruby-install</a>
-<ul>
-<li><a href="#安装指定-ruby-版本">安装指定 Ruby 版本</a></li>
-<li><a href="#安装chruby管理工具">安装chruby管理工具</a></li>
-</ul></li>
-<li><a href="#管理ruby版本">管理ruby版本</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#安装工具ruby-install">安装工具ruby-install</a>
+      <ul>
+        <li><a href="#安装指定-ruby-版本">安装指定 Ruby 版本</a></li>
+        <li><a href="#安装chruby管理工具">安装chruby管理工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#管理ruby版本">管理ruby版本</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<!--github库卡片-->
-
+      <!-- raw HTML omitted -->
 <p>{% github postmodern ruby-install ea2b8bb width = 30% %}</p>
-
 <h2 id="安装工具ruby-install">安装工具ruby-install</h2>
-
 <pre><code>$ brew install ruby-install
 </code></pre>
-
 <h3 id="安装指定-ruby-版本">安装指定 Ruby 版本</h3>
-
 <p>方式一：使用<code>Homebrew</code>安装</p>
-
 <pre><code>$ ruby-install ruby 2.4.1
 $ ruby-install --system ruby  #覆盖系统版本
 </code></pre>
-
 <p>但Mac最新系统安装Xcode时已经没有Command Line工具，需要单独安装。安装命令行：<code>xcode-select --install</code></p>
-
 <h3 id="安装chruby管理工具">安装chruby管理工具</h3>
-
 <pre><code>$ brew install chruby
 </code></pre>
-
 <h2 id="管理ruby版本">管理ruby版本</h2>
-
 <ol>
-<li><p>预览安装的版本</p>
-
+<li>预览安装的版本</li>
+</ol>
 <pre><code>$ chruby
-ruby-1.9.3-p392
-jruby-1.7.0
-rubinius-2.0.0-rc1
-</code></pre></li>
-
-<li><p>切换为使用版本</p>
-
+    ruby-1.9.3-p392
+    jruby-1.7.0
+    rubinius-2.0.0-rc1
+</code></pre>
+<ol start="2">
+<li>切换为使用版本</li>
+</ol>
 <pre><code>$ chruby 1.9.3 #切换操作
 $ chruby
 * ruby-1.9.3-p392  #当前使用的版本
-jruby-1.7.0
-rubinius-2.0.0-rc1
-</code></pre></li>
-
-<li><p>智能切换支持
-让chruby在<code>cd</code>不同项目目录时，自动切换Ruby的当前版本，<code>load auto.sh</code> in <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
-
+    jruby-1.7.0
+    rubinius-2.0.0-rc1
+</code></pre>
+<ol start="3">
+<li>智能切换支持
+让chruby在<code>cd</code>不同项目目录时，自动切换Ruby的当前版本，<code>load auto.sh</code> in <code>~/.bashrc</code> or <code>~/.zshrc</code>:</li>
+</ol>
 <pre><code>source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 </code></pre>
-
 <blockquote>
 <p>OSX does not automatically execute <code>~/.bashrc</code>, instead try adding to <code>/etc/bashrc</code>.</p>
-</blockquote></li>
-
-<li><p>设置默认的ruby
-通过设置启动项来设置默认的ruby版本，在 <code>~/.bash_profile</code> or <code>~/.zprofile</code>设置:</p>
-
+</blockquote>
+<ol start="4">
+<li>设置默认的ruby
+通过设置启动项来设置默认的ruby版本，在 <code>~/.bash_profile</code> or <code>~/.zprofile</code>设置:</li>
+</ol>
 <pre><code>chruby ruby-1.9
 </code></pre>
-
 <p>如果终端已经设置自启动项切换 <code>chruby.sh</code> and/or <code>auto.sh</code> , 只需要在<code>~/</code>目录新建<code>.ruby-version</code>:</p>
-
 <pre><code>echo &quot;ruby-1.9&quot; &gt; ~/.ruby-version
-</code></pre></li>
-</ol>
+</code></pre>
 
     </div>
 

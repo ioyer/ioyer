@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/bilibili%E4%B9%8Bmac%E7%89%88ffmpeg%E4%BE%9D%E8%B5%96%E7%BC%96%E8%AF%91/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-02-10T10:45:03+00:00" />
 <meta itemprop="name" content="bilibiliForMac版之mpv依赖编译">
 <meta itemprop="description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock">
-
-
 <meta itemprop="datePublished" content="2017-02-10T10:45:03&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-10T10:45:03&#43;00:00" />
-<meta itemprop="wordCount" content="641">
+<meta itemprop="wordCount" content="640">
 
 
 
-<meta itemprop="keywords" content="编译,ffmpeg,mpv,shell," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="编译,ffmpeg,mpv,shell," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bilibiliForMac版之mpv依赖编译"/>
 <meta name="twitter:description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock"/>
 
@@ -173,7 +170,7 @@ autocomplete('#aa-search-input',
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/%E8%A7%86%E9%A2%91/"> 视频 </a>
             </div>
-          <span class="more-meta"> 约 641 字 </span>
+          <span class="more-meta"> 约 640 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -183,147 +180,130 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#bilibili-mac-client-https-github-com-typcn-bilibili-mac-client"><a href="https://github.com/typcn/bilibili-mac-client">Bilibili Mac Client</a></a></li>
-<li><a href="#项目依赖库">项目依赖库</a>
-<ul>
-<li><a href="#下载资源">下载资源</a></li>
-<li><a href="#开始编译mpv动态依赖库">开始编译mpv动态依赖库：</a></li>
-</ul></li>
-<li><a href="#集成到项目中">集成到项目中</a>
-<ul>
-<li><a href="#指定libmpv-dylib相对路径">指定libmpv.dylib相对路径</a></li>
-<li><a href="#聚合ffmpeg相关依赖包">聚合ffmpeg相关依赖包</a></li>
-</ul></li>
-<li><a href="#相对路径脚本学习">相对路径脚本学习</a>
-<ul>
-<li><a href="#扩展一">扩展一：</a></li>
-<li><a href="#扩展二">扩展二</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#bilibili-mac-clienthttpsgithubcomtypcnbilibili-mac-client"><a href="https://github.com/typcn/bilibili-mac-client">Bilibili Mac Client</a></a></li>
+    <li><a href="#项目依赖库">项目依赖库</a>
+      <ul>
+        <li><a href="#下载资源">下载资源</a></li>
+        <li><a href="#开始编译mpv动态依赖库">开始编译mpv动态依赖库：</a></li>
+      </ul>
+    </li>
+    <li><a href="#集成到项目中">集成到项目中</a>
+      <ul>
+        <li><a href="#指定libmpvdylib相对路径">指定libmpv.dylib相对路径</a></li>
+        <li><a href="#聚合ffmpeg相关依赖包">聚合ffmpeg相关依赖包</a></li>
+      </ul>
+    </li>
+    <li><a href="#相对路径脚本学习">相对路径脚本学习</a>
+      <ul>
+        <li><a href="#扩展一">扩展一：</a></li>
+        <li><a href="#扩展二">扩展二</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="bilibili-mac-client-https-github-com-typcn-bilibili-mac-client"><a href="https://github.com/typcn/bilibili-mac-client">Bilibili Mac Client</a></h2>
-
+      <h2 id="bilibili-mac-clienthttpsgithubcomtypcnbilibili-mac-client"><a href="https://github.com/typcn/bilibili-mac-client">Bilibili Mac Client</a></h2>
 <p>一款基于mpv和ffmpeg底层库实现的播放器.</p>
-
 <h2 id="项目依赖库">项目依赖库</h2>
-
 <p>编译在项目中所需的相关依赖库</p>
-
 <h3 id="下载资源">下载资源</h3>
-
 <ol>
-<li><p>下载mpv-build
+<li>
+<p>下载mpv-build
 {% codeblock  lang:git %}
 git clone <a href="https://github.com/mpv-player/mpv-build.git">https://github.com/mpv-player/mpv-build.git</a>
-{% endcodeblock %}</p></li>
-
-<li><p>执行下载<code>ffmpeg</code>, <code>libass</code> 和<code>mpv资源</code>，同时完成编译的命令：
+{% endcodeblock %}</p>
+</li>
+<li>
+<p>执行下载<code>ffmpeg</code>, <code>libass</code> 和<code>mpv资源</code>，同时完成编译的命令：
 {% codeblock  lang:bash %}
 cd mpv-build/
-./rebuild -j4<br />
-{% endcodeblock %}</p></li>
-
-<li><p>使用参数 “&ndash;enable-shared ” 可以开启 ffmpeg 的动态版本:
+./rebuild -j4<br>
+{% endcodeblock %}</p>
+</li>
+<li>
+<p>使用参数 “&ndash;enable-shared ” 可以开启 ffmpeg 的动态版本:
 {% codeblock lang:bash  %}
 cd ffmpeg/
-./configure &ndash;enable-shared<br />
-{% endcodeblock %}</p></li>
-
-<li><p>安装ffmpeg
+./configure &ndash;enable-shared <br>
+{% endcodeblock %}</p>
+</li>
+<li>
+<p>安装ffmpeg
 {% codeblock  lang:bash %}
 在ffmpeg目录下执行：
 make
 make install
-{% endcodeblock %}</p></li>
+{% endcodeblock %}</p>
+</li>
 </ol>
-
 <h3 id="开始编译mpv动态依赖库">开始编译mpv动态依赖库：</h3>
-
 <ol>
 <li>开启libmpv动态库的支持：
 {% codeblock lang:bash %}
 cd ../mpv/
 ./waf configure &ndash;enable-libmpv-shared  &ndash;disable-libass
 ./waf build
-{% endcodeblock %}
-&gt; 变更去除static参数：./waf configure &ndash;enable-static-build &ndash;enable-libmpv-shared  &ndash;disable-libass</li>
+{% endcodeblock %}</li>
 </ol>
-
+<blockquote>
+<p>变更去除static参数：./waf configure &ndash;enable-static-build &ndash;enable-libmpv-shared  &ndash;disable-libass</p>
+</blockquote>
 <h2 id="集成到项目中">集成到项目中</h2>
-
-<h3 id="指定libmpv-dylib相对路径">指定libmpv.dylib相对路径</h3>
-
+<h3 id="指定libmpvdylib相对路径">指定libmpv.dylib相对路径</h3>
 <p>直接编译出来的库会是绝对路径，需要先通过install_name_tool 修改 相对路径：
 {% codeblock  lang:shell %}
 cd build/
 install_name_tool -id &ldquo;@executable_path/lib/libmpv.dylib&rdquo; libmpv.dylib
 {% endcodeblock %}</p>
-
 <h3 id="聚合ffmpeg相关依赖包">聚合ffmpeg相关依赖包</h3>
-
 <p>执行 mpv<code>tools/dylib-unhell</code> ，目标是 <code>libmpv.dylib</code>
 {% codeblock lang:bash %}
 TOOLS/dylib-unhell.py libmpv.dylib
 {% endcodeblock %}
 这样会多出一个 <code>lib文件夹</code>，里面会出现变为相对路径的文件，复制导入到项目即可。</p>
-
 <h2 id="相对路径脚本学习">相对路径脚本学习</h2>
-
 <p>使用otool -L 和install_name_tool完成了一系列操作：
 {% codeblock lang:bash %}
 install_name_tool -change
 install_name_tool -id
 {% endcodeblock %}
-<img src="https://cloud.githubusercontent.com/assets/4022953/16513398/fba07b2a-3f96-11e6-8358-b93275ed0a09.png" alt="编译后的资源目录位置" /></p>
-
+<img src="https://cloud.githubusercontent.com/assets/4022953/16513398/fba07b2a-3f96-11e6-8358-b93275ed0a09.png" alt="编译后的资源目录位置"></p>
 <h3 id="扩展一">扩展一：</h3>
-
 <p>{% codeblock  lang:shell %}
 #!bin/sh
 mkdir &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/dylib&rdquo;
 cp -f /your/path/to/xcode_project_name/dylib/*.dylib &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/dylib/&rdquo;</p>
-
 <p>echo &ldquo;&mdash;&mdash;&ndash;$(pwd)&mdash;&mdash;&mdash;&mdash;&mdash;-&rdquo;
-cur_dir=&ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
+cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
 cd ${cur_dir}
 echo &ldquo;&ndash;进入$(pwd)&ndash;&rdquo;</p>
-
 <p>for dirlist in $(ls ${cur_dir})
-    #查看它们的 rpath
-    otool -L ${dirlist}
-    #制作相对路径
-    #方法一
-    install_name_tool -change /usr/local/lib/${dirlist} @executable_path/lib/${dirlist} &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME&rdquo;
-    #方法二
-    install_name_tool -id &ldquo;@executable_path/lib/${dirlist}&rdquo; ${dirlist}
+#查看它们的 rpath
+otool -L ${dirlist}
+#制作相对路径
+#方法一
+install_name_tool -change /usr/local/lib/${dirlist} @executable_path/lib/${dirlist} &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME&rdquo;
+#方法二
+install_name_tool -id &ldquo;@executable_path/lib/${dirlist}&rdquo; ${dirlist}
 do</p>
-
 <p>done</p>
-
 <p>{% endcodeblock %}</p>
-
 <h3 id="扩展二">扩展二</h3>
-
 <p>{% codeblock  lang:shell %}
 echo &ldquo;&mdash;&mdash;&ndash;$(pwd)&mdash;&mdash;&mdash;&mdash;&mdash;-&rdquo;
-cur_dir=&ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
+cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
 cd ${cur_dir}
 echo &ldquo;&ndash;进入$(pwd)&ndash;&rdquo;
-lib=&ldquo;libmediainfo.0.dylib&rdquo;
+lib=&quot;libmediainfo.0.dylib&rdquo;
 #-f 参数判断 $file 是否存在
 if [ -f &ldquo;$lib&rdquo; ]; then
-    otool -L ${lib}
-    install_name_tool -id &ldquo;@executable_path/lib/${lib}&rdquo; ${lib}
-    otool -L ${lib}
+otool -L ${lib}
+install_name_tool -id &ldquo;@executable_path/lib/${lib}&rdquo; ${lib}
+otool -L ${lib}
 fi
 {% endcodeblock %}</p>
 

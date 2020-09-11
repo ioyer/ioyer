@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%94%B5%E5%AD%90%E5%B7%A1%E6%9F%A5/%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2019-07-05T08:26:09+08:00" />
 <meta itemprop="name" content="用户组管理">
 <meta itemprop="description" content="扫码登录业务,登录功能新增跳转申请加入业务 .5 配置管理入口:在个人主页添加“用户组管理”(支持修改名入口名)和隐藏显示逻辑 .5 分享二维码:分享组">
-
-
 <meta itemprop="datePublished" content="2019-07-05T08:26:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-05T08:26:09&#43;08:00" />
 <meta itemprop="wordCount" content="2421">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用户组管理"/>
 <meta name="twitter:description" content="扫码登录业务,登录功能新增跳转申请加入业务 .5 配置管理入口:在个人主页添加“用户组管理”(支持修改名入口名)和隐藏显示逻辑 .5 分享二维码:分享组"/>
 
@@ -182,33 +179,25 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#业务流程">业务流程</a></li>
-<li><a href="#用户组管理类图结构">用户组管理类图结构</a></li>
-</ul></li>
-<li><a href="#添加消息的脑图">添加消息的脑图</a>
-<ul>
-<li><a href="#替换接口域名">替换接口域名</a></li>
-<li><a href="#域名获取三种方式">域名获取三种方式</a>
-<ul>
-<li><a href="#通过配置文件-ipfile-plist-获取-api-host-groupchat">通过配置文件<code>iPFile.plist</code>获取:<code>api_host_GroupChat</code></a></li>
-<li><a href="#依赖-jhacrossnetengin-组件的头文件-netengin-h-定义的宏方式">依赖<code>JHAcrossNetEngin</code>组件的头文件<code>NetEngin.h</code>定义的宏方式</a></li>
-<li><a href="#主工程相关的域名替换">主工程相关的域名替换</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#业务流程">业务流程</a></li>
+        <li><a href="#用户组管理类图结构">用户组管理类图结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#添加消息的脑图">添加消息的脑图</a>
+      <ul>
+        <li><a href="#替换接口域名">替换接口域名</a></li>
+        <li><a href="#域名获取三种方式">域名获取三种方式</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<ol>
+      <ol>
 <li>扫码登录业务,登录功能新增跳转申请加入业务  .5</li>
 <li>配置管理入口:在个人主页添加“用户组管理”(支持修改名入口名)和隐藏显示逻辑 .5</li>
 <li>分享二维码:分享组件调用  .5</li>
@@ -220,9 +209,7 @@ autocomplete('#aa-search-input',
 收到申请加入个数及跳转逻辑</li>
 <li>bug联调 1.5天</li>
 </ol>
-
-<p><img src="http://www.plantuml.com/plantuml/png/XP0zRzD06CTtVufdGGp8qgK8QBCnCJ5rj3ASx2TDaNMEV6Ua2Y45H4iCWb8e9CsBcj0M1Ih203J1XkJB-Cxsn5SWmMbLHMswFdf-_vU_M1SsWXRlzbHr48VFudutVhCb1qUgjQ_9QbE6WQgTfBKVVtytbaXkHITtT78Bo79-wNQUhDmWouI0XipwBwJPM1HGGcgXgwMLHZ9-7k_MO_-NR8xKn--PSlIdbOoRClWa-xvw_NOApuYowpn0Km0Nr1KSplnkWhRgCOjk07KHJDlXQ6chL7Zkt4tNer4x-VbXKYGAJrIlAzirNTSCvH_7dIVfqqhoRL00oi7W9cK5S1WyAl6rns1JFZ7CmKIFQwA438pvIJQFvFP11g-vZbU-ZynRh22hMr5md6LP_1a5WToffnLVlVmiztgpY6YZAT2z33LEkxvJxVq2b6YvZ8m35UVGwnoGJNUPQvE5qlMPVnhMa_xXv9XMmcIqa_bRMAIUBUvDorvLj9Fk7KR3XdpHFMLj57ZN5EiEkwBwq8-6NvBjbdpr_kmpdoFasiLMeqtPxwhEyBpRGtIB6mjX8nb_ZSA3YxRAu6oeVm00" alt="" /></p>
-
+<p><img src="http://www.plantuml.com/plantuml/png/XP0zRzD06CTtVufdGGp8qgK8QBCnCJ5rj3ASx2TDaNMEV6Ua2Y45H4iCWb8e9CsBcj0M1Ih203J1XkJB-Cxsn5SWmMbLHMswFdf-_vU_M1SsWXRlzbHr48VFudutVhCb1qUgjQ_9QbE6WQgTfBKVVtytbaXkHITtT78Bo79-wNQUhDmWouI0XipwBwJPM1HGGcgXgwMLHZ9-7k_MO_-NR8xKn--PSlIdbOoRClWa-xvw_NOApuYowpn0Km0Nr1KSplnkWhRgCOjk07KHJDlXQ6chL7Zkt4tNer4x-VbXKYGAJrIlAzirNTSCvH_7dIVfqqhoRL00oi7W9cK5S1WyAl6rns1JFZ7CmKIFQwA438pvIJQFvFP11g-vZbU-ZynRh22hMr5md6LP_1a5WToffnLVlVmiztgpY6YZAT2z33LEkxvJxVq2b6YvZ8m35UVGwnoGJNUPQvE5qlMPVnhMa_xXv9XMmcIqa_bRMAIUBUvDorvLj9Fk7KR3XdpHFMLj57ZN5EiEkwBwq8-6NvBjbdpr_kmpdoFasiLMeqtPxwhEyBpRGtIB6mjX8nb_ZSA3YxRAu6oeVm00" alt=""></p>
 <pre><code class="language-puml">title 
 用户组管理工期
 创建时间：2019-07-05 08:26:09+0800 
@@ -246,13 +233,9 @@ then [三个菜单] on {hsg:100%} lasts 1 days
 then [待审核业务] as [verfy] on {hsg:100%} lasts 1 days
 [迭代结束] happens at [verfy]'s end
 </code></pre>
-
 <h3 id="业务流程">业务流程</h3>
-
 <p>活动图</p>
-
-<p><img src="http://www.plantuml.com/plantuml/png/fL9Dpz904BxlhzXZYNcJlaQ3RtlsgWTF7gjifP60WKsyuWUaeWX4iQHgf8gHO08noaTeuTTqsks9l-3MnKqhyQ9xsfrvTfxdcHbgqGf1yUjfPAzZ_sayz-9-6peVs9DTj7mKJvz77x_p20BxBVZRo5abpez3u5vMpo_ErEAPUe7LedPUrAvUkQHUKrMCIBKaQbQ8IN6P62LIHz3w3BrFqSilOA-Ifi_sWqFm0co7ULFuDemds_Iv29WzYzvxhFSEkaCUuNha7VOjc7lHU1DkNEXuASsnTeCQTOeqQK57becLev71g81fcLInSllwhG96c1-DWmIt_kkTmc7YXfiPJsJXF2kE1dPRYX6VIAL1b1itCvZ47x7vXCC4W0kqJC47krVmh2ipPgr-NoJ-gFbNtP8aHHmJCYR87pVPOWsTCU-qA9RL7cw_SghGN-LJ9KADksKPIYrPfbB8Vu-3DtnSeW5w3fl7YGKvmSako8QTUladml-tBEN9cnmFDkuPbj2boSqJIoodcvdZGt8dyPOwaXwrnEqpf_VxHuFM7Y31a5v_0W00" alt="" /></p>
-
+<p><img src="http://www.plantuml.com/plantuml/png/fL9Dpz904BxlhzXZYNcJlaQ3RtlsgWTF7gjifP60WKsyuWUaeWX4iQHgf8gHO08noaTeuTTqsks9l-3MnKqhyQ9xsfrvTfxdcHbgqGf1yUjfPAzZ_sayz-9-6peVs9DTj7mKJvz77x_p20BxBVZRo5abpez3u5vMpo_ErEAPUe7LedPUrAvUkQHUKrMCIBKaQbQ8IN6P62LIHz3w3BrFqSilOA-Ifi_sWqFm0co7ULFuDemds_Iv29WzYzvxhFSEkaCUuNha7VOjc7lHU1DkNEXuASsnTeCQTOeqQK57becLev71g81fcLInSllwhG96c1-DWmIt_kkTmc7YXfiPJsJXF2kE1dPRYX6VIAL1b1itCvZ47x7vXCC4W0kqJC47krVmh2ipPgr-NoJ-gFbNtP8aHHmJCYR87pVPOWsTCU-qA9RL7cw_SghGN-LJ9KADksKPIYrPfbB8Vu-3DtnSeW5w3fl7YGKvmSako8QTUladml-tBEN9cnmFDkuPbj2boSqJIoodcvdZGt8dyPOwaXwrnEqpf_VxHuFM7Y31a5v_0W00" alt=""></p>
 <pre><code class="language-puml">title
 用户组管理功能流程梳理
 创建时间：2019-07-09 07:17:54+0800 
@@ -301,11 +284,8 @@ stop
 endif
 stop
 </code></pre>
-
 <h3 id="用户组管理类图结构">用户组管理类图结构</h3>
-
-<p><img src="http://www.plantuml.com/plantuml/png/jLTlKnl76NzTVOeTtWGm8eGCqqIqdi7or983c223NvBZRYMTSxexxzr1QOSPUt0SRFC7DoQuc49mqfesBY5ZrtPHDFumrTw9L_aAVNOVwQHJpi2O2I_GxZv_zdb-lsUVtNDrrw09_ydpOErEPg1si10ytEChEy73dUhX8N_mwEZcNV_-F_bVzn9yyJ4l7_eRBuysNlpyqsP_tmSV9_j-c-pxcFJtfVe_IdtuuRc-Z_hwI8AQ6derQDubHQfeb2MEDlQFdZnA9Jxe9PzTekv5Qhj3fZRXK9OryzPdTJ49ohU3yfV-zaj_-tQmUNjeB0l__VK3Vta_A7y5Y_mlItndXwyj1-K7V7-pXrU-mddrzJ9VMwgzUSWVRuFDTSSoqG85YVvUWdc56V7lDeExY_xMinH94FY3q1pgNcAMPmzf9TtKIGh0y1TVYQ3sTm6Wwkj_zypIQV_-F_p5Vu67uF43llPCHFZrV_tdwz8Bx7CvawC6LTrqUcoCMhP1KyJVU8fxuUw8BHYY1t0bKAj3bR2L0YNzV-nFl6ShwkSm-Vcd9TFIn4_UCa1539XI4WkgONaQ_6gAgqmh3dqlKRSX7PTriqWP1D5158V0B_bpGZKKno4TcG507eF422TrEfksJ9TPXa6PD2WEJAR1GkIKJF8Vj_sRJm486CkbSsH6OIILSvbk5dxVqV4RkJerHQuxG03K4K8oDOKEI6Vsmf3gwfRPfHgg_lcLJovuhckPgKvTwtAeAVAURqHtXHKKK_-J8jGno9ZmBAONTFCT0kHVLg2WG1DYcq-Obal9j0Mnb8YLbqbBHM2-UhXIZ9m8mTVwqj7VdiWQ9yAqtHwZmdeYHpStQ_i_yCewcgCjE46V253JqpmvAz-PQtGwRJ4gyO4whODJH_NQv4NTiHLNXQ90ZHcjhl4M2DyE8qA9v-2wCp4-NEUvplM5ArU6ko00GLlAALgUeULSXRd3bg9TqztYEBtXKSTDcSgCNf0qNvspQKgwc8_6d1c8dYLCJbNjua0OV9JMjuUIYqPIZs8mRjk9IoFH7Rr22T3z5RQK1IGxfPKNb8IUi0BzvtlypXAs2N_bxtprMr65FvQnnCBY4PEsKiI8w-xu_dQmSj3Qkw2NrLuzhrMUySM3jbOVDZH2OhQ16A50phVwno6imZeUeHP594kiuAXLRJvnnfeVrzLYJbNCONrQqkJ0E5hsbqS_7Ozf7pVOwRd42XwnPkXLA-VPb3LzDNKxHtCNTTdX53P7khk8hOZmNSf4nSCHIO467YCXzPZHNWIkPGlURZIT-dU_zrTNguTBGVb5yCqju0K2h9PVzWIFNuXYsDhZgylyGDG3qCaNx_1LSIdonPVLrvlytcwKlREZdO4JmHp8q1Y3kL77t1PhxQXd6fensAF1PFhaxfCK-1FTWUCeh-IJ67l__Q3o82XlrLPUyTMlyVQkljdrR_q0BnQSyZSB_i8N_xjvYt_tWY-imi1_z9_WwK4hwpCMt4e5wZQU9tzWLYb7sGnbBJlXQOItJDQ1KpuxCZTas_Bny0jF1fnyo23hO0wnj8UWXDQrfz_wssjs7SPHEYimxxKDtN5hgrjyUVteY-MWie_fzV1xtzGg5NvlfxPG2LtmUti-92f5QDDU46UzSI0jnOGnortyfD4d8vM0EZ5508gdgW0oaHNMfDlqIc8m615TLQODYd8NXn6D93uT_RrTldq_z1zn3oqP0XJOZW001kbcSg5r6tYFIERg2aeuRbKQpOruCeGXnfIvto4q3PFpf5l09qLH8xb4kWkYSDh5IJZH42vVtAZjxc7qaT2R_KJrc2ozh1Q51nzPW9qo0yDM6KGdBOOHFBc_6CRfr9FGQ5xn35SkHRV9bW0-TAGmPircIuMehwafJ0MVqLYA8HrJKp5ibomcFSRbWr8OnmjLHXMNoZ25JepplCuSpCFGJTggCJAKWpfrNARefjjm1LuoL2yKtMCqgQQxe7VLiji8h1v-ZqqxllnadK21PLrQgkDSceFvOEAaNdUEv3rJ9PsfdbHNqs6puo2zq2tYXAAplKqsIPcUdqjRdXahRfo6EDauBS4jAPodEgCdeCk3nPRMzqwDHnZALTBXRot31GUFbOwmXuGj9snAsBCRxSQHizCyUUL7IL5XL1jiMOM4neVn1GU44uQZmUDv2k41TRWhMh1D5HLJCm2f64tXEEGlSxmUP0jQnxeJbrHuXnwdsEHFN7aoWfGWBglzmcg-CS16tjjxFiIubUUpaOrgf0Elxh0NIaOdih7CDxkQr9ADRGPcf-4zRCVjpVhODw8ENK0nLUhEsRHBDtLNFFX2qX2Ak1ZJr32QCQemEpd6jfPS2c-Xk3rG3VSGxgNsgN08BnQuK6BNHu6rU0cyWjgDHhtID6NWpC7oZpVybAKXlfpbCPKUfo4kcuX2_OruINueKgq1X_XfeRyxwTd9yrYjKP6itP03b3LcGjQ2NMjXY-VqqDYO-9pHh5aJV8TFkEYo-2P9D6Ga6GO1_qb3Htoj_ny0" alt="" /></p>
-
+<p><img src="http://www.plantuml.com/plantuml/png/jLTlKnl76NzTVOeTtWGm8eGCqqIqdi7or983c223NvBZRYMTSxexxzr1QOSPUt0SRFC7DoQuc49mqfesBY5ZrtPHDFumrTw9L_aAVNOVwQHJpi2O2I_GxZv_zdb-lsUVtNDrrw09_ydpOErEPg1si10ytEChEy73dUhX8N_mwEZcNV_-F_bVzn9yyJ4l7_eRBuysNlpyqsP_tmSV9_j-c-pxcFJtfVe_IdtuuRc-Z_hwI8AQ6derQDubHQfeb2MEDlQFdZnA9Jxe9PzTekv5Qhj3fZRXK9OryzPdTJ49ohU3yfV-zaj_-tQmUNjeB0l__VK3Vta_A7y5Y_mlItndXwyj1-K7V7-pXrU-mddrzJ9VMwgzUSWVRuFDTSSoqG85YVvUWdc56V7lDeExY_xMinH94FY3q1pgNcAMPmzf9TtKIGh0y1TVYQ3sTm6Wwkj_zypIQV_-F_p5Vu67uF43llPCHFZrV_tdwz8Bx7CvawC6LTrqUcoCMhP1KyJVU8fxuUw8BHYY1t0bKAj3bR2L0YNzV-nFl6ShwkSm-Vcd9TFIn4_UCa1539XI4WkgONaQ_6gAgqmh3dqlKRSX7PTriqWP1D5158V0B_bpGZKKno4TcG507eF422TrEfksJ9TPXa6PD2WEJAR1GkIKJF8Vj_sRJm486CkbSsH6OIILSvbk5dxVqV4RkJerHQuxG03K4K8oDOKEI6Vsmf3gwfRPfHgg_lcLJovuhckPgKvTwtAeAVAURqHtXHKKK_-J8jGno9ZmBAONTFCT0kHVLg2WG1DYcq-Obal9j0Mnb8YLbqbBHM2-UhXIZ9m8mTVwqj7VdiWQ9yAqtHwZmdeYHpStQ_i_yCewcgCjE46V253JqpmvAz-PQtGwRJ4gyO4whODJH_NQv4NTiHLNXQ90ZHcjhl4M2DyE8qA9v-2wCp4-NEUvplM5ArU6ko00GLlAALgUeULSXRd3bg9TqztYEBtXKSTDcSgCNf0qNvspQKgwc8_6d1c8dYLCJbNjua0OV9JMjuUIYqPIZs8mRjk9IoFH7Rr22T3z5RQK1IGxfPKNb8IUi0BzvtlypXAs2N_bxtprMr65FvQnnCBY4PEsKiI8w-xu_dQmSj3Qkw2NrLuzhrMUySM3jbOVDZH2OhQ16A50phVwno6imZeUeHP594kiuAXLRJvnnfeVrzLYJbNCONrQqkJ0E5hsbqS_7Ozf7pVOwRd42XwnPkXLA-VPb3LzDNKxHtCNTTdX53P7khk8hOZmNSf4nSCHIO467YCXzPZHNWIkPGlURZIT-dU_zrTNguTBGVb5yCqju0K2h9PVzWIFNuXYsDhZgylyGDG3qCaNx_1LSIdonPVLrvlytcwKlREZdO4JmHp8q1Y3kL77t1PhxQXd6fensAF1PFhaxfCK-1FTWUCeh-IJ67l__Q3o82XlrLPUyTMlyVQkljdrR_q0BnQSyZSB_i8N_xjvYt_tWY-imi1_z9_WwK4hwpCMt4e5wZQU9tzWLYb7sGnbBJlXQOItJDQ1KpuxCZTas_Bny0jF1fnyo23hO0wnj8UWXDQrfz_wssjs7SPHEYimxxKDtN5hgrjyUVteY-MWie_fzV1xtzGg5NvlfxPG2LtmUti-92f5QDDU46UzSI0jnOGnortyfD4d8vM0EZ5508gdgW0oaHNMfDlqIc8m615TLQODYd8NXn6D93uT_RrTldq_z1zn3oqP0XJOZW001kbcSg5r6tYFIERg2aeuRbKQpOruCeGXnfIvto4q3PFpf5l09qLH8xb4kWkYSDh5IJZH42vVtAZjxc7qaT2R_KJrc2ozh1Q51nzPW9qo0yDM6KGdBOOHFBc_6CRfr9FGQ5xn35SkHRV9bW0-TAGmPircIuMehwafJ0MVqLYA8HrJKp5ibomcFSRbWr8OnmjLHXMNoZ25JepplCuSpCFGJTggCJAKWpfrNARefjjm1LuoL2yKtMCqgQQxe7VLiji8h1v-ZqqxllnadK21PLrQgkDSceFvOEAaNdUEv3rJ9PsfdbHNqs6puo2zq2tYXAAplKqsIPcUdqjRdXahRfo6EDauBS4jAPodEgCdeCk3nPRMzqwDHnZALTBXRot31GUFbOwmXuGj9snAsBCRxSQHizCyUUL7IL5XL1jiMOM4neVn1GU44uQZmUDv2k41TRWhMh1D5HLJCm2f64tXEEGlSxmUP0jQnxeJbrHuXnwdsEHFN7aoWfGWBglzmcg-CS16tjjxFiIubUUpaOrgf0Elxh0NIaOdih7CDxkQr9ADRGPcf-4zRCVjpVhODw8ENK0nLUhEsRHBDtLNFFX2qX2Ak1ZJr32QCQemEpd6jfPS2c-Xk3rG3VSGxgNsgN08BnQuK6BNHu6rU0cyWjgDHhtID6NWpC7oZpVybAKXlfpbCPKUfo4kcuX2_OruINueKgq1X_XfeRyxwTd9yrYjKP6itP03b3LcGjQ2NMjXY-VqqDYO-9pHh5aJV8TFkEYo-2P9D6Ga6GO1_qb3Htoj_ny0" alt=""></p>
 <pre><code class="language-puml">title
 梳理H5调用原生人员选择器
 创建时间：2019-07-09 20:28:33+0800 
@@ -482,62 +462,43 @@ APP ---down-&gt; scan
 personVC --&gt; ugmVC
 ugm -down-&gt; web 
 </code></pre>
-
 <h2 id="添加消息的脑图">添加消息的脑图</h2>
-
-<p><img src="https://it-boyer.github.io/iPictures/images/添加消息类型流程.png" alt="" /></p>
-
+<p><img src="https://it-boyer.github.io/iPictures/images/%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B%E6%B5%81%E7%A8%8B.png" alt=""></p>
 <h3 id="替换接口域名">替换接口域名</h3>
-
 <p>替换以下相关接口的域名:将<code>sns.iuoooo.com</code>替换为<code>api.iuoooo.com/ugm.api</code></p>
-
 <pre><code>Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistGroupsOfUser
 Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetGroupsOfUser
 Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistTypesOfUser
 Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/UpdateUserGroup
 Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
 </code></pre>
-
 <h3 id="域名获取三种方式">域名获取三种方式</h3>
-
 <ol>
 <li><code>配置文件方式</code>iPFile.plist 无需编译</li>
 <li>宏定义方式        需要编译相关组件</li>
 <li>主工程源码方式  无需编译</li>
 </ol>
-
-<h4 id="通过配置文件-ipfile-plist-获取-api-host-groupchat">通过配置文件<code>iPFile.plist</code>获取:<code>api_host_GroupChat</code></h4>
-
+<h4 id="通过配置文件ipfileplist获取api_host_groupchat">通过配置文件<code>iPFile.plist</code>获取:<code>api_host_GroupChat</code></h4>
 <pre><code class="language-objc">
 [[HttpIpFileService shareInstance] getIpFile:@&quot;api_host_GroupQuery&quot;];//服务器地址
 </code></pre>
-
 <p>经排查分析,接口<code>Jinher.AMP.SNS.SV.AppSceneUserQuerySV.svc/ExistSceneUser</code>用到了上述方式:
 所以不能修改<code>iPfile.plist</code>的<code>api_host_GroupChat</code>的值.</p>
-
 <p>采用替换方式解决问题:
 <code>JHLayoutParser</code>组件中的文件<code>LPUpdateView</code>读取plist文件:<code>api_host_GroupQuery</code>获取域名
 在<code>iPfile.plist</code>新增一个字段</p>
-
 <pre><code>api_host_GroupQuery:api.iuoooo.com/ugm.api
 </code></pre>
-
-<h4 id="依赖-jhacrossnetengin-组件的头文件-netengin-h-定义的宏方式">依赖<code>JHAcrossNetEngin</code>组件的头文件<code>NetEngin.h</code>定义的宏方式</h4>
-
+<h4 id="依赖jhacrossnetengin组件的头文件netenginh定义的宏方式">依赖<code>JHAcrossNetEngin</code>组件的头文件<code>NetEngin.h</code>定义的宏方式</h4>
 <pre><code class="language-objc">/AppGroupUser
 #define AppGroupUserHttpHead [NSString stringWithFormat:@&quot;%@%@api.iuoooo.com/ugm.api/Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc&quot;, JHTWREQUESTPROTOCOL, NetFormat]
 </code></pre>
-
 <p>只需替换<code>JHAcrossNetEngin</code>组件<code>NetEngin.h</code>的宏定义,将<code>sns.iuoooo.com</code>替换为<code>api.iuoooo.com/ugm.api</code>
 然后,重新编译<code>JHAcrossNetEngin</code>组件库,并提交到主工程中.</p>
-
 <p><strong>图文组件</strong>组件中的接口<code>GetExistTypesOfUser</code>引用<code>AppGroupUserHttpHead</code>,需要重新编译库,并提交到主工程中.</p>
-
 <h4 id="主工程相关的域名替换">主工程相关的域名替换</h4>
-
-<p>无需编译,直接替换,提交源码即可<br />
+<p>无需编译,直接替换,提交源码即可<br>
 涉及到的相关文件:commitID <code>c0a320ec86bf612260028fec2e8b7b19646c83c7</code></p>
-
 <pre><code class="language-sh">modified:   JHUniversalApp/JHUniversalApp/Categories/AccessRelevantLayoutData.m
 modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/AcrossNetEngin/NetEngine.h
 modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/JinherUniversalStaticLib/ipFile.plist

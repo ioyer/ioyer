@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2014-06-09T23:26:22+08:00" />
 <meta itemprop="name" content="初步搭建Octopress">
 <meta itemprop="description" content="my information">
-
-
 <meta itemprop="datePublished" content="2014-06-09T23:26:22&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-09T23:26:22&#43;08:00" />
-<meta itemprop="wordCount" content="2993">
+<meta itemprop="wordCount" content="2958">
 
 
 
-<meta itemprop="keywords" content="octopress,blog,github,mou,ruby," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="octopress,blog,github,mou,ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="初步搭建Octopress"/>
 <meta name="twitter:description" content="my information"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 2993 字 </span>
+          <span class="more-meta"> 约 2958 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,206 +179,169 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#软件支持">软件支持：</a></li>
-<li><a href="#学习目的">学习目的：</a></li>
-<li><a href="#搭建环境">搭建环境：</a></li>
-<li><a href="#安装octpress">安装Octpress:</a>
-<ul>
-<li><a href="#配置">配置：</a></li>
-<li><a href="#写博客">写博客：</a></li>
-<li><a href="#添加多说">添加多说：</a></li>
-</ul></li>
-<li><a href="#tips">Tips:</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#发布图文">发布图文：</a></li>
-<li><a href="#域名">域名：</a></li>
-<li><a href="#添加百度统计和google-analytics">添加百度统计和google analytics</a></li>
-<li><a href="#原理">原理：</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#版本管理">版本管理</a></li>
-</ul>
+  <ul>
+    <li><a href="#配置">配置：</a></li>
+    <li><a href="#写博客">写博客：</a></li>
+    <li><a href="#添加多说">添加多说：</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="软件支持">软件支持：</h1>
-
+      <h1 id="软件支持">软件支持：</h1>
 <ol>
-<li><strong>Github</strong>:后台新建项目，点击<a href="https://help.github.com/articles/set­up­git">下载</a></li>
+<li><strong>Github</strong>:后台新建项目，点击<a href="https://help.github.com/articles/set%C2%ADup%C2%ADgit">下载</a></li>
 <li><strong>iTerm2</strong>:可以替代mac终端，相当强大。<a href="http://www.iterm2.com/#/section/home">下载</a></li>
 <li><strong>ruby</strong>:ruby安装包  <a href="http://ruby.taobao.org/mirrors/ruby/">下载</a></li>
 <li><strong>Mou</strong>:MarkDown编辑软件，可用于后期发布博客文章。<a href="http://mouapp.com/">下载</a></li>
 <li><strong>Xcode</strong>：它将帮助你安装好Unix环境需要的开发包。</li>
 </ol>
-
-<p>￼<!--显示文章缩略部分的标记方法-->
-<!-- more --></p>
-
+<p>￼<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <h1 id="学习目的">学习目的：</h1>
-
 <p>要求:搭建一个独立博客网站,首先要有台连接到英特网服务器,要有前端的页面和后端的数据库,以及域名等.</p>
-
 <ol>
-<li><p>github可以提供给我们的是,github一个免费的代码托管仓库,它支持用户html页面的显示,用户可以上传HTML文件,然后在远程像访问网页一样访问它。</p></li>
-
-<li><p>这时，博客还缺具有管理能力的网站后台,github不提供数据库等，对于博客这种数据规模很小,便可返璞归真,用回静态页面。</p></li>
-
-<li><p><strong>Octopress</strong>:能将易于编写的<strong>Markdown</strong>的文本，翻译成为繁琐的<strong>html</strong>页面，同时帮助用户管理<strong>html</strong>页面并发布到github page上。</p></li>
+<li>
+<p>github可以提供给我们的是,github一个免费的代码托管仓库,它支持用户html页面的显示,用户可以上传HTML文件,然后在远程像访问网页一样访问它。</p>
+</li>
+<li>
+<p>这时，博客还缺具有管理能力的网站后台,github不提供数据库等，对于博客这种数据规模很小,便可返璞归真,用回静态页面。</p>
+</li>
+<li>
+<p><strong>Octopress</strong>:能将易于编写的<strong>Markdown</strong>的文本，翻译成为繁琐的<strong>html</strong>页面，同时帮助用户管理<strong>html</strong>页面并发布到github page上。</p>
+</li>
 </ol>
-
 <h1 id="搭建环境">搭建环境：</h1>
-
 <ol>
-<li><p><strong>Github</strong>:既然要托管到github,那么便要有github的环境. 检查本机的git环境,在命令行输入 <code>git--version</code></p></li>
-
-<li><p><strong>Octopress</strong>:是基于Jekyll的,需要ruby的环境编译。检查本机ruby环境，命令行：<code>ruby-v</code>ruby的version1.9.3以上,新版的Mac,这些都是有装的。</p></li>
-
-<li><p><strong>gcc</strong>和<strong>make</strong>,ruby的环境需要gcc,这个会通过安装xcode的command line tool来完成安装 检查本机gcc环境，命令行：<code>gcc -v</code></p></li>
+<li>
+<p><strong>Github</strong>:既然要托管到github,那么便要有github的环境. 检查本机的git环境,在命令行输入 <code>git--version</code></p>
+</li>
+<li>
+<p><strong>Octopress</strong>:是基于Jekyll的,需要ruby的环境编译。检查本机ruby环境，命令行：<code>ruby-v</code>ruby的version1.9.3以上,新版的Mac,这些都是有装的。</p>
+</li>
+<li>
+<p><strong>gcc</strong>和<strong>make</strong>,ruby的环境需要gcc,这个会通过安装xcode的command line tool来完成安装 检查本机gcc环境，命令行：<code>gcc -v</code></p>
+</li>
 </ol>
-
 <h1 id="安装octpress">安装Octpress:</h1>
-
 <p>通过Git安装:</p>
-
 <ul>
 <li>下载<strong>Octopress</strong>：<code>gitclonegit://github.com/imathis/octopress.git octopress</code></li>
 <li>进入<strong>Octopress</strong>目录：<code>cd octopress</code></li>
 <li>安装必要的依赖包：
-
 <ul>
 <li><code>gem install bundler</code></li>
 <li><code>rbenv rehash</code> # If you use rbenv, rehash to be able to run the bundle command</li>
 <li><code>bundle install</code></li>
-</ul></li>
+</ul>
+</li>
 <li>最后安装Octopress:<code>rake install</code></li>
 </ul>
-
 <h2 id="配置">配置：</h2>
-
 <ul>
-<li>修改配置文件<strong>_config.yml</strong>：
-
+<li>修改配置文件**_config.yml**：
 <ul>
 <li>配置个人站点的信息：<strong>url</strong>:git远程库地址，<strong>title</strong>:博客题目,<strong>author</strong>:作者名,等。
-
 <ul>
 <li>注意：最好将twitter相关的配置信息全部删掉,否则由于GFW的原因,将会造成页面load很慢。</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>修改定制文件：/source/_includes/custom/head.html把google的自定义字体去掉,原因同上。</li>
 </ul>
-
 <h2 id="写博客">写博客：</h2>
-
 <p>博文是用markdown语法，另外扩充一些插件，网上相关介绍很多，例如：<a href="http://daringfireball.net/projects/markdown/">这个</a></p>
-
 <ul>
-<li><p>新建Markdown文件:          <code>rake new_post['文章名']</code>或 <code>rake new_page['404']</code></p></li>
-
-<li><p>翻译Mardown为静态文件:   <code>rake generate</code></p></li>
-
-<li><p>检测文件变化：           <code>rake watch</code></p></li>
-
-<li><p>启动本机测试端口4000：  <code>rake preview</code></p></li>
-
-<li><p>发布至git库：          <code>rake deploy</code></p></li>
+<li>
+<p>新建Markdown文件: 		 <code>rake new_post['文章名']</code>或 <code>rake new_page['404']</code></p>
+</li>
+<li>
+<p>翻译Mardown为静态文件:   <code>rake generate</code></p>
+</li>
+<li>
+<p>检测文件变化：			<code>rake watch</code></p>
+</li>
+<li>
+<p>启动本机测试端口4000：  <code>rake preview</code></p>
+</li>
+<li>
+<p>发布至git库：			<code>rake deploy</code></p>
+</li>
 </ul>
-
 <h2 id="添加多说">添加多说：</h2>
-
-<p>需要在多说网注册个帐号，添加站点，获取站点 <font color=red>short_name</font>.</p>
-
+<p>需要在多说网注册个帐号，添加站点，获取站点 <!-- raw HTML omitted -->short_name<!-- raw HTML omitted -->.</p>
 <ul>
-<li><p>######底部评论：</p>
-
+<li>
+<p>######底部评论：</p>
 <ul>
-<li>在 <font color=red> _config.yml</font>     中添加
+<li>在 <!-- raw HTML omitted --> _config.yml<!-- raw HTML omitted --> 	中添加
 {%codeblock lang:ruby %}
 #duoshuo comments
 duoshuo_comments: true
 duoshuo_short_name: yourname
 {%endcodeblock%}</li>
-</ul></li>
-
-<li><p>在<font color=red><code>source/_layouts/post.html</code></font>中的<font color=red> disqus</font>代码：</p></li>
 </ul>
-
+</li>
+<li>
+<p>在<!-- raw HTML omitted --><code>source/_layouts/post.html</code><!-- raw HTML omitted -->中的<!-- raw HTML omitted --> disqus<!-- raw HTML omitted -->代码：</p>
+</li>
+</ul>
 <p>{%codeblock lang:js %}
 { % if site.disqus_short_name and page.comments == true % }
-    <section>
-        <h1>Comments</h1>
-        <div id="disqus_thread" aria-live="polite">{ % include post/disqus_thread.html % }</div>
-    </section>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Comments<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{ % include post/disqus_thread.html % }<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 { % endif % }
 {%endcodeblock%}
-下方添加 <font color=red>多说评论</font> 模块:</p>
-
+下方添加 <!-- raw HTML omitted -->多说评论<!-- raw HTML omitted --> 模块:</p>
 <p>{%codeblock lang:js %}
-{ % if site.duoshuo_short_name and site.duoshuo_comments == true and  page.comments == true % }
-<section>
-            <h1>Comments</h1>
-                <div id="comments" aria-live="polite">{ % include post/duoshuo.html % }</div>
-                </section>
-{ % endif % }
-{%endcodeblock%}</p>
-
+{ % if site.duoshuo_short_name and site.duoshuo_comments == true and  page.comments == true % }</p>
+<!-- raw HTML omitted -->
 <ul>
-<li>然后就按路径创建一个<font color=red>source/_includes/post/duoshuo.html</font></li>
+<li>然后就按路径创建一个<!-- raw HTML omitted -->source/_includes/post/duoshuo.html<!-- raw HTML omitted --></li>
 </ul>
-
 <p>{%codeblock lang:js %}
-    <!-- Duoshuo Comment BEGIN -->
-    <div class="ds-thread" data-title="{% if site.titlecase %}{{ post.title | site.titlecase }}{% else %}{{ post.title }}{% endif %}"></div>
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:&ldquo;{{ site.duoshuo_short_name }}&ldquo;};
-      (function() {
-        var ds = document.createElement(&lsquo;script&rsquo;);
-        ds.type = &lsquo;text/javascript&rsquo;;
-        ds.async = true;
-        ds.src = &lsquo;<a href="http://static.duoshuo.com/embed.js'">http://static.duoshuo.com/embed.js'</a>;
-        ds.charset = &lsquo;UTF-8&rsquo;;
-        (document.getElementsByTagName(&lsquo;head&rsquo;)[0]  || document.getElementsByTagName(&lsquo;body&rsquo;)[0]).appendChild(ds);
-        })();
-    </script>
-    <!-- Duoshuo Comment END -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+var duoshuoQuery = {short_name:&quot;{{ site.duoshuo_short_name }}&quot;};
+(function() {
+var ds = document.createElement(&lsquo;script&rsquo;);
+ds.type = &lsquo;text/javascript&rsquo;;
+ds.async = true;
+ds.src = &lsquo;<a href="http://static.duoshuo.com/embed.js';">http://static.duoshuo.com/embed.js';</a>
+ds.charset = &lsquo;UTF-8&rsquo;;
+(document.getElementsByTagName(&lsquo;head&rsquo;)[0]  || document.getElementsByTagName(&lsquo;body&rsquo;)[0]).appendChild(ds);
+})();
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 {%endcodeblock%}</p>
-
-<p>随后，再修改 <font color=red>_includes/article.html </font>文件,</p>
-
+<p>随后，再修改 <!-- raw HTML omitted -->_includes/article.html <!-- raw HTML omitted -->文件,</p>
 <pre><code class="language-js">{ % if site.disqus_short_name and page.comments != false and post.comments !=false and site.disqus_show_comment_count == true % }
 			 | &lt;a href=&quot;{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#disqus_thread&quot;&gt;Comments&lt;/a&gt;
 { % endif % }
 </code></pre>
-
-<p>下方添加如下<font color=red>多说评论链接路径</font>：</p>
-
+<p>下方添加如下<!-- raw HTML omitted -->多说评论链接路径<!-- raw HTML omitted -->：</p>
 <p>{%codeblock lang:js %}
 { % if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true % }
-| <a href="{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#comments">Comments</a>
+| <!-- raw HTML omitted -->Comments<!-- raw HTML omitted -->
 { % endif % }</p>
-
 <p>{%endcodeblock %}</p>
-
 <ul>
-<li><p>######首页侧边栏插入最新评论</p>
-
+<li>######首页侧边栏插入最新评论
 <ul>
-<li><p>首先在 _config.yml 中再插入如下代码
+<li>
+<p>首先在 _config.yml 中再插入如下代码
 {%codeblock lang:ruby %}
 duoshuo_asides_num: 10      # 侧边栏评论显示条目数
 duoshuo_asides_avatars: 0   # 侧边栏评论是否显示头像
@@ -389,46 +349,23 @@ duoshuo_asides_time: 0      # 侧边栏评论是否显示时间
 duoshuo_asides_title: 0     # 侧边栏评论是否显示标题
 duoshuo_asides_admin: 0     # 侧边栏评论是否显示作者评论
 duoshuo_asides_length: 18   # 侧边栏评论截取的长度
-{%endcodeblock %}</p></li>
-
-<li><p>再创建 <font color=red>_includes/custom/asides/recent_comments.html</font>
-{%codeblock lang:html %}
-<section>
-<h1>Recent Comments</h1>
-<ul class="ds-recent-comments"
-data-num-items="{{ site.duoshuo_asides_num }}"
-data-show-avatars="{{ site.duoshuo_asides_avatars }}"
-data-show-time="{{ site.duoshuo_asides_time }}"
-data-show-title="{{ site.duoshuo_asides_title }}"
-data-show-admin="{{ site.duoshuo_asides_admin }}"
-data-excerpt-length="{{ site.duoshuo_asides_length }}"></ul>
-{ % if index % }
-<!-- 多说js加载开始，一个页面只需要加载一次 -->
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:&ldquo;{{ site.duoshuo_short_name }}&ldquo;};
-  (function() {
-    var ds = document.createElement(&lsquo;script&rsquo;);
-    ds.type = &lsquo;text/javascript&rsquo;;
-    ds.async = true;
-    ds.src = &lsquo;<a href="http://static.duoshuo.com/embed.js'">http://static.duoshuo.com/embed.js'</a>;
-    ds.charset = &lsquo;UTF-8&rsquo;;
-    (document.getElementsByTagName(&lsquo;head&rsquo;)[0]  ||
-    document.getElementsByTagName(&lsquo;body&rsquo;)[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说js加载结束，一个页面只需要加载一次 -->
-{ % endif % }
-</section>
-{%endcodeblock %}</p></li>
-</ul></li>
-
-<li><p>最后修改：<font color=red>_config.yml </font>配置:</p>
-
-<ul>
-<li>方式一：在<font color=red> blog_index_asides</font> 行或 <font color=red>page_asides </font>行或 <font color=red>post_asides </font>添加：</li>
-</ul></li>
+{%endcodeblock %}</p>
+</li>
+<li>
+<p>再创建 <!-- raw HTML omitted -->_includes/custom/asides/recent_comments.html<!-- raw HTML omitted -->
+{%codeblock lang:html %}</p>
+</li>
 </ul>
-
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>最后修改：<!-- raw HTML omitted -->_config.yml <!-- raw HTML omitted -->配置:
+<ul>
+<li>方式一：在<!-- raw HTML omitted --> blog_index_asides<!-- raw HTML omitted --> 行或 <!-- raw HTML omitted -->page_asides <!-- raw HTML omitted -->行或 <!-- raw HTML omitted -->post_asides <!-- raw HTML omitted -->添加：</li>
+</ul>
+</li>
+</ul>
 <p>{%codeblock lang:ruby %}
 blog_index_asides:[custom/asides/recent_comments.html]
 或
@@ -436,112 +373,120 @@ page_asides:[custom/asides/recent_comments.html]
 或
 post_asides:[custom/asides/recent_comments.html]
 {%endcodeblock %}</p>
-
 <ul>
-<li><p>方式二：将路径添加到 default_asides:[&hellip;] 中
+<li>
+<p>方式二：将路径添加到 default_asides:[&hellip;] 中
 {%codeblock lang:ruby %}
 default_asides: [custom/asides/recent_comments.html, asides/recent_posts.html, &hellip;]
-{%endcodeblock %}</p></li>
-
-<li><p>Update</p>
-
-<pre><code class="language-html"> 多说评论似乎升级了系统，无法自动获取到页面文章标题，所以手动在评论页插入 data-title。--2013.09.10
-</code></pre>
-
-<h1 id="tips">Tips:</h1></li>
-
-<li><h6 id="发布图文">发布图文：</h6></li>
+{%endcodeblock %}</p>
+</li>
+<li>
+<p>Update
+<code> html 多说评论似乎升级了系统，无法自动获取到页面文章标题，所以手动在评论页插入 data-title。--2013.09.10</code></p>
+</li>
 </ul>
-
+<h1 id="tips">Tips:</h1>
+<ul>
+<li>
+<h6 id="发布图文">发布图文：</h6>
+</li>
+</ul>
 <p>如果在文章中上传图片：</p>
-
 <pre><code>* 直接copy到/source/images目录即可。便可以以相对路径(/images/imgname.png)的形式，在文章中引用。
 
 * 或找一个图库站点，例如flickr之类，然后在文章中引用该图片远程路径即可。
 </code></pre>
-
 <ul>
-<li><h6 id="域名">域名：</h6>
-
+<li>
+<h6 id="域名">域名：</h6>
+</li>
+</ul>
 <p>如果有自己的域名空间，可以将域名指向自己的博客，步骤如下：</p>
+<pre><code>* **配置DNS(需购买域名)**:在域名管理中，新建一个CNAME指向，将自己的域名指向yourname.github.com.
 
+* **给repo配置域名**:在source目录里，新建一个名为CNAME的文件，然后将自己的域名输入即可。
+
+* 将内容push到github后，大概需审核一个小时左右生效，然后就可以使用自己的域名访问该博客了。
+</code></pre>
 <ul>
-<li><p><strong>配置DNS(需购买域名)</strong>:在域名管理中，新建一个CNAME指向，将自己的域名指向yourname.github.com.</p></li>
-
-<li><p><strong>给repo配置域名</strong>:在source目录里，新建一个名为CNAME的文件，然后将自己的域名输入即可。</p></li>
-
-<li><p>将内容push到github后，大概需审核一个小时左右生效，然后就可以使用自己的域名访问该博客了。</p></li>
-</ul></li>
-
-<li><h6 id="添加百度统计和google-analytics">添加百度统计和google analytics</h6>
-
+<li>
+<h6 id="添加百度统计和google-analytics">添加百度统计和google analytics</h6>
 <ul>
 <li>从<a href="http://tongji.baidu.com/">百度统计</a>获取脚本,然后添加到文件source/_includes/after_footer.html文件中。</li>
-<li>从<a href="https://support.google.com/analytics/">google analytics</a>获取跟踪ID,然后将这个ID添加到_config.yml文件的google_analytics_tracking_id后面即可。
-<!--![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "title text")--></li>
-</ul></li>
-
-<li><p><strong>Octopress</strong>目录结构，及之间的关系：</p></li>
+<li>从<a href="https://support.google.com/analytics/">google analytics</a>获取跟踪ID,然后将这个ID添加到_config.yml文件的google_analytics_tracking_id后面即可。</li>
 </ul>
-
-<p>￼<img src="/images/sourceFrame.png" alt="alt text" title="Octopress目录图解" /></p>
-
-<ul>
-<li><h6 id="原理">原理：</h6>
-
-<ul>
-<li><p>Octopress版本库：</p>
-
-<ul>
-<li><p><strong>gh-pages</strong>分支：用于存放生成的最终网页。</p></li>
-
-<li><p><strong>source</strong>分支:用于存放最初的markdown文件。</p></li>
-</ul></li>
+</li>
 </ul>
-
-<p>职责详述：平时写作和提交都在<strong>source</strong>分支下，当需要发布时，<code>rake deploy</code> 命令会将内容生成到public这个目录，然后将这个目录中的内容push到<strong>gh-pages</strong>分支中。</p></li>
-
-<li><ul>
+<!-- raw HTML omitted -->
+<ul>
+<li><strong>Octopress</strong>目录结构，及之间的关系：</li>
+</ul>
+<p>￼<img src="/images/sourceFrame.png" alt="alt text" title="Octopress目录图解"></p>
+<ul>
+<li>
+<h6 id="原理">原理：</h6>
+<ul>
+<li>
+<p>Octopress版本库：</p>
+<ul>
+<li>
+<p><strong>gh-pages</strong>分支：用于存放生成的最终网页。</p>
+</li>
+<li>
+<p><strong>source</strong>分支:用于存放最初的markdown文件。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>职责详述：平时写作和提交都在<strong>source</strong>分支下，当需要发布时，<code>rake deploy</code> 命令会将内容生成到public这个目录，然后将这个目录中的内容push到<strong>gh-pages</strong>分支中。</p>
+</li>
+</ul>
+<ul>
+<li>
+<ul>
 <li>其中<strong>sass</strong>和<strong>source</strong>:这是博客的源代码文件目录。发布时，需要把源代码也上传到github上,这样便可以多台机写博客了。</li>
-</ul></li>
-
-<li><ul>
-<li><strong>_deploy</strong>:是通过octopress生成的静态页面的博客文件夹,我们可以看到它的里面也有.git的文件。</li>
 </ul>
-
+</li>
+<li>
+<ul>
+<li><strong>_deploy</strong>:是通过octopress生成的静态页面的博客文件夹,我们可以看到它的里面也有.git的文件。
 <ul>
 <li>cd进到该目录,使用<code>git remote ­v</code>查看
 {%codeblock lang:js %}
-origin <a href="http://github.com/....github.io(fetch">http://github.com/....github.io(fetch</a>)
-origin <a href="http://github.com/....github.io(push">http://github.com/....github.io(push</a>)
+origin <a href="http://github.com/....github.io(fetch)">http://github.com/....github.io(fetch)</a>
+origin <a href="http://github.com/....github.io(push)">http://github.com/....github.io(push)</a>
 {%endcodeblock%}</li>
-</ul></li>
-
-<li><p>它会在我们使用<code>rake deploy</code>时自动push到该远程库的<strong>gh-pages</strong>分支。这时就不需要再手动push。只需要将博客源代码手动push到该远程库的<strong>source</strong>分支中.
-<strong>以上细节可参照Octopress根目录中Rakefile配置信息</strong></p></li>
-
-<li><ul>
-<li>使用多台电脑的同时写博客</li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li>它会在我们使用<code>rake deploy</code>时自动push到该远程库的<strong>gh-pages</strong>分支。这时就不需要再手动push。只需要将博客源代码手动push到该远程库的<strong>source</strong>分支中.
+<strong>以上细节可参照Octopress根目录中Rakefile配置信息</strong></li>
+<li>
 <ul>
-<li>1. 需要先拿把<strong>source</strong> code拿下来 <code>git pull origin source</code></li>
-
-<li><ol>
-<li><p><code>check in</code>更新,将本地 <strong>source</strong>分支上的代码，合并到远程仓库上</p>
-
+<li>使用多台电脑的同时写博客
+<ul>
+<li>
+<ol>
+<li>需要先拿把<strong>source</strong> code拿下来 <code>git pull origin source</code></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><code>check in</code>更新,将本地 <strong>source</strong>分支上的代码，合并到远程仓库上</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <pre><code>git add .
 git commit -m 'yourmessage'
 git push origin source
 </code></pre>
-
-<h1 id="版本管理">版本管理</h1></li>
-</ol></li>
-</ul></li>
-</ul>
-
+<h1 id="版本管理">版本管理</h1>
 <p>你可以先去github上新建一个空的Repo（最好是private的，否则可能会被其他人拿到你的source），拿到repo的url，然后到octopress目录下执行下面这些操作：</p>
-
 <pre><code class="language-ruby"># 因为你是从octopress github上clone的，所以需要把origin这个branch换一个名字
 git remote rename origin octopress
 git remote add origin (your github url)
@@ -550,16 +495,12 @@ git config branch.master.remote origin
 # 把你的octopress导入到github上去
 git push -u origin master
 </code></pre>
-
 <p>如果你新增加了博客或者修改了某些内容，你可以把你的改动commit到github上去：</p>
-
 <pre><code>git add source
 git commit -a -m 'new blog or edit some blog'
 git push -u origin master
 </code></pre>
-
 <p>如果octopress有更新，你可以直接pull octopress这个branch进行更新即可</p>
-
 <pre><code>git pull octopress master
 git push -u origin master
 </code></pre>

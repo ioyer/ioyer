@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%97%9B%E5%AE%9A%E6%80%9D%E7%97%9B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%BC%8A%E7%97%85/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-05-27T15:06:17+00:00" />
 <meta itemprop="name" content="痛定思痛的项目管理弊病">
 <meta itemprop="description" content="问题 现状：两个项目源码存在八成为同样的代码，管理在两个SVN库中。 背景：从一个SVN项目分裂成两个独立项目（PBB_2/Reader_v2）">
-
-
 <meta itemprop="datePublished" content="2017-05-27T15:06:17&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-27T15:06:17&#43;00:00" />
-<meta itemprop="wordCount" content="1242">
+<meta itemprop="wordCount" content="1228">
 
 
 
-<meta itemprop="keywords" content="工具,管理,命令," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具,管理,命令," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="痛定思痛的项目管理弊病"/>
 <meta name="twitter:description" content="问题 现状：两个项目源码存在八成为同样的代码，管理在两个SVN库中。 背景：从一个SVN项目分裂成两个独立项目（PBB_2/Reader_v2）"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 1242 字 </span>
+          <span class="more-meta"> 约 1228 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,98 +179,89 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#问题">问题</a></li>
-<li><a href="#方案一-打补丁法合并源码">方案一：打补丁法合并源码</a></li>
-<li><a href="#方案二-项目模块化合并">方案二：项目模块化合并</a>
-<ul>
-<li><a href="#否决方案二-采用手动合并">否决方案二，采用手动合并</a></li>
-</ul></li>
-<li><a href="#祖先引用">祖先引用</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#问题">问题</a></li>
+        <li><a href="#方案一打补丁法合并源码">方案一：打补丁法合并源码</a></li>
+        <li><a href="#方案二项目模块化合并">方案二：项目模块化合并</a></li>
+        <li><a href="#祖先引用">祖先引用</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="问题">问题</h3>
-
-<hr />
-
+      <h3 id="问题">问题</h3>
+<hr>
 <p>现状：两个项目源码存在八成为同样的代码，管理在两个SVN库中。
-背景：从一个SVN项目分裂成两个独立项目（PBB_2/Reader_v2）对应延伸出来SVN库，随后在两个库中开发不同的功能版本（PBB_7/Reader_v9）。<br />
+背景：从一个SVN项目分裂成两个独立项目（PBB_2/Reader_v2）对应延伸出来SVN库，随后在两个库中开发不同的功能版本（PBB_7/Reader_v9）。 <br>
 需求：现在准备将两项目中新增的功能重新合并起来，即将PBB_v7合并到Reader_v9中。
 分析：需要把PBB_v3&ndash;PBB_v7的5个提交，合并到Reader_v9中</p>
-
 <p>对PBB迭代的十几个版本中新增的功能涉及面太广，手动合并出错率高，协作难度大，纯劳力搬砖着实要命。
 以下总结几条建议</p>
-
-<h3 id="方案一-打补丁法合并源码">方案一：打补丁法合并源码</h3>
-
-<hr />
-
+<h3 id="方案一打补丁法合并源码">方案一：打补丁法合并源码</h3>
+<hr>
 <p>注：仅适用于同一个库使用</p>
-
-<p>实现步骤：
-1. git-svn命令把svn库转为git库
-2. 将5个提交重演到Reader_v9版中</p>
-
-<p>重演方案：
-1. 打补丁法：通过压缩提交法把PBB_v7若干提交整合成一个提交，再创建一个补丁，重演到Reader_v9上
-    1. 交互变基压缩法，压缩成一个提交
-    2. reset压缩提交法，将提交压缩 git reset &ndash;soft 1bf27c6a33d87c2e36fa75431224124f91d8b482</p>
-
+<p>实现步骤：</p>
+<ol>
+<li>git-svn命令把svn库转为git库</li>
+<li>将5个提交重演到Reader_v9版中</li>
+</ol>
+<p>重演方案：</p>
+<ol>
+<li>打补丁法：通过压缩提交法把PBB_v7若干提交整合成一个提交，再创建一个补丁，重演到Reader_v9上
+<ol>
+<li>交互变基压缩法，压缩成一个提交</li>
+<li>reset压缩提交法，将提交压缩 git reset &ndash;soft 1bf27c6a33d87c2e36fa75431224124f91d8b482</li>
+</ol>
+</li>
+</ol>
 <p>案例：在大型项目中，贡献者常以使用补丁文件贡献代码
 结论：打补丁法的前提打补丁的宿主库必须和将要应用补丁的库为同一库源。故使用版本库来合并两个独立不想关的svn库，无法通过打补丁法实现合并。</p>
-
-<h3 id="方案二-项目模块化合并">方案二：项目模块化合并</h3>
-
-<hr />
-
-<p>在PBB Reader中通过项目依赖整合IJK／mupdf／maker
-1. 操作
-    1. 取消Maker原有IJK，mupdf的依赖
-    2. 在PBB Reader中配置Maker依赖 ：隐私空间涉及到的阅读功能在Reader中实现
-    3. 新需求开发
-2. 好处
-    1. 源码隔离，功能共享，对现有功能的源码无要做任何修改
-    2. 项目之间相互独立，便于后续拆分或整合
-    3. 更多精力专注代码优化</p>
-
-<h4 id="否决方案二-采用手动合并">否决方案二，采用手动合并</h4>
-
+<h3 id="方案二项目模块化合并">方案二：项目模块化合并</h3>
+<hr>
+<p>在PBB Reader中通过项目依赖整合IJK／mupdf／maker</p>
+<ol>
+<li>操作
+<ol>
+<li>取消Maker原有IJK，mupdf的依赖</li>
+<li>在PBB Reader中配置Maker依赖 ：隐私空间涉及到的阅读功能在Reader中实现</li>
+<li>新需求开发</li>
+</ol>
+</li>
+<li>好处
+<ol>
+<li>源码隔离，功能共享，对现有功能的源码无要做任何修改</li>
+<li>项目之间相互独立，便于后续拆分或整合</li>
+<li>更多精力专注代码优化</li>
+</ol>
+</li>
+</ol>
+<h4 id="否决方案二采用手动合并">否决方案二，采用手动合并</h4>
 <p>Reader本属于一个播放器，是从PBB应用的lite版，主要业务都是在PBB中实现的，当前需求是让PBB集成到Reader中，如何使用PBB Framework集成，需要暴漏大量的接口，业务层的高耦合性已经违背了封装原则。故作罢。</p>
-
 <p>突破了合并时遇到的棘手问题，加密崩溃，最终排查出socker传输结构体导致的异常，maker和Reader之间的差异导致合并过程更加困难，最终采用对讲maker中对加密实现文件的封装，在集成到Reader中，即隔离冲突，暴露功能，程序架构集成过程中更便捷合理化。</p>
-
-<hr />
-
+<hr>
 <p>相关知识：</p>
-
 <p>引用日志：
 git reflog
 引用日志只存在本地仓库中，只记录第一次clone到之后，在本地仓库中的操作日志，服务器端不会同步这些引用记录，所以在本地无法查看别人的引用日志。</p>
-
 <h3 id="祖先引用">祖先引用</h3>
-
-<p>几种表达式含义
-* 第一种：^/^^^(多个)
+<p>几种表达式含义</p>
+<ul>
+<li>
+<p>第一种：^/^^^(多个)
 HEAD^:指向祖先提交
 hash值^（^^^） :指向该引用的上一个提交，几个符号就是指向上几个提交
 ^数字:只适用于合并（merge）提交，有多个父提交。如：hash值^2表示第二父提交。第一父提交是指合并时所在的分支，第二父提交是指合并进来的分支。</p>
-
-<ul>
-<li>第二种：~数字
+</li>
+<li>
+<p>第二种：~数字
 HEAD~: 指向祖先提交
-HEAD~数字:指向指向上几个提交<br />
-hash值^数字:指向该引用的上几个提交</li>
+HEAD~数字:指向指向上几个提交<br>
+hash值^数字:指向该引用的上几个提交</p>
+</li>
 </ul>
 
     </div>

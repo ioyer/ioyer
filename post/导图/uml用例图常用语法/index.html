@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AF%BC%E5%9B%BE/uml%E7%94%A8%E4%BE%8B%E5%9B%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-06-04T21:20:41+00:00" />
 <meta itemprop="name" content="uml用例图常用语法">
 <meta itemprop="description" content=":Main Admin: as Admin (Use the application) as (Use) User -&gt; (Start) User --&gt; (Use) Admin ---&gt; (Use) note right of Admin : This is an example. note right of (Use) A note can also be on several lines end note note &quot;This note is connected\nto several objects.&quot; as N2 (Start) .. N2 N2 .. (Use) 效果图 :Main Admin: as Admin (Use the application) as (Use) User -&gt;">
-
-
 <meta itemprop="datePublished" content="2018-06-04T21:20:41&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-04T21:20:41&#43;00:00" />
-<meta itemprop="wordCount" content="432">
+<meta itemprop="wordCount" content="430">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="uml用例图常用语法"/>
 <meta name="twitter:description" content=":Main Admin: as Admin (Use the application) as (Use) User -&gt; (Start) User --&gt; (Use) Admin ---&gt; (Use) note right of Admin : This is an example. note right of (Use) A note can also be on several lines end note note &quot;This note is connected\nto several objects.&quot; as N2 (Start) .. N2 N2 .. (Use) 效果图 :Main Admin: as Admin (Use the application) as (Use) User -&gt;"/>
 
@@ -172,7 +169,7 @@ autocomplete('#aa-search-input',
         <div class="post-category">
             <a href="/categories/%E5%AF%BC%E5%9B%BE/"> 导图 </a>
             </div>
-          <span class="more-meta"> 约 432 字 </span>
+          <span class="more-meta"> 约 430 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -182,20 +179,14 @@ autocomplete('#aa-search-input',
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#usecase-用例名称-as-描述一">usecase <code>用例名称</code> as &ldquo; <code>描述一</code></a></li>
-</ul></li>
-<li><a href="#描述2"><code>描述2</code></a></li>
-</ul>
+  <ul>
+    <li><a href="#usecase-用例名称-as--描述一">usecase <code>用例名称</code> as &quot; <code>描述一</code></a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<pre><code>:Main Admin: as Admin
+      <pre><code>:Main Admin: as Admin
 (Use the application) as (Use)
 
 User -&gt; (Start)
@@ -213,9 +204,7 @@ note &quot;This note is connected\nto several objects.&quot; as N2
 (Start) .. N2
 N2 .. (Use)
 </code></pre>
-
 <p>效果图</p>
-
 <pre><code class="language-puml">:Main Admin: as Admin
 (Use the application) as (Use)
 
@@ -234,41 +223,31 @@ note &quot;This note is connected\nto several objects.&quot; as N2
 (Start) .. N2
 N2 .. (Use)
 </code></pre>
-
 <p>title <code>uml模型图题目支持MD</code>
 center header
 <code>在此处添加标头</code>
 endheader</p>
-
 <p>&lsquo;*******  声明用例模块 usecase *******&rsquo;
-(<code>用例名称</code>) as (<code>别名</code>) &lt;&lt;<code>构造类型</code>&gt;&gt;</p>
-
-<h2 id="usecase-用例名称-as-描述一">usecase <code>用例名称</code> as &ldquo; <code>描述一</code></h2>
-
+(<code>用例名称</code>) as (<code>别名</code>) &laquo;<code>构造类型</code>&raquo;</p>
+<h2 id="usecase-用例名称-as--描述一">usecase <code>用例名称</code> as &quot; <code>描述一</code></h2>
 <h1 id="描述2"><code>描述2</code></h1>
-
 <p><code>描述3</code>
 .. <code>描述标题</code> ..
 <code>描述4</code>
-&ldquo;
+&quot;
 &lsquo;*******  声明角色模块 actor *******&rsquo;
 :<code>角色名称</code>: as <code>别名</code>
 actor <code>角色名称</code></p>
-
-<p>&rsquo;&mdash;- 声明备注:用例线备注可以当做用例来参与到关系连接中&mdash;&rsquo;
+<p>&lsquo;&mdash;- 声明备注:用例线备注可以当做用例来参与到关系连接中&mdash;&rsquo;
 note &ldquo;<code>备注内容</code>&rdquo; as <code>备注对象</code></p>
-
-<p>&rsquo;#####  备注模块 位置：left/right/top/bottom  #####&rsquo;
+<p>&lsquo;#####  备注模块 位置：left/right/top/bottom  #####&rsquo;
 note <code>位置</code>  of <code>用例/角色</code>: <code>描述信息</code></p>
-
-<p>&rsquo;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;  关系模块  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&rsquo;
+<p>&lsquo;&raquo;&raquo;&raquo;&raquo;&raquo;  关系模块  &raquo;&raquo;&raquo;&raquo;&raquo;&rsquo;
 left to right dirction  &lsquo;指定布局方向&rsquo;
 <code>角色</code> &ndash;&gt; <code>用例</code>:<code>关系线描述</code></p>
-
-<p>&rsquo;&mdash;- 用例关系中的备注对象 &mdash;-&rsquo;
+<p>&lsquo;&mdash;- 用例关系中的备注对象 &mdash;-&rsquo;
 <code>角色</code> &ndash;&gt;<code>备注对象</code>
 <code>备注对象</code> &ndash;&gt;<code>用例</code></p>
-
 <p>center footer
 <code>在此处添加脚注</code>
 endfooter</p>

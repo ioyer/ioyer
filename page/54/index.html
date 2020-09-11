@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -45,12 +45,9 @@
 <meta property="og:description" content="不物喜,不己悲;善假物,易参行." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://it-boyer.github.io/" />
-
-<meta property="og:updated_time" content="2020-08-30T23:02:53+08:00" />
+<meta property="og:updated_time" content="2015-12-22T12:39:04+00:00" />
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
-<meta itemprop="description" content="不物喜,不己悲;善假物,易参行.">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="不物喜,不己悲;善假物,易参行."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
 <meta name="twitter:description" content="不物喜,不己悲;善假物,易参行."/>
 
@@ -166,7 +163,7 @@ autocomplete('#aa-search-input',
           <a href="/categories/xcode/"> xcode </a>
           <a href="/categories/instrument/"> instrument </a>
           </div>
-        <span class="more-meta"> 约 592 字 </span>
+        <span class="more-meta"> 约 588 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
     </div>
   </header>
@@ -174,9 +171,7 @@ autocomplete('#aa-search-input',
   <div class="post-content">
     <div class="post-summary">
       <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-
 <p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-
 <pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
 </code></pre>
     </div>
@@ -202,8 +197,7 @@ autocomplete('#aa-search-input',
   
   <div class="post-content">
     <div class="post-summary">
-      <h3 id="uidevice-h">UIDevice.h</h3>
-
+      <h3 id="uideviceh">UIDevice.h</h3>
 <pre><code class="language-objc">+ (UIDevice *)currentDevice; 		  // 获取当前设备
 
 NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
@@ -214,7 +208,6 @@ NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;
 UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
 NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
 </code></pre>
-
 <pre><code class="language-objc">    UIDeviceOrientationUnknown,
     UIDeviceOrientationPortrait,                    // 竖向，头向上
     UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
@@ -223,8 +216,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
     UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
     UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
 </code></pre>
-
-<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br />
+<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
 #define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
 {%endcodeblock %}
@@ -246,7 +238,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
       <div class="post-category">
           <a href="/categories/ios/"> iOS </a>
           </div>
-        <span class="more-meta"> 约 2363 字 </span>
+        <span class="more-meta"> 约 2360 字 </span>
         <span class="more-meta"> 预计阅读 5 分钟 </span>
     </div>
   </header>
@@ -254,13 +246,13 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
   <div class="post-content">
     <div class="post-summary">
       <h2 id="text-kit">Text Kit</h2>
-
-<p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。<br />
-&gt;<font size=3>更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br />
-例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。</font></p>
-
-<p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br />
-在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br />
+<p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。</p>
+<blockquote>
+<p><!-- raw HTML omitted -->更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
+例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。<!-- raw HTML omitted --></p>
+</blockquote>
+<p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br>
+在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br>
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：</p>
     </div>
     <div class="read-more">
@@ -278,7 +270,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
           <a href="/categories/ios/"> iOS </a>
           <a href="/categories/%E7%89%B9%E6%80%A7/"> 特性 </a>
           </div>
-        <span class="more-meta"> 约 4060 字 </span>
+        <span class="more-meta"> 约 4123 字 </span>
         <span class="more-meta"> 预计阅读 9 分钟 </span>
     </div>
   </header>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%B0%83%E8%AF%95/crash%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2017-02-07T12:38:58+00:00" />
 <meta itemprop="name" content="Crash文件分析方法">
 <meta itemprop="description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app">
-
-
 <meta itemprop="datePublished" content="2017-02-07T12:38:58&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-07T12:38:58&#43;00:00" />
 <meta itemprop="wordCount" content="386">
 
 
 
-<meta itemprop="keywords" content="工具,测试,管理," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="工具,测试,管理," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Crash文件分析方法"/>
 <meta name="twitter:description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app"/>
 
@@ -182,52 +179,35 @@ autocomplete('#aa-search-input',
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p>第一步：在任意目录创建调试crash的目录</p>
-
 <p>第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app.dSYM</p>
-
 <p>第三步：将symbolicatecrash工具copy到crash目录</p>
-
 <pre><code class="language-ruby">find /Applications/Xcode.app -name symbolicatecrash -type f
 </code></pre>
-
 <p>2.用命令将symbolicatecrash拷贝到桌面的crash文件夹里面，与.app和.app.dSYM放一起
 拷贝到crash目录：</p>
-
 <pre><code class="language-sh">cp /Applications/Xcode.app/.../symbolicatecrash /Users/Desktop/crash
 </code></pre>
-
 <p>第四步：执行symbolicatecrash
 1.打开终端用命令切换到桌面的crash目录下：</p>
-
 <pre><code class="language-sh">cd /Users/你的电脑名称/Desktop/crash
 </code></pre>
-
 <p>2.执行命令</p>
-
 <pre><code class="language-sh">./symbolicatecrash /Users/Desktop/crash/PBB.crash /Users/Desktop/crash/Control.app.dSYM &gt; Control_symbol.crash
 </code></pre>
-
 <p>这时候终端有可能会出现：<code>Error: &quot;DEVELOPER_DIR&quot; is not defined at ./symbolicatecrash line 60.</code></p>
-
 <p>3.输入命令：</p>
-
 <pre><code class="language-sh">export DEVELOPER_DIR=&quot;/Applications/XCode.app/Contents/Developer&quot; 
 </code></pre>
-
 <p>4.再执行 2.的命令行</p>
-
 <p>5.将终端完成以后，在crash文件夹里面会多出一个文件Control_symbol.crash。</p>
-
 <pre><code class="language-sh">Unsupported crash log version: 12 at ./symbolicatecrash line 614.
 </code></pre>
-
 <p>第五步：</p>
-
 <pre><code class="language-sh">dwarfdump --lookup 0x000cf358 --arch armv7 appname.app.dSYM/
 </code></pre>
 

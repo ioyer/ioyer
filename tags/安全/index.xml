@@ -21,49 +21,36 @@
 Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.
 As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.
 举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。&lt;/p&gt;
-
 &lt;h1 id=&#34;representing-and-throwing-errors&#34;&gt;Representing and Throwing Errors&lt;/h1&gt;
-
 &lt;p&gt;In Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.
 在swift中，错误类型是遵循Error 协议。&lt;/p&gt;
-
 &lt;p&gt;Swift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:
 swift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：
 一个在操作一台游戏机时的会出现的错误枚举类：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;enum VendingMachineError: Error {
 case invalidSelection
 case insufficientFunds(coinsNeeded: Int)
 case outOfStock
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:
 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;handling-errors&#34;&gt;Handling Errors&lt;/h1&gt;
-
 &lt;p&gt;When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.
 当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。&lt;/p&gt;
-
 &lt;p&gt;There are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.
 在swift中有四种处理错误机制:
-    1. 向调用方法中传递这个错误
-    2. 使用do-catch语句处理
-    3. 把错误设置为可选型
-    4.断言不会出现异常的情况下，使用try!禁止异常抛出&lt;/p&gt;
-
+1. 向调用方法中传递这个错误
+2. 使用do-catch语句处理
+3. 把错误设置为可选型
+4.断言不会出现异常的情况下，使用try!禁止异常抛出&lt;/p&gt;
 &lt;p&gt;When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.
 当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字&lt;code&gt;try&lt;/code&gt; 要注意 &lt;code&gt;try?&lt;/code&gt;或&lt;code&gt;try!&lt;/code&gt;之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。&lt;/p&gt;
-
 &lt;h2 id=&#34;propagating-errors-using-throwing-functions&#34;&gt;Propagating Errors Using Throwing Functions&lt;/h2&gt;
-
 &lt;p&gt;To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&amp;gt;).
 函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：&lt;code&gt;throws&lt;/code&gt;即可，这种方法被称为&lt;code&gt;throws&lt;/code&gt;函数，&lt;code&gt;throws&lt;/code&gt;关键字位置在参数之后，返回值(-&amp;gt;)之前&lt;/p&gt;
-
 &lt;p&gt;A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
 抛出函数会把错误抛给调用它的函数周期中去。&lt;/p&gt;</description>
     </item>
