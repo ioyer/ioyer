@@ -525,25 +525,23 @@ return nil
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2017-01-11 17:04:21 \u002b0000 UTC',
         title: 'swift错误处理',
-        link: decodeURI(location.href),
-        desc: '\u003cp\u003eError handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.\nSome operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.\nAs an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.\n举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。\u003c\/p\u003e\n\u003ch1 id=\u0022representing-and-throwing-errors\u0022\u003eRepresenting and Throwing Errors\u003c\/h1\u003e\n\u003cp\u003eIn Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.\n在swift中，错误类型是遵循Error 协议。\u003c\/p\u003e\n\u003cp\u003eSwift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:\nswift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：\n一个在操作一台游戏机时的会出现的错误枚举类：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-swift\u0022\u003eenum VendingMachineError: Error {\ncase invalidSelection\ncase insufficientFunds(coinsNeeded: Int)\ncase outOfStock\n}\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003eThrowing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:\n抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-swift\u0022\u003ethrow VendingMachineError.insufficientFunds(coinsNeeded: 5)\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch1 id=\u0022handling-errors\u0022\u003eHandling Errors\u003c\/h1\u003e\n\u003cp\u003eWhen an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.\n当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。\u003c\/p\u003e\n\u003cp\u003eThere are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.\n在swift中有四种处理错误机制:\n1. 向调用方法中传递这个错误\n2. 使用do-catch语句处理\n3. 把错误设置为可选型\n4.断言不会出现异常的情况下，使用try!禁止异常抛出\u003c\/p\u003e\n\u003cp\u003eWhen a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.\n当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字\u003ccode\u003etry\u003c\/code\u003e 要注意 \u003ccode\u003etry?\u003c\/code\u003e或\u003ccode\u003etry!\u003c\/code\u003e之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。\u003c\/p\u003e\n\u003ch2 id=\u0022propagating-errors-using-throwing-functions\u0022\u003ePropagating Errors Using Throwing Functions\u003c\/h2\u003e\n\u003cp\u003eTo indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-\u0026gt;).\n函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：\u003ccode\u003ethrows\u003c\/code\u003e即可，这种方法被称为\u003ccode\u003ethrows\u003c\/code\u003e函数，\u003ccode\u003ethrows\u003c\/code\u003e关键字位置在参数之后，返回值(-\u0026gt;)之前\u003c\/p\u003e\n\u003cp\u003eA throwing function propagates errors that are thrown inside of it to the scope from which it’s called.\n抛出函数会把错误抛给调用它的函数周期中去。\u003c\/p\u003e',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 

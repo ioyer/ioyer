@@ -296,25 +296,23 @@ $ source /etc/profile //命令生效
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2018-10-14 23:27:01 \u002b0000 UTC',
         title: 'opkg在小米路由器的使用',
-        link: decodeURI(location.href),
-        desc: '{% github openwrt openwrt 759f111 width = 30% %} openwrt.io 小米路由器固件信息 路由器read-only file system怎么改权限 mount -o remount,rw \/ 新建配置 备份初始conf mv \/etc\/opkg.conf \/etc\/opkg.conf.bak 开始配置 vim \/etc\/opkg.conf src\/gz attitude_adjustment_base',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 

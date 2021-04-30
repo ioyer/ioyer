@@ -245,25 +245,23 @@ Build project (Product → Build).</p>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2018-10-06 14:50:12 \u002b0000 UTC',
         title: '配置Podfile支持playground导入库',
-        link: decodeURI(location.href),
-        desc: 'pod支持问题 xcode-playground-with-cocoapods You could use ThisCouldBeUsButYouPlaying or add this to your Podfile xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库 Rx',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 

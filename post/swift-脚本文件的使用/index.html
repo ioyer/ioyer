@@ -261,25 +261,23 @@ $ swift build<br>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2020-09-13 22:33:34 \u002b0800 CST',
         title: '创建单个 swift 可执行文件',
-        link: decodeURI(location.href),
-        desc: 'xcrun\/swift 命令工具 第一种 vi test.swift #!\/usr\/bin\/env xcrun swift print(\u0026ldquo;hello\u0026rdquo;) $ chmod 755 test.swift $ .\/test.swift 第二种 $ cat \u0026laquo;EOF \u0026gt; script #!\/usr\/bin\/swift print(\u0026ldquo;Hi!\u0026quot;) EOF $ chmod u\u002bx script $ .\/script Hi! swift-sh 支持库依赖 安装命令 brew install swift-sh 使用 $ cat \u0026laquo;EOF \u0026gt; script #!\/usr\/bin\/swift sh import PromiseKit \/\/ @mxcl ~\u0026gt; 6.5 print(Promise.value(\u0026ldquo;Hi!\u0026quot;)) EOF $ chmod',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 

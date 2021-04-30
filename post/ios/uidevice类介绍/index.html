@@ -402,25 +402,23 @@ UIKIT_EXTERN NSString *const UIDeviceProximityStateDidChangeNotification NS_AVAI
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2014-06-17 15:12:53 \u002b0800 CST',
         title: 'UIDevice类介绍',
-        link: decodeURI(location.href),
-        desc: '\u003ch3 id=\u0022uideviceh\u0022\u003eUIDevice.h\u003c\/h3\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-objc\u0022\u003e\u002b (UIDevice *)currentDevice; \t\t  \/\/ 获取当前设备\n\nNSString    *name;               \t  \/\/ e.g. \u0026quot;My iPhone\u0026quot;  \nNSString    *model;              \t  \/\/ e.g. @\u0026quot;iPhone\u0026quot;, @\u0026quot;iPod touch\u0026quot;  \nNSString    *localizedModel;     \t  \/\/ localized version of model  \nNSString    *systemName;     \t\t  \/\/ e.g. @\u0026quot;iOS\u0026quot;  \nNSString    *systemVersion;   \t  \/\/ e.g. @\u0026quot;4.0\u0026quot;  \nUIDeviceOrientation orientation;    \/\/除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  \nNSUUID *identifierForVendor         \/\/可用于唯一标识该设备，同一供应商不同应用具有相同的UUID\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-objc\u0022\u003e    UIDeviceOrientationUnknown,\n    UIDeviceOrientationPortrait,                    \/\/ 竖向，头向上\n    UIDeviceOrientationPortraitUpsideDown,  \t\t\/\/ 竖向，头向下\n    UIDeviceOrientationLandscapeLeft,         \t\t\/\/ 横向，头向左\n    UIDeviceOrientationLandscapeRight,       \t\t\/\/ 横向，头向右\n    UIDeviceOrientationFaceUp,                  \t\/\/ 平放，屏幕朝下\n    UIDeviceOrientationFaceDown                \t \/\/ 平放，屏幕朝下\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003e\/\/使用内置的宏定义的函数，根据\u003cstrong\u003eorientation\u003c\/strong\u003e判断设备方向,返回值类型\u003cstrong\u003eBOOL\u003c\/strong\u003e.\u003cbr\u003e\n{%codeblock lang:java 纵向宏定义,返回YES:纵向%}\n#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)\n{%endcodeblock %}\n{%codeblock lang:java 横向宏定义,返回YES:横向%}\n#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)\n{%endcodeblock%}\u003c\/p\u003e',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 

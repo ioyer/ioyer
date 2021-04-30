@@ -244,25 +244,23 @@ git commit  &ndash;amend &ndash;author=wangz</p>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2018-04-04 17:44:24 \u002b0000 UTC',
         title: '当项目过大需要通过SSH方式Clone',
-        link: decodeURI(location.href),
-        desc: '设置全局提交信息 git config --global user.email \u0026quot;you@example.com\u0026quot; git config --global user.name \u0026quot;Your Name\u0026quot; 修改最后一次提交的用户名信息 ``git git config user.name \u0026lsquo;wangz\u0026rsquo; git config user.email \u0026lsquo;wangz@alib.com\u0026rsquo; git commit \u0026ndash;amend \u0026ndash;author=wangz ### 项目过大问题 \u0026gt;git clone 主工程出现 fatal: The remote end hung up unexpectedly3) 通常的',
-        owner: 'it-boyer',
+        clientID: 'd46ea301857e36a08319',
+        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
+        owner: 'it-boyer',
+        admin: ['it-boyer'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
   
 
