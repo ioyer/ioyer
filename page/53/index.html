@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.809e28ce.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -97,41 +98,23 @@
         <li class="mobile-menu-item">文档</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">Even</a>
   
-   <div class="modal-body">
-           <div class="aa-input-container" id="aa-input-container">
-    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for titles or URIs..." name="search" autocomplete="off" />
-    <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
-        <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
-    </svg>
 </div>
-<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js"></script>
-<script src="https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js"></script>
-<script>
-var client = algoliasearch("DL4WEHTC05", "6bf0b46d45334edb64efc572e1cd4668");
-var index = client.initIndex('qikqiak-blog');
-autocomplete('#aa-search-input',
-{ hint: false}, {
-    source: autocomplete.sources.hits(index, {hitsPerPage: 8}),
-    displayKey: 'name',
-    templates: {
-        suggestion: function(suggestion) {
-            console.log(suggestion);
-            return '<span>' + '<a href="/' + suggestion.objectID + '">' +
-            suggestion._highlightResult.title.value + '</a></span>';
-        }
-    }
-});
-</script>
 
-   </div>
-  
-</div>
+
+
+
+
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -154,40 +137,6 @@ autocomplete('#aa-search-input',
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-01-21 </span>
-      <div class="post-category">
-          <a href="/categories/shell/"> shell </a>
-          </div>
-        <span class="more-meta"> 约 738 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>安装ruby环境：
-方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
-方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
-方法三：使用macport安装 <code>port install ruby</code></p>
-<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
-<p>问题：<br>
-<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
-<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
-最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
-<h4 id="gem介绍">Gem介绍</h4>
-<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
-<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
@@ -426,6 +375,46 @@ constant:0]];</p>
   </div>
 </article>
 
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/xcode/"> xcode </a>
+          <a href="/categories/%E6%96%87%E6%A1%A3/"> 文档 </a>
+          </div>
+        <span class="more-meta"> 约 4559 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
+<p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
+<p>通过本教程，将学习如下几点：</p>
+<ul>
+<li>如何书写 HeaderDoc 风格的注释</li>
+<li>分如何在 Xcode 中预览文档</li>
+<li>如何生成 HTML 文档</li>
+<li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
+</ul>
+<h4 id="准备工作">准备工作</h4>
+<p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
+<p>这个简单的示例程序只包含了两个类：</p>
+<ul>
+<li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
+<li>MathAPI: 包含了1个方法，用于累加两个数。
+现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     </section>
   
   <nav class="pagination">
@@ -474,11 +463,7 @@ constant:0]];</p>
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">iTBoyer</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 
@@ -498,7 +483,10 @@ constant:0]];</p>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 
