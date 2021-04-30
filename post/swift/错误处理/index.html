@@ -32,7 +32,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" />
@@ -44,7 +44,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -87,9 +87,10 @@ To indicate that a function, method, or initializer can throw an error, you writ
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
 抛出函数会把错误抛给调用它的函数周期中去。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" />
-<meta property="article:published_time" content="2017-01-11T17:04:21+00:00" />
-<meta property="article:modified_time" content="2017-01-11T17:04:21+00:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-01-11T17:04:21&#43;00:00" />
+<meta property="article:modified_time" content="2017-01-11T17:04:21&#43;00:00" />
+
 <meta itemprop="name" content="swift错误处理">
 <meta itemprop="description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
 Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.
@@ -126,13 +127,9 @@ Propagating Errors Using Throwing Functions
 To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&gt;).
 函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：throws即可，这种方法被称为throws函数，throws关键字位置在参数之后，返回值(-&gt;)之前
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
-抛出函数会把错误抛给调用它的函数周期中去。">
-<meta itemprop="datePublished" content="2017-01-11T17:04:21&#43;00:00" />
+抛出函数会把错误抛给调用它的函数周期中去。"><meta itemprop="datePublished" content="2017-01-11T17:04:21&#43;00:00" />
 <meta itemprop="dateModified" content="2017-01-11T17:04:21&#43;00:00" />
 <meta itemprop="wordCount" content="4480">
-
-
-
 <meta itemprop="keywords" content="安全," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift错误处理"/>
 <meta name="twitter:description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
@@ -230,11 +227,6 @@ A throwing function propagates errors that are thrown inside of it to the scope 
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -250,6 +242,10 @@ A throwing function propagates errors that are thrown inside of it to the scope 
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -534,10 +530,10 @@ return nil
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2017-01-11 17:04:21 \x2b0000 UTC',
+        id: '2017-01-11 17:04:21 \u002b0000 UTC',
         title: 'swift错误处理',
         link: decodeURI(location.href),
-        desc: '\x3cp\x3eError handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.\nSome operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.\nAs an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.\n举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。\x3c\/p\x3e\n\x3ch1 id=\x22representing-and-throwing-errors\x22\x3eRepresenting and Throwing Errors\x3c\/h1\x3e\n\x3cp\x3eIn Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.\n在swift中，错误类型是遵循Error 协议。\x3c\/p\x3e\n\x3cp\x3eSwift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:\nswift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：\n一个在操作一台游戏机时的会出现的错误枚举类：\x3c\/p\x3e\n\x3cpre\x3e\x3ccode class=\x22language-swift\x22\x3eenum VendingMachineError: Error {\ncase invalidSelection\ncase insufficientFunds(coinsNeeded: Int)\ncase outOfStock\n}\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3cp\x3eThrowing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:\n抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：\x3c\/p\x3e\n\x3cpre\x3e\x3ccode class=\x22language-swift\x22\x3ethrow VendingMachineError.insufficientFunds(coinsNeeded: 5)\n\x3c\/code\x3e\x3c\/pre\x3e\n\x3ch1 id=\x22handling-errors\x22\x3eHandling Errors\x3c\/h1\x3e\n\x3cp\x3eWhen an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.\n当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。\x3c\/p\x3e\n\x3cp\x3eThere are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.\n在swift中有四种处理错误机制:\n1. 向调用方法中传递这个错误\n2. 使用do-catch语句处理\n3. 把错误设置为可选型\n4.断言不会出现异常的情况下，使用try!禁止异常抛出\x3c\/p\x3e\n\x3cp\x3eWhen a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.\n当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字\x3ccode\x3etry\x3c\/code\x3e 要注意 \x3ccode\x3etry?\x3c\/code\x3e或\x3ccode\x3etry!\x3c\/code\x3e之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。\x3c\/p\x3e\n\x3ch2 id=\x22propagating-errors-using-throwing-functions\x22\x3ePropagating Errors Using Throwing Functions\x3c\/h2\x3e\n\x3cp\x3eTo indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-\x26gt;).\n函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：\x3ccode\x3ethrows\x3c\/code\x3e即可，这种方法被称为\x3ccode\x3ethrows\x3c\/code\x3e函数，\x3ccode\x3ethrows\x3c\/code\x3e关键字位置在参数之后，返回值(-\x26gt;)之前\x3c\/p\x3e\n\x3cp\x3eA throwing function propagates errors that are thrown inside of it to the scope from which it’s called.\n抛出函数会把错误抛给调用它的函数周期中去。\x3c\/p\x3e',
+        desc: '\u003cp\u003eError handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.\nSome operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.\nAs an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.\n举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。\u003c\/p\u003e\n\u003ch1 id=\u0022representing-and-throwing-errors\u0022\u003eRepresenting and Throwing Errors\u003c\/h1\u003e\n\u003cp\u003eIn Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling.\n在swift中，错误类型是遵循Error 协议。\u003c\/p\u003e\n\u003cp\u003eSwift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game:\nswift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如：\n一个在操作一台游戏机时的会出现的错误枚举类：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-swift\u0022\u003eenum VendingMachineError: Error {\ncase invalidSelection\ncase insufficientFunds(coinsNeeded: Int)\ncase outOfStock\n}\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003eThrowing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:\n抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-swift\u0022\u003ethrow VendingMachineError.insufficientFunds(coinsNeeded: 5)\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003ch1 id=\u0022handling-errors\u0022\u003eHandling Errors\u003c\/h1\u003e\n\u003cp\u003eWhen an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.\n当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。\u003c\/p\u003e\n\u003cp\u003eThere are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.\n在swift中有四种处理错误机制:\n1. 向调用方法中传递这个错误\n2. 使用do-catch语句处理\n3. 把错误设置为可选型\n4.断言不会出现异常的情况下，使用try!禁止异常抛出\u003c\/p\u003e\n\u003cp\u003eWhen a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.\n当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字\u003ccode\u003etry\u003c\/code\u003e 要注意 \u003ccode\u003etry?\u003c\/code\u003e或\u003ccode\u003etry!\u003c\/code\u003e之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。\u003c\/p\u003e\n\u003ch2 id=\u0022propagating-errors-using-throwing-functions\u0022\u003ePropagating Errors Using Throwing Functions\u003c\/h2\u003e\n\u003cp\u003eTo indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-\u0026gt;).\n函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：\u003ccode\u003ethrows\u003c\/code\u003e即可，这种方法被称为\u003ccode\u003ethrows\u003c\/code\u003e函数，\u003ccode\u003ethrows\u003c\/code\u003e关键字位置在参数之后，返回值(-\u0026gt;)之前\u003c\/p\u003e\n\u003cp\u003eA throwing function propagates errors that are thrown inside of it to the scope from which it’s called.\n抛出函数会把错误抛给调用它的函数周期中去。\u003c\/p\u003e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {
@@ -609,7 +605,7 @@ return nil
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

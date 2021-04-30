@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E9%80%9A%E8%BF%87%E6%B2%99%E7%9B%92%E4%B8%ADjs%E8%84%9A%E6%9C%AC%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96app/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -43,17 +43,14 @@
 <meta property="og:title" content="通过沙盒中JS脚本访问其他APP" />
 <meta property="og:description" content="如何使用脚本字典里的命令和对象来与其他的应用进行通讯? 这个教程将向您展示现在使用 AppleScript 来控制别的应用的最佳方式。我也会告诉您一些小技巧以帮助您和" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/macos/%E9%80%9A%E8%BF%87%E6%B2%99%E7%9B%92%E4%B8%ADjs%E8%84%9A%E6%9C%AC%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96app/" />
-<meta property="article:published_time" content="2017-02-14T18:25:29+00:00" />
-<meta property="article:modified_time" content="2017-02-14T18:25:29+00:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/macos/%E9%80%9A%E8%BF%87%E6%B2%99%E7%9B%92%E4%B8%ADjs%E8%84%9A%E6%9C%AC%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96app/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-02-14T18:25:29&#43;00:00" />
+<meta property="article:modified_time" content="2017-02-14T18:25:29&#43;00:00" />
+
 <meta itemprop="name" content="通过沙盒中JS脚本访问其他APP">
-<meta itemprop="description" content="如何使用脚本字典里的命令和对象来与其他的应用进行通讯? 这个教程将向您展示现在使用 AppleScript 来控制别的应用的最佳方式。我也会告诉您一些小技巧以帮助您和">
-<meta itemprop="datePublished" content="2017-02-14T18:25:29&#43;00:00" />
+<meta itemprop="description" content="如何使用脚本字典里的命令和对象来与其他的应用进行通讯? 这个教程将向您展示现在使用 AppleScript 来控制别的应用的最佳方式。我也会告诉您一些小技巧以帮助您和"><meta itemprop="datePublished" content="2017-02-14T18:25:29&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-14T18:25:29&#43;00:00" />
-<meta itemprop="wordCount" content="2801">
-
-
-
+<meta itemprop="wordCount" content="2813">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过沙盒中JS脚本访问其他APP"/>
 <meta name="twitter:description" content="如何使用脚本字典里的命令和对象来与其他的应用进行通讯? 这个教程将向您展示现在使用 AppleScript 来控制别的应用的最佳方式。我也会告诉您一些小技巧以帮助您和"/>
@@ -116,11 +113,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -137,6 +129,10 @@
   </ul>
 </nav>
 
+
+
+
+
     </header>
 
     <main id="main" class="main">
@@ -152,7 +148,7 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 2801 字 </span>
+          <span class="more-meta"> 约 2813 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -193,7 +189,7 @@
 典型脚本:
 {% codeblock lang:js %}
 on chockify(inputString)
-set resultString to &quot;&rdquo;</p>
+set resultString to &quot;&quot;</p>
 <pre><code>    repeat with inputStringCharacter in inputString
         set asciiValue to (ASCII number inputStringCharacter)
         if (asciiValue &gt; 96 and asciiValue &lt; 123) then
@@ -359,7 +355,7 @@ NSAlert *alert = [NSAlert alertWithMessageText:@&ldquo;Script Installed&rdquo; d
 }
 else
 {
-NSLog(@&quot;%s error = %@&quot;, <strong>PRETTY_FUNCTION</strong>, error);
+NSLog(@&quot;%s error = %@&rdquo;, <strong>PRETTY_FUNCTION</strong>, error);
 if ([error code] == NSFileWriteFileExistsError)
 {
 // this is where you could update the script, by removing the old one and copying in a new one
@@ -432,7 +428,7 @@ NSURL *URL = [self URLForResultEventDescriptor:resultEventDescriptor];
 }];
 }
 {% endcodeblock %}
-对于用户写的脚本，用户可能期望你的应用只是简单地'运行'脚本 (而不去调用事件描述符中指定的函数)。在这种情况下，你可以为 <code>event</code> 传递一个 <code>nil</code>，脚本就会像用户在 <code>Finder</code> 中双击那样的行为进行执行。
+对于用户写的脚本，用户可能期望你的应用只是简单地&rsquo;运行&rsquo;脚本 (而不去调用事件描述符中指定的函数)。在这种情况下，你可以为 <code>event</code> 传递一个 <code>nil</code>，脚本就会像用户在 <code>Finder</code> 中双击那样的行为进行执行。
 <code>NSUserAppleScriptTask</code>脚本是异步执行的，所以你的用户界面并不会被一个 (比较长) 的脚本锁住，在结束后会执行回调处理。</p>
 <h2 id="同步操作">同步操作</h2>
 <p><code>NSAppleScript</code> 和 <code>NSUserAppleScriptTask</code> 有一个微妙的区别：新的机制是异步执行的。对于大部分情况，使用一个结束回调来处理会是一个好得多的方式，因为这样就不会因为执行脚本而阻碍你的应用。
@@ -515,7 +511,7 @@ dispatch_semaphore_signal(self.appleScriptTaskSemaphore);
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2017-02-14 18:25:29 \x2b0000 UTC',
+        id: '2017-02-14 18:25:29 \u002b0000 UTC',
         title: '通过沙盒中JS脚本访问其他APP',
         link: decodeURI(location.href),
         desc: '如何使用脚本字典里的命令和对象来与其他的应用进行通讯? 这个教程将向您展示现在使用 AppleScript 来控制别的应用的最佳方式。我也会告诉您一些小技巧以帮助您和',
@@ -590,7 +586,7 @@ dispatch_semaphore_signal(self.appleScriptTaskSemaphore);
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

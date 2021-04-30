@@ -6,11 +6,7 @@
     <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 13 Sep 2020 22:40:23 +0800</lastBuildDate>
-    
-	<atom:link href="https://it-boyer.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Sep 2020 22:40:23 +0800</lastBuildDate><atom:link href="https://it-boyer.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>swift 的 doom 环境</title>
       <link>https://it-boyer.github.io/post/swift-%E5%9C%A8-doom-%E4%B8%AD%E7%9A%84%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/</link>
@@ -2564,13 +2560,13 @@ case outOfStock
 &lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86&#34;&gt;原文&lt;/a&gt;
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。&lt;/p&gt;
 &lt;p&gt;问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。&lt;/p&gt;
-&lt;p&gt;解决：&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令。&lt;/p&gt;
+&lt;p&gt;解决：**&lt;!-- raw HTML omitted --&gt;git stash &lt;!-- raw HTML omitted --&gt;**命令。&lt;/p&gt;
 &lt;p&gt;“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。&lt;/p&gt;
 &lt;h3 id=&#34;a-namework储藏工作a&#34;&gt;&lt;!-- raw HTML omitted --&gt;储藏工作&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li&gt;进入项目目录，修改某个文件，有可能还暂存其中的一个变更。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git status &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令,查看中间状态：
+&lt;li&gt;**&lt;!-- raw HTML omitted --&gt;git status &lt;!-- raw HTML omitted --&gt;**命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status&lt;/li&gt;
 &lt;/ol&gt;
@@ -2587,7 +2583,7 @@ $ git status&lt;/li&gt;
 &lt;h1 id=&#34;heading-3&#34;&gt;&lt;/h1&gt;
 &lt;p&gt;{%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令，往堆栈中推送一个新的储藏：
+执行**&lt;!-- raw HTML omitted --&gt;git stash &lt;!-- raw HTML omitted --&gt;**命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state&lt;br&gt;
@@ -2602,7 +2598,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash list&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;要查看现有的储藏：
+5. 使用**&lt;!-- raw HTML omitted --&gt;git stash list&lt;!-- raw HTML omitted --&gt;**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -2612,8 +2608,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。&lt;/p&gt;
 &lt;h3 id=&#34;a-nameapply应用储藏a&#34;&gt;&lt;!-- raw HTML omitted --&gt;应用储藏&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
 &lt;hr&gt;
-&lt;p&gt;执行&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash apply&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令, 可以重新应用最近的一次储藏；
-执行&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;git stash apply stash@{2}&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;命令，即通过指定储藏的名字，来应用更早的储藏。
+&lt;p&gt;执行**&lt;!-- raw HTML omitted --&gt;git stash apply&lt;!-- raw HTML omitted --&gt;**命令, 可以重新应用最近的一次储藏；
+执行**&lt;!-- raw HTML omitted --&gt;git stash apply stash@{2}&lt;!-- raw HTML omitted --&gt;**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply&lt;/p&gt;
 &lt;h1 id=&#34;on-branch-master-1&#34;&gt;On branch master&lt;/h1&gt;
@@ -2648,14 +2644,14 @@ $ git stash apply&lt;/p&gt;
 &lt;li&gt;使用&lt;code&gt;NSLayoutConstraint&lt;/code&gt;类型的初始化函数中的&lt;code&gt;multiplier&lt;/code&gt;参数就可以非常简单的设置按比例缩放。&lt;/li&gt;
 &lt;li&gt;同时也可以设置不同&lt;code&gt;NSLayoutAttribute&lt;/code&gt;参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;现在就拿一个简单的&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;做示例，在ViewController中创建一个UIButton字段：&lt;br&gt;
+&lt;p&gt;现在就拿一个简单的**&lt;code&gt;UIButton&lt;/code&gt;**做示例，在ViewController中创建一个UIButton字段：&lt;br&gt;
 {%codeblock lang:objc%}
 UIButton *btn;&lt;br&gt;
 {%endcodeblock%}&lt;/p&gt;
 &lt;h4 id=&#34;需求-1&#34;&gt;需求 1：&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;要求&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;水平居中，始终距离父View底部&lt;strong&gt;20&lt;/strong&gt;单位，其高度是父View高度的三分之一。&lt;/li&gt;
-&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;的大小并实时输出到屏幕上。&lt;br&gt;
+&lt;li&gt;要求**&lt;code&gt;UIButton&lt;/code&gt;**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。&lt;/li&gt;
+&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控**&lt;code&gt;UIButton&lt;/code&gt;**的大小并实时输出到屏幕上。&lt;br&gt;
 {%codeblock lang:objc%}&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
@@ -2718,7 +2714,7 @@ constant:0]];&lt;/p&gt;
 &lt;p&gt;首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。&lt;/p&gt;
 &lt;p&gt;默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。&lt;/p&gt;
 &lt;h6 id=&#34;step1-右键选择add-row在下拉选框中选择url-types类型为array&#34;&gt;Step1. 右键，选择“Add Row”,在下拉选框中选择“&lt;strong&gt;URL types&lt;/strong&gt;”，类型为Array:&lt;/h6&gt;
-&lt;h6 id=&#34;step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp&#34;&gt;Step2. 打开“Item 0″类型为Dic,添加新key为&amp;quot;URL identifier&amp;rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。&lt;/h6&gt;
+&lt;h6 id=&#34;step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp&#34;&gt;Step2. 打开“Item 0″类型为Dic,添加新key为&amp;quot;URL identifier&amp;quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。&lt;/h6&gt;
 &lt;h5 id=&#34;step3-打开item-0类型为dic添加新key为url-schemes类型为array&#34;&gt;Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:&lt;/h5&gt;</description>
     </item>
     
@@ -2789,7 +2785,7 @@ App开始运行后自动生成一组便笺实例并利用&lt;code&gt;tableViewCo
 选择 &lt;strong&gt;通用-&amp;gt;文字大小&lt;/strong&gt; 或 &lt;strong&gt;通用-&amp;gt;辅助功能&lt;/strong&gt; 来查看app中的字体设置。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://it-boyer.github.io/images/UserTextPreferences.png&#34; alt=&#34;image&#34;&gt;&lt;br&gt;
 iOS 7 支持通过&lt;code&gt;粗体&lt;/code&gt;、&lt;code&gt;设置字体大小&lt;/code&gt;等方式提高支持动态文本的应用的易读性。
-例如&lt;strong&gt;&lt;code&gt;UIFont&lt;/code&gt;&lt;/strong&gt;新增的一个方法： &lt;strong&gt;&lt;code&gt;preferredFontForTextStyle&lt;/code&gt;&lt;/strong&gt; 用来根据用户对字体大小的设置来自动制定字体样式。&lt;br&gt;
+例如**&lt;code&gt;UIFont&lt;/code&gt;**新增的一个方法： **&lt;code&gt;preferredFontForTextStyle&lt;/code&gt;** 用来根据用户对字体大小的设置来自动制定字体样式。&lt;br&gt;
 下面表格中是六种可用字体样式的示例：&lt;br&gt;
 &lt;img src=&#34;https://it-boyer.github.io/images/TextStyles.png&#34; alt=&#34;image&#34;&gt;&lt;br&gt;
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。&lt;/p&gt;

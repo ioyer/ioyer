@@ -20,14 +20,14 @@
 首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。
 注册自定义URL协议 首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。
 默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。
-Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，类型为Array: Step2. 打开“Item 0″类型为Dic,添加新key为&amp;quot;URL identifier&amp;rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:" /><meta name="keywords" content="Hugo, swift, org-mode" />
+Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，类型为Array: Step2. 打开“Item 0″类型为Dic,添加新key为&amp;quot;URL identifier&amp;quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
@@ -39,7 +39,7 @@ Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，�
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -52,12 +52,13 @@ iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定�
 首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。
 默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。
 Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，类型为Array:
-Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
+Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" />
-<meta property="article:published_time" content="2014-08-28T20:32:48+08:00" />
-<meta property="article:modified_time" content="2014-08-28T20:32:48+08:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-08-28T20:32:48&#43;08:00" />
+<meta property="article:modified_time" content="2014-08-28T20:32:48&#43;08:00" />
+
 <meta itemprop="name" content="在IOS中自定义URLSchemes教程">
 <meta itemprop="description" content="URL Schemes
 iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！
@@ -66,14 +67,10 @@ iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定�
 首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。
 默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。
 Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，类型为Array:
-Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
-Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:">
-<meta itemprop="datePublished" content="2014-08-28T20:32:48&#43;08:00" />
+Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
+Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:"><meta itemprop="datePublished" content="2014-08-28T20:32:48&#43;08:00" />
 <meta itemprop="dateModified" content="2014-08-28T20:32:48&#43;08:00" />
-<meta itemprop="wordCount" content="1464">
-
-
-
+<meta itemprop="wordCount" content="1463">
 <meta itemprop="keywords" content="协议,scheme," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在IOS中自定义URLSchemes教程"/>
 <meta name="twitter:description" content="URL Schemes
@@ -83,7 +80,7 @@ iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定�
 首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。
 默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。
 Step1. 右键，选择“Add Row”,在下拉选框中选择“URL types”，类型为Array:
-Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
+Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。
 Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:"/>
 
 <!--[if lte IE 9]>
@@ -144,11 +141,6 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -164,6 +156,10 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -181,7 +177,7 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/schemes/"> schemes </a>
             </div>
-          <span class="more-meta"> 约 1464 字 </span>
+          <span class="more-meta"> 约 1463 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -209,7 +205,7 @@ Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为
 <p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
 <p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
 <h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
-<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
 <h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
 <ul>
 <li>类型为Array:</li>
@@ -267,14 +263,14 @@ NSString *customURL = @&ldquo;iOSDevTips://&quot;;</p>
 </code></pre>
 <p>{%endcodeblock%}
 Line 5 we check to see if the custom URL is defined, and if so, use the shared application instance to open the URL (line 8).<br>
-The <strong><code>openURL:</code></strong>method starts the application and passes the URL into the app. The current application is exited during this process.</p>
+The **<code>openURL:</code>**method starts the application and passes the URL into the app. The current application is exited during this process.</p>
 <ul>
 <li>
 <h5 id="通过url-schemes-传递参数启动应用passing-parameters-to-app-via-custom-url-scheme">通过URL Schemes 传递参数启动应用：Passing Parameters To App Via Custom URL Scheme</h5>
 </li>
 </ul>
 <p>Chances are you’ll need to pass parameters into the application with the custom URL definition. Let’s look at how we can do this with.</p>
-<p>The <strong><code>NSURL </code></strong>class which is the basis for calling from one app to another conforms to the <code>RFC 1808</code> (Relative Uniform Resource Locators). Therefore the same URL formatting you may be familiar with for web-based content will apply here as well.</p>
+<p>The **<code>NSURL </code>**class which is the basis for calling from one app to another conforms to the <code>RFC 1808</code> (Relative Uniform Resource Locators). Therefore the same URL formatting you may be familiar with for web-based content will apply here as well.</p>
 <p>In the application with the custom <code>URL scheme</code>, the app delegate must implement the method with the signature below:
 {%codeblock lang:objc%}</p>
 <ul>
@@ -294,9 +290,9 @@ As in web development, the string <strong><code>?token=123abct&amp;registered=1<
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
 sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-NSLog(@&ldquo;Calling Application Bundle ID: %@&quot;, sourceApplication);
-NSLog(@&ldquo;URL scheme:%@&quot;, [url scheme]);
-NSLog(@&ldquo;URL query: %@&quot;, [url query]);</p>
+NSLog(@&ldquo;Calling Application Bundle ID: %@&rdquo;, sourceApplication);
+NSLog(@&ldquo;URL scheme:%@&rdquo;, [url scheme]);
+NSLog(@&ldquo;URL query: %@&rdquo;, [url query]);</p>
 <pre><code>  return YES;
 }
 </code></pre>
@@ -316,9 +312,9 @@ sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 // Check the calling application Bundle ID
 if ([sourceApplication isEqualToString:@&ldquo;com.3Sixty.CallCustomURL&rdquo;])
 {
-NSLog(@&ldquo;Calling Application Bundle ID: %@&quot;, sourceApplication);
-NSLog(@&ldquo;URL scheme:%@&quot;, [url scheme]);
-NSLog(@&ldquo;URL query: %@&quot;, [url query]);</p>
+NSLog(@&ldquo;Calling Application Bundle ID: %@&rdquo;, sourceApplication);
+NSLog(@&ldquo;URL scheme:%@&rdquo;, [url scheme]);
+NSLog(@&ldquo;URL query: %@&rdquo;, [url query]);</p>
 <pre><code>    return YES;
   }
   else
@@ -387,10 +383,10 @@ It’s important to note that you cannot prevent another application from callin
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2014-08-28 20:32:48 \x2b0800 CST',
+        id: '2014-08-28 20:32:48 \u002b0800 CST',
         title: '在IOS中自定义URLSchemes教程',
         link: decodeURI(location.href),
-        desc: '\x3ch4 id=\x22url-schemes\x22\x3eURL Schemes\x3c\/h4\x3e\n\x3cp\x3eiPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！\x3c\/p\x3e\n\x3cp\x3e首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。\x3c\/p\x3e\n\x3ch4 id=\x22注册自定义url协议\x22\x3e注册自定义URL协议\x3c\/h4\x3e\n\x3cp\x3e首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。\x3c\/p\x3e\n\x3cp\x3e默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。\x3c\/p\x3e\n\x3ch6 id=\x22step1-右键选择add-row在下拉选框中选择url-types类型为array\x22\x3eStep1. 右键，选择“Add Row”,在下拉选框中选择“\x3cstrong\x3eURL types\x3c\/strong\x3e”，类型为Array:\x3c\/h6\x3e\n\x3ch6 id=\x22step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp\x22\x3eStep2. 打开“Item 0″类型为Dic,添加新key为\x26quot;URL identifier\x26rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。\x3c\/h6\x3e\n\x3ch5 id=\x22step3-打开item-0类型为dic添加新key为url-schemes类型为array\x22\x3eStep3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:\x3c\/h5\x3e',
+        desc: '\u003ch4 id=\u0022url-schemes\u0022\u003eURL Schemes\u003c\/h4\u003e\n\u003cp\u003eiPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！\u003c\/p\u003e\n\u003cp\u003e首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。\u003c\/p\u003e\n\u003ch4 id=\u0022注册自定义url协议\u0022\u003e注册自定义URL协议\u003c\/h4\u003e\n\u003cp\u003e首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。\u003c\/p\u003e\n\u003cp\u003e默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。\u003c\/p\u003e\n\u003ch6 id=\u0022step1-右键选择add-row在下拉选框中选择url-types类型为array\u0022\u003eStep1. 右键，选择“Add Row”,在下拉选框中选择“\u003cstrong\u003eURL types\u003c\/strong\u003e”，类型为Array:\u003c\/h6\u003e\n\u003ch6 id=\u0022step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp\u0022\u003eStep2. 打开“Item 0″类型为Dic,添加新key为\u0026quot;URL identifier\u0026quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。\u003c\/h6\u003e\n\u003ch5 id=\u0022step3-打开item-0类型为dic添加新key为url-schemes类型为array\u0022\u003eStep3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:\u003c\/h5\u003e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {
@@ -462,7 +458,7 @@ It’s important to note that you cannot prevent another application from callin
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -18,11 +18,11 @@
 
 <meta name="author" content="iTBoyer" /><meta name="description" content=" Stashing 储藏工作 应用储藏 被暂存的文件重新暂存 应用后，移除储藏的内容 取消储藏(Un-applying a Stash) 新建stash-unapply别名 从储藏中创建分支  Git工具 - 储藏（Stashing）git  原文 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
 问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
-解决：git stash 命令。
+解决：**git stash **命令。
 “Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
-储藏工作   进入项目目录，修改某个文件，有可能还暂存其中的一个变更。 git status 命令,查看中间状态： {%codeblock lang:bash %} $ git status  On branch master Changes to be committed: (use &amp;ldquo;git reset HEAD &amp;hellip;&amp;rdquo; to unstage)  modified: index.html  Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: lib/simplegit.rb  {%endcodeblock%} 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。 执行git stash 命令，往堆栈中推送一个新的储藏： {%codeblock lang:bash %} $ git stash Saved working directory and index state
-&amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用git stash list要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
-应用储藏  执行git stash apply命令, 可以重新应用最近的一次储藏； 执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
+储藏工作   进入项目目录，修改某个文件，有可能还暂存其中的一个变更。 **git status **命令,查看中间状态： {%codeblock lang:bash %} $ git status  On branch master Changes to be committed: (use &amp;ldquo;git reset HEAD &amp;hellip;&amp;rdquo; to unstage)  modified: index.html  Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: lib/simplegit.rb  {%endcodeblock%} 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。 执行**git stash **命令，往堆栈中推送一个新的储藏： {%codeblock lang:bash %} $ git stash Saved working directory and index state
+&amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用**git stash list**要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+应用储藏  执行**git stash apply**命令, 可以重新应用最近的一次储藏； 执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
 On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: index.html modified: lib/simplegit.rb  {%endcodeblock%}
 " /><meta name="keywords" content="Hugo, swift, org-mode" />
 
@@ -31,7 +31,7 @@ On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hel
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" />
@@ -43,7 +43,7 @@ On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hel
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -64,13 +64,13 @@ Git工具 - 储藏（Stashing）git
 原文
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
 问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
-解决：git stash 命令。
+解决：**git stash **命令。
 “Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
 储藏工作
 
 
 进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
-git status 命令,查看中间状态：
+**git status **命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status
 
@@ -87,7 +87,7 @@ modified:   lib/simplegit.rb
 
 {%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行git stash 命令，往堆栈中推送一个新的储藏：
+执行**git stash **命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state
@@ -102,7 +102,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用git stash list要查看现有的储藏：
+5. 使用**git stash list**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -112,8 +112,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
 应用储藏
 
-执行git stash apply命令, 可以重新应用最近的一次储藏；
-执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+执行**git stash apply**命令, 可以重新应用最近的一次储藏；
+执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply
 On branch master
@@ -125,9 +125,10 @@ modified:   lib/simplegit.rb
 
 {%endcodeblock%}" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" />
-<meta property="article:published_time" content="2015-01-19T19:57:04+08:00" />
-<meta property="article:modified_time" content="2015-01-19T19:57:04+08:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2015-01-19T19:57:04&#43;08:00" />
+<meta property="article:modified_time" content="2015-01-19T19:57:04&#43;08:00" />
+
 <meta itemprop="name" content="Git中的储藏工具stash">
 <meta itemprop="description" content="
 Stashing
@@ -144,13 +145,13 @@ Git工具 - 储藏（Stashing）git
 原文
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
 问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
-解决：git stash 命令。
+解决：**git stash **命令。
 “Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
 储藏工作
 
 
 进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
-git status 命令,查看中间状态：
+**git status **命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status
 
@@ -167,7 +168,7 @@ modified:   lib/simplegit.rb
 
 {%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行git stash 命令，往堆栈中推送一个新的储藏：
+执行**git stash **命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state
@@ -182,7 +183,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用git stash list要查看现有的储藏：
+5. 使用**git stash list**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -192,8 +193,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
 应用储藏
 
-执行git stash apply命令, 可以重新应用最近的一次储藏；
-执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+执行**git stash apply**命令, 可以重新应用最近的一次储藏；
+执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply
 On branch master
@@ -203,13 +204,9 @@ Changes not staged for commit:
 modified:   index.html
 modified:   lib/simplegit.rb
 
-{%endcodeblock%}">
-<meta itemprop="datePublished" content="2015-01-19T19:57:04&#43;08:00" />
+{%endcodeblock%}"><meta itemprop="datePublished" content="2015-01-19T19:57:04&#43;08:00" />
 <meta itemprop="dateModified" content="2015-01-19T19:57:04&#43;08:00" />
-<meta itemprop="wordCount" content="1698">
-
-
-
+<meta itemprop="wordCount" content="1742">
 <meta itemprop="keywords" content="git,工具,坑," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git中的储藏工具stash"/>
 <meta name="twitter:description" content="
@@ -227,13 +224,13 @@ Git工具 - 储藏（Stashing）git
 原文
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
 问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
-解决：git stash 命令。
+解决：**git stash **命令。
 “Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
 储藏工作
 
 
 进入项目目录，修改某个文件，有可能还暂存其中的一个变更。
-git status 命令,查看中间状态：
+**git status **命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status
 
@@ -250,7 +247,7 @@ modified:   lib/simplegit.rb
 
 {%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行git stash 命令，往堆栈中推送一个新的储藏：
+执行**git stash **命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state
@@ -265,7 +262,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用git stash list要查看现有的储藏：
+5. 使用**git stash list**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -275,8 +272,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
 应用储藏
 
-执行git stash apply命令, 可以重新应用最近的一次储藏；
-执行git stash apply stash@{2}命令，即通过指定储藏的名字，来应用更早的储藏。
+执行**git stash apply**命令, 可以重新应用最近的一次储藏；
+执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply
 On branch master
@@ -346,11 +343,6 @@ modified:   lib/simplegit.rb
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -366,6 +358,10 @@ modified:   lib/simplegit.rb
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -383,7 +379,7 @@ modified:   lib/simplegit.rb
             <a href="/categories/git/"> git </a>
             <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
             </div>
-          <span class="more-meta"> 约 1698 字 </span>
+          <span class="more-meta"> 约 1742 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -446,13 +442,13 @@ modified:   lib/simplegit.rb
 <p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
 <p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
-<p>解决：<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令。</p>
+<p>解决：**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令。</p>
 <p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
 <h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
 <hr>
 <ol>
 <li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
-<li><strong><!-- raw HTML omitted -->git status <!-- raw HTML omitted --></strong>命令,查看中间状态：
+<li>**<!-- raw HTML omitted -->git status <!-- raw HTML omitted -->**命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status</li>
 </ol>
@@ -469,7 +465,7 @@ $ git status</li>
 <h1 id="heading-3"></h1>
 <p>{%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令，往堆栈中推送一个新的储藏：
+执行**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state<br>
@@ -484,7 +480,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用<strong><!-- raw HTML omitted -->git stash list<!-- raw HTML omitted --></strong>要查看现有的储藏：
+5. 使用**<!-- raw HTML omitted -->git stash list<!-- raw HTML omitted -->**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -494,8 +490,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
 <h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
 <hr>
-<p>执行<strong><!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted --></strong>命令, 可以重新应用最近的一次储藏；
-执行<strong><!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted --></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
+<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令, 可以重新应用最近的一次储藏；
+执行**<!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted -->**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply</p>
 <h1 id="on-branch-master-1">On branch master</h1>
@@ -509,9 +505,9 @@ $ git stash apply</p>
 <p>可以看到 Git 重新修改了你所储藏的那些当时尚未提交的文件。在这个案例里，你尝试应用储藏的工作目录是干净的，并且属于同一分支；但是一个干净的工作目录和应用到相同的分支上并不是应用储藏的必要条件。你可以在其中一个分支上保留一份储藏，随后切换到另外一个分支，再重新应用这些变更。在工作目录里包含已修改和未提交的文件时，你也可以应用储藏——Git 会给出归并冲突如果有任何变更无法干净地被应用。</p>
 <h3 id="a-nameapplyindex被暂存的文件重新暂存a"><!-- raw HTML omitted -->被暂存的文件重新暂存<!-- raw HTML omitted --></h3>
 <hr>
-<p>执行<strong><!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted --></strong>命令,虽然对文件的变更被重新应用，但是被暂存的文件没有重新被暂存。
-执行<strong><!-- raw HTML omitted -->git stash apply &ndash;index<!-- raw HTML omitted --></strong>命令,即可让被暂存的文件重新暂存。
-<strong>&ndash;index</strong>选项告诉命令重新应用被暂存的变更：
+<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令,虽然对文件的变更被重新应用，但是被暂存的文件没有重新被暂存。
+执行**<!-- raw HTML omitted -->git stash apply &ndash;index<!-- raw HTML omitted -->**命令,即可让被暂存的文件重新暂存。
+**&ndash;index**选项告诉命令重新应用被暂存的变更：
 {%codeblock lang:bash%}
 $ git stash apply &ndash;index</p>
 <h1 id="on-branch-master-2">On branch master</h1>
@@ -528,8 +524,8 @@ $ git stash apply &ndash;index</p>
 <p>{%endcodeblock%}</p>
 <h3 id="a-namedrop应用后移除储藏的内容a"><!-- raw HTML omitted -->应用后，移除储藏的内容<!-- raw HTML omitted --></h3>
 <hr>
-<p><strong>apply <strong>选项只尝试应用储藏的工作——储藏的内容仍然在栈上。
-执行</strong><!-- raw HTML omitted -->git stash drop 储藏的名字<!-- raw HTML omitted --></strong>命令，，即可从栈中彻底移除储藏内容：
+<p>**apply <strong>选项只尝试应用储藏的工作——储藏的内容仍然在栈上。
+执行</strong><!-- raw HTML omitted -->git stash drop 储藏的名字<!-- raw HTML omitted -->**命令，，即可从栈中彻底移除储藏内容：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -538,11 +534,11 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 $ git stash drop stash@{0}
 Dropped stash@{0} (364e91f3f268f0900bc3ee613f9f733e82aaed43)
 {%endcodeblock%}
-你也可以运行 <strong><!-- raw HTML omitted -->git stash pop<!-- raw HTML omitted --></strong>命令，来重新应用储藏，同时立刻将其从堆栈中移走。</p>
+你也可以运行 **<!-- raw HTML omitted -->git stash pop<!-- raw HTML omitted -->**命令，来重新应用储藏，同时立刻将其从堆栈中移走。</p>
 <h3 id="a-nameunapply取消储藏un-applying-a-stasha"><!-- raw HTML omitted -->取消储藏(Un-applying a Stash)<!-- raw HTML omitted --></h3>
 <hr>
 <p>在某些情况下，重新应用了之前的储藏的变更，进行了一些其他的修改后，又想要取消之前所应用储藏的修改。
-Git没有提供类似于 <strong><!-- raw HTML omitted -->stash unapply<!-- raw HTML omitted --></strong>的命令，但是可以通过取消该储藏的补丁达到同样的效果：
+Git没有提供类似于 **<!-- raw HTML omitted -->stash unapply<!-- raw HTML omitted -->**的命令，但是可以通过取消该储藏的补丁达到同样的效果：
 {%codeblock lang:bash%}
 $ git stash show -p stash@{0} | git apply -R
 {%endcodeblock%}
@@ -552,7 +548,7 @@ $ git stash show -p | git apply -R
 {%endcodeblock%}</p>
 <h4 id="a-namestash-unapply新建stash-unapply别名a"><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></h4>
 <hr>
-<p>你可能会想要新建一个別名，在你的 Git 里增加一个<strong><!-- raw HTML omitted -->stash-unapply<!-- raw HTML omitted --></strong> 命，这样更有效率。例如：
+<p>你可能会想要新建一个別名，在你的 Git 里增加一个**<!-- raw HTML omitted -->stash-unapply<!-- raw HTML omitted -->** 命，这样更有效率。例如：
 {%codeblock lang:bash%}
 $ git config &ndash;global alias.stash-unapply &lsquo;!git stash show -p | git apply -R&rsquo;
 $ git stash apply
@@ -636,10 +632,10 @@ Switched to a new branch &ldquo;testchanges&rdquo;</p>
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-01-19 19:57:04 \x2b0800 CST',
+        id: '2015-01-19 19:57:04 \u002b0800 CST',
         title: 'Git中的储藏工具stash',
         link: decodeURI(location.href),
-        desc: '\x3col\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3eStashing\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e储藏工作\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e应用储藏\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e被暂存的文件重新暂存\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e应用后，移除储藏的内容\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e取消储藏(Un-applying a Stash)\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e新建stash-unapply别名\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3cli\x3e\x3c!-- raw HTML omitted --\x3e从储藏中创建分支\x3c!-- raw HTML omitted --\x3e\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3ch3 id=\x22a-namestashinggit工具---储藏stashingagit\x22\x3e\x3c!-- raw HTML omitted --\x3eGit工具 - 储藏（Stashing）\x3c!-- raw HTML omitted --\x3egit\x3c\/h3\x3e\n\x3chr\x3e\n\x3cp\x3e\x3ca href=\x22https:\/\/git-scm.com\/book\/zh\/v2\/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86\x22\x3e原文\x3c\/a\x3e\n场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。\x3c\/p\x3e\n\x3cp\x3e问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。\x3c\/p\x3e\n\x3cp\x3e解决：\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit stash \x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e命令。\x3c\/p\x3e\n\x3cp\x3e“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。\x3c\/p\x3e\n\x3ch3 id=\x22a-namework储藏工作a\x22\x3e\x3c!-- raw HTML omitted --\x3e储藏工作\x3c!-- raw HTML omitted --\x3e\x3c\/h3\x3e\n\x3chr\x3e\n\x3col\x3e\n\x3cli\x3e进入项目目录，修改某个文件，有可能还暂存其中的一个变更。\x3c\/li\x3e\n\x3cli\x3e\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit status \x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e命令,查看中间状态：\n{%codeblock lang:bash %}\n$ git status\x3c\/li\x3e\n\x3c\/ol\x3e\n\x3ch1 id=\x22on-branch-master\x22\x3eOn branch master\x3c\/h1\x3e\n\x3ch1 id=\x22changes-to-be-committed\x22\x3eChanges to be committed:\x3c\/h1\x3e\n\x3ch1 id=\x22use-git-reset-head-file-to-unstage\x22\x3e(use \x26ldquo;git reset HEAD \x3c!-- raw HTML omitted --\x3e\x26hellip;\x26rdquo; to unstage)\x3c\/h1\x3e\n\x3ch1 id=\x22heading\x22\x3e\x3c\/h1\x3e\n\x3ch1 id=\x22modified---indexhtml\x22\x3emodified:   index.html\x3c\/h1\x3e\n\x3ch1 id=\x22heading-1\x22\x3e\x3c\/h1\x3e\n\x3ch1 id=\x22changes-not-staged-for-commit\x22\x3eChanges not staged for commit:\x3c\/h1\x3e\n\x3ch1 id=\x22use-git-add-file-to-update-what-will-be-committed\x22\x3e(use \x26ldquo;git add \x3c!-- raw HTML omitted --\x3e\x26hellip;\x26rdquo; to update what will be committed)\x3c\/h1\x3e\n\x3ch1 id=\x22heading-2\x22\x3e\x3c\/h1\x3e\n\x3ch1 id=\x22modified---libsimplegitrb\x22\x3emodified:   lib\/simplegit.rb\x3c\/h1\x3e\n\x3ch1 id=\x22heading-3\x22\x3e\x3c\/h1\x3e\n\x3cp\x3e{%endcodeblock%}\n3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。\n执行\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit stash \x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e命令，往堆栈中推送一个新的储藏：\n{%codeblock lang:bash %}\n$ git stash\nSaved working directory and index state\x3cbr\x3e\n\x26ldquo;WIP on master: 049d078 added the index file\x26rdquo;\nHEAD is now at 049d078 added the index file\n(To restore them type \x26ldquo;git stash apply\x26rdquo;)\n{%endcodeblock%}\n4. 执行step 2查看目录库，中间状态就不见了：\n{%codeblock lang:bash %}\n$ git status\n#######On branch master\nnothing to commit, working directory clean\n{%endcodeblock%}\n这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。\n5. 使用\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit stash list\x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e要查看现有的储藏：\n{%codeblock lang:bash%}\n$ git stash list\nstash@{0}: WIP on master: 049d078 added the index file\nstash@{1}: WIP on master: c264051 Revert \x26ldquo;added file_size\x26rdquo;\nstash@{2}: WIP on master: 21d80a5 added number to log\n{%endcodeblock%}\n在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。\x3c\/p\x3e\n\x3ch3 id=\x22a-nameapply应用储藏a\x22\x3e\x3c!-- raw HTML omitted --\x3e应用储藏\x3c!-- raw HTML omitted --\x3e\x3c\/h3\x3e\n\x3chr\x3e\n\x3cp\x3e执行\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit stash apply\x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e命令, 可以重新应用最近的一次储藏；\n执行\x3cstrong\x3e\x3c!-- raw HTML omitted --\x3egit stash apply stash@{2}\x3c!-- raw HTML omitted --\x3e\x3c\/strong\x3e命令，即通过指定储藏的名字，来应用更早的储藏。\n{%codeblock lang:bash%}\n$ git stash apply\x3c\/p\x3e\n\x3ch1 id=\x22on-branch-master-1\x22\x3eOn branch master\x3c\/h1\x3e\n\x3ch1 id=\x22changes-not-staged-for-commit-1\x22\x3eChanges not staged for commit:\x3c\/h1\x3e\n\x3ch1 id=\x22use-git-add-file-to-update-what-will-be-committed-1\x22\x3e(use \x26ldquo;git add \x3c!-- raw HTML omitted --\x3e\x26hellip;\x26rdquo; to update what will be committed)\x3c\/h1\x3e\n\x3ch1 id=\x22heading-4\x22\x3e\x3c\/h1\x3e\n\x3ch1 id=\x22modified---indexhtml-1\x22\x3emodified:   index.html\x3c\/h1\x3e\n\x3ch1 id=\x22modified---libsimplegitrb-1\x22\x3emodified:   lib\/simplegit.rb\x3c\/h1\x3e\n\x3ch1 id=\x22heading-5\x22\x3e\x3c\/h1\x3e\n\x3cp\x3e{%endcodeblock%}\x3c\/p\x3e',
+        desc: '\u003col\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003eStashing\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e储藏工作\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e应用储藏\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e被暂存的文件重新暂存\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e应用后，移除储藏的内容\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e取消储藏(Un-applying a Stash)\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e新建stash-unapply别名\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003cli\u003e\u003c!-- raw HTML omitted --\u003e从储藏中创建分支\u003c!-- raw HTML omitted --\u003e\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch3 id=\u0022a-namestashinggit工具---储藏stashingagit\u0022\u003e\u003c!-- raw HTML omitted --\u003eGit工具 - 储藏（Stashing）\u003c!-- raw HTML omitted --\u003egit\u003c\/h3\u003e\n\u003chr\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/git-scm.com\/book\/zh\/v2\/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86\u0022\u003e原文\u003c\/a\u003e\n场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。\u003c\/p\u003e\n\u003cp\u003e问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。\u003c\/p\u003e\n\u003cp\u003e解决：**\u003c!-- raw HTML omitted --\u003egit stash \u003c!-- raw HTML omitted --\u003e**命令。\u003c\/p\u003e\n\u003cp\u003e“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。\u003c\/p\u003e\n\u003ch3 id=\u0022a-namework储藏工作a\u0022\u003e\u003c!-- raw HTML omitted --\u003e储藏工作\u003c!-- raw HTML omitted --\u003e\u003c\/h3\u003e\n\u003chr\u003e\n\u003col\u003e\n\u003cli\u003e进入项目目录，修改某个文件，有可能还暂存其中的一个变更。\u003c\/li\u003e\n\u003cli\u003e**\u003c!-- raw HTML omitted --\u003egit status \u003c!-- raw HTML omitted --\u003e**命令,查看中间状态：\n{%codeblock lang:bash %}\n$ git status\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch1 id=\u0022on-branch-master\u0022\u003eOn branch master\u003c\/h1\u003e\n\u003ch1 id=\u0022changes-to-be-committed\u0022\u003eChanges to be committed:\u003c\/h1\u003e\n\u003ch1 id=\u0022use-git-reset-head-file-to-unstage\u0022\u003e(use \u0026ldquo;git reset HEAD \u003c!-- raw HTML omitted --\u003e\u0026hellip;\u0026rdquo; to unstage)\u003c\/h1\u003e\n\u003ch1 id=\u0022heading\u0022\u003e\u003c\/h1\u003e\n\u003ch1 id=\u0022modified---indexhtml\u0022\u003emodified:   index.html\u003c\/h1\u003e\n\u003ch1 id=\u0022heading-1\u0022\u003e\u003c\/h1\u003e\n\u003ch1 id=\u0022changes-not-staged-for-commit\u0022\u003eChanges not staged for commit:\u003c\/h1\u003e\n\u003ch1 id=\u0022use-git-add-file-to-update-what-will-be-committed\u0022\u003e(use \u0026ldquo;git add \u003c!-- raw HTML omitted --\u003e\u0026hellip;\u0026rdquo; to update what will be committed)\u003c\/h1\u003e\n\u003ch1 id=\u0022heading-2\u0022\u003e\u003c\/h1\u003e\n\u003ch1 id=\u0022modified---libsimplegitrb\u0022\u003emodified:   lib\/simplegit.rb\u003c\/h1\u003e\n\u003ch1 id=\u0022heading-3\u0022\u003e\u003c\/h1\u003e\n\u003cp\u003e{%endcodeblock%}\n3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。\n执行**\u003c!-- raw HTML omitted --\u003egit stash \u003c!-- raw HTML omitted --\u003e**命令，往堆栈中推送一个新的储藏：\n{%codeblock lang:bash %}\n$ git stash\nSaved working directory and index state\u003cbr\u003e\n\u0026ldquo;WIP on master: 049d078 added the index file\u0026rdquo;\nHEAD is now at 049d078 added the index file\n(To restore them type \u0026ldquo;git stash apply\u0026rdquo;)\n{%endcodeblock%}\n4. 执行step 2查看目录库，中间状态就不见了：\n{%codeblock lang:bash %}\n$ git status\n#######On branch master\nnothing to commit, working directory clean\n{%endcodeblock%}\n这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。\n5. 使用**\u003c!-- raw HTML omitted --\u003egit stash list\u003c!-- raw HTML omitted --\u003e**要查看现有的储藏：\n{%codeblock lang:bash%}\n$ git stash list\nstash@{0}: WIP on master: 049d078 added the index file\nstash@{1}: WIP on master: c264051 Revert \u0026ldquo;added file_size\u0026rdquo;\nstash@{2}: WIP on master: 21d80a5 added number to log\n{%endcodeblock%}\n在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。\u003c\/p\u003e\n\u003ch3 id=\u0022a-nameapply应用储藏a\u0022\u003e\u003c!-- raw HTML omitted --\u003e应用储藏\u003c!-- raw HTML omitted --\u003e\u003c\/h3\u003e\n\u003chr\u003e\n\u003cp\u003e执行**\u003c!-- raw HTML omitted --\u003egit stash apply\u003c!-- raw HTML omitted --\u003e**命令, 可以重新应用最近的一次储藏；\n执行**\u003c!-- raw HTML omitted --\u003egit stash apply stash@{2}\u003c!-- raw HTML omitted --\u003e**命令，即通过指定储藏的名字，来应用更早的储藏。\n{%codeblock lang:bash%}\n$ git stash apply\u003c\/p\u003e\n\u003ch1 id=\u0022on-branch-master-1\u0022\u003eOn branch master\u003c\/h1\u003e\n\u003ch1 id=\u0022changes-not-staged-for-commit-1\u0022\u003eChanges not staged for commit:\u003c\/h1\u003e\n\u003ch1 id=\u0022use-git-add-file-to-update-what-will-be-committed-1\u0022\u003e(use \u0026ldquo;git add \u003c!-- raw HTML omitted --\u003e\u0026hellip;\u0026rdquo; to update what will be committed)\u003c\/h1\u003e\n\u003ch1 id=\u0022heading-4\u0022\u003e\u003c\/h1\u003e\n\u003ch1 id=\u0022modified---indexhtml-1\u0022\u003emodified:   index.html\u003c\/h1\u003e\n\u003ch1 id=\u0022modified---libsimplegitrb-1\u0022\u003emodified:   lib\/simplegit.rb\u003c\/h1\u003e\n\u003ch1 id=\u0022heading-5\u0022\u003e\u003c\/h1\u003e\n\u003cp\u003e{%endcodeblock%}\u003c\/p\u003e',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {
@@ -711,7 +707,7 @@ Switched to a new branch &ldquo;testchanges&rdquo;</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

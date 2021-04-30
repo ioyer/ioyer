@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -43,17 +43,14 @@
 <meta property="og:title" content="SubModule与SubTree的差异" />
 <meta property="og:description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" />
-<meta property="article:published_time" content="2017-05-17T11:23:22+00:00" />
-<meta property="article:modified_time" content="2017-05-17T11:23:22+00:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/git/submodule%E4%B8%8Esubtree%E7%9A%84%E5%B7%AE%E5%BC%82/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-05-17T11:23:22&#43;00:00" />
+<meta property="article:modified_time" content="2017-05-17T11:23:22&#43;00:00" />
+
 <meta itemprop="name" content="SubModule与SubTree的差异">
-<meta itemprop="description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul">
-<meta itemprop="datePublished" content="2017-05-17T11:23:22&#43;00:00" />
+<meta itemprop="description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul"><meta itemprop="datePublished" content="2017-05-17T11:23:22&#43;00:00" />
 <meta itemprop="dateModified" content="2017-05-17T11:23:22&#43;00:00" />
 <meta itemprop="wordCount" content="978">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SubModule与SubTree的差异"/>
 <meta name="twitter:description" content="核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul"/>
@@ -116,11 +113,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -136,6 +128,10 @@
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -251,42 +247,42 @@ git subtree add --prefix=ModuleA --squash  ModuleA master
 <table>
 <thead>
 <tr>
-<th align="center">/</th>
-<th align="center">submodule</th>
-<th align="center">subtree</th>
-<th align="center">结果</th>
+<th style="text-align:center">/</th>
+<th style="text-align:center">submodule</th>
+<th style="text-align:center">subtree</th>
+<th style="text-align:center">结果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">远程仓库空间占用</td>
-<td align="center">submodule只是引用，基本不占用额外空间</td>
-<td align="center">子模块copy，会占用较大的额外空间</td>
-<td align="center">submodule占用空间较小，略优</td>
+<td style="text-align:center">远程仓库空间占用</td>
+<td style="text-align:center">submodule只是引用，基本不占用额外空间</td>
+<td style="text-align:center">子模块copy，会占用较大的额外空间</td>
+<td style="text-align:center">submodule占用空间较小，略优</td>
 </tr>
 <tr>
-<td align="center">本地空间占用</td>
-<td align="center">可根据需要下载</td>
-<td align="center">会下载整个项目</td>
-<td align="center">所有模块基本都要下载，二者差异不大</td>
+<td style="text-align:center">本地空间占用</td>
+<td style="text-align:center">可根据需要下载</td>
+<td style="text-align:center">会下载整个项目</td>
+<td style="text-align:center">所有模块基本都要下载，二者差异不大</td>
 </tr>
 <tr>
-<td align="center">仓库克隆</td>
-<td align="center">克降后所有子模块为空，需要注册及更新，同时更新后还需切换分支</td>
-<td align="center">克隆之后即可使用</td>
-<td align="center">submodule步骤略多，subtree占优</td>
+<td style="text-align:center">仓库克隆</td>
+<td style="text-align:center">克降后所有子模块为空，需要注册及更新，同时更新后还需切换分支</td>
+<td style="text-align:center">克隆之后即可使用</td>
+<td style="text-align:center">submodule步骤略多，subtree占优</td>
 </tr>
 <tr>
-<td align="center">更新本地仓库</td>
-<td align="center">更新后所有子模块后指向最后一次提交，更新后需要重新切回分支，所有子模块只需一条更新语句即可</td>
-<td align="center">所有子模块需要单独更新</td>
-<td align="center">各有优劣，相对subtree更好用一些</td>
+<td style="text-align:center">更新本地仓库</td>
+<td style="text-align:center">更新后所有子模块后指向最后一次提交，更新后需要重新切回分支，所有子模块只需一条更新语句即可</td>
+<td style="text-align:center">所有子模块需要单独更新</td>
+<td style="text-align:center">各有优劣，相对subtree更好用一些</td>
 </tr>
 <tr>
-<td align="center">提交本地修改</td>
-<td align="center">只需关心子模块即可，子模块的所有操作与普通git项目相同</td>
-<td align="center">提交执行命令相对复杂一些</td>
-<td align="center">submodule操作更简单，submodule占优</td>
+<td style="text-align:center">提交本地修改</td>
+<td style="text-align:center">只需关心子模块即可，子模块的所有操作与普通git项目相同</td>
+<td style="text-align:center">提交执行命令相对复杂一些</td>
+<td style="text-align:center">submodule操作更简单，submodule占优</td>
 </tr>
 </tbody>
 </table>
@@ -344,7 +340,7 @@ git subtree add --prefix=ModuleA --squash  ModuleA master
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2017-05-17 11:23:22 \x2b0000 UTC',
+        id: '2017-05-17 11:23:22 \u002b0000 UTC',
         title: 'SubModule与SubTree的差异',
         link: decodeURI(location.href),
         desc: '核心区别 git submodule类似于引用，而git subtree类似于拷贝，比如你在一篇博客中想用到你另一篇博客的内容，git submodul',
@@ -419,7 +415,7 @@ git subtree add --prefix=ModuleA --squash  ModuleA master
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

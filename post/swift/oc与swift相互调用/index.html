@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -43,17 +43,14 @@
 <meta property="og:title" content="OC与swift相互调用" />
 <meta property="og:description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" />
-<meta property="article:published_time" content="2015-12-01T11:42:18+08:00" />
-<meta property="article:modified_time" content="2015-12-01T11:42:18+08:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2015-12-01T11:42:18&#43;08:00" />
+<meta property="article:modified_time" content="2015-12-01T11:42:18&#43;08:00" />
+
 <meta itemprop="name" content="OC与swift相互调用">
-<meta itemprop="description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文">
-<meta itemprop="datePublished" content="2015-12-01T11:42:18&#43;08:00" />
+<meta itemprop="description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文"><meta itemprop="datePublished" content="2015-12-01T11:42:18&#43;08:00" />
 <meta itemprop="dateModified" content="2015-12-01T11:42:18&#43;08:00" />
 <meta itemprop="wordCount" content="991">
-
-
-
 <meta itemprop="keywords" content="混编," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OC与swift相互调用"/>
 <meta name="twitter:description" content="Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文"/>
@@ -116,11 +113,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -136,6 +128,10 @@
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -180,7 +176,7 @@
 <li>在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文件。</li>
 <li>点确定这后就会生成一个以&lt;produceName-Bridging-Header.h&gt;的头文件。</li>
 <li>在targets-&gt;build settings -&gt;Object-C Bridging Header 设为生成的个桥接的头文件即可。</li>
-<li>把想要在swift类中调用的OC头文件放使用import &quot;&rdquo; 写到这个桥接文件中：</li>
+<li>把想要在swift类中调用的OC头文件放使用import &quot;&quot; 写到这个桥接文件中：</li>
 </ol>
 <pre><code class="language-objc">	//  Use this file to import your target's public headers that you would like to expose to Swift.  
 	//MixDemo/MixDemo-Bridging-Header.h    
@@ -192,7 +188,7 @@
 <ol>
 <li>新建一个头文件，名为:OCContainerHeader.h</li>
 <li>在targets-&gt;build settings -&gt;Object-C Bridging Header 设为生成的个桥接的头文件即可。</li>
-<li>把想要在swift类中调用的OC头文件放使用import &quot;&rdquo; 写到这个桥接文件中：</li>
+<li>把想要在swift类中调用的OC头文件放使用import &quot;&quot; 写到这个桥接文件中：</li>
 </ol>
 <pre><code class="language-objc">//  Use this file to import your target's public headers that you would like to expose to Swift.  	
 //MixDemo/MixDemo-Bridging-Header.h    
@@ -264,10 +260,10 @@
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2015-12-01 11:42:18 \x2b0800 CST',
+        id: '2015-12-01 11:42:18 \u002b0800 CST',
         title: 'OC与swift相互调用',
         link: decodeURI(location.href),
-        desc: 'Swift中使用OC的类声明 \x26ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文',
+        desc: 'Swift中使用OC的类声明 \u0026ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文',
         owner: 'it-boyer',
         repo: 'it-boyer.github.io',
         oauth: {
@@ -339,7 +335,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

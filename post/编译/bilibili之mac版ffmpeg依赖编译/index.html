@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/bilibili%E4%B9%8Bmac%E7%89%88ffmpeg%E4%BE%9D%E8%B5%96%E7%BC%96%E8%AF%91/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -43,17 +43,14 @@
 <meta property="og:title" content="bilibiliForMac版之mpv依赖编译" />
 <meta property="og:description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/bilibili%E4%B9%8Bmac%E7%89%88ffmpeg%E4%BE%9D%E8%B5%96%E7%BC%96%E8%AF%91/" />
-<meta property="article:published_time" content="2017-02-10T10:45:03+00:00" />
-<meta property="article:modified_time" content="2017-02-10T10:45:03+00:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/%E7%BC%96%E8%AF%91/bilibili%E4%B9%8Bmac%E7%89%88ffmpeg%E4%BE%9D%E8%B5%96%E7%BC%96%E8%AF%91/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-02-10T10:45:03&#43;00:00" />
+<meta property="article:modified_time" content="2017-02-10T10:45:03&#43;00:00" />
+
 <meta itemprop="name" content="bilibiliForMac版之mpv依赖编译">
-<meta itemprop="description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock">
-<meta itemprop="datePublished" content="2017-02-10T10:45:03&#43;00:00" />
+<meta itemprop="description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock"><meta itemprop="datePublished" content="2017-02-10T10:45:03&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-10T10:45:03&#43;00:00" />
 <meta itemprop="wordCount" content="640">
-
-
-
 <meta itemprop="keywords" content="编译,ffmpeg,mpv,shell," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bilibiliForMac版之mpv依赖编译"/>
 <meta name="twitter:description" content="Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https://github.com/mpv-player/mpv-build.git {% endcodeblock"/>
@@ -116,11 +113,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -136,6 +128,10 @@
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -261,7 +257,7 @@ install_name_tool -id
 mkdir &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/dylib&rdquo;
 cp -f /your/path/to/xcode_project_name/dylib/*.dylib &ldquo;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/dylib/&rdquo;</p>
 <p>echo &ldquo;&mdash;&mdash;&ndash;$(pwd)&mdash;&mdash;&mdash;&mdash;&mdash;-&rdquo;
-cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
+cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&quot;
 cd ${cur_dir}
 echo &ldquo;&ndash;进入$(pwd)&ndash;&rdquo;</p>
 <p>for dirlist in $(ls ${cur_dir})
@@ -278,10 +274,10 @@ do</p>
 <h3 id="扩展二">扩展二</h3>
 <p>{% codeblock  lang:shell %}
 echo &ldquo;&mdash;&mdash;&ndash;$(pwd)&mdash;&mdash;&mdash;&mdash;&mdash;-&rdquo;
-cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&rdquo;
+cur_dir=&quot;$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/lib&quot;
 cd ${cur_dir}
 echo &ldquo;&ndash;进入$(pwd)&ndash;&rdquo;
-lib=&quot;libmediainfo.0.dylib&rdquo;
+lib=&ldquo;libmediainfo.0.dylib&rdquo;
 #-f 参数判断 $file 是否存在
 if [ -f &ldquo;$lib&rdquo; ]; then
 otool -L ${lib}
@@ -348,7 +344,7 @@ fi
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2017-02-10 10:45:03 \x2b0000 UTC',
+        id: '2017-02-10 10:45:03 \u002b0000 UTC',
         title: 'bilibiliForMac版之mpv依赖编译',
         link: decodeURI(location.href),
         desc: 'Bilibili Mac Client 一款基于mpv和ffmpeg底层库实现的播放器. 项目依赖库 编译在项目中所需的相关依赖库 下载资源 下载mpv-build {% codeblock lang:git %} git clone https:\/\/github.com\/mpv-player\/mpv-build.git {% endcodeblock',
@@ -423,7 +419,7 @@ fi
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -6,11 +6,7 @@
     <description>Recent content in AutoLayout on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 Sep 2014 15:53:11 +0800</lastBuildDate>
-    
-	<atom:link href="https://it-boyer.github.io/tags/autolayout/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 02 Sep 2014 15:53:11 +0800</lastBuildDate><atom:link href="https://it-boyer.github.io/tags/autolayout/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>代码实现AutoLayout相关特性</title>
       <link>https://it-boyer.github.io/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/</link>
@@ -24,14 +20,14 @@
 &lt;li&gt;使用&lt;code&gt;NSLayoutConstraint&lt;/code&gt;类型的初始化函数中的&lt;code&gt;multiplier&lt;/code&gt;参数就可以非常简单的设置按比例缩放。&lt;/li&gt;
 &lt;li&gt;同时也可以设置不同&lt;code&gt;NSLayoutAttribute&lt;/code&gt;参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;现在就拿一个简单的&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;做示例，在ViewController中创建一个UIButton字段：&lt;br&gt;
+&lt;p&gt;现在就拿一个简单的**&lt;code&gt;UIButton&lt;/code&gt;**做示例，在ViewController中创建一个UIButton字段：&lt;br&gt;
 {%codeblock lang:objc%}
 UIButton *btn;&lt;br&gt;
 {%endcodeblock%}&lt;/p&gt;
 &lt;h4 id=&#34;需求-1&#34;&gt;需求 1：&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;要求&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;水平居中，始终距离父View底部&lt;strong&gt;20&lt;/strong&gt;单位，其高度是父View高度的三分之一。&lt;/li&gt;
-&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控&lt;strong&gt;&lt;code&gt;UIButton&lt;/code&gt;&lt;/strong&gt;的大小并实时输出到屏幕上。&lt;br&gt;
+&lt;li&gt;要求**&lt;code&gt;UIButton&lt;/code&gt;**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。&lt;/li&gt;
+&lt;li&gt;使用&lt;strong&gt;KVO&lt;/strong&gt;来监控**&lt;code&gt;UIButton&lt;/code&gt;**的大小并实时输出到屏幕上。&lt;br&gt;
 {%codeblock lang:objc%}&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;

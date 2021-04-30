@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -37,7 +37,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -46,7 +46,7 @@
 <meta property="og:description" content="不物喜,不己悲;善假物,易参行." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://it-boyer.github.io/" />
-<meta property="og:updated_time" content="2015-12-22T12:39:04+00:00" />
+
 <meta itemprop="name" content="Even - A super concise theme for Hugo">
 <meta itemprop="description" content="不物喜,不己悲;善假物,易参行."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
@@ -110,11 +110,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -131,6 +126,10 @@
   </ul>
 </nav>
 
+
+
+
+
     </header>
 
     <main id="main" class="main">
@@ -146,7 +145,7 @@
           <a href="/categories/git/"> git </a>
           <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
           </div>
-        <span class="more-meta"> 约 1698 字 </span>
+        <span class="more-meta"> 约 1742 字 </span>
         <span class="more-meta"> 预计阅读 4 分钟 </span>
     </div>
   </header>
@@ -168,13 +167,13 @@
 <p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
 <p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
-<p>解决：<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令。</p>
+<p>解决：**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令。</p>
 <p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
 <h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
 <hr>
 <ol>
 <li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
-<li><strong><!-- raw HTML omitted -->git status <!-- raw HTML omitted --></strong>命令,查看中间状态：
+<li>**<!-- raw HTML omitted -->git status <!-- raw HTML omitted -->**命令,查看中间状态：
 {%codeblock lang:bash %}
 $ git status</li>
 </ol>
@@ -191,7 +190,7 @@ $ git status</li>
 <h1 id="heading-3"></h1>
 <p>{%endcodeblock%}
 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行<strong><!-- raw HTML omitted -->git stash <!-- raw HTML omitted --></strong>命令，往堆栈中推送一个新的储藏：
+执行**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令，往堆栈中推送一个新的储藏：
 {%codeblock lang:bash %}
 $ git stash
 Saved working directory and index state<br>
@@ -206,7 +205,7 @@ $ git status
 nothing to commit, working directory clean
 {%endcodeblock%}
 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用<strong><!-- raw HTML omitted -->git stash list<!-- raw HTML omitted --></strong>要查看现有的储藏：
+5. 使用**<!-- raw HTML omitted -->git stash list<!-- raw HTML omitted -->**要查看现有的储藏：
 {%codeblock lang:bash%}
 $ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
@@ -216,8 +215,8 @@ stash@{2}: WIP on master: 21d80a5 added number to log
 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
 <h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
 <hr>
-<p>执行<strong><!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted --></strong>命令, 可以重新应用最近的一次储藏；
-执行<strong><!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted --></strong>命令，即通过指定储藏的名字，来应用更早的储藏。
+<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令, 可以重新应用最近的一次储藏；
+执行**<!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted -->**命令，即通过指定储藏的名字，来应用更早的储藏。
 {%codeblock lang:bash%}
 $ git stash apply</p>
 <h1 id="on-branch-master-1">On branch master</h1>
@@ -267,7 +266,7 @@ $ git stash apply</p>
           <a href="/categories/xcode/"> xcode </a>
           <a href="/categories/sb/"> SB </a>
           </div>
-        <span class="more-meta"> 约 2605 字 </span>
+        <span class="more-meta"> 约 2705 字 </span>
         <span class="more-meta"> 预计阅读 6 分钟 </span>
     </div>
   </header>
@@ -281,14 +280,14 @@ $ git stash apply</p>
 <li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
 <li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
 </ol>
-<p>现在就拿一个简单的<strong><code>UIButton</code></strong>做示例，在ViewController中创建一个UIButton字段：<br>
+<p>现在就拿一个简单的**<code>UIButton</code>**做示例，在ViewController中创建一个UIButton字段：<br>
 {%codeblock lang:objc%}
 UIButton *btn;<br>
 {%endcodeblock%}</p>
 <h4 id="需求-1">需求 1：</h4>
 <ol>
-<li>要求<strong><code>UIButton</code></strong>水平居中，始终距离父View底部<strong>20</strong>单位，其高度是父View高度的三分之一。</li>
-<li>使用<strong>KVO</strong>来监控<strong><code>UIButton</code></strong>的大小并实时输出到屏幕上。<br>
+<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
 {%codeblock lang:objc%}</li>
 </ol>
 <ul>
@@ -352,7 +351,7 @@ constant:0]];</p>
           <a href="/categories/ios/"> iOS </a>
           <a href="/categories/schemes/"> schemes </a>
           </div>
-        <span class="more-meta"> 约 1464 字 </span>
+        <span class="more-meta"> 约 1463 字 </span>
         <span class="more-meta"> 预计阅读 3 分钟 </span>
     </div>
   </header>
@@ -366,7 +365,7 @@ constant:0]];</p>
 <p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
 <p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
 <h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
-<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&rdquo;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
 <h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
     </div>
     <div class="read-more">
@@ -486,7 +485,7 @@ constant:0]];</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

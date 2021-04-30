@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/macos/%E5%BC%80%E5%8F%91mac%E4%B8%8A%E7%9A%84app%E6%8F%92%E4%BB%B6/" />
@@ -35,7 +35,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e26a09b7b99e8ec3a22900de69b02b568e23ace71d66ebfdb13fa655d365f1f.css" rel="stylesheet">
+<link href="/sass/main.min.fe4c877bd22490736af567d3e11b292e99a460f100bf2e83a3354a76fa1901ed.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 
@@ -43,17 +43,14 @@
 <meta property="og:title" content="开发Mac上的App插件" />
 <meta property="og:description" content="在以前的 OS X 系统中，给你的 App 在运行时动态载入可执行代码比较困难。现在可以通过NSBundle和 plug-ins插件,可以很方便的向原有APP" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/macos/%E5%BC%80%E5%8F%91mac%E4%B8%8A%E7%9A%84app%E6%8F%92%E4%BB%B6/" />
-<meta property="article:published_time" content="2017-02-07T12:38:58+00:00" />
-<meta property="article:modified_time" content="2017-02-07T12:38:58+00:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/macos/%E5%BC%80%E5%8F%91mac%E4%B8%8A%E7%9A%84app%E6%8F%92%E4%BB%B6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-02-07T12:38:58&#43;00:00" />
+<meta property="article:modified_time" content="2017-02-07T12:38:58&#43;00:00" />
+
 <meta itemprop="name" content="开发Mac上的App插件">
-<meta itemprop="description" content="在以前的 OS X 系统中，给你的 App 在运行时动态载入可执行代码比较困难。现在可以通过NSBundle和 plug-ins插件,可以很方便的向原有APP">
-<meta itemprop="datePublished" content="2017-02-07T12:38:58&#43;00:00" />
+<meta itemprop="description" content="在以前的 OS X 系统中，给你的 App 在运行时动态载入可执行代码比较困难。现在可以通过NSBundle和 plug-ins插件,可以很方便的向原有APP"><meta itemprop="datePublished" content="2017-02-07T12:38:58&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-07T12:38:58&#43;00:00" />
 <meta itemprop="wordCount" content="1980">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开发Mac上的App插件"/>
 <meta name="twitter:description" content="在以前的 OS X 系统中，给你的 App 在运行时动态载入可执行代码比较困难。现在可以通过NSBundle和 plug-ins插件,可以很方便的向原有APP"/>
@@ -116,11 +113,6 @@
   <a href="/" class="logo">Even</a>
   
 </div>
-
-
-
-
-
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
@@ -136,6 +128,10 @@
       </li>
   </ul>
 </nav>
+
+
+
+
 
     </header>
 
@@ -210,7 +206,7 @@ NSFileManager *fm = [NSFileManager defaultManager];
 NSError *outErr;
 for (NSString *item in [fm contentsOfDirectoryAtPath:pluginsFolder error:&amp;outErr])
 {
-if (![item hasSuffix:@&quot;.bundle&rdquo;])
+if (![item hasSuffix:@&quot;.bundle&quot;])
 {
 continue;
 }
@@ -218,7 +214,7 @@ NSString *bundlePath = [pluginsFolder stringByAppendingPathComponent:item];
 NSBundle *b = [NSBundle bundleWithPath:bundlePath];
 if (!b)
 {
-NSLog(@&ldquo;Could not make a bundle from %@&quot;, bundlePath);
+NSLog(@&ldquo;Could not make a bundle from %@&rdquo;, bundlePath);
 continue;
 }
 //获取实现插件代理协议方法的类
@@ -358,7 +354,7 @@ if ([textView shouldChangeTextInRange:[textView selectedRange] replacementString
     <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitment = new Gitment({
-        id: '2017-02-07 12:38:58 \x2b0000 UTC',
+        id: '2017-02-07 12:38:58 \u002b0000 UTC',
         title: '开发Mac上的App插件',
         link: decodeURI(location.href),
         desc: '在以前的 OS X 系统中，给你的 App 在运行时动态载入可执行代码比较困难。现在可以通过NSBundle和 plug-ins插件,可以很方便的向原有APP',
@@ -433,7 +429,7 @@ if ([textView shouldChangeTextInRange:[textView selectedRange] replacementString
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 
