@@ -222,7 +222,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">七习</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -253,7 +253,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">七习</a>
   
 </div>
 <nav class="site-navbar">
@@ -614,25 +614,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2014-07-01 23:12:01 \u002b0800 CST',
-        title: 'iOS Document Interaction 编程指南',
-        link: decodeURI(location.href),
-        desc: '\u003ch4 id=\u0022关于-document-interaction\u0022\u003e关于 Document Interaction\u003c\/h4\u003e\n\u003cp\u003eiOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的\u003ca href=\u0022https:\/\/developer.apple.com\/library\/ios\/documentation\/UIKit\/Reference\/UIDocumentInteractionController_class\/Reference\/Reference.html\u0022\u003eUIDocumentInteractionController\u003c\/a\u003e类，以及\u003ca href=\u0022https:\/\/developer.apple.com\/library\/ios\/documentation\/QuickLook\/Reference\/QuickLookFrameworkReference_iPhoneOS\/_index.html\u0022\u003eQuick Look\u003c\/a\u003e框架。\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e######预览文档和呈现选项菜单\u003cbr\u003e\n如果app需要打开自身并不支持的文件时，就需要使用\u003cstrong\u003eUIDocumentInteractionController\u003c\/strong\u003e。一个\u003cstrong\u003edocument interaction controller\u003c\/strong\u003e通过\u003cstrong\u003eQuick Look框架\u003c\/strong\u003e判断文档是否能被另一个app打开和预览。也就是说，app可以通过\u003cstrong\u003edocumentinteraction controller\u003c\/strong\u003e提供一些支持打开该文件方式的菜单。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e具体实现需要以下步骤：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003e需要通过其他APP打开的文件，来实例化\u003ccode\u003eUIDocumentInteractionController\u003c\/code\u003e实例对象。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003e在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003e用户交互，如触摸这个控件，则调用\u003ccode\u003edocumentinteractioncontroller\u003c\/code\u003e对象。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e三种交互界面:\n1. 预览文件的内容。\n2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。\n3. 一个菜单，仅包含“以其它方式打开”操作。\u003c\/p\u003e\n\u003cp\u003e同时，\u003ccode\u003edocumentinteractioncontroller\u003c\/code\u003e内置了一些手势，必要时可以直接实现它们。\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e######使用\u003ccode\u003edocumentinteractioncontroller\u003c\/code\u003e的场景:\u003cstrong\u003e与文件交互的app都可以使用。\u003c\/strong\u003e\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003e需要从网络下载文件的APP:\u003cbr\u003e\n例如，email程序需要打开和预览邮件附件。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cul\u003e\n\u003cli\u003e不下载文件的APP:\u003cbr\u003e\n例如，APP需要支持文件共享（参考“File-Sharing Support” in \u003ca href=\u0022https:\/\/developer.apple.com\/library\/ios\/documentation\/Miscellaneous\/Conceptual\/iPhoneOSTechOverview\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007898\u0022\u003eiOS Technology Overview\u003c\/a\u003e), 即可以对同步到app Documents\/Shared目录下的文件使用\u003ccode\u003edocumentinteractioncontroller\u003c\/code\u003e。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e',
-        owner: 'it-boyer',
-        repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+        
 
   
 

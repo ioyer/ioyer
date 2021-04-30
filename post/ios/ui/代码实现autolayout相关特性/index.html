@@ -275,7 +275,7 @@ constant:0]];
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Even</a>
+    <a href="/" class="logo">七习</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -306,7 +306,7 @@ constant:0]];
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">Even</a>
+  <a href="/" class="logo">七习</a>
   
 </div>
 <nav class="site-navbar">
@@ -638,25 +638,7 @@ constant:20]
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2014-09-02 15:53:11 \u002b0800 CST',
-        title: '代码实现AutoLayout相关特性',
-        link: decodeURI(location.href),
-        desc: '\u003ch2 id=\u0022按比例缩放\u0022\u003e按比例缩放\u003c\/h2\u003e\n\u003cp\u003e按比例缩放，这是在Interface Builder中无法设置的内容。\u003cbr\u003e\n而在代码中，有如下两种实现方式:\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e使用\u003ccode\u003eNSLayoutConstraint\u003c\/code\u003e类型的初始化函数中的\u003ccode\u003emultiplier\u003c\/code\u003e参数就可以非常简单的设置按比例缩放。\u003c\/li\u003e\n\u003cli\u003e同时也可以设置不同\u003ccode\u003eNSLayoutAttribute\u003c\/code\u003e参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e现在就拿一个简单的**\u003ccode\u003eUIButton\u003c\/code\u003e**做示例，在ViewController中创建一个UIButton字段：\u003cbr\u003e\n{%codeblock lang:objc%}\nUIButton *btn;\u003cbr\u003e\n{%endcodeblock%}\u003c\/p\u003e\n\u003ch4 id=\u0022需求-1\u0022\u003e需求 1：\u003c\/h4\u003e\n\u003col\u003e\n\u003cli\u003e要求**\u003ccode\u003eUIButton\u003c\/code\u003e**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。\u003c\/li\u003e\n\u003cli\u003e使用\u003cstrong\u003eKVO\u003c\/strong\u003e来监控**\u003ccode\u003eUIButton\u003c\/code\u003e**的大小并实时输出到屏幕上。\u003cbr\u003e\n{%codeblock lang:objc%}\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e(void)viewDidLoad\n{\n[super viewDidLoad];\u003c\/p\u003e\n\u003cp\u003e\/\/创建UIButton，不需要设置frame\nbtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];\n[btn setTitle:@\u0026ldquo;mgen\u0026rdquo; forState:UIControlStateNormal];\nbtn.backgroundColor = [UIColor greenColor];\n[self.view addSubview:btn];\u003c\/p\u003e\n\u003cp\u003e\/\/禁止自动转换AutoresizingMask\nbtn.translatesAutoresizingMaskIntoConstraints = NO;\u003c\/p\u003e\n\u003cp\u003e\/\/居中\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeCenterX\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeCenterX\nmultiplier:1\nconstant:0]];\u003c\/p\u003e\n\u003cp\u003e\/\/距离底部20单位\n\/\/注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeBottom\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeBottom\nmultiplier:1\nconstant:-20]];\u003c\/p\u003e\n\u003cp\u003e\/\/定义高度是父View的三分之一\n[self.view addConstraint:[NSLayoutConstraint\nconstraintWithItem:btn\nattribute:NSLayoutAttributeHeight\nrelatedBy:NSLayoutRelationEqual\ntoItem:self.view\nattribute:NSLayoutAttributeHeight\nmultiplier:0.3\nconstant:0]];\u003c\/p\u003e\n\u003cp\u003e\/\/注册KVO方法\n[btn addObserver:self forKeyPath:@\u0026ldquo;bounds\u0026rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; \u003cbr\u003e\n}\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e',
-        owner: 'it-boyer',
-        repo: 'it-boyer.github.io',
-        oauth: {
-          client_id: 'd46ea301857e36a08319',
-          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+        
 
   
 
