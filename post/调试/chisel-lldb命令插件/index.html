@@ -295,23 +295,25 @@
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2018-08-31 16:20:20 \u002b0000 UTC',
         title: 'Chisel-LLDB命令插件',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: '{% github facebook chisel 56d0e0d width = 30% %} LLDB 是一个有着 REPL 的特性和 C\u002b\u002b ,Python 插件的开源调试器。LLDB 绑定在 Xcode 内部，存在于主窗口底部的控制台中。调试器允许你在程序运行的特定',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 

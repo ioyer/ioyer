@@ -405,23 +405,25 @@ svnserve -d -r /data/svn/repos
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2015-10-05 19:16:47 \u002b0800 CST',
         title: '使用SmartSVN创建版本库',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eSmartSVN有以下版本：\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003eSmartSVN enterprise 9 企业版\u003c\/li\u003e\n\u003cli\u003eSmartSVN foundation 8 基础版\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e由于企业版只能建立本地的版本库，无法创建\u0026amp;使用svn:\/\/localhost方式。\u003c\/p\u003e\n\u003ch4 id=\u0022用基础版来说明创建版本库\u0022\u003e用基础版来说明创建版本库。\u003c\/h4\u003e\n\u003cp\u003e参考：\u003ca href=\u0022http:\/\/hammadk.com\/how-to-create-repository-in-smartsvn-tutorial\/\u0022\u003eCreate Repository in SmartSVN – Tutorial\u003c\/a\u003e\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e启动SmartSVN SmartSVN foundation 8 基础版\u003c\/li\u003e\n\u003cli\u003e菜单栏Project-\u0026gt; set up Local Repository\u0026hellip;   \u003cbr\u003e\n需要设置如下两个参数：\u003cbr\u003e\n3. svnadmin 在终端执行： whereis svnadmin\u003cbr\u003e\n4. svnserve 在终端执行： whereis svnserve\u003cbr\u003e\n￼\u003cimg src=\u0022https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/adeb039a-b429-481a-ac25-2044b871e45e\/screenshot.png?resizeSmall\u0026amp;width=832\u0022 alt=\u0022image\u0022\u003e\u003c\/li\u003e\n\u003cli\u003e指定版本库的目录位置：\u003cbr\u003e\n\u003cimg src=\u0022https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/a3f00903-101c-4848-a10a-3479643baea7\/screenshot.png?resizeSmall\u0026amp;width=832\u0022 alt=\u0022image\u0022\u003e\u003c\/li\u003e\n\u003cli\u003e初始化账户密码：\u003cbr\u003e\n\u003cimg src=\u0022https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/140f257e-e452-47ea-8317-34a5ed8d6c7f\/screenshot.png?resizeSmall\u0026amp;width=832\u0022 alt=\u0022image\u0022\u003e\u003c\/li\u003e\n\u003cli\u003e完成。\u003cbr\u003e\n\u003cimg src=\u0022https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/ed975623-72bb-4132-8d04-ac9a7b1d2fc9\/screenshot.png?resizeSmall\u0026amp;width=832\u0022 alt=\u0022image\u0022\u003e\u003cbr\u003e\n\u003cimg src=\u0022https:\/\/app.yinxiang.com\/shard\/s33\/nl\/2147483647\/59a78b5d-81de-48f1-afe9-2fb2bde72da2\/\/res\/53306789-9d97-485c-a54d-a143e7b078f1\/screenshot.png?resizeSmall\u0026amp;width=832\u0022 alt=\u0022image\u0022\u003e\u003c\/li\u003e\n\u003c\/ol\u003e',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 

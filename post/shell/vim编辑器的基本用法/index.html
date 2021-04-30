@@ -479,23 +479,25 @@ gu (变小写)
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2017-07-04 10:09:29 \u002b0000 UTC',
         title: 'vim编辑器的基本用法',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: '参考 基本操作 基本概念 动作：是指移动光标的操作，你肯定很熟悉 h、j、k 和 l，以及 w 和 b。但其实，\/ 也是一个动作。 :h navigation 操作符： 对某个区域文本执行',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 

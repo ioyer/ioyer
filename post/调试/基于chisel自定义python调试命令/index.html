@@ -287,23 +287,25 @@ script fblldb.loadCommandsInDirectory('/magical/commands/')
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2018-10-21 09:03:35 \u002b0000 UTC',
         title: '基于Chisel自定义python调试命令',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: '{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 

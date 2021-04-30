@@ -306,23 +306,25 @@ counie line:control +command C<br>
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2020-07-19 21:31:04 \u002b0800 CST',
         title: 'Xcode 快捷键使用',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: 'State \u0026ldquo;DONE\u0026rdquo; from \u0026ldquo;TODO\u0026rdquo; [2020-05-16 六 20:45] State \u0026ldquo;TODO\u0026rdquo; from \u0026ldquo;DONE\u0026rdquo; [2020-05-16 六 20:45] State \u0026ldquo;DONE\u0026rdquo; from \u0026ldquo;CANCEL\u0026rdquo; [2020-03-07 六 10:21] 新建 Tab 页： command \u002b t 关闭 tab 页： command \u002b w 左右切换 tab 页： shift \u002b command \u002b [ 或 ] 预览所有 tab 页： shift \u002b command \u002b \\ 选中激活 tab 页：',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 

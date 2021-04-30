@@ -468,23 +468,25 @@ Enter 'help' for a list of built-in commands.
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2015-09-25 23:59:16 \u002b0800 CST',
         title: '小米路由常用操作',
-        clientID: 'd46ea301857e36a08319',
-        clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
-        repo: 'it-boyer.github.io',
+        link: decodeURI(location.href),
+        desc: '\u003ch4 id=\u0022常用命令\u0022\u003e常用命令\u003c\/h4\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003essh登录\u003c\/p\u003e\n\u003cpre\u003e\u003ccode\u003e 局域网登录:\n ssh [user@]hostname [command]\n  例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195\n 回车\n 输入密码\n\n **修改密码：**\n root@xiaoqiang:~#passwd   \n 回车\n 输入新密码\n 回车\n 再次输入新密码\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e远程拷贝数据\u003c\/p\u003e\n\u003cpre\u003e\u003ccode\u003e scp Desktop\/ar71xx\/* root@192.168.31.1:\/userdisk\/myWorkspace\/ar71xx\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e每次重启路由获取IP:\u003c\/p\u003e\n\u003cpre\u003e\u003ccode\u003e vi \/etc\/rc.local\n sh \/etc\/getIP.sh\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e\/\/启动后，等待20秒，然后，获取当前时间作为文件名称\n\/\/使用ifconfig 获取路由器的ip信息\n\/\/使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行\n\/\/ \u0026gt; 使用重定向，将过滤的ip行，写入路由硬盘\/userdisk\/data\/my\/ip目录中\n\/\/通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中\n\/\/查看该文件，既有路由重启后的当前IP\u003c\/p\u003e',
         owner: 'it-boyer',
-        admin: ['it-boyer'],
-        body: decodeURI(location.href)
+        repo: 'it-boyer.github.io',
+        oauth: {
+          client_id: 'd46ea301857e36a08319',
+          client_secret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 
