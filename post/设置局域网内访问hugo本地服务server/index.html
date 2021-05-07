@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>设置局域网内访问hugo本地服务server - Even - A super concise theme for Hugo</title>
+  <title>设置局域网内访问 hugo 本地服务 server - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&amp;ndash;bind`选" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="场景说明 hugo配合emacs编写博客，借助emacs中org-mode的强大功能，对知识逻辑梳理和层级整理的神级操作，结合hugo&#43;git" /><meta name="keywords" content="Hugo, swift, org-mode" />
 
 
 
@@ -40,20 +40,20 @@
 <link rel="stylesheet" href="/css/search.css">
 
 
-<meta property="og:title" content="设置局域网内访问hugo本地服务server" />
-<meta property="og:description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&ndash;bind`选" />
+<meta property="og:title" content="设置局域网内访问 hugo 本地服务 server" />
+<meta property="og:description" content="场景说明 hugo配合emacs编写博客，借助emacs中org-mode的强大功能，对知识逻辑梳理和层级整理的神级操作，结合hugo&#43;git" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%AE%BE%E7%BD%AE%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E8%AE%BF%E9%97%AEhugo%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1server/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-08-09T19:53:00&#43;08:00" />
-<meta property="article:modified_time" content="2020-03-23T15:33:01&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-07T13:23:40&#43;08:00" />
 
-<meta itemprop="name" content="设置局域网内访问hugo本地服务server">
-<meta itemprop="description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&ndash;bind`选"><meta itemprop="datePublished" content="2019-08-09T19:53:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-23T15:33:01&#43;08:00" />
-<meta itemprop="wordCount" content="125">
-<meta itemprop="keywords" content="org," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="设置局域网内访问hugo本地服务server"/>
-<meta name="twitter:description" content="* 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备 hugo server 想在同一局域网的其他设备访问,必须借助`&ndash;bind`选"/>
+<meta itemprop="name" content="设置局域网内访问 hugo 本地服务 server">
+<meta itemprop="description" content="场景说明 hugo配合emacs编写博客，借助emacs中org-mode的强大功能，对知识逻辑梳理和层级整理的神级操作，结合hugo&#43;git"><meta itemprop="datePublished" content="2019-08-09T19:53:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-07T13:23:40&#43;08:00" />
+<meta itemprop="wordCount" content="551">
+<meta itemprop="keywords" content="hugo,org," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设置局域网内访问 hugo 本地服务 server"/>
+<meta name="twitter:description" content="场景说明 hugo配合emacs编写博客，借助emacs中org-mode的强大功能，对知识逻辑梳理和层级整理的神级操作，结合hugo&#43;git"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -141,15 +141,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">设置局域网内访问hugo本地服务server</h1>
+      <h1 class="post-title">设置局域网内访问 hugo 本地服务 server</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-08-09 </span>
-        <div class="post-category">
-            <a href="/categories/hugo/"> hugo </a>
-            </div>
-          <span class="more-meta"> 约 125 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+          <span class="more-meta"> 约 551 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -157,18 +155,47 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#场景说明">场景说明</a></li>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#server命令的介绍">server命令的介绍</a></li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p><strong>*</strong> 局域网内hugo开启异地服务默认开启,只能在本地访问,无法在其他设备</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">server</span>
-</code></pre></div>
-<p>想在同一局域网的其他设备访问,必须借助`&ndash;bind`选项,设置为&quot;0.0.0.0&quot;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
-<span style="color:#a6e22e">Web</span> <span style="color:#a6e22e">Server</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">available</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">:</span><span style="color:#75715e">//localhost:1313/ (bind address 0.0.0.0)
-</span></code></pre></div>
-<p>此时就可以在其他设备访问hugo服务.</p>
+      <h2 id="场景说明">场景说明</h2>
+<p>hugo配合emacs编写博客，借助emacs中org-mode的强大功能，对知识逻辑梳理和层级整理的神级操作，结合hugo+githubPage静态网页的支持，能够很好的将emacs本地知识体系分享到网络上。hugo的对知识点的可读性和体系，都有一个套完整的解决方案。</p>
+<h2 id="目的">目的</h2>
+<ol>
+<li>hugo支持本地部署网页服务，可以实时预览博客</li>
+<li>emacs上org-mode支持日程管理和代码高亮，有ox-hugo的插件的支持，能够在日常管理中，实现知识输入的需求。</li>
+</ol>
+<h2 id="server命令的介绍">server命令的介绍</h2>
+<p>本章先解下hugo的server命令。在终端可以通过help命令得到详细的帮助的信息：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo help server</code></pre></div>
+<ol>
+<li>
+<p>如果想在本地调试网页，就需要启动hugo服务，直接通过本地IP来访问网页：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">        hugo server
+        Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
+    </code></pre></div>
+<p>以上命令，默认绑定的iP地址是：127.0.0.1，这样只有在本机才能访问到hugo服务。</p>
+</li>
+<li>
+<p>如果想在该局域网内的其他客户端（手机/iPad）上访问电脑上hugo服务，就需要设置绑定参数：&ndash;bind为0.0.0.0。这样局域网内所有客户端的地址都可以访问服务。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">        hugo server --bind<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
+        Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 0.0.0.0<span style="color:#f92672">)</span>
+    </code></pre></div>
+</li>
+<li>
+<p>-p设置服务端口号，也是一个常用的参数，默认1313，有时会随机监听一个端口号，这时就可以通过-p参数来指定一个固定的端口。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">        hugo server --bind<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span> -p <span style="color:#ae81ff">1234</span>
+        Web Server is available at http://localhost:1234/ <span style="color:#f92672">(</span>bind address 0.0.0.0<span style="color:#f92672">)</span>
+    </code></pre></div>
+</li>
+</ol>
 
     </div>
 
@@ -180,7 +207,7 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-03-23
+        2021-05-07
         
     </span>
   </p>
@@ -203,6 +230,7 @@
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
+          <a href="/tags/hugo/">hugo</a>
           <a href="/tags/org/">org</a>
           </div>
       <nav class="post-nav">
@@ -226,7 +254,7 @@
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2019-08-09 19:53:00 \u002b0800 CST',
-        title: '设置局域网内访问hugo本地服务server',
+        title: '设置局域网内访问 hugo 本地服务 server',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
