@@ -138,6 +138,40 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-21 </span>
+      <div class="post-category">
+          <a href="/categories/shell/"> shell </a>
+          </div>
+        <span class="more-meta"> 约 738 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>安装ruby环境：
+方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
+方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
+方法三：使用macport安装 <code>port install ruby</code></p>
+<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
+<p>问题：<br>
+<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
+<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
+最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
+<h4 id="gem介绍">Gem介绍</h4>
+<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
+<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-01-19 </span>
@@ -370,46 +404,6 @@ constant:0]];</p>
     </div>
     <div class="read-more">
       <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-08-28 </span>
-      <div class="post-category">
-          <a href="/categories/xcode/"> xcode </a>
-          <a href="/categories/%E6%96%87%E6%A1%A3/"> 文档 </a>
-          </div>
-        <span class="more-meta"> 约 4559 字 </span>
-        <span class="more-meta"> 预计阅读 10 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
-<p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
-<p>通过本教程，将学习如下几点：</p>
-<ul>
-<li>如何书写 HeaderDoc 风格的注释</li>
-<li>分如何在 Xcode 中预览文档</li>
-<li>如何生成 HTML 文档</li>
-<li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
-</ul>
-<h4 id="准备工作">准备工作</h4>
-<p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
-<p>这个简单的示例程序只包含了两个类：</p>
-<ul>
-<li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
-<li>MathAPI: 包含了1个方法，用于累加两个数。
-现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
