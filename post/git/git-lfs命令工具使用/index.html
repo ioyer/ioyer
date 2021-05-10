@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="git-lfs命令工具使用">
 <meta itemprop="description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件"><meta itemprop="datePublished" content="2018-10-11T17:58:15&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-11T17:58:15&#43;00:00" />
-<meta itemprop="wordCount" content="500">
+<meta itemprop="wordCount" content="515">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-lfs命令工具使用"/>
 <meta name="twitter:description" content="{% github git-lfs git-lfs 45c4568 width = 30% %} git-lfs官网 LFS其实是git的一个扩展，并没有改变git的工作方式，有点像耍了个小花招，把指定需要lfs管理的文件"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 500 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <span class="more-meta"> 约 515 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -181,43 +183,83 @@ LFS其实是git的一个扩展，并没有改变git的工作方式，有点像�
 通过这样的手段，使得本地仓库的体积大大减小，而不会出现随着这些文件的版本增多而体积剧烈膨胀的情况；
 个人觉得这种把存储负担转移给了服务器的做法，是不是有违git去中心化的理念，毕竟lfs这样做其实算是强依赖于这个lfs服务器了，本地仓库并不是一个完整的仓库</p>
 <h3 id="安装httpmacappstoreorggit-lfs"><a href="http://macappstore.org/git-lfs/">安装</a></h3>
-<pre><code>brew install git-lfs
-</code></pre>
-<h3 id="配置git库支持git-lfs">配置git库支持git-lfs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install git-lfs
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置git库支持git-lfs">配置git库支持git-lfs</h3>
 <ol>
 <li>Git命令行扩展工具<code>git-lfs</code>,您只需设置一次<code>Git LFS</code>。</li>
 </ol>
-<pre><code>#设置库支持
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#设置库支持
 git lfs install
 #删除库支持
 git lfs uninstall
-</code></pre>
-<blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>当使用gitee时，push远程库：WARNING: Authentication error: Authentication required: not a enterprise project</p>
 </blockquote>
 <ol start="2">
 <li>配置<code>.gitattribute</code>文件，添加需要<code>Git LFS</code>管理的文件类型。也可<code>track</code>命令添加其他类型</li>
 </ol>
-<pre><code># 添加
-git lfs track &quot;*.psd&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 添加
+git lfs track &#34;*.psd&#34;
 # 查看规则
 git lfs track
 # 查看跟踪的文件清单
 git lfs ls-files
-</code></pre>
-<ol start="3">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>确保跟踪<code>.gitattributes</code></li>
 </ol>
-<pre><code>git add .gitattributes
-</code></pre>
-<ol start="4">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add .gitattributes
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
 <li>像往常一样提交并推送到GitHub。</li>
 </ol>
-<pre><code>git add file.psd
-git commit -m &quot;Add design file&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add file.psd
+git commit -m &#34;Add design file&#34;
 git push origin master
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -339,7 +381,7 @@ git push origin master
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

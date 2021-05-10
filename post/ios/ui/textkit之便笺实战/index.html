@@ -28,7 +28,7 @@ iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本�
 preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码： {%codeblock lang:objc%} self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; {%endcodeblock%} {% codeblock lang:swift %} self.textView.font = UIFont.preferredFont(forTextStyle: .body) {% endcodeblock %} 打开 NotesListViewController.m/swift 在 tableView:cellForRowAtIndexPath: 方法中增加如下代码: {%codeblock lang:objc%} cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]; {%endcodeblock%} {% codeblock lang:swift %} cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline) {% endcodeblock %} 上面两行代码都用到了新版iOS的字体样式.   字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
  APP响应用户字体设置  设置系统字体 返回到通用-&amp;gt;文字大小重新修改字体设置. 再运行App, Note页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。
  设置系统字体生效 当我们返回到通用-&amp;gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。  监听系统通知：实现APP响应用户字体设置 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
- 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%}   (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged(_ notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。 " /><meta name="keywords" content="Hugo, swift, org-mode" />
+ 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%}   (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged(_ notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。 " /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -436,6 +436,8 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
           <span class="more-meta"> 约 9515 字 </span>
           <span class="more-meta"> 预计阅读 19 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -1347,7 +1349,7 @@ return @{ NSFontAttributeName : font };
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

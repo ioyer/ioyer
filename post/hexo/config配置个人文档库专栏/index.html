@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="config配置个人文档库专栏">
 <meta itemprop="description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。"><meta itemprop="datePublished" content="2018-10-20T13:54:16&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-20T13:54:16&#43;00:00" />
-<meta itemprop="wordCount" content="339">
+<meta itemprop="wordCount" content="347">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="config配置个人文档库专栏"/>
 <meta name="twitter:description" content="{% github it-boyer blogDocs 978ed39 width = 30% %} 忽略配置 文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 339 字 </span>
+          <span class="more-meta"> 约 347 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -177,24 +179,42 @@
 <p>{% github it-boyer blogDocs 978ed39 width = 30% %}</p>
 <h3 id="忽略配置">忽略配置</h3>
 <p>文档库主要整理kindle读书笔记，jazzy文档相关html页面，放在hexo中不需要经过md转换html过程。故需要通过hexo的<code>skip_render</code>配置机制，来屏蔽一些目录/文件等。</p>
-<pre><code>skip_render: [&quot;*.html&quot;,&quot;docs/*/*&quot;]
-</code></pre>
-<p>这样，在hexo g过程，跳过这些文件，目录的编辑过程，直接拷贝到public中发布。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">skip_render: [&#34;*.html&#34;,&#34;docs/*/*&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><p>这样，在hexo g过程，跳过这些文件，目录的编辑过程，直接拷贝到public中发布。
 <a href="https://github.com/hexojs/hexo/issues/1146#issuecomment-88380140">skip_render参考</a></p>
 <h3 id="docs配置">docs配置</h3>
 <ol>
 <li>位置考虑
 <code>docs</code>放在在source目录下，目录结构：</li>
 </ol>
-<pre><code>├── souce
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">├── souce
     ├── _post       //博客
     ├── tags        //标签
     ├── categories  //分类
     ├── docs        //文档库
         ├── index.md
         └── kindle笔记
-</code></pre>
-<p>其他配置可以按照<code>tag</code>,<code>categories</code>相关配置，显示在网页中。
+</code></pre></td></tr></table>
+</div>
+</div><p>其他配置可以按照<code>tag</code>,<code>categories</code>相关配置，显示在网页中。
 2. 版本控制
 考虑<code>docs</code>文档库的容量递增，选择<code>git submodule</code>来管理<code>docs</code>文档库，集成到hexo主库中。</p>
 
@@ -319,7 +339,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

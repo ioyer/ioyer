@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="基于Chisel自定义python调试命令">
 <meta itemprop="description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。"><meta itemprop="datePublished" content="2018-10-21T09:03:35&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-21T09:03:35&#43;00:00" />
-<meta itemprop="wordCount" content="792">
+<meta itemprop="wordCount" content="825">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于Chisel自定义python调试命令"/>
 <meta name="twitter:description" content="{% github it-boyer chisel 56d0e0d width = 30% %} 管理.lldbinit .lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 792 字 </span>
+          <span class="more-meta"> 约 825 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -174,28 +176,75 @@
 <p>{% github it-boyer chisel 56d0e0d width = 30% %}</p>
 <h2 id="管理lldbinit">管理.lldbinit</h2>
 <p>.lldbinit每次启动Xcode 都会加载lldb环境，故当自定义命令写好之后，可以通过这里加载。</p>
-<pre><code>script fblldb.loadCommandsInDirectory('/magical/commands/')
-</code></pre>
-<p>现在将lldbinit原文件放在自己便于管理的地方，便于导入python命令</p>
-<pre><code class="language-sh">#!/bin/sh
-
-#  installChisel.sh
-#  HexoDeploy
-#
-#  Created by admin on 2018/10/21.
-#  Copyright © 2018年 boyer. All rights reserved.
-basepath=$(cd `dirname $0`; pwd)
-echo &quot;当前cd的目录名：&quot;`basename $(pwd)`
-echo &quot;sh脚本文件的绝对路径：$basepath&quot;
-ln -fs $basepath/lldbinit ~/.lldbinit
-echo &quot;done&quot;
-</code></pre>
-<h2 id="创建加载自定义命令">创建加载自定义命令</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><p>现在将lldbinit原文件放在自己便于管理的地方，便于导入python命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="c1">#  installChisel.sh</span>
+<span class="c1">#  HexoDeploy</span>
+<span class="c1">#</span>
+<span class="c1">#  Created by admin on 2018/10/21.</span>
+<span class="c1">#  Copyright © 2018年 boyer. All rights reserved.</span>
+<span class="nv">basepath</span><span class="o">=</span><span class="k">$(</span><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&#34;当前cd的目录名：&#34;</span><span class="sb">`</span>basename <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&#34;sh脚本文件的绝对路径：</span><span class="nv">$basepath</span><span class="s2">&#34;</span>
+ln -fs <span class="nv">$basepath</span>/lldbinit ~/.lldbinit
+<span class="nb">echo</span> <span class="s2">&#34;done&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="创建加载自定义命令">创建加载自定义命令</h2>
 <p>无论是本地使用还是提交到<code>Chisel</code>贡献，工作流程都是一样的。</p>
 <ol>
 <li>在便于管理的目录下，新建python文件 <code>vi example.py</code>，在chisel会通过该目录路径来加载新命令：</li>
 </ol>
-<pre><code>#!/usr/bin/python
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#!/usr/bin/python
 # Example file with custom commands, located at /magical/commands/example.py
 
 import lldb
@@ -206,27 +255,37 @@ def lldbcommands():
 
 class PrintKeyWindowLevel(fb.FBCommand):
     def name(self):
-        return 'pkeywinlevel'
+        return &#39;pkeywinlevel&#39;
 
 def description(self):
-    return 'An incredibly contrived command that prints the window level of the key window.'
+    return &#39;An incredibly contrived command that prints the window level of the key window.&#39;
 
 def run(self, arguments, options):
-    # It's a good habit to explicitly cast the type of all return
-    # values and arguments. LLDB can't always find them on its own.
-    lldb.debugger.HandleCommand('p (CGFloat)[(id)[(id)[UIApplication sharedApplication] keyWindow] windowLevel]')
-</code></pre>
-<ol start="2">
+    # It&#39;s a good habit to explicitly cast the type of all return
+    # values and arguments. LLDB can&#39;t always find them on its own.
+    lldb.debugger.HandleCommand(&#39;p (CGFloat)[(id)[(id)[UIApplication sharedApplication] keyWindow] windowLevel]&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>加载新建的命令
 可以使用<code>Chisel</code>提供的函数<code>loadCommandsInDirectory</code>加载，在<code>fblldb.py</code>中声明的方法。
 在<code>~/.lldbinit</code>新增如下：</li>
 </ol>
-<pre><code># ~/.lldbinit
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># ~/.lldbinit
 ...
 command script import /path/to/fblldb.py
-script fblldb.loadCommandsInDirectory('/magical/commands/')
-</code></pre>
-<blockquote>
+script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>更方便的方式：命令文件直接放在chisel源码中的<code>mcommands</code>目录中，这样会自动加载，就不用在lldbinit中配置了。
 因为内置的支持，新命令也可以轻松使用<code>arguments</code>参数和<code>options</code>选项的相关功能。请参阅<code>border</code>和<code>pinvocation</code>命令的用法。</p>
 </blockquote>
@@ -363,7 +422,7 @@ script fblldb.loadCommandsInDirectory('/magical/commands/')
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

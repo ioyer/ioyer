@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="在space-vim平台安装若干插件">
 <meta itemprop="description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于"><meta itemprop="datePublished" content="2017-08-17T14:26:46&#43;00:00" />
 <meta itemprop="dateModified" content="2017-08-17T14:26:46&#43;00:00" />
-<meta itemprop="wordCount" content="828">
+<meta itemprop="wordCount" content="834">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在space-vim平台安装若干插件"/>
 <meta name="twitter:description" content="space-vim 首次启用一个 layer，需要执行 SPC f R, 或者 :so $MYVIMRC, 重新加载 .vimrc 并执行 :PlugInstall 安装所需的相关插件 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。 基于"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 828 字 </span>
+          <span class="more-meta"> 约 834 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -270,21 +272,40 @@
 <li>在spacevim添加
 使用space-vim封装的layer</li>
 </ol>
-<pre><code>Layer 'ycmd'         &quot;语法自动补齐
-</code></pre>
-<p>YouCompleteMe 安装位置： <code>~/.vim/plugged/YouCompleteMe</code> 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Layer &#39;ycmd&#39;         &#34;语法自动补齐
+</code></pre></td></tr></table>
+</div>
+</div><p>YouCompleteMe 安装位置： <code>~/.vim/plugged/YouCompleteMe</code> 。</p>
 <ol start="2">
 <li>编译 YCM
 在使用space-vim平台上，使用layer方式安装会执行如下编译操作：</li>
 </ol>
-<pre><code>!./install.py --clang-completer
-</code></pre>
-<p>详见脚本：space-vim/layers/+tools/ycmd/packages.vim</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">!./install.py --clang-completer
+</code></pre></td></tr></table>
+</div>
+</div><p>详见脚本：space-vim/layers/+tools/ycmd/packages.vim</p>
 <p>参考：<a href="http://www.cocoachina.com/ios/20170224/18751.html">征服恐惧！用 Vim 写 iOS App</a></p>
-<pre><code>brew install cmake
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install cmake
 ./install.py --clang-completer --system-libclang
-</code></pre>
-<p><code>--clang-completer</code>: 告诉脚本需要 clang 的支持
+</code></pre></td></tr></table>
+</div>
+</div><p><code>--clang-completer</code>: 告诉脚本需要 clang 的支持
 <code>--system-libclang</code>: 告诉编译脚本使用系统的 clang，因为之前 clang 升级 4.0 的时候，并没有已经编译好的包给我下载，所以这里不用系统 clang 的话，编译脚本会下载一个 clang 3.0，这样就无法支持 iOS 10.0 以后的 sdk 了，因为 iOS 10.0 以后的 sdk 为了支持 swift 引入了一些 clang 3.0 不支持的新语法，所以这里要加上 &ndash;system-libclang。</p>
 <ol start="3">
 <li>
@@ -296,15 +317,28 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
 使用vim-plug安装</p>
 </li>
 </ol>
-<pre><code>Plug 'keith/sourcekittendaemon.vim'
-</code></pre>
-<p>NOTE: This plugin doesn&rsquo;t provide Swift runtime files. If you&rsquo;d like those checkout swift.vim</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;keith/sourcekittendaemon.vim&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>NOTE: This plugin doesn&rsquo;t provide Swift runtime files. If you&rsquo;d like those checkout swift.vim</p>
 <h3 id="asyncrun-shell-command">AsyncRun shell command</h3>
 <p>编辑器命令:AsyncRun + shell命令即可在后台执行shell命令，打开quickfix就可以实时查看执行结果了。也可以通过添加配置的方式来实现开始执行命令的时候自动打开quickfix窗口：</p>
-<pre><code> :copen //打开脚本运行日志窗口 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> :copen //打开脚本运行日志窗口 
  :AsyncRun git status  //异步执行shell脚本
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -426,7 +460,7 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

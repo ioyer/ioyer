@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Swift入门">
 <meta itemprop="description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来"><meta itemprop="datePublished" content="2015-11-27T17:18:21&#43;08:00" />
 <meta itemprop="dateModified" content="2015-11-27T17:18:21&#43;08:00" />
-<meta itemprop="wordCount" content="3053">
+<meta itemprop="wordCount" content="3216">
 <meta itemprop="keywords" content="语法," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift入门"/>
 <meta name="twitter:description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来"/>
@@ -152,9 +152,11 @@
             <a href="/categories/swift/"> swift </a>
             <a href="/categories/%E8%AF%AD%E6%B3%95/"> 语法 </a>
             </div>
-          <span class="more-meta"> 约 3053 字 </span>
+          <span class="more-meta"> 约 3216 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -192,9 +194,15 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <h4 id="swift语法">swift语法</h4>
 <p>Playground允许你编辑代码并立即看到结果,可以从”Hello, world”开始学起并过渡到整个系统。
 在Xcode的playground中打开:</p>
-<pre><code class="language-objc">println(&quot;Hello, world&quot;)
-</code></pre>
-<p>在Swift，这就是完整的程序:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, world&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Swift，这就是完整的程序:</p>
 <ol>
 <li>无需导入(import)输入输出和字符串处理的系统库。</li>
 <li>全局范围的代码就是用于程序的入口，所以你无需编写一个 main() 函数。也无需在每个语句后写分号。</li>
@@ -203,54 +211,107 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <h4 id="简单值-----使用-let-来定义常量-var-定义变量">简单值  &ndash; 使用 let 来定义常量， var 定义变量</h4>
 <p>提供一个值就可以创建常量或变量，并让编译器推断其类型,一个常量或变量必须与赋值时拥有相同的类型。因此你不用严格定义类型。
 常量定义类似于函数式编程语言中的变量,常量的值无需在编译时指定，但是至少要赋值一次,赋值后就无法修改。</p>
-<pre><code class="language-swift">var myVariable = 42
-myVariable = 50
-let myConstant = 42
-</code></pre>
-<p>在上面例子中，编译其会推断myVariable是一个整数类型，因为其初始化值就是个整数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">myVariable</span> <span class="p">=</span> <span class="mi">42</span>
+<span class="n">myVariable</span> <span class="p">=</span> <span class="mi">50</span>
+<span class="kd">let</span> <span class="nv">myConstant</span> <span class="p">=</span> <span class="mi">42</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在上面例子中，编译其会推断myVariable是一个整数类型，因为其初始化值就是个整数。</p>
 <h6 id="1-显示隐式-初始化数据类型-------类型与变量名绑定属于静态类型语言">1. 显示/隐式 初始化数据类型 &mdash;   类型与变量名绑定，属于静态类型语言</h6>
 <p>类型与变量名绑定，属于静态类型语言。有助于静态优化。与Python、JavaScript等有所区别。
 例如：初始化值没有提供足够的信息(或没有初始化值)，可以在变量名后写类型，以冒号分隔。</p>
-<pre><code class="language-swift">let imlicitInteger = 70
-let imlicitDouble = 70.0
-let explicitDouble: Double = 70
-</code></pre>
-<h6 id="2-变量--拼接到字符串-----变量值永远不会隐含转换到其他类型">2. 变量  拼接到字符串  &ndash; 变量值永远不会隐含转换到其他类型</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">imlicitInteger</span> <span class="p">=</span> <span class="mi">70</span>
+<span class="kd">let</span> <span class="nv">imlicitDouble</span> <span class="p">=</span> <span class="mf">70.0</span>
+<span class="kd">let</span> <span class="nv">explicitDouble</span><span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mi">70</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2-变量--拼接到字符串-----变量值永远不会隐含转换到其他类型">2. 变量  拼接到字符串  &ndash; 变量值永远不会隐含转换到其他类型</h6>
 <ul>
 <li>String(变量名)</li>
 </ul>
-<pre><code class="language-swift">let label = &quot;The width is &quot;
-let width = 94
-let widthLabel = label + String(width)
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
+<span class="kd">let</span> <span class="nv">width</span> <span class="p">=</span> <span class="mi">94</span>
+<span class="kd">let</span> <span class="nv">widthLabel</span> <span class="p">=</span> <span class="n">label</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>以小括号来写值，并用反斜线(“”)放在小括号之前</li>
 </ul>
-<pre><code class="language-swift">let apples = 3
-let oranges = 5     //by gashero
-let appleSummary = &quot;I have \(apples) apples.&quot;
-let fruitSummary = &quot;I have \(apples + oranges) pieces of fruit.&quot;
-</code></pre>
-<h4 id="数组和字典的用法">数组和字典的用法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="kd">let</span> <span class="nv">oranges</span> <span class="p">=</span> <span class="mi">5</span>     <span class="c1">//by gashero</span>
+<span class="kd">let</span> <span class="nv">appleSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.&#34;</span>
+<span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit.&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="数组和字典的用法">数组和字典的用法</h4>
 <ol>
 <li>声明并初始化</li>
 </ol>
-<pre><code class="language-swift">let emptyArray = String[]()
-let emptyDictionary = Dictionary&lt;String, Float&gt;()
-shoppingList = [] //去购物并买些东西 
-</code></pre>
-<p>如果数组类型无法推断，你可以写空的数组为 “[]” 和空的字典为 “[:]“。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="nb">String</span><span class="p">[]()</span>
+<span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Float</span><span class="p">&gt;()</span>
+<span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[]</span> <span class="c1">//去购物并买些东西 </span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果数组类型无法推断，你可以写空的数组为 “[]” 和空的字典为 “[:]“。
 2. 访问<br>
 创建一个数组和字典使用方括号 “[]”，访问其元素则是通过方括号中的索引或键。</p>
-<pre><code class="language-swift">var shoppingList = [&quot;catfish&quot;, &quot;water&quot;, &quot;tulips&quot;, &quot;blue paint&quot;]
-shoppingList[1] = &quot;bottle of water&quot;
-var occupations = [
-   &quot;Malcolm&quot;: &quot;Captain&quot;,
-   &quot;Kaylee&quot;: &quot;Mechanic&quot;,
-]
-occupations[&quot;Jayne&quot;] = &quot;Public Relations&quot;
-</code></pre>
-<h4 id="控制流------条件控制循环控制">控制流  &ndash;  条件控制，循环控制</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;catfish&#34;</span><span class="p">,</span> <span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="s">&#34;tulips&#34;</span><span class="p">,</span> <span class="s">&#34;blue paint&#34;</span><span class="p">]</span>
+<span class="n">shoppingList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;bottle of water&#34;</span>
+<span class="kd">var</span> <span class="nv">occupations</span> <span class="p">=</span> <span class="p">[</span>
+   <span class="s">&#34;Malcolm&#34;</span><span class="p">:</span> <span class="s">&#34;Captain&#34;</span><span class="p">,</span>
+   <span class="s">&#34;Kaylee&#34;</span><span class="p">:</span> <span class="s">&#34;Mechanic&#34;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">occupations</span><span class="p">[</span><span class="s">&#34;Jayne&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Public Relations&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="控制流------条件控制循环控制">控制流  &ndash;  条件控制，循环控制</h4>
 <h6 id="1-条件控制">1. 条件控制</h6>
 <ul>
 <li>if  条件必须是布尔表达式<br>
@@ -258,126 +319,245 @@ occupations[&quot;Jayne&quot;] = &quot;Public Relations&quot;
 你可以一起使用 if 和 let 来防止值的丢失。这些值是可选的。
 可选值可以包含一个值或包含一个 nil 来指定值还不存在。写一个问号 “?” 在类型后表示值是可选的。</li>
 </ul>
-<pre><code class="language-swift">var optionalString: String? = &quot;Hello&quot;
-optionalString == nil
-var optionalName: String? = &quot;John Appleseed&quot;
-var greeting = &quot;Hello!&quot;
-if let name = optionalName {
-    greeting = &quot;Hello, \(name)&quot;
-}
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
+<span class="n">optionalString</span> <span class="p">==</span> <span class="kc">nil</span>
+<span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;John Appleseed&#34;</span>
+<span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello!&#34;</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">optionalName</span> <span class="p">{</span>
+    <span class="n">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>switch 支持多种数据以及多种比较，不限制必须是整数和测试相等</li>
 </ul>
-<pre><code class="language-swift">let vegetable = &quot;red pepper&quot;
-switch vegetable {
-case &quot;celery&quot;:
-    let vegetableComment = &quot;Add some raisins and make ants on a log.&quot;
-case &quot;cucumber&quot;, &quot;watercress&quot;:
-    let vegetableComment = &quot;That would make a good tea sandwich.&quot;
-case let x where x.hasSuffix(&quot;pepper&quot;):
-    let vegetableComment = &quot;Is it a spicy \(x)?&quot;
-default:    //by gashero
-    let vegetableComment = &quot;Everything tastes good in soup.&quot;
-}
-</code></pre>
-<p>在执行匹配的情况后，程序会从 switch 跳出，而不是继续执行下一个情况。所以不再需要 break 跳出 switch 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
+<span class="k">switch</span> <span class="n">vegetable</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s">&#34;celery&#34;</span><span class="p">:</span>
+    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Add some raisins and make ants on a log.&#34;</span>
+<span class="k">case</span> <span class="s">&#34;cucumber&#34;</span><span class="p">,</span> <span class="s">&#34;watercress&#34;</span><span class="p">:</span>
+    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;That would make a good tea sandwich.&#34;</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;pepper&#34;</span><span class="p">):</span>
+    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Is it a spicy </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">?&#34;</span>
+<span class="k">default</span><span class="p">:</span>    <span class="c1">//by gashero</span>
+    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Everything tastes good in soup.&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在执行匹配的情况后，程序会从 switch 跳出，而不是继续执行下一个情况。所以不再需要 break 跳出 switch 。</p>
 <h6 id="2-循环控制">2. 循环控制</h6>
 <ul>
 <li>for-in 来迭代字典中的每个元素<br>
 可使用 for-in 来迭代字典中的每个元素，提供一对名字来使用每个键值对。</li>
 </ul>
-<pre><code class="language-swift">let interestingNumbers = [
-    &quot;Prime&quot;: [2, 3, 5, 7, 11, 13],
-    &quot;Fibonacci&quot;: [1, 1, 2, 3, 5, 8],
-    &quot;Square&quot;: [1, 4, 9, 16, 25],
-]
-var largest = 0
-for (kind, numbers) in interestingNumbers {
-    for number in numbers {
-        if number &gt; largest {
-            largest = number
-        }
-    }
-}
-</code></pre>
-<p>你可以在循环中保持一个索引，通过“..”来表示索引范围或明确声明一个初始值、条件、增量。<br>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="s">&#34;Prime&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+    <span class="s">&#34;Fibonacci&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+    <span class="s">&#34;Square&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="kd">var</span> <span class="nv">largest</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span> <span class="k">in</span> <span class="n">interestingNumbers</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">largest</span> <span class="p">{</span>
+            <span class="n">largest</span> <span class="p">=</span> <span class="n">number</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>你可以在循环中保持一个索引，通过“..”来表示索引范围或明确声明一个初始值、条件、增量。<br>
 这两个循环做相同的事情:</p>
-<pre><code class="language-swift">var firstForLoop = 0
-for i in 0..3 {
-    firstForLoop += i
-}
-firstForLoop
-var secondForLoop = 0
-for var i = 0; i &lt; 3; ++i {
-    secondForLoop += 1
-}
-</code></pre>
-<p>使用 .. 构造范围忽略最高值，而用 … 构造的范围则包含两个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="mi">3</span> <span class="p">{</span>
+    <span class="n">firstForLoop</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="p">}</span>
+<span class="n">firstForLoop</span>
+<span class="kd">var</span> <span class="nv">secondForLoop</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="kd">var</span> <span class="nv">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">{</span>
+    <span class="n">secondForLoop</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使用 .. 构造范围忽略最高值，而用 … 构造的范围则包含两个值。</p>
 <ul>
 <li>while 来重复执行代码块直到条件改变<br>
 使用 while 来重复执行代码块直到条件改变。循环的条件可以放在末尾来确保循环至少执行一次。</li>
 </ul>
-<pre><code class="language-swift">var n = 2
-while n &lt; 100 {
-    n = n * 2
-}
-n
-var m = 2
-do {
-    m = m * 2
-} while m &lt; 100
-m
-</code></pre>
-<h4 id="函数与闭包-----函数是闭包的特殊情况">函数与闭包  &ndash; 函数是闭包的特殊情况</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
+    <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span>
+<span class="n">n</span>
+<span class="kd">var</span> <span class="nv">m</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">m</span> <span class="p">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="p">}</span> <span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="n">m</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="函数与闭包-----函数是闭包的特殊情况">函数与闭包  &ndash; 函数是闭包的特殊情况</h4>
 <h6 id="1-闭包-无需名字只需要放在大括号中即可">1. 闭包 无需名字，只需要放在大括号中即可</h6>
 <p>编写闭包时有多种选项:</p>
 <ol>
 <li>使用 in 到特定参数和主体的返回值。</li>
 </ol>
-<pre><code class="language-swift">numbers.map({
-    (number: Int) -&gt; Int in
-    let result = 3 * number
-    return result
-    })
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
+    <span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
+    <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span>
+    <span class="k">return</span> <span class="n">result</span>
+    <span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>单一语句的闭包可以直接返回值<br>
 例如：当一个闭包的类型是已知时，例如代表回调，你可以忽略其参数和返回值，或两者</li>
 </ol>
-<pre><code class="language-swift">numbers.map({number in 3 * number})
-</code></pre>
-<ol start="3">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>通过数字而不是名字来引用一个参数，这对于很短的闭包很有用。<br>
 例如：一个闭包传递其最后一个参数到函数作为返回值。</li>
 </ol>
-<pre><code class="language-swift">sort([1, 5, 3, 12, 2]) { $0 &gt; $1 }
-</code></pre>
-<h6 id="2-函数">2. 函数</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2-函数">2. 函数</h6>
 <ul>
 <li>函数的声明   &ndash;  使用func 声明一个函数  使用 -&gt;分隔参数的名字和返回值类型,
 调用函数使用他的名字加上小括号中的参数列表</li>
 </ul>
-<pre><code class="language-swift">func greet(name: String, day: String) -&gt; String {
-    return &quot;Hello \(name), today is \(day).&quot;
-}
-greet(&quot;Bob&quot;, &quot;Tuesday&quot;)
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">, today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
+<span class="p">}</span>
+<span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>函数的嵌套<br>
 内嵌函数可以访问其定义所在函数的变量。
 你可以使用内嵌函数来组织代码，避免过长和过于复杂：</li>
 </ul>
-<pre><code class="language-swift">func returnFifteen() -&gt; Int {
-    var y = 10
-    func add() {
-        y += 5
-    }
-    add()
-    return y
-}  
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">10</span>
+    <span class="kd">func</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="mi">5</span>
+    <span class="p">}</span>
+    <span class="n">add</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="p">}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>函数接收的参数
 <ol>
 <li>可变参数的个数  sumOf(numbers: Int&hellip;) -&gt; Int{}<br>
@@ -385,34 +565,66 @@ greet(&quot;Bob&quot;, &quot;Tuesday&quot;)
 </ol>
 </li>
 </ul>
-<pre><code class="language-swift">func sumOf(numbers: Int...) -&gt; Int {
-    var sum = 0
-    for number in numbers {
-        sum += number
-    }
-    return sum
-}
-//例子
-sumOf(42, 597, 12)
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span>
+<span class="p">}</span>
+<span class="c1">//例子</span>
+<span class="n">sumOf</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">597</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>其他函数作为参数  func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool{}</li>
 </ol>
-<pre><code class="language-swift">   func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool {
-    for item in list {
-        if condition(item) {
-            return true
-        }
-    }
-    return false
-}
-func lessThanTen(number: Int) -&gt; Bool {
-    return number &lt; 10
-}
-var numbers = [20, 19, 7, 12]
-hasAnyMatches(numbers, lessThanTen)
-</code></pre>
-<p>函数实际是闭包的特殊情况。你可以写一个闭包而无需名字，只需要放在大括号中即可。使用 in 到特定参数和主体的返回值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">hasAnyMatches</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nb">Int</span><span class="p">[],</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">lessThanTen</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nv">numbers</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">hasAnyMatches</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">lessThanTen</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>函数实际是闭包的特殊情况。你可以写一个闭包而无需名字，只需要放在大括号中即可。使用 in 到特定参数和主体的返回值。</p>
 <ul>
 <li>函数的返回值
 <ol>
@@ -421,87 +633,169 @@ hasAnyMatches(numbers, lessThanTen)
 </ol>
 </li>
 </ul>
-<pre><code class="language-swift">func getGasPrices() -&gt; (Double, Double, Double) {
-    return (3.59, 3.69, 3.79)
-}
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">getGasPrices</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">3.59</span><span class="p">,</span> <span class="mf">3.69</span><span class="p">,</span> <span class="mf">3.79</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>返回另一个函数  ： makeIncrementer() -&gt; (Int -&gt; Int)
 函数是第一类型的</li>
 </ol>
-<pre><code class="language-swift">func makeIncrementer() -&gt; (Int -&gt; Int) {
-    func addOne(number: Int) -&gt; Int {
-        return 1 + number
-    }
-    return addOne
-}
-var increment = makeIncrementer()
-increment(7)
-</code></pre>
-<h4 id="对象与类">对象与类</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">number</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">addOne</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nv">increment</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">()</span>
+<span class="n">increment</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="对象与类">对象与类</h4>
 <h6 id="1-类的创建--class-类名">1. 类的创建  ：class 类名</h6>
 <ol>
 <li>使用 class 可以创建一个类。
 一个属性的声明则是在类里作为常量或变量声明的，除了是在类的上下文中。方法和函数也是这么写的。</li>
 </ol>
-<pre><code class="language-swift">class Shape {
-    var numberOfSides = 0
-    func simpleDescription() -&gt; String {
-        return &quot;A shape with \(numberOfSides) sides.&quot;
-    }
-}
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">numberOfSides</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&#34;A shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>类的构造器  ： 构造器来在创建实例时设置类，使用 init 来创建</li>
 </ol>
-<pre><code class="language-swift">class NamedShape {
-    var numberOfSides: Int = 0
-    var name: String
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">NamedShape</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">numberOfSides</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
 
-    init(name: String) {
-        self.name = name
-    }   //by gashero
+    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+    <span class="p">}</span>   <span class="c1">//by gashero</span>
 
-    func simpleDescription() -&gt; String {
-        return &quot;A Shape with \(numberOfSides) sides.&quot;
-    }
-}
-</code></pre>
-<p>self 用来区分 name 属性和 name 参数。
+    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&#34;A Shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>self 用来区分 name 属性和 name 参数。
 构造器的声明跟函数一样，除了会创建类的实例。每个属性都需要赋值，无论在声明里还是在构造器里。
 3. 类的析构器，来执行对象销毁时的清理工作，使用 deinit 来创建
 使用 deinit 来创建一个析构器，来执行对象销毁时的清理工作。
 4. 超类的继承 <br>
 * 子类包括其超类的名字，以冒号分隔。在继承标准根类时无需声明，所以你可以忽略超类。<br>
 * 子类的方法可以通过标记 override 重载超类中的实现，而没有 override 的会被编译器看作是错误,编译器也会检查那些没有被重载的方法。</p>
-<pre><code class="language-swift">class Square: NamedShape {
-    var sideLength: Double
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Square</span><span class="p">:</span> <span class="n">NamedShape</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">sideLength</span><span class="p">:</span> <span class="nb">Double</span>
 
-    init(sideLength: Double, name: String) {
-        self.sideLength = sideLength
-        super.init(name: name)
-        numberOfSides = 4
-    }
+    <span class="kd">init</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="nb">Double</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">sideLength</span> <span class="p">=</span> <span class="n">sideLength</span>
+        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">4</span>
+    <span class="p">}</span>
 
-    func area() -&gt; Double {
-        return sideLength * sideLength
-    }
+    <span class="kd">func</span> <span class="nf">area</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">sideLength</span> <span class="o">*</span> <span class="n">sideLength</span>
+    <span class="p">}</span>
 
-    override func simpleDescription() -&gt; String {
-        return &quot;A square with sides of length \(sideLength).&quot;
-    }
-}
-let test = Square(sideLength: 5.2, name: &quot;my test square&quot;)
-test.area()
-test.simpleDescription()
-</code></pre>
-<h6 id="2-类的实例创建-----类名--点语法来访问实例的属性和方法">2. 类的实例创建   :  类名()  ,点语法来访问实例的属性和方法</h6>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&#34;A square with sides of length </span><span class="si">\(</span><span class="n">sideLength</span><span class="si">)</span><span class="s">.&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">test</span> <span class="p">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;my test square&#34;</span><span class="p">)</span>
+<span class="n">test</span><span class="p">.</span><span class="n">area</span><span class="p">()</span>
+<span class="n">test</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2-类的实例创建-----类名--点语法来访问实例的属性和方法">2. 类的实例创建   :  类名()  ,点语法来访问实例的属性和方法</h6>
 <p>通过在类名后加小括号来创建类的实例。使用点语法来访问实例的属性和方法。</p>
-<pre><code class="language-swift">var shape = Shape()
-shape.numberOfSides = 7
-var shapeDescription = shape.simpleDescription()
-</code></pre>
-<p>可选类型 Int?
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shape</span> <span class="p">=</span> <span class="n">Shape</span><span class="p">()</span>
+<span class="n">shape</span><span class="p">.</span><span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">7</span>
+<span class="kd">var</span> <span class="nv">shapeDescription</span> <span class="p">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可选类型 Int?
 可选绑定 if while</p>
 <p>强制取值表达式 expression!
 可选链表达式   expression?</p>
@@ -636,7 +930,7 @@ var shapeDescription = shape.simpleDescription()
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

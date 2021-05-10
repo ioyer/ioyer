@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="iCompleteMe支持swift语法提示">
 <meta itemprop="description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之"><meta itemprop="datePublished" content="2018-08-10T16:40:19&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-10T16:40:19&#43;00:00" />
-<meta itemprop="wordCount" content="250">
+<meta itemprop="wordCount" content="254">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iCompleteMe支持swift语法提示"/>
 <meta name="twitter:description" content="{% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 250 字 </span>
+          <span class="more-meta"> 约 254 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -177,14 +179,28 @@
 iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之后，发现在YCM无法支持swift自动补齐。
 iCompleteMe实现的行为对于Swift的补齐提示。iCompleteMe的核心子系统只与Swift一起工作。代码基占用的空间要小得多，这使得在CI上更容易安装、更容易理解和更稳定(理论上)。</p>
 <h3 id="在space-vim中添加插件支持">在space-vim中添加插件支持</h3>
-<pre><code>Plugin 'jerrymarino/iCompleteMe'
-</code></pre>
-<p>安装：</p>
-<pre><code>cd ~/.vim/plugged/iCompleteMe/
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Plugin &#39;jerrymarino/iCompleteMe&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd ~/.vim/plugged/iCompleteMe/
 brew install cmake
 ./install.py
-</code></pre>
-<p>然后 <code>&lt;Leader&gt; f R</code> 使配置生效，并执行   <code>:PlugInstall</code>进行安装.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后 <code>&lt;Leader&gt; f R</code> 使配置生效，并执行   <code>:PlugInstall</code>进行安装.</p>
 
     </div>
 
@@ -307,7 +323,7 @@ brew install cmake
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

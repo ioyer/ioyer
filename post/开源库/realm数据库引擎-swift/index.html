@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="中心思想： 继承RLMObject新建数据模型，添加相应属性，即可使用realm数据库引擎，对用户数据创建持久化，更新，删除等操作。 简介： Realm 是" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="中心思想： 继承RLMObject新建数据模型，添加相应属性，即可使用realm数据库引擎，对用户数据创建持久化，更新，删除等操作。 简介： Realm 是" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Realm数据库引擎-swift">
 <meta itemprop="description" content="中心思想： 继承RLMObject新建数据模型，添加相应属性，即可使用realm数据库引擎，对用户数据创建持久化，更新，删除等操作。 简介： Realm 是"><meta itemprop="datePublished" content="2015-12-16T05:56:15&#43;08:00" />
 <meta itemprop="dateModified" content="2015-12-16T05:56:15&#43;08:00" />
-<meta itemprop="wordCount" content="1264">
+<meta itemprop="wordCount" content="1283">
 <meta itemprop="keywords" content="数据库,realm," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Realm数据库引擎-swift"/>
 <meta name="twitter:description" content="中心思想： 继承RLMObject新建数据模型，添加相应属性，即可使用realm数据库引擎，对用户数据创建持久化，更新，删除等操作。 简介： Realm 是"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E5%BC%80%E6%BA%90%E5%BA%93/"> 开源库 </a>
             </div>
-          <span class="more-meta"> 约 1264 字 </span>
+          <span class="more-meta"> 约 1283 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -193,10 +195,17 @@ Realm 并不是对 Core Data 的简单封装，相反地， Realm 并不是基�
 已经在项目当中建立好了，而且项目已经拥有了一些简单的创建、更新和删除物种信息的功能.</p>
 <h4 id="cocoapods安装swift-21">cocoapods安装（Swift 2.1）：</h4>
 <p>在项目中创建Podfile配置文件，添加RealmSwift支持</p>
-<pre><code>use_frameworks!   //
-pod 'RealmSwift'
-</code></pre>
-<p>执行 <code>pod install</code>下载realmSwift框架，生成**.xcworkspace**文件，自动重启原始项目。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">use_frameworks!   //
+pod &#39;RealmSwift&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p>执行 <code>pod install</code>下载realmSwift框架，生成**.xcworkspace**文件，自动重启原始项目。
 设置Xcode项目在git版本控制中的忽略配置：详见<a href="http://stackoverflow.com/questions/49478/git-ignore-file-for-xcode-projects">.gitignore</a></p>
 <p><a href="http://blog.csdn.net/remote_roamer/article/details/47835347">use_frameworks!</a></p>
 <pre><code>如果在cocoapods 里面不使用 use_frameworks!,则是通过static libraries 这个方式来管理pod的代码。这样就需要在app-Bridging-Header.h 文件里面去import相应的.h 文件。而如果使用了use_frameworks!,则cocoapods 使用了frameworks 来取代static libraries 方式。 
@@ -209,27 +218,54 @@ pod 'RealmSwift'
 <ul>
 <li>打开**CategoriesTableViewController.swift **文件添加方法：</li>
 </ul>
-<pre><code class="language-swift"> private func populateDefaultCategories() {
- self.results = CategoryModel.allObjects() // 1 查询数据返回包含类别对象的RLMResults数组
- if results.count == 0 { // 2   通过返回结果的个数，初始化本地realm数据库
- let realm = RLMRealm.defaultRealm() // 3 访问默认的 realm 单例对象
- realm.beginWriteTransaction() // 4   在默认 realm 数据库中启动一个事务
- let defaultCategories = Categories.allValues // 5 使用Categories 枚举来创建一个含有全部默认类别的数组
- for category in defaultCategories {
- // 6 初始化类别实例对象，设置其 name 属性，加入realm中
- let newCategory = CategoryModel()
- newCategory.name = category
- realm.addObject(newCategory)
- }
- realm.commitWriteTransaction() // 7    调用 commitWriteTransaction() 方法来关闭事务，并且向数据库提交数据
- self.results = CategoryModel.allObjects()
- }
- }
-</code></pre>
-<p>在 viewDidLoad() 方法的底部加入以下代码：</p>
-<pre><code class="language-swift">populateDefaultCategories()
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"> <span class="kd">private</span> <span class="kd">func</span> <span class="nf">populateDefaultCategories</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kc">self</span><span class="p">.</span><span class="n">results</span> <span class="p">=</span> <span class="n">CategoryModel</span><span class="p">.</span><span class="n">allObjects</span><span class="p">()</span> <span class="c1">// 1 查询数据返回包含类别对象的RLMResults数组</span>
+ <span class="k">if</span> <span class="n">results</span><span class="p">.</span><span class="bp">count</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">{</span> <span class="c1">// 2   通过返回结果的个数，初始化本地realm数据库</span>
+ <span class="kd">let</span> <span class="nv">realm</span> <span class="p">=</span> <span class="n">RLMRealm</span><span class="p">.</span><span class="n">defaultRealm</span><span class="p">()</span> <span class="c1">// 3 访问默认的 realm 单例对象</span>
+ <span class="n">realm</span><span class="p">.</span><span class="n">beginWriteTransaction</span><span class="p">()</span> <span class="c1">// 4   在默认 realm 数据库中启动一个事务</span>
+ <span class="kd">let</span> <span class="nv">defaultCategories</span> <span class="p">=</span> <span class="n">Categories</span><span class="p">.</span><span class="n">allValues</span> <span class="c1">// 5 使用Categories 枚举来创建一个含有全部默认类别的数组</span>
+ <span class="k">for</span> <span class="n">category</span> <span class="k">in</span> <span class="n">defaultCategories</span> <span class="p">{</span>
+ <span class="c1">// 6 初始化类别实例对象，设置其 name 属性，加入realm中</span>
+ <span class="kd">let</span> <span class="nv">newCategory</span> <span class="p">=</span> <span class="n">CategoryModel</span><span class="p">()</span>
+ <span class="n">newCategory</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">category</span>
+ <span class="n">realm</span><span class="p">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">newCategory</span><span class="p">)</span>
+ <span class="p">}</span>
+ <span class="n">realm</span><span class="p">.</span><span class="n">commitWriteTransaction</span><span class="p">()</span> <span class="c1">// 7    调用 commitWriteTransaction() 方法来关闭事务，并且向数据库提交数据</span>
+ <span class="kc">self</span><span class="p">.</span><span class="n">results</span> <span class="p">=</span> <span class="n">CategoryModel</span><span class="p">.</span><span class="n">allObjects</span><span class="p">()</span>
+ <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 viewDidLoad() 方法的底部加入以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">populateDefaultCategories</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
     </div>
@@ -356,7 +392,7 @@ pod 'RealmSwift'
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

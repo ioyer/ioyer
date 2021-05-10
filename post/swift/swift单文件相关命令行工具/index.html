@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Swift单文件相关命令行工具">
 <meta itemprop="description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件"><meta itemprop="datePublished" content="2018-10-01T21:02:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-01T21:02:49&#43;00:00" />
-<meta itemprop="wordCount" content="480">
+<meta itemprop="wordCount" content="497">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift单文件相关命令行工具"/>
 <meta name="twitter:description" content="直接用 swift 命令执行 xcrun swift可以直接将一个 .swift文件作为命令行工具的输入，这样里面的代码也会被自动地编译和执行。我们甚至还可以在 .swift 文件"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 480 字 </span>
+          <span class="more-meta"> 约 497 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -175,18 +177,34 @@
 <ol>
 <li>hello.swift</li>
 </ol>
-<pre><code class="language-sh">#!/usr/bin/env xcrun swift 
-println(&quot;hello&quot;) 
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env xcrun swift 
+</span><span class="cp"></span>println<span class="o">(</span><span class="s2">&#34;hello&#34;</span><span class="o">)</span> 
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>终端设置为可执行权限，并运行打印：</li>
 </ol>
-<pre><code class="language-sh">&gt; chmod 755 hello.swift 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">&gt; chmod <span class="m">755</span> hello.swift 
 &gt; ./hello.swift 
 // 输出： 
 hello 
-</code></pre>
-<blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>这些特性与其他的解释性语言表现得完全一样</p>
 </blockquote>
 <h2 id="swiftc">swiftc</h2>
@@ -194,30 +212,61 @@ hello
 <ol>
 <li>MyClass.swift</li>
 </ol>
-<pre><code class="language-swift">class MyClass { 
-    let name = &quot;XiaoMing&quot; 
-    func hello() { 
-        println(&quot;Hello \(name)&quot;) 
-        } 
-} 
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span> 
+    <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&#34;XiaoMing&#34;</span> 
+    <span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">{</span> 
+        <span class="bp">println</span><span class="p">(</span><span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span> 
+        <span class="p">}</span> 
+<span class="p">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>main.swift</li>
 </ol>
-<pre><code class="language-swift">let object = MyClass() 
-object.hello() 
-</code></pre>
-<ol start="3">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">object</span> <span class="p">=</span> <span class="n">MyClass</span><span class="p">()</span> 
+<span class="n">object</span><span class="p">.</span><span class="n">hello</span><span class="p">()</span> 
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>终端编译运行，将生成一个名叫 <code>main</code> 的可执行文件：</li>
 </ol>
-<pre><code class="language-sh">&gt; xcrun swiftc MyClass.swift main.swift
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">&gt; xcrun swiftc MyClass.swift main.swift
 &gt; ./main  //运行main文件
-</code></pre>
-<p>利用这个方法，我们就可以用 Swift 写出一些命令行的程序了。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>利用这个方法，我们就可以用 Swift 写出一些命令行的程序了。</p>
 <p>最后想说明的一个 Swift 命令行工具的使用案例是生成汇编级别的代码。有时候我们想要确认经过优化后的汇编代码实际上做了些什么。swiftc 提供了参数来生成 asm 级别的汇编代码：</p>
-<pre><code class="language-sh">swiftc -O hello.swift &gt; hello.asm
-</code></pre>
-<p>Swift 的命令行工具还有不少强大的功能，对此感兴趣的读者不妨使用 <code>xcrun swift --help</code> 以及 <code>xcrun swiftc --help</code> 来查看具体还有哪些参数可以使用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">swiftc -O hello.swift &gt; hello.asm
+</code></pre></td></tr></table>
+</div>
+</div><p>Swift 的命令行工具还有不少强大的功能，对此感兴趣的读者不妨使用 <code>xcrun swift --help</code> 以及 <code>xcrun swiftc --help</code> 来查看具体还有哪些参数可以使用。</p>
 <h2 id="swiftc--g支持lldb调试"><code>swiftc -g</code>支持lldb调试</h2>
 
     </div>
@@ -341,7 +390,7 @@ object.hello()
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

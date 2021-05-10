@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="screen 支持会话恢复 当我们开启screen后，只要screen进程没有终止，其内部运行的会话都可以恢复。网络连接中断临时，用户也可以进入开启的sc" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="screen 支持会话恢复 当我们开启screen后，只要screen进程没有终止，其内部运行的会话都可以恢复。网络连接中断临时，用户也可以进入开启的sc" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用screen在后台运行进程">
 <meta itemprop="description" content="screen 支持会话恢复 当我们开启screen后，只要screen进程没有终止，其内部运行的会话都可以恢复。网络连接中断临时，用户也可以进入开启的sc"><meta itemprop="datePublished" content="2018-10-21T22:42:59&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-21T22:42:59&#43;00:00" />
-<meta itemprop="wordCount" content="1230">
+<meta itemprop="wordCount" content="1263">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用screen在后台运行进程"/>
 <meta name="twitter:description" content="screen 支持会话恢复 当我们开启screen后，只要screen进程没有终止，其内部运行的会话都可以恢复。网络连接中断临时，用户也可以进入开启的sc"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 1230 字 </span>
+          <span class="more-meta"> 约 1263 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -185,7 +187,23 @@ Screen可以让一个或多个用户从不同终端登录一个会话，并共�
 同时它可以提供窗口访问权限的设置，对窗口进行密码保护。</li>
 </ol>
 <h4 id="screen参数">screen参数</h4>
-<pre><code>-A 　          将所有的视窗都调整为目前终端机的大小
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-A 　          将所有的视窗都调整为目前终端机的大小
 -d  　         将指定的screen作业离线
 -h  　         指定视窗的缓冲区行数
 -m             即使目前已在作业中的screen作业，仍强制建立新的screen作业
@@ -197,25 +215,58 @@ Screen可以让一个或多个用户从不同终端登录一个会话，并共�
 -x 　          恢复之前离线的screen作业
 -ls或-list 　  显示目前所有的screen作业
 -wipe 　       检查目前所有的screen作业，并删除已经无法使用的screen作业
-</code></pre>
-<h4 id="screen命令">screen命令</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="screen命令">screen命令</h4>
 <ol>
 <li>自定义shell脚本启动一个进程</li>
 </ol>
-<pre><code class="language-sh">screen_name=&quot;ngrok&quot; # 创建了一个名为 my_screen 的窗
-screen -dmS $screen_name
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">screen_name</span><span class="o">=</span><span class="s2">&#34;ngrok&#34;</span> <span class="c1"># 创建了一个名为 my_screen 的窗</span>
+screen -dmS <span class="nv">$screen_name</span>
 
-cmd=&quot;ngrok tcp 22&quot;;
-screen -x -S $screen_name -p 0 -X stuff &quot;$cmd&quot;
-screen -x -S $screen_name -p 0 -X stuff '\n'
-</code></pre>
-<ol start="2">
+<span class="nv">cmd</span><span class="o">=</span><span class="s2">&#34;ngrok tcp 22&#34;</span><span class="p">;</span>
+screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s2">&#34;</span><span class="nv">$cmd</span><span class="s2">&#34;</span>
+screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s1">&#39;\n&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>退出进程</li>
 </ol>
-<pre><code class="language-sh">screen -S session_name -X quit
-</code></pre>
-<p>其他</p>
-<pre><code>C-a ?       显示所有键绑定信息
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">screen -S session_name -X quit
+</code></pre></td></tr></table>
+</div>
+</div><p>其他</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">C-a ?       显示所有键绑定信息
 C-a w       显示所有窗口列表
 C-a C-a     切换到之前显示的窗口
 C-a c       创建一个新的运行shell的窗口并切换到该窗口
@@ -226,14 +277,23 @@ C-a a       发送 C-a到当前窗口
 C-a d       暂时断开screen会话
 C-a k       杀掉当前窗口
 C-a [       进入拷贝/回滚模式
-</code></pre>
-<h4 id="退出screen">退出screen</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="退出screen">退出screen</h4>
 <p>退出screen的作业时，有两种方式：</p>
-<pre><code>Crtl + a +d     保存进程并退出作业(程序在screen中继续运行，screen -ls 可查看)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Crtl + a +d     保存进程并退出作业(程序在screen中继续运行，screen -ls 可查看)
 Crtl + alt + a + d  进入后台运行进程
 exit            退出作业和进程(程序终止，screen -ls 不可查看)
-</code></pre>
-<h2 id="什么是mosh">什么是Mosh</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="什么是mosh">什么是Mosh</h2>
 <p><strong>Mosh</strong>表示<code>移动Shell</code>(Mobile Shell)，是一个用于从客户端跨互联网连接远程服务器的命令行工具。它能用于<code>SSH</code>连接，但是比<code>Secure Shell</code>功能更多。它是一个类似于<code>SSH</code>而带有更多功能的应用。程序最初由Keith Winstein 编写，用于类Unix的操作系统中，发布于GNU GPL V3协议下。
 <strong>Mosh</strong>最大的特点是基于UDP方式传输，支持在服务端创建一个临时的Key供客户端一次性连接，退出后失效；也支持通过SSH的配置进行认证，但数据传输本身还是自身的UDP方式。</p>
 <ul>
@@ -362,7 +422,7 @@ exit            退出作业和进程(程序终止，screen -ls 不可查看)
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

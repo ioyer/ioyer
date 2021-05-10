@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用swift命令行抓取WWDC字幕">
 <meta itemprop="description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原"><meta itemprop="datePublished" content="2018-11-18T19:10:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-18T19:10:49&#43;00:00" />
-<meta itemprop="wordCount" content="340">
+<meta itemprop="wordCount" content="345">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用swift命令行抓取WWDC字幕"/>
 <meta name="twitter:description" content="{% github it-boyer WWDC-Subtitles 84878dc width = 30% %} 平时没有那么大段的时间能去看这些 session 的视频，想先通过字幕能了解到 session 中的内容，所以搜罗了网上大牛抓取WWDC字幕的相关实现。 原"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 340 字 </span>
+          <span class="more-meta"> 约 345 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -182,18 +184,38 @@
 <p>不支持2108下载</p>
 </blockquote>
 <h2 id="安装">安装</h2>
-<pre><code>$ git clone https://github.com/Danny1451/WWDC-Subtitles.git
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone https://github.com/Danny1451/WWDC-Subtitles.git
 $ cd WWDC-Subtitles
 $ swift build
-</code></pre>
-<h2 id="抓取字幕">抓取字幕</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="抓取字幕">抓取字幕</h2>
 <p>获取 2017 年 204 session 的字幕，保存到当前目录的 2017 文件夹</p>
-<pre><code>./wwwww subtitle -s 204 -v -y 2017
-</code></pre>
-<p>获取 2016 年 204 session 的 meta 信息，以 json 格式并且保存在当前目录的 sessions.json 文件中</p>
-<pre><code>./wwwww meta -s 204 -v -y 2016
-</code></pre>
-<h2 id="如何下载中文">如何下载中文</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./wwwww subtitle -s 204 -v -y 2017
+</code></pre></td></tr></table>
+</div>
+</div><p>获取 2016 年 204 session 的 meta 信息，以 json 格式并且保存在当前目录的 sessions.json 文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./wwwww meta -s 204 -v -y 2016
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如何下载中文">如何下载中文</h2>
 <h2 id="如何支持2018下载">如何支持2018下载</h2>
 <p><a href="http://danny-lau.com/2017/07/19/wwdc-2017-guaka/">WWDC 2017 字幕抓取 &amp; Guaka 介绍</a></p>
 <p><a href="https://www.jianshu.com/p/62a822835462">WWDCHelper - 帮你更好下载 WWDC 中文字幕</a></p>
@@ -319,7 +341,7 @@ $ swift build
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

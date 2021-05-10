@@ -25,7 +25,7 @@
 &amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用**git stash list**要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
 应用储藏  执行**git stash apply**命令, 可以重新应用最近的一次储藏； 执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
 On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: index.html modified: lib/simplegit.rb  {%endcodeblock%}
-" /><meta name="keywords" content="Hugo, swift, org-mode" />
+" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -385,6 +385,8 @@ modified:   lib/simplegit.rb
           <span class="more-meta"> 约 1742 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -703,7 +705,7 @@ Switched to a new branch &ldquo;testchanges&rdquo;</p>
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

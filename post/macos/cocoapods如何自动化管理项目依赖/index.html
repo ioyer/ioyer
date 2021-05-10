@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="cocoapods如何自动化管理项目依赖">
 <meta itemprop="description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题"><meta itemprop="datePublished" content="2018-10-23T20:29:21&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-23T20:29:21&#43;00:00" />
-<meta itemprop="wordCount" content="1268">
+<meta itemprop="wordCount" content="1313">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cocoapods如何自动化管理项目依赖"/>
 <meta name="twitter:description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 1268 字 </span>
+          <span class="more-meta"> 约 1313 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -179,22 +181,43 @@
 <ol>
 <li>添加宏Preprocessor Macros</li>
 </ol>
-<pre><code>Debug：$(inherited) COCOAPODS=1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) COCOAPODS=1
 Release：$(inherited) COCOAPODS=1
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>设置Other C Flags</li>
 </ol>
-<pre><code>Debug：$(inherited) -iquote &quot;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&quot; -iquote &quot;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&quot;
-Release：$(inherited) -iquote &quot;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&quot; -iquote &quot;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&quot;
-</code></pre>
-<ol start="3">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&#34; -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&#34;
+Release：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&#34; -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>设置Framework Search Paths</li>
 </ol>
-<pre><code>Debug：$(inherited) &quot;${PODS_CONFIGURATION_BUILD_DIR}/Small&quot; &quot;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&quot;
-Release：$(inherited) &quot;${PODS_CONFIGURATION_BUILD_DIR}/Small&quot; &quot;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&quot;
-</code></pre>
-<ol start="4">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small&#34; &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&#34;
+Release：$(inherited) &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small&#34; &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
 <li>Add User-Defined setting,新加三个参数
 <ol>
 <li>PODS_CONFIGURATION_BUILD_DIR
@@ -213,31 +236,70 @@ PODS_PODFILE_DIR_PATH: ${SRCROOT}/../..</li>
 <li>使用<code>./Small-subprojects.rb</code>，有时出现权限问题，替换为<code>ruby Small-subprojects.rb</code>。</li>
 <li>编码问题：在头部添加<code># encoding: utf-8</code>：如<code>invalid byte sequence in US-ASCII (ArgumentError)</code></li>
 </ol>
-<pre><code>#!/usr/local/bin ruby
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#!/usr/local/bin ruby
 # encoding: utf-8
-require 'xcodeproj'
-require 'xcodeproj/project/object/target_dependency'
+require &#39;xcodeproj&#39;
+require &#39;xcodeproj/project/object/target_dependency&#39;
 
-project_path = &quot;#{Dir.pwd}/#{Dir['*.xcodeproj'][0]}&quot;
-puts &quot;项目位置：#{project_path}&quot;
+project_path = &#34;#{Dir.pwd}/#{Dir[&#39;*.xcodeproj&#39;][0]}&#34;
+puts &#34;项目位置：#{project_path}&#34;
 project = Xcodeproj::Project.open(project_path)
 project.native_targets.each do |target|
-    puts &quot;项目target：#{target}&quot;
+    puts &#34;项目target：#{target}&#34;
     target.dependencies.each do |dep|
-        puts &quot;项目dep：#{dep}&quot;
+        puts &#34;项目dep：#{dep}&#34;
         if (dep.name != nil)
             changed = false
             sub_project = dep.target_proxy.proxied_object.project
-            puts &quot;sub_project：#{sub_project}&quot;
+            puts &#34;sub_project：#{sub_project}&#34;
             sub_project.native_targets.each do |sub_target|
                 sub_target.build_configurations.each do |config|
-                    old_fsp = &quot;ddd&quot;#config.build_settings['FRAMEWORK_SEARCH_PATHS']
-                    puts &quot;旧old_fsp：#{config.build_settings}&quot;
-                    if (!(old_fsp.include? &quot;$(CONFIGURATION_BUILD_DIR)/**&quot;))
+                    old_fsp = &#34;ddd&#34;#config.build_settings[&#39;FRAMEWORK_SEARCH_PATHS&#39;]
+                    puts &#34;旧old_fsp：#{config.build_settings}&#34;
+                    if (!(old_fsp.include? &#34;$(CONFIGURATION_BUILD_DIR)/**&#34;))
                         changed = true
-                        puts &quot;更新-----&quot;
-                        #config.build_settings['FRAMEWORK_SEARCH_PATHS'] &lt;&lt; &quot;$(CONFIGURATION_BUILD_DIR)/**&quot;
-                        # puts &quot;Small: Add framework search paths for '#{dep.name}'&quot;
+                        puts &#34;更新-----&#34;
+                        #config.build_settings[&#39;FRAMEWORK_SEARCH_PATHS&#39;] &lt;&lt; &#34;$(CONFIGURATION_BUILD_DIR)/**&#34;
+                        # puts &#34;Small: Add framework search paths for &#39;#{dep.name}&#39;&#34;
                     end
                 end
             end
@@ -248,9 +310,38 @@ project.native_targets.each do |target|
         end
     end
 end
-</code></pre>
-<p>打印信息如下：</p>
-<pre><code>Showing All Messages
+</code></pre></td></tr></table>
+</div>
+</div><p>打印信息如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Showing All Messages
 👎 项目位置：/Users/admin/hsg/hexo/XcodeTool/iSmallApp/iSmallApp.xcodeproj
 
 👎 项目target：iSmallApp
@@ -259,11 +350,11 @@ end
 
 👎 sub_project：#&lt;Xcodeproj::Project&gt; path:`/Users/admin/hsg/hexo/XcodeTool/iSmallApp/bundles/IntelDecision/IntelDecision.xcodeproj` UUID:`84C839BA217F28A500541D4D`
 
-👎 旧old_fsp：{&quot;CODE_SIGN_IDENTITY&quot;=&gt;&quot;&quot;, &quot;CODE_SIGN_STYLE&quot;=&gt;&quot;Automatic&quot;, &quot;DEFINES_MODULE&quot;=&gt;&quot;YES&quot;, &quot;DEVELOPMENT_TEAM&quot;=&gt;&quot;9CA5KUE8T7&quot;, &quot;DYLIB_COMPATIBILITY_VERSION&quot;=&gt;&quot;1&quot;, &quot;DYLIB_CURRENT_VERSION&quot;=&gt;&quot;1&quot;, &quot;DYLIB_INSTALL_NAME_BASE&quot;=&gt;&quot;@rpath&quot;, &quot;INFOPLIST_FILE&quot;=&gt;&quot;IntelDecision/Info.plist&quot;, &quot;INSTALL_PATH&quot;=&gt;&quot;$(LOCAL_LIBRARY_DIR)/Frameworks&quot;, &quot;LD_RUNPATH_SEARCH_PATHS&quot;=&gt;[&quot;$(inherited)&quot;, &quot;@executable_path/Frameworks&quot;, &quot;@loader_path/Frameworks&quot;], &quot;PRODUCT_BUNDLE_IDENTIFIER&quot;=&gt;&quot;com.clcw.IntelDecision&quot;, &quot;PRODUCT_NAME&quot;=&gt;&quot;$(TARGET_NAME:c99extidentifier)&quot;, &quot;SKIP_INSTALL&quot;=&gt;&quot;YES&quot;, &quot;SWIFT_VERSION&quot;=&gt;&quot;4.2&quot;, &quot;TARGETED_DEVICE_FAMILY&quot;=&gt;&quot;1,2&quot;}
+👎 旧old_fsp：{&#34;CODE_SIGN_IDENTITY&#34;=&gt;&#34;&#34;, &#34;CODE_SIGN_STYLE&#34;=&gt;&#34;Automatic&#34;, &#34;DEFINES_MODULE&#34;=&gt;&#34;YES&#34;, &#34;DEVELOPMENT_TEAM&#34;=&gt;&#34;9CA5KUE8T7&#34;, &#34;DYLIB_COMPATIBILITY_VERSION&#34;=&gt;&#34;1&#34;, &#34;DYLIB_CURRENT_VERSION&#34;=&gt;&#34;1&#34;, &#34;DYLIB_INSTALL_NAME_BASE&#34;=&gt;&#34;@rpath&#34;, &#34;INFOPLIST_FILE&#34;=&gt;&#34;IntelDecision/Info.plist&#34;, &#34;INSTALL_PATH&#34;=&gt;&#34;$(LOCAL_LIBRARY_DIR)/Frameworks&#34;, &#34;LD_RUNPATH_SEARCH_PATHS&#34;=&gt;[&#34;$(inherited)&#34;, &#34;@executable_path/Frameworks&#34;, &#34;@loader_path/Frameworks&#34;], &#34;PRODUCT_BUNDLE_IDENTIFIER&#34;=&gt;&#34;com.clcw.IntelDecision&#34;, &#34;PRODUCT_NAME&#34;=&gt;&#34;$(TARGET_NAME:c99extidentifier)&#34;, &#34;SKIP_INSTALL&#34;=&gt;&#34;YES&#34;, &#34;SWIFT_VERSION&#34;=&gt;&#34;4.2&#34;, &#34;TARGETED_DEVICE_FAMILY&#34;=&gt;&#34;1,2&#34;}
 
 👎 更新-----
 
-👎 旧old_fsp：{&quot;CODE_SIGN_IDENTITY&quot;=&gt;&quot;&quot;, &quot;CODE_SIGN_STYLE&quot;=&gt;&quot;Automatic&quot;, &quot;DEFINES_MODULE&quot;=&gt;&quot;YES&quot;, &quot;DEVELOPMENT_TEAM&quot;=&gt;&quot;9CA5KUE8T7&quot;, &quot;DYLIB_COMPATIBILITY_VERSION&quot;=&gt;&quot;1&quot;, &quot;DYLIB_CURRENT_VERSION&quot;=&gt;&quot;1&quot;, &quot;DYLIB_INSTALL_NAME_BASE&quot;=&gt;&quot;@rpath&quot;, &quot;INFOPLIST_FILE&quot;=&gt;&quot;IntelDecision/Info.plist&quot;, &quot;INSTALL_PATH&quot;=&gt;&quot;$(LOCAL_LIBRARY_DIR)/Frameworks&quot;, &quot;LD_RUNPATH_SEARCH_PATHS&quot;=&gt;[&quot;$(inherited)&quot;, &quot;@executable_path/Frameworks&quot;, &quot;@loader_path/Frameworks&quot;], &quot;PRODUCT_BUNDLE_IDENTIFIER&quot;=&gt;&quot;com.clcw.IntelDecision&quot;, &quot;PRODUCT_NAME&quot;=&gt;&quot;$(TARGET_NAME:c99extidentifier)&quot;, &quot;SKIP_INSTALL&quot;=&gt;&quot;YES&quot;, &quot;SWIFT_VERSION&quot;=&gt;&quot;4.2&quot;, &quot;TARGETED_DEVICE_FAMILY&quot;=&gt;&quot;1,2&quot;}
+👎 旧old_fsp：{&#34;CODE_SIGN_IDENTITY&#34;=&gt;&#34;&#34;, &#34;CODE_SIGN_STYLE&#34;=&gt;&#34;Automatic&#34;, &#34;DEFINES_MODULE&#34;=&gt;&#34;YES&#34;, &#34;DEVELOPMENT_TEAM&#34;=&gt;&#34;9CA5KUE8T7&#34;, &#34;DYLIB_COMPATIBILITY_VERSION&#34;=&gt;&#34;1&#34;, &#34;DYLIB_CURRENT_VERSION&#34;=&gt;&#34;1&#34;, &#34;DYLIB_INSTALL_NAME_BASE&#34;=&gt;&#34;@rpath&#34;, &#34;INFOPLIST_FILE&#34;=&gt;&#34;IntelDecision/Info.plist&#34;, &#34;INSTALL_PATH&#34;=&gt;&#34;$(LOCAL_LIBRARY_DIR)/Frameworks&#34;, &#34;LD_RUNPATH_SEARCH_PATHS&#34;=&gt;[&#34;$(inherited)&#34;, &#34;@executable_path/Frameworks&#34;, &#34;@loader_path/Frameworks&#34;], &#34;PRODUCT_BUNDLE_IDENTIFIER&#34;=&gt;&#34;com.clcw.IntelDecision&#34;, &#34;PRODUCT_NAME&#34;=&gt;&#34;$(TARGET_NAME:c99extidentifier)&#34;, &#34;SKIP_INSTALL&#34;=&gt;&#34;YES&#34;, &#34;SWIFT_VERSION&#34;=&gt;&#34;4.2&#34;, &#34;TARGETED_DEVICE_FAMILY&#34;=&gt;&#34;1,2&#34;}
 
 👎 更新-----
 
@@ -274,8 +365,9 @@ end
 👎 项目target：iSmallAppUITests
 
 👎 项目dep：TargetDependency
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -397,7 +489,7 @@ end
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

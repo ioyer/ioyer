@@ -25,7 +25,7 @@
   ######使用documentinteractioncontroller的场景:与文件交互的app都可以使用。
    需要从网络下载文件的APP:
 例如，email程序需要打开和预览邮件附件。     不下载文件的APP:
-例如，APP需要支持文件共享（参考“File-Sharing Support” in iOS Technology Overview), 即可以对同步到app Documents/Shared目录下的文件使用documentinteractioncontroller。   " /><meta name="keywords" content="Hugo, swift, org-mode" />
+例如，APP需要支持文件共享（参考“File-Sharing Support” in iOS Technology Overview), 即可以对同步到app Documents/Shared目录下的文件使用documentinteractioncontroller。   " /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -150,7 +150,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 
 "><meta itemprop="datePublished" content="2014-07-01T23:12:01&#43;08:00" />
 <meta itemprop="dateModified" content="2014-07-01T23:12:01&#43;08:00" />
-<meta itemprop="wordCount" content="4062">
+<meta itemprop="wordCount" content="4071">
 <meta itemprop="keywords" content="指南," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS Document Interaction 编程指南"/>
 <meta name="twitter:description" content="关于 Document Interaction
@@ -295,9 +295,11 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/api/"> API </a>
             </div>
-          <span class="more-meta"> 约 4062 字 </span>
+          <span class="more-meta"> 约 4071 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -366,17 +368,31 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 <p>创建时，通过需要其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象，并设置它的<code>delegate</code>属性。<br>
 <code>delegate</code>对象负责告诉<strong>document  interaction controller</strong>呈现视图时需要的信息，以及当视图显示和用户交互时要执行的动作。<br>
 如以下代码所示。注意方法的调用者必须返回对象。</p>
-<pre><code class="language-objc">- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL) fileURL
-    											 usingDelegate: (id &lt;UIDocumentInteractionControllerDelegate&gt;) interactionDelegate 
-{
-	   UIDocumentInteractionController *interactionController =
-	       									[UIDocumentInteractionController interactionControllerWithURL: fileURL];
-	   interactionController.delegate = interactionDelegate;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="p">)</span> <span class="nf">setupControllerWithURL:</span> <span class="p">(</span><span class="n">NSURL</span><span class="p">)</span> <span class="nv">fileURL</span>
+    											 <span class="nf">usingDelegate:</span> <span class="p">(</span><span class="kt">id</span> <span class="o">&lt;</span><span class="n">UIDocumentInteractionControllerDelegate</span><span class="o">&gt;</span><span class="p">)</span> <span class="nv">interactionDelegate</span> 
+<span class="p">{</span>
+	   <span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="n">interactionController</span> <span class="o">=</span>
+	       									<span class="p">[</span><span class="n">UIDocumentInteractionController</span> <span class="nl">interactionControllerWithURL</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">];</span>
+	   <span class="n">interactionController</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">interactionDelegate</span><span class="p">;</span>
 	
-	   return interactionController;
-}  
-</code></pre>
-<p>实例创建后，可以通过它的属性来读取与之关联的文件信息，包括文件名、类型和URL。该实例中还有一个<code>icons</code>属性，其中包含了多个 <code>UIImage</code> 对象,可以用于表示该文档的多个大小的图标。这些信息可用于UI。</p>
+	   <span class="k">return</span> <span class="n">interactionController</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>实例创建后，可以通过它的属性来读取与之关联的文件信息，包括文件名、类型和URL。该实例中还有一个<code>icons</code>属性，其中包含了多个 <code>UIImage</code> 对象,可以用于表示该文档的多个大小的图标。这些信息可用于UI。</p>
 <p>如果用其他APP打开该文件，可以利用该实例的 <code>annotation</code> 属性，该属性包含了其他APP所需的附加信息。当然信息的格式必须能够被该APP识别。<br>
 例如:当程序想与套件中的其他程序进行交互时，就可以使用<code>annotation</code> 属性。当被调用应用程序打开一个文件时，<code>option</code> 字典中会包含 <code>annotation</code> 的值，可以使用<!-- raw HTML omitted -->UIApplicationLaunchOptionsAnnotationKey<!-- raw HTML omitted --> 作为键在<code>option</code>字典中检索它。</p>
 <h4 id="呈现-document-interaction-controller">呈现 Document Interaction Controller</h4>
@@ -690,7 +706,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

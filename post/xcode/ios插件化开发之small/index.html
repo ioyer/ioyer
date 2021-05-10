@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="iOS插件化开发之Small">
 <meta itemprop="description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团"><meta itemprop="datePublished" content="2018-04-11T16:42:17&#43;00:00" />
 <meta itemprop="dateModified" content="2018-04-11T16:42:17&#43;00:00" />
-<meta itemprop="wordCount" content="3094">
+<meta itemprop="wordCount" content="3246">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS插件化开发之Small"/>
 <meta name="twitter:description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/xcode/"> xcode </a>
             </div>
-          <span class="more-meta"> 约 3094 字 </span>
+          <span class="more-meta"> 约 3246 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -195,11 +197,19 @@ small是android与iOS平台比较出名的轻巧的跨平台插件化框架，�
 <ol>
 <li><strong>安装Xcode模板</strong></li>
 </ol>
-<pre><code class="language-bash">git clone https://github.com/wequick/Small.git
-cd Small/iOS
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/wequick/Small.git
+<span class="nb">cd</span> Small/iOS
 cp -r Templates ~/Library/Developer/Xcode/Templates
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li><strong>新建项目</strong>
 <code>File-&gt;New-&gt;Project...</code>，选择<code>Small-pods</code>模板
 <img src="https://camo.githubusercontent.com/25aac173476e3a5eecdf2853b0e233bf8179bece/687474703a2f2f636f64652e7765717569636b2e6e65742f6173736574732f696d616765732f736d616c6c2d696f732d74656d706c6174652e706e67" alt="Small iOS Template"></li>
@@ -207,67 +217,145 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 <ul>
 <li>库依赖配置文件<code>podfile</code>：</li>
 </ul>
-<pre><code class="language-js">platform :ios, '7.0'
-use_frameworks!
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">platform</span> <span class="o">:</span><span class="nx">ios</span><span class="p">,</span> <span class="s1">&#39;7.0&#39;</span>
+<span class="nx">use_frameworks</span><span class="o">!</span>
 
-target 'SmallAPP' do
-    pod &quot;Small&quot;, :git =&gt; 'https://github.com/wequick/Small.git'
-end
-</code></pre>
-<ul>
+<span class="nx">target</span> <span class="s1">&#39;SmallAPP&#39;</span> <span class="k">do</span>
+    <span class="nx">pod</span> <span class="s2">&#34;Small&#34;</span><span class="p">,</span> <span class="o">:</span><span class="nx">git</span> <span class="p">=&gt;</span> <span class="s1">&#39;https://github.com/wequick/Small.git&#39;</span>
+<span class="nx">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>路由文件<code>bundle.json</code>:</li>
 </ul>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;bundles&quot;: [
-        {
-            &quot;uri&quot;: &quot;main&quot;,
-            &quot;pkg&quot;: &quot;hsg.com.cn.SmallAPP.app.main&quot;
-        }
-    ]
-}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;bundles&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;uri&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;pkg&#34;</span><span class="p">:</span> <span class="s2">&#34;hsg.com.cn.SmallAPP.app.main&#34;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 
-</code></pre>
-<ol start="3">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>安装pod依赖</li>
 </ol>
-<pre><code class="language-bash">cd [your-project-path]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="o">[</span>your-project-path<span class="o">]</span>
 pod install --no-repo-update
 open *.xcworkspace
-</code></pre>
-<h3 id="解读插件路由配置">解读插件路由配置</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解读插件路由配置">解读插件路由配置</h3>
 <p><a href="http://code.wequick.net/Small/cn/router">插件路由</a>:为了方便插件之间的跨平台调用，Small 提供了 <code>bundle.json</code> 来完成插件路由。
 bundle.json路由配置包括<code>version</code>:指定插件的版本号，<code>bundles</code>:插件注册的清单数组，其中插件清单的每个插件四个属性，来确定加载组件的方式：
 <code>uri</code>：指定加载插件的跟路径</p>
-<pre><code>//获取控制器
-let VC = Small.controller(forUri: &quot;fixurl&quot;)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//获取控制器
+let VC = Small.controller(forUri: &#34;fixurl&#34;)
 //将VC.view直接设置为window根视图
-Small.openUri(&quot;fixurl&quot;, from: self)
-</code></pre>
-<p><code>pkg</code>：配置要求新建的Framework命名时必须包含<code>.lib.</code>、<code>.app.</code>，因为在加载组件过程中用它来判断你插件的类型：
+Small.openUri(&#34;fixurl&#34;, from: self)
+</code></pre></td></tr></table>
+</div>
+</div><p><code>pkg</code>：配置要求新建的Framework命名时必须包含<code>.lib.</code>、<code>.app.</code>，因为在加载组件过程中用它来判断你插件的类型：
 <code>rules</code>：规定页面的分发规则，可以通过rules来设置插件的多个入口，配和<code>uri</code>使用:<code>openuri(uri/ruleskey)</code>,当不配置rules时，默认通过<code>info.plist NSPrincipalClass</code>来加载组件<code>openuri(uri)</code>。
 路由配置文件<code>bundle.json</code>部分内容如下：</p>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;1.0.0&quot;,    
-    &quot;bundles&quot;: [                
-                {  
-                   &quot;uri&quot;: &quot;lib.utils&quot;,                
-                   &quot;pkg&quot;: &quot;com.example.small.lib.utils&quot;,
-                   &quot;rules&quot;: {  //会覆盖掉`Principal class`默认的启动页配置
-                       &quot;Storyboard&quot;: &quot;storyboardName/controllerId&quot;,
-                       &quot;xib&quot;: &quot;controllerName&quot;
-                   }               
-                },                
-                {                
-                   &quot;uri&quot;: &quot;main&quot;,                
-                   &quot;pkg&quot;: &quot;com.example.small.app.main&quot;              
-                }
-               ]
-               ....
-}
-</code></pre>
-<p>small加载接口的相关方法</p>
-<pre><code>+ (void)openUri:(NSString *)uri fromView:(UIView *)view;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>    
+    <span class="nt">&#34;bundles&#34;</span><span class="p">:</span> <span class="p">[</span>                
+                <span class="p">{</span>  
+                   <span class="nt">&#34;uri&#34;</span><span class="p">:</span> <span class="s2">&#34;lib.utils&#34;</span><span class="p">,</span>                
+                   <span class="nt">&#34;pkg&#34;</span><span class="p">:</span> <span class="s2">&#34;com.example.small.lib.utils&#34;</span><span class="p">,</span>
+                   <span class="nt">&#34;rules&#34;</span><span class="p">:</span> <span class="p">{</span>  <span class="err">//会覆盖掉`Principal</span> <span class="err">class`默认的启动页配置</span>
+                       <span class="nt">&#34;Storyboard&#34;</span><span class="p">:</span> <span class="s2">&#34;storyboardName/controllerId&#34;</span><span class="p">,</span>
+                       <span class="nt">&#34;xib&#34;</span><span class="p">:</span> <span class="s2">&#34;controllerName&#34;</span>
+                   <span class="p">}</span>               
+                <span class="p">},</span>                
+                <span class="p">{</span>                
+                   <span class="nt">&#34;uri&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span>                
+                   <span class="nt">&#34;pkg&#34;</span><span class="p">:</span> <span class="s2">&#34;com.example.small.app.main&#34;</span>              
+                <span class="p">}</span>
+               <span class="p">]</span>
+               <span class="err">....</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>small加载接口的相关方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+ (void)openUri:(NSString *)uri fromView:(UIView *)view;
 + (void)openURL:(NSURL *)url fromView:(UIView *)view;
 
 + (void)openUri:(NSString *)uri fromController:(UIViewController *)controller;
@@ -275,121 +363,232 @@ Small.openUri(&quot;fixurl&quot;, from: self)
 
 + (UIViewController *)controllerForUri:(NSString *)uri;
 + (UIViewController *)controllerForURL:(NSURL *)url;
-</code></pre>
-<h4 id="支持storyboard作为启动页的解析">支持Storyboard作为启动页的解析</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="支持storyboard作为启动页的解析">支持Storyboard作为启动页的解析</h4>
 <p>根据<code>SMBundle</code>路由配置信息，通过<code>SMAppBundleLauncher</code>的实例方法<code>_controllerForBundle:</code>加载Framework，支持storyboard加载。</p>
 <ol>
 <li>路由<code>rules</code>字典</li>
 </ol>
-<pre><code>&quot;rules&quot;:{
-&quot;&quot;:&quot;Main/MainViewController&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;:{
+&#34;&#34;:&#34;Main/MainViewController&#34;
 }
-</code></pre>
-<p>空字串(<code>&quot;&quot;</code>)的<code>value</code>值两种格式类型：</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>空字串(<code>&quot;&quot;</code>)的<code>value</code>值两种格式类型：</p>
 <pre><code>`&quot;$controllerName&quot;`: `SMAppBundleLauncher`通过反射，初始化controller
 `&quot;storyboardName/controllerId&quot;`:`SMAppBundleLauncher`会识别找到storyboard在更具id初始化controller
 </code></pre>
 <p>最终可以<code>SMBundle</code>实例变量<code>target</code>中得到该key(<code>&quot;&quot;</code>)的value值来定位插件包，在该过程通过对<code>SMBundle</code>的属性<code>bundle.queryParams</code>的处理，完成对插件对象的值传递</p>
-<pre><code class="language-objc">if ([bundle.target isEqualToString:@&quot;&quot;]) {
-        targetClazz = bundle.principalClass;
-    } else {
-        NSString *target = bundle.target;
-        NSInteger index = [target rangeOfString:@&quot;/&quot;].location;
-        if (index != NSNotFound) {
-            // Storyboard: &quot;$storyboardName/$controllerId&quot;
-            NSString *storyboardName = [target substringToIndex:index];
-            targetBoard = [UIStoryboard storyboardWithName:storyboardName bundle:bundle];
-            targetId = [target substringFromIndex:index + 1];
-        } else {
-            // Controller: &quot;$controllerName&quot;
-            targetClazz = [bundle classNamed:target];
-            if (targetClazz == nil &amp;&amp; !SMStringHasSuffix(target, @&quot;Controller&quot;)) {
-            targetClazz = [bundle classNamed:[target stringByAppendingString:@&quot;Controller&quot;]];
-        }
-    }
-}
-UIViewController *controller = nil;
-if (targetClazz != nil) {
-    //尝试获取xib资源
-    NSString *nibName = NSStringFromClass(targetClazz);
-    NSString *nibPath = [bundle pathForResource:nibName ofType:@&quot;nib&quot;];
-    if (nibPath != nil) {
-        // 通过xib资源文件创建控制器实例
-        controller = [[targetClazz alloc] initWithNibName:nibName bundle:bundle];
-    } else {
-        /// 通过反射类方式创建控制器实例
-        controller = [[targetClazz alloc] init];
-}
-...
-// Initialize controller parameters
-if (bundle.queryParams != nil) {
-    [controller setValuesForKeysWithDictionary:bundle.queryParams];
-}
-</code></pre>
-<h4 id="参数传递">参数传递</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">([</span><span class="n">bundle</span><span class="p">.</span><span class="n">target</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">targetClazz</span> <span class="o">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">principalClass</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">target</span><span class="p">;</span>
+        <span class="n">NSInteger</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;/&#34;</span><span class="p">].</span><span class="n">location</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">!=</span> <span class="n">NSNotFound</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Storyboard: &#34;$storyboardName/$controllerId&#34;
+</span><span class="c1"></span>            <span class="n">NSString</span> <span class="o">*</span><span class="n">storyboardName</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span> <span class="nl">substringToIndex</span><span class="p">:</span><span class="n">index</span><span class="p">];</span>
+            <span class="n">targetBoard</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIStoryboard</span> <span class="nl">storyboardWithName</span><span class="p">:</span><span class="n">storyboardName</span> <span class="nl">bundle</span><span class="p">:</span><span class="n">bundle</span><span class="p">];</span>
+            <span class="n">targetId</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span> <span class="nl">substringFromIndex</span><span class="p">:</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Controller: &#34;$controllerName&#34;
+</span><span class="c1"></span>            <span class="n">targetClazz</span> <span class="o">=</span> <span class="p">[</span><span class="n">bundle</span> <span class="nl">classNamed</span><span class="p">:</span><span class="n">target</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">targetClazz</span> <span class="o">==</span> <span class="nb">nil</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SMStringHasSuffix</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">@&#34;Controller&#34;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">targetClazz</span> <span class="o">=</span> <span class="p">[</span><span class="n">bundle</span> <span class="nl">classNamed</span><span class="p">:[</span><span class="n">target</span> <span class="nl">stringByAppendingString</span><span class="p">:</span><span class="s">@&#34;Controller&#34;</span><span class="p">]];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">UIViewController</span> <span class="o">*</span><span class="n">controller</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">targetClazz</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//尝试获取xib资源
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">nibName</span> <span class="o">=</span> <span class="n">NSStringFromClass</span><span class="p">(</span><span class="n">targetClazz</span><span class="p">);</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">nibPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">bundle</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="n">nibName</span> <span class="nl">ofType</span><span class="p">:</span><span class="s">@&#34;nib&#34;</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nibPath</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 通过xib资源文件创建控制器实例
+</span><span class="c1"></span>        <span class="n">controller</span> <span class="o">=</span> <span class="p">[[</span><span class="n">targetClazz</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="n">nibName</span> <span class="nl">bundle</span><span class="p">:</span><span class="n">bundle</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">/// 通过反射类方式创建控制器实例
+</span><span class="c1"></span>        <span class="n">controller</span> <span class="o">=</span> <span class="p">[[</span><span class="n">targetClazz</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="c1">// Initialize controller parameters
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">controller</span> <span class="nl">setValuesForKeysWithDictionary</span><span class="p">:</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="参数传递">参数传递</h4>
 <p>使用 <a href="https://en.wikipedia.org/wiki/Query_string">Query标准</a>来传递参数，即在 <code>uri</code> 之后加上 <code>?</code> 再带上键值对，多个键值对用<code>&amp;</code> 来分开。</p>
 <ol>
 <li>传值方式  <code>detail?id=1000&amp;title=test</code>。</li>
 </ol>
-<pre><code>[Small openUri:@&quot;detail?from=app.home&quot; fromController:controller];
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Small openUri:@&#34;detail?from=app.home&#34; fromController:controller];
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>接收解析为属性值
 例如<code>DetailController</code>)定义两个属性，属性名称和<code>uri</code>键值名保持一致，因为是通过<code>setValuesForKeysWithDictionary</code>来给相应属性赋值。</li>
 </ol>
-<pre><code class="language-objc">// DetailController.h
-@property (nonatomic, strong) NSString *id;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// DetailController.h
+</span><span class="c1"></span><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="kt">id</span><span class="p">;</span>
 
-// DetailController.m
-NSString *id = self.id;
+<span class="c1">// DetailController.m
+</span><span class="c1"></span><span class="n">NSString</span> <span class="o">*</span><span class="kt">id</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="kt">id</span><span class="p">;</span>
 
-样例
-// Initialize controller parameters
-if (bundle.queryParams != nil) {
-    [controller setValuesForKeysWithDictionary:bundle.queryParams];
-}
-</code></pre>
-<h3 id="插件命名规则和入口设置">插件命名规则和入口设置</h3>
+<span class="err">样例</span>
+<span class="c1">// Initialize controller parameters
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">controller</span> <span class="nl">setValuesForKeysWithDictionary</span><span class="p">:</span><span class="n">bundle</span><span class="p">.</span><span class="n">queryParams</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插件命名规则和入口设置">插件命名规则和入口设置</h3>
 <p>路由配置对插件包的命名有严格要求，<code>SMBundle</code>主要通过<code>pkg</code>名称包含<code>.app.</code>(模块库)/<code>.lib.</code>(工具库)来定位插件包的，否则全部默认加载bundle包。
 <strong>模块命名规范</strong></p>
 <ul>
 <li><code>framework</code>编译成功后，名称跟<code>Product Name</code>一样命名规则:</li>
 </ul>
-<pre><code>xx_xx_lib_xx【com_example_small_lib_utils】
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">xx_xx_lib_xx【com_example_small_lib_utils】
 xx_xx_app_xx
 xx_xx_xx_xx
-</code></pre>
-<p>注意lib、app这些对查找framework文件相当重要，这所以会有<code>_</code>，是small对<code>.</code>做了替换</p>
-<pre><code class="language-objc">NSString *bundlePath = nil;
-NSString *bundleSuffix = @&quot;bundle&quot;; //默认
-SMBundleType bundleType = SMBundleTypeAssets; 
-if ([pkg rangeOfString:@&quot;.app.&quot;].location != NSNotFound
-|| [pkg rangeOfString:@&quot;.lib.&quot;].location != NSNotFound) {
-    bundleSuffix = @&quot;framework&quot;;
-    bundleType = SMBundleTypeApplication;
-}
-NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&quot;.&quot; withString:@&quot;_&quot;];
-bundleName = [bundleName stringByAppendingFormat:@&quot;.%@&quot;, bundleSuffix];
-</code></pre>
-<p><strong>设置加载模块的入口类</strong></p>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意lib、app这些对查找framework文件相当重要，这所以会有<code>_</code>，是small对<code>.</code>做了替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">bundlePath</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">bundleSuffix</span> <span class="o">=</span> <span class="s">@&#34;bundle&#34;</span><span class="p">;</span> <span class="c1">//默认
+</span><span class="c1"></span><span class="n">SMBundleType</span> <span class="n">bundleType</span> <span class="o">=</span> <span class="n">SMBundleTypeAssets</span><span class="p">;</span> 
+<span class="k">if</span> <span class="p">([</span><span class="n">pkg</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;.app.&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span>
+<span class="o">||</span> <span class="p">[</span><span class="n">pkg</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;.lib.&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">bundleSuffix</span> <span class="o">=</span> <span class="s">@&#34;framework&#34;</span><span class="p">;</span>
+    <span class="n">bundleType</span> <span class="o">=</span> <span class="n">SMBundleTypeApplication</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">bundleName</span> <span class="o">=</span> <span class="p">[</span><span class="n">pkg</span> <span class="nl">stringByReplacingOccurrencesOfString</span><span class="p">:</span><span class="s">@&#34;.&#34;</span> <span class="nl">withString</span><span class="p">:</span><span class="s">@&#34;_&#34;</span><span class="p">];</span>
+<span class="n">bundleName</span> <span class="o">=</span> <span class="p">[</span><span class="n">bundleName</span> <span class="nl">stringByAppendingFormat</span><span class="p">:</span><span class="s">@&#34;.%@&#34;</span><span class="p">,</span> <span class="n">bundleSuffix</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>设置加载模块的入口类</strong></p>
 <ol>
 <li><strong>info.plist</strong>方式实现
 在 <code>framework</code>模块工程的<strong>info.plist</strong>文件中添加<code>Principal class</code>字段：</li>
 </ol>
-<pre><code>&lt;key&gt;NSPrincipalClass&lt;/key&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;key&gt;NSPrincipalClass&lt;/key&gt;
 &lt;string&gt;ESHomeController&lt;/string&gt; //指定入口类名
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li><strong>bundle.json</strong>路由方式实现
 通过设置<strong>bundle.json</strong>的<code>rules</code>字典，指定初始化库的入口</li>
 </ol>
-<pre><code>&quot;rules&quot;: {  
-               &quot;&quot;: &quot;默认入口类名&quot;
-    &quot;/Storyboard&quot;: &quot;storyboardName/controllerId&quot;,
-           &quot;/xib&quot;: &quot;controllerName&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;: {  
+               &#34;&#34;: &#34;默认入口类名&#34;
+    &#34;/Storyboard&#34;: &#34;storyboardName/controllerId&#34;,
+           &#34;/xib&#34;: &#34;controllerName&#34;
 }  
-</code></pre>
-<blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><strong>bundle.json</strong>中配置的入口，优先于<code>info.plist</code>中的<code>Principal class</code>的入口。</p>
 </blockquote>
 <h3 id="集成插件到主工程">集成插件到主工程</h3>
@@ -400,8 +599,36 @@ bundleName = [bundleName stringByAppendingFormat:@&quot;.%@&quot;, bundleSuffix]
 small框架会依次优先顺序检查<code>Documents/temp</code>（下载的zip）&ndash;&gt;<code>/Documents/bundles</code>(存放Framework)&ndash;&gt;<code>/iSmallApp.app/</code>(app根目录)，small规定插件<code>Framework</code>必须存放在这几个目录中，才能被small框架动态加载。
 具体实现</li>
 </ol>
-<pre><code>NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&quot;.&quot; withString:@&quot;_&quot;];
-bundleName = [bundleName stringByAppendingFormat:@&quot;.%@&quot;, bundleSuffix];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&#34;.&#34; withString:@&#34;_&#34;];
+bundleName = [bundleName stringByAppendingFormat:@&#34;.%@&#34;, bundleSuffix];
 NSString *documentBundlesPath = [SMFileManager documentBundlesPath];
 NSString *patchFilePath = [SMFileManager tempBundlePathForName:bundleName];
 //沙盒中查找插件包，一旦发现，解压加载
@@ -424,8 +651,9 @@ for (NSString *aBundlePath in bundlePaths) {
         break;
     }
 }
-</code></pre>
-<ol start="3">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li><strong>测试</strong>
 完成添加，进入测试。使用过程中，有可以模块更新代码后，主工程调用发现功能未更新，这时候需要清理工程，重新编译；或者修改编译包配置，从而时时更新。
 <img src="https://img-blog.csdn.net/20160718094828722?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="">
@@ -437,19 +665,37 @@ for (NSString *aBundlePath in bundlePaths) {
 使用场景：作为第三方集成到自己的项目，包含两个特殊的文件<code>podfile</code>和<code>Small-subprojects.rb</code>安装脚本文件。
 <strong>podfile</strong></li>
 </ol>
-<pre><code>platform :ios, '7.0'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">platform :ios, &#39;7.0&#39;
 use_frameworks!
 
-target 'Sample' do
-    pod &quot;Small&quot;, :path =&gt; &quot;../../&quot;
+target &#39;Sample&#39; do
+    pod &#34;Small&#34;, :path =&gt; &#34;../../&#34;
 end
-</code></pre>
-<p><code>Small-subprojects.rb</code>安装脚本文件
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Small-subprojects.rb</code>安装脚本文件
 通过脚本来设置<code>build settings</code>中的<strong>FRAMEWORK_SEARCH_PATHS</strong>配置：</p>
-<pre><code>config.build_settings['FRAMEWORK_SEARCH_PATHS'] &lt;&lt; &quot;$(CONFIGURATION_BUILD_DIR)/**&quot;
-puts &quot;Small: Add framework search paths for '#{dep.name}'&quot;
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">config.build_settings[&#39;FRAMEWORK_SEARCH_PATHS&#39;] &lt;&lt; &#34;$(CONFIGURATION_BUILD_DIR)/**&#34;
+puts &#34;Small: Add framework search paths for &#39;#{dep.name}&#39;&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>开发者模式
 使用场景：需要对Small框架集成自己的功能需求时，可以使用该Demo快速部署对Small框架的开发环境</li>
 </ol>
@@ -583,7 +829,7 @@ puts &quot;Small: Add framework search paths for '#{dep.name}'&quot;
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

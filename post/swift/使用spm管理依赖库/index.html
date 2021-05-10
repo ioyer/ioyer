@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用SPM管理依赖库">
 <meta itemprop="description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被"><meta itemprop="datePublished" content="2018-10-01T23:57:27&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-01T23:57:27&#43;00:00" />
-<meta itemprop="wordCount" content="2874">
+<meta itemprop="wordCount" content="3009">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用SPM管理依赖库"/>
 <meta name="twitter:description" content="概念概述 Package Manager {% github it-boyer PerfectTemplate 20294e56 width = 30% %} Modules模块 在 Swift 中我们使用模块来管理代码，每个模块指定一个命名空间并强制指定模块外哪些部分的代码是可以被"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 2874 字 </span>
-          <span class="more-meta"> 预计阅读 6 分钟 </span>
+          <span class="more-meta"> 约 3009 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -198,28 +200,53 @@
 <h3 id="packages包">Packages包</h3>
 <p>一个包由 Swift 源文件和一个清单文件组成。这个清单文件称为 <code>Package.swift</code>，定义包名或者它的内容使用<code>PackageDescription</code> 模块。
 一个包有一个或者多个目标，每个目标指定一个产品并且可能声明一个或者多个依赖。</p>
-<pre><code class="language-sh">import PackageDescription
-let package = Package(
-    name: &quot;DeckOfPlayingCards&quot;,
-    products: [
-        .library(name: &quot;DeckOfPlayingCards&quot;, targets: [&quot;DeckOfPlayingCards&quot;]),
-        .executable(name: &quot;Dealer&quot;, targets: [&quot;Dealer&quot;]),
-    ],
-    dependencies: [
-        .package(url: &quot;https://github.com/apple/example-package-fisheryates.git&quot;, from: &quot;2.0.0&quot;),
-        .package(url: &quot;https://github.com/apple/example-package-playingcard.git&quot;, from: &quot;3.0.0&quot;),
-    ],
-    targets: [
-        .target(
-            name: &quot;DeckOfPlayingCards&quot;,
-            dependencies: [&quot;FisherYates&quot;, &quot;PlayingCard&quot;]),
-        .testTarget(
-            name: &quot;DeckOfPlayingCardsTests&quot;,
-            dependencies: [&quot;DeckOfPlayingCards&quot;]),
-    ]
-)
-</code></pre>
-<h3 id="products产品">Products产品</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">import PackageDescription
+<span class="nb">let</span> <span class="nv">package</span> <span class="o">=</span> Package<span class="o">(</span>
+    name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
+    products: <span class="o">[</span>
+        .library<span class="o">(</span>name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
+        .executable<span class="o">(</span>name: <span class="s2">&#34;Dealer&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;Dealer&#34;</span><span class="o">])</span>,
+    <span class="o">]</span>,
+    dependencies: <span class="o">[</span>
+        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span>, from: <span class="s2">&#34;2.0.0&#34;</span><span class="o">)</span>,
+        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span>, from: <span class="s2">&#34;3.0.0&#34;</span><span class="o">)</span>,
+    <span class="o">]</span>,
+    targets: <span class="o">[</span>
+        .target<span class="o">(</span>
+            name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
+            dependencies: <span class="o">[</span><span class="s2">&#34;FisherYates&#34;</span>, <span class="s2">&#34;PlayingCard&#34;</span><span class="o">])</span>,
+        .testTarget<span class="o">(</span>
+            name: <span class="s2">&#34;DeckOfPlayingCardsTests&#34;</span>,
+            dependencies: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
+    <span class="o">]</span>
+<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="products产品">Products产品</h3>
 <p>一个<code>target</code>可能构建一个<code>.library()库</code>或者一个<code>.executable()可执行文件</code>作为其产品。
 <code>.library(name: &quot;&quot;, targets: [])</code>库:是包含用于其他Swift 代码导入该模块
 <code>.executable(name: &quot;&quot;, targets: [])</code>可执行文件:是一段可以被操作系统运行的程序。</p>
@@ -231,15 +258,41 @@ let package = Package(
 <ol>
 <li>建一个<code>target</code>表示标准的52张扑克牌的<code>PlayingCard</code>：</li>
 </ol>
-<pre><code>mkdir PlayingCard
-cd PlayingCard
-swift package init
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mkdir</span> <span class="nx">PlayingCard</span>
+<span class="nx">cd</span> <span class="nx">PlayingCard</span>
+<span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>创建公共实现类
 <code>PlayingCard</code>定义<code>PlayingCard</code>类型，它由<code>Suit</code>枚举值(梅花、方块、红心、黑桃)和<code>Rank</code>枚举值(Ace、2、3、…、Jack、Queen、King)组成。</li>
 </ol>
-<pre><code>public enum Rank : Int {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public enum Rank : Int {
     case Ace = 1
     case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
     case Jack, Queen, King
@@ -253,17 +306,30 @@ public struct PlayingCard {
     let rank: Rank
     let suit: Suit
 }
-</code></pre>
-<p>按照约定，一个<code>target</code>所有的源文件都存在相应的<code>Sources/&lt;target-name&gt;</code>目录下，默认情况下，<code>库模块</code>使用<code>public</code>来声明类型和方法，这些类型和方法位于<code>Sources/&lt;target-name&gt;</code>中：</p>
-<pre><code>example-package-playingcard
+</code></pre></td></tr></table>
+</div>
+</div><p>按照约定，一个<code>target</code>所有的源文件都存在相应的<code>Sources/&lt;target-name&gt;</code>目录下，默认情况下，<code>库模块</code>使用<code>public</code>来声明类型和方法，这些类型和方法位于<code>Sources/&lt;target-name&gt;</code>中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">example-package-playingcard
 ├── Sources
 │   └── PlayingCard
 │       ├── PlayingCard.swift
 │       ├── Rank.swift
 │       └── Suit.swift
 └── Package.swift
-</code></pre>
-<p><code>PlayingCard</code>因为不生成<code>executable</code>可执行文件，这种类型的<code>target</code>成为<code>库</code>，当构建一个模块可以被依赖导入使用。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>PlayingCard</code>因为不生成<code>executable</code>可执行文件，这种类型的<code>target</code>成为<code>库</code>，当构建一个模块可以被依赖导入使用。</p>
 <ol start="3">
 <li>运行<code>swift build</code>命令，将编译生成<code>PlayingCard</code>模块。</li>
 </ol>
@@ -271,16 +337,49 @@ public struct PlayingCard {
 <ol>
 <li>创建<code>fisher</code>模块</li>
 </ol>
-<pre><code>mkdir fisher
-cd fisher
-swift package init
-</code></pre>
-<p><code>fisher</code>与<code>PlayingCard</code>不同，此模块不定义任何新类型。相反，它扩展了现有的类型(特别是<code>CollectionType</code>和<code>MutableCollectionType</code>协议)，以添加<code>shuffle()</code>方法和它的变体副本<code>shuffleInPlace()</code>。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mkdir</span> <span class="nx">fisher</span>
+<span class="nx">cd</span> <span class="nx">fisher</span>
+<span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>fisher</code>与<code>PlayingCard</code>不同，此模块不定义任何新类型。相反，它扩展了现有的类型(特别是<code>CollectionType</code>和<code>MutableCollectionType</code>协议)，以添加<code>shuffle()</code>方法和它的变体副本<code>shuffleInPlace()</code>。
 2. 使用构建配置语句 <code>#if #else #endif</code>
 <code>shuffleInPlace()</code>的实现使用<code>Fisher-Yates</code>算法随机排列集合中的元素。因为Swift标准库不提供随机数生成器，所以该方法必须调用从系统模块导入的函数。为了使该函数与<code>macOS</code>和<code>Linux</code>兼容，代码使用构建配置语句。
 在<code>macOS</code>中，系统模块是<code>Darwin</code>，它提供了<code>arc4random_uniform(_:)</code>函数。
 在<code>Linux</code>中，系统模块为<code>Glibc</code>，它提供了<code>random()</code>函数:</p>
-<pre><code>#if os(Linux)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#if os(Linux)
 import Glibc
 #else
 import Darwin.C
@@ -301,59 +400,128 @@ public extension MutableCollectionType where Index == Int {
         }
     }
 }
-</code></pre>
-<h3 id="依赖库导入及使用">依赖库导入及使用</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="依赖库导入及使用">依赖库导入及使用</h3>
 <p><code>DeckOfPlayingCards</code>包将前两个包组合在一起:它定义了一种桥牌类型，该类型在一个<code>PlayingCard</code>值数组上使用<code>fisher()</code>方法。
 要使用<code>fisher</code>和<code>PlayingCards</code>模块，必须在<code>DeckOfPlayingCards</code>模块的清单文件<code>Package.swift</code>中声明为它们<code>package</code>依赖项。</p>
-<pre><code>// swift-tools-version:4.0
-import PackageDescription
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// swift-tools-version:4.0
+</span><span class="c1"></span><span class="kn">import</span> <span class="nx">PackageDescription</span>
 
-let package = Package(
-    name: &quot;DeckOfPlayingCards&quot;,
-    products: [
-        .library(name: &quot;DeckOfPlayingCards&quot;, targets: [&quot;DeckOfPlayingCards&quot;]),
-    ],
-    dependencies: [
-        .package(url: &quot;https://github.com/apple/example-package-fisheryates.git&quot;, from: &quot;2.0.0&quot;),
-        .package(url: &quot;https://github.com/apple/example-package-playingcard.git&quot;, from: &quot;3.0.0&quot;),
-    ],
-    targets: [
-        .target(
-            name: &quot;DeckOfPlayingCards&quot;,
-            dependencies: [&quot;FisherYates&quot;, &quot;PlayingCard&quot;]),
-        .testTarget(
-            name: &quot;DeckOfPlayingCardsTests&quot;,
-            dependencies: [&quot;DeckOfPlayingCards&quot;]),
-    ]
-)
-</code></pre>
-<p>每个依赖项指定源<code>URL</code>和<code>from:</code>版本号。
+<span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
+    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="nf">library</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+    <span class="p">],</span>
+    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;2.0.0&#34;</span><span class="p">),</span>
+        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
+            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
+            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;FisherYates&#34;</span><span class="p">,</span> <span class="s">&#34;PlayingCard&#34;</span><span class="p">]),</span>
+        <span class="p">.</span><span class="nf">testTarget</span><span class="p">(</span>
+            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCardsTests&#34;</span><span class="p">,</span>
+            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>每个依赖项指定源<code>URL</code>和<code>from:</code>版本号。
 <code>源URL</code>是解析到Git存储库的当前用户可以访问的URL。版本需求遵循语义版本控制(SemVer)约定，用于确定签出哪个Git标签并使用它来构建依赖关系。对于依赖项<code>FisherYates</code> ，将使用最新版本主版本为2(例如，2.0.4)。类似地，<code>PlayingCard</code>依赖项将使用最新版本主版本为3。
 当运行<code>swift build</code>命令时，包管理器下载所有依赖项，编译、并链接到包模块。这样<code>DeckOfPlayingCards</code>使用<code>import</code>语句来访问依赖模块中<code>public</code>类型的属性和方法。
 您可以在项目根目录下的<code>.build/checkouts</code>目录中看到下载的源代码，在项目根目录下的<code>.build</code>目录中看到中间的构建产品。</p>
 <h2 id="解决依赖传递关系">解决依赖传递关系</h2>
 <p>构建<code>Dealer</code>模块,它依赖于<code>DeckOfPlayingCards</code>包，而<code>DeckOfPlayingCards</code>包又依赖于<code>PlayingCard</code>和<code>fisher</code>包。然而，由于Swift包管理器自动解析传递依赖项，您只需将<code>DeckOfPlayingCards</code>包声明为依赖项即可。</p>
-<pre><code>// swift-tools-version:4.0
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// swift-tools-version:4.0
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nx">PackageDescription</span>
 
-import PackageDescription
-
-let package = Package(
-    name: &quot;dealer&quot;,
-    products: [
-        .executable(name: &quot;Dealer&quot;, targets: [&quot;Dealer&quot;]),
-    ],
-    dependencies: [
-        .package(url: &quot;https://github.com/apple/example-package-deckofplayingcards.git&quot;, from: &quot;3.0.0&quot;),
-    ],
-    targets: [
-        .target(
-        name: &quot;Dealer&quot;,
-        dependencies: [&quot;DeckOfPlayingCards&quot;]),
-    ]
-)
-</code></pre>
-<p>依赖传递关系也体现在Swift源文件代码<code>import</code>导入一个模块，就可以使用该某块下所有依赖库的类型。例如<code>Dealer</code>模块的<code>main.swift </code>文件。在<code>DeckOfPlayingCards</code>中的<code>Deck</code>类型和<code>PlayingCard</code>中的<code>PlayingCard</code>类型。尽管<code>Deck</code>类型的<code>shuffle()</code>方法在内部使用了<code>fisher</code>模块，但该模块不需要在<code>main.swift</code>中导入。</p>
-<pre><code>import PlayingCard
+<span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
+    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;dealer&#34;</span><span class="p">,</span>
+    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="nf">executable</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;Dealer&#34;</span><span class="p">]),</span>
+    <span class="p">],</span>
+    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-deckofplayingcards.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
+        <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span>
+        <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>依赖传递关系也体现在Swift源文件代码<code>import</code>导入一个模块，就可以使用该某块下所有依赖库的类型。例如<code>Dealer</code>模块的<code>main.swift </code>文件。在<code>DeckOfPlayingCards</code>中的<code>Deck</code>类型和<code>PlayingCard</code>中的<code>PlayingCard</code>类型。尽管<code>Deck</code>类型的<code>shuffle()</code>方法在内部使用了<code>fisher</code>模块，但该模块不需要在<code>main.swift</code>中导入。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import PlayingCard
 import DeckOfPlayingCards
 
 let numberOfCards = 10
@@ -363,16 +531,33 @@ deck.shuffle()
 
 for _ in 1...numberOfCards {
     guard let card = deck.deal() else {
-        print(&quot;No More Cards!&quot;)
+        print(&#34;No More Cards!&#34;)
         break
     }
     print(card)
 }
-</code></pre>
-<h3 id="构建并运行可执行文件">构建并运行可执行文件</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="构建并运行可执行文件">构建并运行可执行文件</h3>
 <p>根据约定，一个<code>target</code>的根目录中包含一个名为<code>main.swift</code>文件，可以构建成一个可执行文件。
 运行<code>swift build</code>命令，然后运行<code>.build/debug</code>目录下的<code>Dealer</code>可执行文件。</p>
-<pre><code>$ swift build
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
 $ ./.build/debug/Dealer
 ♠︎6
 ♢K
@@ -384,11 +569,18 @@ $ ./.build/debug/Dealer
 ♢A
 ♡Q
 ♡7
-</code></pre>
-<h3 id="两个坑">两个坑</h3>
-<pre><code>swift package generate-xcodeproj
-</code></pre>
-<ol>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="两个坑">两个坑</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
 <li>每次更新或添加库或框架，xcodeproj就需要重新创建一次，不然无法引用到新库或新框架；</li>
 <li>在source文件夹如果发生任何改动，库或框架的更新就会失败。
 这就是为什么我要专门建一个工程来管理这些框架或者库（这是我踩的最恶心的坑）。为了解决这个大坑，就再创建一个项目工程，然后使用workspace来管理
@@ -516,7 +708,7 @@ $ ./.build/debug/Dealer
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

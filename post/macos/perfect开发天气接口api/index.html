@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="Perfect介绍 Perfect提供一系列代表请求和响应的对象组件，并允许在服务器上增加管理句柄用于产生页面内容。 所有对象都是在服务器对象创" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="Perfect介绍 Perfect提供一系列代表请求和响应的对象组件，并允许在服务器上增加管理句柄用于产生页面内容。 所有对象都是在服务器对象创" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Perfect开发天气接口API">
 <meta itemprop="description" content="Perfect介绍 Perfect提供一系列代表请求和响应的对象组件，并允许在服务器上增加管理句柄用于产生页面内容。 所有对象都是在服务器对象创"><meta itemprop="datePublished" content="2017-06-26T17:01:24&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-26T17:01:24&#43;00:00" />
-<meta itemprop="wordCount" content="1162">
+<meta itemprop="wordCount" content="1166">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Perfect开发天气接口API"/>
 <meta name="twitter:description" content="Perfect介绍 Perfect提供一系列代表请求和响应的对象组件，并允许在服务器上增加管理句柄用于产生页面内容。 所有对象都是在服务器对象创"/>
@@ -152,9 +152,11 @@
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/%E7%BB%88%E7%AB%AF/"> 终端 </a>
             </div>
-          <span class="more-meta"> 约 1162 字 </span>
+          <span class="more-meta"> 约 1166 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -186,12 +188,21 @@
 <li><code>句柄</code>:可以是一个函数、过程或者方法，只要能够接收特定类型的请求并做出反应即可。</li>
 <li><code>路由</code>:主要依据请求的方法<code>HTTP request method</code>和请求内容包括的<code>路径信息</code>来决定的。</li>
 </ol>
-<pre><code class="language-swift">routes.add(method: .post, uris: [&quot;HostMonitor/client/log/addLog&quot;]){
-    (request,response) in
-        //处理请求,并响应请求
-    }
-</code></pre>
-<ol start="3">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">routes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="p">.</span><span class="n">post</span><span class="p">,</span> <span class="n">uris</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;HostMonitor/client/log/addLog&#34;</span><span class="p">]){</span>
+    <span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="n">response</span><span class="p">)</span> <span class="k">in</span>
+        <span class="c1">//处理请求,并响应请求</span>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>URI路由变量
 URI变量是用于处理动态请求的好方法。比如，一个包含用户id的URL可以用该方法实现相关请求的用户管理。
 每个变量组件是通过一个<code>程序块{ }</code>声明的。在程序块中是变量名称。每个变量名称都可以使用出了括号<code>}</code>之外的任何字符。变量名有点像单功能通配符一样，这样就可以匹配任何符合变量模式的路径。
@@ -324,7 +335,7 @@ HTTPRequest对象包含了客户端浏览器发过来的全部数据，包括请
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

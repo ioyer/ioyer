@@ -52,7 +52,7 @@
 <meta itemprop="name" content="初步搭建Octopress">
 <meta itemprop="description" content="my information"><meta itemprop="datePublished" content="2014-06-09T23:26:22&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-09T23:26:22&#43;08:00" />
-<meta itemprop="wordCount" content="2958">
+<meta itemprop="wordCount" content="2976">
 <meta itemprop="keywords" content="octopress,blog,github,mou,ruby," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="初步搭建Octopress"/>
 <meta name="twitter:description" content="my information"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 2958 字 </span>
+          <span class="more-meta"> 约 2976 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -309,11 +311,19 @@ ds.charset = &lsquo;UTF-8&rsquo;;
 <!-- raw HTML omitted -->
 {%endcodeblock%}</p>
 <p>随后，再修改 <!-- raw HTML omitted -->_includes/article.html <!-- raw HTML omitted -->文件,</p>
-<pre><code class="language-js">{ % if site.disqus_short_name and page.comments != false and post.comments !=false and site.disqus_show_comment_count == true % }
-			 | &lt;a href=&quot;{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#disqus_thread&quot;&gt;Comments&lt;/a&gt;
-{ % endif % }
-</code></pre>
-<p>下方添加如下<!-- raw HTML omitted -->多说评论链接路径<!-- raw HTML omitted -->：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span> <span class="o">%</span> <span class="k">if</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_short_name</span> <span class="nx">and</span> <span class="nx">page</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span> <span class="kc">false</span> <span class="nx">and</span> <span class="nx">post</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span><span class="kc">false</span> <span class="nx">and</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_show_comment_count</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">%</span> <span class="p">}</span>
+			 <span class="o">|</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#disqus_thread&#34;</span><span class="o">&gt;</span><span class="nx">Comments</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<span class="p">{</span> <span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下方添加如下<!-- raw HTML omitted -->多说评论链接路径<!-- raw HTML omitted -->：</p>
 <p>{%codeblock lang:js %}
 { % if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true % }
 | <!-- raw HTML omitted -->Comments<!-- raw HTML omitted -->
@@ -463,30 +473,65 @@ origin <a href="http://github.com/....github.io(push)">http://github.com/....git
 </ul>
 </li>
 </ul>
-<pre><code>git add .
-git commit -m 'yourmessage'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add .
+git commit -m &#39;yourmessage&#39;
 git push origin source
-</code></pre>
-<h1 id="版本管理">版本管理</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="版本管理">版本管理</h1>
 <p>你可以先去github上新建一个空的Repo（最好是private的，否则可能会被其他人拿到你的source），拿到repo的url，然后到octopress目录下执行下面这些操作：</p>
-<pre><code class="language-ruby"># 因为你是从octopress github上clone的，所以需要把origin这个branch换一个名字
-git remote rename origin octopress
-git remote add origin (your github url)
-# 把你的github branch作为默认的branch
-git config branch.master.remote origin
-# 把你的octopress导入到github上去
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># 因为你是从octopress github上clone的，所以需要把origin这个branch换一个名字</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">origin</span> <span class="n">octopress</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="p">(</span><span class="n">your</span> <span class="n">github</span> <span class="n">url</span><span class="p">)</span>
+<span class="c1"># 把你的github branch作为默认的branch</span>
+<span class="n">git</span> <span class="n">config</span> <span class="n">branch</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">remote</span> <span class="n">origin</span>
+<span class="c1"># 把你的octopress导入到github上去</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你新增加了博客或者修改了某些内容，你可以把你的改动commit到github上去：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add source
+git commit -a -m &#39;new blog or edit some blog&#39;
 git push -u origin master
-</code></pre>
-<p>如果你新增加了博客或者修改了某些内容，你可以把你的改动commit到github上去：</p>
-<pre><code>git add source
-git commit -a -m 'new blog or edit some blog'
+</code></pre></td></tr></table>
+</div>
+</div><p>如果octopress有更新，你可以直接pull octopress这个branch进行更新即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git pull octopress master
 git push -u origin master
-</code></pre>
-<p>如果octopress有更新，你可以直接pull octopress这个branch进行更新即可</p>
-<pre><code>git pull octopress master
-git push -u origin master
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -610,7 +655,7 @@ git push -u origin master
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

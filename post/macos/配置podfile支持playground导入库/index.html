@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="pod支持问题 xcode-playground-with-cocoapods You could use ThisCouldBeUsButYouPlaying or add this to your Podfile xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库 Rx" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="pod支持问题 xcode-playground-with-cocoapods You could use ThisCouldBeUsButYouPlaying or add this to your Podfile xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库 Rx" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="配置Podfile支持playground导入库">
 <meta itemprop="description" content="pod支持问题 xcode-playground-with-cocoapods You could use ThisCouldBeUsButYouPlaying or add this to your Podfile xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库 Rx"><meta itemprop="datePublished" content="2018-10-06T14:50:12&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-06T14:50:12&#43;00:00" />
-<meta itemprop="wordCount" content="248">
+<meta itemprop="wordCount" content="263">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置Podfile支持playground导入库"/>
 <meta name="twitter:description" content="pod支持问题 xcode-playground-with-cocoapods You could use ThisCouldBeUsButYouPlaying or add this to your Podfile xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库 Rx"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 248 字 </span>
+          <span class="more-meta"> 约 263 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -177,23 +179,43 @@ xcode7.3.1和cocoapods1.0版本导致playground无法import相关动态库</p>
 <h2 id="rxswift资源案例">RxSwift资源案例</h2>
 <p>在项目中使用<code>RxSwift.Resources.total</code>，提供所有Rx资源分配的计数，这对于在开发期间检测泄漏非常有用。
 在写入磁盘之前，修改一些工程的配置<a href="https://guides.cocoapods.org/syntax/podfile.html#tab_group_hooks">post_install hook</a>:</p>
-<pre><code>target 'AppTarget' do
-    pod 'RxSwift'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">target &#39;AppTarget&#39; do
+    pod &#39;RxSwift&#39;
 end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-        if target.name == 'RxSwift'
+        if target.name == &#39;RxSwift&#39;
                 target.build_configurations.each do |config|
-                    if config.name == 'Debug'
-                    config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['-D', 'TRACE_RESOURCES']
+                    if config.name == &#39;Debug&#39;
+                    config.build_settings[&#39;OTHER_SWIFT_FLAGS&#39;] ||= [&#39;-D&#39;, &#39;TRACE_RESOURCES&#39;]
                 end
             end
         end
     end
 end
-</code></pre>
-<p>Run pod update.
+</code></pre></td></tr></table>
+</div>
+</div><p>Run pod update.
 Build project (Product → Build).</p>
 <h2 id="post_install-用法">post_install 用法</h2>
 <p><a href="https://guides.cocoapods.org/syntax/podfile.html#tab_group_hooks">podfile hook语法</a>
@@ -321,7 +343,7 @@ Build project (Product → Build).</p>
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

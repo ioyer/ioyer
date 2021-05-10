@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="终端支持swift自动补齐">
 <meta itemprop="description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem"><meta itemprop="datePublished" content="2018-08-21T15:48:24&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-21T15:48:24&#43;00:00" />
-<meta itemprop="wordCount" content="601">
+<meta itemprop="wordCount" content="607">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="终端支持swift自动补齐"/>
 <meta name="twitter:description" content="终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 601 字 </span>
+          <span class="more-meta"> 约 607 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -195,18 +197,34 @@
 </ol>
 <h3 id="使用">使用</h3>
 <p>启动后台驻守服务HTTP：<a href="https://github.com/terhechte/SourceKittenDaemon/blob/master/Protocol.org">参考Protocol.org</a></p>
-<pre><code>SourceKittenDaemon start --port 44876 --project /private/tmp/abcde/abcde.xcodeproj
-</code></pre>
-<p><code>--port</code>: 服务使用的端口号，默认为<code>8081</code>，vim目前不支持指定SourceKittenDaemon端口，使用默认的8081。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">SourceKittenDaemon start --port 44876 --project /private/tmp/abcde/abcde.xcodeproj
+</code></pre></td></tr></table>
+</div>
+</div><p><code>--port</code>: 服务使用的端口号，默认为<code>8081</code>，vim目前不支持指定SourceKittenDaemon端口，使用默认的8081。
 <code>--project=</code>: 指定服务将要加载的<code>.xcodeproj</code>文件路径，不支持指定<code>.xcworkspaces</code>文件路径</p>
 <p>使用get方法请求后驻服务：</p>
-<pre><code>/complete  # X-Offset|X-Path|X-File
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/complete  # X-Offset|X-Path|X-File
 /stop     # 停止后驻服务. 一般用于为其他target提供服务时，重新启动服务。
 /ping     # ping后驻服务，运行正常 return OK
 /project  # 打印当前加载的project文件路径。
 /files    # 打印一个当前加载的project中包含的所有swift文件列表
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -328,7 +346,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用LLDB独立调试APP">
 <meta itemprop="description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览"><meta itemprop="datePublished" content="2018-09-05T14:03:39&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T14:03:39&#43;00:00" />
-<meta itemprop="wordCount" content="6345">
+<meta itemprop="wordCount" content="6379">
 <meta itemprop="keywords" content="调试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用LLDB独立调试APP"/>
 <meta name="twitter:description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 6345 字 </span>
+          <span class="more-meta"> 约 6379 字 </span>
           <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -252,25 +254,50 @@ selector断点: <code>b method:（breakpoint set --selector method:）</code></l
 </ol>
 <h3 id="省时的命令">省时的命令</h3>
 <p>鉴于在app及Xcode之间因为多次中断而进行的多次切换，可以在断点发生之后执行特定的命令，比如希望查看的数据之后再立即恢复执行</p>
-<pre><code>b &quot;-[MyClass method:]&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[MyClass method:]&#34;
 br co a/breakpoint command add
 &gt;p rect/expression rect
 &gt;bt/thread backtrace
 &gt;c/process continue
 &gt;DONE
-</code></pre>
-<p>这些命令也可以在Xcode面板中通过点击及输入完成同样的功能。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>这些命令也可以在Xcode面板中通过点击及输入完成同样的功能。</p>
 <h3 id="条件断点">条件断点</h3>
 <p>如果不希望断点频繁触发，可以通过条件断点来达到此目的，比如想在某个特定对象析构的消息处断点，可以这样：</p>
-<pre><code>p id $myModel = self/expression id $myModel = self
-b &quot;-[MyClass dealloc]&quot;/breakpoint set  &quot;-[MyClass dealloc]&quot;
-br m -c &quot;self == $myModel&quot;/breakpoint modify --condition &quot;self == $myModel&quot;
-</code></pre>
-<h3 id="通过watchpoint监控特定内存空间">通过watchpoint监控特定内存空间</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">p id $myModel = self/expression id $myModel = self
+b &#34;-[MyClass dealloc]&#34;/breakpoint set  &#34;-[MyClass dealloc]&#34;
+br m -c &#34;self == $myModel&#34;/breakpoint modify --condition &#34;self == $myModel&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="通过watchpoint监控特定内存空间">通过watchpoint监控特定内存空间</h3>
 <p><code>watchpoint</code>的应用场景在于有人会修改某个变量值，你对此很关心但只知道变量的地址，其行为方式是如果变量被访问则watchpoint会暂停app的运行，设置watchpoint的方式是</p>
-<pre><code>w s v self-&gt;_needsSynchronization/watchpoint set variable self-&gt;_needsSynchronization
-</code></pre>
-<p>受限于CPU的支持程度，在intel平台上，提供了4个slot供watchpoint使用，所以同时只可设置最多4个watchpoint，arm上是2个
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">w s v self-&gt;_needsSynchronization/watchpoint set variable self-&gt;_needsSynchronization
+</code></pre></td></tr></table>
+</div>
+</div><p>受限于CPU的支持程度，在intel平台上，提供了4个slot供watchpoint使用，所以同时只可设置最多4个watchpoint，arm上是2个
 watchpoint也可以在Xcode的控制面板中进行操作，只需要在变量区域中右击某变量选择菜单中的watchpoint选项即可</p>
 <h3 id="避免不断单步的高招">避免不断单步的高招</h3>
 <p>LLDB可以在两种场景下暂停程序的执行：</p>
@@ -281,10 +308,17 @@ watchpoint也可以在Xcode的控制面板中进行操作，只需要在变量�
 </ol>
 <h3 id="lldb中手动执行代码">LLDB中手动执行代码</h3>
 <p>很多时候你可能会发现，要想让你希望执行的代码执行一遍会很困难，比如单元测试的时候某个用例就是无法进行测试，这种情况下你需要用Clang([&lsquo;kl^n])直接调用这份代码，调用方式是直接在命令行表达式中输入你希望执行的代码并执行，比如</p>
-<pre><code>b &quot;-[ModelDerived removeDuplicates]&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[ModelDerived removeDuplicates]&#34;
 e -i false -- [self removeDuplicates]/expression --ignore-breakpoints false -- [self removeDuplicates]
-</code></pre>
-<p>先在方法上打断点，然后在LLDB中执行此函数，选择不要忽略断点，你会发现执行此<code>expression</code>之后会断点到<code>removeDuplicates</code>，接着即可对其进行执行。
+</code></pre></td></tr></table>
+</div>
+</div><p>先在方法上打断点，然后在LLDB中执行此函数，选择不要忽略断点，你会发现执行此<code>expression</code>之后会断点到<code>removeDuplicates</code>，接着即可对其进行执行。
 然而有一点需要特别注意的是，通过LLDB执行的表达式代码是在你的进程中执行的，所以需要对此所带来的后果有自己的认知。</p>
 <h2 id="检查数据以找寻事情的缘由">检查数据以找寻事情的缘由</h2>
 <p>在上述的操作之后，我们已经可以断点到我们希望断点的位置了，接着就是检查数据寻找事情发生的原因了，这部分有3方面内容：</p>
@@ -306,23 +340,48 @@ e -i false -- [self removeDuplicates]/expression --ignore-breakpoints false -- [
 <h4 id="sbvalue">SBValue</h4>
 <p>之前提到SBValue可以当做一个变量来对待，可以询问其name,data type,summary(如果有的话),是否有children,有多少children,是否可以详述每个child的信息,每个child的信息其实也是一个SBvalue，所以整个是一个递归的过程。如果值是一个比如数字这样的标量，整数，浮点数等，也可以询问其value。
 对自定义类进行summary</p>
-<pre><code>def MyClass_Summary(value,unused)://其中value是一个SBValue
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def MyClass_Summary(value,unused)://其中value是一个SBValue
 //由于是自己定义的数据，可先获取其中的成员变量，成员变量也是SBValue
-member1 = value.GetChildMemberWithName(&quot;_member1&quot;)
-member2 = value.GetChildMemeberWithName(&quot;_member2&quot;)
+member1 = value.GetChildMemberWithName(&#34;_member1&#34;)
+member2 = value.GetChildMemeberWithName(&#34;_member2&#34;)
 member1Summary = member1.GetSummary()
 member2Summary = member2.GetSummary()
 #当然也可以做任何你想做的事情，这里仅仅只是简单地组合两个成员的summary
-return member1Summary + &quot; &quot; + member2Summary
-</code></pre>
-<p>完成了这个python函数之后，变量区域中仍然不能正确显示MyClass的自定义数据类型，因为你还需要在LLDB中执行：</p>
-<pre><code>ty su a MyClass -F MyClass_Summary/type summary add MyClass --python-function MyClass_Summary
-</code></pre>
-<h4 id="审视不透明的数据">审视不透明的数据</h4>
+return member1Summary + &#34; &#34; + member2Summary
+</code></pre></td></tr></table>
+</div>
+</div><p>完成了这个python函数之后，变量区域中仍然不能正确显示MyClass的自定义数据类型，因为你还需要在LLDB中执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ty su a MyClass -F MyClass_Summary/type summary add MyClass --python-function MyClass_Summary
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="审视不透明的数据">审视不透明的数据</h4>
 <p>先介绍下用于数据分析的expression，可以通过如下形式定义一个持久有效的结构体：</p>
-<pre><code>expression struct $NotOpaque{int item1;float item2;char* item3;}
-</code></pre>
-<p>对于第3方库提供的对象，你可能连其数据类型都不知道，更不会知道其中成员变量的定义，可能通过google之后，可以发现其具体的定义，这时候，就需要使用上述expression再结合summary，即可以在展示的时候使用自定义的data formatter了.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">expression struct $NotOpaque{int item1;float item2;char* item3;}
+</code></pre></td></tr></table>
+</div>
+</div><p>对于第3方库提供的对象，你可能连其数据类型都不知道，更不会知道其中成员变量的定义，可能通过google之后，可以发现其具体的定义，这时候，就需要使用上述expression再结合summary，即可以在展示的时候使用自定义的data formatter了.
  
  </p>
 <h2 id="扩展lldb">扩展LLDB</h2>
@@ -333,30 +392,60 @@ return member1Summary + &quot; &quot; + member2Summary
 <p>LLDB的强大在于它所使用的LLDB对象模型，我们称其为&quot;SB&quot;(scripting bridge)，这是个<code>python API</code>，xcode用其来构建debugger的UI，这意味着对你可以完全地通过LLDB脚本使用SB的所有功能，同时其也有一套对调试session的描述：
 对于上述调试界面相信大家都比较熟悉，LLDB对象模型对其的描述是这样：<code>SBTarget</code>即是调试中的target，接着在点击了xcode中的运行按钮之后，这个target成为了一个活着的实体，对这个实体，你可以输入，点哪，点哪，点，这即是在机器底层上运行的进程称为SBProcess，进程有着很多用来完成任务的thread，即SBThread，而SBThread会不停地执行function，每个function都会而每次function调用都会对应栈上的一帧，即SBFrame，现在我们已经了解到了描述程序运行中的所有对象，接下来看看怎样完成我们想完成的任务。
 首先需要知道的是python命令是如何执行的呢，python函数是与LLDB中的命令一一对应的，LLDB看到这个命令的时候即会调用相应的python命令，python命令的原型是这样:</p>
-<pre><code>def MyCommand_Impl(debugger,user_input,result,unused):
-</code></pre>
-<p><code>debugger</code>:是一个SBDebugger
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def MyCommand_Impl(debugger,user_input,result,unused):
+</code></pre></td></tr></table>
+</div>
+</div><p><code>debugger</code>:是一个SBDebugger
 <code>user_input</code>:是用户输入的python字符串
 <code>result</code>:是SBCommandReturnObject，是用来反馈给LLDB的，反馈执行成功与否等信息
 添加自定义的命令的方式如下：</p>
-<pre><code>co sc a foo -f foo/command script add foo --python-function foo
-</code></pre>
-<h3 id="断点操作">断点操作</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">co sc a foo -f foo/command script add foo --python-function foo
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="断点操作">断点操作</h3>
 <p>断点的痛点在于它会不停在中断程序的执行，条件断点会好一点，有了断点action，我们可以只在自己关注的场景停下来
 断点action是将断点与一个python函数联系起来，断点命中的时候会调用此python函数，而其可以返回false以勾选断点编辑界面中的continue选择框以让LLDB继续运行
 此python函数的原型是</p>
-<pre><code>def break_on_deep_traversal(frame,bp_loc,unused):
-</code></pre>
-<p><code>frame</code>类型:为SBFrame
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def break_on_deep_traversal(frame,bp_loc,unused):
+</code></pre></td></tr></table>
+</div>
+</div><p><code>frame</code>类型:为SBFrame
 <code>bp_loc</code>类型:为SBBreakpointLocation
 绑定python函数的命令是</p>
-<pre><code>br co a -s p -F foo 1 /breakpoint command add --script python --python-function foo 1
-</code></pre>
-<p>首先需要注意的是WWDC中python代码样例的函数function中常看到<code>unused</code>作为结尾参数，在实际使用python函数时如果未理解其深意，可能会不知其所以然。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br co a -s p -F foo 1 /breakpoint command add --script python --python-function foo 1
+</code></pre></td></tr></table>
+</div>
+</div><p>首先需要注意的是WWDC中python代码样例的函数function中常看到<code>unused</code>作为结尾参数，在实际使用python函数时如果未理解其深意，可能会不知其所以然。
 断点中的全局变量<code>frame</code>和<code>bp_loc</code>分别是断点栈帧的指针及断点处的代码描述信息，<code>bp_lo</code>c打印出来类似于这样：</p>
-<pre><code>2.1: where = YourApp`-[SomeViewController onDynamicMethod:paraList:] + 117 at SomeViewController.m:109, address = 0x000000010f9cf3d5, resolved, hit count = 4
-</code></pre>
-<p>在将function作为python命令添加时，命中断点之后lldb会为指定的断点命令函数传入3个参数即<code>frame</code>,<code>bp_loc</code>和<code>internal_dict</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">2.1: where = YourApp`-[SomeViewController onDynamicMethod:paraList:] + 117 at SomeViewController.m:109, address = 0x000000010f9cf3d5, resolved, hit count = 4
+</code></pre></td></tr></table>
+</div>
+</div><p>在将function作为python命令添加时，命中断点之后lldb会为指定的断点命令函数传入3个参数即<code>frame</code>,<code>bp_loc</code>和<code>internal_dict</code>。</p>
 <p>LLDB在设计之初即提供了两种范畴的脚本化方式：
 即可以在Unix环境的python应用中使用LLDB开启并进行一段不能进行交互的调试session；
 在LLDB中使用python脚本进行诸如监视数据，遍历容器或者决定断点是该暂停程序执行还是继续程序的执行。</p>
@@ -378,32 +467,64 @@ return member1Summary + &quot; &quot; + member2Summary
 <p>举例在断点处的当前栈帧位于特定帧中时命中断点
 <img src="https://upload-images.jianshu.io/upload_images/268750-fd4dea29302d79d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="">
 第一步通过import导入本地的脚本文件</p>
-<pre><code>command script import ~/lldb/inGivenFrame.py
-</code></pre>
-<p>第二步通过codeline添加断点，
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">command script import ~/lldb/inGivenFrame.py
+</code></pre></td></tr></table>
+</div>
+</div><p>第二步通过codeline添加断点，
 第三步添加断点命令</p>
-<pre><code>br comm add --script-type python -o &quot;inGivenFrame.inGivenFrame(frame,location,'-[NSObjec givenfuncname]')&quot; 1
-</code></pre>
-<p>如果不需要传入第三个参数，则也可以使用<code>-F</code>选项，此时命令形式</p>
-<pre><code>br comm add --script-type python -F inGivenFrame.inGivenFrameF 1
-</code></pre>
-<p>此时在断点命中时，lldb传给<code>inGivenFrameF</code>函数的第三个参数的意义也有所变更，此时传入的是名为<code>internal_dict</code>的变量，包含额外的信息
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -o &#34;inGivenFrame.inGivenFrame(frame,location,&#39;-[NSObjec givenfuncname]&#39;)&#34; 1
+</code></pre></td></tr></table>
+</div>
+</div><p>如果不需要传入第三个参数，则也可以使用<code>-F</code>选项，此时命令形式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -F inGivenFrame.inGivenFrameF 1
+</code></pre></td></tr></table>
+</div>
+</div><p>此时在断点命中时，lldb传给<code>inGivenFrameF</code>函数的第三个参数的意义也有所变更，此时传入的是名为<code>internal_dict</code>的变量，包含额外的信息
 <img src="https://upload-images.jianshu.io/upload_images/268750-1d39bf553e26bac3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="">
 使用<code>inGivenFrameF</code>作为断点命令的操作步骤及执行结果如下：
 <img src="https://upload-images.jianshu.io/upload_images/268750-1ef6878f7a3a72ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p>
 <p><strong>问题</strong>
 现在想通过lldb来调试自己的iOS项目，官方提供了</p>
-<pre><code>$ lldb /Projects/Sketch/build/Debug/Sketch.app     
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb /Projects/Sketch/build/Debug/Sketch.app     
 (lldb) process launch
-</code></pre>
-<p>当按照这种方式指定到路径iOS项目时,打印：</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>当按照这种方式指定到路径iOS项目时,打印：</p>
 <p>(lldb) target create &ldquo;/Users/admin/Desktop/Recommend.app&rdquo;<br>
 Current executable set to &lsquo;/Users/admin/Desktop/Recommend.app&rsquo; (arm64).</p>
 <p>但是启动时出现问题：</p>
-<pre><code>(lldb) run     
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) run     
 error: the platform is not currently connected
-</code></pre>
-<p>大神，有没有解决办法？</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>大神，有没有解决办法？</p>
 
     </div>
 
@@ -528,7 +649,7 @@ error: the platform is not currently connected
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

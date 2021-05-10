@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Swift调用AppleScript脚本和Shell脚本">
 <meta itemprop="description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通"><meta itemprop="datePublished" content="2018-10-15T17:22:37&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-15T17:22:37&#43;00:00" />
-<meta itemprop="wordCount" content="1092">
+<meta itemprop="wordCount" content="1123">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift调用AppleScript脚本和Shell脚本"/>
 <meta name="twitter:description" content="当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 1092 字 </span>
+          <span class="more-meta"> 约 1123 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -189,52 +191,104 @@
 <ol start="2">
 <li>swift两种方式</li>
 </ol>
-<pre><code class="language-swift">//方式一：
-let process = Process()
-process.launchPath = &quot;/usr/bin/osascript&quot;
-process.arguments = [&quot;~/Desktop/main.scpt&quot;]
-process.launch()
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//方式一：</span>
+<span class="kd">let</span> <span class="nv">process</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">()</span>
+<span class="n">process</span><span class="p">.</span><span class="n">launchPath</span> <span class="p">=</span> <span class="s">&#34;/usr/bin/osascript&#34;</span>
+<span class="n">process</span><span class="p">.</span><span class="n">arguments</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;~/Desktop/main.scpt&#34;</span><span class="p">]</span>
+<span class="n">process</span><span class="p">.</span><span class="n">launch</span><span class="p">()</span>
 
-//方式二
-let bundle = NSBundle.mainBundle()
-if let scriptPath = bundle.pathForResource(&quot;main&quot;, ofType: &quot;scpt&quot;){
-    let paths = [scriptPath]
-    Process.launchedProcess(launchPath: &quot;/usr/bin/osascript&quot;, arguments: paths)
-}
-</code></pre>
-<h3 id="nsapplescript调用applescript">NSAppleScript调用AppleScript</h3>
+<span class="c1">//方式二</span>
+<span class="kd">let</span> <span class="nv">bundle</span> <span class="p">=</span> <span class="n">NSBundle</span><span class="p">.</span><span class="n">mainBundle</span><span class="p">()</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">scriptPath</span> <span class="p">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">pathForResource</span><span class="p">(</span><span class="s">&#34;main&#34;</span><span class="p">,</span> <span class="n">ofType</span><span class="p">:</span> <span class="s">&#34;scpt&#34;</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nv">paths</span> <span class="p">=</span> <span class="p">[</span><span class="n">scriptPath</span><span class="p">]</span>
+    <span class="nb">Process</span><span class="p">.</span><span class="n">launchedProcess</span><span class="p">(</span><span class="n">launchPath</span><span class="p">:</span> <span class="s">&#34;/usr/bin/osascript&#34;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">paths</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nsapplescript调用applescript">NSAppleScript调用AppleScript</h3>
 <p><code>NSAppleScript</code>语法：<code>do shell script &quot;shell语句&quot;</code>，必须在<code>on run {变量名称，逗号隔开}</code> 以<code>end run</code>结束的闭包里运行。
 调用APPleScript脚本片段样例：</p>
-<pre><code class="language-swift">let bundle = NSBundle.mainBundle()
-let videoPath = bundle.pathForResource(&quot;BigBuck&quot;, ofType: &quot;m4v&quot;)
-//https://developer.apple.com/library/mac/technotes/tn2084/_index.html
-//open -na /Applications/mpv.app命令行必须是 -na 才能调用当前指定的播放器，否则会调用系统默认播发器
-let myAppleScript = &quot;on run\ndo shell script \&quot;open -na /Applications/mpv.app \(videoPath!)\&quot;\ntell application \&quot;mpv\&quot; to activate\n end run&quot;
-print(myAppleScript)
-var error: NSDictionary?
-if let scriptObject = NSAppleScript(source: myAppleScript) {
-    if let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(&amp;error) {
-        print(output.stringValue)
-    } else if (error != nil) {
-        print(&quot;error: \(error)&quot;)
-    }
-}
-</code></pre>
-<p><a href="http://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">oc调用AppleScript</a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">bundle</span> <span class="p">=</span> <span class="n">NSBundle</span><span class="p">.</span><span class="n">mainBundle</span><span class="p">()</span>
+<span class="kd">let</span> <span class="nv">videoPath</span> <span class="p">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">pathForResource</span><span class="p">(</span><span class="s">&#34;BigBuck&#34;</span><span class="p">,</span> <span class="n">ofType</span><span class="p">:</span> <span class="s">&#34;m4v&#34;</span><span class="p">)</span>
+<span class="c1">//https://developer.apple.com/library/mac/technotes/tn2084/_index.html</span>
+<span class="c1">//open -na /Applications/mpv.app命令行必须是 -na 才能调用当前指定的播放器，否则会调用系统默认播发器</span>
+<span class="kd">let</span> <span class="nv">myAppleScript</span> <span class="p">=</span> <span class="s">&#34;on run</span><span class="se">\n</span><span class="s">do shell script </span><span class="se">\&#34;</span><span class="s">open -na /Applications/mpv.app </span><span class="si">\(</span><span class="n">videoPath</span><span class="p">!</span><span class="si">)</span><span class="se">\&#34;\n</span><span class="s">tell application </span><span class="se">\&#34;</span><span class="s">mpv</span><span class="se">\&#34;</span><span class="s"> to activate</span><span class="se">\n</span><span class="s"> end run&#34;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">myAppleScript</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="n">NSDictionary</span><span class="p">?</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">scriptObject</span> <span class="p">=</span> <span class="n">NSAppleScript</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">myAppleScript</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">output</span><span class="p">:</span> <span class="n">NSAppleEventDescriptor</span> <span class="p">=</span> <span class="n">scriptObject</span><span class="p">.</span><span class="n">executeAndReturnError</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">output</span><span class="p">.</span><span class="n">stringValue</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="http://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">oc调用AppleScript</a>
 <a href="https://stackoverflow.com/questions/25163433/can-you-execute-an-applescript-script-from-a-swift-application">Can you execute an Applescript script from a Swift Application</a>
                       </p>
 <h2 id="applescript调用shell">AppleScript调用shell  </h2>
 <p>在<code>NSAppleScript</code>语法中调用shell语句</p>
-<pre><code>do shell script &quot;shell语句&quot;`
-</code></pre>
-<p>例：运行shell命令<code>open -na /Applications/mpv.app (videoPath!)</code></p>
-<pre><code class="language-js">on run
-    do shell script 
-    &quot;open -na /Applications/mpv.app (videoPath!)&quot;
-    tell application &quot;mpv&quot; to activate
-end run
-</code></pre>
-<h2 id="终端osascript调用applescript">终端<code>osascript</code>调用<code>AppleScript</code></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">do shell script &#34;shell语句&#34;`
+</code></pre></td></tr></table>
+</div>
+</div><p>例：运行shell命令<code>open -na /Applications/mpv.app (videoPath!)</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">on</span> <span class="nx">run</span>
+    <span class="k">do</span> <span class="nx">shell</span> <span class="nx">script</span> 
+    <span class="s2">&#34;open -na /Applications/mpv.app (videoPath!)&#34;</span>
+    <span class="nx">tell</span> <span class="nx">application</span> <span class="s2">&#34;mpv&#34;</span> <span class="nx">to</span> <span class="nx">activate</span>
+<span class="nx">end</span> <span class="nx">run</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="终端osascript调用applescript">终端<code>osascript</code>调用<code>AppleScript</code></h2>
 <p><a href="http://www.hackmac.org/tutorials/run-applescript-from-the-command-line/">参考</a></p>
 <h3 id="语法">语法</h3>
 <p>{% codeblock lang:shell %}
@@ -258,11 +312,19 @@ osascript -e &ldquo;set volume number&rdquo;
 函数说明:
 <code>system()</code>会调用<code>fork()</code>产生子进程，由子进程来调用<code>/bin/sh-c string</code>来执行参数<code>string</code>字符串所代表的命令，此命&gt;令执行完后随即返回原调用的进程。在调用<code>system()</code>期间<code>SIGCHLD</code> 信号会被暂时搁置，<code>SIGINT</code>和<code>SIGQUIT</code> 信号则会被忽略。
 返回值:</p>
-<pre><code>=-1:出现错误  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">=-1:出现错误  
 =0:调用成功但是没有出现子进程  
 &gt;0:成功退出的子进程的id
-</code></pre>
-<p> 如果<code>system()</code>在调用<code>/bin/sh</code>时失败则返回<code>127</code>，其他失败原因返回<code>-1</code>。若参数string为空指针(<code>NULL</code>)，则返回非零值&gt;。如果<code>system()</code>调用成功则最后会返回执行shell命令后的返回值，但是此返回值也有可能为 <code>system()</code>调用<code>/bin/sh</code>失败所返回的<code>127</code>，因此最好能再检查<code>errno</code>来确认执行成功。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p> 如果<code>system()</code>在调用<code>/bin/sh</code>时失败则返回<code>127</code>，其他失败原因返回<code>-1</code>。若参数string为空指针(<code>NULL</code>)，则返回非零值&gt;。如果<code>system()</code>调用成功则最后会返回执行shell命令后的返回值，但是此返回值也有可能为 <code>system()</code>调用<code>/bin/sh</code>失败所返回的<code>127</code>，因此最好能再检查<code>errno</code>来确认执行成功。</p>
 
     </div>
 
@@ -385,7 +447,7 @@ osascript -e &ldquo;set volume number&rdquo;
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

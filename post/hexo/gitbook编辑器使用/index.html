@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github GitbookIO gitbook 6efbb70 width = 30% %} GitBook Editor 个人中心 制作书籍 在github找到文档库，fork为自己的库 登录GitBook个人中心，点击&#43; New新建book 在建库" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github GitbookIO gitbook 6efbb70 width = 30% %} GitBook Editor 个人中心 制作书籍 在github找到文档库，fork为自己的库 登录GitBook个人中心，点击&#43; New新建book 在建库" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="GitBook编辑器使用">
 <meta itemprop="description" content="{% github GitbookIO gitbook 6efbb70 width = 30% %} GitBook Editor 个人中心 制作书籍 在github找到文档库，fork为自己的库 登录GitBook个人中心，点击&#43; New新建book 在建库"><meta itemprop="datePublished" content="2018-08-22T19:51:19&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-22T19:51:19&#43;00:00" />
-<meta itemprop="wordCount" content="763">
+<meta itemprop="wordCount" content="776">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitBook编辑器使用"/>
 <meta name="twitter:description" content="{% github GitbookIO gitbook 6efbb70 width = 30% %} GitBook Editor 个人中心 制作书籍 在github找到文档库，fork为自己的库 登录GitBook个人中心，点击&#43; New新建book 在建库"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/hexo/"> hexo </a>
             </div>
-          <span class="more-meta"> 约 763 字 </span>
+          <span class="more-meta"> 约 776 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -197,53 +199,111 @@ This applies to all current and future repositories.</li>
 <ol>
 <li>安装</li>
 </ol>
-<pre><code>$ npm install gitbook-cli -g
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install gitbook-cli -g
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>创建电子书项目
 新建一个目录，并进入该目录使用 gitbook 命令初始化电子书项目。举个例子，现在要创建一个名为“MyFirstBook”的空白电子书项目，如下所示：</li>
 </ol>
-<pre><code>$ mkdir MyFirstBook
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir MyFirstBook
 $ cd MyFirstBook
 $ gitbook init
-</code></pre>
-<ol start="3">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>预览电子书内容
 电子书内容编写完毕后可以使用浏览器预览一下。先输入下面的命令据 .md 文件生成 HTML 文档：</li>
 </ol>
-<pre><code>$ gitbook build
-</code></pre>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ gitbook build
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>Error: Couldn&rsquo;t locate plugins &ldquo;jsbin, anchors, video, ga, toggle-chapters, editlink, include-codeblock, splitter, github-buttons, chart, todo, quiz, include-highlight, tonic&rdquo;, Run &lsquo;gitbook install&rsquo; to install plugins from registry.
 执行安装插件命令：</p>
 </blockquote>
-<pre><code>gitbook install
-</code></pre>
-<p>生成完毕后，会在电子书项目目录中出现一个名为“_book”的文件夹。进入该文件夹，直接用浏览器打开“index.html”，或先输入下面的命令：</p>
-<pre><code>$ gitbook serve
-</code></pre>
-<p>然后在浏览器中输入<code>“http://localhost:4000”</code>即可预览电子书内容，预览完毕后按 Ctrl + C 结束。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gitbook install
+</code></pre></td></tr></table>
+</div>
+</div><p>生成完毕后，会在电子书项目目录中出现一个名为“_book”的文件夹。进入该文件夹，直接用浏览器打开“index.html”，或先输入下面的命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ gitbook serve
+</code></pre></td></tr></table>
+</div>
+</div><p>然后在浏览器中输入<code>“http://localhost:4000”</code>即可预览电子书内容，预览完毕后按 Ctrl + C 结束。</p>
 <ol start="4">
 <li>生成电子书文件
 确定电子书没有问题后，可以通过输入以下命令生成 mobi 电子书：</li>
 </ol>
-<pre><code>$ gitbook mobi ./ ./MyFirstBook.mobi
-</code></pre>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ gitbook mobi ./ ./MyFirstBook.mobi
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>error: error while generating page &ldquo;introduction.md&rdquo;: InstallRequiredError:&ldquo;svgexport&rdquo; is not installed. Install it using: &ldquo;npm install svgexport -g&rdquo;
 执行安装命令：</p>
 </blockquote>
-<pre><code>npm install svgexport -g
-</code></pre>
-<p>如果出现以下错误提示，说明您还未安装 Calibre。由于 GitBook 生成 mobi 格式电子书依赖 Calibre 的 ebook-convert，所以请先<a href="https://bookfere.com/tools#calibre">点击这里</a>下载安装 Calibre。</p>
-<pre><code>Error: Need to install ebook-convert from Calibre
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm install svgexport -g
+</code></pre></td></tr></table>
+</div>
+</div><p>如果出现以下错误提示，说明您还未安装 Calibre。由于 GitBook 生成 mobi 格式电子书依赖 Calibre 的 ebook-convert，所以请先<a href="https://bookfere.com/tools#calibre">点击这里</a>下载安装 Calibre。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Error: Need to install ebook-convert from Calibre
 //或者使用命令安装
 brew install homebrew/cask/calibre 
-</code></pre>
-<p>Calibre 安装完毕后，对于 Mac OS X 系统，还需要先设置一下软链接：</p>
-<pre><code>$ ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin
-</code></pre>
-<p>再次运行转换命令，即可生成 mobi 格式电子书。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Calibre 安装完毕后，对于 Mac OS X 系统，还需要先设置一下软链接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin
+</code></pre></td></tr></table>
+</div>
+</div><p>再次运行转换命令，即可生成 mobi 格式电子书。</p>
 
     </div>
 
@@ -366,7 +426,7 @@ brew install homebrew/cask/calibre
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

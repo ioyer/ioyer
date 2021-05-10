@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="storyboard的几种方式">
 <meta itemprop="description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时"><meta itemprop="datePublished" content="2018-06-20T14:49:37&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-20T14:49:37&#43;00:00" />
-<meta itemprop="wordCount" content="881">
+<meta itemprop="wordCount" content="901">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="storyboard的几种方式"/>
 <meta name="twitter:description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/ios/"> iOS </a>
             </div>
-          <span class="more-meta"> 约 881 字 </span>
+          <span class="more-meta"> 约 901 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -195,38 +197,80 @@
 <h2 id="加载xib方法">加载xib方法</h2>
 <h3 id="加载视图">加载视图</h3>
 <h4 id="方法一">方法一</h4>
-<pre><code class="language-objc"> NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@&quot;xibfileName&quot; owner:nil options:nil];
- UIView *xibView = nibView.lastObject;
-//=======
- // 这里的bundle参数是nil,(这里nil默认就是mianBundle)
- UINib *nib = [UINib nibWithNibName:@&quot;xib文件名&quot; bundle:nil];
- NSArray *views = [nib instantiateWithOwner:nil options:nil];
-</code></pre>
-<h4 id="方法二">方法二</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">NSArray</span><span class="o">*</span> <span class="n">nibView</span> <span class="o">=</span>  <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="s">@&#34;xibfileName&#34;</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+ <span class="n">UIView</span> <span class="o">*</span><span class="n">xibView</span> <span class="o">=</span> <span class="n">nibView</span><span class="p">.</span><span class="n">lastObject</span><span class="p">;</span>
+<span class="c1">//=======
+</span><span class="c1"></span> <span class="c1">// 这里的bundle参数是nil,(这里nil默认就是mianBundle)
+</span><span class="c1"></span> <span class="n">UINib</span> <span class="o">*</span><span class="n">nib</span> <span class="o">=</span> <span class="p">[</span><span class="n">UINib</span> <span class="nl">nibWithNibName</span><span class="p">:</span><span class="s">@&#34;xib文件名&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+ <span class="n">NSArray</span> <span class="o">*</span><span class="n">views</span> <span class="o">=</span> <span class="p">[</span><span class="n">nib</span> <span class="nl">instantiateWithOwner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="方法二">方法二</h4>
 <p><code>owner</code>:xib中的fileObject参数</p>
-<pre><code class="language-objc">//加载所有xib文件
-NSArray* objects = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//加载所有xib文件
+</span><span class="c1"></span><span class="n">NSArray</span><span class="o">*</span> <span class="n">objects</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="n">nibName</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">self</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 
-//加载指定xib文件
-ContactsTableViewCell  *cell = [[[NSBundle mainBundle]loadNibNamed:@&quot;ContactsTableViewCell&quot; owner:nil options:nil] objectAtIndex:0];
-</code></pre>
-<h3 id="加载控制器对象">加载控制器对象</h3>
-<pre><code class="language-objc">self = [super initWithNibName:@&quot;xibName&quot; bundle:nibBundleOrNil];
-</code></pre>
-<h2 id="加载storyboard">加载storyboard</h2>
+<span class="c1">//加载指定xib文件
+</span><span class="c1"></span><span class="n">ContactsTableViewCell</span>  <span class="o">*</span><span class="n">cell</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span><span class="nl">loadNibNamed</span><span class="p">:</span><span class="s">@&#34;ContactsTableViewCell&#34;</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span> <span class="nl">objectAtIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="加载控制器对象">加载控制器对象</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="s">@&#34;xibName&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="n">nibBundleOrNil</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="加载storyboard">加载storyboard</h2>
 <h3 id="加载控制器对象-1">加载控制器对象</h3>
-<pre><code class="language-objc">// 加载storyboard
-UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;Two&quot; bundle:nil];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 加载storyboard
+</span><span class="c1"></span><span class="n">UIStoryboard</span> <span class="o">*</span><span class="n">storyboard</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIStoryboard</span> <span class="nl">storyboardWithName</span><span class="p">:</span><span class="s">@&#34;Two&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 
-// 创建storyboard里面灰色的控制器
-　　　//找到shtoryboard里面设置的初始控制器
-　　　//    UIViewController *vc = [storyboard instantiateInitialViewController];
-　　　　　　　　
-　　　　　　　// 从storyboard里面找出绑定标识的控制器
-　　　　　　　MJTwoViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@&quot;pink&quot;];
-　　　　　　　self.window.rootViewController = vc;
-</code></pre>
-
+<span class="c1">// 创建storyboard里面灰色的控制器
+</span><span class="c1"></span>　　　<span class="c1">//找到shtoryboard里面设置的初始控制器
+</span><span class="c1"></span>　　　<span class="c1">//    UIViewController *vc = [storyboard instantiateInitialViewController];
+</span><span class="c1"></span>　　　　　　　　
+　　　　　　　<span class="c1">// 从storyboard里面找出绑定标识的控制器
+</span><span class="c1"></span>　　　　　　　<span class="n">MJTwoViewController</span> <span class="o">*</span><span class="n">vc</span> <span class="o">=</span> <span class="p">[</span><span class="n">storyboard</span> <span class="nl">instantiateViewControllerWithIdentifier</span><span class="p">:</span><span class="s">@&#34;pink&#34;</span><span class="p">];</span>
+　　　　　　　<span class="nb">self</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="n">vc</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -348,7 +392,7 @@ UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;Two&quot; bun
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

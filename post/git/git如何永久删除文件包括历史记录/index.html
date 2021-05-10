@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候," /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候," /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Git如何永久删除文件(包括历史记录)">
 <meta itemprop="description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,"><meta itemprop="datePublished" content="2018-06-11T20:32:02&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-11T20:32:02&#43;00:00" />
-<meta itemprop="wordCount" content="1241">
+<meta itemprop="wordCount" content="1283">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git如何永久删除文件(包括历史记录)"/>
 <meta name="twitter:description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 1241 字 </span>
+          <span class="more-meta"> 约 1283 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -199,101 +201,208 @@
 <li>创建别名
 sudo vi ~/.bash_profile  添加如下：</li>
 </ol>
-<pre><code>alias bfg=&quot;java -jar ~/Downloads/soft/bfg/bfg.jar&quot;
-</code></pre>
-<h3 id="常用命令">常用命令</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">alias bfg=&#34;java -jar ~/Downloads/soft/bfg/bfg.jar&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="常用命令">常用命令</h3>
 <ol>
 <li>克隆仓库</li>
 </ol>
-<pre><code>git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>移除目标文件
 然后就可以执行下面的任意一个或者多个操作。</li>
 </ol>
 <p>从历史纪录中删除所有文件名是 <code>id_rsa</code> 或 <code>id_dsa</code> 的文件：</p>
-<pre><code>$ bfg --delete-files id_{dsa,rsa}  my-repo.git
-</code></pre>
-<p>从历史纪录中删除所有大于1M的二进制文件 :</p>
-<pre><code>$ bfg --strip-blobs-bigger-than 1M  my-repo.git
-</code></pre>
-<p>从文件中删除所有列出的密码：</p>
-<pre><code>$ bfg --replace-text passwords.txt  my-repo.git
-</code></pre>
-<p>删除目录及目录下文件:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --delete-files id_{dsa,rsa}  my-repo.git
+</code></pre></td></tr></table>
+</div>
+</div><p>从历史纪录中删除所有大于1M的二进制文件 :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --strip-blobs-bigger-than 1M  my-repo.git
+</code></pre></td></tr></table>
+</div>
+</div><p>从文件中删除所有列出的密码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --replace-text passwords.txt  my-repo.git
+</code></pre></td></tr></table>
+</div>
+</div><p>删除目录及目录下文件:
 <code>demo</code>:删除的目录
 <code>--no-blob-protection</code>命令，可以解除保护</p>
-<pre><code>$ cd 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd 
 $ bfg --delete-folders demo --delete-files demo --no-blob-protection
 //上述命令将demo索引状态重置为`add`的状态，需要执行reset即可
 $ git reset HEAD demo
 $ rm -fr demo
-</code></pre>
-<h2 id="使用-filter-branch命令">使用 filter-branch命令</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用-filter-branch命令">使用 filter-branch命令</h2>
 <h2 id="步骤一-从资料库中清除文件">步骤一: 从资料库中清除文件</h2>
-<pre><code class="language-bash">$ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch path-to-your-remove-file' --prune-empty --tag-name-filter cat -- --all
-</code></pre>
-<p>其中, <code>path-to-your-remove-file</code> 是要删除的文件的相对路径(相对于git仓库的跟目录), 替换成你要删除的文件即可.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached --ignore-unmatch path-to-your-remove-file&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</code></pre></td></tr></table>
+</div>
+</div><p>其中, <code>path-to-your-remove-file</code> 是要删除的文件的相对路径(相对于git仓库的跟目录), 替换成你要删除的文件即可.</p>
 <blockquote>
 <p>这里的文件或文件夹，都不能以 &lsquo;/&rsquo; 开头，否则文件或文件夹会被认为是从 git 的安装目录开始。</p>
 </blockquote>
 <h3 id="删除文件夹">删除文件夹</h3>
 <p>在 <code>git rm --cached</code> 命令后面添加 <code>-r</code> 命令，表示递归的删除（子）文件夹和文件夹下的文件，类似于 <code>rm -rf</code> 命令:</p>
-<pre><code class="language-bash">$ git filter-branch --force --index-filter 'git rm --cached -r --ignore-unmatch path-to-your-remove-folder' --prune-empty --tag-name-filter cat -- --all
-</code></pre>
-<h3 id="支持通配符">支持通配符</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="支持通配符">支持通配符</h3>
 <p>如果当要删除的文件很多, 文件或路径里有中文, 由于MinGW或CygWin对中文路径设置比较麻烦, 你可以使用通配符*号, 例如: <code>sound/music_*.mp3</code>, 这样就把<code>sound</code>目录下以<code>music_</code>开头的mp3文件都删除了.
 使用通配符<code>*</code>删除目录下的所有文件：</p>
-<pre><code class="language-bash">$ git filter-branch --force --index-filter 'git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*' --prune-empty --tag-name-filter cat -- --all
-</code></pre>
-<p>成功的日志：</p>
-<pre><code class="language-bash">Ref 'refs/heads/master' was rewritten
-Ref 'refs/remotes/origin/master' was rewritten
-WARNING: Ref 'refs/remotes/origin/master' is unchanged
-WARNING: Ref 'refs/tags/v0.9.0' is unchanged
-v0.9.0 -&gt; v0.9.0 (2694a7834dada67cf8768ef27e2d7c3d777f5472 -&gt; 2694a7834dada67cf8768ef27e2d7c3d777f5472)
-</code></pre>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</code></pre></td></tr></table>
+</div>
+</div><p>成功的日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Ref <span class="s1">&#39;refs/heads/master&#39;</span> was rewritten
+Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> was rewritten
+WARNING: Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> is unchanged
+WARNING: Ref <span class="s1">&#39;refs/tags/v0.9.0&#39;</span> is unchanged
+v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f5472 -&gt; 2694a7834dada67cf8768ef27e2d7c3d777f5472<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><code>Ref 'refs/heads/master' was rewritten</code>:表示成功；
 <code>xxxxx unchanged</code>: 说明在当前分支里没有找到该文件.</p>
 </blockquote>
 <h2 id="步骤二-推送我们修改后的repo">步骤二: 推送我们修改后的repo</h2>
 <h3 id="分支同步">分支同步</h3>
 <p>通过步骤一，需要以强制覆盖的方式推送你的repo, 命令如下:</p>
-<pre><code class="language-bash">$ git push --force origin master
-</code></pre>
-<p>这个过程其实是重新上传我们的repo, 比较耗时, 虽然跟删掉重新建一个repo有些类似, 但是好处是保留了原有的更新记录, 所以还是有些不同的. 如果你实在不在意这些更新记录, 也可以删掉重建, 两者也差不太多, 也许后者还更直观些.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git push --force origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>这个过程其实是重新上传我们的repo, 比较耗时, 虽然跟删掉重新建一个repo有些类似, 但是好处是保留了原有的更新记录, 所以还是有些不同的. 如果你实在不在意这些更新记录, 也可以删掉重建, 两者也差不太多, 也许后者还更直观些.</p>
 <h3 id="tag同步">tag同步</h3>
 <p>为了能从打了 tag 的版本中也删除你所指定的文件或文件夹，您可以使用这样的命令来强制推送您的 Git tags：</p>
-<pre><code class="language-bash">$ git push origin master --force --tags
-</code></pre>
-<h2 id="步骤三-清理和回收空间">步骤三: 清理和回收空间</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git push origin master --force --tags
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="步骤三-清理和回收空间">步骤三: 清理和回收空间</h2>
 <p>虽然上面我们已经删除了文件, 但是我们的repo里面仍然保留了这些objects, 等待垃圾回收(GC), 所以我们要用命令彻底清除它, 并收回空间.</p>
 <p>执行命令，再查看<code>.git</code>目录空间会明显变小:</p>
-<pre><code class="language-bash">$ rm -rf .git/refs/original/
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ rm -rf .git/refs/original/
 
-$ git reflog expire --expire=now --all
+$ git reflog expire --expire<span class="o">=</span>now --all
 
-$ git gc --prune=now
-
-
-Counting objects: 2437, done.
-# Delta compression using up to 4 threads.
-# Compressing objects: 100% (1378/1378), done.
-# Writing objects: 100% (2437/2437), done.
-# Total 2437 (delta 1461), reused 1802 (delta 1048)
+$ git gc --prune<span class="o">=</span>now
 
 
-$ git gc --aggressive --prune=now
+Counting objects: 2437, <span class="k">done</span>.
+<span class="c1"># Delta compression using up to 4 threads.</span>
+<span class="c1"># Compressing objects: 100% (1378/1378), done.</span>
+<span class="c1"># Writing objects: 100% (2437/2437), done.</span>
+<span class="c1"># Total 2437 (delta 1461), reused 1802 (delta 1048)</span>
 
 
-Counting objects: 2437, done.
-# Delta compression using up to 4 threads.
-# Compressing objects: 100% (2426/2426), done.
-# Writing objects: 100% (2437/2437), done.
-# Total 2437 (delta 1483), reused 0 (delta 0)
-</code></pre>
+$ git gc --aggressive --prune<span class="o">=</span>now
 
+
+Counting objects: 2437, <span class="k">done</span>.
+<span class="c1"># Delta compression using up to 4 threads.</span>
+<span class="c1"># Compressing objects: 100% (2426/2426), done.</span>
+<span class="c1"># Writing objects: 100% (2437/2437), done.</span>
+<span class="c1"># Total 2437 (delta 1483), reused 0 (delta 0)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -415,7 +524,7 @@ Counting objects: 2437, done.
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

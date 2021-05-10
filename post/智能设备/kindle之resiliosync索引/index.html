@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Kindle之ResilioSync索引">
 <meta itemprop="description" content="Kindle伴侣精品书库 Kindle伴原文 Resilio Sync同步密钥 {% codeblock lang:basnh %} BOC3NIGPF2DOKETOF2FAHXJXE2HF24QWC {% endcodeblock %} 精品书库 精品库 {% iframe https://kindlefere.github.io/share/ebook/ 800 400 %} 每周一书 每周一书 {% iframe https://kindlefere.github.io/share/weekly/index.html 800 400 %} 国外书籍 国"><meta itemprop="datePublished" content="2017-01-23T12:49:49&#43;00:00" />
 <meta itemprop="dateModified" content="2017-01-23T12:49:49&#43;00:00" />
-<meta itemprop="wordCount" content="1966">
+<meta itemprop="wordCount" content="1989">
 <meta itemprop="keywords" content="kindle,资源,书籍,ResilioSync," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kindle之ResilioSync索引"/>
 <meta name="twitter:description" content="Kindle伴侣精品书库 Kindle伴原文 Resilio Sync同步密钥 {% codeblock lang:basnh %} BOC3NIGPF2DOKETOF2FAHXJXE2HF24QWC {% endcodeblock %} 精品书库 精品库 {% iframe https://kindlefere.github.io/share/ebook/ 800 400 %} 每周一书 每周一书 {% iframe https://kindlefere.github.io/share/weekly/index.html 800 400 %} 国外书籍 国"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
             </div>
-          <span class="more-meta"> 约 1966 字 </span>
+          <span class="more-meta"> 约 1989 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -206,10 +208,17 @@ BOC3NIGPF2DOKETOF2FAHXJXE2HF24QWC
 <h3 id="在ignorelist文件中忽略不想同步的文件">在IgnoreList文件中忽略不想同步的文件</h3>
 <p>BitTorrent Sync还支持文件过滤，如果你有一些文件不想被同步，你可以通过配置<code>IgnoreList</code>实现。<br>
 <code>IgnoreList</code>是一个UTF-8编码的txt文件，里面你可以定义单个文件，路径，以及规则，他支持简单的“？”和“*”匹配。</p>
-<pre><code>cd 同步目录/.sync／
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd 同步目录/.sync／
 cat IgnoreList 
-</code></pre>
-<pre><code>&gt;# IgnoreList is a UTF-8 encoded .txt file that helps you specify single files, paths and rules 
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&gt;# IgnoreList is a UTF-8 encoded .txt file that helps you specify single files, paths and rules 
 &gt;# for ignoring during the synchronization job. It supports &quot;?&quot; and &quot;*&quot; wildcard symbols.
 #
 #
@@ -231,29 +240,55 @@ Thumbs.db
 .@__thumb
 </code></pre>
 <h3 id="高级设置相关说明">高级设置相关说明</h3>
-<pre><code class="language-ruby">disk_low_priority：true  设置在磁盘上操作文件的优先级，如果设置为false，在同步文件时读写文件将会采用最高速度和优先级，不过这样会影响其他应用的性能。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">disk_low_priority</span><span class="err">：</span><span class="kp">true</span>  <span class="err">设置在磁盘上操作文件的优先级，如果设置为</span><span class="kp">false</span><span class="err">，在同步文件时读写文件将会采用最高速度和优先级，不过这样会影响其他应用的性能。</span>
 
-folder_rescan_interval：600  设置扫描目录的时间间隔，单位为秒
+<span class="n">folder_rescan_interval</span><span class="err">：</span><span class="mi">600</span>  <span class="err">设置扫描目录的时间间隔，单位为秒</span>
 
-lan_encrypt_data：true  如果设置为ture，则在本地网络传输时会采用加密传输。
+<span class="n">lan_encrypt_data</span><span class="err">：</span><span class="kp">true</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，则在本地网络传输时会采用加密传输。</span>
 
-lan_use_tcp：false  如果设置为ture，在本地网络同步会采用tcp传输，而不是采用udp传输。注意：在LAN中禁止加密并采用tcp传输，会增加传输速度。
+<span class="n">lan_use_tcp</span><span class="err">：</span><span class="kp">false</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，在本地网络同步会采用</span><span class="n">tcp传输</span><span class="err">，而不是采用</span><span class="n">udp传输</span><span class="err">。注意：在</span><span class="no">LAN中禁止加密并采用tcp传输</span><span class="err">，会增加传输速度。</span>
 
-rate_limit_local_peers：false  申请在本地网络的peers直接限速传输，默认没有在LAN里面限速
+<span class="n">rate_limit_local_peers</span><span class="err">：</span><span class="kp">false</span>  <span class="err">申请在本地网络的</span><span class="n">peers直接限速传输</span><span class="err">，默认没有在</span><span class="no">LAN里面限速</span>
 
-send_buf_size：5  在发送文件时可以使用的发送缓存，可以设置1~100M
+<span class="n">send_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在发送文件时可以使用的发送缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
 
-recv_buf_size：5  在接收文件时可以使用的接收缓存，可以设置1~100M
+<span class="n">recv_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在接收文件时可以使用的接收缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
 
-sync_max_time_diff：600  同步的设备之间的时间差别
+<span class="n">sync_max_time_diff</span><span class="err">：</span><span class="mi">600</span>  <span class="err">同步的设备之间的时间差别</span>
 
-sync_trash_ttl：30  设置多少天之后自动删除.SyncArchive目录中的文件
+<span class="n">sync_trash_ttl</span><span class="err">：</span><span class="mi">30</span>  <span class="err">设置多少天之后自动删除</span><span class="o">.</span><span class="n">SyncArchive目录中的文件</span>
 
-max_file_size_diff_for_patching：1000
+<span class="n">max_file_size_diff_for_patching</span><span class="err">：</span><span class="mi">1000</span>
 
-max_file_size_for_versioning：1000  版本控制的一个参数，不了解...
-</code></pre>
-<h3 id="常见问题汇总">常见问题汇总</h3>
+<span class="n">max_file_size_for_versioning</span><span class="err">：</span><span class="mi">1000</span>  <span class="err">版本控制的一个参数，不了解</span><span class="o">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="常见问题汇总">常见问题汇总</h3>
 <h4 id="添加同步链接后为什么找不到节点">添加同步链接后为什么找不到节点？</h4>
 <p>如果是刚添加同步密钥或链接，请稍等片刻。如果很长时间仍然找不到节点无法同步，请尝试：把已经添加的同步目录删除，在 Sync 界面上谭家的同步断开，然后重新添加同步密钥或同步链接。</p>
 <h4 id="提示与-x-个用户的时间差怎么办">提示“与 x 个用户的时间差”怎么办？</h4>
@@ -393,7 +428,7 @@ max_file_size_for_versioning：1000  版本控制的一个参数，不了解...
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

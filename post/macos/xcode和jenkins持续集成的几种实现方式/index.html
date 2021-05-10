@@ -79,7 +79,7 @@ Travis CI：是一个免费的云服务平台，基本上支持所有目前主�
 Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。
 "><meta itemprop="datePublished" content="2015-09-18T23:52:06&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-18T23:52:06&#43;08:00" />
-<meta itemprop="wordCount" content="4813">
+<meta itemprop="wordCount" content="4827">
 <meta itemprop="keywords" content="TDD,BDD," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xcode和Jenkins持续集成的几种实现方式"/>
 <meta name="twitter:description" content="CI服务器
@@ -190,9 +190,11 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 4813 字 </span>
+          <span class="more-meta"> 约 4827 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -234,15 +236,28 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 </li>
 <li>
 <p>运行命令行：</p>
-<pre><code> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>写入启动文件中，起别名</p>
-<pre><code>vi /Users/(username)/.bash_profile  
-输入:alias jenkins=&quot;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vi /Users/(username)/.bash_profile  
+输入:alias jenkins=&#34;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>启动时，在命令行中输入：<strong><code>jenkins</code></strong> 回车  即可启动</p>
 </li>
@@ -372,12 +387,21 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <li>支持多种格式的build报告。
 例子：</li>
 </ul>
-<pre><code class="language-ruby">path/to/xctool.sh 
-  -workspaceYourWorkspace.xcworkspace
-  -schemeYourScheme
-test -only SomeTestTarget:SomeTestClass/testSomeMethod
-</code></pre>
-<h4 id="自动化部署">自动化部署</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">xctool</span><span class="o">.</span><span class="n">sh</span> 
+  <span class="o">-</span><span class="n">workspaceYourWorkspace</span><span class="o">.</span><span class="n">xcworkspace</span>
+  <span class="o">-</span><span class="n">schemeYourScheme</span>
+<span class="nb">test</span> <span class="o">-</span><span class="n">only</span> <span class="ss">SomeTestTarget</span><span class="p">:</span><span class="no">SomeTestClass</span><span class="o">/</span><span class="n">testSomeMethod</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="自动化部署">自动化部署</h4>
 <p>这儿的想谈的“部署”不是传统意义上的直接部署到产品环境的部署，而是指如何把最新版本的应用快速的部署到测试用户的机器上以收集反馈，或者做一些探索性的测试。</p>
 <p>在我写第一个iOS应用的时候，我想把应用安装到多个机器上测试的时候，需要非常繁琐的步骤：</p>
 <ul>
@@ -401,49 +425,91 @@ test -only SomeTestTarget:SomeTestClass/testSomeMethod
 <ol>
 <li>calabash  是一款开源的跨平台UI测试工具，目前支持iOS和Android。它使用Cucumber作为测试核心，Cucumber是一个在敏捷团队十分流行的自动化的功能测试工具，它使用接近于自然语言的特性文档进行用例的书写和测试，支持多语言和多平台。</li>
 <li>安装Calabash
-<pre><code>sudo gem install calabash-cucumber
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 <li>安装Calabash中文支持包
-<pre><code>sudo gem install calabash-cucumber-cn
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber-cn
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 </ol>
 <h4 id="for-automatic-setup">For automatic setup:</h4>
 <ol>
 <li>
 <p>In a terminal, go to your iOS project</p>
-<pre><code>cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
-</code></pre>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>Install calabash-cucumber gem (this make take some time because of dependencies)</p>
-<pre><code>gem install calabash-cucumber
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gem install calabash-cucumber
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 <li>
 <p>Setup your project for Calabash-iOS.</p>
-<pre><code>calabash-ios setup  //Answer the questions and read the output :)
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios setup  //Answer the questions and read the output :)
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 <li>
 <p>Generate a skeleton features folder for your tests</p>
-<pre><code>calabash-ios gen
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios gen
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 <li>
 <p>In Xcode, build your project using the -cal scheme</p>
 </li>
 <li>
 <p>Run the generated test!</p>
-<pre><code>cucumber
-</code></pre>
-<p>``</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cucumber
+</code></pre></td></tr></table>
+</div>
+</div><p>``</p>
 </li>
 </ol>
 <p>If all goes well, you are now ready to write your first test. Start by editing the file features/my_first.feature.</p>
@@ -659,7 +725,7 @@ feature为主件夹，step_definitions目录内是你封装的脚本，my_first.
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

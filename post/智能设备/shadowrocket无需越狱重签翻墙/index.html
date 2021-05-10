@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="shadowrocket无需越狱重签翻墙">
 <meta itemprop="description" content="{% github it-boyer WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh"><meta itemprop="datePublished" content="2018-09-05T12:11:58&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T12:11:58&#43;00:00" />
-<meta itemprop="wordCount" content="1999">
+<meta itemprop="wordCount" content="2013">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="shadowrocket无需越狱重签翻墙"/>
 <meta name="twitter:description" content="{% github it-boyer WCShadowrocket f101e23 width = 30% %} 一次讲透：IOS翻墙利器“小火箭（Shadowrocket）”上手、进阶、配合Workflow获取免费节点攻略 iOS版Sh"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
             </div>
-          <span class="more-meta"> 约 1999 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 2013 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -225,34 +227,70 @@
 <ul>
 <li>安装最新的theos</li>
 </ul>
-<pre><code>sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>安装ldid(如安装theos过程安装了ldid，跳过)</li>
 </ul>
-<pre><code>brew install ldid
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install ldid
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>指定的Xcode</li>
 </ul>
-<pre><code>sudo xcode-select -s /Applications/Xcode.app
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo xcode-select -s /Applications/Xcode.app
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>执行安装命令</li>
 </ul>
-<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install)&quot;
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install)&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>更新</li>
 </ul>
-<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update)&quot;
-</code></pre>
-<ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update)&#34;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>卸载</li>
 </ul>
-<pre><code>sudo /bin/sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall)&quot;
-</code></pre>
-<h4 id="2运行工程">2、运行工程</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo /bin/sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall)&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2运行工程">2、运行工程</h4>
 <ul>
 <li>打开工程 WCShadowrocket.xcodeproj</li>
 <li>选择证书：自动配置证书即可（相信大家都是没有问题的）。</li>
@@ -286,14 +324,25 @@
 <li>打开shadowrocket 首页，点击右上角+号。模式选择Subscribe</li>
 <li>URL部分输入以下三个地址（一个或多选，多选表示订阅多个）</li>
 </ul>
-<pre><code>实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 所有(golbal)可用订阅:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 所有(golbal)可用订阅:
 https://tool.ssrshare.xyz/tool/api/getGolSub?key=1529942400_8_xuo
 实时订阅链接,为防止滥用，24小时自动更改一次密码(key) 中国(CN)可用订阅:
 https://tool.ssrshare.xyz/tool/api/getCnSub?key=1529942400_8_xuo
 非实时订阅链接（无密码）:
 https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com
-</code></pre>
-<ul>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>点击完成，就能发现节点列表新增了我们订阅节点信息。选择一个可以的连接即可。</li>
 </ul>
 <h4 id="最后一个订阅地址是开源的托管在git查看作者repohttpsgithubcomimlaodsub">最后一个订阅地址是开源的(托管在git)。<a href="https://github.com/ImLaoD/sub">查看作者repo</a></h4>
@@ -301,10 +350,17 @@ https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com
 <h4 id="添加了capabilities下person-vpn-network-extensions-帮助httpsgithubcomwe11chengwcstudyblobmasterios20widget20extensionse8af81e4b9a6e9858de7bdaemd">添加了Capabilities下Person VPN Network Extensions 帮助<a href="https://github.com/we11cheng/WCStudy/blob/master/iOS%20Widget%20Extensions%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE.md">https://github.com/we11cheng/WCStudy/blob/master/iOS%20Widget%20Extensions%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE.md</a></h4>
 <p><img src="https://github.com/we11cheng/WCImageHost/raw/master/WX20180717-102431.png" alt=""></p>
 <h3 id="添加节点的时候遇到问题还没解决求大佬们一起解决它">添加节点的时候，遇到问题，还没解决..求大佬们一起解决它..</h3>
-<pre><code>CoreData: annotation:  Failed to load optimized model at path '/var/containers/Bundle/Application/9D19C752-5139-426B-815E-2A68B632352F/WCShadowrocket.app/Shadowrocket.momd/Shadowrocket 7.omo'
-*** Terminating app due to uncaught exception 'NSFileHandleOperationException', reason: '*** -[NSConcreteFileHandle seekToFileOffset:]: Bad file descriptor'
-</code></pre>
-<p><img src="https://github.com/we11cheng/WCImageHost/raw/master/WX20180717-102320.png" alt=""></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CoreData: annotation:  Failed to load optimized model at path &#39;/var/containers/Bundle/Application/9D19C752-5139-426B-815E-2A68B632352F/WCShadowrocket.app/Shadowrocket.momd/Shadowrocket 7.omo&#39;
+*** Terminating app due to uncaught exception &#39;NSFileHandleOperationException&#39;, reason: &#39;*** -[NSConcreteFileHandle seekToFileOffset:]: Bad file descriptor&#39;
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://github.com/we11cheng/WCImageHost/raw/master/WX20180717-102320.png" alt=""></p>
 <h3 id="最新福利谷歌云上搭建了一个app-engine-爬取ssrss节点拿去不谢-httpssspy-210307appspotcom已失效">最新福利，谷歌云上搭建了一个App Engine 爬取ssr/ss节点，拿去不谢 <a href="https://sspy-210307.appspot.com/">https://sspy-210307.appspot.com/</a>（已失效）</h3>
 <h2 id="2018-7-26-更新几个ssr订阅">2018-7-26 更新几个ssr订阅</h2>
 <ul>
@@ -438,7 +494,7 @@ https://raw.githubusercontent.com/ImLaoD/sub/master/ssrshare.com
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

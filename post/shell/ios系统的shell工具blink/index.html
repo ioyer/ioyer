@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="简介 用于iOS的Blink Shell(为更多Shell util进行了编辑) Blink是第一个利用Mosh和SSH支持的专业桌面级iOS终端。" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="简介 用于iOS的Blink Shell(为更多Shell util进行了编辑) Blink是第一个利用Mosh和SSH支持的专业桌面级iOS终端。" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="iOS系统的shell工具blink">
 <meta itemprop="description" content="简介 用于iOS的Blink Shell(为更多Shell util进行了编辑) Blink是第一个利用Mosh和SSH支持的专业桌面级iOS终端。"><meta itemprop="datePublished" content="2019-02-26T18:11:37&#43;00:00" />
 <meta itemprop="dateModified" content="2019-02-26T18:11:37&#43;00:00" />
-<meta itemprop="wordCount" content="2385">
+<meta itemprop="wordCount" content="2391">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS系统的shell工具blink"/>
 <meta name="twitter:description" content="简介 用于iOS的Blink Shell(为更多Shell util进行了编辑) Blink是第一个利用Mosh和SSH支持的专业桌面级iOS终端。"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 2385 字 </span>
+          <span class="more-meta"> 约 2391 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -240,14 +242,25 @@ curl scp://host.name.edu/filename -o filename—key $SHARED/id_rsa—pass MyPass
 <h3 id="环境变量">环境变量</h3>
 <p>在iOS中，由于沙箱限制，不能在**~**目录下写，只能在<code>~/Documents/</code>、<code>~/Library/</code>和<code>~/tmp</code>中写。大多数Unix程序假定配置文件位于<code>$HOME</code>中。因此，要么将<code>$HOME</code>重新定义为<code>~/Documents/</code>，要么将配置变量(使用setenv)设置为其他位置。
 我用Blink在<code>MCPSession.m</code>文件。定义了以下变量:</p>
-<pre><code class="language-sh">setenv PATH = $PATH:~/Library/bin:~/Documents/bin
-setenv PYTHONHOME = $HOME/Library/
-setenv SSH_HOME = $HOME/Documents/
-setenv CURL_HOME = $HOME/Documents/
-setenv HGRCPATH = $HOME/Documents/.hgrc/
-setenv SSL_CERT_FILE = $HOME/Documents/cacert.pem
-</code></pre>
-<p>如果你想永久地改变它们，最好是编辑<code>MCPSession.m</code>文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">setenv <span class="nv">PATH</span> <span class="o">=</span> <span class="nv">$PATH</span>:~/Library/bin:~/Documents/bin
+setenv <span class="nv">PYTHONHOME</span> <span class="o">=</span> <span class="nv">$HOME</span>/Library/
+setenv <span class="nv">SSH_HOME</span> <span class="o">=</span> <span class="nv">$HOME</span>/Documents/
+setenv <span class="nv">CURL_HOME</span> <span class="o">=</span> <span class="nv">$HOME</span>/Documents/
+setenv <span class="nv">HGRCPATH</span> <span class="o">=</span> <span class="nv">$HOME</span>/Documents/.hgrc/
+setenv <span class="nv">SSL_CERT_FILE</span> <span class="o">=</span> <span class="nv">$HOME</span>/Documents/cacert.pem
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你想永久地改变它们，最好是编辑<code>MCPSession.m</code>文件。</p>
 <h3 id="使用blink">使用Blink</h3>
 <p>我们的UI非常直观，并优化了触摸设备的体验，这是非常重要的部分，terminal终端。您将直接跳到一个非常简单的shell中，因此您将知道如何操作。
 这里还有一些技巧:
@@ -388,7 +401,7 @@ readme介绍了，如何在真机上运行以及集成python环境。</p>
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

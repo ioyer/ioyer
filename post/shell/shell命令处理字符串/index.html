@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="shell命令处理字符串">
 <meta itemprop="description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字"><meta itemprop="datePublished" content="2017-06-23T10:32:45&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-23T10:32:45&#43;00:00" />
-<meta itemprop="wordCount" content="377">
+<meta itemprop="wordCount" content="375">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="shell命令处理字符串"/>
 <meta name="twitter:description" content="截取字符串 %&#43;字符&#43;正则表达式 删除字符及右边内容，从源字符串右边开始匹配 % 单井号表示一旦匹配成功立即删除 %% 双井号表示一直等相匹配到最后一个字"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 377 字 </span>
+          <span class="more-meta"> 约 375 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -180,22 +182,41 @@
 </ol>
 <h2 id="实例">实例</h2>
 <p>从line指定的路径中截取两个信息，类别和文件名称</p>
-<pre><code class="language-sh">line=&quot;shell/shell命令处理字符串.md&quot;
-</code></pre>
-<ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">line</span><span class="o">=</span><span class="s2">&#34;shell/shell命令处理字符串.md&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
 <li>截取文件类别：shell
 删除最右边的“/shell命令处理字符串.md”</li>
 </ol>
-<pre><code class="language-sh">categories=&quot;${line%%/*}&quot;  # %%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">categories</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">line</span><span class="p">%%/*</span><span class="si">}</span><span class="s2">&#34;</span>  <span class="c1"># %%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>截取文件名称：shell命令处理字符串
 先删除最左边的“shell/”,再删除最右边的“.md”</li>
 </ol>
-<pre><code class="language-sh">titlemd=&quot;${line##*/}&quot;   # ##*/: 删除&quot;/&quot;左边所有字段即&quot;shell/&quot;
-title=&quot;${titlemd%%\.*}&quot; # 删除.md文件后缀
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">titlemd</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">line</span><span class="p">##*/</span><span class="si">}</span><span class="s2">&#34;</span>   <span class="c1"># ##*/: 删除&#34;/&#34;左边所有字段即&#34;shell/&#34;</span>
+<span class="nv">title</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">titlemd</span><span class="p">%%</span><span class="se">\.</span><span class="p">*</span><span class="si">}</span><span class="s2">&#34;</span> <span class="c1"># 删除.md文件后缀</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -317,7 +338,7 @@ title=&quot;${titlemd%%\.*}&quot; # 删除.md文件后缀
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

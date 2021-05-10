@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Chisel-xcodeproj框架的使用">
 <meta itemprop="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。"><meta itemprop="datePublished" content="2018-11-09T13:05:46&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-09T13:05:46&#43;00:00" />
-<meta itemprop="wordCount" content="1059">
+<meta itemprop="wordCount" content="1110">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chisel-xcodeproj框架的使用"/>
 <meta name="twitter:description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 1059 字 </span>
+          <span class="more-meta"> 约 1110 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -182,32 +184,90 @@
 使用<code>Chisel.xcodeproj</code>支持新建<code>chisel Framework</code>通过本地代码实现<code>command</code>,<code>findinstances</code>等功能。也可以通过这种方式来实现更多<code>chisel命令</code>。</p>
 <p><code>findinstance</code>命令通过扫描<strong>iOS/macOS</strong><code>malloc API</code>。对于每个<code>allocation</code>分配，都会使用<code>heuristics</code>来识别可能的<code>Objective-C实例</code>。<code>heuristics</code>不调用对象上的method，而是依赖<code>objc runtime</code>运行时函数,基于<code>class metadata</code>类元数据来匹配到<code>oc实例</code>。这避免了在<code>objc运行时</code>机制下分配和有状态副作用。
 在第一次传递之后，候选对象将通过第二次传递，检查它们是否与可选的<code>NSPredicate</code>匹配。如果没有谓词，则输出对象的信息最少。如果有谓词，并且对象传递谓词，那么对象将输出更多细节，特别是谓词中查询的细节。</p>
-<pre><code>findinstances UIView
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">findinstances UIView
 findinstances *UIView
 findinstances UIScrollViewDelegate
 findinstances UIView window == nil || hidden == true || alpha == 0 || layer.bounds.#size.width == 0 ||  layer.bounds.#size.height == 0 
 findinstances UIView subviews.@count == 0
-findinstances NSDictionary any @allKeys beginswith 'perf_'
+findinstances NSDictionary any @allKeys beginswith &#39;perf_&#39;
 findinstances NSArray @count &gt; 100
-</code></pre>
-<h3 id="开发使用">开发使用</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="开发使用">开发使用</h3>
 <p>构建Xcode项目，并获得到<code>Chisel Framework</code>的路径。:</p>
-<pre><code>/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
-</code></pre>
-<p>在lldb环境下执行：</p>
-<pre><code>$ lldb
-&gt;&gt;&gt; expr -l objc -- (void*)dlopen(&quot;/path/to/Chisel.framework/Chisel&quot;, 2)
-script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression('(void)PrintInstances(&quot;&lt;classname&gt;&quot;, &quot;&lt;predicate&gt;&quot;)', o)
-</code></pre>
-<p><code>&lt;classname&gt;</code>:可以是<code>class</code>类名或<code>protocol</code>协议名
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
+</code></pre></td></tr></table>
+</div>
+</div><p>在lldb环境下执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb
+&gt;&gt;&gt; expr -l objc -- (void*)dlopen(&#34;/path/to/Chisel.framework/Chisel&#34;, 2)
+script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression(&#39;(void)PrintInstances(&#34;&lt;classname&gt;&#34;, &#34;&lt;predicate&gt;&#34;)&#39;, o)
+</code></pre></td></tr></table>
+</div>
+</div><p><code>&lt;classname&gt;</code>:可以是<code>class</code>类名或<code>protocol</code>协议名
 <code>&lt;predicate&gt;</code>:是一个可由<code>NSPredicate</code>解析的字符串
 可以使用<code>regex command 命令</code>:
 (注意，<code>findinstance</code>后面必须换行)</p>
-<pre><code>command regex findinstances
-s/(\S+) *(.*)/script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression('(void)PrintInstances(&quot;%1&quot;, &quot;%2&quot;)', o)/
-</code></pre>
-<p>或者，作为<code>python命令</code>，存储在<code>path/to/findinstances.py</code>中:</p>
-<pre><code>import lldb
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">command regex findinstances
+s/(\S+) *(.*)/script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression(&#39;(void)PrintInstances(&#34;%1&#34;, &#34;%2&#34;)&#39;, o)/
+</code></pre></td></tr></table>
+</div>
+</div><p>或者，作为<code>python命令</code>，存储在<code>path/to/findinstances.py</code>中:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import lldb
 
 def findinstances(debugger, command, exe_ctx, result, _):
 options = lldb.SBExpressionOptions()
@@ -218,26 +278,48 @@ options.SetLanguage(lldb.eLanguageTypeObjC)
 
 frame = exe_ctx.frame
 
-if not exe_ctx.target.module['Chisel']:
-frame.EvaluateExpression('(void*)dlopen(&quot;/path/to/Chisel.framework/Chisel&quot;, 2)', options)
+if not exe_ctx.target.module[&#39;Chisel&#39;]:
+frame.EvaluateExpression(&#39;(void*)dlopen(&#34;/path/to/Chisel.framework/Chisel&#34;, 2)&#39;, options)
 
-args = command.split(' ', 1)
+args = command.split(&#39; &#39;, 1)
 typeName = args[0]
-predicate = args[1] if len(args) &gt; 1 else ''
-frame.EvaluateExpression('(void)PrintInstances(&quot;{}&quot;, &quot;{}&quot;)'.format(typeName, predicate), options)
+predicate = args[1] if len(args) &gt; 1 else &#39;&#39;
+frame.EvaluateExpression(&#39;(void)PrintInstances(&#34;{}&#34;, &#34;{}&#34;)&#39;.format(typeName, predicate), options)
 
 def __lldb_init_module(debugger, _):
-debugger.HandleCommand('command script add -f findinstances.findinstances findinstances')
-</code></pre>
-<h3 id="安装">安装</h3>
+debugger.HandleCommand(&#39;command script add -f findinstances.findinstances findinstances&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="安装">安装</h3>
 <p><a href="https://github.com/facebook/chisel/pull/214">Add Makefile for installing framework</a>
 This allows you to run make install with optional environment variables
 in order to build and install Chisel.framework.</p>
-<pre><code>PREFIX ?= /usr/local/lib
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">PREFIX ?= /usr/local/lib
 
 export INSTALL_NAME =
 ifneq ($(LD_DYLIB_INSTALL_NAME),)
-    INSTALL_NAME = &quot;LD_DYLIB_INSTALL_NAME=$(LD_DYLIB_INSTALL_NAME)&quot;
+    INSTALL_NAME = &#34;LD_DYLIB_INSTALL_NAME=$(LD_DYLIB_INSTALL_NAME)&#34;
 endif
 
 install:
@@ -248,10 +330,11 @@ install:
         install \
         $(INSTALL_NAME) \
         DSTROOT=/ \
-        INSTALL_PATH=&quot;$(PREFIX)&quot;
+        INSTALL_PATH=&#34;$(PREFIX)&#34;
 
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -373,7 +456,7 @@ install:
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

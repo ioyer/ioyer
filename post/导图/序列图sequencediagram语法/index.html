@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="序列图sequence语法插件">
 <meta itemprop="description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc"><meta itemprop="datePublished" content="2017-06-24T16:00:03&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-24T16:00:03&#43;00:00" />
-<meta itemprop="wordCount" content="776">
+<meta itemprop="wordCount" content="796">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="序列图sequence语法插件"/>
 <meta name="twitter:description" content="MarkDown插件 {% github bubkoo hexo-filter-sequence 4ab9c15 width = 30% %} 这个插件在markdown暂时无法渲染出图像，不建议使用。 官方 序列图预览工具 概述 序列图(sequenc"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E5%AF%BC%E5%9B%BE/"> 导图 </a>
             </div>
-          <span class="more-meta"> 约 776 字 </span>
+          <span class="more-meta"> 约 796 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -194,18 +196,32 @@
 </ol>
 <h2 id="元素">元素</h2>
 <p>=====</p>
-<pre><code class="language-sequence">Alice-&gt;Bob: Hello Bob, how are you?
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Alice-&gt;Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob--&gt;Alice: I am good thanks!
-</code></pre>
-<h3 id="角色actor">角色Actor</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="角色actor">角色Actor</h3>
 <p>系统角色。
 <a href="http://blog.csdn.net/ethmery/article/details/50670284">http://blog.csdn.net/ethmery/article/details/50670284</a></p>
 <h3 id="标题">标题</h3>
 <p>MarkDown语法：</p>
-<pre><code>Title:[标题]
-</code></pre>
-<h3 id="对象object">对象Object</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Title:[标题]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="对象object">对象Object</h3>
 <p>位于序列图顶部，代表参与交互行为的对象。常见的命名方式：</p>
 <ol>
 <li>类名+对象名</li>
@@ -217,24 +233,50 @@ Bob--&gt;Alice: I am good thanks!
 MarkDown语法：</li>
 <li>声明一个或多个对象</li>
 </ol>
-<pre><code>participant [对象名1]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">participant [对象名1]
 participant [对象名2]
-</code></pre>
-<pre><code class="language-sequence">participant A
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">participant A
 participant B
 Note left of A: 这是对A的注释
 Note right of B: 这是对B的注释
 Note over A: 这是A上的注释
 Note over A,B: 这是A和B共有的注释
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>为对象添加注释</li>
 </ol>
-<pre><code>Note left/right to [对象名]: [注释]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Note left/right to [对象名]: [注释]
 Note over [对象名]: [注释]
 Note over [多个对象，之间以,隔开]: [注释]
-</code></pre>
-<h3 id="生命线lifeline">生命线Lifeline</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="生命线lifeline">生命线Lifeline</h3>
 <ol>
 <li>序列图中的对象在一段时间内的存在</li>
 <li>以从对象底部中心延伸出的竖直虚线表示</li>
@@ -264,15 +306,30 @@ MarkDown语法：</li>
 </li>
 <li>语法格式：</li>
 </ol>
-<pre><code>[发送对象][箭头符号][接收对象]: [消息]
-</code></pre>
-<h3 id="效果实现">效果实现：</h3>
-<pre><code class="language-sequence">A-&gt;B: -&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[发送对象][箭头符号][接收对象]: [消息]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="效果实现">效果实现：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">A-&gt;B: -&gt;
 B--&gt;C: --&gt;
 B-&gt;&gt;A: -&gt;&gt;
 C--&gt;&gt;A: --&gt;&gt;
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>定义箭头语法：
 -&gt; 实线黑色三角箭头
 –-&gt; 虚线黑色三角箭头
@@ -402,7 +459,7 @@ C--&gt;&gt;A: --&gt;&gt;
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

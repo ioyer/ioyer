@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &amp;lt;F5&amp;gt; i{e&amp;lt;Esc&amp;gt;a}&amp;lt;Esc&amp;gt; 执行过程：i{将" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： 1 :map &amp;lt;F5&amp;gt; i{e&amp;lt;Esc&amp;gt;a}&amp;lt;Esc&amp;gt; 执行过程：i{" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -43,19 +43,19 @@
 
 
 <meta property="og:title" content="vim编辑器键盘映射命令map" />
-<meta property="og:description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{将" />
+<meta property="og:description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： 1 :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/shell/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84%E5%91%BD%E4%BB%A4map/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-07-04T15:06:52&#43;00:00" />
 <meta property="article:modified_time" content="2017-07-04T15:06:52&#43;00:00" />
 
 <meta itemprop="name" content="vim编辑器键盘映射命令map">
-<meta itemprop="description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{将"><meta itemprop="datePublished" content="2017-07-04T15:06:52&#43;00:00" />
+<meta itemprop="description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： 1 :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{"><meta itemprop="datePublished" content="2017-07-04T15:06:52&#43;00:00" />
 <meta itemprop="dateModified" content="2017-07-04T15:06:52&#43;00:00" />
-<meta itemprop="wordCount" content="517">
+<meta itemprop="wordCount" content="520">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim编辑器键盘映射命令map"/>
-<meta name="twitter:description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{将"/>
+<meta name="twitter:description" content="使用:map命令，可以将键盘上的某个按键与Vim的命令绑定起来。 例如使用以下命令，可以通过F5键将单词用花括号括起来： 1 :map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt; 执行过程：i{"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 517 字 </span>
+          <span class="more-meta"> 约 520 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -176,9 +178,15 @@
     <div class="post-content">
       <p>使用<code>:map</code>命令，可以将键盘上的某个按键与Vim的命令绑定起来。
 例如使用以下命令，可以通过F5键将单词用花括号括起来：</p>
-<pre><code>:map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt;
-</code></pre>
-<p>执行过程：<code>i{</code>将插入字符<code>{</code>，然后使用<code>Esc</code>退回到命令状态；接着用<code>e</code>移到单词结尾，<code>a}</code>增加字符<code>}</code>，最后退至命令状态。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:map &lt;F5&gt; i{e&lt;Esc&gt;a}&lt;Esc&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>执行过程：<code>i{</code>将插入字符<code>{</code>，然后使用<code>Esc</code>退回到命令状态；接着用<code>e</code>移到单词结尾，<code>a}</code>增加字符<code>}</code>，最后退至命令状态。
 在执行以上命令之后，光标定位在一个单词上（例如amount），按下F5键，这时字符就会变成{amount}的形式。</p>
 <h2 id="不同模式下的键盘映射">不同模式下的键盘映射</h2>
 <p>使用下表中不同形式的map命令，可以针对特定的模式设置键盘映射：</p>
@@ -253,12 +261,24 @@
 </tbody>
 </table>
 <h3 id="查看键盘映射">查看键盘映射</h3>
-<pre><code>:map
-</code></pre>
-<h3 id="取消键盘映射">取消键盘映射</h3>
-<pre><code>:unmap &lt;F10&gt; #参数
-</code></pre>
-<p>注意：必须为:unmap命令指定一个参数。如果未指定任何参数，那么系统将会报错，而不会取消所有的键盘映射。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:map
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="取消键盘映射">取消键盘映射</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:unmap &lt;F10&gt; #参数
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：必须为:unmap命令指定一个参数。如果未指定任何参数，那么系统将会报错，而不会取消所有的键盘映射。
 针对不同模式下的键盘映射，需要使用与其相对应的unmap命令。例如：使用:iunmap命令，取消插入模式下的键盘映射；而取消常规模式下的键盘映射，则需要使用:nunmap命令。
 如果想要取消所有映射，可以使用:mapclear命令。请注意，这个命令将会移除所有用户定义和系统默认的键盘映射。</p>
 <h3 id="参考文章">参考文章</h3>
@@ -386,7 +406,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

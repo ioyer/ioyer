@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Crash文件分析方法">
 <meta itemprop="description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app"><meta itemprop="datePublished" content="2017-02-07T12:38:58&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-07T12:38:58&#43;00:00" />
-<meta itemprop="wordCount" content="386">
+<meta itemprop="wordCount" content="393">
 <meta itemprop="keywords" content="工具,测试,管理," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Crash文件分析方法"/>
 <meta name="twitter:description" content="第一步：在任意目录创建调试crash的目录 第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app"/>
@@ -152,9 +152,11 @@
             <a href="/categories/xcode/"> xcode </a>
             <a href="/categories/%E8%B0%83%E8%AF%95/"> 调试 </a>
             </div>
-          <span class="more-meta"> 约 386 字 </span>
+          <span class="more-meta"> 约 393 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -168,31 +170,73 @@
       <p>第一步：在任意目录创建调试crash的目录</p>
 <p>第二步：将之前Archive的文件copy到crash目录里面,其中包括两个文件.app和.app.dSYM</p>
 <p>第三步：将symbolicatecrash工具copy到crash目录</p>
-<pre><code class="language-ruby">find /Applications/Xcode.app -name symbolicatecrash -type f
-</code></pre>
-<p>2.用命令将symbolicatecrash拷贝到桌面的crash文件夹里面，与.app和.app.dSYM放一起
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">find</span> <span class="sr">/Applications/</span><span class="no">Xcode</span><span class="o">.</span><span class="n">app</span> <span class="o">-</span><span class="nb">name</span> <span class="n">symbolicatecrash</span> <span class="o">-</span><span class="n">type</span> <span class="n">f</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2.用命令将symbolicatecrash拷贝到桌面的crash文件夹里面，与.app和.app.dSYM放一起
 拷贝到crash目录：</p>
-<pre><code class="language-sh">cp /Applications/Xcode.app/.../symbolicatecrash /Users/Desktop/crash
-</code></pre>
-<p>第四步：执行symbolicatecrash
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cp /Applications/Xcode.app/.../symbolicatecrash /Users/Desktop/crash
+</code></pre></td></tr></table>
+</div>
+</div><p>第四步：执行symbolicatecrash
 1.打开终端用命令切换到桌面的crash目录下：</p>
-<pre><code class="language-sh">cd /Users/你的电脑名称/Desktop/crash
-</code></pre>
-<p>2.执行命令</p>
-<pre><code class="language-sh">./symbolicatecrash /Users/Desktop/crash/PBB.crash /Users/Desktop/crash/Control.app.dSYM &gt; Control_symbol.crash
-</code></pre>
-<p>这时候终端有可能会出现：<code>Error: &quot;DEVELOPER_DIR&quot; is not defined at ./symbolicatecrash line 60.</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /Users/你的电脑名称/Desktop/crash
+</code></pre></td></tr></table>
+</div>
+</div><p>2.执行命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./symbolicatecrash /Users/Desktop/crash/PBB.crash /Users/Desktop/crash/Control.app.dSYM &gt; Control_symbol.crash
+</code></pre></td></tr></table>
+</div>
+</div><p>这时候终端有可能会出现：<code>Error: &quot;DEVELOPER_DIR&quot; is not defined at ./symbolicatecrash line 60.</code></p>
 <p>3.输入命令：</p>
-<pre><code class="language-sh">export DEVELOPER_DIR=&quot;/Applications/XCode.app/Contents/Developer&quot; 
-</code></pre>
-<p>4.再执行 2.的命令行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">export</span> <span class="nv">DEVELOPER_DIR</span><span class="o">=</span><span class="s2">&#34;/Applications/XCode.app/Contents/Developer&#34;</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>4.再执行 2.的命令行</p>
 <p>5.将终端完成以后，在crash文件夹里面会多出一个文件Control_symbol.crash。</p>
-<pre><code class="language-sh">Unsupported crash log version: 12 at ./symbolicatecrash line 614.
-</code></pre>
-<p>第五步：</p>
-<pre><code class="language-sh">dwarfdump --lookup 0x000cf358 --arch armv7 appname.app.dSYM/
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">Unsupported crash log version: <span class="m">12</span> at ./symbolicatecrash line 614.
+</code></pre></td></tr></table>
+</div>
+</div><p>第五步：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">dwarfdump --lookup 0x000cf358 --arch armv7 appname.app.dSYM/
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -318,7 +362,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

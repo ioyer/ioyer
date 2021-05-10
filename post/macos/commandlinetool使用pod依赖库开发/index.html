@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -43,19 +43,19 @@
 
 
 <meta property="og:title" content="CommandLineTool使用pod依赖库开发" />
-<meta property="og:description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目" />
+<meta property="og:description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-10-16T17:08:15&#43;00:00" />
 <meta property="article:modified_time" content="2018-10-16T17:08:15&#43;00:00" />
 
 <meta itemprop="name" content="CommandLineTool使用pod依赖库开发">
-<meta itemprop="description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目"><meta itemprop="datePublished" content="2018-10-16T17:08:15&#43;00:00" />
+<meta itemprop="description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项"><meta itemprop="datePublished" content="2018-10-16T17:08:15&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-16T17:08:15&#43;00:00" />
-<meta itemprop="wordCount" content="483">
+<meta itemprop="wordCount" content="549">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CommandLineTool使用pod依赖库开发"/>
-<meta name="twitter:description" content="问题 #3707 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项目"/>
+<meta name="twitter:description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 483 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <span class="more-meta"> 约 549 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -172,9 +174,15 @@
     <div class="post-content">
       <h2 id="问题">问题</h2>
 <p><a href="ttps://github.com/CocoaPods/CocoaPods/issues/3707">#3707</a></p>
-<pre><code>dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
-</code></pre>
-<p>结论：cocoa pods不支持<code>Command Line Tool</code>项目</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
+</code></pre></td></tr></table>
+</div>
+</div><p>结论：cocoa pods不支持<code>Command Line Tool</code>项目</p>
 <p><a href="https://stackoverflow.com/questions/41258187/cocoapods-command-line-tool-dyld-library-not-loaded-rpath-realm-framework">Cocoapods + Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm</a>
 cocoa pods不支持<code>Command Line Tool</code>项目
 <a href="https://github.com/CocoaPods/CocoaPods/issues/3707">Command Line Tool + CocoaPods frameworks breaks</a></p>
@@ -182,88 +190,173 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 <ol>
 <li>使用SPM创建可执行模版</li>
 </ol>
-<pre><code>$ mkdir SPMCmdLineTool
-$ swift package init --type=executable
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">mkdir</span> <span class="nx">SPMCmdLineTool</span>
+<span class="err">$</span> <span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span> <span class="o">--</span><span class="kd">type</span><span class="p">=</span><span class="nx">executable</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>配置<code>Package.swift</code></li>
 </ol>
-<pre><code class="language-swift">import PackageDescription
-let package = Package(
-    name: &quot;SPMCmdLineTool&quot;,
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: &quot;1.0.0&quot;),
-        .package(path: &quot;/Users/admin/hsg/FileProvider&quot;)
-    ],
-    .target(
-        name: &quot;SPMCmdLineTool&quot;,
-        dependencies: [&quot;FilesProvider&quot;]),
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PackageDescription</span>
+<span class="kd">let</span> <span class="nv">package</span> <span class="p">=</span> <span class="n">Package</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">&#34;SPMCmdLineTool&#34;</span><span class="p">,</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="c1">// Dependencies declare other packages that this package depends on.</span>
+        <span class="c1">// .package(url: /* package url */, from: &#34;1.0.0&#34;),</span>
+        <span class="p">.</span><span class="n">package</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">&#34;/Users/admin/hsg/FileProvider&#34;</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="p">.</span><span class="n">target</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="s">&#34;SPMCmdLineTool&#34;</span><span class="p">,</span>
+        <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;FilesProvider&#34;</span><span class="p">]),</span>
         
-    .testTarget(
-        name: &quot;SPMCmdLineToolTests&quot;,
-        dependencies: [&quot;SPMCmdLineTool&quot;]),
-    ]
-)
-</code></pre>
-<ol start="3">
+    <span class="p">.</span><span class="n">testTarget</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="s">&#34;SPMCmdLineToolTests&#34;</span><span class="p">,</span>
+        <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;SPMCmdLineTool&#34;</span><span class="p">]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
 <li>使用workspace管理
 先生成一个Xcode工程文件：<code>SPMCmdLineTool.xcodeproj</code></li>
 </ol>
-<pre><code class="language-sh">$ swift package generate-xcodeproj
-</code></pre>
-<p>再把<code>SPMCmdLineTool.xcodeproj</code>拖入现有的workspace中来管理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift package generate-xcodeproj
+</code></pre></td></tr></table>
+</div>
+</div><p>再把<code>SPMCmdLineTool.xcodeproj</code>拖入现有的workspace中来管理。</p>
 <blockquote>
 <p>每次执行swift build ，须重新生成xcodeproj工程文件，再重新打开workspace即可。</p>
 </blockquote>
 <h2 id="命令行的单元测试赏析">命令行的单元测试赏析</h2>
-<pre><code class="language-swift">final class SPMCmdLineToolTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kr">final</span> <span class="kd">class</span> <span class="nc">SPMCmdLineToolTests</span><span class="p">:</span> <span class="n">XCTestCase</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">testExample</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="c1">// This is an example of a functional test case.</span>
+        <span class="c1">// Use XCTAssert and related functions to verify your tests produce the correct</span>
+        <span class="c1">// results.</span>
 
-        // Some of the APIs that we use below are available in macOS 10.13 and above.
-        guard #available(macOS 10.13, *) else {
-            return
-        }
-        // 运行可执行文件
-        let fooBinary = productsDirectory.appendingPathComponent(&quot;SPMCmdLineTool&quot;)
+        <span class="c1">// Some of the APIs that we use below are available in macOS 10.13 and above.</span>
+        <span class="k">guard</span> <span class="cp">#available</span><span class="p">(</span><span class="cp">macOS</span> <span class="mf">10.13</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">// 运行可执行文件</span>
+        <span class="kd">let</span> <span class="nv">fooBinary</span> <span class="p">=</span> <span class="n">productsDirectory</span><span class="p">.</span><span class="n">appendingPathComponent</span><span class="p">(</span><span class="s">&#34;SPMCmdLineTool&#34;</span><span class="p">)</span>
 
-        let process = Process()
-        // 指定可执行文件
-        process.executableURL = fooBinary
+        <span class="kd">let</span> <span class="nv">process</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">()</span>
+        <span class="c1">// 指定可执行文件</span>
+        <span class="n">process</span><span class="p">.</span><span class="n">executableURL</span> <span class="p">=</span> <span class="n">fooBinary</span>
 
-        let pipe = Pipe()
-        process.standardOutput = pipe
-        //开始运行
-        try process.run()
-        process.waitUntilExit()
+        <span class="kd">let</span> <span class="nv">pipe</span> <span class="p">=</span> <span class="n">Pipe</span><span class="p">()</span>
+        <span class="n">process</span><span class="p">.</span><span class="n">standardOutput</span> <span class="p">=</span> <span class="n">pipe</span>
+        <span class="c1">//开始运行</span>
+        <span class="k">try</span> <span class="n">process</span><span class="p">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">process</span><span class="p">.</span><span class="n">waitUntilExit</span><span class="p">()</span>
 
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)
+        <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">pipe</span><span class="p">.</span><span class="n">fileHandleForReading</span><span class="p">.</span><span class="n">readDataToEndOfFile</span><span class="p">()</span>
+        <span class="kd">let</span> <span class="nv">output</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
 
-        XCTAssertEqual(output, &quot;Hello, world!\n&quot;)
-    }
+        <span class="n">XCTAssertEqual</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s">&#34;Hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
 
-    /// Returns path to the built products directory.
-    var productsDirectory: URL {
-        #if os(macOS)
-            for bundle in Bundle.allBundles where bundle.bundlePath.hasSuffix(&quot;.xctest&quot;) {
-                return bundle.bundleURL.deletingLastPathComponent()
-            }
-            fatalError(&quot;couldn't find the products directory&quot;)
-        #else
-            return Bundle.main.bundleURL
-        #endif
-    }
+    <span class="c1">/// Returns path to the built products directory.</span>
+    <span class="kd">var</span> <span class="nv">productsDirectory</span><span class="p">:</span> <span class="n">URL</span> <span class="p">{</span>
+        <span class="cp">#if</span> <span class="cp">os</span><span class="p">(</span><span class="cp">macOS</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">bundle</span> <span class="k">in</span> <span class="n">Bundle</span><span class="p">.</span><span class="n">allBundles</span> <span class="k">where</span> <span class="n">bundle</span><span class="p">.</span><span class="n">bundlePath</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;.xctest&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">bundle</span><span class="p">.</span><span class="n">bundleURL</span><span class="p">.</span><span class="n">deletingLastPathComponent</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&#34;couldn&#39;t find the products directory&#34;</span><span class="p">)</span>
+        <span class="cp">#else</span>
+            <span class="k">return</span> <span class="n">Bundle</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">bundleURL</span>
+        <span class="cp">#endif</span>
+    <span class="p">}</span>
 
-    static var allTests = [
-        (&quot;testExample&quot;, testExample),
-    ]
-}
-</code></pre>
-
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">allTests</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s">&#34;testExample&#34;</span><span class="p">,</span> <span class="n">testExample</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -385,7 +478,7 @@ let package = Package(
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="MPMoviePlayerController遇到的坑">
 <meta itemprop="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController"><meta itemprop="datePublished" content="2018-08-31T16:58:22&#43;00:00" />
 <meta itemprop="dateModified" content="2018-08-31T16:58:22&#43;00:00" />
-<meta itemprop="wordCount" content="627">
+<meta itemprop="wordCount" content="635">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MPMoviePlayerController遇到的坑"/>
 <meta name="twitter:description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 627 字 </span>
+          <span class="more-meta"> 约 635 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -184,15 +186,27 @@
 1.2 <code>重启手机，也可以恢复</code></li>
 <li><a href="https://stackoverflow.com/questions/3138660/why-does-mpmovieloadstate-have-state-5">why does MPMovieLoadState have state 5?</a></li>
 </ol>
-<pre><code>The playState is a bitmask. Any number of bits can be set, such as
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">The playState is a bitmask. Any number of bits can be set, such as
 MPMovieLoadStatePlaythroughOK | MPMovieLoadStatePlayable
 Check for states like this:
 MPMovieLoadState state = [playerController loadState];
 if( state &amp; MPMovieLoadStatePlaythroughOK ) {
-NSLog(@&quot;State is Playthrough OK&quot;);
+NSLog(@&#34;State is Playthrough OK&#34;);
 }
-</code></pre>
-<h1 id="问题2">问题2</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="问题2">问题2</h1>
 <h4 id="投影不全屏">投影不全屏</h4>
 <p>现象：投影仪页面未同步现象，全屏查看视频，横屏全屏显示，但投影在大屏的画面没有同步</p>
 <ol>
@@ -208,9 +222,15 @@ NSLog(@&quot;State is Playthrough OK&quot;);
 <ol start="2">
 <li>通过在投影仪上联调测试<code>不影响播放</code></li>
 </ol>
-<pre><code>VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
-</code></pre>
-<p>通过百度有两种方式：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
+</code></pre></td></tr></table>
+</div>
+</div><p>通过百度有两种方式：
 1.在viewwillapear中添加<code>player=nil</code>
 <a href="https://stackoverflow.com/questions/47438401/avplayer-is-not-playing-in-ios-11#">AVPlayer is not playing in iOS 11</a>
 <a href="https://stackoverflow.com/questions/46321860/avplayerviewcontroller-black-screen-when-swiping-on-ios-11">AVPlayerViewController black screen when swiping on iOS 11</a></p>
@@ -339,7 +359,7 @@ NSLog(@&quot;State is Playthrough OK&quot;);
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

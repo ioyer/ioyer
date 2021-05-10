@@ -24,7 +24,7 @@
 编写代码 点击开发者工具左侧导航的“编辑”，看到这个项目文件结构。
 三个必不可少的app.js、app.json、app.wxss:
  .js后缀的是脚本文件 .json后缀的文件是配置文件 .wxss后缀的是样式表文件  微信小程序会读取这些文件，并生成小程序实例。
-" /><meta name="keywords" content="Hugo, swift, org-mode" />
+" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -85,7 +85,7 @@
 
 微信小程序会读取这些文件，并生成小程序实例。"><meta itemprop="datePublished" content="2016-12-19T22:59:10&#43;00:00" />
 <meta itemprop="dateModified" content="2016-12-19T22:59:10&#43;00:00" />
-<meta itemprop="wordCount" content="1593">
+<meta itemprop="wordCount" content="1723">
 <meta itemprop="keywords" content="小程序," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="微信小程序开发-一"/>
 <meta name="twitter:description" content="创建项目
@@ -197,9 +197,11 @@
         <div class="post-category">
             <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
             </div>
-          <span class="more-meta"> 约 1593 字 </span>
+          <span class="more-meta"> 约 1723 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -241,69 +243,136 @@
 <blockquote>
 <p>调用框架提供的丰富的 API，如本例的同步存储及同步读取本地数据。想了解更多可用 API，可参考 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/?t=20161122">API 文档</a></p>
 </blockquote>
-<pre><code class="language-js">//app.js
-App({
-  onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-  },
-  getUserInfo:function(cb){
-    var that = this;
-    if(this.globalData.userInfo){
-      typeof cb == &quot;function&quot; &amp;&amp; cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo;
-              typeof cb == &quot;function&quot; &amp;&amp; cb(that.globalData.userInfo)
-            }
-          })
-        }
-      });
-    }
-  },
-  globalData:{
-    userInfo:null
-  }
-})
-</code></pre>
-<h4 id="appjson-全局配置">app.json 全局配置</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//app.js
+</span><span class="c1"></span><span class="nx">App</span><span class="p">({</span>
+  <span class="nx">onLaunch</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//调用API从本地缓存中获取数据
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">logs</span> <span class="o">=</span> <span class="nx">wx</span><span class="p">.</span><span class="nx">getStorageSync</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="p">[]</span>
+    <span class="nx">logs</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">setStorageSync</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="nx">logs</span><span class="p">)</span>
+  <span class="p">},</span>
+  <span class="nx">getUserInfo</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">cb</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">globalData</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">){</span>
+      <span class="k">typeof</span> <span class="nx">cb</span> <span class="o">==</span> <span class="s2">&#34;function&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">cb</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">globalData</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">)</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="c1">//调用登录接口
+</span><span class="c1"></span>      <span class="nx">wx</span><span class="p">.</span><span class="nx">login</span><span class="p">({</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+          <span class="nx">wx</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">({</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">that</span><span class="p">.</span><span class="nx">globalData</span><span class="p">.</span><span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">;</span>
+              <span class="k">typeof</span> <span class="nx">cb</span> <span class="o">==</span> <span class="s2">&#34;function&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">cb</span><span class="p">(</span><span class="nx">that</span><span class="p">.</span><span class="nx">globalData</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">)</span>
+            <span class="p">}</span>
+          <span class="p">})</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">globalData</span><span class="o">:</span><span class="p">{</span>
+    <span class="nx">userInfo</span><span class="o">:</span><span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="appjson-全局配置">app.json 全局配置</h4>
 <p>可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。</p>
-<pre><code class="language-js">{
-  &quot;pages&quot;:[
-    &quot;pages/index/index&quot;,
-    &quot;pages/logs/logs&quot;
-  ],
-  &quot;window&quot;:{
-    &quot;backgroundTextStyle&quot;:&quot;light&quot;,
-    &quot;navigationBarBackgroundColor&quot;: &quot;#fff&quot;,
-    &quot;navigationBarTitleText&quot;: &quot;WeChat&quot;,
-    &quot;navigationBarTextStyle&quot;:&quot;black&quot;
-  }
-}
-</code></pre>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="s2">&#34;pages&#34;</span><span class="o">:</span><span class="p">[</span>
+    <span class="s2">&#34;pages/index/index&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;pages/logs/logs&#34;</span>
+  <span class="p">],</span>
+  <span class="s2">&#34;window&#34;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&#34;backgroundTextStyle&#34;</span><span class="o">:</span><span class="s2">&#34;light&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;navigationBarBackgroundColor&#34;</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;navigationBarTitleText&#34;</span><span class="o">:</span> <span class="s2">&#34;WeChat&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;navigationBarTextStyle&#34;</span><span class="o">:</span><span class="s2">&#34;black&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>注意该文件不可添加任何注释。更多配置可参考<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html?t=20161122">配置详解</a></p>
 </blockquote>
 <h4 id="appwxss-公共样式表">app.wxss 公共样式表</h4>
 <p>我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则</p>
-<pre><code class="language-css">/**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
-</code></pre>
-<h3 id="创建页面">创建页面</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/**app.wxss**/</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">200</span><span class="n">rpx</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建页面">创建页面</h3>
 <p>在这个教程里，我们有两个页面，index 欢迎页和 logs 小程序启动日志的展示页，他们都在 pages 目录下。</p>
 <p>微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages 中，且 pages 中的第一个页面是小程序的首页。</p>
 <p>每一个小程序页面是由同路径下同名的四个不同后缀文件的组成:</p>
@@ -315,103 +384,206 @@ App({
 </ul>
 <h4 id="indexwxml页面结构">index.wxml页面结构：</h4>
 <p>使用了<code>&lt;view/&gt;、&lt;image/&gt;、&lt;text/&gt;</code>来搭建页面结构(container)，绑定数据(userInfo)和交互处理函数(bindViewTap)。</p>
-<pre><code class="language-md">&lt;!--index.wxml--&gt;
-&lt;view class=&quot;container&quot;&gt;
-  &lt;view  bindtap=&quot;bindViewTap&quot; class=&quot;userinfo&quot;&gt;
-    &lt;image class=&quot;userinfo-avatar&quot; src=&quot;{{userInfo.avatarUrl}}&quot; background-size=&quot;cover&quot;&gt;&lt;/image&gt;
-    &lt;text class=&quot;userinfo-nickname&quot;&gt;{{userInfo.nickName}}&lt;/text&gt;
-  &lt;/view&gt;
-  &lt;view class=&quot;usermotto&quot;&gt;
-    &lt;text class=&quot;user-motto&quot;&gt;{{motto}}&lt;/text&gt;
-  &lt;/view&gt;
-&lt;/view&gt;
-</code></pre>
-<h4 id="indexjs脚本文件">index.js脚本文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md"><span class="c">&lt;!--index.wxml--&gt;</span>
+<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">view</span>  <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;bindViewTap&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;userinfo&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">image</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;userinfo-avatar&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{userInfo.avatarUrl}}&#34;</span> <span class="na">background-size</span><span class="o">=</span><span class="s">&#34;cover&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">image</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;userinfo-nickname&#34;</span><span class="p">&gt;</span>{{userInfo.nickName}}<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;usermotto&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;user-motto&#34;</span><span class="p">&gt;</span>{{motto}}<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="indexjs脚本文件">index.js脚本文件</h4>
 <p>在这个文件中我们可以监听并处理页面的生命周期函数、获取小程序实例，声明并处理数据，响应页面交互事件等。</p>
-<pre><code class="language-js">//index.js
-//获取应用实例
-var app = getApp()
-Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {}
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
-  }
-})
-</code></pre>
-<h4 id="indexwxss样式表">index.wxss样式表</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//index.js
+</span><span class="c1">//获取应用实例
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">getApp</span><span class="p">()</span>
+<span class="nx">Page</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">motto</span><span class="o">:</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">,</span>
+    <span class="nx">userInfo</span><span class="o">:</span> <span class="p">{}</span>
+  <span class="p">},</span>
+  <span class="c1">//事件处理函数
+</span><span class="c1"></span>  <span class="nx">bindViewTap</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">navigateTo</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;../logs/logs&#39;</span>
+    <span class="p">})</span>
+  <span class="p">},</span>
+  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onLoad&#39;</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span>
+    <span class="c1">//调用应用实例的方法获取全局数据
+</span><span class="c1"></span>    <span class="nx">app</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">){</span>
+      <span class="c1">//更新数据
+</span><span class="c1"></span>      <span class="nx">that</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+        <span class="nx">userInfo</span><span class="o">:</span><span class="nx">userInfo</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="indexwxss样式表">index.wxss样式表</h4>
 <ol>
 <li>页面的样式表是非必要的,该样式表中的样式规则会层叠覆盖 app.wxss 中的样式规则。</li>
 <li>页面的结构文件中可以直接使用 app.wxss 中指定的样式规则。</li>
 </ol>
-<pre><code class="language-css">/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/**index.wxss**/</span>
+<span class="p">.</span><span class="nc">userinfo</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
+<span class="p">.</span><span class="nc">userinfo-avatar</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">128</span><span class="n">rpx</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">128</span><span class="n">rpx</span><span class="p">;</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">20</span><span class="n">rpx</span><span class="p">;</span>
+  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
 
-.userinfo-nickname {
-  color: #aaa;
-}
+<span class="p">.</span><span class="nc">userinfo-nickname</span> <span class="p">{</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#aaa</span><span class="p">;</span>
+<span class="p">}</span>
 
-.usermotto {
-  margin-top: 200px;
-}
-</code></pre>
-<h4 id="indexjson配置文件">index.json配置文件</h4>
+<span class="p">.</span><span class="nc">usermotto</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="indexjson配置文件">index.json配置文件</h4>
 <p>页面的配置文件是非必要的。当有页面的配置文件时，配置项在该页面会覆盖 app.json 的 window 中相同的配置项。如果没有指定的页面配置文件，则在该页面直接使用 app.json 中的默认配置。</p>
 <h3 id="logs-的页面">logs 的页面</h3>
 <h4 id="logswxml页面结构">logs.wxml页面结构</h4>
-<pre><code class="language-md">&lt;!--logs.wxml--&gt;
-&lt;view class=&quot;container log-list&quot;&gt;
-  &lt;block wx:for=&quot;{{logs}}&quot; wx:for-item=&quot;log&quot;&gt;
-    &lt;text class=&quot;log-item&quot;&gt;{{index + 1}}. {{log}}&lt;/text&gt;
-  &lt;/block&gt;
-&lt;/view&gt;
-</code></pre>
-<h4 id="logsjs脚本文件">logs.js脚本文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md"><span class="c">&lt;!--logs.wxml--&gt;</span>
+<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container log-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">block</span> <span class="na">wx:for</span><span class="o">=</span><span class="s">&#34;{{logs}}&#34;</span> <span class="na">wx:for-item</span><span class="o">=</span><span class="s">&#34;log&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;log-item&#34;</span><span class="p">&gt;</span>{{index + 1}}. {{log}}<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">block</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="logsjs脚本文件">logs.js脚本文件</h4>
 <p>logs 页面使用 <code>&lt;block/&gt;</code> 控制标签来组织代码，在 <code>&lt;block/&gt;</code> 上使用 <code>wx:for</code> 绑定 logs 数据，并将 logs 数据循环展开节点</p>
-<pre><code class="language-js">//logs.js
-var util = require('../../utils/util.js')
-Page({
-  data: {
-    logs: []
-  },
-  onLoad: function () {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(function (log) {
-        return util.formatTime(new Date(log))
-      })
-    })
-  }
-})
-运行结果如下：
-</code></pre>
-<h3 id="运行结果如下">运行结果如下：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//logs.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../utils/util.js&#39;</span><span class="p">)</span>
+<span class="nx">Page</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">logs</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+      <span class="nx">logs</span><span class="o">:</span> <span class="p">(</span><span class="nx">wx</span><span class="p">.</span><span class="nx">getStorageSync</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="p">[]).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">log</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">util</span><span class="p">.</span><span class="nx">formatTime</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">log</span><span class="p">))</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">运行结果如下</span><span class="err">：</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="运行结果如下">运行结果如下：</h3>
 <p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/start_result.png?t=20161122" alt=""></p>
     </div>
 
@@ -536,7 +708,7 @@ Page({
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

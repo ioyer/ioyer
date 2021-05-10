@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用Fastlane持续集成开发">
 <meta itemprop="description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的"><meta itemprop="datePublished" content="2018-10-24T12:45:30&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-24T12:45:30&#43;00:00" />
-<meta itemprop="wordCount" content="640">
+<meta itemprop="wordCount" content="661">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Fastlane持续集成开发"/>
 <meta name="twitter:description" content="{% github it-boyer width = 30% %} 持续集成 在框架开发中，一个优秀的持续集成环境是至关重要的。CI 可以保证潜在的贡献者在有保障的情况下对代码进行修改，减小了框架的"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 640 字 </span>
+          <span class="more-meta"> 约 661 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -177,11 +179,36 @@
 <p>fastlane 是一系列 Cocoa 开发的工具的集合，包括跑测试，打包 app，自动截图，管理 iTunes Connect 等等。</p>
 <p>不单单是 app 开发，在框架开发中，我们也可以利用到 fastlane 里很多很方便的命令。</p>
 <p>使用 fastlane 做持续发布很简单，建立自己的合适的 Fastfile 文件，然后把你想做什么写进去就好了。比如这里是一个简单的 Fastfile 的例子：</p>
-<pre><code># Fastfile
-desc &quot;Release new version&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Fastfile
+desc &#34;Release new version&#34;
 lane :release do |options|
     target_version = options[:version]
-    raise &quot;The version is missed.&quot; if target_version.nil?
+    raise &#34;The version is missed.&#34; if target_version.nil?
     ensure_git_branch                                             # 确认 master 分支
     ensure_git_status_clean                                       # 确认没有未提交的文件
     scan                                                          # 运行测试
@@ -189,17 +216,18 @@ lane :release do |options|
     sync_build_number_to_git                                      # 将 build 号设为 git commit 数
     increment_version_number(version_number: target_version)      # 设置版本号
 
-    version_bump_podspec(path: &quot;Kingfisher.podspec&quot;,
+    version_bump_podspec(path: &#34;Kingfisher.podspec&#34;,
                version_number: target_version)                    # 更新 podspec
-    git_commit_all(message: &quot;Bump version to #{target_version}&quot;)  # 提交版本号修改
+    git_commit_all(message: &#34;Bump version to #{target_version}&#34;)  # 提交版本号修改
     add_git_tag tag: target_version                               # 设置 tag
     push_to_git_remote                                            # 推送到 git 仓库
     pod_push                                                      # 提交到 CocoaPods
 end
 
 $ fastlane release version:1.8.4
-</code></pre>
-<p>AFNetworking 在 3.0 版本开始加入了 fastlane 做自动集成和发布，可以说把开源项目的 CI 做到了极致。在这里强烈推荐大家有空可以看一看这个项目，除了使用 fastlane 简化流程以外，这个项目里还介绍了一些发布框架时的最佳实践。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>AFNetworking 在 3.0 版本开始加入了 fastlane 做自动集成和发布，可以说把开源项目的 CI 做到了极致。在这里强烈推荐大家有空可以看一看这个项目，除了使用 fastlane 简化流程以外，这个项目里还介绍了一些发布框架时的最佳实践。</p>
 
     </div>
 
@@ -322,7 +350,7 @@ $ fastlane release version:1.8.4
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

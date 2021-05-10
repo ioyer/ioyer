@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer SimpleValidation fb7a58b width = 30% %} {% meting &amp;ldquo;0036mZ7Q1pk7st&amp;rdquo; &amp;ldquo;tencent&amp;rdquo; &amp;ldquo;song&amp;rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer SimpleValidation fb7a58b width = 30% %} {% meting &amp;ldquo;0036mZ7Q1pk7st&amp;rdquo; &amp;ldquo;tencent&amp;rdquo; &amp;ldquo;song&amp;rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="RxSwift应用登录验证">
 <meta itemprop="description" content="{% github it-boyer SimpleValidation fb7a58b width = 30% %} {% meting &ldquo;0036mZ7Q1pk7st&rdquo; &ldquo;tencent&rdquo; &ldquo;song&rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi"><meta itemprop="datePublished" content="2018-10-04T09:04:35&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-04T09:04:35&#43;00:00" />
-<meta itemprop="wordCount" content="1264">
+<meta itemprop="wordCount" content="1279">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RxSwift应用登录验证"/>
 <meta name="twitter:description" content="{% github it-boyer SimpleValidation fb7a58b width = 30% %} {% meting &ldquo;0036mZ7Q1pk7st&rdquo; &ldquo;tencent&rdquo; &ldquo;song&rdquo; %} 使用RxSwift的优点 RxSwift的目的是让让数据/事件流和异步任务能够更方便的序列化处理，能够使用swi"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E5%BC%80%E6%BA%90%E5%BA%93/"> 开源库 </a>
             </div>
-          <span class="more-meta"> 约 1264 字 </span>
+          <span class="more-meta"> 约 1279 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -200,7 +202,26 @@
 <h3 id="bindto-简单使用">bindTO 简单使用</h3>
 <p>我的理解就是将已经信号源去用一个<code>UIBindingObserver</code>去接受,当接收到的属性是<code>true</code>进行相应的操作
 为登录按钮写一个rx_click的拓展</p>
-<pre><code>///首先写一个UIBindingObserver
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">///首先写一个UIBindingObserver
 var rx_click:AnyObserver&lt;Bool&gt; {
 return UIBindingObserver.init(UIElement: self, binding: { (lab, result) in
 lab.backgroundColor = result ? UIColor.blue:UIColor.gray
@@ -215,8 +236,9 @@ lab.backgroundColor = result ? UIColor.blue:UIColor.gray
 let _ = Observable.combineLatest(phoneobser, passobserver, resultSelector: {
 $0 &amp;&amp; $1
 }).bind(to: canclik.rx_click)
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -338,7 +360,7 @@ $0 &amp;&amp; $1
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

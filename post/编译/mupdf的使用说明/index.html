@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="mupdf使用说明">
 <meta itemprop="description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android"><meta itemprop="datePublished" content="2017-06-19T18:25:32&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-19T18:25:32&#43;00:00" />
-<meta itemprop="wordCount" content="387">
+<meta itemprop="wordCount" content="397">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mupdf使用说明"/>
 <meta name="twitter:description" content="需求描述 目前手机端使用mupdf，通过在底层添加加密方法实现定制pbb阅读器功能。 资源获取如下： {% blockquote %} Download packages of the latest release for your system: Source code for all platforms. Windows viewer and tools. Android"/>
@@ -152,9 +152,11 @@
             <a href="/categories/macos/"> macOS </a>
             <a href="/categories/pdf/"> PDF </a>
             </div>
-          <span class="more-meta"> 约 387 字 </span>
+          <span class="more-meta"> 约 397 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -195,21 +197,41 @@ git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 <p>最新整合集成加密到源码库，并发布到git服务器上，便于协作维护:https://server.local/git/mupdf.git
 协作过程：
 在服务器端添加账号：test  test123</p>
-<pre><code class="language-ruby">$ git clone https://server.local/git/mupdf.git mupdf
-$ cd mupdf/thirdparty/
-$ git submodule init
-$ git submodule update
-$ open mupdf/platform/ios/MuPDF.xcodeproj
-$ build &amp; run
-</code></pre>
-<p>封装MuPDFFramework便于集成至PBBReader中：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//se</span><span class="n">rver</span><span class="o">.</span><span class="n">local</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">mupdf</span><span class="o">.</span><span class="n">git</span> <span class="n">mupdf</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">thirdparty</span><span class="o">/</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
+<span class="err">$</span> <span class="nb">open</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="no">MuPDF</span><span class="o">.</span><span class="n">xcodeproj</span>
+<span class="err">$</span> <span class="n">build</span> <span class="o">&amp;</span> <span class="n">run</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>封装MuPDFFramework便于集成至PBBReader中：
 初始化mupdf页面接口：</p>
-<pre><code class="language-objc">MuPDFViewController *bindingPhone = [[MuPDFViewController alloc] initWithNibName:nil bundle:nil];
-bindingPhone.filename=filename;
-bindingPhone.openfilepath=select_files;
-[self.view.window.contentViewController presentViewControllerAsSheet:bindingPhone];
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">MuPDFViewController</span> <span class="o">*</span><span class="n">bindingPhone</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MuPDFViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="n">bindingPhone</span><span class="p">.</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">;</span>
+<span class="n">bindingPhone</span><span class="p">.</span><span class="n">openfilepath</span><span class="o">=</span><span class="n">select_files</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">contentViewController</span> <span class="nl">presentViewControllerAsSheet</span><span class="p">:</span><span class="n">bindingPhone</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -331,7 +353,7 @@ bindingPhone.openfilepath=select_files;
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

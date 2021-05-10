@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="新组件开发流程及打包证书配置">
 <meta itemprop="description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包"><meta itemprop="datePublished" content="2018-10-22T16:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-22T16:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="975">
+<meta itemprop="wordCount" content="981">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="新组件开发流程及打包证书配置"/>
 <meta name="twitter:description" content="新组件开发/发布的流程 原理：在build程序包之前，会根据平台提供的程序包的组件依赖信息，来other linker flags进行删减更新，仅保留依赖包"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 975 字 </span>
+          <span class="more-meta"> 约 981 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -212,12 +214,21 @@
 </ol>
 </li>
 </ol>
-<pre><code>    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@&quot;jinher_app_IntelDecision&quot; ofType:@&quot;framework&quot;];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@&#34;jinher_app_IntelDecision&#34; ofType:@&#34;framework&#34;];
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;IntelDecision&quot; bundle:resourceBundle];
-    UIViewController *ygPatrolNav = [storyboard instantiateViewControllerWithIdentifier:@&quot;RoomListViewController&quot;];    
-</code></pre>
-<h4 id="资源bundle包主要配合a静态库使用">资源bundle包，主要配合<code>.a</code>静态库使用</h4>
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&#34;IntelDecision&#34; bundle:resourceBundle];
+    UIViewController *ygPatrolNav = [storyboard instantiateViewControllerWithIdentifier:@&#34;RoomListViewController&#34;];    
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="资源bundle包主要配合a静态库使用">资源bundle包，主要配合<code>.a</code>静态库使用</h4>
 <p>选择macOS平台—&gt;<code>Framework&amp;Library</code>—&gt;<code>Bundle</code>,创建之后，设置为iOS平台的支持：</p>
 <ol>
 <li>在<code>build settings</code> 配置:<code>base SDK</code>:<code>lastest ios</code></li>
@@ -225,10 +236,17 @@
 <li>把资源包库包拖入<code>Copy bundle Resources</code>
 加载资源包的方式案例：</li>
 </ol>
-<pre><code class="language-objc">NSBundle *bundle = [NSBundle bundleWithURL: [[NSBundle mainBundle] URLForResource:@&quot;JHAudioPlayResources&quot; withExtension:@&quot;bundle&quot;]];
-NSArray *apparray= [bundle loadNibNamed:@&quot;mycell&quot; owner:nil options:nil];  
-</code></pre>
-<h3 id="将组件注册到打包平台">将组件注册到打包平台</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSBundle</span> <span class="o">*</span><span class="n">bundle</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBundle</span> <span class="nl">bundleWithURL</span><span class="p">:</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">URLForResource</span><span class="p">:</span><span class="s">@&#34;JHAudioPlayResources&#34;</span> <span class="nl">withExtension</span><span class="p">:</span><span class="s">@&#34;bundle&#34;</span><span class="p">]];</span>
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">apparray</span><span class="o">=</span> <span class="p">[</span><span class="n">bundle</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="s">@&#34;mycell&#34;</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>  
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="将组件注册到打包平台">将组件注册到打包平台</h3>
 <p>组件配置文件<code>ComponentInfomation.plst</code>:在iMac编译服务器上的核心文件
 结构</p>
 <ol>
@@ -369,7 +387,7 @@ NSArray *apparray= [bundle loadNibNamed:@&quot;mycell&quot; owner:nil options:ni
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

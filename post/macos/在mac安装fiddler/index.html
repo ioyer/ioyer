@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="在Mac安装Fiddler">
 <meta itemprop="description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只"><meta itemprop="datePublished" content="2018-05-31T16:38:52&#43;00:00" />
 <meta itemprop="dateModified" content="2018-05-31T16:38:52&#43;00:00" />
-<meta itemprop="wordCount" content="317">
+<meta itemprop="wordCount" content="322">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在Mac安装Fiddler"/>
 <meta name="twitter:description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 317 字 </span>
+          <span class="more-meta"> 约 322 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -187,28 +189,48 @@
 <li>下载证书
 从Mozilla LXR上下载所有受信任的root证书，存于Mono的证书库里。root证书能用于请求https地址：</li>
 </ol>
-<pre><code>$cd /Library/Frameworks/Mono.framework/Versions/&lt;mono version&gt;/bin/
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$cd /Library/Frameworks/Mono.framework/Versions/&lt;mono version&gt;/bin/
 $./mozroots --import --sync
-</code></pre>
-<blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>./mozroots命令失效，./cert-sync新命令，暂时不知道怎么使用</p>
 </blockquote>
 <ol start="2">
 <li>配置Mono环境变量</li>
 </ol>
 <p>在<code>.bash_profile</code>中加入如下内容</p>
-<pre><code>export MONO_HOME=/Library/Frameworks/Mono.framework/Versions/5.0.1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export MONO_HOME=/Library/Frameworks/Mono.framework/Versions/5.0.1
 export PATH=$PATH:$MONO_HOME/bin
-</code></pre>
-<h2 id="fiddler">Fiddler</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="fiddler">Fiddler</h2>
 <p><a href="http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/InstallFiddler">官方文档</a></p>
 <h3 id="安装">安装</h3>
 <p>下载<a href="https://www.telerik.com/download/fiddler">Fiddler-mac.zip</a>压缩包，解压到非中文字符的路径下。</p>
 <h3 id="运行">运行</h3>
 <p>打开Terminal，进入到刚才解压的Fiddler路径，执行命令运行：</p>
-<pre><code>sudo mono Fiddler.exe
-</code></pre>
-<p><a href="http://www.cocoachina.com/apple/20170704/19729.html">参看</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo mono Fiddler.exe
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="http://www.cocoachina.com/apple/20170704/19729.html">参看</a></p>
 
     </div>
 
@@ -331,7 +353,7 @@ export PATH=$PATH:$MONO_HOME/bin
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

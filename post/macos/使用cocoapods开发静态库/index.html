@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="使用CocoaPods开发静态库">
 <meta itemprop="description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发"><meta itemprop="datePublished" content="2018-06-21T21:37:16&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-21T21:37:16&#43;00:00" />
-<meta itemprop="wordCount" content="802">
+<meta itemprop="wordCount" content="807">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用CocoaPods开发静态库"/>
 <meta name="twitter:description" content="Cocoapods作为OS X和iOS开发平台的类库管理工具，已经非常完善和强大。通常我们用pod来管理第三方开源类库，但我们也极有可能会开发"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/macos/"> macOS </a>
             </div>
-          <span class="more-meta"> 约 802 字 </span>
+          <span class="more-meta"> 约 807 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -192,20 +194,40 @@
 <li>安装打包插件
 终端执行以下命令</li>
 </ol>
-<pre><code class="language-sh">sudo gem install cocoapods-packager
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo gem install cocoapods-packager
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>打包
 命令很简单，执行</li>
 </ol>
-<pre><code class="language-sh">pod package BZLib.podspec --library --force
-</code></pre>
-<p>其中<code>--library</code>指定打包成.a文件，如果不带上将会打包成.framework文件。<code>--force</code>是指强制覆盖。最终的目录结构如下</p>
-<pre><code>|____BZLib.podspec
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pod package BZLib.podspec --library --force
+</code></pre></td></tr></table>
+</div>
+</div><p>其中<code>--library</code>指定打包成.a文件，如果不带上将会打包成.framework文件。<code>--force</code>是指强制覆盖。最终的目录结构如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">|____BZLib.podspec
 |____ios
 | |____libBZLib.a
-</code></pre>
-<p>需要特别强调的是，该插件通过对引用的三方库进行重命名很好的解决了类库命名冲突的问题。
+</code></pre></td></tr></table>
+</div>
+</div><p>需要特别强调的是，该插件通过对引用的三方库进行重命名很好的解决了类库命名冲突的问题。
 比如你的类库使用了ASI，然后打包成静态库.a文件。外部调用的项目也使用了ASI，那么不会造成冲突。因为在打包的时候，你的类库里的ASI被重命名为项目+ASI的前缀。</p>
 <p><a href="https://onevcat.com/2016/01/create-framework/">如何打造一个让人愉快的框架</a>
 <a href="http://www.cnblogs.com/brycezhang/p/4117180.html">使用CocoaPods开发并打包静态库</a>
@@ -332,7 +354,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

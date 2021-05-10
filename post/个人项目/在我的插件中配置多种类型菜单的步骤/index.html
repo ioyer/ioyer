@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="在我的中新增智慧决策菜单 先搜集菜单信息 name:菜单名称，必填，显示在我的页面的cell上。 componentId: 业务ID，必填项，通过该字段控制前端权限/业务" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="在我的中新增智慧决策菜单 先搜集菜单信息 name:菜单名称，必填，显示在我的页面的cell上。 componentId: 业务ID，必填项，通过该字段控制前端权限/业务" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="在我的插件中配置多种类型菜单的步骤">
 <meta itemprop="description" content="在我的中新增智慧决策菜单 先搜集菜单信息 name:菜单名称，必填，显示在我的页面的cell上。 componentId: 业务ID，必填项，通过该字段控制前端权限/业务"><meta itemprop="datePublished" content="2018-10-17T21:01:49&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-17T21:01:49&#43;00:00" />
-<meta itemprop="wordCount" content="1159">
+<meta itemprop="wordCount" content="1221">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在我的插件中配置多种类型菜单的步骤"/>
 <meta name="twitter:description" content="在我的中新增智慧决策菜单 先搜集菜单信息 name:菜单名称，必填，显示在我的页面的cell上。 componentId: 业务ID，必填项，通过该字段控制前端权限/业务"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
             </div>
-          <span class="more-meta"> 约 1159 字 </span>
+          <span class="more-meta"> 约 1221 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -197,7 +199,25 @@
 <code>localURL</code>: 待补充
 部分样例如下：</li>
 </ol>
-<pre><code>&lt;group order=&quot;5&quot; show=&quot;1&quot; orientation=&quot;0&quot; contentType=&quot;SafetyCaterOperate&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;group order=&#34;5&#34; show=&#34;1&#34; orientation=&#34;0&#34; contentType=&#34;SafetyCaterOperate&#34;&gt;
     &lt;item&gt;
         &lt;id&gt;&lt;/id&gt;
         &lt;componentId&gt;SafetyCaterOperate&lt;/componentId&gt;
@@ -211,8 +231,9 @@
         &lt;show&gt;0&lt;/show&gt;
     &lt;/item&gt;
 &lt;/group&gt;
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>信息搜集之后，交付平台人员部署到平台上。</li>
 </ol>
 <blockquote>
@@ -222,27 +243,62 @@
 <p><code>我的插件</code>控制器<code>JHPersonalViewController</code>解析布局配置文件：<code>personalNewPage.plist</code>，根据菜单配置显示样式。</p>
 <h3 id="业务权限解析">业务权限解析</h3>
 <p>我的控制器初始化UI加载过程中，会先解析业务id，来控制菜单是否显示：</p>
-<pre><code class="language-objc">#pragma mark    加载数据
--(void)loadData{
-    ...
-    NSString * inforPath = [[NSBundle mainBundle] pathForResource:@&quot;personalNewPage&quot; ofType:@&quot;plist&quot;];
-    ....
-    通过解析
-    if ([detailRow.componentId isEqualToString:@&quot;IntelligentDecision&quot;]) ){
-    //如果是食品管理政府，且用户已登录，且允许添加，且是组织内用户，则添加
-        if ([[LoginAndRegister sharedLoginAndRegister] isUserOfficialLogin] &amp;&amp; [[LoginAndRegister sharedLoginAndRegister] IsOrganizationUser]) {
-            [rows addObject:detailRow]; 
-        }
-    } 
-}
-</code></pre>
-<h3 id="菜单类型">菜单类型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark    加载数据
+</span><span class="cp"></span><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadData</span><span class="p">{</span>
+    <span class="p">...</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">inforPath</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="s">@&#34;personalNewPage&#34;</span> <span class="nl">ofType</span><span class="p">:</span><span class="s">@&#34;plist&#34;</span><span class="p">];</span>
+    <span class="p">....</span>
+    <span class="err">通过解析</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">detailRow</span><span class="p">.</span><span class="n">componentId</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;IntelligentDecision&#34;</span><span class="p">])</span> <span class="p">){</span>
+    <span class="c1">//如果是食品管理政府，且用户已登录，且允许添加，且是组织内用户，则添加
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">([[</span><span class="n">LoginAndRegister</span> <span class="n">sharedLoginAndRegister</span><span class="p">]</span> <span class="n">isUserOfficialLogin</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">[[</span><span class="n">LoginAndRegister</span> <span class="n">sharedLoginAndRegister</span><span class="p">]</span> <span class="n">IsOrganizationUser</span><span class="p">])</span> <span class="p">{</span>
+            <span class="p">[</span><span class="n">rows</span> <span class="nl">addObject</span><span class="p">:</span><span class="n">detailRow</span><span class="p">];</span> 
+        <span class="p">}</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="菜单类型">菜单类型</h3>
 <p>当有相应业务权限后，菜单列会显示在<code>我的</code>页面中</p>
 <ol>
 <li>举例介绍<code>自定义路径菜单类型</code><br>
 现在程序中找到点击菜单的事件代码即类<code>PKHorizontalCell.m</code>：</li>
 </ol>
-<pre><code>- (UIView *)containsView{
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (UIView *)containsView{
     ...
     //菜单icon设置
     [btn setImage:[PersonalHelper imageWithSuffixName:detail.icon] title:detail.name forState:UIControlStateNormal];
@@ -255,32 +311,58 @@
         [self.delegate clickBtnWith:detail];
         ...
 }
-</code></pre>
-<ol start="2">
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>菜单业务实现
 定位到点击事件的实现片段：</li>
 </ol>
-<pre><code>- (void)dealClickWhenSelectedCellWith:(DetailRows *)detail{
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)dealClickWhenSelectedCellWith:(DetailRows *)detail{
     ...
     //解析到自定义的菜单路径
     NSString * webColumnUrlString = detail.WebItemUrl;
     ...
-    if (webColumnUrlString &amp;&amp; ![webColumnUrlString isEqualToString:@&quot;&quot;])
+    if (webColumnUrlString &amp;&amp; ![webColumnUrlString isEqualToString:@&#34;&#34;])
     {
         //仅当菜单类型为自定义链接时，即输入框样式，前端解析url访问网页。（兼容android问题，输入框必须时绝对路径，即：`http`开头）
-        if ([webColumnUrlString hasPrefix:@&quot;http&quot;] &amp;&amp; ![detail.icon isEqualToString:@&quot;personalWork&quot;]) {//兼容办公业务是http开头的但走本地www包
-            [JHWebviewManager pushWebViewControllerWithURL:webColumnUrlString isShowReturnButtonAndCloseButton:YES title:@&quot;&quot;];
+        if ([webColumnUrlString hasPrefix:@&#34;http&#34;] &amp;&amp; ![detail.icon isEqualToString:@&#34;personalWork&#34;]) {//兼容办公业务是http开头的但走本地www包
+            [JHWebviewManager pushWebViewControllerWithURL:webColumnUrlString isShowReturnButtonAndCloseButton:YES title:@&#34;&#34;];
             return;
         }
     }
 }
-</code></pre>
-<h2 id="ios部署产品线">iOS部署产品线</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ios部署产品线">iOS部署产品线</h2>
 <p>目前平台部署仅支持测试环境。在正式环境使用<code>./release.command -t</code></p>
 <h3 id="测试环境部署图文产品线">测试环境部署<code>图文</code>产品线</h3>
-<pre><code>./release.command -t 2
-</code></pre>
-<p><strong>如果部署失败</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./release.command -t 2
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>如果部署失败</strong></p>
 <ol>
 <li>临时解决办法：
 <ul>
@@ -302,18 +384,35 @@
 命令：<code>release.command</code>
 参数1：</li>
 </ol>
-<pre><code>-d   dev环境
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-d   dev环境
 -t   test环境
 -z   正式环境
-</code></pre>
-<p>参数2：
+</code></pre></td></tr></table>
+</div>
+</div><p>参数2：
 该参数与app后台网站上的 [功能页] -&gt; [应用产品线] 设置中指定的产品线名称一一对应, 目前产品线名称有 电商 / 图文 / OA办公 / 企业经营, 参数对应关系如下:</p>
-<pre><code>1    电商
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1    电商
 2    图文
 3    OA办公
 4    企业经营
-</code></pre>
-<p>当app未打应用产品线时, 禁止填写该参数.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>当app未打应用产品线时, 禁止填写该参数.</p>
 
     </div>
 
@@ -436,7 +535,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

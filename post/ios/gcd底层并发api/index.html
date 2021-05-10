@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="GCD底层并发API">
 <meta itemprop="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的"><meta itemprop="datePublished" content="2017-09-24T18:21:38&#43;00:00" />
 <meta itemprop="dateModified" content="2017-09-24T18:21:38&#43;00:00" />
-<meta itemprop="wordCount" content="11195">
+<meta itemprop="wordCount" content="11419">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GCD底层并发API"/>
 <meta name="twitter:description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的"/>
@@ -152,9 +152,11 @@
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/api/"> API </a>
             </div>
-          <span class="more-meta"> 约 11195 字 </span>
+          <span class="more-meta"> 约 11419 字 </span>
           <span class="more-meta"> 预计阅读 23 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -225,31 +227,58 @@
 <h2 id="常用的gcd">常用的GCD</h2>
 <h3 id="单例dispatch_once">单例：dispatch_once</h3>
 <p>或许GCD中使用最多并且被滥用功能的就是 <code>dispatch_once</code> 了。正确的用法看起来是这样的：</p>
-<pre><code class="language-objc">+ (UIColor *)boringColor;
-{
-    static UIColor *color;
-    static dispatch_once_t onceToken;
-    dispatch_once(&amp;onceToken, ^{
-        color = [UIColor colorWithRed:0.380f green:0.376f blue:0.376f alpha:1.000f];
-    });
-    return color;
-}
-</code></pre>
-<p>上面的 block 只会运行一次。并且在连续的调用中，这种检查是很高效的。你能使用它来初始化全局数据比如单例。要注意的是，使用 <code>dispatch_once_t</code> 会使得测试变得非常困难（单例和测试不是很好配合）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">boringColor</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="n">UIColor</span> <span class="o">*</span><span class="n">color</span><span class="p">;</span>
+    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:</span><span class="mf">0.380f</span> <span class="nl">green</span><span class="p">:</span><span class="mf">0.376f</span> <span class="nl">blue</span><span class="p">:</span><span class="mf">0.376f</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">1.000f</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的 block 只会运行一次。并且在连续的调用中，这种检查是很高效的。你能使用它来初始化全局数据比如单例。要注意的是，使用 <code>dispatch_once_t</code> 会使得测试变得非常困难（单例和测试不是很好配合）。</p>
 <p>要确保 <code>onceToken</code> 被声明为 <code>static</code> ，或者有全局作用域。任何其他的情况都会导致无法预知的行为。换句话说，<strong>不要</strong>把 <code>dispatch_once_t</code> 作为一个对象的成员变量，或者类似的情形。</p>
 <p>退回到远古时代（其实也就是几年前），人们会使用 <code>pthread_once</code> ，因为 <code>dispatch_once_t</code> 更容易使用并且不易出错，所以你永远都不会再用到 <code>pthread_once</code> 了。</p>
 <h3 id="延后执行dispatch_after">延后执行：dispatch_after</h3>
 <p>它能使工作延后执行。它是很强大的，但是要注意：你很容易就陷入到一堆麻烦中。一般用法是这样的：</p>
-<pre><code class="language-objc">- (void)foo
-{
-double delayInSeconds = 2.0;
-dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t) (delayInSeconds * NSEC_PER_SEC));
-dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-[self bar];
-});
-}
-</code></pre>
-<p>第一眼看上去这段代码是极好的。但是这里存在一些缺点。我们不能（直接）取消我们已经提交到 <code>dispatch_after</code> 的代码，它将会运行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">foo</span>
+<span class="p">{</span>
+<span class="kt">double</span> <span class="n">delayInSeconds</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+<span class="n">dispatch_time_t</span> <span class="n">popTime</span> <span class="o">=</span> <span class="n">dispatch_time</span><span class="p">(</span><span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="p">(</span><span class="n">int64_t</span><span class="p">)</span> <span class="p">(</span><span class="n">delayInSeconds</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">));</span>
+<span class="n">dispatch_after</span><span class="p">(</span><span class="n">popTime</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+<span class="p">[</span><span class="nb">self</span> <span class="n">bar</span><span class="p">];</span>
+<span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>第一眼看上去这段代码是极好的。但是这里存在一些缺点。我们不能（直接）取消我们已经提交到 <code>dispatch_after</code> 的代码，它将会运行。</p>
 <h4 id="时序性bug">时序性bug</h4>
 <p>当人们使用 <code>dispatch_after</code> 去处理他们代码中存在的时序 bug 时，会存在一些有问题的倾向。一些代码执行的过早而你很可能不知道为什么会这样，所以你把这段代码放到了 <code>dispatch_after</code> 中，现在一切运行正常了。但是几周以后，之前的工作不起作用了。由于你并不十分清楚你自己代码的执行次序，调试代码就变成了一场噩梦。所以不要像上面这样做。</p>
 <h4 id="解决方案">解决方案</h4>
@@ -263,21 +292,39 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 隔离队列：默认情况下，它们是串行的，也就是说，任何给定的时间内，只能有一个单独的 block 运行。
 并行队列：同一时间内允许多个 block 一起执行。
 GCD 中一个基本的代码块就是队列。下面我们会给出一些如何使用它的例子。当使用队列的时候，给它们一个明显的标签会帮自己不少忙。在调试时，这个标签会在 Xcode (和 lldb)中显示，这会帮助你了解你的 app 是由什么决定的：</p>
-<pre><code class="language-objc">- (id)init;
-{
-    self = [super init];
-    if (self != nil) {
-        NSString *label = [NSString stringWithFormat:@&quot;%@.isolation.%p&quot;, [self class], self];
-        self.isolationQueue = dispatch_queue_create([label UTF8String], 0);
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@.isolation.%p&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nb">self</span> <span class="k">class</span><span class="p">],</span> <span class="nb">self</span><span class="p">];</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">([</span><span class="n">label</span> <span class="n">UTF8String</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
 
-        label = [NSString stringWithFormat:@&quot;%@.work.%p&quot;, [self class], self];
-        //创建一个队列
-        self.workQueue = dispatch_queue_create([label UTF8String], 0);
-    }
-    return self;
-}
-</code></pre>
-<h4 id="解决扇出问题">解决扇出问题</h4>
+        <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@.work.%p&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nb">self</span> <span class="k">class</span><span class="p">],</span> <span class="nb">self</span><span class="p">];</span>
+        <span class="c1">//创建一个队列
+</span><span class="c1"></span>        <span class="nb">self</span><span class="p">.</span><span class="n">workQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">([</span><span class="n">label</span> <span class="n">UTF8String</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="解决扇出问题">解决扇出问题</h4>
 <p>队列和功能点同时解决了一个连续不断的扇出的问题：如果我们直接使用线程，并且想要做一些并发的事情，我们很可能将我们的工作分成 100 个小的功能点，然后基于可用的 CPU 内核数量来创建线程，假设是 8。我们把这些功能点送到这 8 个线程中。当我们处理这些功能点时，可能会调用一些函数作为功能的一部分。写那个函数的人也想要使用并发，因此当你调用这个函数的时候，这个函数也会创建 8 个线程。现在，你有了 8 × 8 = 64 个线程，尽管你只有 8 个CPU内核——也就是说任何时候只有12%的线程实际在运行而另外88%的线程什么事情都没做。使用 GCD 你就不会遇到这种问题，当系统关闭 CPU 内核以省电时，GCD 甚至能够相应地调整线程数量。</p>
 <h4 id="gcd中创建线程">GCD中创建线程</h4>
 <p>GCD 通过创建所谓的<a href="http://en.wikipedia.org/wiki/Thread_pool_pattern">线程池</a>来大致匹配 CPU 内核数量。要记住，线程的创建并不是无代价的。每个线程都需要占用内存和内核资源。这里也有一个问题：如果你提交了一个 block 给 GCD，但是这段代码阻塞了这个线程，那么这个线程在这段时间内就不能用来完成其他工作——它被阻塞了。为了确保功能点在队列上一直是执行的，GCD 不得不创建一个新的线程，并把它添加到线程池。</p>
@@ -303,29 +350,55 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>我们在<a href="http://objccn.io/issue-2-1/#shared_resources">有关多线程技术的文章</a>中讨论了<em>资源</em>在并发编程中意味着什么，它通常就是一块内存或者一个对象，每次只有一个线程可以访问它。</p>
 <h4 id="串行队列读写共享资源">串行队列读写共享资源</h4>
 <p>举例来说，我们需要以多线程（或者多个队列）方式访问 <code>NSMutableDictionary</code> 。我们可能会照下面的代码来做：</p>
-<pre><code class="language-objc">- (void)setCount:(NSUInteger)count forKey:(NSString *)key
-{
-    key = [key copy];
-    dispatch_async(self.isolationQueue, ^(){
-        if (count == 0) {
-            [self.counts removeObjectForKey:key];
-        } else {
-            self.counts[key] = @(count);
-        }
-    });
-}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+<span class="p">{</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">copy</span><span class="p">];</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">counts</span> <span class="nl">removeObjectForKey</span><span class="p">:</span><span class="n">key</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">counts</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="l">@(</span><span class="n">count</span><span class="l">)</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
 
-- (NSUInteger)countForKey:(NSString *)key;
-{
-    __block NSUInteger count;
-    dispatch_sync(self.isolationQueue, ^(){
-        NSNumber *n = self.counts[key];
-        count = [n unsignedIntegerValue];
-    });
-    return count;
-}
-</code></pre>
-<p>通过以上代码，只有一个线程可以访问 <code>NSMutableDictionary</code> 的实例。</p>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">countForKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="k">__block</span> <span class="n">NSUInteger</span> <span class="n">count</span><span class="p">;</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="n">NSNumber</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">counts</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="n">unsignedIntegerValue</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通过以上代码，只有一个线程可以访问 <code>NSMutableDictionary</code> 的实例。</p>
 <p>注意以下四点：</p>
 <ol>
 <li>不要使用上面的代码，请先阅读<a href="#multiple_readers_single_writer">多读单写</a>和<a href="#contention">锁竞争</a></li>
@@ -338,22 +411,44 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 <code>NSMutableDictionary</code> 中读取只要我们不同时修改它。
 我们使用 <em>barrier</em> 来分发一个block实现对字典的多读单写操作。这样的一个 block 的运行时机是，<strong>在它之前所有计划好的 block 完成之后，并且在所有它后面的 block 运行之前</strong>。</p>
 <p>以如下方式创建队列：</p>
-<pre><code class="language-objc">self.isolationQueue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_CONCURRENT);
-</code></pre>
-<p>并且用以下代码来改变setter函数：</p>
-<pre><code class="language-objc">- (void)setCount:(NSUInteger)count forKey:(NSString *)key
-{
-    key = [key copy];
-    dispatch_barrier_async(self.isolationQueue, ^(){
-    if (count == 0) {
-        [self.counts removeObjectForKey:key];
-    } else {
-        self.counts[key] = @(count);
-    }
-    });
-}
-</code></pre>
-<p>当使用并发队列时，要确保所有的 <em>barrier</em> 调用都是 <em>async</em> 的。如果你使用 <code>dispatch_barrier_sync</code> ，那么你很可能会使你自己（更确切的说是，你的代码）产生死锁。写操作<em>需要</em>  barrier，并且<em>可以</em>是 async 的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">([</span><span class="n">label</span> <span class="n">UTF8String</span><span class="p">],</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>并且用以下代码来改变setter函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+<span class="p">{</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">copy</span><span class="p">];</span>
+    <span class="n">dispatch_barrier_async</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">counts</span> <span class="nl">removeObjectForKey</span><span class="p">:</span><span class="n">key</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">counts</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="l">@(</span><span class="n">count</span><span class="l">)</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当使用并发队列时，要确保所有的 <em>barrier</em> 调用都是 <em>async</em> 的。如果你使用 <code>dispatch_barrier_sync</code> ，那么你很可能会使你自己（更确切的说是，你的代码）产生死锁。写操作<em>需要</em>  barrier，并且<em>可以</em>是 async 的。</p>
 <p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 <h3 id="锁竞争">锁竞争</h3>
 <p>首先，这里有一个警告：上面这个例子中我们保护的资源是一个  <code>NSMutableDictionary</code>，出于这样的目的，这段代码运行地相当不错。但是在真实的代码中，把隔离放到正确的复杂度层级下是很重要的。</p>
@@ -379,47 +474,94 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <ol>
 <li>在 GCD 中，同步和异步地分发一个  block，一个工作单元。以同步分发的方式非常容易出现<a href="http://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81">死锁</a>。见下面的代码：</li>
 </ol>
-<pre><code class="language-objc">dispatch_queue_t queueA; // assume we have this
-dispatch_sync(queueA, ^(){
-    dispatch_sync(queueA, ^(){
-        foo();
-    });
-});
-</code></pre>
-<p>一旦我们进入到第二个 <code>dispatch_sync</code> 就会发生死锁。我们不能分发到queueA，因为有人（当前线程）正在队列中并且永远不会离开。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+</span><span class="c1"></span><span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="n">foo</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一旦我们进入到第二个 <code>dispatch_sync</code> 就会发生死锁。我们不能分发到queueA，因为有人（当前线程）正在队列中并且永远不会离开。
 2. 更隐晦的产生死锁方式：</p>
-<pre><code class="language-objc">dispatch_queue_t queueA; // assume we have this
-dispatch_queue_t queueB; // assume we have this
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+</span><span class="c1"></span><span class="n">dispatch_queue_t</span> <span class="n">queueB</span><span class="p">;</span> <span class="c1">// assume we have this
+</span><span class="c1"></span>
+<span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="n">foo</span><span class="p">();</span>
+<span class="p">});</span>
 
-dispatch_sync(queueA, ^(){
-    foo();
-});
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueB</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="n">bar</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
 
-void foo(void)
-{
-    dispatch_sync(queueB, ^(){
-        bar();
-    });
-}
-
-void bar(void)
-{
-    dispatch_sync(queueA, ^(){
-        baz();
-    });
-}
-</code></pre>
-<p>单独的每次调用 <code>dispatch_sync()</code> 看起来都没有问题，但是一旦组合起来，就会发生死锁。</p>
+<span class="kt">void</span> <span class="nf">bar</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="n">baz</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>单独的每次调用 <code>dispatch_sync()</code> 看起来都没有问题，但是一旦组合起来，就会发生死锁。</p>
 <h4 id="解决异步调用不会产生死锁">解决：异步调用不会产生死锁</h4>
 <p>这是使用同步分发存在的固有问题，如果我们使用异步分发，比如：</p>
-<pre><code class="language-objc">dispatch_queue_t queueA; // assume we have this
-dispatch_async(queueA, ^(){
-    dispatch_async(queueA, ^(){
-        foo();
-    });
-});
-</code></pre>
-<p>一切运行正常。<em>异步调用不会产生死锁</em>。因此值得我们在任何可能的时候都使用异步分发。我们使用一个异步调用结果 block 的函数，来代替编写一个返回值（必须要用同步）的方法或者函数。这种方式，我们会有更少发生死锁的可能性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+</span><span class="c1"></span><span class="n">dispatch_async</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="n">foo</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一切运行正常。<em>异步调用不会产生死锁</em>。因此值得我们在任何可能的时候都使用异步分发。我们使用一个异步调用结果 block 的函数，来代替编写一个返回值（必须要用同步）的方法或者函数。这种方式，我们会有更少发生死锁的可能性。</p>
 <p>异步调用的副作用就是它们很难调试。当我们在调试器里中止代码运行，回溯并查看已经变得没有意义了。</p>
 <p>要牢记这些。死锁通常是最难处理的问题。</p>
 <h3 id="如何设计健壮的异步-api">如何设计健壮的异步 API</h3>
@@ -434,7 +576,20 @@ dispatch_async(queueA, ^(){
 这么做的原因很简单：几乎所有事件，函数调用都应该在一个适当的队列中，而且以这种方式编写的代码是很容易阅读的。总之，你的函数将会（必须）调用 <code>dispatch_async()</code> 去运行回调处理程序，所以它同时也可能在需要调用的队列上做这些工作。</li>
 </ol>
 <p>如果你写一个类，让你类的使用者设置一个回调处理队列或许会是一个好的选择。你的代码可能像这样：</p>
-<pre><code>- (void)processImage:(UIImage *)image completionHandler:(void(^)(BOOL success))handler;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)processImage:(UIImage *)image completionHandler:(void(^)(BOOL success))handler;
 {
     dispatch_async(self.isolationQueue, ^(void){
         // do actual processing here
@@ -443,94 +598,184 @@ dispatch_async(queueA, ^(){
         });
     });
 }
-</code></pre>
-<p>如果你以这种方式来写你的类，让类之间协同工作就会变得容易。如果类 A 使用了类 B，它会把自己的隔离队列设置为 B 的回调队列。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你以这种方式来写你的类，让类之间协同工作就会变得容易。如果类 A 使用了类 B，它会把自己的隔离队列设置为 B 的回调队列。</p>
 <h2 id="迭代执行">迭代执行</h2>
 <p>如果你正在倒弄一些数字，并且手头上的问题可以拆分出同样性质的部分，那么 <code>dispatch_apply</code> 会很有用。</p>
 <p>如果你的代码看起来是这样的：</p>
-<pre><code class="language-objc">for (size_t y = 0; y &lt; height; ++y) {
-    for (size_t x = 0; x &lt; width; ++x) {
-        // Do something with x and y here
-    }
-}
-</code></pre>
-<p>小小的改动或许就可以让它运行的更快：</p>
-<pre><code class="language-objc">dispatch_apply(height, dispatch_get_global_queue(0, 0), ^(size_t y) {
-    for (size_t x = 0; x &lt; width; x += 2) {
-        // Do something with x and y here
-    }
-});
-</code></pre>
-<p>代码运行良好的程度取决于你在循环内部做的操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do something with x and y here
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>小小的改动或许就可以让它运行的更快：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_apply</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">(</span><span class="n">size_t</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do something with x and y here
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>代码运行良好的程度取决于你在循环内部做的操作。</p>
 <p>block 中运行的工作必须是非常重要的，否则这个头部信息就显得过于繁重了。除非代码受到计算带宽的约束，每个工作单元为了很好适应缓存大小而读写的内存都是临界的。这会对性能会带来显著的影响。受到临界区约束的代码可能不会很好地运行。详细讨论这些问题已经超出了这篇文章的范围。使用 <code>dispatch_apply</code> 可能会对性能提升有所帮助，但是性能优化本身就是个很复杂的主题。维基百科上有一篇关于 <a href="https://en.wikipedia.org/wiki/Memory_bound">Memory-bound function</a> 的文章。内存访问速度在 L2，L3 和主存上变化很显著。当你的数据访问模式与缓存大小不匹配时，10倍性能下降的情况并不少见。</p>
 <h2 id="组">组</h2>
 <p>很多时候，你发现需要将异步的 block 组合起来去完成一个给定的任务。这些任务中甚至有些是并行的。
 现在，如果你想要在这些任务都执行完成后运行一些代码，&ldquo;groups&rdquo; 可以完成这项任务。看这里的例子：</p>
-<pre><code class="language-objc">dispatch_group_t group = dispatch_group_create();
-dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-dispatch_group_async(group, queue, ^(){
-    // Do something that takes a while
-    [self doSomeFoo];
-    dispatch_group_async(group, dispatch_get_main_queue(), ^(){
-        self.foo = 42;
-    });
-});
-dispatch_group_async(group, queue, ^(){
-    // Do something else that takes a while
-    [self doSomeBar];
-    dispatch_group_async(group, dispatch_get_main_queue(), ^(){
-        self.bar = 1;
-    });
-});
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_group_t</span> <span class="n">group</span> <span class="o">=</span> <span class="n">dispatch_group_create</span><span class="p">();</span>
+<span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="c1">// Do something that takes a while
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span> <span class="n">doSomeFoo</span><span class="p">];</span>
+    <span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="c1">// Do something else that takes a while
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span> <span class="n">doSomeBar</span><span class="p">];</span>
+    <span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">(){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
 
-// This block will run once everything above is done:
-dispatch_group_notify(group, dispatch_get_main_queue(), ^(){
-    NSLog(@&quot;foo: %d&quot;, self.foo);
-    NSLog(@&quot;bar: %d&quot;, self.bar);
-});
+<span class="c1">// This block will run once everything above is done:
+</span><span class="c1"></span><span class="n">dispatch_group_notify</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;foo: %d&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">foo</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;bar: %d&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">bar</span><span class="p">);</span>
+<span class="p">});</span>
 
-</code></pre>
-<p>需要注意的重要事情是，所有的这些都是非阻塞的。我们从未让当前的线程一直等待直到别的任务做完。恰恰相反，我们只是简单的将多个 block 放入队列。由于代码不会阻塞，所以就不会产生死锁。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>需要注意的重要事情是，所有的这些都是非阻塞的。我们从未让当前的线程一直等待直到别的任务做完。恰恰相反，我们只是简单的将多个 block 放入队列。由于代码不会阻塞，所以就不会产生死锁。</p>
 <p>同时需要注意的是，在这个小并且简单的例子中，我们是怎么在不同的队列间进切换的。</p>
 <h3 id="对现有api使用-dispatch_group_t">对现有API使用 dispatch_group_t</h3>
 <p>一旦你将  groups 作为你的工具箱中的一部分，你可能会怀疑为什么大多数的异步API不把 <code>dispatch_group_t</code> 作为一个可选参数。这没有什么无法接受的理由，仅仅是因为自己添加这个功能太简单了，但是你还是要小心以确保自己使用 groups 的代码是成对出现的。</p>
 <p>举例来说，我们可以给 Core Data 的 <code>-performBlock:</code> API 函数添加上 groups，就像这样：</p>
-<pre><code class="language-objc">- (void)withGroup:(dispatch_group_t)group performBlock:(dispatch_block_t)block
-{
-if (group == NULL) {
-[self performBlock:block];
-} else {
-dispatch_group_enter(group);
-[self performBlock:^(){
-block();
-dispatch_group_leave(group);
-}];
-}
-}
-</code></pre>
-<p>当 Core Data 上的一系列操作(很可能和其他的代码组合起来)完成以后，我们可以使用 <code>dispatch_group_notify</code> 来运行一个 block 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span> <span class="nf">performBlock:</span><span class="p">(</span><span class="n">dispatch_block_t</span><span class="p">)</span><span class="nv">block</span>
+<span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">group</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">performBlock</span><span class="p">:</span><span class="n">block</span><span class="p">];</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="n">dispatch_group_enter</span><span class="p">(</span><span class="n">group</span><span class="p">);</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">performBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(){</span>
+<span class="n">block</span><span class="p">();</span>
+<span class="n">dispatch_group_leave</span><span class="p">(</span><span class="n">group</span><span class="p">);</span>
+<span class="p">}];</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当 Core Data 上的一系列操作(很可能和其他的代码组合起来)完成以后，我们可以使用 <code>dispatch_group_notify</code> 来运行一个 block 。</p>
 <p>很明显，我们可以给 <code>NSURLConnection</code> 做同样的事情：</p>
-<pre><code class="language-objc">+ (void)withGroup:(dispatch_group_t)group
-sendAsynchronousRequest:(NSURLRequest *)request
-queue:(NSOperationQueue *)queue
-completionHandler:(void (^)(NSURLResponse*, NSData*, NSError*))handler
-{
-    if (group == NULL) {
-    [self sendAsynchronousRequest:request
-                            queue:queue
-                completionHandler:handler];
-    } else {
-        dispatch_group_enter(group);
-        [self sendAsynchronousRequest:request
-                                queue:queue
-                    completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-            handler(response, data, error);
-            dispatch_group_leave(group);
-        }];
-    }
-}
-</code></pre>
-<p>为了能正常工作，你需要确保:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span>
+<span class="nf">sendAsynchronousRequest:</span><span class="p">(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+<span class="nf">queue:</span><span class="p">(</span><span class="n">NSOperationQueue</span> <span class="o">*</span><span class="p">)</span><span class="nv">queue</span>
+<span class="nf">completionHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURLResponse</span><span class="o">*</span><span class="p">,</span> <span class="n">NSData</span><span class="o">*</span><span class="p">,</span> <span class="n">NSError</span><span class="o">*</span><span class="p">))</span><span class="nv">handler</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">group</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="nl">sendAsynchronousRequest</span><span class="p">:</span><span class="n">request</span>
+                            <span class="nl">queue</span><span class="p">:</span><span class="n">queue</span>
+                <span class="nl">completionHandler</span><span class="p">:</span><span class="n">handler</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">dispatch_group_enter</span><span class="p">(</span><span class="n">group</span><span class="p">);</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="nl">sendAsynchronousRequest</span><span class="p">:</span><span class="n">request</span>
+                                <span class="nl">queue</span><span class="p">:</span><span class="n">queue</span>
+                    <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">){</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+            <span class="n">dispatch_group_leave</span><span class="p">(</span><span class="n">group</span><span class="p">);</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为了能正常工作，你需要确保:</p>
 <ul>
 <li><code>dispatch_group_enter()</code> 必须要在 <code>dispatch_group_leave()</code>之前运行。</li>
 <li><code>dispatch_group_enter()</code> 和 <code>dispatch_group_leave()</code> 一直是成对出现的（就算有错误产生时）。</li>
@@ -541,31 +786,76 @@ completionHandler:(void (^)(NSURLResponse*, NSData*, NSError*))handler
 <p>GCD 事件源是以极其资源高效的方式实现的。</p>
 <h3 id="监视进程">监视进程</h3>
 <p>如果一些进程正在运行而你想知道他们什么时候存在，GCD 能够做到这些。你也可以使用 GCD 来检测进程什么时候分叉，也就是产生子进程或者传送给了进程的一个信号（比如 <code>SIGTERM</code>）。</p>
-<pre><code class="language-objc">NSRunningApplication *mail = [NSRunningApplication
-runningApplicationsWithBundleIdentifier:@&quot;com.apple.mail&quot;];
-if (mail == nil) {
-return;
-}
-pid_t const pid = mail.processIdentifier;
-self.source = dispatch_source_create(DISPATCH_SOURCE_TYPE_PROC, pid,
-DISPATCH_PROC_EXIT, DISPATCH_TARGET_QUEUE_DEFAULT);
-dispatch_source_set_event_handler(self.source, ^(){
-NSLog(@&quot;Mail quit.&quot;);
-});
-dispatch_resume(self.source);
-</code></pre>
-<p>当 Mail.app 退出的时候，这个程序会打印出 <strong>Mail quit.</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSRunningApplication</span> <span class="o">*</span><span class="n">mail</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSRunningApplication</span>
+<span class="nl">runningApplicationsWithBundleIdentifier</span><span class="p">:</span><span class="s">@&#34;com.apple.mail&#34;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">mail</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">pid_t</span> <span class="k">const</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">mail</span><span class="p">.</span><span class="n">processIdentifier</span><span class="p">;</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">dispatch_source_create</span><span class="p">(</span><span class="n">DISPATCH_SOURCE_TYPE_PROC</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span>
+<span class="n">DISPATCH_PROC_EXIT</span><span class="p">,</span> <span class="n">DISPATCH_TARGET_QUEUE_DEFAULT</span><span class="p">);</span>
+<span class="n">dispatch_source_set_event_handler</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">source</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;Mail quit.&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="n">dispatch_resume</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">source</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当 Mail.app 退出的时候，这个程序会打印出 <strong>Mail quit.</strong>。</p>
 <p>注意：在所有的事件源被传递到你的事件处理器之前，必须调用 <code>dispatch_resume()</code>。</p>
 <p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 <h3 id="监视文件">监视文件</h3>
 <p>这种可能性是无穷的。你能直接监视一个文件的改变，并且当改变发生时事件源的事件处理将会被调用。</p>
 <p>你也可以使用它来监视文件夹，比如创建一个 <em>watch folder</em>：</p>
-<pre><code>NSURL *directoryURL; // assume this is set to a directory
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSURL *directoryURL; // assume this is set to a directory
 int const fd = open([[directoryURL path] fileSystemRepresentation], O_EVTONLY);
 if (fd &lt; 0) {
 char buffer[80];
 strerror_r(errno, buffer, sizeof(buffer));
-NSLog(@&quot;Unable to open \&quot;%@\&quot;: %s (%d)&quot;, [directoryURL path], buffer, errno);
+NSLog(@&#34;Unable to open \&#34;%@\&#34;: %s (%d)&#34;, [directoryURL path], buffer, errno);
 return;
 }
 dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, fd,
@@ -573,10 +863,10 @@ DISPATCH_VNODE_WRITE | DISPATCH_VNODE_DELETE, DISPATCH_TARGET_QUEUE_DEFAULT);
 dispatch_source_set_event_handler(source, ^(){
 unsigned long const data = dispatch_source_get_data(source);
 if (data &amp; DISPATCH_VNODE_WRITE) {
-NSLog(@&quot;The directory changed.&quot;);
+NSLog(@&#34;The directory changed.&#34;);
 }
 if (data &amp; DISPATCH_VNODE_DELETE) {
-NSLog(@&quot;The directory has been deleted.&quot;);
+NSLog(@&#34;The directory has been deleted.&#34;);
 }
 });
 dispatch_source_set_cancel_handler(source, ^(){
@@ -584,24 +874,40 @@ close(fd);
 });
 self.source = source;
 dispatch_resume(self.source);
-</code></pre>
-<p>你应该总是添加 <code>DISPATCH_VNODE_DELETE</code> 去检测文件或者文件夹是否已经被删除——然后就停止监听。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>你应该总是添加 <code>DISPATCH_VNODE_DELETE</code> 去检测文件或者文件夹是否已经被删除——然后就停止监听。</p>
 <h3 id="定时器">定时器</h3>
 <p>大多数情况下，对于定时事件你会选择 <code>NSTimer</code>。定时器的GCD版本是底层的，它会给你更多控制权——但要小心使用。</p>
 <p>需要特别重点指出的是，为了让 OS 节省电量，需要为 GCD 的定时器接口指定一个低的余地值(译注：原文leeway value)。如果你不必要的指定了一个低余地值，将会浪费更多的电量。</p>
 <p>这里我们设定了一个5秒的定时器，并允许有十分之一秒的余地值：</p>
-<pre><code class="language-objc">dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,
-0, 0, DISPATCH_TARGET_QUEUE_DEFAULT);
-dispatch_source_set_event_handler(source, ^(){
-    NSLog(@&quot;Time flies.&quot;);
-});
-dispatch_time_t start
-dispatch_source_set_timer(source, DISPATCH_TIME_NOW, 5ull * NSEC_PER_SEC,
-100ull * NSEC_PER_MSEC);
-self.source = source;
-dispatch_resume(self.source);
-</code></pre>
-<h3 id="取消">取消</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_source_t</span> <span class="n">source</span> <span class="o">=</span> <span class="n">dispatch_source_create</span><span class="p">(</span><span class="n">DISPATCH_SOURCE_TYPE_TIMER</span><span class="p">,</span>
+<span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">DISPATCH_TARGET_QUEUE_DEFAULT</span><span class="p">);</span>
+<span class="n">dispatch_source_set_event_handler</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;Time flies.&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="n">dispatch_time_t</span> <span class="n">start</span>
+<span class="nf">dispatch_source_set_timer</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="mi">5ull</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">,</span>
+<span class="mi">100ull</span> <span class="o">*</span> <span class="n">NSEC_PER_MSEC</span><span class="p">);</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="p">;</span>
+<span class="n">dispatch_resume</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">source</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="取消">取消</h3>
 <p>所有的事件源都允许你添加一个 <em>cancel handler</em> 。这对清理你为事件源创建的任何资源都是很有帮助的，比如关闭文件描述符。GCD 保证在 <em>cancel handle</em>  调用前，所有的事件处理都已经完成调用。</p>
 <p>参考上面的<a href="#watching_files">监视文件例子</a>中对 <code>dispatch_source_set_cancel_handler()</code> 的使用。</p>
 <p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
@@ -623,24 +929,49 @@ dispatch_resume(self.source);
 <p>注意，<code>dispatch_data_t</code> 可以被 retained 和 releaseed ，并且 <code>dispatch_data_t</code> <em>拥有</em>它持有的对象。</p>
 <p>这看起来无关紧要，但是我们必须记住 GCD 只是纯 C 的 API，并且不能使用Objective-C。通常的做法是创建一个缓冲区，这个缓冲区要么是基于栈的，要么是  <code>malloc</code> 操作分配的内存区域 —— 这些都没有所有权。</p>
 <p><code>dispatch_data_t</code> 的一个相当独特的属性是它可以基于零碎的内存区域。这解决了我们刚提到的组合内存的问题。当你要将两个数据对象连接起来时：</p>
-<pre><code class="language-objc">dispatch_data_t a; // Assume this hold some valid data
-dispatch_data_t b; // Assume this hold some valid data
-dispatch_data_t c = dispatch_data_create_concat(a, b);
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_t</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Assume this hold some valid data
+</span><span class="c1"></span><span class="n">dispatch_data_t</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// Assume this hold some valid data
+</span><span class="c1"></span><span class="n">dispatch_data_t</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dispatch_data_create_concat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
 
-</code></pre>
-<p>数据对象 c 并不会将 a 和 b 拷贝到一个单独的，更大的内存区域里去。相反，它只是简单地 retain 了 a 和 b。你可以使用 <code>dispatch_data_apply</code> 来遍历对象 c 持有的内存区域：</p>
-<pre><code class="language-objc">dispatch_data_apply(c, ^bool(dispatch_data_t region, size_t offset, const void *buffer, size_t size) {
-fprintf(stderr, &quot;region with offset %zu, size %zu\n&quot;, offset, size);
-return true;
-});
-</code></pre>
-<p>类似的，你可以使用 <code>dispatch_data_create_subrange</code> 来创建一个不做任何拷贝操作的子区域。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>数据对象 c 并不会将 a 和 b 拷贝到一个单独的，更大的内存区域里去。相反，它只是简单地 retain 了 a 和 b。你可以使用 <code>dispatch_data_apply</code> 来遍历对象 c 持有的内存区域：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_apply</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">^</span><span class="kt">bool</span><span class="p">(</span><span class="n">dispatch_data_t</span> <span class="n">region</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">offset</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;region with offset %zu, size %zu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>类似的，你可以使用 <code>dispatch_data_create_subrange</code> 来创建一个不做任何拷贝操作的子区域。</p>
 <h3 id="读和写">读和写</h3>
 <p>在 GCD 的核心里，<em>调度 I/O</em>（译注：原文为 Dispatch I/O） 与所谓的<em>通道</em>有关。调度 I/O 通道提供了一种与从文件描述符中读写不同的方式。创建这样一个通道最基本的方式就是调用：</p>
-<pre><code class="language-objc">dispatch_io_t dispatch_io_create(dispatch_io_type_t type, dispatch_fd_t fd,
-dispatch_queue_t queue, void (^cleanup_handler)(int error));
-</code></pre>
-<p>这将返回一个持有文件描述符的创建好的通道。在你通过它创建了通道之后，你不准以任何方式修改这个文件描述符。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_io_t</span> <span class="nf">dispatch_io_create</span><span class="p">(</span><span class="n">dispatch_io_type_t</span> <span class="n">type</span><span class="p">,</span> <span class="n">dispatch_fd_t</span> <span class="n">fd</span><span class="p">,</span>
+<span class="n">dispatch_queue_t</span> <span class="n">queue</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">cleanup_handler</span><span class="p">)(</span><span class="kt">int</span> <span class="n">error</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这将返回一个持有文件描述符的创建好的通道。在你通过它创建了通道之后，你不准以任何方式修改这个文件描述符。</p>
 <p>有两种从根本上不同类型的通道：流和随机存取。如果你打开了硬盘上的一个文件，你可以使用它来创建一个随机存取的通道（因为这样的文件描述符是可寻址的）。如果你打开了一个套接字，你可以创建一个流通道。</p>
 <p>如果你想要为一个文件创建一个通道，你最好使用需要一个路径参数的 <code>dispatch_io_create_with_path</code> ，并且让 GCD 来打开这个文件。这是有益的，因为GCD会延迟打开这个文件以限制相同时间内同时打开的文件数量。</p>
 <p>类似通常的 read(2)，write(2) 和 close(2) 的操作，GCD 提供了 <code>dispatch_io_read</code>，<code>dispatch_io_write</code> 和 <code>dispatch_io_close</code>。无论何时数据读完或者写完，读写操作调用一个回调 block 来结束。这些都是以非阻塞，异步 I/O 的形式高效实现的。</p>
@@ -905,7 +1236,7 @@ return _amountAttributes;
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

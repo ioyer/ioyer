@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="将Playground作为项目的单元测试">
 <meta itemprop="description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode"><meta itemprop="datePublished" content="2018-10-22T16:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-22T16:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="400">
+<meta itemprop="wordCount" content="411">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="将Playground作为项目的单元测试"/>
 <meta name="twitter:description" content="在Perfect项目中增加playground： 新建Perfect.xcodeproj和PerfectPlayground 新建一个Xcode"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 400 字 </span>
+          <span class="more-meta"> 约 411 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -178,9 +180,15 @@
 <ol>
 <li>新建一个Xcode工程<code>Perfect</code></li>
 </ol>
-<pre><code>swift package generate-xcodeproj
-</code></pre>
-<ol start="2">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
 <li>设置include路径
 在Xcode工程的<code>build settings</code>中设置<code>SWIFT_INCLUDE_PATH</code> 路径为 <code>${PROJECT_DIR}</code>并设置<code>recursive</code>（递归）选项。</li>
 <li>在同一工程目录下创建一个<code>PerfectPlayground</code>。</li>
@@ -190,18 +198,33 @@
 <li>新建一个工作空间：<code>Perfect.workspace</code>,在工作空间中添加工程和操场：<code>Perfect.xcodeproj</code>和<code>PerfectPlayground</code>。</li>
 <li>编译<code>Perfect.xcodeproj</code>，这样就激活了<code>PerfectPlayground</code>的<code>PerfectLib</code>函数库功能。</li>
 </ol>
-<pre><code class="language-swift">import PerfectLib
-let json = &quot;{\&quot;name\&quot;: \&quot;tom\&quot;}&quot;
-do {
-    let name = try json.jsonDecode()
-    print(name)
-}catch{
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PerfectLib</span>
+<span class="kd">let</span> <span class="nv">json</span> <span class="p">=</span> <span class="s">&#34;{</span><span class="se">\&#34;</span><span class="s">name</span><span class="se">\&#34;</span><span class="s">: </span><span class="se">\&#34;</span><span class="s">tom</span><span class="se">\&#34;</span><span class="s">}&#34;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="k">try</span> <span class="n">json</span><span class="p">.</span><span class="n">jsonDecode</span><span class="p">()</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span><span class="k">catch</span><span class="p">{</span>
 
-}
-let u = UUID()
-print(u.string)
-</code></pre>
-<p><a href="https://github.com/PerfectExamples/Perfect-Playground/blob/master/README.zh_CN.md">原文Perfect-Playground</a></p>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nv">u</span> <span class="p">=</span> <span class="n">UUID</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">string</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/PerfectExamples/Perfect-Playground/blob/master/README.zh_CN.md">原文Perfect-Playground</a></p>
 
     </div>
 
@@ -324,7 +347,7 @@ print(u.string)
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

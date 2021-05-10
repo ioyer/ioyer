@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="不物喜,不己悲;善假物,易参行." /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="不物喜,不己悲;善假物,易参行." /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -141,6 +141,106 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/">使用tag管理多个相关组件的版本发布</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+        <span class="more-meta"> 约 193 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version+=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag
+    </div>
+    <div class="read-more">
+      <a href="/post/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%BC%A7%E5%BD%A2%E8%A1%A8%E7%9B%98%E8%BF%9B%E5%BA%A6%E4%BB%AA%E8%A1%A8/">弧形表盘进度仪表</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
+          </div>
+        <span class="more-meta"> 约 666 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      {% github it-boyer ArcProgressUI 4b9bc85 width = 30% %} ArcProgressUI Example To run the example project, clone the repo, and run pod install from the Example directory first. Requirements Installation ArcProgressUI is available through CocoaPods. To install it, simply add the following line to your Podfile: 1 pod &#39;ArcProgressUI&#39; API使用 独立进度表盘加载 1 2 3 4 5 #import &#34;ArcProgressView.h&#34; NSArray
+    </div>
+    <div class="read-more">
+      <a href="/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%BC%A7%E5%BD%A2%E8%A1%A8%E7%9B%98%E8%BF%9B%E5%BA%A6%E4%BB%AA%E8%A1%A8/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/storyboard%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">storyboard的几种方式</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/ios/"> iOS </a>
+          </div>
+        <span class="more-meta"> 约 901 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/storyboard%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/">使用curl命令管理远程github库</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+        <span class="more-meta"> 约 1269 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      使用curl命令管理远程github库 新建远程仓库 在本地准备工作 进入一个目录，这个目录是本地仓库的目录； 在本地建立仓库 1 git init &amp;&amp; git add . &amp;&amp; git commit -m
+    </div>
+    <div class="read-more">
+      <a href="/post/git/%E4%BD%BF%E7%94%A8curl%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86%E8%BF%9C%E7%A8%8Bgithub%E5%BA%93/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/macos/macos%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%90%E8%A1%8Cexe%E5%B0%8F%E7%A8%8B%E5%BA%8F/">MacOS系统下运行exe小程序</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-06-19 </span>
@@ -149,6 +249,8 @@
           </div>
         <span class="more-meta"> 约 112 字 </span>
         <span class="more-meta"> 预计阅读 1 分钟 </span>
+      <span class="more-meta"> by
+ </span>
     </div>
   </header>
   
@@ -158,98 +260,6 @@
     </div>
     <div class="read-more">
       <a href="/post/macos/macos%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BF%90%E8%A1%8Cexe%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%9C%A8garageband%E4%B8%AD%E4%BD%BF%E7%94%A8launchpad/">在GarageBand中使用LaunchPad</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-19 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
-          </div>
-        <span class="more-meta"> 约 277 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Garageband不支持控件表面，因此无法使用Launchpad/LaunchKey的全部功能。 在Garageband中，仅可以使用Lau
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%9C%A8garageband%E4%B8%AD%E4%BD%BF%E7%94%A8launchpad/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/abletonlive10%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/">AbletonLive10安装使用</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-19 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
-          </div>
-        <span class="more-meta"> 约 1382 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      launchPad 设备官网 官方教程资源 官方工程试听资源支持下载 ableton live 软件 官网下载 中国社区 ABLETON LIVE 10.0.1 SUITE 破解版下载 WINDOWS &amp; MAC ABLETON LIVE10.0.1破解机下载 下载 安装 {% post_path M
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/abletonlive10%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/launchpadmini%E8%AF%B4%E6%98%8E%E4%B9%A6/">LaunchPadMini说明书</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-19 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/"> 智能设备 </a>
-          </div>
-        <span class="more-meta"> 约 1340 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      工程demo 官方资源 Launchpad几种模式视频教程 硬件设置 贴纸：确保标签与相应的按钮对齐。 使用USB连接线将你的Launchpad Min
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/launchpadmini%E8%AF%B4%E6%98%8E%E4%B9%A6/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git/git%E5%A6%82%E4%BD%95%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/">Git如何永久删除文件(包括历史记录)</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-11 </span>
-      <div class="post-category">
-          <a href="/categories/git/"> git </a>
-          </div>
-        <span class="more-meta"> 约 1241 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,
-    </div>
-    <div class="read-more">
-      <a href="/post/git/git%E5%A6%82%E4%BD%95%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -320,7 +330,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

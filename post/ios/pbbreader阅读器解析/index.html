@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="支持OS X浏览PDF简单视图 运行scheme： PDFReaderForOSX 即可 支持iOS pageViewController: pdf翻页效果视图控制器 startingViewController:Dat" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="支持OS X浏览PDF简单视图 运行scheme： PDFReaderForOSX 即可 支持iOS pageViewController: pdf翻页效果视图控制器 startingViewController:Dat" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="PBBReader阅读器解析">
 <meta itemprop="description" content="支持OS X浏览PDF简单视图 运行scheme： PDFReaderForOSX 即可 支持iOS pageViewController: pdf翻页效果视图控制器 startingViewController:Dat"><meta itemprop="datePublished" content="2017-06-26T17:02:18&#43;00:00" />
 <meta itemprop="dateModified" content="2017-06-26T17:02:18&#43;00:00" />
-<meta itemprop="wordCount" content="669">
+<meta itemprop="wordCount" content="762">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PBBReader阅读器解析"/>
 <meta name="twitter:description" content="支持OS X浏览PDF简单视图 运行scheme： PDFReaderForOSX 即可 支持iOS pageViewController: pdf翻页效果视图控制器 startingViewController:Dat"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/ios/"> iOS </a>
             </div>
-          <span class="more-meta"> 约 669 字 </span>
+          <span class="more-meta"> 约 762 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -175,7 +177,90 @@
 <p>pageViewController: pdf翻页效果视图控制器
 startingViewController:DataViewController,翻页视图控制器的视图源
 modelController:ModelController:NSObject,数据视图数据源的model模型。</p>
-<pre><code class="language-puml">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
 title 阅读器的内部结构图
 center header
 解析PDF目录，显示PDF页面
@@ -209,15 +294,15 @@ __ 函数组 __
 -(void)restSearchResultColor:(NSString *)searchStr;
 }
 
-'关系层'
+&#39;关系层&#39;
 startingViewController .left.&gt; UIPageViewController:model聚合数据源
 UIPageViewController ..&gt;FileViewController:手势传递
 note on link #red: 把翻页控制器的手势事件\n传递给阅读器的PdfView中
 
-FileViewController &quot;1&quot; *-[#blue]- &quot;1&quot;UIPageViewController
+FileViewController &#34;1&#34; *-[#blue]- &#34;1&#34;UIPageViewController
 note on link #blue: 构造实例为阅读器添加翻页功能
 
-startingViewController .left[#gray].&gt; &quot;1&quot;FileViewController:pageViewController的数据源
+startingViewController .left[#gray].&gt; &#34;1&#34;FileViewController:pageViewController的数据源
 note on link #gray: 仅用于初始化第一次显示的PDF阅读器界面内容
 
 FileViewController --&gt; startingViewController: 搜索bar传递字符串 &gt;
@@ -242,7 +327,7 @@ NSMutableArray *openOutlineEntries;
 IBOutlet UITableView *outlineTableView;
 NSObject&lt;MyOutlineViewControllerDelegate&gt; *delegate;
 }
-'关系图'
+&#39;关系图&#39;
 PDFParser --&gt; OutLine:解析PDF文档获取目录结构
 OutLine -.&gt; FileViewController: 提供目录界面
 
@@ -254,8 +339,9 @@ note right of OutLine #white : 创建目录界面\n显示解析PDF目录工具�
 center footer
 了解具体的项目结构
 endfooter
-</code></pre>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -377,7 +463,7 @@ endfooter
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

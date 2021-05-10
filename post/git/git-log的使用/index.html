@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="git-log的使用">
 <meta itemprop="description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件"><meta itemprop="datePublished" content="2018-09-05T15:52:33&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-05T15:52:33&#43;00:00" />
-<meta itemprop="wordCount" content="184">
+<meta itemprop="wordCount" content="192">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-log的使用"/>
 <meta name="twitter:description" content="trello 卡片 查看提交历史 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/git/"> git </a>
             </div>
-          <span class="more-meta"> 约 184 字 </span>
+          <span class="more-meta"> 约 192 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -173,16 +175,29 @@
 <!-- raw HTML omitted -->
 <p><a href="http://iissnan.com/progit/html/zh/ch2_3.html">查看提交历史</a>
 来看一个实际的例子，如果要查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试脚本（位于项目的 t/ 目录下的文件），可以用下面的查询命令：</p>
-<pre><code class="language-bash">$ git log --pretty=&quot;%h - %s&quot; --author=gitster --since=&quot;2008-10-01&quot; \
---before=&quot;2008-11-01&quot; --no-merges -- t/
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git log --pretty<span class="o">=</span><span class="s2">&#34;%h - %s&#34;</span> --author<span class="o">=</span>gitster --since<span class="o">=</span><span class="s2">&#34;2008-10-01&#34;</span> <span class="se">\
+</span><span class="se"></span>--before<span class="o">=</span><span class="s2">&#34;2008-11-01&#34;</span> --no-merges -- t/
 5610e3b - Fix testcase failure when extended attribute
-acd3b9e - Enhance hold_lock_file_for_{update,append}()
+acd3b9e - Enhance hold_lock_file_for_<span class="o">{</span>update,append<span class="o">}()</span>
 f563754 - demonstrate breakage of detached checkout wi
 d1a43f2 - reset --hard/read-tree --reset -u: remove un
-51a94af - Fix &quot;checkout --track -b newbranch&quot; on detac
-b0ad11e - pull: allow &quot;git pull origin $something:$cur
-</code></pre>
-<p>Git 项目有 20,000 多条提交，但我们给出搜索选项后，仅列出了其中满足条件的 6 条。</p>
+51a94af - Fix <span class="s2">&#34;checkout --track -b newbranch&#34;</span> on detac
+b0ad11e - pull: allow <span class="s2">&#34;git pull origin </span><span class="nv">$something</span><span class="s2">:</span><span class="nv">$cur</span><span class="s2">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Git 项目有 20,000 多条提交，但我们给出搜索选项后，仅列出了其中满足条件的 6 条。</p>
 <h2 id="gitk图形工具">gitk图形工具</h2>
 <p><img src="http://iissnan.com/progit/book_src/figures/18333fig0202-tn.png" alt=""></p>
 
@@ -307,7 +322,7 @@ b0ad11e - pull: allow &quot;git pull origin $something:$cur
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

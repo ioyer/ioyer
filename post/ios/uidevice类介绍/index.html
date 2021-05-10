@@ -17,9 +17,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="UIDevice.h &#43; (UIDevice *)currentDevice; // 获取当前设备 NSString *name; // e.g. &amp;quot;My iPhone&amp;quot; NSString *model; // e.g. @&amp;quot;iPhone&amp;quot;, @&amp;quot;iPod touch&amp;quot; NSString *localizedModel; // localized version of model NSString *systemName; // e.g. @&amp;quot;iOS&amp;quot; NSString *systemVersion; // e.g. @&amp;quot;4.0&amp;quot; UIDeviceOrientation orientation; //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown NSUUID *identifierForVendor //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID  UIDeviceOrientationUnknown, UIDeviceOrientationPortrait, // 竖向，头向上 UIDeviceOrientationPortraitUpsideDown, // 竖向，头向下 UIDeviceOrientationLandscapeLeft, // 横向，头向左 UIDeviceOrientationLandscapeRight, // 横向，头向右 UIDeviceOrientationFaceUp, // 平放，屏幕朝下 UIDeviceOrientationFaceDown // 平放，屏幕朝下  //使用内置的宏定义的函数，根据orientation判断设备方向,返回值类型BOOL.
+<meta name="author" content="iTBoyer" /><meta name="description" content="UIDevice.h 1 2 3 4 5 6 7 8 9  &#43; (UIDevice *)currentDevice; // 获取当前设备  NSString *name; // e.g. &amp;#34;My iPhone&amp;#34; NSString *model; // e.g. @&amp;#34;iPhone&amp;#34;, @&amp;#34;iPod touch&amp;#34; NSString *localizedModel; // localized version of model NSString *systemName; // e.g. @&amp;#34;iOS&amp;#34; NSString *systemVersion; // e.g. @&amp;#34;4.0&amp;#34; UIDeviceOrientation orientation; //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown NSUUID *identifierForVendor //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID   1 2 3 4 5 6 7  UIDeviceOrientationUnknown, UIDeviceOrientationPortrait, // 竖向，头向上  UIDeviceOrientationPortraitUpsideDown, // 竖向，头向下  UIDeviceOrientationLandscapeLeft, // 横向，头向左  UIDeviceOrientationLandscapeRight, // 横向，头向右  UIDeviceOrientationFaceUp, // 平放，屏幕朝下  UIDeviceOrientationFaceDown // 平放，屏幕朝下   //使用内置的宏定义的函数，根据orientation判断设备方向,返回值类型BOOL.
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%} #define UIDeviceOrientationIsPortrait(orientation) ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown) {%endcodeblock %} {%codeblock lang:java 横向宏定义,返回YES:横向%} #define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight) {%endcodeblock%}
-" /><meta name="keywords" content="Hugo, swift, org-mode" />
+" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -46,15 +46,40 @@
 
 <meta property="og:title" content="UIDevice类介绍" />
 <meta property="og:description" content="UIDevice.h
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
 &#43; (UIDevice *)currentDevice; 		  // 获取当前设备
 
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
+NSString    *name;               	  // e.g. &#34;My iPhone&#34;  
+NSString    *model;              	  // e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
 NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
+NSString    *systemName;     		  // e.g. @&#34;iOS&#34;  
+NSString    *systemVersion;   	  // e.g. @&#34;4.0&#34;  
 UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
 NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+
 
     UIDeviceOrientationUnknown,
     UIDeviceOrientationPortrait,                    // 竖向，头向上
@@ -63,6 +88,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
     UIDeviceOrientationLandscapeRight,       		// 横向，头向右
     UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
     UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
+
 
 //使用内置的宏定义的函数，根据orientation判断设备方向,返回值类型BOOL.
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
@@ -78,15 +104,40 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
 
 <meta itemprop="name" content="UIDevice类介绍">
 <meta itemprop="description" content="UIDevice.h
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
 &#43; (UIDevice *)currentDevice; 		  // 获取当前设备
 
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
+NSString    *name;               	  // e.g. &#34;My iPhone&#34;  
+NSString    *model;              	  // e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
 NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
+NSString    *systemName;     		  // e.g. @&#34;iOS&#34;  
+NSString    *systemVersion;   	  // e.g. @&#34;4.0&#34;  
 UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
 NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+
 
     UIDeviceOrientationUnknown,
     UIDeviceOrientationPortrait,                    // 竖向，头向上
@@ -95,6 +146,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
     UIDeviceOrientationLandscapeRight,       		// 横向，头向右
     UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
     UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
+
 
 //使用内置的宏定义的函数，根据orientation判断设备方向,返回值类型BOOL.
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
@@ -104,19 +156,44 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
 #define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
 {%endcodeblock%}"><meta itemprop="datePublished" content="2014-06-17T15:12:53&#43;08:00" />
 <meta itemprop="dateModified" content="2014-06-17T15:12:53&#43;08:00" />
-<meta itemprop="wordCount" content="802">
+<meta itemprop="wordCount" content="818">
 <meta itemprop="keywords" content="设备," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="UIDevice类介绍"/>
 <meta name="twitter:description" content="UIDevice.h
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
 &#43; (UIDevice *)currentDevice; 		  // 获取当前设备
 
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
+NSString    *name;               	  // e.g. &#34;My iPhone&#34;  
+NSString    *model;              	  // e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
 NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
+NSString    *systemName;     		  // e.g. @&#34;iOS&#34;  
+NSString    *systemVersion;   	  // e.g. @&#34;4.0&#34;  
 UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
 NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+
 
     UIDeviceOrientationUnknown,
     UIDeviceOrientationPortrait,                    // 竖向，头向上
@@ -125,6 +202,7 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
     UIDeviceOrientationLandscapeRight,       		// 横向，头向右
     UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
     UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
+
 
 //使用内置的宏定义的函数，根据orientation判断设备方向,返回值类型BOOL.
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
@@ -229,9 +307,11 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
             <a href="/categories/ios/"> iOS </a>
             <a href="/categories/%E8%AE%BE%E5%A4%87/"> 设备 </a>
             </div>
-          <span class="more-meta"> 约 802 字 </span>
+          <span class="more-meta"> 约 818 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -251,25 +331,51 @@ NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供
 </div>
     <div class="post-content">
       <h3 id="uideviceh">UIDevice.h</h3>
-<pre><code class="language-objc">+ (UIDevice *)currentDevice; 		  // 获取当前设备
-
-NSString    *name;               	  // e.g. &quot;My iPhone&quot;  
-NSString    *model;              	  // e.g. @&quot;iPhone&quot;, @&quot;iPod touch&quot;  
-NSString    *localizedModel;     	  // localized version of model  
-NSString    *systemName;     		  // e.g. @&quot;iOS&quot;  
-NSString    *systemVersion;   	  // e.g. @&quot;4.0&quot;  
-UIDeviceOrientation orientation;    //除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-NSUUID *identifierForVendor         //可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</code></pre>
-<pre><code class="language-objc">    UIDeviceOrientationUnknown,
-    UIDeviceOrientationPortrait,                    // 竖向，头向上
-    UIDeviceOrientationPortraitUpsideDown,  		// 竖向，头向下
-    UIDeviceOrientationLandscapeLeft,         		// 横向，头向左
-    UIDeviceOrientationLandscapeRight,       		// 横向，头向右
-    UIDeviceOrientationFaceUp,                  	// 平放，屏幕朝下
-    UIDeviceOrientationFaceDown                	 // 平放，屏幕朝下
-</code></pre>
-<p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">currentDevice</span><span class="p">;</span> 		  <span class="c1">// 获取当前设备
+</span><span class="c1"></span>
+<span class="n">NSString</span>    <span class="o">*</span><span class="n">name</span><span class="p">;</span>               	  <span class="c1">// e.g. &#34;My iPhone&#34;  
+</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">model</span><span class="p">;</span>              	  <span class="c1">// e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
+</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">localizedModel</span><span class="p">;</span>     	  <span class="c1">// localized version of model  
+</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemName</span><span class="p">;</span>     		  <span class="c1">// e.g. @&#34;iOS&#34;  
+</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemVersion</span><span class="p">;</span>   	  <span class="c1">// e.g. @&#34;4.0&#34;  
+</span><span class="c1"></span><span class="n">UIDeviceOrientation</span> <span class="n">orientation</span><span class="p">;</span>    <span class="c1">//除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
+</span><span class="c1"></span><span class="n">NSUUID</span> <span class="o">*</span><span class="n">identifierForVendor</span>         <span class="c1">//可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">UIDeviceOrientationUnknown</span><span class="p">,</span>
+    <span class="n">UIDeviceOrientationPortrait</span><span class="p">,</span>                    <span class="c1">// 竖向，头向上
+</span><span class="c1"></span>    <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">,</span>  		<span class="c1">// 竖向，头向下
+</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeLeft</span><span class="p">,</span>         		<span class="c1">// 横向，头向左
+</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">,</span>       		<span class="c1">// 横向，头向右
+</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceUp</span><span class="p">,</span>                  	<span class="c1">// 平放，屏幕朝下
+</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceDown</span>                	 <span class="c1">// 平放，屏幕朝下
+</span></code></pre></td></tr></table>
+</div>
+</div><p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
 #define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
 {%endcodeblock %}
@@ -478,7 +584,7 @@ UIKIT_EXTERN NSString *const UIDeviceProximityStateDidChangeNotification NS_AVAI
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

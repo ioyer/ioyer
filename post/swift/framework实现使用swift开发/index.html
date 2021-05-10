@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer JHHomeAPP 813e4b width = 30% %} 在静态库组件中使用swift开发 基于静态库的开发，实现封装静态库/Framework并使用swiftOC混编开发 创建三个角" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer JHHomeAPP 813e4b width = 30% %} 在静态库组件中使用swift开发 基于静态库的开发，实现封装静态库/Framework并使用swiftOC混编开发 创建三个角" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Framework实现使用swift开发">
 <meta itemprop="description" content="{% github it-boyer JHHomeAPP 813e4b width = 30% %} 在静态库组件中使用swift开发 基于静态库的开发，实现封装静态库/Framework并使用swiftOC混编开发 创建三个角"><meta itemprop="datePublished" content="2018-06-23T16:41:58&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-23T16:41:58&#43;00:00" />
-<meta itemprop="wordCount" content="940">
+<meta itemprop="wordCount" content="954">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Framework实现使用swift开发"/>
 <meta name="twitter:description" content="{% github it-boyer JHHomeAPP 813e4b width = 30% %} 在静态库组件中使用swift开发 基于静态库的开发，实现封装静态库/Framework并使用swiftOC混编开发 创建三个角"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/swift/"> swift </a>
             </div>
-          <span class="more-meta"> 约 940 字 </span>
+          <span class="more-meta"> 约 954 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -192,7 +194,19 @@
 </ol>
 <h3 id="静态库问题1">静态库：问题1</h3>
 <p>当静态库组件中存在swift源码时，依赖该组件的主工程会报错：</p>
-<pre><code>ld: warning: Auto-Linking library not found for -lswiftDispatch
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ld: warning: Auto-Linking library not found for -lswiftDispatch
 ld: warning: Auto-Linking library not found for -lswiftCoreFoundation
 ld: warning: Auto-Linking library not found for -lswiftObjectiveC
 ld: warning: Auto-Linking library not found for -lswiftDarwin
@@ -200,8 +214,9 @@ ld: warning: Auto-Linking library not found for -lswiftFoundation
 ld: warning: Auto-Linking library not found for -lswiftCoreGraphics
 ld: warning: Auto-Linking library not found for -lswiftCore
 ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
-</code></pre>
-<ol>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
 <li>联想方法：
 设置 <code>Always Embed Swift Standard Libraries</code>: <code>YES</code>
 结果无效。</li>
@@ -214,18 +229,34 @@ ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
 <li>在动态库中objc源码方法可以封装到静态库，并在可执行文件中调用。</li>
 <li>当在Framework中新建swift源文件时，第一次编译运行出现崩溃问题：</li>
 </ol>
-<pre><code>dyld: Library not loaded: @rpath/libswiftCoreImage.dylib
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">dyld: Library not loaded: @rpath/libswiftCoreImage.dylib
 Referenced from: .../../Debug-iphonesimulator/SecondFramework.framework/SecondFramework
 Reason: image not found
-</code></pre>
-<p>解决办法：需要在<code>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</code>设置为<code>YES</code>.再次编译出现问题3。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>解决办法：需要在<code>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</code>设置为<code>YES</code>.再次编译出现问题3。</p>
 <h3 id="framework-问题3">Framework: 问题3</h3>
 <p>当在oc源码文件中用引用<code>-Swift.h</code>头文件时，出现一下问题:</p>
-<pre><code>'SecondFramework-Swift.h' file not found
-#import &quot;SecondFramework-Swift.h&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;SecondFramework-Swift.h&#39; file not found
+#import &#34;SecondFramework-Swift.h&#34;
 ^~~~~~~~~~~~~~~~~~~~~~~~~
-</code></pre>
-<p>结果将：<code>Install Objective-C Compatibility Header</code> : <code>NO</code>可以正常调用swift方法了。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>结果将：<code>Install Objective-C Compatibility Header</code> : <code>NO</code>可以正常调用swift方法了。</p>
 <blockquote>
 <p>验证：framework可以封装到静态库中，当有swift源码实现时需要设置ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES</p>
 </blockquote>
@@ -359,7 +390,7 @@ Reason: image not found
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

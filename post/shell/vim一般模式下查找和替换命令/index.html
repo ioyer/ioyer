@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="vim一般模式下查找和替换命令">
 <meta itemprop="description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old"><meta itemprop="datePublished" content="2018-10-04T23:48:08&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-04T23:48:08&#43;00:00" />
-<meta itemprop="wordCount" content="247">
+<meta itemprop="wordCount" content="250">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim一般模式下查找和替换命令"/>
 <meta name="twitter:description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/shell/"> shell </a>
             </div>
-          <span class="more-meta"> 约 247 字 </span>
+          <span class="more-meta"> 约 250 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -186,21 +188,39 @@
 <li>行间查找
 在第n1和n2行查找<code>word1</code>比替换为<code>word2</code></li>
 </ol>
-<pre><code>:n1,n2s/word1/word2/g
-</code></pre>
-<p>举例：  <code>：100,200s/vbird/VBIRD/g</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:n1,n2s/word1/word2/g
+</code></pre></td></tr></table>
+</div>
+</div><p>举例：  <code>：100,200s/vbird/VBIRD/g</code></p>
 <ol start="2">
 <li>全文查找并替换</li>
 </ol>
-<pre><code>:1,$s/word1/word2/g
-</code></pre>
-<p>从第一行到最后一行查找字符串word1字符串，并将字符串word1替换为word2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/g
+</code></pre></td></tr></table>
+</div>
+</div><p>从第一行到最后一行查找字符串word1字符串，并将字符串word1替换为word2</p>
 <ol start="3">
 <li>用户确认替换提示</li>
 </ol>
-<pre><code>:1,$s/word1/word2/gc
-</code></pre>
-<p>从第一行到最后一行查找字符串word1，并将字符串word1替换为word2,在替换之前提示用户确认是否替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/gc
+</code></pre></td></tr></table>
+</div>
+</div><p>从第一行到最后一行查找字符串word1，并将字符串word1替换为word2,在替换之前提示用户确认是否替换</p>
 
     </div>
 
@@ -323,7 +343,7 @@
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>

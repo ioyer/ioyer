@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新" /><meta name="keywords" content="Hugo, swift, org-mode" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
 
 
 
@@ -52,7 +52,7 @@
 <meta itemprop="name" content="集配门店样式和跳转功能">
 <meta itemprop="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新"><meta itemprop="datePublished" content="2019-08-21T11:32:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-21T11:50:28&#43;08:00" />
-<meta itemprop="wordCount" content="898">
+<meta itemprop="wordCount" content="921">
 <meta itemprop="keywords" content="developer,proj,BLOG," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="集配门店样式和跳转功能"/>
 <meta name="twitter:description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新"/>
@@ -151,9 +151,11 @@
         <div class="post-category">
             <a href="/categories/home/"> Home </a>
             </div>
-          <span class="more-meta"> 约 898 字 </span>
+          <span class="more-meta"> 约 921 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span class="more-meta"> by
+ </span>
       </div>
     </header>
 
@@ -184,13 +186,26 @@
 </li>
 <li>
 <p>跳转:集配门店模块跳转到门店需要接口提供的门店的相关数据:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">    <span style="color:#f92672">-</span> (<span style="color:#66d9ef">void</span>)showDetailContentWithStoreId:(NSString <span style="color:#f92672">*</span>)storeId
-    shopId:(NSString <span style="color:#f92672">*</span>)shopId
-    storeAppId:(NSString <span style="color:#f92672">*</span>)storeAppid
-    storeName:(NSString <span style="color:#f92672">*</span>)storeName
-    storeState:(NSString <span style="color:#f92672">*</span>)stState
-    userCoordinate:(CLLocationCoordinate2D)userCoordinate
-    </code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">showDetailContentWithStoreId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeId</span>
+    <span class="nl">shopId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">shopId</span>
+    <span class="nl">storeAppId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeAppid</span>
+    <span class="nl">storeName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeName</span>
+    <span class="nl">storeState</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">stState</span>
+    <span class="nl">userCoordinate</span><span class="p">:(</span><span class="n">CLLocationCoordinate2D</span><span class="p">)</span><span class="n">userCoordinate</span>
+    </code></pre></td></tr></table>
+</div>
+</div>
 </li>
 </ol>
 <h3 id="门店详情-插件框架理解">门店详情,插件框架理解</h3>
@@ -198,10 +213,24 @@
 <li>StoreCustomCommomCell模式</li>
 </ol>
 <p>为其他库提供自定义门店插件cell的支持.插件code需要对应cell类名,并且该类需要实现,StoreCustomCommomCell是基于方式二的一种特殊情况</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">+(UIView <span style="color:#f92672">*</span>)<span style="color:#a6e22e">contentViewWithAppid:</span>(NSString <span style="color:#f92672">*</span>)appid <span style="color:#a6e22e">shopAppid:</span>(NSString <span style="color:#f92672">*</span>)shopId <span style="color:#a6e22e">storeId:</span>(NSString <span style="color:#f92672">*</span>)storeId <span style="color:#a6e22e">containsVC:</span>(UIViewController <span style="color:#f92672">*</span>)vc <span style="color:#a6e22e">delegate:</span>(<span style="color:#66d9ef">id</span>)delegate <span style="color:#a6e22e">title:</span>(NSString <span style="color:#f92672">*</span>)title;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">contentViewWithAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">appid</span> <span class="nf">shopAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">shopId</span> <span class="nf">storeId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeId</span> <span class="nf">containsVC:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">vc</span> <span class="nf">delegate:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">delegate</span> <span class="nf">title:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">title</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>自适应cell高度的方法:
 在实现上述方法的基础上,回去到cell指针,调用contentViewHeightHasChanged:方法来修改cell高度.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">((<span style="color:#66d9ef">void</span>(<span style="color:#f92672">*</span>)(<span style="color:#66d9ef">id</span>,<span style="color:#66d9ef">SEL</span>,CGFloat))objc_msgSend)(delegate,NSSelectorFromString(<span style="color:#e6db74">@&#34;contentViewHeightHasChanged:&#34;</span>),<span style="color:#ae81ff">190</span>);</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">((</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">id</span><span class="p">,</span><span class="kt">SEL</span><span class="p">,</span><span class="n">CGFloat</span><span class="p">))</span><span class="n">objc_msgSend</span><span class="p">)(</span><span class="n">delegate</span><span class="p">,</span><span class="n">NSSelectorFromString</span><span class="p">(</span><span class="s">@&#34;contentViewHeightHasChanged:&#34;</span><span class="p">),</span><span class="mi">190</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>该方法会创建一个view,当门店详情中,配置了该插件的code,就会创建该view,显示在门店详情对应的cell中</p>
 <ol>
 <li>方式二:在liveplay组件中创建一个插件</li>
@@ -210,26 +239,64 @@
 <p>父类TMPItemBaseCell中两个重要的方法:
 属性cell高度的接口:可以通过该方法来刷新cell.
 在异步请求结束时,可以通过该方法属性cell数据样式.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">sendNotificationForFreshUI</span>;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendNotificationForFreshUI</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>cell加载数据接口:
 在cell加载完毕之后,会触发这个接口,便于在此处添加请求接口.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - requestAPI
-</span><span style="color:#75715e"></span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">requestToShowContent</span>;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - requestAPI
+</span><span class="cp"></span><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">requestToShowContent</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>2.1 声明插件code
 code由后端和前端协商确定,会通过接口返回插件code,加载插件视图,例如:当门店详情接口返回插件code:StoreDistribution等</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - 集配门店
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> NSString <span style="color:#f92672">*</span>TemplateStoreDistribution <span style="color:#f92672">=</span> <span style="color:#e6db74">@&#34;StoreDistribution&#34;</span>;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
+</span><span class="cp"></span><span class="k">const</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">TemplateStoreDistribution</span> <span class="o">=</span> <span class="s">@&#34;StoreDistribution&#34;</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>2.2 映射code到实现类管理加载插件的字典,将code映射到实现类上:例如将StoreDistribution插件code映射到
 StoreDistributionCell上.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#75715e">#pragma mark - 集配门店
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> NSString <span style="color:#f92672">*</span>TemplateStoreDistribution <span style="color:#f92672">=</span> <span style="color:#e6db74">@&#34;StoreDistribution&#34;</span>;
-- (NSDictionary <span style="color:#f92672">*</span>)<span style="color:#a6e22e">templateClassNamesDict</span>{
-    <span style="color:#66d9ef">if</span> (_templateClassNamesDict <span style="color:#f92672">==</span> nil){
-        _templateClassNamesDict <span style="color:#f92672">=</span> <span style="color:#ae81ff">@{</span>
-        TemplateStoreDistribution.lowercaseString:NSStringFromClass([StoreDistributionCell <span style="color:#66d9ef">class</span>])
-        <span style="color:#66d9ef">return</span> _templateClassNamesDict;
-        }
-     }</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
+</span><span class="cp"></span><span class="k">const</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">TemplateStoreDistribution</span> <span class="o">=</span> <span class="s">@&#34;StoreDistribution&#34;</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">templateClassNamesDict</span><span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_templateClassNamesDict</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">){</span>
+        <span class="n">_templateClassNamesDict</span> <span class="o">=</span> <span class="l">@{</span>
+        <span class="n">TemplateStoreDistribution</span><span class="p">.</span><span class="nl">lowercaseString</span><span class="p">:</span><span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">StoreDistributionCell</span> <span class="k">class</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">_templateClassNamesDict</span><span class="p">;</span>
+        <span class="p">}</span>
+     <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="api实现">API实现</h2>
 
     </div>
@@ -357,7 +424,7 @@ StoreDistributionCell上.</p>
       <i class="iconfont icon-up"></i>
     </div>
   </div>
-  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
