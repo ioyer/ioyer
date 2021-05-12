@@ -141,13 +141,13 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell/%E7%BB%88%E7%AB%AF%E6%94%AF%E6%8C%81swift%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90/">终端支持swift自动补齐</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/">Mac安装gitLab服务器</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2018-08-21 </span>
+      <span class="post-time"> 2015-09-27 </span>
       <div class="post-category">
-          <a href="/categories/shell/"> shell </a>
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
           </div>
-        <span class="more-meta"> 约 607 字 </span>
+        <span class="more-meta"> 约 804 字 </span>
         <span class="more-meta"> 预计阅读 2 分钟 </span>
       <span class="more-meta"> by
  </span>
@@ -156,24 +156,24 @@
   
   <div class="post-content">
     <div class="post-summary">
-      终端支持swift自动补齐 keith/sourcekittendaemon.vim：这个插件提供了Vim集成SourceKittenDaem
+      必要配置 *创建一个名称为&quot;gitlab&quot;管理员用户，然后再创建一个名称为&quot;gitlab&quot;的群组 *开启
     </div>
     <div class="read-more">
-      <a href="/post/shell/%E7%BB%88%E7%AB%AF%E6%94%AF%E6%8C%81swift%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90/" class="read-more-link">阅读更多</a>
+      <a href="/post/git/mac%E5%AE%89%E8%A3%85gitlab%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell/markdown-preview%E5%AE%9E%E7%8E%B0md%E9%A2%84%E8%A7%88/">markdown-preview实现md预览</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">小米路由常用操作</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2018-08-21 </span>
+      <span class="post-time"> 2015-09-25 </span>
       <div class="post-category">
-          <a href="/categories/shell/"> shell </a>
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
           </div>
-        <span class="more-meta"> 约 44 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 1168 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
       <span class="more-meta"> by
  </span>
     </div>
@@ -181,24 +181,59 @@
   
   <div class="post-content">
     <div class="post-summary">
-      {% github iamcco markdown-preview.vim c09a1ca width = 30% %} nisha 命令行使用 1 2 3 4 5 MarkdownPreview &#34; open preview window in markdown buffer MarkdownPreviewStop &#34; close the preview window and server 插件运行效果预览
+      <h4 id="常用命令">常用命令</h4>
+<ol>
+<li>
+<p>ssh登录</p>
+<pre><code> 局域网登录:
+ ssh [user@]hostname [command]
+  例如：ssh root@192.168.31.1  或  远程登录：ssh root@222.35.145.28 -p 2195
+ 回车
+ 输入密码
+
+ **修改密码：**
+ root@xiaoqiang:~#passwd   
+ 回车
+ 输入新密码
+ 回车
+ 再次输入新密码
+</code></pre>
+</li>
+<li>
+<p>远程拷贝数据</p>
+<pre><code> scp Desktop/ar71xx/* root@192.168.31.1:/userdisk/myWorkspace/ar71xx
+</code></pre>
+</li>
+<li>
+<p>每次重启路由获取IP:</p>
+<pre><code> vi /etc/rc.local
+ sh /etc/getIP.sh
+</code></pre>
+</li>
+</ol>
+<p>//启动后，等待20秒，然后，获取当前时间作为文件名称
+//使用ifconfig 获取路由器的ip信息
+//使用 | grep 通道，和grep正则来过滤出，wan口的ip所在行
+// &gt; 使用重定向，将过滤的ip行，写入路由硬盘/userdisk/data/my/ip目录中
+//通过小米路由手机客户端，找到该txt文件，并下载到手机sd卡中
+//查看该文件，既有路由重启后的当前IP</p>
     </div>
     <div class="read-more">
-      <a href="/post/shell/markdown-preview%E5%AE%9E%E7%8E%B0md%E9%A2%84%E8%A7%88/" class="read-more-link">阅读更多</a>
+      <a href="/post/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%9B%BE%E6%96%87%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%A4%9A%E5%AA%92%E4%BD%93%E7%BB%84%E4%BB%B6%E7%B1%BB%E5%9B%BE/">图文组件及多媒体组件类图</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/">Xcode7编译发布问题</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2018-08-18 </span>
+      <span class="post-time"> 2015-09-25 </span>
       <div class="post-category">
-          <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"> 个人项目 </a>
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
           </div>
-        <span class="more-meta"> 约 3591 字 </span>
-        <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span class="more-meta"> 约 788 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
       <span class="more-meta"> by
  </span>
     </div>
@@ -206,24 +241,24 @@
   
   <div class="post-content">
     <div class="post-summary">
-      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70
+      Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to
     </div>
     <div class="read-more">
-      <a href="/post/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%9B%BE%E6%96%87%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%A4%9A%E5%AA%92%E4%BD%93%E7%BB%84%E4%BB%B6%E7%B1%BB%E5%9B%BE/" class="read-more-link">阅读更多</a>
+      <a href="/post/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell/icompleteme%E6%94%AF%E6%8C%81swift%E8%AF%AD%E6%B3%95%E6%8F%90%E7%A4%BA/">iCompleteMe支持swift语法提示</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Xcode和Jenkins持续集成的几种实现方式</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2018-08-10 </span>
+      <span class="post-time"> 2015-09-18 </span>
       <div class="post-category">
-          <a href="/categories/shell/"> shell </a>
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
           </div>
-        <span class="more-meta"> 约 254 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 4827 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
       <span class="more-meta"> by
  </span>
     </div>
@@ -231,24 +266,36 @@
   
   <div class="post-content">
     <div class="post-summary">
-      {% github jerrymarino iCompleteMe ad0e1fe width = 30% %} iCompleteMe是基于YouCompleteMe。在花了一年多的时间试图实现对YouCompleteMe的快速支持之
+      <h2 id="ci服务器">CI服务器</h2>
+<p>写到这儿，对于iOS开发者来说，需要准备好：</p>
+<ul>
+<li>一个比较容易获取的源代码仓库(包含源代码)</li>
+<li>一套自动化构建脚本</li>
+<li>一系列围绕构建的可执行测试</li>
+</ul>
+<p>接下来就需要一个CI服务器来根据源代码的变更触发构建，监控测试结果。</p>
+<p>目前，业界比较流行的，支持iOS构建的CI服务器有</p>
+<ul>
+<li><a href="https://travis-ci.org">Travis CI</a>：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，<a href="http://www.infoq.com/cn/articles/build-ios-continuous-integration-platform-part3">详见</a></li>
+<li><strong>Jenkins</strong>：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。</li>
+</ul>
     </div>
     <div class="read-more">
-      <a href="/post/shell/icompleteme%E6%94%AF%E6%8C%81swift%E8%AF%AD%E6%B3%95%E6%8F%90%E7%A4%BA/" class="read-more-link">阅读更多</a>
+      <a href="/post/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell/swiftplayground%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/">SwiftPlayground命令操作</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2018-08-10 </span>
+      <span class="post-time"> 2015-01-21 </span>
       <div class="post-category">
-          <a href="/categories/shell/"> shell </a>
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
           </div>
-        <span class="more-meta"> 约 150 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
+        <span class="more-meta"> 约 738 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
       <span class="more-meta"> by
  </span>
     </div>
@@ -256,10 +303,305 @@
   
   <div class="post-content">
     <div class="post-summary">
-      {% github jerrymarino SwiftPlayground.vim f603700 width = 30% %} 执行环境 在playgrounds后缀的目录中执行swift文件 熟悉vim快捷键用法 空格 + fs 保存文件：此时插件会自动运行pl
+      <p>安装ruby环境：
+方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
+方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
+方法三：使用macport安装 <code>port install ruby</code></p>
+<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
+<p>问题：<br>
+<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
+<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
+最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
+<h4 id="gem介绍">Gem介绍</h4>
+<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
+<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
     </div>
     <div class="read-more">
-      <a href="/post/shell/swiftplayground%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" class="read-more-link">阅读更多</a>
+      <a href="/post/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-19 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 1742 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <ol>
+<li><!-- raw HTML omitted -->Stashing<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->被暂存的文件重新暂存<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用后，移除储藏的内容<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->取消储藏(Un-applying a Stash)<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->从储藏中创建分支<!-- raw HTML omitted --></li>
+</ol>
+<h3 id="a-namestashinggit工具---储藏stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
+<hr>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
+<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
+<p>解决：**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令。</p>
+<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
+<h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
+<hr>
+<ol>
+<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
+<li>**<!-- raw HTML omitted -->git status <!-- raw HTML omitted -->**命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status</li>
+</ol>
+<h1 id="on-branch-master">On branch master</h1>
+<h1 id="changes-to-be-committed">Changes to be committed:</h1>
+<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <!-- raw HTML omitted -->&hellip;&rdquo; to unstage)</h1>
+<h1 id="heading"></h1>
+<h1 id="modified---indexhtml">modified:   index.html</h1>
+<h1 id="heading-1"></h1>
+<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-2"></h1>
+<h1 id="modified---libsimplegitrb">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-3"></h1>
+<p>{%endcodeblock%}
+3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state<br>
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+4. 执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+5. 使用**<!-- raw HTML omitted -->git stash list<!-- raw HTML omitted -->**要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
+<h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
+<hr>
+<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令, 可以重新应用最近的一次储藏；
+执行**<!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted -->**命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply</p>
+<h1 id="on-branch-master-1">On branch master</h1>
+<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-4"></h1>
+<h1 id="modified---indexhtml-1">modified:   index.html</h1>
+<h1 id="modified---libsimplegitrb-1">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-5"></h1>
+<p>{%endcodeblock%}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">XMPP简单研究[转]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-06 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 2853 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      最近想做一个游戏服务器和 IM 互通的服务。最初的想法是可以增进游戏帐号的安全，比如游戏用户可以通过绑定一个 IM 帐号，从而不用登陆游戏就向游戏服务器
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 2705 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="按比例缩放">按比例缩放</h2>
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
+而在代码中，有如下两种实现方式:</p>
+<ol>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
+</ol>
+<p>现在就拿一个简单的**<code>UIButton</code>**做示例，在ViewController中创建一个UIButton字段：<br>
+{%codeblock lang:objc%}
+UIButton *btn;<br>
+{%endcodeblock%}</p>
+<h4 id="需求-1">需求 1：</h4>
+<ol>
+<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
+{%codeblock lang:objc%}</li>
+</ol>
+<ul>
+<li>
+<p>(void)viewDidLoad
+{
+[super viewDidLoad];</p>
+<p>//创建UIButton，不需要设置frame
+btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
+btn.backgroundColor = [UIColor greenColor];
+[self.view addSubview:btn];</p>
+<p>//禁止自动转换AutoresizingMask
+btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
+<p>//居中
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];</p>
+<p>//距离底部20单位
+//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];</p>
+<p>//定义高度是父View的三分之一
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];</p>
+<p>//注册KVO方法
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
+}</p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 1463 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="url-schemes">URL Schemes</h4>
+<p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
+<p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
+<h4 id="注册自定义url协议">注册自定义URL协议</h4>
+<p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
+<p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
+<h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+    </div>
+    <div class="read-more">
+      <a href="/post/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 4559 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>HeaderDoc 是在Xcode 5 和 iOS7 发布时，新增的一个命令行工具，功能：可以从代码中自动生成格式良好的HTML文档——当然，必须依赖于特定格式的注释来完成的。</p>
+<p>另外，Xcode 还会在 quick look 面板中以<strong>HeaderDoc</strong>风格显示你的注释。</p>
+<p>通过本教程，将学习如下几点：</p>
+<ul>
+<li>如何书写 HeaderDoc 风格的注释</li>
+<li>分如何在 Xcode 中预览文档</li>
+<li>如何生成 HTML 文档</li>
+<li>如何使用 VVDocumenter-Xcode(一个易于使用的第3方文档制作工具)</li>
+</ul>
+<h4 id="准备工作">准备工作</h4>
+<p>下载本教程中用到的 <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2014/03/DocumentationExamples_Starter.zip">示例项目</a></p>
+<p>这个简单的示例程序只包含了两个类：</p>
+<ul>
+<li>Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。</li>
+<li>MathAPI: 包含了1个方法，用于累加两个数。
+现在，这两个类还没有任何注释。以便演示如何通过 <strong>HeaderDoc</strong> 为这两个类创建文档。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
