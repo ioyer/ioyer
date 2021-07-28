@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>Storyboard之Segue - 七习--高效能人士</title>
+  <title>Storyboard之Segue - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -20,7 +20,7 @@
 <meta name="author" content="iTBoyer" /><meta name="description" content="Segue原理: 在iOS开发中，segue用来实现storyboard中源视图控制器和目标视图控制器连接，当segue被触发时，系统将完成下列操作：
  实例化目标视图控制器 实例化一个新segue对象，该对象持有所有的信息 调用源视图控制器的prepareForSegue:sender:方法， 调用segue的 perform 方法将目标控制器带到屏幕上。
 这个动作行为依赖segue的类型如modal,push,custom,modal segue告诉源视图控制器present目标视图控制器。  在源视图控制器的prepareForSegue:sender:的方法中，执行对目标视图控制器所有必要的属性配置，包括委托设置（如目标视图控制器有协议）。
-" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
+" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -112,7 +112,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">七习</a>
+    <a href="/" class="logo">习七</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -124,6 +124,10 @@
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
@@ -132,6 +136,8 @@
         <li class="mobile-menu-item">分类</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
+      </a><a href="/authors/itboyer/">
+        <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
 
@@ -143,13 +149,17 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">七习</a>
+  <a href="/" class="logo">习七</a>
   
 </div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
@@ -158,6 +168,8 @@
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/authors/itboyer/">关于</a>
       </li>
   </ul>
 </nav>

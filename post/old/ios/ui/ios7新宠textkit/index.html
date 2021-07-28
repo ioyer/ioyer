@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>IOS7新宠TextKit - 七习--高效能人士</title>
+  <title>IOS7新宠TextKit - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -22,7 +22,7 @@
 例如：NSTextStorage对象，它本身是NSMutableAttributedString的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。 IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下Core Text。后来iOS6，增加一个很棒的属性:NSAttributedString，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的Text Kit新宠。
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：
-" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
+" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -111,7 +111,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">七习</a>
+    <a href="/" class="logo">习七</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -123,6 +123,10 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
@@ -131,6 +135,8 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <li class="mobile-menu-item">分类</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
+      </a><a href="/authors/itboyer/">
+        <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
 
@@ -142,13 +148,17 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">七习</a>
+  <a href="/" class="logo">习七</a>
   
 </div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
@@ -157,6 +167,8 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/authors/itboyer/">关于</a>
       </li>
   </ul>
 </nav>

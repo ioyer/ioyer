@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>swift错误处理 - 七习--高效能人士</title>
+  <title>swift错误处理 - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,7 +26,7 @@ There are four ways to handle errors in Swift. You can propagate the error from 
 When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below. 当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字try 要注意 try?或try!之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。
 Propagating Errors Using Throwing Functions To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&amp;gt;). 函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：throws即可，这种方法被称为throws函数，throws关键字位置在参数之后，返回值(-&amp;gt;)之前
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called. 抛出函数会把错误抛给调用它的函数周期中去。
-" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
+" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -244,7 +244,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">七习</a>
+    <a href="/" class="logo">习七</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -256,6 +256,10 @@ A throwing function propagates errors that are thrown inside of it to the scope 
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
@@ -264,6 +268,8 @@ A throwing function propagates errors that are thrown inside of it to the scope 
         <li class="mobile-menu-item">分类</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
+      </a><a href="/authors/itboyer/">
+        <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
 
@@ -275,13 +281,17 @@ A throwing function propagates errors that are thrown inside of it to the scope 
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">七习</a>
+  <a href="/" class="logo">习七</a>
   
 </div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
@@ -290,6 +300,8 @@ A throwing function propagates errors that are thrown inside of it to the scope 
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/authors/itboyer/">关于</a>
       </li>
   </ul>
 </nav>

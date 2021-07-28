@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>优化网络实现方式,重构SDImage组件调用接口 - 七习--高效能人士</title>
+  <title>优化网络实现方式,重构SDImage组件调用接口 - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="&amp;mdash;&amp;ndash;BEGIN PGP MESSAGE&amp;mdash;&amp;ndash; jA0EBwMCUlTuBCTI8Rbk0ukBersHDQQnHsO5&#43;FaUQKR/ZYY6m1lxq&#43;gbwYyCaV0y rDRbuteR30Hqyipc72CjIUWnE1DdqbSsiy7GZdh&#43;oWUPb/cxZUFvZ0tOXStliAHC wGsqab2ewbfstgM9vfHv2dMmfUvbFIFBED0z8Oo7psXyjvUv/06yMLM07Ap9C7jD kARn3Q88hdeHTorDGKPF4sPteAyCA/h0kdgglUSlpAOZP&#43;KqDyz8kj4gGPp/zW3t zJHuYjS8ZrtWjhr0UifLAmgOjIS7glKX2clOTVGv7nyUCfK3ctWOxjtA1Rbf6cKA LTgVrwwLps7E8oe8ATgi4H&#43;0FyQ0gwpt/y6fDzmoelEzHD1MhFkNWAlZJn5USaGI 2E425Zv4MgzfmwAYbr65JUmyNuZAq2JlkvSFFDNZPQ1N2edmpyZf8ZB2LQf9bOcy 836RjOmebZca5ARuFHcUAG/5SjoXf5vL2hPusWhHhPlK9oJNr15rwNt5tFQVv0zL YQUGUtzSAe5iN08sgb7Vj5ZeRDqcIfAm&#43;QbTGSSe5jFIIt3zR4lfaATz7f6g797h vPm11zneE6wu90ltmdZQVkwE2Mq3zGpN5NUwoDDpehoGReZszLfPr&#43;in0khzxgYj bNjeT95BDAHqMdQp/g6YJItGsdlcJzMrcU1JoQkVu4t1pBsz4JSpxqu2VbJCQqDq OsEVNzys/TACtP35rqD3HVPpCypp79gjb&#43;/vTcUlESYRQvHUlemGAJTMGqiu6GUu VwhGvW2&#43;Xii1UJtlN1h0XqKddb6cNJXnjSMaGQOH1mnSVxn5OZxrVm9UCqm8pN1G 9WMEzB8lcJo5nS5DdzbsD/X7hydnARX//Ge/aTQ8Cruw7CTILwqnBaw529HMP8Q4 iFBJcacVfnYz4AEeevvIGXSavzrUkTQGViaoHh/t5rHRLnW7V4EYmykUrbqVKohs pmy77RuQfMA3r37qVKqmKE7Qxy04EGyh/JDhYXCZWmoDW6C1amJfmHzJcKENo22P 577ldYhgZ5GUQ9IEWN/RqxT4sD&#43;2RY&#43;YTf&#43;Ja1jRisN7ocdg7JOLo776MsohS99C XHUv&#43;NhaZC0rWoqX3ge652TmZJp9cDEeE6PxgWPRHKRPHTQeDdErSQSTjfQCUnGT szvB7XFJh/SEf4PjyeWqV5t9d&#43;lLlW37EwuB&#43;ovzFd94GU8tnNlTNnkjPpqobsWy JaljzhDDQXomL&#43;EDaGePIBKB9/fi6CChFNNnGtuuSPCpK6c7/XlUNIRVsI1pOWcs FU29dsxewXfclRW7jl3hs1&#43;FVwErKHwpPVXYTGkIaCSkBUpiDo11Yg== =2Zpw &amp;mdash;&amp;ndash;END PGP MESSAGE&amp;mdash;&amp;ndash;" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="&amp;mdash;&amp;ndash;BEGIN PGP MESSAGE&amp;mdash;&amp;ndash; jA0EBwMCUlTuBCTI8Rbk0ukBersHDQQnHsO5&#43;FaUQKR/ZYY6m1lxq&#43;gbwYyCaV0y rDRbuteR30Hqyipc72CjIUWnE1DdqbSsiy7GZdh&#43;oWUPb/cxZUFvZ0tOXStliAHC wGsqab2ewbfstgM9vfHv2dMmfUvbFIFBED0z8Oo7psXyjvUv/06yMLM07Ap9C7jD kARn3Q88hdeHTorDGKPF4sPteAyCA/h0kdgglUSlpAOZP&#43;KqDyz8kj4gGPp/zW3t zJHuYjS8ZrtWjhr0UifLAmgOjIS7glKX2clOTVGv7nyUCfK3ctWOxjtA1Rbf6cKA LTgVrwwLps7E8oe8ATgi4H&#43;0FyQ0gwpt/y6fDzmoelEzHD1MhFkNWAlZJn5USaGI 2E425Zv4MgzfmwAYbr65JUmyNuZAq2JlkvSFFDNZPQ1N2edmpyZf8ZB2LQf9bOcy 836RjOmebZca5ARuFHcUAG/5SjoXf5vL2hPusWhHhPlK9oJNr15rwNt5tFQVv0zL YQUGUtzSAe5iN08sgb7Vj5ZeRDqcIfAm&#43;QbTGSSe5jFIIt3zR4lfaATz7f6g797h vPm11zneE6wu90ltmdZQVkwE2Mq3zGpN5NUwoDDpehoGReZszLfPr&#43;in0khzxgYj bNjeT95BDAHqMdQp/g6YJItGsdlcJzMrcU1JoQkVu4t1pBsz4JSpxqu2VbJCQqDq OsEVNzys/TACtP35rqD3HVPpCypp79gjb&#43;/vTcUlESYRQvHUlemGAJTMGqiu6GUu VwhGvW2&#43;Xii1UJtlN1h0XqKddb6cNJXnjSMaGQOH1mnSVxn5OZxrVm9UCqm8pN1G 9WMEzB8lcJo5nS5DdzbsD/X7hydnARX//Ge/aTQ8Cruw7CTILwqnBaw529HMP8Q4 iFBJcacVfnYz4AEeevvIGXSavzrUkTQGViaoHh/t5rHRLnW7V4EYmykUrbqVKohs pmy77RuQfMA3r37qVKqmKE7Qxy04EGyh/JDhYXCZWmoDW6C1amJfmHzJcKENo22P 577ldYhgZ5GUQ9IEWN/RqxT4sD&#43;2RY&#43;YTf&#43;Ja1jRisN7ocdg7JOLo776MsohS99C XHUv&#43;NhaZC0rWoqX3ge652TmZJp9cDEeE6PxgWPRHKRPHTQeDdErSQSTjfQCUnGT szvB7XFJh/SEf4PjyeWqV5t9d&#43;lLlW37EwuB&#43;ovzFd94GU8tnNlTNnkjPpqobsWy JaljzhDDQXomL&#43;EDaGePIBKB9/fi6CChFNNnGtuuSPCpK6c7/XlUNIRVsI1pOWcs FU29dsxewXfclRW7jl3hs1&#43;FVwErKHwpPVXYTGkIaCSkBUpiDo11Yg== =2Zpw &amp;mdash;&amp;ndash;END PGP MESSAGE&amp;mdash;&amp;ndash;" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -82,7 +82,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">七习</a>
+    <a href="/" class="logo">习七</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -94,6 +94,10 @@
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
@@ -102,6 +106,8 @@
         <li class="mobile-menu-item">分类</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
+      </a><a href="/authors/itboyer/">
+        <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
 
@@ -113,13 +119,17 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">七习</a>
+  <a href="/" class="logo">习七</a>
   
 </div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
@@ -128,6 +138,8 @@
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/authors/itboyer/">关于</a>
       </li>
   </ul>
 </nav>

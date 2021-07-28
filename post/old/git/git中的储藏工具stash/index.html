@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>Git中的储藏工具stash - 七习--高效能人士</title>
+  <title>Git中的储藏工具stash - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -25,7 +25,7 @@
 &amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用**git stash list**要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
 应用储藏  执行**git stash apply**命令, 可以重新应用最近的一次储藏； 执行**git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
 On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: index.html modified: lib/simplegit.rb  {%endcodeblock%}
-" /><meta name="keywords" content="iTBoyer, 布衣男儿, iOS" />
+" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -312,7 +312,7 @@ modified:   lib/simplegit.rb
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">七习</a>
+    <a href="/" class="logo">习七</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -324,6 +324,10 @@ modified:   lib/simplegit.rb
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
@@ -332,6 +336,8 @@ modified:   lib/simplegit.rb
         <li class="mobile-menu-item">分类</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
+      </a><a href="/authors/itboyer/">
+        <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
 
@@ -343,13 +349,17 @@ modified:   lib/simplegit.rb
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">七习</a>
+  <a href="/" class="logo">习七</a>
   
 </div>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
@@ -358,6 +368,8 @@ modified:   lib/simplegit.rb
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/authors/itboyer/">关于</a>
       </li>
   </ul>
 </nav>
