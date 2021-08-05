@@ -153,6 +153,31 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/uiimage%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/">UIImage的渲染模式</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-11-26 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 381 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      设置UIImage的渲染模式：UIImage.renderingMode 在 iOS 7 中 UIImage 添加了一个 renderingMode 属性。我们可以使用 imageWithRende
+    </div>
+    <div class="read-more">
+      <a href="/post/old/ios/ui/uiimage%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/git/%E4%BD%BF%E7%94%A8smartsvn%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/">使用SmartSVN创建版本库</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-10-05 </span>
@@ -526,92 +551,6 @@ $ git stash apply</p>
     </div>
     <div class="read-more">
       <a href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-09-02 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 2705 字 </span>
-        <span class="more-meta"> 预计阅读 6 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="按比例缩放">按比例缩放</h2>
-<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
-而在代码中，有如下两种实现方式:</p>
-<ol>
-<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
-<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
-</ol>
-<p>现在就拿一个简单的**<code>UIButton</code>**做示例，在ViewController中创建一个UIButton字段：<br>
-{%codeblock lang:objc%}
-UIButton *btn;<br>
-{%endcodeblock%}</p>
-<h4 id="需求-1">需求 1：</h4>
-<ol>
-<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
-<li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
-{%codeblock lang:objc%}</li>
-</ol>
-<ul>
-<li>
-<p>(void)viewDidLoad
-{
-[super viewDidLoad];</p>
-<p>//创建UIButton，不需要设置frame
-btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
-btn.backgroundColor = [UIColor greenColor];
-[self.view addSubview:btn];</p>
-<p>//禁止自动转换AutoresizingMask
-btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
-<p>//居中
-[self.view addConstraint:[NSLayoutConstraint
-constraintWithItem:btn
-attribute:NSLayoutAttributeCenterX
-relatedBy:NSLayoutRelationEqual
-toItem:self.view
-attribute:NSLayoutAttributeCenterX
-multiplier:1
-constant:0]];</p>
-<p>//距离底部20单位
-//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
-[self.view addConstraint:[NSLayoutConstraint
-constraintWithItem:btn
-attribute:NSLayoutAttributeBottom
-relatedBy:NSLayoutRelationEqual
-toItem:self.view
-attribute:NSLayoutAttributeBottom
-multiplier:1
-constant:-20]];</p>
-<p>//定义高度是父View的三分之一
-[self.view addConstraint:[NSLayoutConstraint
-constraintWithItem:btn
-attribute:NSLayoutAttributeHeight
-relatedBy:NSLayoutRelationEqual
-toItem:self.view
-attribute:NSLayoutAttributeHeight
-multiplier:0.3
-constant:0]];</p>
-<p>//注册KVO方法
-[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
-}</p>
-</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
