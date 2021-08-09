@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.83.1 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -38,7 +38,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -151,6 +151,31 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/">OC与swift相互调用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-12-01 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 997 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Swift中使用OC的类声明 &ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文
+    </div>
+    <div class="read-more">
+      <a href="/post/old/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/swift/swift%E5%85%A5%E9%97%A8/">Swift入门</a></h1>
@@ -452,105 +477,6 @@
     </div>
     <div class="read-more">
       <a href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-01-19 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 1742 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <ol>
-<li><!-- raw HTML omitted -->Stashing<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->被暂存的文件重新暂存<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->应用后，移除储藏的内容<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->取消储藏(Un-applying a Stash)<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></li>
-<li><!-- raw HTML omitted -->从储藏中创建分支<!-- raw HTML omitted --></li>
-</ol>
-<h3 id="a-namestashinggit工具---储藏stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
-<hr>
-<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
-场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
-<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
-<p>解决：**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令。</p>
-<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
-<h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
-<hr>
-<ol>
-<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
-<li>**<!-- raw HTML omitted -->git status <!-- raw HTML omitted -->**命令,查看中间状态：
-{%codeblock lang:bash %}
-$ git status</li>
-</ol>
-<h1 id="on-branch-master">On branch master</h1>
-<h1 id="changes-to-be-committed">Changes to be committed:</h1>
-<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <!-- raw HTML omitted -->&hellip;&rdquo; to unstage)</h1>
-<h1 id="heading"></h1>
-<h1 id="modified---indexhtml">modified:   index.html</h1>
-<h1 id="heading-1"></h1>
-<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
-<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
-<h1 id="heading-2"></h1>
-<h1 id="modified---libsimplegitrb">modified:   lib/simplegit.rb</h1>
-<h1 id="heading-3"></h1>
-<p>{%endcodeblock%}
-3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
-执行**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令，往堆栈中推送一个新的储藏：
-{%codeblock lang:bash %}
-$ git stash
-Saved working directory and index state<br>
-&ldquo;WIP on master: 049d078 added the index file&rdquo;
-HEAD is now at 049d078 added the index file
-(To restore them type &ldquo;git stash apply&rdquo;)
-{%endcodeblock%}
-4. 执行step 2查看目录库，中间状态就不见了：
-{%codeblock lang:bash %}
-$ git status
-#######On branch master
-nothing to commit, working directory clean
-{%endcodeblock%}
-这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
-5. 使用**<!-- raw HTML omitted -->git stash list<!-- raw HTML omitted -->**要查看现有的储藏：
-{%codeblock lang:bash%}
-$ git stash list
-stash@{0}: WIP on master: 049d078 added the index file
-stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
-stash@{2}: WIP on master: 21d80a5 added number to log
-{%endcodeblock%}
-在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
-<h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
-<hr>
-<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令, 可以重新应用最近的一次储藏；
-执行**<!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted -->**命令，即通过指定储藏的名字，来应用更早的储藏。
-{%codeblock lang:bash%}
-$ git stash apply</p>
-<h1 id="on-branch-master-1">On branch master</h1>
-<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
-<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
-<h1 id="heading-4"></h1>
-<h1 id="modified---indexhtml-1">modified:   index.html</h1>
-<h1 id="modified---libsimplegitrb-1">modified:   lib/simplegit.rb</h1>
-<h1 id="heading-5"></h1>
-<p>{%endcodeblock%}</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
