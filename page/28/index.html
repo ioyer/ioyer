@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.83.1 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -38,7 +38,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
+<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -151,31 +151,6 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/realm%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E-swift/">Realm数据库引擎-swift</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-12-16 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 1283 字 </span>
-        <span class="more-meta"> 预计阅读 3 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      中心思想： 继承RLMObject新建数据模型，添加相应属性，即可使用realm数据库引擎，对用户数据创建持久化，更新，删除等操作。 简介： Realm 是
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/realm%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E-swift/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/">OC与swift相互调用</a></h1>
@@ -466,6 +441,42 @@
     </div>
     <div class="read-more">
       <a href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-21 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 738 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>安装ruby环境：
+方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
+方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
+方法三：使用macport安装 <code>port install ruby</code></p>
+<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
+<p>问题：<br>
+<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
+<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
+最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
+<h4 id="gem介绍">Gem介绍</h4>
+<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
+<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
