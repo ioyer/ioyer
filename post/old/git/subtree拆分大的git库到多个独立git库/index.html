@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/git/subtree%E6%8B%86%E5%88%86%E5%A4%A7%E7%9A%84git%E5%BA%93%E5%88%B0%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8Bgit%E5%BA%93/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Git 仓库拆拆拆 拆分一个子目录为独立仓库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/git/subtree%E6%8B%86%E5%88%86%E5%A4%A7%E7%9A%84git%E5%BA%93%E5%88%B0%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8Bgit%E5%BA%93/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-09T12:07:55&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-10-09T12:07:55+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="subtree拆分大的git库到多个独立git库">
-<meta itemprop="description" content="Git 仓库拆拆拆 拆分一个子目录为独立仓库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分"><meta itemprop="datePublished" content="2018-10-09T12:07:55&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="Git 仓库拆拆拆 拆分一个子目录为独立仓库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # 这就是那个大仓库 big-project $ git clone git@github.com:tom/big-project.git $ cd big-project # 把所有 `codes-eiyo` 目录下的相关提交整理为一个新的分"><meta itemprop="datePublished" content="2018-10-09T12:07:55+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="1355">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="subtree拆分大的git库到多个独立git库"/>
@@ -192,7 +192,7 @@
 <h2 id="拆分一个子目录为独立仓库">拆分一个子目录为独立仓库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -208,7 +208,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 这就是那个大仓库 big-project</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 这就是那个大仓库 big-project</span>
 $ git clone git@github.com:tom/big-project.git
 $ <span class="nb">cd</span> big-project
 
@@ -228,7 +228,7 @@ $ git pull ../big-project eiyo
 <p>这个还是要用万能的 <code>filter-branch</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -244,7 +244,7 @@ $ git pull ../big-project eiyo
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 还是那个大仓库 big-project</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 还是那个大仓库 big-project</span>
 $ git clone git@github.com:tom/big-project.git
 $ <span class="nb">cd</span> big-project
 
@@ -263,11 +263,11 @@ $ git pull ../big-project master
 </div><h2 id="推送给新的远端仓库">推送给新的远端仓库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ git remote add origin git://github.com:tom/fresh-project.git
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ git remote add origin git://github.com:tom/fresh-project.git
 $ git push origin -u master
 </code></pre></td></tr></table>
 </div>
@@ -277,11 +277,11 @@ $ git push origin -u master
 <p>命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;git subtree&#39; add -P &lt;prefix&gt; &lt;commit&gt;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#39;git subtree&#39; add -P &lt;prefix&gt; &lt;commit&gt;
 &#39;git subtree&#39; add -P &lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
 </code></pre></td></tr></table>
 </div>
@@ -292,13 +292,13 @@ $ git push origin -u master
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">// 创建lib的远程版本库: 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">// 创建lib的远程版本库: 
 git init --bare lib-rep
 <span class="c1">#-f：远端库添加后立即执行fetch操作</span>
 git remote add -f librepo ../lib-rep
@@ -309,33 +309,33 @@ git remote add -f librepo ../lib-rep
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git subtree add -P lib librepo master  
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git subtree add -P lib librepo master  
 </code></pre></td></tr></table>
 </div>
 </div><h5 id="squash合并法">squash合并法</h5>
 <p><code>--squash</code>: 适用于add/pull/merge子命令。先合并引用库的更新记录，将合并结果并到主项目中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">git subtree add --prefix<span class="o">=</span>themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master   
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">git subtree add --prefix<span class="o">=</span>themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master   
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="subtree其他命令">subtree其他命令</h4>
 <p>git subtree支持创建(add)之外,还支持更新(pull),推送(push),合并(merge),抽离(split)以下命令:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1">&#39;git subtree&#39;</span> pull -P &lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="s1">&#39;git subtree&#39;</span> pull -P &lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
 <span class="s1">&#39;git subtree&#39;</span> push -P &lt;prefix&gt; &lt;repository&gt; &lt;ref&gt;
 <span class="s1">&#39;git subtree&#39;</span> merge -P &lt;prefix&gt; &lt;commit&gt;
 <span class="s1">&#39;git subtree&#39;</span> split -P &lt;prefix&gt; <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>&lt;commit&gt;<span class="o">]</span>
@@ -344,25 +344,25 @@ git remote add -f librepo ../lib-rep
 </div><p>从子树库中拉取最新代码:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git subtree pull --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git subtree pull --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
 </code></pre></td></tr></table>
 </div>
 </div><p>将自己的代码发布到子树库:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git subtree push --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git subtree push --prefix=themes/jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master
 </code></pre></td></tr></table>
 </div>
 </div><p>相关参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -370,7 +370,7 @@ git remote add -f librepo ../lib-rep
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">-q <span class="p">|</span> --quiet
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">-q <span class="p">|</span> --quiet
 -d <span class="p">|</span> --debug
 -P &lt;prefix&gt; <span class="p">|</span> --prefix<span class="o">=</span>&lt;prefix&gt;      引用库对应的本地目录
 -m &lt;message&gt; <span class="p">|</span> --message<span class="o">=</span>&lt;message&gt;   适用于add/pull/merge子命令。设置产生的合并提交的说明文本
@@ -381,7 +381,7 @@ git remote add -f librepo ../lib-rep
 </div><p>split子命令选项：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -389,7 +389,7 @@ git remote add -f librepo ../lib-rep
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">--annotate=&lt;annotation&gt;              创建合成历史时有可能形成内容不同但提交信息完全相同的提交版本，使用这个选项在每个提交消息前加上此前缀用来区分。
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--annotate=&lt;annotation&gt;              创建合成历史时有可能形成内容不同但提交信息完全相同的提交版本，使用这个选项在每个提交消息前加上此前缀用来区分。
 -b &lt;branch&gt; | --branch=&lt;branch&gt;      创建合成的提交历史时，创建此参数指定的新分支包含生成的合成历史。&lt;branch&gt;必须是还不存在的。
 --onto=&lt;onto&gt;
 --rejoin
@@ -408,11 +408,11 @@ git remote add -f librepo ../lib-rep
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git -c subtree pull -P themes/.jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git -c subtree pull -P themes/.jacman --squash https://it-boyer@github.com/it-boyer/jacman.git master 
 
 </code></pre></td></tr></table>
 </div>

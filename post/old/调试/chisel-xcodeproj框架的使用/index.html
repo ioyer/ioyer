@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/chisel-xcodeproj%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/chisel-xcodeproj%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-11-09T13:05:46&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-11-09T13:05:46+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="Chisel-xcodeproj框架的使用">
-<meta itemprop="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。"><meta itemprop="datePublished" content="2018-11-09T13:05:46&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="{% github it-boyer chisel f331dc6 width = 30% %} 这个pull请求添加findinstances命令，该命令完成Add findinstances, and new support framework in Chisel.xcodeproj 和Add Makefile for installing framework的工作。"><meta itemprop="datePublished" content="2018-11-09T13:05:46+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="1110">
 <meta itemprop="keywords" content="iOS,调试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chisel-xcodeproj框架的使用"/>
@@ -198,7 +198,7 @@
 在第一次传递之后，候选对象将通过第二次传递，检查它们是否与可选的<code>NSPredicate</code>匹配。如果没有谓词，则输出对象的信息最少。如果有谓词，并且对象传递谓词，那么对象将输出更多细节，特别是谓词中查询的细节。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -207,7 +207,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">findinstances UIView
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">findinstances UIView
 findinstances *UIView
 findinstances UIScrollViewDelegate
 findinstances UIView window == nil || hidden == true || alpha == 0 || layer.bounds.#size.width == 0 ||  layer.bounds.#size.height == 0 
@@ -220,21 +220,21 @@ findinstances NSArray @count &gt; 100
 <p>构建Xcode项目，并获得到<code>Chisel Framework</code>的路径。:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">/Users/&lt;me&gt;/Library/Developer/Xcode/DerivedData/Chisel-&lt;stuff&gt;/Build/Products/Debug-iphonesimulator/Chisel.framework/Chisel
 </code></pre></td></tr></table>
 </div>
 </div><p>在lldb环境下执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb
 &gt;&gt;&gt; expr -l objc -- (void*)dlopen(&#34;/path/to/Chisel.framework/Chisel&#34;, 2)
 script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression(&#39;(void)PrintInstances(&#34;&lt;classname&gt;&#34;, &#34;&lt;predicate&gt;&#34;)&#39;, o)
 </code></pre></td></tr></table>
@@ -245,18 +245,18 @@ script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.Se
 (注意，<code>findinstance</code>后面必须换行)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">command regex findinstances
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">command regex findinstances
 s/(\S+) *(.*)/script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageTypeObjC); o.SetTrapExceptions(False); o.SetTryAllThreads(False); o.SetTimeoutInMicroSeconds(10*1000000); lldb.frame.EvaluateExpression(&#39;(void)PrintInstances(&#34;%1&#34;, &#34;%2&#34;)&#39;, o)/
 </code></pre></td></tr></table>
 </div>
 </div><p>或者，作为<code>python命令</code>，存储在<code>path/to/findinstances.py</code>中:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -279,7 +279,7 @@ s/(\S+) *(.*)/script o=lldb.SBExpressionOptions(); o.SetLanguage(lldb.eLanguageT
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">import lldb
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import lldb
 
 def findinstances(debugger, command, exe_ctx, result, _):
 options = lldb.SBExpressionOptions()
@@ -308,7 +308,7 @@ This allows you to run make install with optional environment variables
 in order to build and install Chisel.framework.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -327,7 +327,7 @@ in order to build and install Chisel.framework.</p>
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">PREFIX ?= /usr/local/lib
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PREFIX ?= /usr/local/lib
 
 export INSTALL_NAME =
 ifneq ($(LD_DYLIB_INSTALL_NAME),)

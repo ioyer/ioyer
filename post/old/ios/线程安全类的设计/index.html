@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="这篇文章将专注于实用技巧，设计模式，以及对于写出线程安全类和使用 GCD 来说所特别需要注意的一些反面模式。 线程安全 Apple 的框架 首先让我们来看看 Apple 的框架" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-09-24T19:06:03&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2017-09-24T19:06:03+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="线程安全类的设计">
-<meta itemprop="description" content="这篇文章将专注于实用技巧，设计模式，以及对于写出线程安全类和使用 GCD 来说所特别需要注意的一些反面模式。 线程安全 Apple 的框架 首先让我们来看看 Apple 的框架"><meta itemprop="datePublished" content="2017-09-24T19:06:03&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="这篇文章将专注于实用技巧，设计模式，以及对于写出线程安全类和使用 GCD 来说所特别需要注意的一些反面模式。 线程安全 Apple 的框架 首先让我们来看看 Apple 的框架"><meta itemprop="datePublished" content="2017-09-24T19:06:03+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="5778">
 <meta itemprop="keywords" content="线程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="线程安全类的设计"/>
@@ -229,7 +229,7 @@
 <p>一个非原子的 setter 看起来是这个样子的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -238,7 +238,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setUserName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userName</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setUserName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userName</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">userName</span> <span class="o">!=</span> <span class="n">_userName</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">[</span><span class="n">userName</span> <span class="k">retain</span><span class="p">];</span>
         <span class="p">[</span><span class="n">_userName</span> <span class="k">release</span><span class="p">];</span>
@@ -251,11 +251,11 @@
 <p>对于任何没有手动实现的属性，编译器都会生成一个 <a href="https://github.com/opensource-apple/objc4/blob/master/runtime/Accessors.subproj/objc-accessors.mm#L127"><code>objc_setProperty_non_gc(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy)</code></a> 的调用。在我们的例子中，这个调用的参数是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">objc_setProperty_non_gc</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">_cmd</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">objc_setProperty_non_gc</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">_cmd</span><span class="p">,</span>
 <span class="p">(</span><span class="n">ptrdiff_t</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">_userName</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">ptrdiff_t</span><span class="p">)(</span><span class="nb">self</span><span class="p">),</span> <span class="n">userName</span><span class="p">,</span> <span class="nb">NO</span><span class="p">,</span> <span class="nb">NO</span><span class="p">);</span><span class="err">`</span>
 </code></pre></td></tr></table>
 </div>
@@ -263,7 +263,7 @@
 <p><code>objc_setProperty</code> 调用的是如下方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -292,7 +292,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">static inline void reallySetProperty(id self, SEL _cmd, id newValue,
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">static inline void reallySetProperty(id self, SEL _cmd, id newValue,
 ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 {
     id oldValue;
@@ -325,7 +325,7 @@ ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 <p>虽然这些方法没有定义在任何公开的头文件中，但我们还是可用手动调用他们。我不是说这是一个好的做法，但是知道这个还是蛮有趣的，而且如果你想要同时实现原子属性<strong>和</strong>自定义的 setter 的话，这个技巧就非常有用了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,7 +337,7 @@ ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 手动声明运行时的方法
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 手动声明运行时的方法
 </span><span class="c1"></span><span class="k">extern</span> <span class="kt">void</span> <span class="nf">objc_setProperty</span><span class="p">(</span><span class="kt">id</span> <span class="nb">self</span><span class="p">,</span> <span class="kt">SEL</span> <span class="n">_cmd</span><span class="p">,</span> <span class="n">ptrdiff_t</span> <span class="n">offset</span><span class="p">,</span>
 <span class="kt">id</span> <span class="n">newValue</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="k">atomic</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">shouldCopy</span><span class="p">);</span>
 <span class="k">extern</span> <span class="kt">id</span> <span class="nf">objc_getProperty</span><span class="p">(</span><span class="kt">id</span> <span class="nb">self</span><span class="p">,</span> <span class="kt">SEL</span> <span class="n">_cmd</span><span class="p">,</span> <span class="n">ptrdiff_t</span> <span class="n">offset</span><span class="p">,</span>
@@ -356,14 +356,14 @@ ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 <p>单独使用原子属性并不会使你的类变成线程安全。它不能保护你应用的逻辑，只能保护你免于在 setter 中遭遇到<a href="http://objccn.io/issue-3-1">竞态条件</a>的困扰。看看下面的代码片段：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">contents</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">contents</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">CFAttributedStringRef</span> <span class="n">stringRef</span> <span class="o">=</span> <span class="n">CFAttributedStringCreate</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span>
     <span class="p">(</span><span class="k">__bridge</span> <span class="n">CFStringRef</span><span class="p">)</span><span class="nb">self</span><span class="p">.</span><span class="n">contents</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
     <span class="c1">// 渲染字符串
@@ -373,7 +373,7 @@ ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 </div><p>我之前在 <a href="http://pspdfkit.com">PSPDFKit</a> 中就犯了这个错误。时不时地应用就会因为 <code>contents</code> 属性在通过检查之后却又被设成了 nil 而导致 EXC_BAD_ACCESS 崩溃。捕获这个变量就可以简单修复这个问题；</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -381,7 +381,7 @@ ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSString *contents = self.contents;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">NSString *contents = self.contents;
 if (contents) {
     CFAttributedStringRef stringRef = CFAttributedStringCreate(NULL,
     (__bridge CFStringRef)contents, NULL);
@@ -397,14 +397,14 @@ if (contents) {
 <p>在尝试写一些线程安全的东西之前，应该先想清楚是不是真的需要。确保你要做的事情不会是过早优化。如果要写的东西是一个类似配置类 (configuration class) 的话，去考虑线程安全这种事情就毫无意义了。更正确的做法是扔一个断言上去，以保证它被正确地使用：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="kt">void</span> <span class="nf">PSPDFAssertIfNotMainThread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="kt">void</span> <span class="nf">PSPDFAssertIfNotMainThread</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 <span class="n">NSAssert</span><span class="p">(</span><span class="n">NSThread</span><span class="p">.</span><span class="n">isMainThread</span><span class="p">,</span>
 <span class="s">@&#34;Error: Method needs to be called on the main thread. %@&#34;</span><span class="p">,</span>
 <span class="p">[</span><span class="n">NSThread</span> <span class="n">callStackSymbols</span><span class="p">]);</span>
@@ -415,7 +415,7 @@ if (contents) {
 <p>于是你也可以重新组织你的代码，这样某些特定的锁就不再需要了。看看下面这段实现了一种多委托的代码（其实在大多数情况下，用 NSNotifications 会更好，但是其实也还是有<a href="https://code.google.com/r/riky-adsfasfasf/source/browse/Utilities/GCDMulticastDelegate.h">多委托的实用例子</a>）的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -443,7 +443,7 @@ if (contents) {
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 头文件
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 头文件
 @property (nonatomic, strong) NSMutableSet *delegates;
 
 // init方法中
@@ -474,7 +474,7 @@ DISPATCH_QUEUE_CONCURRENT);
 </div><p>除非 <code>addDelegate:</code> 或者 <code>removeDelegate:</code> 每秒要被调用上千次，否则我们可以使用一个相对简洁的实现方式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -496,7 +496,7 @@ DISPATCH_QUEUE_CONCURRENT);
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 头文件
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 头文件
 @property (atomic, copy) NSSet *delegates;
 
 - (void)addDelegate:(id&lt;PSPDFCacheDelegate&gt;)delegate {
@@ -525,7 +525,7 @@ DISPATCH_QUEUE_CONCURRENT);
 <p>GCD 是一个对共享资源的访问进行串行化的队列。这个特性可以被当作锁来使用，但实际上它和 <code>@synchronized</code> 有很大区别。 GCD队列并非是<a href="http://zh.wikipedia.org/w/index.php?title=%E5%8F%AF%E9%87%8D%E5%85%A5&amp;variant=zh-cn">可重入</a>的，因为这将破坏队列的特性。很多有试图使用 <code>dispatch_get_current_queue()</code> 来绕开这个限制，但是这是一个<a href="https://gist.github.com/steipete/3713233">糟糕的做法</a>，Apple 在 iOS6 中将这个方法标记为废弃，自然也是有自己的理由。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -533,7 +533,7 @@ DISPATCH_QUEUE_CONCURRENT);
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// This is a bad idea.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// This is a bad idea.
 inline void pst_dispatch_sync_reentrant(dispatch_queue_t queue,
 dispatch_block_t block)
 {
@@ -546,14 +546,14 @@ dispatch_block_t block)
 <p>在使用 UIKit 的时候遇到了一些时序上的麻烦？很多时候，这样进行“修正”看来非常完美：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
     <span class="c1">// Some UIKit call that had timing issues but works fine
 </span><span class="c1"></span>    <span class="c1">// in the next runloop.
 </span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span> <span class="n">updatePopoverSize</span><span class="p">];</span>

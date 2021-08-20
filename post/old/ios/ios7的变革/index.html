@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,13 +46,13 @@
 <meta property="og:description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2014-06-11T10:17:19&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2014-06-11T10:17:19+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="IOS7的变革">
-<meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7"><meta itemprop="datePublished" content="2014-06-11T10:17:19&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
-<meta itemprop="wordCount" content="4227">
+<meta itemprop="description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7"><meta itemprop="datePublished" content="2014-06-11T10:17:19+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="wordCount" content="4787">
 <meta itemprop="keywords" content="IOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IOS7的变革"/>
 <meta name="twitter:description" content="性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7"/>
@@ -163,8 +163,8 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 4227 字 </span>
-          <span class="more-meta"> 预计阅读 9 分钟 </span>
+          <span class="more-meta"> 约 4787 字 </span>
+          <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
  </span>
@@ -204,13 +204,13 @@
 注册<!-- raw HTML omitted --><strong>截屏完成后</strong><!-- raw HTML omitted -->通知:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span>  <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span>  <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> 
 											  <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">mymethod</span><span class="p">:)</span>
 											  	    <span class="nl">name</span><span class="p">:</span><span class="n">UIApplicationUserDidTakeScreenshotNotification</span> 
 											    <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span> 
@@ -224,7 +224,7 @@
 Using this new gesture recognizer is quite simple, as shown below:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -232,7 +232,7 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="o">*</span><span class="n">recognizer</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="o">*</span><span class="n">recognizer</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> 
 														<span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> 
 															<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">handleScreenEdgeRecognizer</span><span class="p">:)];</span>
 	<span class="c1">// accept gestures that start from the left; we&#39;re probably building another hamburger menu!
@@ -251,52 +251,52 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 <p>举例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span><span class="p">,</span><span class="l">@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span><span class="p">,</span><span class="l">@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%i&#34;</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这段代码显然有错误，但在Xcode4.6上是可以编译通过的。是由于Objective-C是动态性语言。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">arrayWithObjects:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">firstObj</span><span class="p">,</span> <span class="p">...;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">arrayWithObjects:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">firstObj</span><span class="p">,</span> <span class="p">...;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>并且，arrayWithObjects:返回<code>id</code>类型：是运行时的动态类型，编译器无法知道它的真实类型，即使调用一个id类型没有的方法，也不会产生编译警告。</p>
 <p>那么，为什么<code>arrayWithObjects:</code>方法的返回类型还是<code>id</code>类型？来看看<code>NSArray</code>子类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="k">@interface</span> <span class="nc">MyArray</span> : <span class="nc">NSArray</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="k">@interface</span> <span class="nc">MyArray</span> : <span class="nc">NSArray</span>
 	<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Now consider the use of your new subclass in the code below:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">MyArray</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span><span class="p">,</span> <span class="l">@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">MyArray</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span><span class="p">,</span> <span class="l">@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果方法<code>arrayWithObjects:</code>返回值的类型是<code>NSArray *</code>，那么子类<code>MyArray</code>就需要被强制转换为所需的类<code>NSArray</code>。这是正是<code>instancetype</code>返回类型的用武之地。
 在iPhone 7.0 SDK的NSArray中的头文件，已更新为：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="o">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nl">arrayWithObjects</span><span class="p">:(</span><span class="kt">id</span><span class="p">)</span><span class="n">firstObj</span><span class="p">,</span> <span class="p">...;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="o">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nl">arrayWithObjects</span><span class="p">:(</span><span class="kt">id</span><span class="p">)</span><span class="n">firstObj</span><span class="p">,</span> <span class="p">...;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>唯一的区别是返回类<code>instancetype</code>取代<code>id</code>。这种新的返回类型会告知编译器，返回值是该方法所属的类的实例对象。<br>
@@ -305,12 +305,12 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 <p><code>instancetype</code>解决<code>id</code>类型的问题，同时也继承<code>id</code>类型功能。如果编译在Xcode 5的原代码，你会看到下面的警告：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="nl">warning</span><span class="p">:</span> <span class="n">incompatible</span> <span class="n">pointer</span> <span class="n">types</span> <span class="n">initializing</span> <span class="err">&#39;</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="err">&#39;</span> <span class="n">with</span> <span class="n">an</span> <span class="n">expression</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">NSArray</span> <span class="o">*</span><span class="err">&#39;</span> <span class="p">[</span><span class="o">-</span><span class="n">Wincompatible</span><span class="o">-</span><span class="n">pointer</span><span class="o">-</span><span class="n">types</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="nl">warning</span><span class="p">:</span> <span class="n">incompatible</span> <span class="n">pointer</span> <span class="n">types</span> <span class="n">initializing</span> <span class="err">&#39;</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="err">&#39;</span> <span class="n">with</span> <span class="n">an</span> <span class="n">expression</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">NSArray</span> <span class="o">*</span><span class="err">&#39;</span> <span class="p">[</span><span class="o">-</span><span class="n">Wincompatible</span><span class="o">-</span><span class="n">pointer</span><span class="o">-</span><span class="n">types</span><span class="p">]</span>
     <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span><span class="p">,</span> <span class="l">@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
                 <span class="o">^</span>    <span class="o">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>  
 </code></pre></td></tr></table>
@@ -324,7 +324,7 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 <p>这个属性使用了新的<code>UIScrollViewKeyboardDismissMode</code> enum枚举类型。这个enum枚举类型可能的值如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -332,7 +332,7 @@ Using this new gesture recognizer is quite simple, as shown below:</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// the keyboard is not dismissed automatically when scrolling
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// the keyboard is not dismissed automatically when scrolling
 </span><span class="c1"></span>		<span class="n">UIScrollViewKeyboardDismissModeNone</span>   
     <span class="c1">// dismisses the keyboard when a drag begins 
 </span><span class="c1"></span>		<span class="n">UIScrollViewKeyboardDismissModeOnDrag</span>  
@@ -360,7 +360,7 @@ documentAttributes:nil
 error:nil];</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -388,38 +388,38 @@ error:nil];</p>
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSDocumentTypeDocumentAttribute包括:
-&lt;!--https://gist.githubusercontent.com/it-boyer/ecba275d5e4404678354/raw/1636f62209b056b4acbe07021f596e1ffd5ef301/%E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5
---&gt;
-	NSPlainTextDocumentType		//Plain text document.
-    NSRTFTextDocumentType		//Rich text format document.
-    NSRTFDTextDocumentType		//Rich text format with attachments document.
-
-2.相反，也可以将`NSAttributedString`对象，解析成HTML片段：
-
-{% gist ecba275d5e4404678354 %E8%A7%A3%E6%9E%90NSAttributedString%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%88%90HTML%E7%89%87%E6%AE%B5.m %}	
-
-### NSLinkAttributeName让标签（UILabel,UITextView）支持超链接
- 
-首先，创建一个`NSAttributedString`对象,然后，调用`addAttribute:value:range:`方法，添加 `NSLinkAttributeName`属性并赋值，如下：  
-``` objc UITextView支持超链接
-	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@&#34;This is an example by @marcelofabri_&#34;]; 
-	[attributedString addAttribute:NSLinkAttributeName 
-                         value:@&#34;username://marcelofabri_&#34; 
-                         range:[[attributedString string] rangeOfString:@&#34;@marcelofabri_&#34;]]; 
-	NSDictionary *linkAttributes = @{NSForegroundColorAttributeName: [UIColor greenColor], 
-                                 NSUnderlineColorAttributeName: [UIColor lightGrayColor], 
-                                 NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};  
-	// assume that textView is a UITextView previously created (either by code or Interface Builder) 
-	textView.linkTextAttributes = linkAttributes; // customizes the appearance of links 
-	textView.attributedText = attributedString; 
-	textView.delegate = self; 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">NSDocumentTypeDocumentAttribute包括</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="o">&lt;!--</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gist</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">it</span><span class="o">-</span><span class="n">boyer</span><span class="o">/</span><span class="n">ecba275d5e4404678354</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="mi">1636</span><span class="n">f62209b056b4acbe07021f596e1ffd5ef301</span><span class="o">/%</span><span class="n">E8</span><span class="o">%</span><span class="n">A7</span><span class="o">%</span><span class="n">A3</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="mi">9</span><span class="n">E</span><span class="o">%</span><span class="mi">90</span><span class="n">NSAttributedString</span><span class="o">%</span><span class="n">E5</span><span class="o">%</span><span class="n">AF</span><span class="o">%</span><span class="n">B9</span><span class="o">%</span><span class="n">E8</span><span class="o">%</span><span class="n">B1</span><span class="o">%</span><span class="n">A1</span><span class="o">%</span><span class="n">EF</span><span class="o">%</span><span class="n">BC</span><span class="o">%</span><span class="mi">8</span><span class="n">C</span><span class="o">%</span><span class="n">E8</span><span class="o">%</span><span class="mi">8</span><span class="n">E</span><span class="o">%</span><span class="n">B7</span><span class="o">%</span><span class="n">E5</span><span class="o">%</span><span class="mi">8</span><span class="n">F</span><span class="o">%</span><span class="mi">96</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="mi">88</span><span class="o">%</span><span class="mi">90</span><span class="n">HTML</span><span class="o">%</span><span class="n">E7</span><span class="o">%</span><span class="mi">89</span><span class="o">%</span><span class="mi">87</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="n">AE</span><span class="o">%</span><span class="n">B5</span><span class="w">
+</span><span class="w"></span><span class="o">--&gt;</span><span class="w">
+</span><span class="w">	</span><span class="n">NSPlainTextDocumentType</span><span class="w">		</span><span class="o">//</span><span class="n">Plain</span><span class="w"> </span><span class="kt">text</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="w">
+</span><span class="w">    </span><span class="n">NSRTFTextDocumentType</span><span class="w">		</span><span class="o">//</span><span class="n">Rich</span><span class="w"> </span><span class="kt">text</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="w">
+</span><span class="w">    </span><span class="n">NSRTFDTextDocumentType</span><span class="w">		</span><span class="o">//</span><span class="n">Rich</span><span class="w"> </span><span class="kt">text</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">attachments</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="err">相反，也可以将</span><span class="o">`</span><span class="n">NSAttributedString</span><span class="o">`</span><span class="err">对象，解析成</span><span class="n">HTML片段</span><span class="err">：</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="n">ecba275d5e4404678354</span><span class="w"> </span><span class="o">%</span><span class="n">E8</span><span class="o">%</span><span class="n">A7</span><span class="o">%</span><span class="n">A3</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="mi">9</span><span class="n">E</span><span class="o">%</span><span class="mi">90</span><span class="n">NSAttributedString</span><span class="o">%</span><span class="n">E5</span><span class="o">%</span><span class="n">AF</span><span class="o">%</span><span class="n">B9</span><span class="o">%</span><span class="n">E8</span><span class="o">%</span><span class="n">B1</span><span class="o">%</span><span class="n">A1</span><span class="o">%</span><span class="n">EF</span><span class="o">%</span><span class="n">BC</span><span class="o">%</span><span class="mi">8</span><span class="n">C</span><span class="o">%</span><span class="n">E8</span><span class="o">%</span><span class="mi">8</span><span class="n">E</span><span class="o">%</span><span class="n">B7</span><span class="o">%</span><span class="n">E5</span><span class="o">%</span><span class="mi">8</span><span class="n">F</span><span class="o">%</span><span class="mi">96</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="mi">88</span><span class="o">%</span><span class="mi">90</span><span class="n">HTML</span><span class="o">%</span><span class="n">E7</span><span class="o">%</span><span class="mi">89</span><span class="o">%</span><span class="mi">87</span><span class="o">%</span><span class="n">E6</span><span class="o">%</span><span class="n">AE</span><span class="o">%</span><span class="n">B5</span><span class="p">.</span><span class="n">m</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="w">	
+</span><span class="w">
+</span><span class="w"></span><span class="c1">### NSLinkAttributeName让标签（UILabel,UITextView）支持超链接
+</span><span class="c1"></span><span class="w"> 
+</span><span class="w"></span><span class="err">首先，创建一个</span><span class="o">`</span><span class="n">NSAttributedString</span><span class="o">`</span><span class="err">对象</span><span class="p">,</span><span class="err">然后，调用</span><span class="o">`</span><span class="n">addAttribute</span><span class="p">:</span><span class="n">value</span><span class="p">:</span><span class="n">range</span><span class="p">:</span><span class="o">`</span><span class="err">方法，添加</span><span class="w"> </span><span class="o">`</span><span class="n">NSLinkAttributeName</span><span class="o">`</span><span class="err">属性并赋值，如下：</span><span class="w">  
+</span><span class="w"></span><span class="o">```</span><span class="w"> </span><span class="n">objc</span><span class="w"> </span><span class="n">UITextView支持超链接</span><span class="w">
+</span><span class="w">	</span><span class="n">NSMutableAttributedString</span><span class="w"> </span><span class="o">*</span><span class="n">attributedString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="n">NSMutableAttributedString</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">initWithString</span><span class="p">:</span><span class="o">@</span><span class="s2">&#34;This is an example by @marcelofabri_&#34;</span><span class="p">];</span><span class="w"> 
+</span><span class="w">	</span><span class="p">[</span><span class="n">attributedString</span><span class="w"> </span><span class="n">addAttribute</span><span class="p">:</span><span class="n">NSLinkAttributeName</span><span class="w"> 
+</span><span class="w">                         </span><span class="n">value</span><span class="p">:</span><span class="o">@</span><span class="s2">&#34;username://marcelofabri_&#34;</span><span class="w"> 
+</span><span class="w">                         </span><span class="n">range</span><span class="p">:[[</span><span class="n">attributedString</span><span class="w"> </span><span class="n">string</span><span class="p">]</span><span class="w"> </span><span class="n">rangeOfString</span><span class="p">:</span><span class="o">@</span><span class="s2">&#34;@marcelofabri_&#34;</span><span class="p">]];</span><span class="w"> 
+</span><span class="w">	</span><span class="n">NSDictionary</span><span class="w"> </span><span class="o">*</span><span class="n">linkAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="err">{</span><span class="n">NSForegroundColorAttributeName</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">UIColor</span><span class="w"> </span><span class="n">greenColor</span><span class="p">],</span><span class="w"> 
+</span><span class="w">                                 </span><span class="n">NSUnderlineColorAttributeName</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">UIColor</span><span class="w"> </span><span class="n">lightGrayColor</span><span class="p">],</span><span class="w"> 
+</span><span class="w">                                 </span><span class="n">NSUnderlineStyleAttributeName</span><span class="p">:</span><span class="w"> </span><span class="o">@</span><span class="p">(</span><span class="n">NSUnderlinePatternSolid</span><span class="p">)</span><span class="err">}</span><span class="p">;</span><span class="w">  
+</span><span class="w">	</span><span class="o">//</span><span class="w"> </span><span class="n">assume</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">textView</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">UITextView</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="nf">created</span><span class="w"> </span><span class="p">(</span><span class="n">either</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">Interface</span><span class="w"> </span><span class="n">Builder</span><span class="p">)</span><span class="w"> 
+</span><span class="w">	</span><span class="n">textView</span><span class="p">.</span><span class="n">linkTextAttributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linkAttributes</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">customizes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">appearance</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">links</span><span class="w"> 
+</span><span class="w">	</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attributedString</span><span class="p">;</span><span class="w"> 
+</span><span class="w">	</span><span class="n">textView</span><span class="p">.</span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">;</span><span class="w"> 
+</span></code></pre></td></tr></table>
 </div>
 </div><p>当然，也可以使用<code>UITextViewDelegate</code>新增的协议方法<!-- raw HTML omitted --><strong>shouldInteractWithURL</strong><!-- raw HTML omitted -->，来自定义点击事件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -431,7 +431,7 @@ error:nil];</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">textView</span><span class="p">:(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="n">textView</span> <span class="nl">shouldInteractWithURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="n">URL</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">textView</span><span class="p">:(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="n">textView</span> <span class="nl">shouldInteractWithURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="n">URL</span> 
 											               <span class="nl">inRange</span><span class="p">:(</span><span class="n">NSRange</span><span class="p">)</span><span class="n">characterRange</span> <span class="p">{</span> 
 				    <span class="k">if</span> <span class="p">([[</span><span class="n">URL</span> <span class="n">scheme</span><span class="p">]</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;username&#34;</span><span class="p">])</span> <span class="p">{</span> 
 				        <span class="n">NSString</span> <span class="o">*</span><span class="n">username</span> <span class="o">=</span> <span class="p">[</span><span class="n">URL</span> <span class="n">host</span><span class="p">];</span>  
@@ -448,7 +448,7 @@ error:nil];</p>
 UIImage now has a read-only property named <code>renderingMode</code> as well as a new method <code>imageWithRenderingMode:</code> which uses the new enum <code>UIImageRenderingMode</code> containing the following possible values:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -456,7 +456,7 @@ UIImage now has a read-only property named <code>renderingMode</code> as well as
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// Use the default rendering mode for the context where the image is used
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">	// Use the default rendering mode for the context where the image is used
 		UIImageRenderingModeAutomatic  
 	// Always draw the original image, without treating it as a template
 		UIImageRenderingModeAlwaysOriginal  
@@ -467,11 +467,11 @@ UIImage now has a read-only property named <code>renderingMode</code> as well as
 </div><p>The code below shows how easy it is to create an image with a given rendering mode:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UIImage</span> <span class="o">*</span><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;myimage&#34;</span><span class="p">];</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UIImage</span> <span class="o">*</span><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;myimage&#34;</span><span class="p">];</span> 
 	<span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysTemplate</span><span class="p">];</span> 
 </code></pre></td></tr></table>
 </div>
@@ -484,7 +484,7 @@ Does that property sound familiar? it should — some classes such as <code>UINa
 In order to avoid getting tripped up by the new property, you should perform the following check if your app needs to support iOS 6 or earlier:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -496,7 +496,7 @@ In order to avoid getting tripped up by the new property, you should perform the
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UINavigationBar</span> <span class="o">*</span><span class="n">bar</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UINavigationBar</span> <span class="o">*</span><span class="n">bar</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">;</span>
 <span class="n">UIColor</span> <span class="o">*</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">greenColor</span><span class="p">];</span>
 
 <span class="k">if</span> <span class="p">([</span><span class="n">bar</span> <span class="nl">respondsToSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">setBarTintColor</span><span class="p">:)])</span> <span class="p">{</span> 
@@ -514,7 +514,7 @@ In iOS 7, you’re finally able to know if a remote device is available via AirP
 The following two new properties and notifications have been added to MPVolumeView:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -523,7 +523,7 @@ The following two new properties and notifications have been added to MPVolumeVi
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// is there a route that the device can connect to?
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// is there a route that the device can connect to?
 </span><span class="c1"></span>	<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">wirelessRoutesAvailable</span><span class="p">;</span>
 	
 <span class="c1">// is the device currently connected?
@@ -536,13 +536,13 @@ The following two new properties and notifications have been added to MPVolumeVi
 <p><code>-[NSArray firstObject]</code>可能是Objective-C中被调用做多的API。 在iOS4.0中<code>firstObject</code>已经被使用，但是那时仅仅是一个私有方法。在iOS7以前，常用方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[]</span><span class="p">;</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">NSArray</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="l">@[]</span><span class="p">;</span> 
 	<span class="kt">id</span> <span class="n">item</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr</span> <span class="n">firstObject</span><span class="p">];</span> 
 	<span class="c1">// 前你需要做以下工作 
 </span><span class="c1"></span>	<span class="kt">id</span> <span class="n">item</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr</span> <span class="n">count</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">:</span> <span class="nb">nil</span><span class="p">;</span>
@@ -561,11 +561,11 @@ The following two new properties and notifications have been added to MPVolumeVi
 目前，苹果推荐开发者使用以下两种方式，来获取作为框架和应用的唯一标示符：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">NSString</span> <span class="o">*</span><span class="n">identifierForVendor</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">identifierForVendor</span> <span class="n">UUIDString</span><span class="p">];</span> 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">NSString</span> <span class="o">*</span><span class="n">identifierForVendor</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">identifierForVendor</span> <span class="n">UUIDString</span><span class="p">];</span> 
 	<span class="n">NSString</span> <span class="o">*</span><span class="n">identifierForAdvertising</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ASIdentifierManager</span> <span class="n">sharedManager</span><span class="p">].</span><span class="n">advertisingIdentifier</span> <span class="n">UUIDString</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
@@ -577,7 +577,7 @@ The following two new properties and notifications have been added to MPVolumeVi
 以下的代码是用来查询用户是否允许app使用麦克风：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -590,7 +590,7 @@ The following two new properties and notifications have been added to MPVolumeVi
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">//第一次调用这个方法的时候，系统会提示用户让他同意你的app获取麦克风的数据 
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">//第一次调用这个方法的时候，系统会提示用户让他同意你的app获取麦克风的数据 
 </span><span class="c1"></span>	<span class="c1">// 其他时候调用方法的时候，则不会提醒用户 
 </span><span class="c1"></span>	<span class="c1">// 而会传递之前的值来要求用户同意 
 </span><span class="c1"></span>	<span class="p">[[</span><span class="n">AVAudioSession</span> <span class="n">sharedInstance</span><span class="p">]</span> <span class="nl">requestRecordPermission</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">)</span> <span class="p">{</span> 
@@ -661,7 +661,7 @@ The following two new properties and notifications have been added to MPVolumeVi
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-06-11 10:17:19 \u002b0800 CST',
+        id: '2014-06-11 10:17:19 \u002b0000 UTC',
         title: 'IOS7的变革',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

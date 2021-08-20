@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/git/git%E5%A6%82%E4%BD%95%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,13 +46,13 @@
 <meta property="og:description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候," />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/git/git%E5%A6%82%E4%BD%95%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-06-11T20:32:02&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-06-11T20:32:02+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="Git如何永久删除文件(包括历史记录)">
-<meta itemprop="description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,"><meta itemprop="datePublished" content="2018-06-11T20:32:02&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
-<meta itemprop="wordCount" content="1283">
+<meta itemprop="description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,"><meta itemprop="datePublished" content="2018-06-11T20:32:02+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="wordCount" content="1357">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git如何永久删除文件(包括历史记录)"/>
 <meta name="twitter:description" content="有些时候不小心上传了一些敏感文件(例如密码), 或者不想上传的文件(没及时或忘了加到.gitignore里的), 而且上传的文件又特别大的时候,"/>
@@ -163,7 +163,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 1283 字 </span>
+          <span class="more-meta"> 约 1357 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -215,10 +215,10 @@ sudo vi ~/.bash_profile  添加如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">alias bfg=&#34;java -jar ~/Downloads/soft/bfg/bfg.jar&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">alias bfg=&#34;java -jar ~/Downloads/soft/bfg/bfg.jar&#34;
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="常用命令">常用命令</h3>
@@ -227,10 +227,10 @@ sudo vi ~/.bash_profile  添加如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -240,28 +240,28 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <p>从历史纪录中删除所有文件名是 <code>id_rsa</code> 或 <code>id_dsa</code> 的文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --delete-files id_{dsa,rsa}  my-repo.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --delete-files id_{dsa,rsa}  my-repo.git
 </code></pre></td></tr></table>
 </div>
 </div><p>从历史纪录中删除所有大于1M的二进制文件 :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --strip-blobs-bigger-than 1M  my-repo.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --strip-blobs-bigger-than 1M  my-repo.git
 </code></pre></td></tr></table>
 </div>
 </div><p>从文件中删除所有列出的密码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --replace-text passwords.txt  my-repo.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --replace-text passwords.txt  my-repo.git
 </code></pre></td></tr></table>
 </div>
 </div><p>删除目录及目录下文件:
@@ -269,28 +269,28 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <code>--no-blob-protection</code>命令，可以解除保护</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd 
-$ bfg --delete-folders demo --delete-files demo --no-blob-protection
-//上述命令将demo索引状态重置为`add`的状态，需要执行reset即可
-$ git reset HEAD demo
-$ rm -fr demo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> 
+</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">bfg</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">folders</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">files</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="kt">blob</span><span class="o">-</span><span class="n">protection</span><span class="w">
+</span><span class="w"></span><span class="o">//</span><span class="err">上述命令将</span><span class="n">demo索引状态重置为</span><span class="o">`</span><span class="k">add</span><span class="o">`</span><span class="err">的状态，需要执行</span><span class="n">reset即可</span><span class="w">
+</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">HEAD</span><span class="w"> </span><span class="n">demo</span><span class="w">
+</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">fr</span><span class="w"> </span><span class="n">demo</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用-filter-branch命令">使用 filter-branch命令</h2>
 <h2 id="步骤一-从资料库中清除文件">步骤一: 从资料库中清除文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached --ignore-unmatch path-to-your-remove-file&#39;</span> --prune-empty --tag-name-filter cat -- --all
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached --ignore-unmatch path-to-your-remove-file&#39;</span> --prune-empty --tag-name-filter cat -- --all
 </code></pre></td></tr></table>
 </div>
 </div><p>其中, <code>path-to-your-remove-file</code> 是要删除的文件的相对路径(相对于git仓库的跟目录), 替换成你要删除的文件即可.</p>
@@ -301,10 +301,10 @@ $ rm -fr demo
 <p>在 <code>git rm --cached</code> 命令后面添加 <code>-r</code> 命令，表示递归的删除（子）文件夹和文件夹下的文件，类似于 <code>rm -rf</code> 命令:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder&#39;</span> --prune-empty --tag-name-filter cat -- --all
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder&#39;</span> --prune-empty --tag-name-filter cat -- --all
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="支持通配符">支持通配符</h3>
@@ -312,23 +312,23 @@ $ rm -fr demo
 使用通配符<code>*</code>删除目录下的所有文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*&#39;</span> --prune-empty --tag-name-filter cat -- --all
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*&#39;</span> --prune-empty --tag-name-filter cat -- --all
 </code></pre></td></tr></table>
 </div>
 </div><p>成功的日志：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">Ref <span class="s1">&#39;refs/heads/master&#39;</span> was rewritten
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Ref <span class="s1">&#39;refs/heads/master&#39;</span> was rewritten
 Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> was rewritten
 WARNING: Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> is unchanged
 WARNING: Ref <span class="s1">&#39;refs/tags/v0.9.0&#39;</span> is unchanged
@@ -344,10 +344,10 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 <p>通过步骤一，需要以强制覆盖的方式推送你的repo, 命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git push --force origin master
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git push --force origin master
 </code></pre></td></tr></table>
 </div>
 </div><p>这个过程其实是重新上传我们的repo, 比较耗时, 虽然跟删掉重新建一个repo有些类似, 但是好处是保留了原有的更新记录, 所以还是有些不同的. 如果你实在不在意这些更新记录, 也可以删掉重建, 两者也差不太多, 也许后者还更直观些.</p>
@@ -355,10 +355,10 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 <p>为了能从打了 tag 的版本中也删除你所指定的文件或文件夹，您可以使用这样的命令来强制推送您的 Git tags：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git push origin master --force --tags
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git push origin master --force --tags
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="步骤三-清理和回收空间">步骤三: 清理和回收空间</h2>
@@ -366,7 +366,7 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 <p>执行命令，再查看<code>.git</code>目录空间会明显变小:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -390,7 +390,7 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ rm -rf .git/refs/original/
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ rm -rf .git/refs/original/
 
 $ git reflog expire --expire<span class="o">=</span>now --all
 

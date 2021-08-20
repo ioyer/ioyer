@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E4%BD%BF%E7%94%A8fastlane%E9%9B%86%E6%88%90cocopads%E5%92%8Cjazzy%E5%B7%A5%E5%85%B7%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E4%BD%BF%E7%94%A8fastlane%E9%9B%86%E6%88%90cocopads%E5%92%8Cjazzy%E5%B7%A5%E5%85%B7%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-09-07T20:47:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2019-09-07T20:47:00+08:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="总结集成工具使用文档">
-<meta itemprop="description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置"><meta itemprop="datePublished" content="2019-09-07T20:47:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="DONEjazzy工具使用实现基本的文档的生成,并同步到hugo目录中 支持oc/swift文档 swift文档 oc 文档 .jazzy.yaml配置"><meta itemprop="datePublished" content="2019-09-07T20:47:00+08:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="904">
 <meta itemprop="keywords" content="文档," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="总结集成工具使用文档"/>
@@ -202,7 +202,7 @@
 <p>.jazzy.yaml配置文件使用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -213,7 +213,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">    author: Alamofire Software Foundation
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    author: Alamofire Software Foundation
     author_url: http://alamofire.org/
     github_url: https://github.com/Alamofire/Alamofire
     root_url: https://alamofire.github.io/Alamofire/
@@ -227,7 +227,7 @@
 <p>使用test.sh</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -235,7 +235,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">    <span class="c1">#!/bin/bash</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    <span class="c1">#!/bin/bash</span>
     jazzy --config .custom.jazzy.yaml
     jazzy --config .admin.jazzy.yaml
     jazzy --config .swiftfire.jazzy.yaml
@@ -259,11 +259,11 @@
 <p>使用fastlane发布cocopods私库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">    - ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Could not find a <span class="sb">`</span>ios<span class="sb">`</span> simulator <span class="o">(</span>valid values: <span class="o">)</span>. Ensure that Xcode -&gt; Window -&gt; Devices has at least one <span class="sb">`</span>ios<span class="sb">`</span> simulator listed or otherwise add one.<span class="o">)</span> during validation.
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    - ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Could not find a <span class="sb">`</span>ios<span class="sb">`</span> simulator <span class="o">(</span>valid values: <span class="o">)</span>. Ensure that Xcode -&gt; Window -&gt; Devices has at least one <span class="sb">`</span>ios<span class="sb">`</span> simulator listed or otherwise add one.<span class="o">)</span> during validation.
     </code></pre></td></tr></table>
 </div>
 </div>
@@ -273,13 +273,13 @@
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">  sudo gem install cocoapods
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  sudo gem install cocoapods
   fastlane podPushLane version:1.3 project:LogSwift
 或
 pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
@@ -288,10 +288,10 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 <p>错误2</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">- NOTE  <span class="p">|</span> xcodebuild:  error: SWIFT_VERSION <span class="s1">&#39;3.0&#39;</span> is unsupported, supported versions are: 4.0, 4.2, 5.0. <span class="o">(</span>in target <span class="s1">&#39;LogSwift&#39;</span> from project <span class="s1">&#39;Pods&#39;</span><span class="o">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">- NOTE  <span class="p">|</span> xcodebuild:  error: SWIFT_VERSION <span class="s1">&#39;3.0&#39;</span> is unsupported, supported versions are: 4.0, 4.2, 5.0. <span class="o">(</span>in target <span class="s1">&#39;LogSwift&#39;</span> from project <span class="s1">&#39;Pods&#39;</span><span class="o">)</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>原因:  Usage of the `.swift_version` file has been deprecated! Please delete the file and use the `swift_versions` attribute within your podspec instead.
@@ -299,7 +299,7 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 <p>错误3:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -314,7 +314,7 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">Validating spec
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Validating spec
 -&gt; LogSwift <span class="o">(</span>1.6<span class="o">)</span>
 - ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Unable to find a specification <span class="k">for</span> <span class="sb">`</span>RNCryptor <span class="o">(</span>~&gt; 5.1.0<span class="o">)</span><span class="sb">`</span> depended upon by <span class="sb">`</span>LogSwift<span class="sb">`</span>
 
@@ -333,7 +333,7 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 <p>问题4</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -346,7 +346,7 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>!<span class="o">]</span> The repo <span class="sb">`</span>PodRepo<span class="sb">`</span> at <span class="sb">`</span>../../../../.cocoapods/repos/PodRepo<span class="sb">`</span> is not clean
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>!<span class="o">]</span> The repo <span class="sb">`</span>PodRepo<span class="sb">`</span> at <span class="sb">`</span>../../../../.cocoapods/repos/PodRepo<span class="sb">`</span> is not clean
 
 原因:
 git status
@@ -427,7 +427,7 @@ fastlane编译app并运行到真机上?
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-09-07 20:47:00 \u002b0800 CST',
+        id: '2019-09-07 20:47:00 \u002b0800 \u002b0800',
         title: '总结集成工具使用文档',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/hexo/hexo%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="{% github hexojs site e1839be width = 30% %} Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件： 脚本（Scripts） 如果您的代码" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/hexo/hexo%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-09-07T15:08:22&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-09-07T15:08:22+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="Hexo插件开发">
-<meta itemprop="description" content="{% github hexojs site e1839be width = 30% %} Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件： 脚本（Scripts） 如果您的代码"><meta itemprop="datePublished" content="2018-09-07T15:08:22&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="{% github hexojs site e1839be width = 30% %} Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件： 脚本（Scripts） 如果您的代码"><meta itemprop="datePublished" content="2018-09-07T15:08:22+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="592">
 <meta itemprop="keywords" content="hexo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hexo插件开发"/>
@@ -195,12 +195,12 @@
 <p>文件夹内至少要包含 2 个文件：一个是主程序，另一个是 <code>package.json</code>，描述插件的用途和所依赖的插件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.
 ├── index.js
 └── package.json
 </code></pre></td></tr></table>
@@ -208,7 +208,7 @@
 </div><p><code>package.json</code> 中至少要包含 <code>name</code>, <code>version</code>, <code>main</code> 属性，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -216,7 +216,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">package.json
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">package.json
 {
 &#34;name&#34;: &#34;hexo-my-plugin&#34;,
 &#34;version&#34;: &#34;0.0.1&#34;,
@@ -238,12 +238,12 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone https://github.com/&lt;username&gt;/site.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone https://github.com/&lt;username&gt;/site.git
 $ cd site
 $ npm install
 </code></pre></td></tr></table>
@@ -253,7 +253,7 @@ $ npm install
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -262,7 +262,7 @@ $ npm install
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- name: hexo-server
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">- name: hexo-server
 description: Server module for Hexo.
 link: https://github.com/hexojs/hexo-server
 tags:

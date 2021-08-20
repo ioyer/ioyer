@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo-%E7%9B%B8%E5%85%B3-capture-%E7%9A%84%E9%85%8D%E7%BD%AE/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Test post to test another ox-hugo test." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo-%E7%9B%B8%E5%85%B3-capture-%E7%9A%84%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-11T00:00:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-14T18:35:47&#43;08:00" />
+<meta property="article:published_time" content="2021-05-11T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-05-14T18:35:47+08:00" />
 
 <meta itemprop="name" content="ox-hugo 使用 org-capture 模版搜集灵感提高效率">
-<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-05-11T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-14T18:35:47&#43;08:00" />
+<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-05-11T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2021-05-14T18:35:47+08:00" />
 <meta itemprop="wordCount" content="1598">
 <meta itemprop="keywords" content="hugo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ox-hugo 使用 org-capture 模版搜集灵感提高效率"/>
@@ -210,10 +210,10 @@
 <p>设置 capture :设置哪些目录下的 org 文件可以使用 capture 功能</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">    <span class="p">((</span><span class="nb">setq</span> <span class="nv">var</span> <span class="p">)</span> <span class="nv">org-default-notes-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">org-directory</span> <span class="s">&#34;/notes.org&#34;</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">    <span class="p">((</span><span class="nb">setq</span> <span class="nv">var</span> <span class="p">)</span> <span class="nv">org-default-notes-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">org-directory</span> <span class="s">&#34;/notes.org&#34;</span><span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>配置好之后,重新加载下配置,    使用这个和自己的快捷键有关,目前使用 doom 主题,所以 <code>spc shift x</code> 激活 capture 功能页面</p>
@@ -246,11 +246,11 @@
 <p>template:模版的实体它支持文件,字符串,甚至方法来实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">     <span class="p">(</span><span class="nv">file</span> <span class="s">&#34;/path/to/template-file&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">     <span class="p">(</span><span class="nv">file</span> <span class="s">&#34;/path/to/template-file&#34;</span><span class="p">)</span>
      <span class="p">(</span><span class="nb">function</span> <span class="nv">FUNCTION-RETURNING-THE-TEMPLATE</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -266,18 +266,18 @@
 <code>format-time-string</code>: 指定一时间戳格式化样式<a href="https://stackoverflow.com/questions/23218316/org-mode-org-time-stamp-custom-formats-shows-midnight-time">org-time-stamp-custom-formats</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">   <span class="nf">&lt;</span><span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: [17:09]</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">   <span class="nf">&lt;</span><span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: [17:09]</span>
    <span class="nv">&lt;%d</span> <span class="nv">%m</span> <span class="nv">%Y</span>  <span class="nv">%a</span> <span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: 02 12 2021 Fir [17:09]</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>真实案例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="hl"><span class="lnt">3
 </span></span><span class="lnt">4
@@ -287,7 +287,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="s">&#34;g&#34;</span> <span class="s">&#34;日总结周总结做日志记录、日记写作,file+weektree顺序排列&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="s">&#34;g&#34;</span> <span class="s">&#34;日总结周总结做日志记录、日记写作,file+weektree顺序排列&#34;</span>
                       <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+weektree</span> <span class="nv">org-agenda-file-gtd</span><span class="p">)</span>
 <span class="hl">                      <span class="s">&#34;* %&lt;[%H:%M]&gt; %^{title} %^g\n %?\n&#34;</span>
 </span>                      <span class="nb">:empty-lines</span> <span class="mi">1</span>
@@ -315,14 +315,14 @@
 <p>初始化时,加载</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-capture-templates</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-capture-templates</span>
             <span class="o">&#39;</span><span class="p">((</span><span class="s">&#34;t&#34;</span> <span class="s">&#34;Todo&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+headline</span> <span class="s">&#34;~/org/gtd.org&#34;</span> <span class="s">&#34;Tasks&#34;</span><span class="p">)</span>
                <span class="s">&#34;* TODO %?\n  %i\n  %a&#34;</span><span class="p">)</span>
               <span class="p">(</span><span class="s">&#34;j&#34;</span> <span class="s">&#34;Journal&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+datetree</span> <span class="s">&#34;~/org/journal.org&#34;</span><span class="p">)</span>
@@ -334,12 +334,12 @@
 <p>借助 <code>add-to-list</code> 方法加载</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-templates</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-templates</span>
                    <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;!l&#34;</span> <span class="s">&#34;Link&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file</span> <span class="nv">org-agenda-file-inbox</span><span class="p">)</span>
                      <span class="s">&#34;* TODO 阅读：%:description\nCaptured On: %U\n\n%:link&#34;</span> <span class="nb">:immediate-finish</span> <span class="no">t</span><span class="p">))</span>
 </code></pre></td></tr></table>
@@ -353,11 +353,11 @@
 先介绍下基础功能:获取用户输入的博客名,设置导出文件名:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
            <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
 </code></pre></td></tr></table>
 </div>
@@ -366,7 +366,7 @@
 <p>自动获取用户输入的内容,作为输入文件路径</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -383,7 +383,7 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;; Populates only the EXPORT_FILE_NAME property in the inserted headline.</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;; Populates only the EXPORT_FILE_NAME property in the inserted headline.</span>
 <span class="p">(</span><span class="nb">with-eval-after-load</span> <span class="ss">&#39;org-capture</span>
   <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
     <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
@@ -404,7 +404,7 @@
 <p>然后通过 <code>add-to-list</code> 加入到模版列表:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -415,7 +415,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-template</span>    <span class="nv">s</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-template</span>    <span class="nv">s</span>
                <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;h&#34;</span>                <span class="c1">;`org-capture&#39; binding + h</span>
                  <span class="s">&#34;Hugo post&#34;</span>
                  <span class="nv">entry</span>
@@ -435,7 +435,7 @@
 <p><code>:EXPORT_DATE:</code> 插入时间戳借助脚本获取当前时间,赋值到属性上:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="hl"><span class="lnt"> 4
@@ -454,7 +454,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
          <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
 </span><span class="s">       See </span><span class="ss">`org-capture-templates&#39;</span><span class="s"> for more information.&#34;</span>
 <span class="hl">         <span class="p">(</span><span class="nb">let*</span> <span class="p">(</span><span class="c1">;; http://www.holgerschurig.de/en/emacs-blog-from-org-to-hugo/</span>
@@ -531,7 +531,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-05-11 17:58:00 \u002b0800 CST',
+        id: '2021-05-11 17:58:00 \u002b0800 \u002b0800',
         title: 'ox-hugo 使用 org-capture 模版搜集灵感提高效率',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

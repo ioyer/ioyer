@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/forge%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="总结forge常用技巧，熟练使用，养成emacs管理和阅读issues" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/forge%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-10T14:01:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-08-10T17:47:25&#43;08:00" />
+<meta property="article:published_time" content="2021-08-10T14:01:00+08:00" />
+<meta property="article:modified_time" content="2021-08-10T17:47:25+08:00" />
 
 <meta itemprop="name" content="使用forge工具管理issue支持多平台或代理服务">
-<meta itemprop="description" content="总结forge常用技巧，熟练使用，养成emacs管理和阅读issues"><meta itemprop="datePublished" content="2021-08-10T14:01:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-08-10T17:47:25&#43;08:00" />
+<meta itemprop="description" content="总结forge常用技巧，熟练使用，养成emacs管理和阅读issues"><meta itemprop="datePublished" content="2021-08-10T14:01:00+08:00" />
+<meta itemprop="dateModified" content="2021-08-10T17:47:25+08:00" />
 <meta itemprop="wordCount" content="684">
 <meta itemprop="keywords" content="ARCHIVE," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用forge工具管理issue支持多平台或代理服务"/>
@@ -198,11 +198,11 @@
 <p>当在 <code>.gitconfig</code> 中替换域名的情况下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>url <span class="s2">&#34;https://hub.fastgit.org/&#34;</span><span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>url <span class="s2">&#34;https://hub.fastgit.org/&#34;</span><span class="o">]</span>
    <span class="nv">insteadof</span> <span class="o">=</span> https://github.com/</code></pre></td></tr></table>
 </div>
 </div>
@@ -215,7 +215,7 @@
 <p>在doom.d私有配置 <code>config.el</code> 添加域名到 <code>forge-alist</code> 配置中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -223,7 +223,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">after!</span> <span class="nv">forge</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">after!</span> <span class="nv">forge</span>
          <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;forge-alist</span>
                       <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;hub.fastgit.org&#34;</span> <span class="s">&#34;api.github.com&#34;</span> <span class="s">&#34;hub.fastgit.org&#34;</span> <span class="nv">forge-github-repository</span><span class="p">)</span>
                       <span class="p">)</span>
@@ -307,7 +307,7 @@ pull： <code>forge-pull</code></p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-08-10 14:42:00 \u002b0800 CST',
+        id: '2021-08-10 14:42:00 \u002b0800 \u002b0800',
         title: '使用forge工具管理issue支持多平台或代理服务',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

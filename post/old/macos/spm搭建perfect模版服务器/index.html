@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/spm%E6%90%AD%E5%BB%BAperfect%E6%A8%A1%E7%89%88%E6%9C%8D%E5%8A%A1%E5%99%A8/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-02T11:13:35&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-10-02T11:13:35+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="SPM搭建Perfect模版服务器">
-<meta itemprop="description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主"><meta itemprop="datePublished" content="2018-10-02T11:13:35&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="Perfect简介 {% github PerfectlySoft Perfect 60e44e4 width = 30% %} 目前比较流行服务端框架主要有Vapor、Perfect、Kitura和Zewo，他们各有长短，本人这次主"><meta itemprop="datePublished" content="2018-10-02T11:13:35+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="1709">
 <meta itemprop="keywords" content="SPM,swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SPM搭建Perfect模版服务器"/>
@@ -212,11 +212,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir iPerfect
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir iPerfect
 $ cd iPerfect
 </code></pre></td></tr></table>
 </div>
@@ -225,7 +225,7 @@ $ cd iPerfect
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -235,7 +235,7 @@ $ cd iPerfect
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span> <span class="o">--</span><span class="kd">type</span><span class="p">=</span><span class="nx">executable</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span> <span class="o">--</span><span class="kd">type</span><span class="p">=</span><span class="nx">executable</span>
 <span class="nx">Creating</span> <span class="nx">executable</span> <span class="kn">package</span><span class="p">:</span> <span class="nx">iPerfect</span>
 <span class="nx">Creating</span> <span class="nx">Package</span><span class="p">.</span><span class="nx">swift</span>
 <span class="nx">Creating</span> <span class="nx">README</span><span class="p">.</span><span class="nx">md</span>
@@ -252,7 +252,7 @@ $ cd iPerfect
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -270,7 +270,7 @@ $ cd iPerfect
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// swift-tools-version:4.0</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// swift-tools-version:4.0</span>
 <span class="c1">// The swift-tools-version declares the minimum version of Swift required to build this package.</span>
 
 <span class="kd">import</span> <span class="nc">PackageDescription</span>
@@ -293,11 +293,11 @@ $ cd iPerfect
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">mkdir Sources
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">mkdir Sources
 echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift
 </code></pre></td></tr></table>
 </div>
@@ -307,21 +307,21 @@ echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">swift build
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">swift build
 .build/debug/iPerfect
 </code></pre></td></tr></table>
 </div>
 </div><p>成功之后，会打印：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">你好！！！
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">你好！！！
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="设置perfect-httpserver服务器">设置<strong>Perfect HTTPServer</strong>服务器</h2>
@@ -329,7 +329,7 @@ echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift
 <p>打开<code>Sources/iPerfect/main.swift</code>文件，把内容替换为以下程序：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -349,7 +349,7 @@ echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PerfectHTTP</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PerfectHTTP</span>
 <span class="kd">import</span> <span class="nc">PerfectHTTPServer</span>
 
 <span class="c1">// 注册路由和请求／响应句柄</span>
@@ -374,14 +374,14 @@ echo &#39;print(&#34;您好！&#34;)&#39; &gt;&gt; Sources/iPerfect/main.swift
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
 $ .build/debug/iPerfect
 &gt;&gt;
 [INFO] Starting HTTP server www.example.ca on :::8181
@@ -395,10 +395,10 @@ $ .build/debug/iPerfect
 Swift软件包管理器（SPM）能够为您的项目<code>iPerfect</code>生成Xcode工程：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="递归编译设置">递归编译设置</h3>

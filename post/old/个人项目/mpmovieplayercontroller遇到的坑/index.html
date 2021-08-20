@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-08-31T16:58:22&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-08-31T16:58:22+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="MPMoviePlayerController遇到的坑">
-<meta itemprop="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController"><meta itemprop="datePublished" content="2018-08-31T16:58:22&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="问题 [MPMoviePlayerController播放过程中自动暂停的问题] 在使用系统播放器MPMoviePlayerController"><meta itemprop="datePublished" content="2018-08-31T16:58:22+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="635">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MPMoviePlayerController遇到的坑"/>
@@ -200,7 +200,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -209,7 +209,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">The playState is a bitmask. Any number of bits can be set, such as
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">The playState is a bitmask. Any number of bits can be set, such as
 MPMovieLoadStatePlaythroughOK | MPMovieLoadStatePlayable
 Check for states like this:
 MPMovieLoadState state = [playerController loadState];
@@ -236,10 +236,10 @@ NSLog(@&#34;State is Playthrough OK&#34;);
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
 </code></pre></td></tr></table>
 </div>
 </div><p>通过百度有两种方式：

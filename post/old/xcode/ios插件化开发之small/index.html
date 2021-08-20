@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/xcode/ios%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91%E4%B9%8Bsmall/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-04-11T16:42:17&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
+<meta property="article:published_time" content="2018-04-11T16:42:17+00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
 
 <meta itemprop="name" content="iOS插件化开发之Small">
-<meta itemprop="description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团"><meta itemprop="datePublished" content="2018-04-11T16:42:17&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
+<meta itemprop="description" content="{% github it-boyer SmallDemo 5931b43 width = 30% %} 官网 small是android与iOS平台比较出名的轻巧的跨平台插件化框架，也正是被这一点吸引，决定将small应用到集团"><meta itemprop="datePublished" content="2018-04-11T16:42:17+00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
 <meta itemprop="wordCount" content="3246">
 <meta itemprop="keywords" content="架构," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS插件化开发之Small"/>
@@ -211,12 +211,12 @@ small是android与iOS平台比较出名的轻巧的跨平台插件化框架，�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/wequick/Small.git
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/wequick/Small.git
 <span class="nb">cd</span> Small/iOS
 cp -r Templates ~/Library/Developer/Xcode/Templates
 </code></pre></td></tr></table>
@@ -231,7 +231,7 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -239,7 +239,7 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">platform</span> <span class="o">:</span><span class="nx">ios</span><span class="p">,</span> <span class="s1">&#39;7.0&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">platform</span> <span class="o">:</span><span class="nx">ios</span><span class="p">,</span> <span class="s1">&#39;7.0&#39;</span>
 <span class="nx">use_frameworks</span><span class="o">!</span>
 
 <span class="nx">target</span> <span class="s1">&#39;SmallAPP&#39;</span> <span class="k">do</span>
@@ -252,7 +252,7 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -264,7 +264,7 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
     <span class="nt">&#34;bundles&#34;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -281,12 +281,12 @@ cp -r Templates ~/Library/Developer/Xcode/Templates
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="o">[</span>your-project-path<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="o">[</span>your-project-path<span class="o">]</span>
 pod install --no-repo-update
 open *.xcworkspace
 </code></pre></td></tr></table>
@@ -297,13 +297,13 @@ bundle.json路由配置包括<code>version</code>:指定插件的版本号，<co
 <code>uri</code>：指定加载插件的跟路径</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//获取控制器
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">//获取控制器
 let VC = Small.controller(forUri: &#34;fixurl&#34;)
 //将VC.view直接设置为window根视图
 Small.openUri(&#34;fixurl&#34;, from: self)
@@ -314,7 +314,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 路由配置文件<code>bundle.json</code>部分内容如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -334,7 +334,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>    
     <span class="nt">&#34;bundles&#34;</span><span class="p">:</span> <span class="p">[</span>                
                 <span class="p">{</span>  
@@ -357,7 +357,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </div><p>small加载接口的相关方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -367,7 +367,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">+ (void)openUri:(NSString *)uri fromView:(UIView *)view;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">+ (void)openUri:(NSString *)uri fromView:(UIView *)view;
 + (void)openURL:(NSURL *)url fromView:(UIView *)view;
 
 + (void)openUri:(NSString *)uri fromController:(UIViewController *)controller;
@@ -384,12 +384,12 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;:{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;:{
 &#34;&#34;:&#34;Main/MainViewController&#34;
 }
 </code></pre></td></tr></table>
@@ -401,7 +401,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 <p>最终可以<code>SMBundle</code>实例变量<code>target</code>中得到该key(<code>&quot;&quot;</code>)的value值来定位插件包，在该过程通过对<code>SMBundle</code>的属性<code>bundle.queryParams</code>的处理，完成对插件对象的值传递</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -438,7 +438,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">([</span><span class="n">bundle</span><span class="p">.</span><span class="n">target</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">])</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">([</span><span class="n">bundle</span><span class="p">.</span><span class="n">target</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">])</span> <span class="p">{</span>
         <span class="n">targetClazz</span> <span class="o">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">principalClass</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="n">NSString</span> <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="n">bundle</span><span class="p">.</span><span class="n">target</span><span class="p">;</span>
@@ -482,10 +482,10 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Small openUri:@&#34;detail?from=app.home&#34; fromController:controller];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[Small openUri:@&#34;detail?from=app.home&#34; fromController:controller];
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -494,7 +494,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -507,7 +507,7 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// DetailController.h
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// DetailController.h
 </span><span class="c1"></span><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="kt">id</span><span class="p">;</span>
 
 <span class="c1">// DetailController.m
@@ -528,12 +528,12 @@ Small.openUri(&#34;fixurl&#34;, from: self)
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">xx_xx_lib_xx【com_example_small_lib_utils】
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">xx_xx_lib_xx【com_example_small_lib_utils】
 xx_xx_app_xx
 xx_xx_xx_xx
 </code></pre></td></tr></table>
@@ -541,7 +541,7 @@ xx_xx_xx_xx
 </div><p>注意lib、app这些对查找framework文件相当重要，这所以会有<code>_</code>，是small对<code>.</code>做了替换</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -553,7 +553,7 @@ xx_xx_xx_xx
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">bundlePath</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">bundlePath</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
 <span class="n">NSString</span> <span class="o">*</span><span class="n">bundleSuffix</span> <span class="o">=</span> <span class="s">@&#34;bundle&#34;</span><span class="p">;</span> <span class="c1">//默认
 </span><span class="c1"></span><span class="n">SMBundleType</span> <span class="n">bundleType</span> <span class="o">=</span> <span class="n">SMBundleTypeAssets</span><span class="p">;</span> 
 <span class="k">if</span> <span class="p">([</span><span class="n">pkg</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;.app.&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span>
@@ -572,11 +572,11 @@ xx_xx_xx_xx
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;key&gt;NSPrincipalClass&lt;/key&gt;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;key&gt;NSPrincipalClass&lt;/key&gt;
 &lt;string&gt;ESHomeController&lt;/string&gt; //指定入口类名
 </code></pre></td></tr></table>
 </div>
@@ -586,14 +586,14 @@ xx_xx_xx_xx
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;: {  
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;rules&#34;: {  
                &#34;&#34;: &#34;默认入口类名&#34;
     &#34;/Storyboard&#34;: &#34;storyboardName/controllerId&#34;,
            &#34;/xib&#34;: &#34;controllerName&#34;
@@ -613,7 +613,7 @@ small框架会依次优先顺序检查<code>Documents/temp</code>（下载的zip
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -639,7 +639,7 @@ small框架会依次优先顺序检查<code>Documents/temp</code>（下载的zip
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&#34;.&#34; withString:@&#34;_&#34;];
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">NSString *bundleName = [pkg stringByReplacingOccurrencesOfString:@&#34;.&#34; withString:@&#34;_&#34;];
 bundleName = [bundleName stringByAppendingFormat:@&#34;.%@&#34;, bundleSuffix];
 NSString *documentBundlesPath = [SMFileManager documentBundlesPath];
 NSString *patchFilePath = [SMFileManager tempBundlePathForName:bundleName];
@@ -679,7 +679,7 @@ for (NSString *aBundlePath in bundlePaths) {
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -687,7 +687,7 @@ for (NSString *aBundlePath in bundlePaths) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">platform :ios, &#39;7.0&#39;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">platform :ios, &#39;7.0&#39;
 use_frameworks!
 
 target &#39;Sample&#39; do
@@ -699,11 +699,11 @@ end
 通过脚本来设置<code>build settings</code>中的<strong>FRAMEWORK_SEARCH_PATHS</strong>配置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">config.build_settings[&#39;FRAMEWORK_SEARCH_PATHS&#39;] &lt;&lt; &#34;$(CONFIGURATION_BUILD_DIR)/**&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">config.build_settings[&#39;FRAMEWORK_SEARCH_PATHS&#39;] &lt;&lt; &#34;$(CONFIGURATION_BUILD_DIR)/**&#34;
 puts &#34;Small: Add framework search paths for &#39;#{dep.name}&#39;&#34;
 </code></pre></td></tr></table>
 </div>

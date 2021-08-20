@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/uiimage%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="设置UIImage的渲染模式：UIImage.renderingMode 在 iOS 7 中 UIImage 添加了一个 renderingMode 属性。我们可以使用 imageWithRende" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/uiimage%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2015-11-26T16:15:11&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2015-11-26T16:15:11+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="UIImage的渲染模式">
-<meta itemprop="description" content="设置UIImage的渲染模式：UIImage.renderingMode 在 iOS 7 中 UIImage 添加了一个 renderingMode 属性。我们可以使用 imageWithRende"><meta itemprop="datePublished" content="2015-11-26T16:15:11&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="设置UIImage的渲染模式：UIImage.renderingMode 在 iOS 7 中 UIImage 添加了一个 renderingMode 属性。我们可以使用 imageWithRende"><meta itemprop="datePublished" content="2015-11-26T16:15:11+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="381">
 <meta itemprop="keywords" content="API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="UIImage的渲染模式"/>
@@ -182,7 +182,7 @@
 在 iOS 7 中 UIImage 添加了一个 <code>renderingMode</code> 属性。我们可以使用 <code>imageWithRenderingMode:</code>并传入一个合适的<code>UIImageRenderingMode</code> 来指定这个 image 要不要以 Template 的方式进行渲染。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,7 +195,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIImageRenderingModeAutomatic</span> <span class="c1">// 根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIImageRenderingModeAutomatic</span> <span class="c1">// 根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
 </span><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysOriginal</span> <span class="c1">// 始终绘制图片原始状态，不使用Tint Color。
 </span><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysTemplate</span> <span class="c1">// 始终根据Tint Color绘制图片，忽略图片的颜色信息。
 </span><span class="c1"></span>
@@ -211,11 +211,11 @@
 </div><p>在新的 Xcode 中，我们可以直接在 Image Asset 里的 Render As 选项来指定是不是需要作为 template 使用。相应的，在<code>UIApperance</code>中，Apple 也为我们对于 <code>Size Classes</code> 添加了相应的方法。使用 <code>+appearanceForTraitCollection:</code> 方法，我们就可以针对不同 trait 下的应用的 apperance 进行很简单的设定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Compact</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">redColor</span><span class="p">()</span>  
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Compact</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">redColor</span><span class="p">()</span>  
 <span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Regular</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">greenColor</span><span class="p">()</span>  
 </code></pre></td></tr></table>
 </div>
@@ -275,7 +275,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-11-26 16:15:11 \u002b0800 CST',
+        id: '2015-11-26 16:15:11 \u002b0000 UTC',
         title: 'UIImage的渲染模式',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/shell/vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="参考 基本操作 基本概念 动作：是指移动光标的操作，你肯定很熟悉 h、j、k 和 l，以及 w 和 b。但其实，/ 也是一个动作。 1 :h navigation 操作符： 对某个区域文本执" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/shell/vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-07-04T10:09:29&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
+<meta property="article:published_time" content="2017-07-04T10:09:29+00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
 
 <meta itemprop="name" content="vim编辑器的基本用法">
-<meta itemprop="description" content="参考 基本操作 基本概念 动作：是指移动光标的操作，你肯定很熟悉 h、j、k 和 l，以及 w 和 b。但其实，/ 也是一个动作。 1 :h navigation 操作符： 对某个区域文本执"><meta itemprop="datePublished" content="2017-07-04T10:09:29&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
+<meta itemprop="description" content="参考 基本操作 基本概念 动作：是指移动光标的操作，你肯定很熟悉 h、j、k 和 l，以及 w 和 b。但其实，/ 也是一个动作。 1 :h navigation 操作符： 对某个区域文本执"><meta itemprop="datePublished" content="2017-07-04T10:09:29+00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
 <meta itemprop="wordCount" content="2866">
 <meta itemprop="keywords" content="shell," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim编辑器的基本用法"/>
@@ -206,77 +206,77 @@
 <p>动作：是指移动光标的操作，你肯定很熟悉 h、j、k 和 l，以及 w 和 b。但其实，/ 也是一个动作。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:h navigation 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:h navigation 
 </code></pre></td></tr></table>
 </div>
 </div><p>操作符：
 对某个区域文本执行的操作。比如，d、~、gU 和 &gt; 都是操作符。这些操作符既可以在普通模式下使用，也可以在可视模式下使用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    :h operator
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    :h operator
 </code></pre></td></tr></table>
 </div>
 </div><p>文本对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:h text-objects
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:h text-objects
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="缓冲区列表">缓冲区列表</h3>
 <p>缓冲区的几种状态：已激活，已载入，已列出，已命名</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:ls  #列出所有可以列出的缓冲区
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:ls  #列出所有可以列出的缓冲区
 :ls! #命令可以显示被放入缓冲区列表的和未被放入列表的缓冲区
 </code></pre></td></tr></table>
 </div>
 </div><p>创建一个无名临时缓冲区</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:enew
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:enew
 </code></pre></td></tr></table>
 </div>
 </div><p>激活一个缓冲区</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:e file2 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:e file2 
 </code></pre></td></tr></table>
 </div>
 </div><p>命名一个缓冲区</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:w /path/file #存储位置
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:w /path/file #存储位置
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="参数列表">参数列表</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:h argument-list
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:h argument-list
 </code></pre></td></tr></table>
 </div>
 </div><p>操作命令范围概念
@@ -284,13 +284,13 @@
 <h3 id="跳转历史和变更历史">跳转历史和变更历史</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">:jumps
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:jumps
 :changes
 :h changelist
 :h jumplist
@@ -328,19 +328,19 @@ Unite可以在一个项目中快速浏览文件。但是它不仅限于文件，
 查看帮助命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">?
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">?
 </code></pre></td></tr></table>
 </div>
 </div><p>将选中的目录变为根目录：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">C  # change tree root to the selected dir
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">C  # change tree root to the selected dir
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="模式">模式</h3>
@@ -360,12 +360,12 @@ Unite可以在一个项目中快速浏览文件。但是它不仅限于文件，
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  w → 到下一个单词的开头。
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  w → 到下一个单词的开头。
   e → 到下一个单词的结尾。
   b → 到前一个单词的开头。
 </code></pre></td></tr></table>
@@ -375,13 +375,13 @@ Unite可以在一个项目中快速浏览文件。但是它不仅限于文件，
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">0 → 数字零，到行头
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">0 → 数字零，到行头
 ^ → 到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）
 $ → 到本行行尾
 g_ → 到本行最后一个不是blank字符的位置。
@@ -392,12 +392,12 @@ g_ → 到本行最后一个不是blank字符的位置。
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NG → 到第 N 行 （陈皓注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">NG → 到第 N 行 （陈皓注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）
 gg → 到第一行。（陈皓注：相当于1G，或 :1）
 G 到最后一行
 </code></pre></td></tr></table>
@@ -490,7 +490,7 @@ G 到最后一行
 假设你有一个字符串 (map (+) (&ldquo;foo&rdquo;)).而光标键在第一个 o 的位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -498,7 +498,7 @@ G 到最后一行
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  vi&#34; → 会选择 foo.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  vi&#34; → 会选择 foo.
   va&#34; → 会选择 &#34;foo&#34;.
   vi) → 会选择 &#34;foo&#34;.
   va) → 会选择(&#34;foo&#34;).
@@ -510,12 +510,12 @@ G 到最后一行
 <p>前面，我们看到了 <!-- raw HTML omitted -->的示例 （在Windows下应该是<!-- raw HTML omitted -->），我们可以使用 v 和 V。一但被选好了，你可以做下面的事：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">J → 把所有的行连接起来（变成一行）
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">J → 把所有的行连接起来（变成一行）
 &lt; 或 &gt; → 左右缩进
 = → 自动给缩进 （陈皓注：这个功能相当强大，我太喜欢了）
 </code></pre></td></tr></table>
@@ -523,12 +523,12 @@ G 到最后一行
 </div><p>3.在所有被选择的行后加上点东西：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">选中相关的行 (可使用 j 或 &lt;C-d&gt; 或是 /pattern 或是 % 等……)
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">选中相关的行 (可使用 j 或 &lt;C-d&gt; 或是 /pattern 或是 % 等……)
 $ 到行最后
 A, 输入字符串，按 ESC。
 </code></pre></td></tr></table>
@@ -537,13 +537,13 @@ A, 输入字符串，按 ESC。
 <p>插入光标位置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">i → Insert 模式，按 ESC 回到 Normal 模式.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">i → Insert 模式，按 ESC 回到 Normal 模式.
 a → 在光标后插入
 o → 在当前行后插入一个新行
 O → 在当前行前插入一个新行
@@ -578,10 +578,10 @@ gu (变小写)
 <p>3.粘帖：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">p/P → p是表示在当前位置之后，P表示在当前位置之前
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">p/P → p是表示在当前位置之后，P表示在当前位置之前
 </code></pre></td></tr></table>
 </div>
 </div>

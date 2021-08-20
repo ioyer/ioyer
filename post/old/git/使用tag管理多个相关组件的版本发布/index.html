@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.aba45fd44ce8dabfb29e66e148c8655907a250e810b1050de13b16dc7ff38a33.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version&#43;=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-06-20T17:22:37&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-06-20T17:22:37+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="使用tag管理多个相关组件的版本发布">
-<meta itemprop="description" content="tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version&#43;=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag"><meta itemprop="datePublished" content="2018-06-20T17:22:37&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version&#43;=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag"><meta itemprop="datePublished" content="2018-06-20T17:22:37+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="193">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用tag管理多个相关组件的版本发布"/>
@@ -191,7 +191,7 @@
       <h2 id="tag标签自增新建脚本">tag标签自增新建脚本</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -199,7 +199,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="nv">tag</span><span class="o">=</span><span class="k">$(</span>git describe --tags <span class="sb">`</span>git rev-list --tags --max-count<span class="o">=</span>1<span class="sb">`</span><span class="k">)</span>
 <span class="nv">version</span><span class="o">=</span><span class="si">${</span><span class="nv">tag</span><span class="p">##*.</span><span class="si">}</span>
 <span class="nb">let</span> <span class="s2">&#34;version+=1&#34;</span>
@@ -214,10 +214,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git tag -f v1.0.2.8
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git tag -f v1.0.2.8
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -225,10 +225,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push origin -f v1.0.2.8
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git push origin -f v1.0.2.8
 </code></pre></td></tr></table>
 </div>
 </div><ol start="3">
@@ -236,10 +236,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git fetch -–tag
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git fetch -–tag
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="方法删除分支">方法：删除分支</h3>
@@ -248,10 +248,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git tag -d v1.0.2.8
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git tag -d v1.0.2.8
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -259,10 +259,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="ss">:v1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">8</span>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="ss">:v1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">8</span>
 </code></pre></td></tr></table>
 </div>
 </div><ol start="3">
@@ -270,10 +270,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="n">fetch</span> <span class="err">–</span><span class="o">-</span><span class="n">tag</span>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="n">fetch</span> <span class="err">–</span><span class="o">-</span><span class="n">tag</span>
 </code></pre></td></tr></table>
 </div>
 </div>
