@@ -47,12 +47,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%BE%93%E5%85%A5%E6%B3%95%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-22T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-08-18T12:48:06+08:00" />
+<meta property="article:modified_time" content="2021-08-25T18:34:59+08:00" />
 
 <meta itemprop="name" content="trime,emacs-rime和squirrel输入法和配置管理">
 <meta itemprop="description" content="坚持七习，磨练人生."><meta itemprop="datePublished" content="2021-06-22T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-08-18T12:48:06+08:00" />
-<meta itemprop="wordCount" content="2280">
+<meta itemprop="dateModified" content="2021-08-25T18:34:59+08:00" />
+<meta itemprop="wordCount" content="2730">
 <meta itemprop="keywords" content="管理者," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="trime,emacs-rime和squirrel输入法和配置管理"/>
 <meta name="twitter:description" content="坚持七习，磨练人生."/>
@@ -163,8 +163,8 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 2280 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+          <span class="more-meta"> 约 2730 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
   
@@ -217,7 +217,10 @@
 <p>如果想定制键位/快捷键可以参考： <a href="https://hub.fastgit.org/rime/home/wiki/CustomizationGuide">CustomizationGuide · rime/home Wiki · GitHub</a></p>
 <p>创建自己的 <code>输入方案</code> ：<a href="https://hub.fastgit.org/rime/home/wiki/RimeWithSchemata">RimeWithSchemata · rime/home Wiki · GitHub</a></p>
 <h2 id="安卓版-trime">安卓版:trime</h2>
-<p>安卓版输入法常用:<a href="https://github.com/osfans/trime">trime: 同文安卓輸入法</a></p>
+<p>详细的文档 ：<a href="https://github.com/osfans/trime/wiki/trime.yaml%E8%A9%B3%E8%A7%A3">trime.yaml詳解 </a></p>
+<figure><img src="/ox-hugo/trime.png"/>
+</figure>
+
 <h3 id="trime输入方案">trime输入方案</h3>
 <p>使用输入法配置库：<a href="https://hub.fastgit.org/Bambooin/rimerc">rimerc</a>, 大牛配置好的配置，包括同文和squirrel 配置。</p>
 <p>配置路径在`/sdcard/rime`, 将`rimerc` 库中的trime.z7 解压到该目录。</p>
@@ -463,6 +466,58 @@
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">    </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@36/long_click&#34;: </span><span class="l">todo</span></code></pre></td></tr></table>
 </div>
 </div>
+<h4 id="状态栏添加菜单项">状态栏添加菜单项</h4>
+<p><a href="https://github.com/osfans/trime/wiki/trime.yaml%E8%A9%B3%E8%A7%A3#2switches">trime.yaml詳解 ·switches</a><br>
+在状态栏上添加按键：</p>
+<p>示例： 在状态栏放置按键（试验功能）<br>
+<code>option</code> 格式：</p>
+<ol>
+<li><code>_key_</code> + <code>按键</code> （这里的按键可以是功能键、符号、字母、任意文本）</li>
+<li><code>_keyboard_</code> + <code>键盘布局ID</code> （一些比较特殊的id：.default返回当前主键盘，.next下一个键盘，.last在最近使用的两个键盘间轮换，.last_lock返回上一个标记为lock的键盘）</li>
+</ol>
+<p>需要在方案文件的 <code>xx.custom.yaml</code> 中添加如下配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">switches</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># 这个按键用来收起软键盘</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_Hide ]</span><span class="w">
+</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;▼&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="c">#states是显示在状态栏的图标，options是实际执行的功能</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># 这个按键用来调出输入法切换菜单</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_IME_switch ]</span><span class="w">
+</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;🌐&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="c"># 更多功能键请查阅trime.yaml/preset_keys</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># 这是一个空按键，按下去不会执行任何动作</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_VoidSymbol ]</span><span class="w">
+</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;    &#34;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c">#空键的宽度由这里的空格决定</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># 这个按键用来输出句号</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_period ]</span><span class="w"> </span><span class="c">#period是句号的英文名，也可以直接写成[ _key_. ]</span><span class="w">
+</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;。&#34;</span><span class="w"> </span><span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="squirrel">squirrel</h2>
 <p>网上教程很多，输入法目录在`~/Library/Rime` 下，可以借助`plum` 工具安装.<br>
 本人使用`rimerc` 库中的配置，clone 之后，解压安装到Rime 目录即可.<br>
@@ -600,8 +655,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-08-18
-        <a href="iNotes/commit/d9e0d0f5aec2a29b5b448ff03a132cd1b9c1c99a" title="update">(d9e0d0f)</a>
+        2021-08-25
+        <a href="iNotes/commit/3120d4fb821492529cb155be6dd9c34cb30988ad" title="update">(3120d4f)</a>
     </span>
   </p>
   
@@ -645,7 +700,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-06-22 11:50:00 \u002b0800 \u002b0800',
+        id: '2021-06-22 00:00:00 \u002b0800 \u002b0800',
         title: 'trime,emacs-rime和squirrel输入法和配置管理',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
