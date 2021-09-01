@@ -153,6 +153,314 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/">Xcode7编译发布问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-25 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 788 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to
+    </div>
+    <div class="read-more">
+      <a href="/post/old/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Xcode和Jenkins持续集成的几种实现方式</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-18 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 4827 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="ci服务器">CI服务器</h2>
+<p>写到这儿，对于iOS开发者来说，需要准备好：</p>
+<ul>
+<li>一个比较容易获取的源代码仓库(包含源代码)</li>
+<li>一套自动化构建脚本</li>
+<li>一系列围绕构建的可执行测试</li>
+</ul>
+<p>接下来就需要一个CI服务器来根据源代码的变更触发构建，监控测试结果。</p>
+<p>目前，业界比较流行的，支持iOS构建的CI服务器有</p>
+<ul>
+<li><a href="https://travis-ci.org">Travis CI</a>：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，<a href="http://www.infoq.com/cn/articles/build-ios-continuous-integration-platform-part3">详见</a></li>
+<li><strong>Jenkins</strong>：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-21 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 738 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>安装ruby环境：
+方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
+方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
+方法三：使用macport安装 <code>port install ruby</code></p>
+<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
+<p>问题：<br>
+<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
+<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
+最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
+<h4 id="gem介绍">Gem介绍</h4>
+<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
+<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-19 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 1742 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <ol>
+<li><!-- raw HTML omitted -->Stashing<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->被暂存的文件重新暂存<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->应用后，移除储藏的内容<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->取消储藏(Un-applying a Stash)<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->新建stash-unapply别名<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->从储藏中创建分支<!-- raw HTML omitted --></li>
+</ol>
+<h3 id="a-namestashinggit工具---储藏stashingagit"><!-- raw HTML omitted -->Git工具 - 储藏（Stashing）<!-- raw HTML omitted -->git</h3>
+<hr>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86">原文</a>
+场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。</p>
+<p>问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。</p>
+<p>解决：**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令。</p>
+<p>“Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。</p>
+<h3 id="a-namework储藏工作a"><!-- raw HTML omitted -->储藏工作<!-- raw HTML omitted --></h3>
+<hr>
+<ol>
+<li>进入项目目录，修改某个文件，有可能还暂存其中的一个变更。</li>
+<li>**<!-- raw HTML omitted -->git status <!-- raw HTML omitted -->**命令,查看中间状态：
+{%codeblock lang:bash %}
+$ git status</li>
+</ol>
+<h1 id="on-branch-master">On branch master</h1>
+<h1 id="changes-to-be-committed">Changes to be committed:</h1>
+<h1 id="use-git-reset-head-file-to-unstage">(use &ldquo;git reset HEAD <!-- raw HTML omitted -->&hellip;&rdquo; to unstage)</h1>
+<h1 id="heading"></h1>
+<h1 id="modified---indexhtml">modified:   index.html</h1>
+<h1 id="heading-1"></h1>
+<h1 id="changes-not-staged-for-commit">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-2"></h1>
+<h1 id="modified---libsimplegitrb">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-3"></h1>
+<p>{%endcodeblock%}
+3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。
+执行**<!-- raw HTML omitted -->git stash <!-- raw HTML omitted -->**命令，往堆栈中推送一个新的储藏：
+{%codeblock lang:bash %}
+$ git stash
+Saved working directory and index state<br>
+&ldquo;WIP on master: 049d078 added the index file&rdquo;
+HEAD is now at 049d078 added the index file
+(To restore them type &ldquo;git stash apply&rdquo;)
+{%endcodeblock%}
+4. 执行step 2查看目录库，中间状态就不见了：
+{%codeblock lang:bash %}
+$ git status
+#######On branch master
+nothing to commit, working directory clean
+{%endcodeblock%}
+这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。
+5. 使用**<!-- raw HTML omitted -->git stash list<!-- raw HTML omitted -->**要查看现有的储藏：
+{%codeblock lang:bash%}
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert &ldquo;added file_size&rdquo;
+stash@{2}: WIP on master: 21d80a5 added number to log
+{%endcodeblock%}
+在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。</p>
+<h3 id="a-nameapply应用储藏a"><!-- raw HTML omitted -->应用储藏<!-- raw HTML omitted --></h3>
+<hr>
+<p>执行**<!-- raw HTML omitted -->git stash apply<!-- raw HTML omitted -->**命令, 可以重新应用最近的一次储藏；
+执行**<!-- raw HTML omitted -->git stash apply stash@{2}<!-- raw HTML omitted -->**命令，即通过指定储藏的名字，来应用更早的储藏。
+{%codeblock lang:bash%}
+$ git stash apply</p>
+<h1 id="on-branch-master-1">On branch master</h1>
+<h1 id="changes-not-staged-for-commit-1">Changes not staged for commit:</h1>
+<h1 id="use-git-add-file-to-update-what-will-be-committed-1">(use &ldquo;git add <!-- raw HTML omitted -->&hellip;&rdquo; to update what will be committed)</h1>
+<h1 id="heading-4"></h1>
+<h1 id="modified---indexhtml-1">modified:   index.html</h1>
+<h1 id="modified---libsimplegitrb-1">modified:   lib/simplegit.rb</h1>
+<h1 id="heading-5"></h1>
+<p>{%endcodeblock%}</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">XMPP简单研究[转]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-06 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 2853 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      最近想做一个游戏服务器和 IM 互通的服务。最初的想法是可以增进游戏帐号的安全，比如游戏用户可以通过绑定一个 IM 帐号，从而不用登陆游戏就向游戏服务器
+    </div>
+    <div class="read-more">
+      <a href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 2705 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="按比例缩放">按比例缩放</h2>
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
+而在代码中，有如下两种实现方式:</p>
+<ol>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
+</ol>
+<p>现在就拿一个简单的**<code>UIButton</code>**做示例，在ViewController中创建一个UIButton字段：<br>
+{%codeblock lang:objc%}
+UIButton *btn;<br>
+{%endcodeblock%}</p>
+<h4 id="需求-1">需求 1：</h4>
+<ol>
+<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
+{%codeblock lang:objc%}</li>
+</ol>
+<ul>
+<li>
+<p>(void)viewDidLoad
+{
+[super viewDidLoad];</p>
+<p>//创建UIButton，不需要设置frame
+btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
+btn.backgroundColor = [UIColor greenColor];
+[self.view addSubview:btn];</p>
+<p>//禁止自动转换AutoresizingMask
+btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
+<p>//居中
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];</p>
+<p>//距离底部20单位
+//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];</p>
+<p>//定义高度是父View的三分之一
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];</p>
+<p>//注册KVO方法
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
+}</p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-08-28 </span>
@@ -370,263 +678,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 4071 字 </span>
-        <span class="more-meta"> 预计阅读 9 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
-<p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
-<ul>
-<li>######预览文档和呈现选项菜单<br>
-如果app需要打开自身并不支持的文件时，就需要使用<strong>UIDocumentInteractionController</strong>。一个<strong>document interaction controller</strong>通过<strong>Quick Look框架</strong>判断文档是否能被另一个app打开和预览。也就是说，app可以通过<strong>documentinteraction controller</strong>提供一些支持打开该文件方式的菜单。</li>
-</ul>
-<p>具体实现需要以下步骤：</p>
-<ul>
-<li>
-<ul>
-<li>需要通过其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>用户交互，如触摸这个控件，则调用<code>documentinteractioncontroller</code>对象。</li>
-</ul>
-</li>
-</ul>
-<p>三种交互界面:
-1. 预览文件的内容。
-2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。
-3. 一个菜单，仅包含“以其它方式打开”操作。</p>
-<p>同时，<code>documentinteractioncontroller</code>内置了一些手势，必要时可以直接实现它们。</p>
-<ul>
-<li>
-<p>######使用<code>documentinteractioncontroller</code>的场景:<strong>与文件交互的app都可以使用。</strong></p>
-</li>
-<li>
-<ul>
-<li>需要从网络下载文件的APP:<br>
-例如，email程序需要打开和预览邮件附件。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>不下载文件的APP:<br>
-例如，APP需要支持文件共享（参考“File-Sharing Support” in <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898">iOS Technology Overview</a>), 即可以对同步到app Documents/Shared目录下的文件使用<code>documentinteractioncontroller</code>。</li>
-</ul>
-</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 588 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-<p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-<pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-17 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 818 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h3 id="uideviceh">UIDevice.h</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">currentDevice</span><span class="p">;</span> 		  <span class="c1">// 获取当前设备
-</span><span class="c1"></span>
-<span class="n">NSString</span>    <span class="o">*</span><span class="n">name</span><span class="p">;</span>               	  <span class="c1">// e.g. &#34;My iPhone&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">model</span><span class="p">;</span>              	  <span class="c1">// e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">localizedModel</span><span class="p">;</span>     	  <span class="c1">// localized version of model  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemName</span><span class="p">;</span>     		  <span class="c1">// e.g. @&#34;iOS&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemVersion</span><span class="p">;</span>   	  <span class="c1">// e.g. @&#34;4.0&#34;  
-</span><span class="c1"></span><span class="n">UIDeviceOrientation</span> <span class="n">orientation</span><span class="p">;</span>    <span class="c1">//除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-</span><span class="c1"></span><span class="n">NSUUID</span> <span class="o">*</span><span class="n">identifierForVendor</span>         <span class="c1">//可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">UIDeviceOrientationUnknown</span><span class="p">,</span>
-    <span class="n">UIDeviceOrientationPortrait</span><span class="p">,</span>                    <span class="c1">// 竖向，头向上
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">,</span>  		<span class="c1">// 竖向，头向下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeLeft</span><span class="p">,</span>         		<span class="c1">// 横向，头向左
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">,</span>       		<span class="c1">// 横向，头向右
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceUp</span><span class="p">,</span>                  	<span class="c1">// 平放，屏幕朝下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceDown</span>                	 <span class="c1">// 平放，屏幕朝下
-</span></code></pre></td></tr></table>
-</div>
-</div><p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
-{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
-#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
-{%endcodeblock %}
-{%codeblock lang:java 横向宏定义,返回YES:横向%}
-#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
-{%endcodeblock%}</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/">IOS7新宠TextKit</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-16 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 2380 字 </span>
-        <span class="more-meta"> 预计阅读 5 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="text-kit">Text Kit</h2>
-<p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。</p>
-<blockquote>
-<p><!-- raw HTML omitted -->更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
-例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。<!-- raw HTML omitted --></p>
-</blockquote>
-<p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br>
-在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br>
-iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/">IOS7的变革</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-11 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 4787 字 </span>
-        <span class="more-meta"> 预计阅读 10 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/">在IOS中像SnapChat一样监控screenshots</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 284 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      A number of Stack Overflowquestions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself. The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

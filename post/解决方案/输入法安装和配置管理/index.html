@@ -47,12 +47,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%BE%93%E5%85%A5%E6%B3%95%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-22T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-08-25T18:34:59+08:00" />
+<meta property="article:modified_time" content="2021-08-26T19:41:34+08:00" />
 
 <meta itemprop="name" content="trime,emacs-rime和squirrel输入法和配置管理">
 <meta itemprop="description" content="坚持七习，磨练人生."><meta itemprop="datePublished" content="2021-06-22T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-08-25T18:34:59+08:00" />
-<meta itemprop="wordCount" content="2730">
+<meta itemprop="dateModified" content="2021-08-26T19:41:34+08:00" />
+<meta itemprop="wordCount" content="2739">
 <meta itemprop="keywords" content="管理者," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="trime,emacs-rime和squirrel输入法和配置管理"/>
 <meta name="twitter:description" content="坚持七习，磨练人生."/>
@@ -163,7 +163,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 2730 字 </span>
+          <span class="more-meta"> 约 2739 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -201,18 +201,11 @@
     <div class="post-content">
       <h2 id="rime">rime</h2>
 <p>rime 是一款输入引擎，它开放了一套配置协议，为多元的输入法（同文输入法、鼠须管输入法等）的基础，输入法和rime引擎之间通过这套协议实现多样化的输入方案。</p>
-<p>官方解释：rime是啥？</p>
-<blockquote>
-<p>Rime 不是一种输入法。是从各种常见键盘输入法中提炼出来的抽象的输入算法框架。因为Rime 涵盖了大多数输入法的「共性」，所以在不同的设定下，Rime 可化身为不同的输入法用来打字。</p>
-</blockquote>
+<p>官方解释：rime是啥？ &gt; Rime 不是一种输入法。是从各种常见键盘输入法中提炼出来的抽象的输入算法框架。因为Rime 涵盖了大多数输入法的「共性」，所以在不同的设定下，Rime 可化身为不同的输入法用来打字。</p>
 <p><a href="https://rime.im/download/">下載及安裝 | RIME | 中州韻輸入法引擎</a></p>
 <h2 id="输入方案">输入方案</h2>
 <p>rime是一款开源的输入法引擎，约定了配置规范，根据这套规范可以定制自己的 <code>输入方案</code> ，由此，应运而生配置管理工具 <a href="https://hub.fastgit.org/rime/plum#packages">東風破 <em>plum</em></a> 维护着大量优秀的 <code>输入方案</code> 。</p>
-<p>官方解释：</p>
-<blockquote>
-<p>要让Rime 实现某种具体输入法的功能，就需要一些数据来描述这种输入法以何种形式工作。即，定义该输入法的「个性」。<br>
-如「汉语拼音」、「注音」、「仓颉码」、「五笔字型」，这些方法可凭借Rime 提供的通用设施、给定不同的工作参数来实作。以本文介绍的规格写成一套套的配方，就是Rime 输入方案。</p>
-</blockquote>
+<p>官方解释： &gt;要让Rime 实现某种具体输入法的功能，就需要一些数据来描述这种输入法以何种形式工作。即，定义该输入法的「个性」。 &gt;如「汉语拼音」、「注音」、「仓颉码」、「五笔字型」，这些方法可凭借Rime 提供的通用设施、给定不同的工作参数来实作。以本文介绍的规格写成一套套的配方，就是Rime 输入方案。</p>
 <p>常用的输入方案：<a href="https://github.com/rime/rime-luna-pinyin">rime-luna-pinyin: 【朙月拼音】輸入方案</a></p>
 <p>如果想定制键位/快捷键可以参考： <a href="https://hub.fastgit.org/rime/home/wiki/CustomizationGuide">CustomizationGuide · rime/home Wiki · GitHub</a></p>
 <p>创建自己的 <code>输入方案</code> ：<a href="https://hub.fastgit.org/rime/home/wiki/RimeWithSchemata">RimeWithSchemata · rime/home Wiki · GitHub</a></p>
@@ -433,8 +426,7 @@
 </li>
 </ul>
 <h4 id="定制长按空格键切换中英文">定制长按空格键切换中英文</h4>
-<p>在 <code>trime.custom.yaml</code> 中定制如下操作：<br>
-<code>Mode_switch</code> 是切换中英文事件，区分大小写。绑定到空格的键位 <code>@33</code> 上。</p>
+<p>在 <code>trime.custom.yaml</code> 中定制如下操作： <code>Mode_switch</code> 是切换中英文事件，区分大小写。绑定到空格的键位 <code>@33</code> 上。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,10 +459,8 @@
 </div>
 </div>
 <h4 id="状态栏添加菜单项">状态栏添加菜单项</h4>
-<p><a href="https://github.com/osfans/trime/wiki/trime.yaml%E8%A9%B3%E8%A7%A3#2switches">trime.yaml詳解 ·switches</a><br>
-在状态栏上添加按键：</p>
-<p>示例： 在状态栏放置按键（试验功能）<br>
-<code>option</code> 格式：</p>
+<p><a href="https://github.com/osfans/trime/wiki/trime.yaml%E8%A9%B3%E8%A7%A3#2switches">trime.yaml詳解 ·switches</a> 在状态栏上添加按键：</p>
+<p>示例： 在状态栏放置按键（试验功能） <code>option</code> 格式：</p>
 <ol>
 <li><code>_key_</code> + <code>按键</code> （这里的按键可以是功能键、符号、字母、任意文本）</li>
 <li><code>_keyboard_</code> + <code>键盘布局ID</code> （一些比较特殊的id：.default返回当前主键盘，.next下一个键盘，.last在最近使用的两个键盘间轮换，.last_lock返回上一个标记为lock的键盘）</li>
@@ -519,9 +509,7 @@
 </div>
 </div>
 <h2 id="squirrel">squirrel</h2>
-<p>网上教程很多，输入法目录在`~/Library/Rime` 下，可以借助`plum` 工具安装.<br>
-本人使用`rimerc` 库中的配置，clone 之后，解压安装到Rime 目录即可.<br>
-设置多台设备同步：sync_dir: &ldquo;<em>Users/boyer/ResilioSync/RimeSync/squirrel</em>&rdquo;</p>
+<p>网上教程很多，输入法目录在`~/Library/Rime` 下，可以借助`plum` 工具安装. 本人使用`rimerc` 库中的配置，clone 之后，解压安装到Rime 目录即可. 设置多台设备同步：sync_dir: &ldquo;<em>Users/boyer/ResilioSync/RimeSync/squirrel</em>&rdquo;</p>
 <h2 id="emacs-rime">emacs-rime</h2>
 <h3 id="安装-librime">安装 librime</h3>
 <ol>
@@ -556,8 +544,7 @@
 <pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">package!</span> <span class="nv">rime</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>偏好设置：<br>
-<code>rime-librime-root</code> : 指定为安装 <code>librime</code> 的目录 <code>~/.emacs.d/librime/dist</code></p>
+<p>偏好设置： <code>rime-librime-root</code> : 指定为安装 <code>librime</code> 的目录 <code>~/.emacs.d/librime/dist</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -622,8 +609,7 @@
 </div>
 <h3 id="高低配置">高低配置</h3>
 <ol>
-<li>设置默认输入法： <code>Mx: rime-open-configuration</code><br>
-打开文件： <code>~/L.emacs.d/.local/etc/rime/default.custom.yaml</code>,不存在时，新建。</li>
+<li>设置默认输入法： <code>Mx: rime-open-configuration</code> 打开文件： <code>~/L.emacs.d/.local/etc/rime/default.custom.yaml</code>,不存在时，新建。</li>
 </ol>
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
@@ -639,11 +625,9 @@
 </div>
 </div>
 <ol>
-<li>设置用户配置同步目录不能和 <code>squirrel</code> 共用同步目录，会出现配置无效等异常问题。<br>
-<code>emacs-rime</code> 同步目录： <code>sync_dir: &quot;/Users/boyer/ResilioSync/RimeSync/emacs-rime/&quot;</code></li>
+<li>设置用户配置同步目录不能和 <code>squirrel</code> 共用同步目录，会出现配置无效等异常问题。 <code>emacs-rime</code> 同步目录： <code>sync_dir: &quot;/Users/boyer/ResilioSync/RimeSync/emacs-rime/&quot;</code></li>
 </ol>
-<p>有帮助的资料：作者总结经常问题：<a href="https://github.com/DogLooksGood/emacs-rime#faq">GitHub - DogLooksGood/emacs-rime: RIME ㄓ in Emacs<br>
-</a></p>
+<p>有帮助的资料：作者总结经常问题：<a href="https://github.com/DogLooksGood/emacs-rime#faq">GitHub - DogLooksGood/emacs-rime: RIME ㄓ in Emacs </a></p>
 
     </div>
 
@@ -655,8 +639,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-08-25
-        <a href="iNotes/commit/3120d4fb821492529cb155be6dd9c34cb30988ad" title="update">(3120d4f)</a>
+        2021-08-26
+        <a href="iNotes/commit/95a985ecefb75d500d289ca7850ccd70214e085d" title="changes from ProOne.local on 2021年 8月26日 星期四 19时41分34秒 CST">(95a985e)</a>
     </span>
   </p>
   
