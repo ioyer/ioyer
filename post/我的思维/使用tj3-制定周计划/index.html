@@ -47,12 +47,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E6%88%91%E7%9A%84%E6%80%9D%E7%BB%B4/%E4%BD%BF%E7%94%A8tj3-%E5%88%B6%E5%AE%9A%E5%91%A8%E8%AE%A1%E5%88%92/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-23T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-09-01T19:32:54+08:00" />
+<meta property="article:modified_time" content="2021-09-03T15:48:26+08:00" />
 
 <meta itemprop="name" content="使用tj3 制定周计划培养七习知识体系">
 <meta itemprop="description" content="使用项目管理的方式制定日常学习计划，有目的有产出，搭建知识体系"><meta itemprop="datePublished" content="2021-06-23T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-09-01T19:32:54+08:00" />
-<meta itemprop="wordCount" content="1890">
+<meta itemprop="dateModified" content="2021-09-03T15:48:26+08:00" />
+<meta itemprop="wordCount" content="4278">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用tj3 制定周计划培养七习知识体系"/>
 <meta name="twitter:description" content="使用项目管理的方式制定日常学习计划，有目的有产出，搭建知识体系"/>
@@ -163,8 +163,8 @@
         <div class="post-category">
             <a href="/categories/%E6%88%91%E7%9A%84%E6%80%9D%E7%BB%B4/"> 我的思维 </a>
             </div>
-          <span class="more-meta"> 约 1890 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 4278 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
   
@@ -182,8 +182,25 @@
     <li><a href="#目的">目的</a></li>
     <li><a href="#项目管理提升效率">项目管理提升效率</a></li>
     <li><a href="#安装使用">安装使用</a></li>
-    <li><a href="#案例">案例</a></li>
-    <li><a href="#问题">问题</a></li>
+    <li><a href="#熟悉-taskjuggler">熟悉 Taskjuggler</a>
+      <ul>
+        <li><a href="#tj3-项目的组成的部分">tj3 项目的组成的部分</a></li>
+        <li><a href="#常用设置">常用设置</a></li>
+        <li><a href="#taskjuggler-语法到-org-mode-的映射">Taskjuggler 语法到 Org-mode 的映射</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a>
+      <ul>
+        <li><a href="#实战问题">实战问题</a></li>
+        <li><a href="#实战次序">实战次序</a></li>
+      </ul>
+    </li>
+    <li><a href="#实战">实战</a>
+      <ul>
+        <li><a href="#项目的基础信息">项目的基础信息</a></li>
+        <li><a href="#实例赏析">实例赏析</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -205,7 +222,7 @@
 <p>设定目标&ndash; 撰写宣言 &ndash; 制定计划 &ndash; 每日任务 &ndash; 拆为己用 &ndash; 输出感悟 &ndash; 看见更好的自己</p>
 <p>在认识到自己的目的，如何在emacs 中真正的实践制定计划，激发行动力。第一想到的是甘特图，使用tj3 实现项目管理和跟踪的方式，看到每天的努力，看到目标的一步步实践的整个过程的渴望。</p>
 <h2 id="项目管理提升效率">项目管理提升效率</h2>
-<p>之前学tj3 的初衷是它是uml 甘特图的替代品，也是agenda 视图实现任务可视化管理工具。没有深刻认识到tj3项目管理的优点不止这些：</p>
+<p>之前学tj3 的初衷是它是uml 甘特图的替代品，也是agenda 视图实现任务可视化管理工具。没有深刻认识到tj3项目管理的优点不止这些： <a href="https://taskjuggler.org/">TaskJuggler - A Free and Open Source Project Management Software - About Task&hellip;</a></p>
 <ol>
 <li>TaskJuggler是一款现代、强大、开源的项目管理工具。和常用的甘特图编辑工具相比，新的 <code>项目规划</code> 和 <code>跟踪方法</code> 更灵活，更优越。</li>
 <li>它适用于从开始的一个想法到项目完成的整个过程。即在项目范围、资源分配、成本和收入规划；风险管理和通信管理方面有有很好的实践方式。</li>
@@ -213,8 +230,7 @@
 <li>内置资源平衡器和一致性检查器，如果项目出现问题，将会卸载你不必担心的详细信息。</li>
 <li>灵活的as-many-details-as-necessary方法允许你在开始时规划项目，使它的对于新的管理策略( 如极限编程和敏捷项目管理) 也非常理想。</li>
 </ol>
-<p><a href="https://www.kaifa99.com/GitHub/article%5F48329">TaskJuggler,在甘特图绘图之外的TaskJuggler项目管理</a></p>
-<p><a href="http://space.af/blog/2020/06/11/planning-with-org-mode-and-taskjuggler/">Planning with Org-Mode and Taskjuggler - New York Stag Hunts</a></p>
+<p><a href="https://orgmode.org/worg/exporters/taskjuggler/ox-taskjuggler.html">Exporting Gantt charts with Taskjuggler v3 (tj3)</a></p>
 <p><a href="https://leiyue.wordpress.com/2012/07/04/use-org-mode-and-taskjuggler-to-manage-to-project-information/">使用Org-mode和TaskJuggler管理项目信息</a></p>
 <p><a href="https://izhen.me/2021/05/23/org-task-doc/">使用Org-mode + taskjuggler进行项目管理 | Z.Y. ☯ Cosmos</a></p>
 <p><a href="http://space.af/blog/2020/06/11/planning-with-org-mode-and-taskjuggler/">Planning with Org-Mode and Taskjuggler - New York Stag Hunts</a></p>
@@ -237,11 +253,69 @@
 </ol>
 <p>安装 <code>gem install --local taskjuggler</code></p>
 <p>安装终端之后，重新启动emacs, 执行导出操作时，会显示taskjuggler 选项。</p>
+<p>相关属性可以自定义的当前变量列表： org-taskjuggler-default-global-header org-taskjuggler-default-global-properties org-taskjuggler-default-project-duration org-taskjuggler-default-project-version org-taskjuggler-default-reports: 设置要使用的报告文件。这可以以文本格式写入（如设置为完整报告文本字符串的变量），或（可能更容易）.tji写入包含报告定义的文件。 org-taskjuggler-extension org-taskjuggler-final-hook org-taskjuggler-keep-project-as-task org-taskjuggler-process-command org-taskjuggler-project-tag org-taskjuggler-report-tag org-taskjuggler-reports-directory org-taskjuggler-resource-tag org-taskjuggler-target-version: 应该设置为命令的输出tj3 &ndash;version，例如(setq org-taskjuggler-target-version 3.4) org-taskjuggler-valid-report-attributes org-taskjuggler-valid-resource-attributes org-taskjuggler-valid-task-attributes</p>
 <p>接下来就是学习任务属性，当加入到task 属性，就可以很方便的支持task 导出。</p>
-<h2 id="案例">案例</h2>
-<p>设计一个场景来计划下任务：</p>
-<p>比如这周，要完成及件事情，练习使用tj3 方式跟踪任务。同时考虑是否需要建立模板来快速创建tj3 任务。先看下任务和tj3 之间的差异。</p>
-<p>学到了几个知识点记录一下：</p>
+<h2 id="熟悉-taskjuggler">熟悉 Taskjuggler</h2>
+<h3 id="tj3-项目的组成的部分">tj3 项目的组成的部分</h3>
+<ol>
+<li>项目的基本信息：（开始日期、持续时间 ( +4m)、日期/时间语法、时区等）</li>
+<li>帐号：Accounts （如果您不跟踪财务，则不适用）</li>
+<li>可用资源：resource 包含工资、假期、工作时间/天信息等。</li>
+<li>里程碑：Top level milestones</li>
+<li>任务：Tasks, 按项目主要组成，分解为可执行的任务</li>
+<li>报告：可定义的报告</li>
+</ol>
+<h3 id="常用设置">常用设置</h3>
+<ol>
+<li>
+<p>定义任务时间 start、end、depends、maxstart和maxend <a href="http://www.taskjuggler.org/tj3/manual/start.html">start</a></p>
+</li>
+<li>
+<p>定义任务持续时间 Effort、duration、length</p>
+<ol>
+<li>
+<p><code>duration</code>: 指定任务应该持续的时间。这是日历时间，不是工作时间。7d 表示一周。</p>
+<p>如果指定了资源，则在可用时分配它们。资源的可用性对任务的持续时间没有影响。它将始终是指定的持续时间。</p>
+<p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>Effort</code> 和 <code>lenght</code> 属性。</p>
+<p>duration <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+</li>
+<li>
+<p><code>length</code> : 将此任务的持续时间指定为工作时间，而不是日历时间。7d 表示 7 个工作日，或 7 次 8 小时（假设默认设置），而不是一周。</p>
+<p>具有长度规范的任务可能具有资源分配。资源在可用时分配。不能保证任务将获得分配的任何资源。资源的可用性对任务的持续时间没有影响。</p>
+<p>如果没有全球假期，那么没有指定资源可用的时间段仍被视为工作时间，并且相应地定义了全球工作时间。</p>
+<p>对于长度计算，除非任务已分配班次，否则全局工作时间和全局休假很重要。在后一种情况下，轮班的工作时间和假期适用于指定的时间段，以确定某个时段是否为工作时间。如果资源定义了额外的工作时间，则长度为 5d 的任务很可能会分配超过 40 小时的工作量。资源工作时间仅影响是否为特定时间段进行分配。它们不会影响任务的最终持续时间。</p>
+<p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>duration~、~Effort</code> 和 <code>milestone</code> 属性。</p>
+<p>length <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+</li>
+<li>
+<p><code>Effort</code> : 指定完成任务所需的工作量。 <code>Effort: 6d</code> （6资源天）可与2专职资源情况下，在3个工作日内完成。</p>
+<p>需要至少一个定义并分配给任务的资源，并将使用他的/她可用的工作时间/天，以确定任务需要多长时间。</p>
+<p>在分配的资源贡献了指定的工作量之前，任务不会完成。因此，任务的持续时间将取决于所分配资源的可用性。指定的 <code>Effort值</code> 必须至少与 <code>timingresolution</code> 一样大。</p>
+<p>警告：在几乎所有现实世界的项目中， <code>Effort</code> 并不是时间和资源的产物。仅当可以在不增加任何开销的情况下对任务进行分区时，这才是正确的。有关这方面的更多信息，请阅读Frederick P. Brooks, Jr. 的The Mythical Man-Month。</p>
+<p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>duration</code> 持续时间和 <code>length</code> 长度属性。具有 <code>Effort值</code> 的任务不能成为里程碑。</p>
+<p>effort <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+</li>
+</ol>
+</li>
+<li>
+<p>定义依赖有多种方法可以定义任务之间的依赖关系。当来自 Org 模式背景时，您可能希望使用 Org 模式提供的工具来定义它们，它们是</p>
+<ol>
+<li><code>ORDERED</code> ： 该ORDERED属性允许您声明子任务必须按照它们出现的顺序完成（最上面在前）。</li>
+<li><code>BLOCKER</code> ： 允许您声明任务依赖于以下任一者的属性
+<ol>
+<li>值为 <code>previous-sibling</code> 时，依赖上一个item 的task 对象</li>
+<li>值为某个任务的task_id  时，依赖对应的task</li>
+</ol>
+</li>
+<li><code>depends</code> ：定义在指定的任务完成之前不能启动任务，通过指定task_id 确定依赖关系。</li>
+</ol>
+</li>
+<li>
+<p>其他汇总</p>
+<p>tj3 定义一个任务的几个属性，任务名称，任务Id,任务依赖，任务评估时长，开始，结束时间等：</p>
+</li>
+</ol>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -292,13 +366,72 @@
 <span class="nv">**</span> <span class="nv">Milestones</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>tj3 定义一个任务的几个属性，任务名称，任务Id,任务依赖，任务评估时长，开始，结束时间。</p>
-<p>和org 差异的属性：</p>
-<p><code>task_id</code> 任务id</p>
-<p><code>depends</code> 依赖</p>
-<p><code>effort</code> 评估</p>
-<p><code>allocate</code> 角色</p>
-<p><code>priority</code> 优先级</p>
+<h3 id="taskjuggler-语法到-org-mode-的映射">Taskjuggler 语法到 Org-mode 的映射</h3>
+<p>如果您熟悉 Taskjuggler，那么了解 Taskjuggler 语法如何映射到 Org-mode 可能会有所帮助。这是通过属性<a href="https://orgmode.org/manual/Property-syntax.html#Property-syntax">Property Syntax (The Org Manual)</a> 完成的，这是属性适用的标题下方的一个简单的键值对。</p>
+<p>大部分实际的 Taskjuggler 项目由task组成，这些task可以被赋予各种属性。可以在 tj3 手册的<a href="http://www.taskjuggler.org/tj3/manual/task.html">task 语法</a> 规范中查看允许属性的完整列表。</p>
+<ol>
+<li>Taskjuggler 中的任务可能如下所示：</li>
+</ol>
+<!-- raw HTML omitted -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">task entry_door &#34;Install entry door&#34; {
+  depends buy_door
+  effort 4h
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>在此示例中， <code>task</code> 将以下文本定义为 Taskjuggler 编译的任务。 <code>entry_door</code> 是任务的 ID，它在当前子树中必须是唯一的。引号内 <code>&quot;Install entry door&quot;</code> 作为报告中的任务名称。</p>
+<p>此任务有两个属性： <code>depends</code> 和 <code>effort</code> 。在此示例中， <code>entry_door</code> 依赖于另一个任务 ， <code>buy_door</code> 估计所需的工作量是 4 小时。</p>
+<p>在 Org 模式下，等效的任务会像这样创建：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="gh">*</span><span class="gs"> Install entry door</span>
+<span class="c">:PROPERTIES:
+</span><span class="c"></span><span class="cs">:task_id:  entry_door
+</span><span class="cs">:depends:  buy_door
+</span><span class="cs">:Effort:   4h
+</span><span class="cs"></span><span class="c">:END:</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>一些属性可以通过两种方法设置。例如，任务的开始可以由 <code>SCHEDULED</code> 标签或 <code>:start:</code> 属性定义；以下是等效的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="gh">*</span><span class="gs"> Install entry door</span>
+<span class="c">   SCHEDULED: </span><span class="cs">&lt;2013-07-15 Mon&gt;</span>
+
+<span class="gh">*</span><span class="gs"> Install entry door</span>
+<span class="c">  :PROPERTIES:
+</span><span class="c"></span><span class="cs">  :start:    2013-07-15
+</span><span class="cs"></span><span class="c">  :END:</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>同样 <code>DEADLINE</code> 时间戳和 <code>🔚</code> 属性函数的方式相同。</p>
+<p>设计一个场景来计划下任务：</p>
+<p>比如这周，要完成及件事情，练习使用tj3 方式跟踪任务。同时考虑是否需要建立模板来快速创建tj3 任务。先看下任务和tj3 之间的差异。</p>
 <h2 id="问题">问题</h2>
 <ol>
 <li>导出时，需要设置为buffer 模式下导出，才能够显示全部任务状态。</li>
@@ -306,6 +439,179 @@
 <li>要想计划一周的任务还需要进一步熟悉tj3 的用法，熟练分析任务进度，提高习惯培养的积极性</li>
 <li>支持指定忽略tag: <code>:EXPORT_EXCLUDE_TAGS: ignore noexport</code></li>
 </ol>
+<h3 id="实战问题">实战问题</h3>
+<ol>
+<li>有子任务时，不要在该节点添加effort 属性</li>
+<li>在tj3 一级节点上，不要添加ordered 代替方案：使用节点中的blocked 属性控制依赖，显示甘特图上的顺序</li>
+<li>在二级节点上，直接开启ordered ，有助于子任务的排序显示</li>
+<li>当声明了tj3_resource 资源之后，导出会提示失败。需要在task 任务中关联资源之后，再次导出就正常了。</li>
+<li>甘特图和资源图 &ndash; 精确到周、日、小时的设置方式 taskreport 字段中 设置 chart</li>
+</ol>
+<h3 id="实战次序">实战次序</h3>
+<ol>
+<li>先定里程碑</li>
+<li>分解任务</li>
+<li>处理依赖关系</li>
+<li>确定里程碑</li>
+<li>在评估工作量</li>
+<li>声明资源</li>
+<li>分配资源</li>
+</ol>
+<h2 id="实战">实战</h2>
+<h3 id="项目的基础信息">项目的基础信息</h3>
+<ol>
+<li>
+<p>设置项目周期：project-duration</p>
+</li>
+<li>
+<p>设置项目标识： project-tag</p>
+</li>
+<li>
+<p>重写项目基础信息的函数： <code>org-taskjuggler--build-project</code></p>
+<ol>
+<li>
+<p>添加 actual 基准支持</p>
+</li>
+<li>
+<p>扩展字段 <code>电话</code></p>
+</li>
+<li>
+<p>重写task 任务信息函数 <code>org-taskjuggler--build-task</code></p>
+<ol>
+<li>
+<p>增加解析actual 字段代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">                           <span class="p">(</span><span class="nv">actual</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="nb">:ACTUAL</span> <span class="nv">task</span><span class="p">))</span>
+            </code></pre></td></tr></table>
+</div>
+</div>
+</li>
+<li>
+<p>在tjp 中增加actrual 字段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">                          <span class="p">(</span><span class="nb">and</span> <span class="nv">actual</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34; actual:%s\n&#34;</span> <span class="nv">actual</span><span class="p">))</span>
+            </code></pre></td></tr></table>
+</div>
+</div>
+</li>
+</ol>
+<p>效果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org">              ** 编写金和项目
+<span class="c">              :PROPERTIES:
+</span><span class="c"></span><span class="cs">              :task_id:  jinher
+</span><span class="cs">              :allocate: dev
+</span><span class="cs">              :Effort:   1d
+</span><span class="cs">              :actual: effort 1d start 2021-09-17
+</span><span class="cs"></span><span class="c">              :END:</span>
+        </code></pre></td></tr></table>
+</div>
+</div>
+<p>导出tj3 之后的格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="hl"><span class="lnt">6
+</span></span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">                task jinher &#34;编写金和项目&#34; {
+                  depends !swiftUI
+                  purge allocate
+                  allocate dev
+                  effort 1d
+<span class="hl">                 actual:effort 1d start 2021-09-17
+</span>                }
+        </code></pre></td></tr></table>
+</div>
+</div>
+<figure><img src="/ox-hugo/2021-09-07_18-08-13_%e6%88%aa%e5%b1%8f2021-09-07%20%e4%b8%8b%e5%8d%886.08.04.png" width="80%"/>
+</figure>
+
+</li>
+</ol>
+</li>
+<li>
+<p>新增列 <code>费用</code> 、 <code>收入</code> 在 <code>org-taskjuggler-default-global-properties</code> 中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nv">account</span> <span class="nv">cost</span> <span class="nv">\&#34;费用\&#34;</span>
+       <span class="nv">account</span> <span class="nv">revenue</span> <span class="nv">\&#34;收入\&#34;</span>
+       <span class="nv">balance</span> <span class="nv">cost</span> <span class="nv">revenue</span>
+    </code></pre></td></tr></table>
+</div>
+</div>
+</li>
+<li>
+<p>导入报告模板</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-taskjuggler-default-reports</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;include \&#34;reports.tji\&#34;&#34;</span><span class="p">))</span>
+    </code></pre></td></tr></table>
+</div>
+</div>
+</li>
+<li>
+<p>定制报告信息在 <code>reports.tji</code> 中查看语法</p>
+</li>
+<li>
+<p>在org 中无法制定输出目录 <code>:outputdir: &quot;/Users/boyer/reports/&quot;</code> 仅在命令行时有效。</p>
+<p>替代方案：通过el 命令，指定目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">make-directory</span> <span class="s">&#34;~/reports/七个习惯&#34;</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-taskjuggler-reports-directory</span> <span class="s">&#34;~/reports/七个习惯&#34;</span><span class="p">)</span>
+    </code></pre></td></tr></table>
+</div>
+</div>
+</li>
+<li>
+<p>task_id 不能以数字开头</p>
+</li>
+</ol>
+<h3 id="实例赏析">实例赏析</h3>
+<p><a href="https://it-boyer.github.io/iDocs/taskjuggler/demo-all/%E9%A1%B9%E7%9B%AE%E7%BB%BC%E8%BF%B0.html">新产品上市计划 - 项目综述</a> <a href="https://it-boyer.github.io/iDocs/taskjuggler/%E4%B8%83%E4%B8%AA%E4%B9%A0%E6%83%AF/%E9%A1%B9%E7%9B%AE%E7%BB%BC%E8%BF%B0.html">七个习惯学习计划 - 项目综述</a></p>
 
     </div>
 
@@ -317,8 +623,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-09-01
-        <a href="iNotes/commit/6afdfa9d1fc431da940d0ad7df6a3cf9571e550c" title="update">(6afdfa9)</a>
+        2021-09-03
+        <a href="iNotes/commit/6b48b08d6a4b9891068e06bccacc7a0bb7c016ed" title="功能点：整理project.org相关文件以来tj3创建项目 问题：">(6b48b08)</a>
     </span>
   </p>
   
@@ -341,7 +647,11 @@
 </div><footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/elgantt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">学习elgantt.el</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/%E5%B0%9D%E8%AF%95%E9%87%8D%E6%96%B0%E9%98%85%E8%AF%BB%E4%B8%83%E4%B9%A0%E5%85%88%E8%AE%A1%E5%88%92%E8%A7%84%E8%8C%83%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/">
             <span class="next-text nav-default">重新阅读七个习惯，提高习惯三的执行力</span>
             <span class="next-text nav-mobile">下一篇</span>
