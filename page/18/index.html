@@ -153,6 +153,56 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/">使用tag管理多个相关组件的版本发布</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 193 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      tag标签自增新建脚本 1 2 3 4 5 6 #!/bin/sh tag=$(git describe --tags `git rev-list --tags --max-count=1`) version=${tag##*.} let &#34;version+=1&#34; newTag=${tag%.*}.${version} echo &#39;Create New Tag &#39;$newTag 修改tag版本号的方法 方法一：覆盖 已有v1.0.2.8要覆盖该版本 1 git tag
+    </div>
+    <div class="read-more">
+      <a href="/post/old/git/%E4%BD%BF%E7%94%A8tag%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E7%9B%B8%E5%85%B3%E7%BB%84%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%BC%A7%E5%BD%A2%E8%A1%A8%E7%9B%98%E8%BF%9B%E5%BA%A6%E4%BB%AA%E8%A1%A8/">弧形表盘进度仪表</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
+          </div>
+        <span class="more-meta"> 约 666 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      {% github it-boyer ArcProgressUI 4b9bc85 width = 30% %} ArcProgressUI Example To run the example project, clone the repo, and run pod install from the Example directory first. Requirements Installation ArcProgressUI is available through CocoaPods. To install it, simply add the following line to your Podfile: 1 pod &#39;ArcProgressUI&#39; API使用 独立进度表盘加载 1 2 3 4 5 #import &#34;ArcProgressView.h&#34; NSArray
+    </div>
+    <div class="read-more">
+      <a href="/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%BC%A7%E5%BD%A2%E8%A1%A8%E7%9B%98%E8%BF%9B%E5%BA%A6%E4%BB%AA%E8%A1%A8/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/storyboard%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">storyboard的几种方式</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-06-20 </span>
@@ -347,56 +397,6 @@
     </div>
     <div class="read-more">
       <a href="/post/old/%E9%98%85%E8%AF%BB/5%E4%B8%AA%E5%9B%BE%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%8412%E5%A4%A7%E9%9A%BE%E9%A2%98/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E6%89%A7%E6%B3%95%E5%B7%A1%E6%9F%A5%E5%BC%80%E5%8F%91%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/">执法巡查开发状态总结</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-05 </span>
-      <div class="post-category">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
-          </div>
-        <span class="more-meta"> 约 555 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      UML状态图 使用状态图，查漏补觉，梳理相关业务流程。 建议：优化流程，使用流程图（活动图）/时序图来完善流程 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E6%89%A7%E6%B3%95%E5%B7%A1%E6%9F%A5%E5%BC%80%E5%8F%91%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E5%AF%BC%E5%9B%BE/uml%E6%B4%BB%E5%8A%A8%E5%9B%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">uml活动图常用语法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-06-04 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 469 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 start :ClickServlet.handleRequest(); :new page; if (Page.onSecurityCheck) then (true) :Page.onInit(); if (isForward?) then (no) :Process controls; if (continue processing?) then (no) stop endif if (isPost?) then (yes) :Page.onPost(); else (no) :Page.onGet(); endif :Page.onRender(); endif else (false) endif if (do redirect?)
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E5%AF%BC%E5%9B%BE/uml%E6%B4%BB%E5%8A%A8%E5%9B%BE%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
