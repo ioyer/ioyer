@@ -153,6 +153,43 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Xcode和Jenkins持续集成的几种实现方式</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-18 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 4827 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="ci服务器">CI服务器</h2>
+<p>写到这儿，对于iOS开发者来说，需要准备好：</p>
+<ul>
+<li>一个比较容易获取的源代码仓库(包含源代码)</li>
+<li>一套自动化构建脚本</li>
+<li>一系列围绕构建的可执行测试</li>
+</ul>
+<p>接下来就需要一个CI服务器来根据源代码的变更触发构建，监控测试结果。</p>
+<p>目前，业界比较流行的，支持iOS构建的CI服务器有</p>
+<ul>
+<li><a href="https://travis-ci.org">Travis CI</a>：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，<a href="http://www.infoq.com/cn/articles/build-ios-continuous-integration-platform-part3">详见</a></li>
+<li><strong>Jenkins</strong>：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-01-21 </span>
@@ -686,34 +723,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 588 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-<p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-<pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
