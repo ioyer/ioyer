@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/shell/vim%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/shell/vim%E4%B8%80%E8%88%AC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-04T23:48:08+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:published_time" content="2018-10-04T23:48:08&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
 
 <meta itemprop="name" content="vim一般模式下查找和替换命令">
-<meta itemprop="description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old"><meta itemprop="datePublished" content="2018-10-04T23:48:08+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
+<meta itemprop="description" content="/,?查找命令 /word 向下查找word字符串 ?word向上查找word字符串 组合查找 n: 代表重复前一个查找的操作 N:反向进行前一个查找操作 s/old"><meta itemprop="datePublished" content="2018-10-04T23:48:08&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
 <meta itemprop="wordCount" content="250">
 <meta itemprop="keywords" content="shell," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim一般模式下查找和替换命令"/>
@@ -202,10 +202,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:n1,n2s/word1/word2/g
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:n1,n2s/word1/word2/g
 </code></pre></td></tr></table>
 </div>
 </div><p>举例：  <code>：100,200s/vbird/VBIRD/g</code></p>
@@ -214,10 +214,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/g
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/g
 </code></pre></td></tr></table>
 </div>
 </div><p>从第一行到最后一行查找字符串word1字符串，并将字符串word1替换为word2</p>
@@ -226,10 +226,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/gc
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">:1,$s/word1/word2/gc
 </code></pre></td></tr></table>
 </div>
 </div><p>从第一行到最后一行查找字符串word1，并将字符串word1替换为word2,在替换之前提示用户确认是否替换</p>

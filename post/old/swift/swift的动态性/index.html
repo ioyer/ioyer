@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/swift%E7%9A%84%E5%8A%A8%E6%80%81%E6%80%A7/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Foundation Foundation 框架实现了基于运行时一个特性的两个API： 键值编码 (key-value-coding, KVC) 键值观察 (key-value observing, KVO) KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他响应式框架实现的基" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/swift%E7%9A%84%E5%8A%A8%E6%80%81%E6%80%A7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-11-10T09:14:55+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:published_time" content="2018-11-10T09:14:55&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
 
 <meta itemprop="name" content="Swift的动态性">
-<meta itemprop="description" content="Foundation Foundation 框架实现了基于运行时一个特性的两个API： 键值编码 (key-value-coding, KVC) 键值观察 (key-value observing, KVO) KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他响应式框架实现的基"><meta itemprop="datePublished" content="2018-11-10T09:14:55+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
+<meta itemprop="description" content="Foundation Foundation 框架实现了基于运行时一个特性的两个API： 键值编码 (key-value-coding, KVC) 键值观察 (key-value observing, KVO) KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他响应式框架实现的基"><meta itemprop="datePublished" content="2018-11-10T09:14:55&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
 <meta itemprop="wordCount" content="1725">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift的动态性"/>
@@ -205,13 +205,13 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 <p>KVC 的工作方式如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
 
 <span class="p">[</span><span class="n">myClass</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
 <span class="p">[</span><span class="n">myClass</span> <span class="nl">setValue</span><span class="p">:</span><span class="l">@(</span><span class="mi">4</span><span class="l">)</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
@@ -225,7 +225,7 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -238,7 +238,7 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">myClass</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">myClass</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
 <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;number&#34;</span>
 <span class="nl">options</span><span class="p">:</span><span class="n">NSKeyValueObservingOptionInitial</span> <span class="o">|</span> <span class="n">NSKeyValueObservingOptionNew</span>
 <span class="nl">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
@@ -276,7 +276,7 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 <h4 id="方法转发">方法转发</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -291,7 +291,7 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 1
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 1
 </span><span class="c1"></span><span class="n">override</span> <span class="k">class</span> <span class="n">func</span> <span class="nf">resolveInstanceMethod</span><span class="p">(</span><span class="n">_</span> <span class="nl">sel</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span>
 <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
 <span class="c1">// 添加实例方法并返回 true 的一次机会，它随后会再次尝试发送消息
@@ -312,7 +312,7 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 <h4 id="内省机制">内省机制</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -325,7 +325,7 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">if self is MyClass {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">if self is MyClass {
 // YAY
 }
 

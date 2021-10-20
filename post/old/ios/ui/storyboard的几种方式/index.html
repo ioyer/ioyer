@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/storyboard%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/storyboard%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-06-20T14:49:37+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2018-06-20T14:49:37&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="storyboard的几种方式">
-<meta itemprop="description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时"><meta itemprop="datePublished" content="2018-06-20T14:49:37+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="通过IB（xib/storyboard）创建View的周期方法 loadView：加载View方法，UI是通过代码绘制时，初始化控制器的视图时"><meta itemprop="datePublished" content="2018-06-20T14:49:37&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="901">
 <meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="storyboard的几种方式"/>
@@ -211,7 +211,7 @@
 <h4 id="方法一">方法一</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -219,7 +219,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">NSArray</span><span class="o">*</span> <span class="n">nibView</span> <span class="o">=</span>  <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="s">@&#34;xibfileName&#34;</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">NSArray</span><span class="o">*</span> <span class="n">nibView</span> <span class="o">=</span>  <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="s">@&#34;xibfileName&#34;</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
  <span class="n">UIView</span> <span class="o">*</span><span class="n">xibView</span> <span class="o">=</span> <span class="n">nibView</span><span class="p">.</span><span class="n">lastObject</span><span class="p">;</span>
 <span class="c1">//=======
 </span><span class="c1"></span> <span class="c1">// 这里的bundle参数是nil,(这里nil默认就是mianBundle)
@@ -231,14 +231,14 @@
 <p><code>owner</code>:xib中的fileObject参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//加载所有xib文件
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//加载所有xib文件
 </span><span class="c1"></span><span class="n">NSArray</span><span class="o">*</span> <span class="n">objects</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">loadNibNamed</span><span class="p">:</span><span class="n">nibName</span> <span class="nl">owner</span><span class="p">:</span><span class="nb">self</span> <span class="nl">options</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 
 <span class="c1">//加载指定xib文件
@@ -248,17 +248,17 @@
 </div><h3 id="加载控制器对象">加载控制器对象</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="s">@&#34;xibName&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="n">nibBundleOrNil</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="s">@&#34;xibName&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="n">nibBundleOrNil</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="加载storyboard">加载storyboard</h2>
 <h3 id="加载控制器对象-1">加载控制器对象</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -270,7 +270,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 加载storyboard
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 加载storyboard
 </span><span class="c1"></span><span class="n">UIStoryboard</span> <span class="o">*</span><span class="n">storyboard</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIStoryboard</span> <span class="nl">storyboardWithName</span><span class="p">:</span><span class="s">@&#34;Two&#34;</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 
 <span class="c1">// 创建storyboard里面灰色的控制器

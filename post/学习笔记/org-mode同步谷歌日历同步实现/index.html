@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/org-mode%E5%90%8C%E6%AD%A5%E8%B0%B7%E6%AD%8C%E6%97%A5%E5%8E%86%E5%90%8C%E6%AD%A5%E5%AE%9E%E7%8E%B0/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="同步日历实现，在手机上管理日常事务" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/org-mode%E5%90%8C%E6%AD%A5%E8%B0%B7%E6%AD%8C%E6%97%A5%E5%8E%86%E5%90%8C%E6%AD%A5%E5%AE%9E%E7%8E%B0/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-21T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-08-27T12:51:05+08:00" />
+<meta property="article:published_time" content="2021-08-21T00:00:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-08-27T12:51:05&#43;08:00" />
 
 <meta itemprop="name" content="org-mode和google日历同步和相关技巧">
-<meta itemprop="description" content="同步日历实现，在手机上管理日常事务"><meta itemprop="datePublished" content="2021-08-21T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-08-27T12:51:05+08:00" />
+<meta itemprop="description" content="同步日历实现，在手机上管理日常事务"><meta itemprop="datePublished" content="2021-08-21T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-08-27T12:51:05&#43;08:00" />
 <meta itemprop="wordCount" content="503">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="org-mode和google日历同步和相关技巧"/>
@@ -206,7 +206,7 @@
 <p>配置<a href="https://github.com/kidd/org-gcal.el">kidd/org-gcal.el: Org sync with Google Calendar.</a> 在goole中申请日历API访问权限</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -220,7 +220,7 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">use-package!</span> <span class="nv">org-gcal</span>
+<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">use-package!</span> <span class="nv">org-gcal</span>
          <span class="nb">:ensure</span> <span class="no">t</span>
          <span class="nb">:config</span>
          <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-gcal-default-calendar</span> <span class="s">&#34;test@gmail.com&#34;</span>
@@ -239,14 +239,14 @@
 <p>添加辅助方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">add-to-calendar</span> <span class="p">()</span>
+<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">add-to-calendar</span> <span class="p">()</span>
          <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
          <span class="p">(</span><span class="nv">org-set-property</span> <span class="s">&#34;calendar-id&#34;</span> <span class="nv">org-gcal-default-calendar</span><span class="p">)</span>
          <span class="p">(</span><span class="nv">org-gcal-post-at-point</span><span class="p">))</span>
@@ -258,12 +258,12 @@
 <p>添加hook</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-agenda-mode-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
+<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-agenda-mode-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
        <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-capture-after-finalize-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
     </code></pre></td></tr></table>
 </div>
@@ -273,12 +273,12 @@
 <p>禁用hook org-gcal会自动添加事件，导致在每次capture完成时，都会执行 <code>org-gcal--capture-post</code> 方法，导致不必要的警告提示等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="c1">;禁止gcal的capture完成时的同步事件</span>
+<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="c1">;禁止gcal的capture完成时的同步事件</span>
        <span class="p">(</span><span class="nv">remove-hook!</span> <span class="ss">&#39;org-capture-after-finalize-hook</span>  <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-gcal--capture-post</span><span class="p">))</span>
     </code></pre></td></tr></table>
 </div>
@@ -288,10 +288,10 @@
 <h2 id="ox-trello和gcal同步协作">ox-trello和gcal同步协作</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-capture-after-finalize-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-trello-sync-buffer</span><span class="p">)</span> <span class="p">))</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-capture-after-finalize-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-trello-sync-buffer</span><span class="p">)</span> <span class="p">))</span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -348,7 +348,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-08-24 00:00:00 \u002b0800 \u002b0800',
+        id: '2021-08-24 00:00:00 \u002b0800 CST',
         title: 'org-mode和google日历同步和相关技巧',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

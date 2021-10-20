@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/commandlinetool%E4%BD%BF%E7%94%A8pod%E4%BE%9D%E8%B5%96%E5%BA%93%E5%BC%80%E5%8F%91/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-16T17:08:15+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2018-10-16T17:08:15&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="CommandLineTool使用pod依赖库开发">
-<meta itemprop="description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项"><meta itemprop="datePublished" content="2018-10-16T17:08:15+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="问题 #3707 1 dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider 结论：cocoa pods不支持Command Line Tool项目 Cocoapods &#43; Command Line Tool - dyld: Library not loaded: @rpath/Realm.framework/Versions/A/Realm cocoa pods不支持Command Line Tool项"><meta itemprop="datePublished" content="2018-10-16T17:08:15&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="549">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CommandLineTool使用pod依赖库开发"/>
@@ -188,10 +188,10 @@
 <p><a href="ttps://github.com/CocoaPods/CocoaPods/issues/3707">#3707</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">dyld: Library not loaded: @rpath/FilesProvider.framework/Versions/A/FilesProvider
 </code></pre></td></tr></table>
 </div>
 </div><p>结论：cocoa pods不支持<code>Command Line Tool</code>项目</p>
@@ -204,11 +204,11 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">mkdir</span> <span class="nx">SPMCmdLineTool</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="nx">mkdir</span> <span class="nx">SPMCmdLineTool</span>
 <span class="err">$</span> <span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span> <span class="o">--</span><span class="kd">type</span><span class="p">=</span><span class="nx">executable</span>
 </code></pre></td></tr></table>
 </div>
@@ -217,7 +217,7 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -236,7 +236,7 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PackageDescription</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PackageDescription</span>
 <span class="kd">let</span> <span class="nv">package</span> <span class="p">=</span> <span class="n">Package</span><span class="p">(</span>
     <span class="n">name</span><span class="p">:</span> <span class="s">&#34;SPMCmdLineTool&#34;</span><span class="p">,</span>
     <span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
@@ -261,10 +261,10 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swift package generate-xcodeproj
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift package generate-xcodeproj
 </code></pre></td></tr></table>
 </div>
 </div><p>再把<code>SPMCmdLineTool.xcodeproj</code>拖入现有的workspace中来管理。</p>
@@ -274,7 +274,7 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 <h2 id="命令行的单元测试赏析">命令行的单元测试赏析</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -321,7 +321,7 @@ cocoa pods不支持<code>Command Line Tool</code>项目
 </span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kr">final</span> <span class="kd">class</span> <span class="nc">SPMCmdLineToolTests</span><span class="p">:</span> <span class="n">XCTestCase</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kr">final</span> <span class="kd">class</span> <span class="nc">SPMCmdLineToolTests</span><span class="p">:</span> <span class="n">XCTestCase</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">testExample</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">{</span>
         <span class="c1">// This is an example of a functional test case.</span>
         <span class="c1">// Use XCTAssert and related functions to verify your tests produce the correct</span>

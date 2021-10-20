@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/nsurlsession%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/nsurlsession%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-09-08T18:48:43+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2017-09-08T18:48:43&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="NSURLSession的使用说明">
-<meta itemprop="description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些"><meta itemprop="datePublished" content="2017-09-08T18:48:43+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些"><meta itemprop="datePublished" content="2017-09-08T18:48:43&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="5119">
 <meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="NSURLSession的使用说明"/>
@@ -237,7 +237,7 @@
 <p>Data task 可以通过 <code>NSURL</code> 或 <code>NSURLRequest</code> 创建（使用前者相当于是使用一个对于该 URL 进行标准 <code>GET</code> 请求的 <code>NSURLRequest</code>，这是一种快捷方法）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,7 +250,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com&#34;</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com&#34;</span><span class="p">];</span>
 <span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
 
 <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
@@ -267,7 +267,7 @@
 <p>Upload task 的创建需要使用一个 request，另外加上一个要上传的 <code>NSData</code> 对象或者是一个本地文件的路径对应的 <code>NSURL</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -282,7 +282,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/upload&#34;</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/upload&#34;</span><span class="p">];</span>
 <span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
 <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">...;</span>
 
@@ -301,7 +301,7 @@
 <p>Download task 也需要一个 request，不同之处在于 <code>completionHandler</code> 这个 block。Data task 和 upload task 会在任务完成时一次性返回，但是 Download task 是将数据一点点地写入本地的临时文件。所以在 <code>completionHandler</code> 这个 block 里，我们需要把文件从一个临时地址移动到一个永久的地址保存起来：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -317,7 +317,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/file.zip&#34;</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/file.zip&#34;</span><span class="p">];</span>
 <span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
 
 <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
@@ -364,10 +364,10 @@
 <p>以 <code>NSURLSessionTaskDelegate</code>代理中的方法为例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span><span class="nf">URLSession:task:didReceiveChallenge:completionHandler:</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span><span class="nf">URLSession:task:didReceiveChallenge:completionHandler:</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>completionHandler</code> 接受的两个参数：
@@ -400,7 +400,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -412,7 +412,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">userPasswordString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@:%@&#34;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">userPasswordString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@:%@&#34;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">];</span>
 <span class="n">NSData</span> <span class="o">*</span> <span class="n">userPasswordData</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordString</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
 <span class="n">NSString</span> <span class="o">*</span><span class="n">base64EncodedCredential</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">NSString</span> <span class="o">*</span><span class="n">authString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;Basic %@&#34;</span><span class="p">,</span> <span class="n">base64EncodedCredential</span><span class="p">];</span>

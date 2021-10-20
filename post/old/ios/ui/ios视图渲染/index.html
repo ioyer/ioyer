@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/ios%E8%A7%86%E5%9B%BE%E6%B8%B2%E6%9F%93/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="图形堆栈 当像素映射到屏幕上的时候，后台发生了很多事情。但一旦他们显示到屏幕上，每一个像素均由三个颜色组件构成：红，绿，蓝。三个独立的颜色单元" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/ios%E8%A7%86%E5%9B%BE%E6%B8%B2%E6%9F%93/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-09-23T14:51:07+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2017-09-23T14:51:07&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="iOS视图渲染">
-<meta itemprop="description" content="图形堆栈 当像素映射到屏幕上的时候，后台发生了很多事情。但一旦他们显示到屏幕上，每一个像素均由三个颜色组件构成：红，绿，蓝。三个独立的颜色单元"><meta itemprop="datePublished" content="2017-09-23T14:51:07+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="图形堆栈 当像素映射到屏幕上的时候，后台发生了很多事情。但一旦他们显示到屏幕上，每一个像素均由三个颜色组件构成：红，绿，蓝。三个独立的颜色单元"><meta itemprop="datePublished" content="2017-09-23T14:51:07&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="13907">
 <meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS视图渲染"/>
@@ -264,32 +264,32 @@
 <p>如果我们有第二个纹理放在第一个纹理之上，然后GPU将会把第二个纹理合成到第一个纹理中。有很多种不同的合成方法，但是如果我们假定两个纹理的像素对齐，并且使用正常的混合模式，我们便可以用下面这个公式来计算每一个像素：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">R = S + D * ( 1 – Sa )
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">R = S + D * ( 1 – Sa )
 </code></pre></td></tr></table>
 </div>
 </div><p>结果的颜色是源色彩(顶端纹理)+目标颜色(低一层的纹理)*(1-源颜色的透明度)。在这个公式中所有的颜色都假定已经预先乘以了他们的透明度。</p>
 <p>显然相当多的事情在这发生了。让我们进行第二个假定，两个纹理都完全不透明，比如 alpha=1.如果目标纹理(低一层的纹理)是蓝色(RGB=0,0,1)，并且源纹理(顶层的纹理)颜色是红色(RGB=1,0,0)，因为 Sa 为1，所以结果为：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">R = S
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">R = S
 </code></pre></td></tr></table>
 </div>
 </div><p>结果是源颜色的红色。这正是我们所期待的(红色覆盖了蓝色)。</p>
 <p>如果源颜色层为50%的透明，比如 alpha=0.5，既然 alpha 组成部分需要预先乘进 RGB 的值中，那么 S 的 RGB 值为(0.5, 0, 0)，公式看起来便会像这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">0.5   0               0.5
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">0.5   0               0.5
 R = S + D * (1 - Sa) = 0   + 0 * (1 - 0.5) = 0
 0     1               0.5
 </code></pre></td></tr></table>
@@ -369,7 +369,7 @@ layer的几种触发离屏渲染
 <p>比方说，我们要画一个<a href="https://zh.wikipedia.org/wiki/%E5%85%AB%E8%BE%B9%E5%BD%A2">八角形</a>，我们通过 UIKit 能做到这一点</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,7 +386,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="n">bezierPath</span><span class="p">];</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="n">bezierPath</span><span class="p">];</span>
 <span class="p">[</span><span class="n">path</span> <span class="nl">moveToPoint</span><span class="p">:</span><span class="n">CGPointMake</span><span class="p">(</span><span class="mf">16.72</span><span class="p">,</span> <span class="mf">7.22</span><span class="p">)];</span>
 <span class="p">[</span><span class="n">path</span> <span class="nl">addLineToPoint</span><span class="p">:</span><span class="n">CGPointMake</span><span class="p">(</span><span class="mf">3.29</span><span class="p">,</span> <span class="mf">20.83</span><span class="p">)];</span>
 <span class="p">[</span><span class="n">path</span> <span class="nl">addLineToPoint</span><span class="p">:</span><span class="n">CGPointMake</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">18.05</span><span class="p">)];</span>
@@ -406,7 +406,7 @@ layer的几种触发离屏渲染
 </div><p>相对应的 Core Graphics 代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -423,7 +423,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">CGContextBeginPath</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">CGContextBeginPath</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
 <span class="n">CGContextMoveToPoint</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">16.72</span><span class="p">,</span> <span class="mf">7.22</span><span class="p">);</span>
 <span class="n">CGContextAddLineToPoint</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">3.29</span><span class="p">,</span> <span class="mf">20.83</span><span class="p">);</span>
 <span class="n">CGContextAddLineToPoint</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">18.05</span><span class="p">);</span>
@@ -445,7 +445,7 @@ layer的几种触发离屏渲染
 <p>最为突出的是，UIKit 使用 <code>UIGraphicsBeginImageContextWithOptions()</code> 和 <code>UIGraphicsEndImageContext()</code> 方便的创建类似于 <code>CGBitmapContextCreate()</code> 的位图上下文。混合调用 UIKit 和 Core Graphics 非常简单：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -455,7 +455,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="nb">YES</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="nb">YES</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="n">CGContextRef</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">UIGraphicsGetCurrentContext</span><span class="p">();</span>
 <span class="n">CGContextBeginPath</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
 <span class="n">CGContextMoveToPoint</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">16.72</span><span class="p">,</span> <span class="mf">7.22</span><span class="p">);</span>
@@ -468,7 +468,7 @@ layer的几种触发离屏渲染
 </div><p>或者另外一种方法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -480,7 +480,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">CGContextRef</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">CGBitmapContextCreate</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">90</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">bitmapInfo</span><span class="p">);</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">CGContextRef</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">CGBitmapContextCreate</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">90</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">bitmapInfo</span><span class="p">);</span>
 <span class="n">CGContextScaleCTM</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
 <span class="n">UIGraphicsPushContext</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
 <span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="n">bezierPath</span><span class="p">];</span>
@@ -502,12 +502,12 @@ layer的几种触发离屏渲染
 <p>在 iOS 和 OS X 上最常见的格式就是大家所熟知的 32bits-per-pixel(bpp), 8bits-per-componet(bpc),透明度会首先被乘以到像素值上(就像上文中提到的那个公式一样),在内存中，像下面这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">A   R   G   B   A   R   G   B   A   R   G   B
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">A   R   G   B   A   R   G   B   A   R   G   B
 | pixel 0       | pixel 1       | pixel 2
 0   1   2   3   4   5   6   7   8   9   10  11 ...
 </code></pre></td></tr></table>
@@ -516,12 +516,12 @@ layer的几种触发离屏渲染
 <p>另一个常见的格式便是 32bpp，8bpc，跳过第一个 alpha 值，看起来像下面这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">x   R   G   B   x   R   G   B   x   R   G   B
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">x   R   G   B   x   R   G   B   x   R   G   B
 | pixel 0       | pixel 1       | pixel 2
 0   1   2   3   4   5   6   7   8   9   10  11 ...
 </code></pre></td></tr></table>
@@ -584,7 +584,7 @@ layer的几种触发离屏渲染
 <p>如果我们看这个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -592,7 +592,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// Don&#39;t do this
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// Don&#39;t do this
 </span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">drawRect:</span><span class="p">(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">rect</span>
 <span class="p">{</span>
 <span class="p">[[</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">]</span> <span class="n">setFill</span><span class="p">];</span>
@@ -618,7 +618,7 @@ layer的几种触发离屏渲染
 <p>增加一个你可以在其中绘制的新方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -630,7 +630,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">renderInImageOfSize:</span><span class="p">(</span><span class="n">CGSize</span><span class="p">)</span><span class="nv">size</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">renderInImageOfSize:</span><span class="p">(</span><span class="n">CGSize</span><span class="p">)</span><span class="nv">size</span>
 <span class="p">{</span>
     <span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">NO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
@@ -649,7 +649,7 @@ layer的几种触发离屏渲染
 <p>你需要像下面这样触发渲染代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -660,7 +660,7 @@ layer的几种触发离屏渲染
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIImageView</span> <span class="o">*</span><span class="n">view</span><span class="p">;</span> <span class="c1">// assume we have this
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIImageView</span> <span class="o">*</span><span class="n">view</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span><span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">renderQueue</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span><span class="n">CGSize</span> <span class="n">size</span> <span class="o">=</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
 <span class="p">[</span><span class="n">renderQueue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(){</span>

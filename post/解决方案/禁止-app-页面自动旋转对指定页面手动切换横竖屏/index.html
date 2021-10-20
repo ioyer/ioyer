@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E7%A6%81%E6%AD%A2-app-%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E6%97%8B%E8%BD%AC%E5%AF%B9%E6%8C%87%E5%AE%9A%E9%A1%B5%E9%9D%A2%E6%89%8B%E5%8A%A8%E5%88%87%E6%8D%A2%E6%A8%AA%E7%AB%96%E5%B1%8F/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Test post to test another ox-hugo test." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E7%A6%81%E6%AD%A2-app-%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E6%97%8B%E8%BD%AC%E5%AF%B9%E6%8C%87%E5%AE%9A%E9%A1%B5%E9%9D%A2%E6%89%8B%E5%8A%A8%E5%88%87%E6%8D%A2%E6%A8%AA%E7%AB%96%E5%B1%8F/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-05-20T00:00:00+08:00" />
-<meta property="article:modified_time" content="2021-05-31T19:12:32+08:00" />
+<meta property="article:published_time" content="2021-05-20T00:00:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-31T19:12:32&#43;08:00" />
 
 <meta itemprop="name" content="禁止 APP 页面自动旋转,对指定页面实现手动切换横竖屏">
-<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-05-20T00:00:00+08:00" />
-<meta itemprop="dateModified" content="2021-05-31T19:12:32+08:00" />
+<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-05-20T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-31T19:12:32&#43;08:00" />
 <meta itemprop="wordCount" content="1491">
 <meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="禁止 APP 页面自动旋转,对指定页面实现手动切换横竖屏"/>
@@ -208,12 +208,12 @@
 <p>基于 Appdelgate 中的方法,添加新属性,来控制横竖屏</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">0
+<pre class="chroma"><code><span class="lnt">0
 </span><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">           <span class="c1">//适配电子巡查横屏播放,录制禁止旋转:当VC处于横屏时,禁止自动旋转,且必须返回横屏方向
+<pre class="chroma"><code class="language-objc" data-lang="objc">           <span class="c1">//适配电子巡查横屏播放,录制禁止旋转:当VC处于横屏时,禁止自动旋转,且必须返回横屏方向
 </span><span class="c1"></span>           <span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">assign</span><span class="p">)</span><span class="kt">BOOL</span> <span class="n">hengStatus</span><span class="p">;</span>
     </code></pre></td></tr></table>
 </div>
@@ -223,7 +223,7 @@
 <p>在 <code>Appdelgate.m</code> 协议方法中添加适配代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="hl"><span class="lnt">250
+<pre class="chroma"><code><span class="hl"><span class="lnt">250
 </span></span><span class="lnt">251
 </span><span class="lnt">252
 </span><span class="lnt">253
@@ -242,7 +242,7 @@
 </span><span class="lnt">266
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="hl">       <span class="o">-</span> <span class="p">(</span><span class="n">UIInterfaceOrientationMask</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">supportedInterfaceOrientationsForWindow</span><span class="p">:(</span><span class="n">UIWindow</span> <span class="o">*</span><span class="p">)</span><span class="n">window</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="hl">       <span class="o">-</span> <span class="p">(</span><span class="n">UIInterfaceOrientationMask</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">supportedInterfaceOrientationsForWindow</span><span class="p">:(</span><span class="n">UIWindow</span> <span class="o">*</span><span class="p">)</span><span class="n">window</span> <span class="p">{</span>
 </span>           <span class="k">if</span> <span class="p">(</span><span class="n">_allowRotate</span><span class="p">)</span> <span class="p">{</span>
                <span class="k">return</span> <span class="n">UIInterfaceOrientationMaskAllButUpsideDown</span><span class="p">;</span>
            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -271,7 +271,7 @@
 实现了两个操作:手动横屏操作和监听横竖屏切换事件通知 <code>UIDeviceOrientationDidChangeNotification</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 0
+<pre class="chroma"><code><span class="lnt"> 0
 </span><span class="lnt"> 1
 </span><span class="hl"><span class="lnt"> 2
 </span></span><span class="hl"><span class="lnt"> 3
@@ -289,7 +289,7 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clickFullScreenAction</span><span class="p">{</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clickFullScreenAction</span><span class="p">{</span>
            <span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">orientChange</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">UIDeviceOrientationDidChangeNotification</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="hl">           <span class="c1">//启动Appdelegate旋转屏幕适配
 </span></span><span class="hl"><span class="c1"></span>           <span class="n">AppDelegate</span> <span class="o">*</span> <span class="n">delegate</span> <span class="o">=</span> <span class="p">(</span><span class="n">AppDelegate</span> <span class="o">*</span><span class="p">)[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">delegate</span><span class="p">;</span>
@@ -312,7 +312,7 @@
 <p>旋转后,UI 的适配监听到屏幕旋转之后,针对横屏显示的两套 UI 布局样式,UI 更新完成之后,关闭横竖屏的支持,移除监听事件.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -347,7 +347,7 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">orientChange</span><span class="p">:(</span><span class="n">NSNotification</span> <span class="o">*</span><span class="p">)</span><span class="n">noti</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">orientChange</span><span class="p">:(</span><span class="n">NSNotification</span> <span class="o">*</span><span class="p">)</span><span class="n">noti</span> <span class="p">{</span>
            <span class="n">UIDeviceOrientation</span> <span class="n">orientation</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">orientation</span><span class="p">;</span>
            <span class="n">CGRect</span> <span class="n">customFrame</span><span class="p">;</span>
            <span class="k">if</span> <span class="p">(</span><span class="n">orientation</span> <span class="o">==</span> <span class="n">UIDeviceOrientationLandscapeLeft</span> <span class="o">||</span> <span class="n">orientation</span> <span class="o">==</span> <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">)</span> <span class="p">{</span>
@@ -398,7 +398,7 @@
 先声明一个 导航控制器子类,重写横竖屏支持的自定义方法: <code>AutorotateNavController</code> 继承 <code>UINavigationController</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 0
+<pre class="chroma"><code><span class="lnt"> 0
 </span><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
@@ -422,7 +422,7 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="nc">AutorotateNavController</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="nc">AutorotateNavController</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
     <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
@@ -510,7 +510,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-05-20 08:20:00 \u002b0800 \u002b0800',
+        id: '2021-05-20 08:20:00 \u002b0800 CST',
         title: '禁止 APP 页面自动旋转,对指定页面实现手动切换横竖屏',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

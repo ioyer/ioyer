@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="概念概述 getting-started {% github it-boyer PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/spm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-01T14:52:23+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:published_time" content="2018-10-01T14:52:23&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
 
 <meta itemprop="name" content="SPM相关命令工具">
-<meta itemprop="description" content="概念概述 getting-started {% github it-boyer PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift"><meta itemprop="datePublished" content="2018-10-01T14:52:23+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
+<meta itemprop="description" content="概念概述 getting-started {% github it-boyer PerfectTemplate 20294e56 width = 30% %} 使用Swift编译系统 Swift 编译系统为编译库、可执行文件和在不同工程之间共享代码提供了基本的约定。 swift 工具 swift package swift package generate-xcodeproj swift"><meta itemprop="datePublished" content="2018-10-01T14:52:23&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
 <meta itemprop="wordCount" content="1034">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SPM相关命令工具"/>
@@ -208,11 +208,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir Hello
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir Hello
 $ cd Hello
 </code></pre></td></tr></table>
 </div>
@@ -221,7 +221,7 @@ $ cd Hello
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -233,7 +233,7 @@ $ cd Hello
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swift package init
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift package init
 ├── Package.swift   // 依赖清单文件
 ├── README.md
 ├── Sources         // 源码目录
@@ -250,11 +250,11 @@ $ cd Hello
 编译会先解析<code>Package.swift</code>项目配置和下载依赖库等环境，然后编译源码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swift build  <span class="c1">#编译可执行文件</span>
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift build  <span class="c1">#编译可执行文件</span>
 Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -263,7 +263,7 @@ Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -279,7 +279,7 @@ Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swift <span class="nb">test</span>
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift <span class="nb">test</span>
 Compile Swift Module <span class="s1">&#39;HelloTests&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span>
 Linking ./.build/x86_64-apple-macosx10.10/debug/HelloPackageTests.xctest/Contents/MacOS/HelloPackageTests
 Test Suite <span class="s1">&#39;All tests&#39;</span> started at 2016-08-29 08:00:31.453
@@ -303,12 +303,12 @@ Executed <span class="m">1</span> test, with <span class="m">0</span> failures <
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ mkdir Hello
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ mkdir Hello
 $ <span class="nb">cd</span> Hello
 $ swift package init --type executable
 </code></pre></td></tr></table>
@@ -319,7 +319,7 @@ $ swift package init --type executable
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -327,7 +327,7 @@ $ swift package init --type executable
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
 Compile Swift Module &#39;Hello&#39; (1 sources)
 Linking ./.build/x86_64-apple-macosx10.10/debug/Hello
 
@@ -338,13 +338,13 @@ Hello, world!
 </div><p>2.2 <code>swift run</code>直接运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swift run Hello
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swift run Hello
 Compile Swift Module <span class="s1">&#39;Hello&#39;</span> <span class="o">(</span><span class="m">1</span> sources<span class="o">)</span>
 Linking ./.build/x86_64-apple-macosx10.10/debug/Hello
 Hello, world!
@@ -357,12 +357,12 @@ Hello, world!
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">!&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -371,7 +371,7 @@ Hello, world!
 <p>现在打开 <code>main.swift</code>， 然后替换原来的内容为下面代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -379,7 +379,7 @@ Hello, world!
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="bp">count</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="bp">count</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">{</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Usage: hello NAME&#34;</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="nb">Process</span><span class="p">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -391,11 +391,11 @@ Hello, world!
 <p>运行 swift build 并尝试 Hello 的新版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="err">$</span> <span class="n">swift</span> <span class="n">build</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="err">$</span> <span class="n">swift</span> <span class="n">build</span>
 <span class="err">$</span> <span class="p">.</span><span class="n">build</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="n">Hello</span> <span class="err">&#39;</span><span class="n">whoami</span><span class="err">&#39;</span>
 </code></pre></td></tr></table>
 </div>

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/cocoapods%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/cocoapods%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-23T20:29:21+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2018-10-23T20:29:21&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="cocoapods如何自动化管理项目依赖">
-<meta itemprop="description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题"><meta itemprop="datePublished" content="2018-10-23T20:29:21+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="通过介绍项目相关的属性配置，来了解cocoapods如何自动化管理项目依赖的。最后会通过自定义ruby脚本来演示。 cocoapods偶现问题"><meta itemprop="datePublished" content="2018-10-23T20:29:21&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="1313">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cocoapods如何自动化管理项目依赖"/>
@@ -195,11 +195,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) COCOAPODS=1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) COCOAPODS=1
 Release：$(inherited) COCOAPODS=1
 </code></pre></td></tr></table>
 </div>
@@ -208,11 +208,11 @@ Release：$(inherited) COCOAPODS=1
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&#34; -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&#34; -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&#34;
 Release：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.framework/Headers&#34; -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive/ZipArchive.framework/Headers&#34;
 </code></pre></td></tr></table>
 </div>
@@ -221,11 +221,11 @@ Release：$(inherited) -iquote &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small/Small.
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small&#34; &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Debug：$(inherited) &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small&#34; &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&#34;
 Release：$(inherited) &#34;${PODS_CONFIGURATION_BUILD_DIR}/Small&#34; &#34;${PODS_CONFIGURATION_BUILD_DIR}/ZipArchive&#34;
 </code></pre></td></tr></table>
 </div>
@@ -250,7 +250,7 @@ PODS_PODFILE_DIR_PATH: ${SRCROOT}/../..</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -287,7 +287,7 @@ PODS_PODFILE_DIR_PATH: ${SRCROOT}/../..</li>
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#!/usr/local/bin ruby
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#!/usr/local/bin ruby
 # encoding: utf-8
 require &#39;xcodeproj&#39;
 require &#39;xcodeproj/project/object/target_dependency&#39;
@@ -327,7 +327,7 @@ end
 </div><p>打印信息如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -353,7 +353,7 @@ end
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Showing All Messages
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Showing All Messages
 👎 项目位置：/Users/admin/hsg/hexo/XcodeTool/iSmallApp/iSmallApp.xcodeproj
 
 👎 项目target：iSmallApp

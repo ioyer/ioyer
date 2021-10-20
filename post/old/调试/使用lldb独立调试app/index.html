@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/%E4%BD%BF%E7%94%A8lldb%E7%8B%AC%E7%AB%8B%E8%B0%83%E8%AF%95app/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/%E4%BD%BF%E7%94%A8lldb%E7%8B%AC%E7%AB%8B%E8%B0%83%E8%AF%95app/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-09-05T14:03:39+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2018-09-05T14:03:39&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="使用LLDB独立调试APP">
-<meta itemprop="description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览"><meta itemprop="datePublished" content="2018-09-05T14:03:39+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="参考 lldb官方文档 苹果文档 LLDB调试器使用简介 南峰子译 调试：案例学习 系统翻译文章 Debugging iOS binaries with LLDB 高级LLDB调试 LLDB中使用python概览"><meta itemprop="datePublished" content="2018-09-05T14:03:39&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="6379">
 <meta itemprop="keywords" content="调试,lldb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用LLDB独立调试APP"/>
@@ -268,7 +268,7 @@ selector断点: <code>b method:（breakpoint set --selector method:）</code></l
 <p>鉴于在app及Xcode之间因为多次中断而进行的多次切换，可以在断点发生之后执行特定的命令，比如希望查看的数据之后再立即恢复执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -276,7 +276,7 @@ selector断点: <code>b method:（breakpoint set --selector method:）</code></l
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[MyClass method:]&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[MyClass method:]&#34;
 br co a/breakpoint command add
 &gt;p rect/expression rect
 &gt;bt/thread backtrace
@@ -289,12 +289,12 @@ br co a/breakpoint command add
 <p>如果不希望断点频繁触发，可以通过条件断点来达到此目的，比如想在某个特定对象析构的消息处断点，可以这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">p id $myModel = self/expression id $myModel = self
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">p id $myModel = self/expression id $myModel = self
 b &#34;-[MyClass dealloc]&#34;/breakpoint set  &#34;-[MyClass dealloc]&#34;
 br m -c &#34;self == $myModel&#34;/breakpoint modify --condition &#34;self == $myModel&#34;
 </code></pre></td></tr></table>
@@ -303,10 +303,10 @@ br m -c &#34;self == $myModel&#34;/breakpoint modify --condition &#34;self == $m
 <p><code>watchpoint</code>的应用场景在于有人会修改某个变量值，你对此很关心但只知道变量的地址，其行为方式是如果变量被访问则watchpoint会暂停app的运行，设置watchpoint的方式是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">w s v self-&gt;_needsSynchronization/watchpoint set variable self-&gt;_needsSynchronization
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">w s v self-&gt;_needsSynchronization/watchpoint set variable self-&gt;_needsSynchronization
 </code></pre></td></tr></table>
 </div>
 </div><p>受限于CPU的支持程度，在intel平台上，提供了4个slot供watchpoint使用，所以同时只可设置最多4个watchpoint，arm上是2个
@@ -322,11 +322,11 @@ watchpoint也可以在Xcode的控制面板中进行操作，只需要在变量�
 <p>很多时候你可能会发现，要想让你希望执行的代码执行一遍会很困难，比如单元测试的时候某个用例就是无法进行测试，这种情况下你需要用Clang([&lsquo;kl^n])直接调用这份代码，调用方式是直接在命令行表达式中输入你希望执行的代码并执行，比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[ModelDerived removeDuplicates]&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">b &#34;-[ModelDerived removeDuplicates]&#34;
 e -i false -- [self removeDuplicates]/expression --ignore-breakpoints false -- [self removeDuplicates]
 </code></pre></td></tr></table>
 </div>
@@ -354,7 +354,7 @@ e -i false -- [self removeDuplicates]/expression --ignore-breakpoints false -- [
 对自定义类进行summary</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -364,7 +364,7 @@ e -i false -- [self removeDuplicates]/expression --ignore-breakpoints false -- [
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">def MyClass_Summary(value,unused)://其中value是一个SBValue
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def MyClass_Summary(value,unused)://其中value是一个SBValue
 //由于是自己定义的数据，可先获取其中的成员变量，成员变量也是SBValue
 member1 = value.GetChildMemberWithName(&#34;_member1&#34;)
 member2 = value.GetChildMemeberWithName(&#34;_member2&#34;)
@@ -377,20 +377,20 @@ return member1Summary + &#34; &#34; + member2Summary
 </div><p>完成了这个python函数之后，变量区域中仍然不能正确显示MyClass的自定义数据类型，因为你还需要在LLDB中执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ty su a MyClass -F MyClass_Summary/type summary add MyClass --python-function MyClass_Summary
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ty su a MyClass -F MyClass_Summary/type summary add MyClass --python-function MyClass_Summary
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="审视不透明的数据">审视不透明的数据</h4>
 <p>先介绍下用于数据分析的expression，可以通过如下形式定义一个持久有效的结构体：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">expression struct $NotOpaque{int item1;float item2;char* item3;}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">expression struct $NotOpaque{int item1;float item2;char* item3;}
 </code></pre></td></tr></table>
 </div>
 </div><p>对于第3方库提供的对象，你可能连其数据类型都不知道，更不会知道其中成员变量的定义，可能通过google之后，可以发现其具体的定义，这时候，就需要使用上述expression再结合summary，即可以在展示的时候使用自定义的data formatter了.
@@ -406,10 +406,10 @@ return member1Summary + &#34; &#34; + member2Summary
 首先需要知道的是python命令是如何执行的呢，python函数是与LLDB中的命令一一对应的，LLDB看到这个命令的时候即会调用相应的python命令，python命令的原型是这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">def MyCommand_Impl(debugger,user_input,result,unused):
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def MyCommand_Impl(debugger,user_input,result,unused):
 </code></pre></td></tr></table>
 </div>
 </div><p><code>debugger</code>:是一个SBDebugger
@@ -418,10 +418,10 @@ return member1Summary + &#34; &#34; + member2Summary
 添加自定义的命令的方式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">co sc a foo -f foo/command script add foo --python-function foo
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">co sc a foo -f foo/command script add foo --python-function foo
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="断点操作">断点操作</h3>
@@ -430,10 +430,10 @@ return member1Summary + &#34; &#34; + member2Summary
 此python函数的原型是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">def break_on_deep_traversal(frame,bp_loc,unused):
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">def break_on_deep_traversal(frame,bp_loc,unused):
 </code></pre></td></tr></table>
 </div>
 </div><p><code>frame</code>类型:为SBFrame
@@ -441,20 +441,20 @@ return member1Summary + &#34; &#34; + member2Summary
 绑定python函数的命令是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">br co a -s p -F foo 1 /breakpoint command add --script python --python-function foo 1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br co a -s p -F foo 1 /breakpoint command add --script python --python-function foo 1
 </code></pre></td></tr></table>
 </div>
 </div><p>首先需要注意的是WWDC中python代码样例的函数function中常看到<code>unused</code>作为结尾参数，在实际使用python函数时如果未理解其深意，可能会不知其所以然。
 断点中的全局变量<code>frame</code>和<code>bp_loc</code>分别是断点栈帧的指针及断点处的代码描述信息，<code>bp_lo</code>c打印出来类似于这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">2.1: where = YourApp`-[SomeViewController onDynamicMethod:paraList:] + 117 at SomeViewController.m:109, address = 0x000000010f9cf3d5, resolved, hit count = 4
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">2.1: where = YourApp`-[SomeViewController onDynamicMethod:paraList:] + 117 at SomeViewController.m:109, address = 0x000000010f9cf3d5, resolved, hit count = 4
 </code></pre></td></tr></table>
 </div>
 </div><p>在将function作为python命令添加时，命中断点之后lldb会为指定的断点命令函数传入3个参数即<code>frame</code>,<code>bp_loc</code>和<code>internal_dict</code>。</p>
@@ -481,29 +481,29 @@ return member1Summary + &#34; &#34; + member2Summary
 第一步通过import导入本地的脚本文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">command script import ~/lldb/inGivenFrame.py
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">command script import ~/lldb/inGivenFrame.py
 </code></pre></td></tr></table>
 </div>
 </div><p>第二步通过codeline添加断点，
 第三步添加断点命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -o &#34;inGivenFrame.inGivenFrame(frame,location,&#39;-[NSObjec givenfuncname]&#39;)&#34; 1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -o &#34;inGivenFrame.inGivenFrame(frame,location,&#39;-[NSObjec givenfuncname]&#39;)&#34; 1
 </code></pre></td></tr></table>
 </div>
 </div><p>如果不需要传入第三个参数，则也可以使用<code>-F</code>选项，此时命令形式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -F inGivenFrame.inGivenFrameF 1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">br comm add --script-type python -F inGivenFrame.inGivenFrameF 1
 </code></pre></td></tr></table>
 </div>
 </div><p>此时在断点命中时，lldb传给<code>inGivenFrameF</code>函数的第三个参数的意义也有所变更，此时传入的是名为<code>internal_dict</code>的变量，包含额外的信息
@@ -514,11 +514,11 @@ return member1Summary + &#34; &#34; + member2Summary
 现在想通过lldb来调试自己的iOS项目，官方提供了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb /Projects/Sketch/build/Debug/Sketch.app     
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ lldb /Projects/Sketch/build/Debug/Sketch.app     
 (lldb) process launch
 </code></pre></td></tr></table>
 </div>
@@ -528,11 +528,11 @@ Current executable set to &lsquo;/Users/admin/Desktop/Recommend.app&rsquo; (arm6
 <p>但是启动时出现问题：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) run     
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) run     
 error: the platform is not currently connected
 </code></pre></td></tr></table>
 </div>

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/swift%E5%85%A5%E9%97%A8/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/swift%E5%85%A5%E9%97%A8/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2015-11-27T17:18:21+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:published_time" content="2015-11-27T17:18:21&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
 
 <meta itemprop="name" content="Swift入门">
-<meta itemprop="description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来"><meta itemprop="datePublished" content="2015-11-27T17:18:21+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
+<meta itemprop="description" content="苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来"><meta itemprop="datePublished" content="2015-11-27T17:18:21&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
 <meta itemprop="wordCount" content="3216">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swift入门"/>
@@ -207,10 +207,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 在Xcode的playground中打开:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, world&#34;</span><span class="p">)</span>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, world&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在Swift，这就是完整的程序:</p>
@@ -224,12 +224,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 常量定义类似于函数式编程语言中的变量,常量的值无需在编译时指定，但是至少要赋值一次,赋值后就无法修改。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">myVariable</span> <span class="p">=</span> <span class="mi">42</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">myVariable</span> <span class="p">=</span> <span class="mi">42</span>
 <span class="n">myVariable</span> <span class="p">=</span> <span class="mi">50</span>
 <span class="kd">let</span> <span class="nv">myConstant</span> <span class="p">=</span> <span class="mi">42</span>
 </code></pre></td></tr></table>
@@ -240,12 +240,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 例如：初始化值没有提供足够的信息(或没有初始化值)，可以在变量名后写类型，以冒号分隔。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">imlicitInteger</span> <span class="p">=</span> <span class="mi">70</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">imlicitInteger</span> <span class="p">=</span> <span class="mi">70</span>
 <span class="kd">let</span> <span class="nv">imlicitDouble</span> <span class="p">=</span> <span class="mf">70.0</span>
 <span class="kd">let</span> <span class="nv">explicitDouble</span><span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mi">70</span>
 </code></pre></td></tr></table>
@@ -256,12 +256,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
 <span class="kd">let</span> <span class="nv">width</span> <span class="p">=</span> <span class="mi">94</span>
 <span class="kd">let</span> <span class="nv">widthLabel</span> <span class="p">=</span> <span class="n">label</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -271,13 +271,13 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
 <span class="kd">let</span> <span class="nv">oranges</span> <span class="p">=</span> <span class="mi">5</span>     <span class="c1">//by gashero</span>
 <span class="kd">let</span> <span class="nv">appleSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.&#34;</span>
 <span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit.&#34;</span>
@@ -289,12 +289,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="nb">String</span><span class="p">[]()</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="nb">String</span><span class="p">[]()</span>
 <span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Float</span><span class="p">&gt;()</span>
 <span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[]</span> <span class="c1">//去购物并买些东西 </span>
 </code></pre></td></tr></table>
@@ -304,7 +304,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 创建一个数组和字典使用方括号 “[]”，访问其元素则是通过方括号中的索引或键。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -313,7 +313,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;catfish&#34;</span><span class="p">,</span> <span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="s">&#34;tulips&#34;</span><span class="p">,</span> <span class="s">&#34;blue paint&#34;</span><span class="p">]</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;catfish&#34;</span><span class="p">,</span> <span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="s">&#34;tulips&#34;</span><span class="p">,</span> <span class="s">&#34;blue paint&#34;</span><span class="p">]</span>
 <span class="n">shoppingList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;bottle of water&#34;</span>
 <span class="kd">var</span> <span class="nv">occupations</span> <span class="p">=</span> <span class="p">[</span>
    <span class="s">&#34;Malcolm&#34;</span><span class="p">:</span> <span class="s">&#34;Captain&#34;</span><span class="p">,</span>
@@ -332,7 +332,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -341,7 +341,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
 <span class="n">optionalString</span> <span class="p">==</span> <span class="kc">nil</span>
 <span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;John Appleseed&#34;</span>
 <span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello!&#34;</span>
@@ -355,7 +355,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -368,7 +368,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
 <span class="k">switch</span> <span class="n">vegetable</span> <span class="p">{</span>
 <span class="k">case</span> <span class="s">&#34;celery&#34;</span><span class="p">:</span>
     <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Add some raisins and make ants on a log.&#34;</span>
@@ -389,7 +389,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -404,7 +404,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
     <span class="s">&#34;Prime&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
     <span class="s">&#34;Fibonacci&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
     <span class="s">&#34;Square&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
@@ -423,7 +423,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 这两个循环做相同的事情:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -434,7 +434,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="mi">3</span> <span class="p">{</span>
     <span class="n">firstForLoop</span> <span class="o">+=</span> <span class="n">i</span>
 <span class="p">}</span>
@@ -452,7 +452,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -464,7 +464,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
 <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
     <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="p">}</span>
@@ -484,14 +484,14 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
     <span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
     <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span>
     <span class="k">return</span> <span class="n">result</span>
@@ -504,10 +504,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
 </div><ol start="3">
@@ -516,10 +516,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h6 id="2-函数">2. 函数</h6>
@@ -529,13 +529,13 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">, today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
 <span class="p">}</span>
 <span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span>
@@ -548,7 +548,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -558,7 +558,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">10</span>
     <span class="kd">func</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">y</span> <span class="o">+=</span> <span class="mi">5</span>
@@ -578,7 +578,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -589,7 +589,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
         <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span>
@@ -605,7 +605,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -620,7 +620,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">hasAnyMatches</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nb">Int</span><span class="p">[],</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">hasAnyMatches</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nb">Int</span><span class="p">[],</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="kc">true</span>
@@ -646,12 +646,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">getGasPrices</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">getGasPrices</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">3.59</span><span class="p">,</span> <span class="mf">3.69</span><span class="p">,</span> <span class="mf">3.79</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -662,7 +662,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -672,7 +672,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">number</span>
     <span class="p">}</span>
@@ -690,7 +690,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -698,7 +698,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Shape</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">numberOfSides</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="s">&#34;A shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
@@ -711,7 +711,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -725,7 +725,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">NamedShape</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">NamedShape</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">numberOfSides</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
     <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
 
@@ -748,7 +748,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 * 子类的方法可以通过标记 override 重载超类中的实现，而没有 override 的会被编译器看作是错误,编译器也会检查那些没有被重载的方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -770,7 +770,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Square</span><span class="p">:</span> <span class="n">NamedShape</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Square</span><span class="p">:</span> <span class="n">NamedShape</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">sideLength</span><span class="p">:</span> <span class="nb">Double</span>
 
     <span class="kd">init</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="nb">Double</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
@@ -796,12 +796,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <p>通过在类名后加小括号来创建类的实例。使用点语法来访问实例的属性和方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shape</span> <span class="p">=</span> <span class="n">Shape</span><span class="p">()</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shape</span> <span class="p">=</span> <span class="n">Shape</span><span class="p">()</span>
 <span class="n">shape</span><span class="p">.</span><span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">7</span>
 <span class="kd">var</span> <span class="nv">shapeDescription</span> <span class="p">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
 </code></pre></td></tr></table>
@@ -873,7 +873,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-11-27 17:18:21 \u002b0000 UTC',
+        id: '2015-11-27 17:18:21 \u002b0800 CST',
         title: 'Swift入门',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

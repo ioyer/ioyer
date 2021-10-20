@@ -27,7 +27,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" />
@@ -39,7 +39,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -61,8 +61,8 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2015-09-18T23:52:06+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2015-09-18T23:52:06&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="Xcode和Jenkins持续集成的几种实现方式">
 <meta itemprop="description" content="CI服务器
@@ -77,8 +77,8 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 
 Travis CI：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，详见
 Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。
-"><meta itemprop="datePublished" content="2015-09-18T23:52:06+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+"><meta itemprop="datePublished" content="2015-09-18T23:52:06&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="4827">
 <meta itemprop="keywords" content="单元测试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Xcode和Jenkins持续集成的几种实现方式"/>
@@ -250,10 +250,10 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 <p>运行命令行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -261,11 +261,11 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 <p>写入启动文件中，起别名</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">vi /Users/(username)/.bash_profile  
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vi /Users/(username)/.bash_profile  
 输入:alias jenkins=&#34;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
 </code></pre></td></tr></table>
 </div>
@@ -401,13 +401,13 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">xctool</span><span class="o">.</span><span class="n">sh</span> 
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">xctool</span><span class="o">.</span><span class="n">sh</span> 
   <span class="o">-</span><span class="n">workspaceYourWorkspace</span><span class="o">.</span><span class="n">xcworkspace</span>
   <span class="o">-</span><span class="n">schemeYourScheme</span>
 <span class="nb">test</span> <span class="o">-</span><span class="n">only</span> <span class="ss">SomeTestTarget</span><span class="p">:</span><span class="no">SomeTestClass</span><span class="o">/</span><span class="n">testSomeMethod</span>
@@ -439,10 +439,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <li>安装Calabash
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -450,10 +450,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <li>安装Calabash中文支持包
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber-cn
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber-cn
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -465,10 +465,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <p>In a terminal, go to your iOS project</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -476,10 +476,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <p>Install calabash-cucumber gem (this make take some time because of dependencies)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">gem install calabash-cucumber
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gem install calabash-cucumber
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -488,10 +488,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <p>Setup your project for Calabash-iOS.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios setup  //Answer the questions and read the output :)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios setup  //Answer the questions and read the output :)
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -500,10 +500,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <p>Generate a skeleton features folder for your tests</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios gen
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios gen
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -515,10 +515,10 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <p>Run the generated test!</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cucumber
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cucumber
 </code></pre></td></tr></table>
 </div>
 </div><p>``</p>
@@ -579,13 +579,13 @@ feature为主件夹，step_definitions目录内是你封装的脚本，my_first.
    As an iOS developer  
    I want to have a sample feature file  
    So I can begin testing quickly  
-
+	  
  Scenario: Example steps1  
    Given I am on the Welcome Screen  
    Then I swipe left  
    And I wait until I don't see &quot;Please swipe left&quot;  
    And take picture  
-
+	  
  Scenario: Example steps2  
    Given I am on the Welcome Screen  
   #ASSERTION  
@@ -593,7 +593,7 @@ feature为主件夹，step_definitions目录内是你封装的脚本，my_first.
   #INPUT TEXT  
    Then I enter &quot;my_username&quot; into text field number 1  
  #  Then I touch &quot;Return&quot;  
-
+	  
   #TOGGLE SWITCH  
    Then I toggle the switch  
    Then I touch &quot;Login&quot;  
@@ -668,7 +668,7 @@ feature为主件夹，step_definitions目录内是你封装的脚本，my_first.
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-09-18 23:52:06 \u002b0000 UTC',
+        id: '2015-09-18 23:52:06 \u002b0800 CST',
         title: 'Xcode和Jenkins持续集成的几种实现方式',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

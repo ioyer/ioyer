@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/telegam%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="机器人执行预设命令，简化繁琐的操作流程" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/telegam%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-09T15:53:00+08:00" />
-<meta property="article:modified_time" content="2021-09-09T16:19:56+08:00" />
+<meta property="article:published_time" content="2021-09-09T15:53:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-09-09T16:19:56&#43;08:00" />
 
 <meta itemprop="name" content="使用swift开发telegram机器人方案">
-<meta itemprop="description" content="机器人执行预设命令，简化繁琐的操作流程"><meta itemprop="datePublished" content="2021-09-09T15:53:00+08:00" />
-<meta itemprop="dateModified" content="2021-09-09T16:19:56+08:00" />
+<meta itemprop="description" content="机器人执行预设命令，简化繁琐的操作流程"><meta itemprop="datePublished" content="2021-09-09T15:53:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-09-09T16:19:56&#43;08:00" />
 <meta itemprop="wordCount" content="596">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用swift开发telegram机器人方案"/>
@@ -199,11 +199,11 @@
 <p>先说下结果，swift 开发流程已经调通，本文仅介绍到swift 环境配置过程遇到的问题。在最后联调机器人时，出现了timeout 错误，还没有解决：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">endpoint: getMe, data:
+<pre class="chroma"><code class="language-sh" data-lang="sh">endpoint: getMe, data:
 Unable to fetch bot information: Libcurl error 28: Timeout was reached</code></pre></td></tr></table>
 </div>
 </div>
@@ -215,12 +215,12 @@ Unable to fetch bot information: Libcurl error 28: Timeout was reached</code></p
 <p>主要基于 Xcode13 介绍 swift package manager 创造项目，并集成 <code>TelegramBotSDK</code> 库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mkdir hello-bot
+<pre class="chroma"><code class="language-sh" data-lang="sh">mkdir hello-bot
 <span class="nb">cd</span> hello-bot
 swift package init --type executable</code></pre></td></tr></table>
 </div>
@@ -228,7 +228,7 @@ swift package init --type executable</code></pre></td></tr></table>
 <p>配置依赖：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -261,7 +261,7 @@ swift package init --type executable</code></pre></td></tr></table>
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// swift-tools-version:5.5</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// swift-tools-version:5.5</span>
 <span class="c1">// The swift-tools-version declares the minimum version of Swift required to build this package.</span>
 
 <span class="kd">import</span> <span class="nc">PackageDescription</span>
@@ -298,7 +298,7 @@ swift package init --type executable</code></pre></td></tr></table>
 <p>在调制 <code>main.swift</code> 文件时，部分接口已经过时，更新为最新：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -313,7 +313,7 @@ swift package init --type executable</code></pre></td></tr></table>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//从环境变量中读取token</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//从环境变量中读取token</span>
 <span class="c1">//let token = readToken(from: &#34;iTodos_BOT_TOKEN&#34;)</span>
 <span class="c1">//token 格式： 数字:字母</span>
 <span class="kd">let</span> <span class="nv">token</span> <span class="p">=</span> <span class="s">&#34;*****:AAHqvrTKBtQcNHHreYWHmEW****&#34;</span>
@@ -331,7 +331,7 @@ swift package init --type executable</code></pre></td></tr></table>
 <p>执行build 并运行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -339,7 +339,7 @@ swift package init --type executable</code></pre></td></tr></table>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">swift build
+<pre class="chroma"><code class="language-sh" data-lang="sh">swift build
 ./.build/x86_64-apple-macosx10.10/debug/iTodos-bot
 
 <span class="c1">#打印：</span>
@@ -401,7 +401,7 @@ swift package init --type executable</code></pre></td></tr></table>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-09-09 16:19:00 \u002b0800 \u002b0800',
+        id: '2021-09-09 16:19:00 \u002b0800 CST',
         title: '使用swift开发telegram机器人方案',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

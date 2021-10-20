@@ -241,14 +241,14 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 一个在操作一台游戏机时的会出现的错误枚举类：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;invalidSelection&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outOfStock&lt;/span&gt;
@@ -259,10 +259,10 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;handling-errors&#34;&gt;Handling Errors&lt;/h1&gt;
@@ -295,7 +295,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
     <item>
       <title>OC与swift相互调用</title>
       <link>https://it-boyer.github.io/post/old/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/</link>
-      <pubDate>Tue, 01 Dec 2015 11:42:18 +0000</pubDate>
+      <pubDate>Tue, 01 Dec 2015 11:42:18 +0800</pubDate>
       
       <guid>https://it-boyer.github.io/post/old/swift/oc%E4%B8%8Eswift%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/</guid>
       <description>Swift中使用OC的类声明 &amp;ndash; 实现配置 桥接的头文件 方式一：自动添加桥接头文件 在一个全新的Swift，利用第一次新建提示的方式自动添加桥接头文</description>
@@ -304,7 +304,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
     <item>
       <title>Swift入门</title>
       <link>https://it-boyer.github.io/post/old/swift/swift%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Fri, 27 Nov 2015 17:18:21 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2015 17:18:21 +0800</pubDate>
       
       <guid>https://it-boyer.github.io/post/old/swift/swift%E5%85%A5%E9%97%A8/</guid>
       <description>苹果官方 中文版 背景 Apple基于已有的编译器、调试器、框架作为其基础架构。通过ARC(Automatic Reference Counting，自动引用计数)来</description>
@@ -313,7 +313,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
     <item>
       <title>[转]Swift最佳实践</title>
       <link>https://it-boyer.github.io/post/old/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Tue, 29 Sep 2015 17:05:21 +0000</pubDate>
+      <pubDate>Tue, 29 Sep 2015 17:05:21 +0800</pubDate>
       
       <guid>https://it-boyer.github.io/post/old/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
       <description>[英文][SwiftCommunityBestPractices] [SwiftCommunityBestPractices]: https://github.com/schwa/Swift-Community-Best-Practices [SwiftCommunity]: http://swift-lang.schwa.io/ [swiftCaptureLists]: http://www.russbishop.net/swift-capture-lists [SwiftURL]: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/index.html [驼峰命名法URL]: http://www.wikiwand.com/en/Studly_caps [匈牙利命名法URL]: http://www.wikiwand.com/en/Hungarian_notation 黄金法则</description>

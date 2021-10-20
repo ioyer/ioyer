@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-08-31T16:20:20+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2018-08-31T16:20:20&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="LLDB命令使用">
-<meta itemprop="description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，"><meta itemprop="datePublished" content="2018-08-31T16:20:20+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，"><meta itemprop="datePublished" content="2018-08-31T16:20:20&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="392">
 <meta itemprop="keywords" content="调试,lldb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LLDB命令使用"/>
@@ -198,35 +198,35 @@
 默认的格式:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p 16
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p 16
 16
 </code></pre></td></tr></table>
 </div>
 </div><p>十六进制:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/x 16
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/x 16
 0x10
 </code></pre></td></tr></table>
 </div>
 </div><p>二进制 (t 代表 two)：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/t 16
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/t 16
 0b00000000000000000000000000010000
 (lldb) p/t (char)16
 0b00010000

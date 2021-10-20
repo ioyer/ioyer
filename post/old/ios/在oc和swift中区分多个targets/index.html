@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/%E5%9C%A8oc%E5%92%8Cswift%E4%B8%AD%E5%8C%BA%E5%88%86%E5%A4%9A%E4%B8%AAtargets/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="build setting预编译位置 Preprocessor Macros Other Swift Flags 为生产和开发target配置预处理宏/编译器标识。之后我们就可以使用该标识在我们的代码来检测应用程序正在" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/%E5%9C%A8oc%E5%92%8Cswift%E4%B8%AD%E5%8C%BA%E5%88%86%E5%A4%9A%E4%B8%AAtargets/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-01-11T13:49:33+00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
+<meta property="article:published_time" content="2017-01-11T13:49:33&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
 
 <meta itemprop="name" content="在OC和swift中区分多个targets">
-<meta itemprop="description" content="build setting预编译位置 Preprocessor Macros Other Swift Flags 为生产和开发target配置预处理宏/编译器标识。之后我们就可以使用该标识在我们的代码来检测应用程序正在"><meta itemprop="datePublished" content="2017-01-11T13:49:33+00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
+<meta itemprop="description" content="build setting预编译位置 Preprocessor Macros Other Swift Flags 为生产和开发target配置预处理宏/编译器标识。之后我们就可以使用该标识在我们的代码来检测应用程序正在"><meta itemprop="datePublished" content="2017-01-11T13:49:33&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
 <meta itemprop="wordCount" content="633">
 <meta itemprop="keywords" content="xcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在OC和swift中区分多个targets"/>
@@ -206,7 +206,7 @@
 Objective-C中使用<code>＃if</code>检查<code>DEVELOPMENT</code>的环境，并相应的设置URLs/ API密钥。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -215,7 +215,7 @@ Objective-C中使用<code>＃if</code>检查<code>DEVELOPMENT</code>的环境，
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#if DEVELOPMENT
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#if DEVELOPMENT
 </span><span class="cp"></span>     <span class="cp">#define SERVER_URL @&#34;http:</span><span class="c1">//dev.server.com/api/&#34;
 </span><span class="c1"></span>     <span class="cp">#define API_TOKEN @&#34;DI2023409jf90ew&#34;
 </span><span class="cp">#else
@@ -235,7 +235,7 @@ Objective-C中使用<code>＃if</code>检查<code>DEVELOPMENT</code>的环境，
 <p>Swift中你仍然可以使用<code>#if</code>判定build的参数动态编译。然而，除了使用<code>#define</code>定义基本常量，在swift中我们也可以用<code>let</code>定义一个全局常量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -244,7 +244,7 @@ Objective-C中使用<code>＃if</code>检查<code>DEVELOPMENT</code>的环境，
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="cp">#if</span> <span class="cp">DEVELOPMENT</span>
+<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="cp">#if</span> <span class="cp">DEVELOPMENT</span>
 <span class="kd">let</span> <span class="nv">SERVER_URL</span> <span class="p">=</span> <span class="s">&#34;http://dev.server.com/api/&#34;</span>
 <span class="kd">let</span> <span class="nv">API_TOKEN</span> <span class="p">=</span> <span class="s">&#34;DI2023409jf90ew&#34;</span>
 <span class="cp">#else</span>

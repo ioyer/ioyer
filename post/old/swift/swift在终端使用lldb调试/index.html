@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/swift%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8lldb%E8%B0%83%E8%AF%95/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Using the LLDB Debugger 使用LLDB调试器一步一步地运行Swift程序，通过设置断点调试运行状态。 创建一个名Factorial.swift，定义了一个fac" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/swift%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8lldb%E8%B0%83%E8%AF%95/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-01T21:02:49+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:published_time" content="2018-10-01T21:02:49&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
 
 <meta itemprop="name" content="swift在终端使用LLDB调试">
-<meta itemprop="description" content="Using the LLDB Debugger 使用LLDB调试器一步一步地运行Swift程序，通过设置断点调试运行状态。 创建一个名Factorial.swift，定义了一个fac"><meta itemprop="datePublished" content="2018-10-01T21:02:49+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
+<meta itemprop="description" content="Using the LLDB Debugger 使用LLDB调试器一步一步地运行Swift程序，通过设置断点调试运行状态。 创建一个名Factorial.swift，定义了一个fac"><meta itemprop="datePublished" content="2018-10-01T21:02:49&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
 <meta itemprop="wordCount" content="788">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift在终端使用LLDB调试"/>
@@ -185,7 +185,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -194,7 +194,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">func factorial<span class="o">(</span>n: Int<span class="o">)</span> -&gt; Int <span class="o">{</span>
+<pre class="chroma"><code class="language-sh" data-lang="sh">func factorial<span class="o">(</span>n: Int<span class="o">)</span> -&gt; Int <span class="o">{</span>
     <span class="k">if</span> n &lt;<span class="o">=</span> <span class="m">1</span> <span class="o">{</span> <span class="k">return</span> n <span class="o">}</span>
     <span class="k">return</span> n * factorial<span class="o">(</span>n: n - 1<span class="o">)</span>
 <span class="o">}</span>
@@ -209,14 +209,14 @@ print<span class="o">(</span><span class="s2">&#34;\(number)! is equal to \(fact
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ swiftc -g Factorial.swift
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ swiftc -g Factorial.swift
 $ ls
 Factorial.dSYM
 Factorial.swift
@@ -229,12 +229,12 @@ Factorial*
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ lldb Factorial
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ lldb Factorial
 <span class="o">(</span>lldb<span class="o">)</span> target create <span class="s2">&#34;Factorial&#34;</span>
 Current executable <span class="nb">set</span> to <span class="s1">&#39;Factorial&#39;</span> <span class="o">(</span>x86_64<span class="o">)</span>.
 </code></pre></td></tr></table>
@@ -245,11 +245,11 @@ Current executable <span class="nb">set</span> to <span class="s1">&#39;Factoria
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> b <span class="m">2</span>
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> b <span class="m">2</span>
 Breakpoint 1: <span class="nv">where</span> <span class="o">=</span> Factorial<span class="sb">`</span>Factorial.factorial <span class="o">(</span>Swift.Int<span class="o">)</span> -&gt; Swift.Int + <span class="m">12</span>
 </code></pre></td></tr></table>
 </div>
@@ -259,7 +259,7 @@ Breakpoint 1: <span class="nv">where</span> <span class="o">=</span> Factorial<s
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -273,7 +273,7 @@ Breakpoint 1: <span class="nv">where</span> <span class="o">=</span> Factorial<s
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> r
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> r
 Process <span class="m">40246</span> resuming
 Process <span class="m">40246</span> stopped
 * thread <span class="c1">#1: tid = 0x14dfdf, 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
@@ -290,29 +290,29 @@ frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4
 </div><p>Use the print (p) command to inspect the value of the n parameter.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n
 <span class="o">(</span>Int<span class="o">)</span> <span class="nv">$R0</span> <span class="o">=</span> <span class="m">4</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>The print command can evaluate Swift expressions as well.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n * n
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n * n
 <span class="o">(</span>Int<span class="o">)</span> <span class="nv">$R1</span> <span class="o">=</span> <span class="m">16</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Use the <code>backtrace</code> (<code>bt</code>) command to show the frames leading to <code>factorial(n:)</code> being called.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -320,7 +320,7 @@ frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> bt
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> bt
 * thread <span class="c1">#1: tid = 0x14e393, 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
     * frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4) -&gt; Swift.Int + 12 at Factorial.swift:2</span>
     frame <span class="c1">#1: 0x0000000100000daf Factorial`main + 287 at Factorial.swift:7</span>
@@ -331,7 +331,7 @@ frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4
 </div><p>Use the <code>continue</code> (<code>c</code>) command to resume the process until the breakpoint is hit again.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -345,7 +345,7 @@ frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=4
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> c
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> c
 Process <span class="m">40246</span> resuming
 Process <span class="m">40246</span> stopped
 * thread <span class="c1">#1: tid = 0x14e393, 0x0000000100000e7c Factorial`Factorial.factorial (n=3) -&gt; Swift.Int + 12 at Factorial.swift:2, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
@@ -362,11 +362,11 @@ frame <span class="c1">#0: 0x0000000100000e7c Factorial`Factorial.factorial (n=3
 </div><p>Use the <code>print</code> (<code>p</code>) command again to inspect the value of the n parameter for the second call to<code> factorial(n:)</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> p n
 <span class="o">(</span>Int<span class="o">)</span> <span class="nv">$R2</span> <span class="o">=</span> <span class="m">3</span>
 </code></pre></td></tr></table>
 </div>
@@ -376,7 +376,7 @@ Use the <code>breakpoint disable</code> (<code>br di</code>) command to disable 
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -384,7 +384,7 @@ Use the <code>breakpoint disable</code> (<code>br di</code>) command to disable 
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> br di
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>lldb<span class="o">)</span> br di
 All breakpoints disabled. <span class="o">(</span><span class="m">1</span> breakpoints<span class="o">)</span>
 <span class="o">(</span>lldb<span class="o">)</span> c
 Process <span class="m">40246</span> resuming
