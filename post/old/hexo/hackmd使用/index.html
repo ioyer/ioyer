@@ -25,7 +25,7 @@
 tags: 功能 酷 更新 YAML metadata 提供描述筆記的資訊，以進階設定瀏覽行為，詳細請至上連結
  robots: 設定網路機器人 meta lang: 設定瀏覽器顯示語言 dir: 設定文字方向 breaks: 設定是否使用分行 mathjax: 設定是否使用 mathjax  表情符號 您可以像是這樣使用表情符號 😄 😃 😢 😉
  完整的表情符號列表 在這裡
- 待辦清單  待辦  買些沙拉 刷牙 喝水   " /><meta name="keywords" content="效能, gtd, hugo" />
+ 待辦清單  待辦  買些沙拉 刷牙 喝水   " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
 
 
 
@@ -234,16 +234,16 @@ mathjax: 設定是否使用 mathjax
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -267,15 +267,15 @@ mathjax: 設定是否使用 mathjax
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
-      </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -370,6 +370,11 @@ mathjax: 設定是否使用 mathjax
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-13T09:48:14" title="May 13, 2021">May 13, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <h1 id="編輯">編輯</h1>
 <h2 id="快速鍵">快速鍵</h2>
@@ -1099,6 +1104,13 @@ line 3 of code
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 
 
 

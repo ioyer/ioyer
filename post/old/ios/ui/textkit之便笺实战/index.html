@@ -28,7 +28,7 @@ iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本�
 preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewController.m/swift 在viewDidLoad：方法实现的最后面加入以下代码： {%codeblock lang:objc%} self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; {%endcodeblock%} {% codeblock lang:swift %} self.textView.font = UIFont.preferredFont(forTextStyle: .body) {% endcodeblock %} 打开 NotesListViewController.m/swift 在 tableView:cellForRowAtIndexPath: 方法中增加如下代码: {%codeblock lang:objc%} cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]; {%endcodeblock%} {% codeblock lang:swift %} cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline) {% endcodeblock %} 上面两行代码都用到了新版iOS的字体样式.   字体样式：通过语义法命名字体，例如 UIFontTextStyleSubHeadline, 可以避免在代码里每一处都指定具体的字体名称和样式， 而且确保app能对用户的字体大小设置做出恰当的回应。
  APP响应用户字体设置  设置系统字体 返回到通用-&amp;gt;文字大小重新修改字体设置. 再运行App, Note页面的文字大小是当前设定的字体大小；前后截屏对比,分辨率小了一半。
  设置系统字体生效 当我们返回到通用-&amp;gt;文字大小重新修改字体设置. 再打开Note页面, 会发现app并没有立即对字体设置的变化做出相应反应。  监听系统通知：实现APP响应用户字体设置 当用户修改了他们的字体大小设置之后，这一样式对应的字体并不会自动更新，必须重新请求才能获取新的值。用户设置变化后，preferredFontForTextStyle:方法返回的字体也会变化。
- 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%}   (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged(_ notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。 " /><meta name="keywords" content="效能, gtd, hugo" />
+ 添加监听系统通知UIContentSizeCategoryDidChangeNotification通知APP响应用户字体设置的变化 打开 NoteEditorViewController.m 并在 viewDidLoad 方法的实现的最后加入以下代码： {%codeblock lang:objc%} [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferredContentSizeChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil]; {%endcodeblock%} {%codeblock lang:swift%} //字体变化通知:调用preferredContentSizeChanged:方法 NotificationCenter.default.addObserver(self, selector: #selector(NoteEditorViewController.preferredContentSizeChanged(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil) {%endcodeblock%} 添加系统通知响应事件 收到用于指定本类接收字体设定变化的通知后，调用preferredContentSizeChanged:方法 在NoteEditorViewController.m中viewDidLoad方法之后紧接着添加以下方法： {%codeblock lang:objc%}   (void)preferredContentSizeChanged:(NSNotification *)notification { self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody]; } {%endcodeblock%} {%codeblock lang:swift %} //字体变化通知时调用 func preferredContentSizeChanged(_ notification:NSNotification) { self.textView.font = UIFont.preferredFont(forTextStyle: .body) } {%endcodeblock%} 这一方法作用是根据新的字体设置来设定textView中的字体。 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。 " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
 
 
 
@@ -375,16 +375,16 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">主页</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
+      </a><a href="/habit/habit/">
+        <li class="mobile-menu-item">目标</li>
+      </a><a href="/habit/habit1/">
+        <li class="mobile-menu-item">宣言</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -408,15 +408,15 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     <li class="menu-item">
         <a class="menu-item-link" href="/">主页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
-      </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit/">目标</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -479,6 +479,11 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-13T09:48:14" title="May 13, 2021">May 13, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <h2 id="便笺练习功能点">便笺练习功能点:</h2>
 <p>通过实现以下特效，练习并掌握布局管理器（layout manger），文本容器（text containers）和文本存储器（text storage）等用法。</p>
@@ -1363,6 +1368,13 @@ return @{ NSFontAttributeName : font };
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 
 
 
