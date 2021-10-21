@@ -17,14 +17,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo" /><meta name="keywords" content="效能, gtd, hugo" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo 集成" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/%E4%BD%BF%E7%94%A8instruments%E7%9A%84%E5%B7%A5%E5%85%B7/" />
@@ -36,26 +36,26 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
 
 
 <meta property="og:title" content="使用Instruments的工具" />
-<meta property="og:description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo" />
+<meta property="og:description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo 集成" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/%E4%BD%BF%E7%94%A8instruments%E7%9A%84%E5%B7%A5%E5%85%B7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-08-31T16:58:22&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-08-31T16:58:22+00:00" />
+<meta property="article:modified_time" content="2021-10-21T01:22:59+08:00" />
 
 <meta itemprop="name" content="使用Instruments的工具">
-<meta itemprop="description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo"><meta itemprop="datePublished" content="2018-08-31T16:58:22&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
-<meta itemprop="wordCount" content="87">
+<meta itemprop="description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo 集成"><meta itemprop="datePublished" content="2018-08-31T16:58:22+00:00" />
+<meta itemprop="dateModified" content="2021-10-21T01:22:59+08:00" />
+<meta itemprop="wordCount" content="85">
 <meta itemprop="keywords" content="iOS,调试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用Instruments的工具"/>
-<meta name="twitter:description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo"/>
+<meta name="twitter:description" content="检测app内存爆增代码，优化性能 Instruments工具使用办法 整理Demo，列出几种常用instrument的场景。来熟悉具体操作 demo 集成"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -163,7 +163,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 87 字 </span>
+          <span class="more-meta"> 约 85 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -178,7 +178,7 @@
   </div>
 </div>
     <div class="post-content">
-      <p>检测app内存爆增代码，优化性能
+      <p>检测app内存爆增代码，优化性能
 <a href="https://www.jianshu.com/p/d0e149332380">Instruments工具使用办法</a>
 整理Demo，列出几种常用instrument的场景。来熟悉具体操作
 <a href="https://gitee.com/leiming97/MemoryProblems-master.git">demo</a></p>
@@ -196,8 +196,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-05-13
-        <a href="iNotes/commit/ab98fe85f6e85c15bf36ba0e95699ffb8ca7a9ed" title="整理目录">(ab98fe8)</a>
+        2021-10-21
+        <a href="iNotes/commit/1d0977e89c7fd3c20ba2ee7bf6a07a5bb141f992" title="update">(1d0977e)</a>
     </span>
   </p>
   

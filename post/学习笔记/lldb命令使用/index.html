@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>解决Xcode代码高亮提示功能失效 - 习七</title>
+  <title>LLDB命令使用 - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="方法一 打开失效的项目，选择菜单：Xcode-&amp;gt;File-&amp;gt;Project Settings -&amp;gt; Advanced..， 删除图上所示的位置目录，重启x" /><meta name="keywords" content="效能, gtd, hugo" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，" /><meta name="keywords" content="效能, gtd, hugo" />
 
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="https://it-boyer.github.io/post/old/xcode/%E8%A7%A3%E5%86%B3xcode%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD%E5%A4%B1%E6%95%88/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,20 +42,20 @@
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
 
 
-<meta property="og:title" content="解决Xcode代码高亮提示功能失效" />
-<meta property="og:description" content="方法一 打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..， 删除图上所示的位置目录，重启x" />
+<meta property="og:title" content="LLDB命令使用" />
+<meta property="og:description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/old/xcode/%E8%A7%A3%E5%86%B3xcode%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD%E5%A4%B1%E6%95%88/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://it-boyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-08-31T16:20:20+00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
+<meta property="article:modified_time" content="2018-08-31T16:20:20+00:00" />
 
-<meta itemprop="name" content="解决Xcode代码高亮提示功能失效">
-<meta itemprop="description" content="方法一 打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..， 删除图上所示的位置目录，重启x"><meta itemprop="datePublished" content="2018-08-31T16:20:20+00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
-<meta itemprop="wordCount" content="345">
-<meta itemprop="keywords" content="xcode," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="解决Xcode代码高亮提示功能失效"/>
-<meta name="twitter:description" content="方法一 打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..， 删除图上所示的位置目录，重启x"/>
+<meta itemprop="name" content="LLDB命令使用">
+<meta itemprop="description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，"><meta itemprop="datePublished" content="2018-08-31T16:20:20+00:00" />
+<meta itemprop="dateModified" content="2018-08-31T16:20:20+00:00" />
+<meta itemprop="wordCount" content="392">
+<meta itemprop="keywords" content="调试,lldb," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LLDB命令使用"/>
+<meta name="twitter:description" content="{% github it-boyer width = 30% %} help 最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help 来了解更多细节，"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -156,14 +156,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">解决Xcode代码高亮提示功能失效</h1>
+      <h1 class="post-title">LLDB命令使用</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-08-31 </span>
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 345 字 </span>
+          <span class="more-meta"> 约 392 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -178,9 +178,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#方法一">方法一</a></li>
-        <li><a href="#方式二">方式二</a></li>
-        <li><a href="#方法三">方法三</a></li>
+        <li><a href="#help">help</a></li>
+        <li><a href="#打印变量">打印变量</a></li>
+        <li><a href="#完全在调试器内运行">完全在调试器内运行</a></li>
       </ul>
     </li>
   </ul>
@@ -188,30 +188,54 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="方法一">方法一</h3>
-<ol>
-<li>打开失效的项目，选择菜单：Xcode-&gt;File-&gt;Project Settings -&gt; Advanced..，</li>
-<li>删除图上所示的位置目录，重启xcode。</li>
-</ol>
-<h3 id="方式二">方式二</h3>
-<ol>
-<li>cd进入~/Library/Developer/Xcode/DerivedData</li>
-<li>找到你的项目所用的目录（一般以你的项目名开头）</li>
-<li>cd 目录名</li>
-<li>rm -r Index 删除掉你的项目所用的索引文件夹</li>
-</ol>
-<h3 id="方法三">方法三</h3>
-<ol>
-<li>退出 Xcode</li>
-<li>重启电脑</li>
-<li>找到 这个 DerivedData 文件夹 删除 (路径: ~/Library/Developer/Xcode/DerivedData)</li>
-<li>删除这个 com.apple.dt.Xcode 文件 (路径: ~/Library/Caches/com.apple.dt.Xcode)</li>
-<li>运行 Xcode  就好了~~</li>
-</ol>
-<blockquote>
-<p>(1) 原文表示删除 ~/Library/Developer/Xcode/DerivedData下所有的文件，我尝试发现只需要删除当前项目相关的索引文件即可
-(2)  DerivedData从字面上理解应该是收集到的数据，应该是Xcode针对这个项目缓存的一些数据，不会影响项目本身的完整性</p>
-</blockquote>
+      <!-- raw HTML omitted -->
+<p>{% github it-boyer  width = 30% %}</p>
+<h3 id="help">help</h3>
+<p>最简单命令是 help，它会列举出所有的命令。如果你忘记了一个命令是做什么的，或者想知道更多的话，你可以通过 help <!-- raw HTML omitted --> 来了解更多细节，例如 help print 或者 help thread。如果你甚至忘记了 help 命令是做什么的，你可以试试 help help。不过你如果知道这么做，那就说明你大概还没有忘光这个命令。</p>
+<h3 id="打印变量">打印变量</h3>
+<p>可以给 print 指定不同的打印格式。它们都是以 <code>print/&lt;fmt&gt;</code> 或者简化的 <code>p/&lt;fmt&gt;</code> 格式书写。
+下面是一些例子：
+默认的格式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p 16
+16
+</code></pre></td></tr></table>
+</div>
+</div><p>十六进制:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/x 16
+0x10
+</code></pre></td></tr></table>
+</div>
+</div><p>二进制 (t 代表 two)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p/t 16
+0b00000000000000000000000000010000
+(lldb) p/t (char)16
+0b00010000
+</code></pre></td></tr></table>
+</div>
+</div><p>你也可以使用 <code>p/c</code> 打印字符，或者 <code>p/s</code> 打印以空终止的字符串 (译者注：以 &lsquo;\0&rsquo; 结尾的字符串)。
+<a href="https://sourceware.org/gdb/onlinedocs/gdb/Output-Formats.html">这里</a>是格式的完整清单。</p>
+<h3 id="完全在调试器内运行">完全在调试器内运行</h3>
+<p>在开始舞蹈之前，还有一件事要看一看。实际上你可以在调试器中执行任何 <code>C/Objective-C/C++/Swift</code> 的命令。唯一的缺点就是不能创建新函数&hellip; 这意味着不能创建新的类，block，函数，有虚拟函数的 C++ 类等等。除此之外，它都可以做。</p>
 
     </div>
 
@@ -223,8 +247,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-05-12
-        <a href="iNotes/commit/7f64a39660176a40278ff493c49f4aef638069c0" title="update">(7f64a39)</a>
+        2018-08-31
+        
     </span>
   </p>
   
@@ -246,16 +270,17 @@
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/xcode/">xcode</a>
+          <a href="/tags/%E8%B0%83%E8%AF%95/">调试</a>
+          <a href="/tags/lldb/">lldb</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/lldb%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/">
+        <a class="prev" href="/post/old/%E8%B0%83%E8%AF%95/chisel-lldb%E5%91%BD%E4%BB%A4%E6%8F%92%E4%BB%B6/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">LLDB命令使用</span>
+            <span class="prev-text nav-default">Chisel-LLDB命令插件</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/rxswift%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/">
-            <span class="next-text nav-default">RxSwift爬虫工具</span>
+        <a class="next" href="/post/old/xcode/%E8%A7%A3%E5%86%B3xcode%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%90%E7%A4%BA%E5%8A%9F%E8%83%BD%E5%A4%B1%E6%95%88/">
+            <span class="next-text nav-default">解决Xcode代码高亮提示功能失效</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -269,7 +294,7 @@
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2018-08-31 16:20:20 \u002b0000 UTC',
-        title: '解决Xcode代码高亮提示功能失效',
+        title: 'LLDB命令使用',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
