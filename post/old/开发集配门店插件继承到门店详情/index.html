@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E5%BC%80%E5%8F%91%E9%9B%86%E9%85%8D%E9%97%A8%E5%BA%97%E6%8F%92%E4%BB%B6%E7%BB%A7%E6%89%BF%E5%88%B0%E9%97%A8%E5%BA%97%E8%AF%A6%E6%83%85/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E5%BC%80%E5%8F%91%E9%9B%86%E9%85%8D%E9%97%A8%E5%BA%97%E6%8F%92%E4%BB%B6%E7%BB%A7%E6%89%BF%E5%88%B0%E9%97%A8%E5%BA%97%E8%AF%A6%E6%83%85/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-08-21T11:32:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2019-08-21T11:32:00+08:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="集配门店样式和跳转功能">
-<meta itemprop="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新"><meta itemprop="datePublished" content="2019-08-21T11:32:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="STARTEDUI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新"><meta itemprop="datePublished" content="2019-08-21T11:32:00+08:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="921">
 <meta itemprop="keywords" content="文档," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="集配门店样式和跳转功能"/>
@@ -200,7 +200,7 @@
 <p>跳转:集配门店模块跳转到门店需要接口提供的门店的相关数据:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -209,7 +209,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">showDetailContentWithStoreId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeId</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">showDetailContentWithStoreId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeId</span>
     <span class="nl">shopId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">shopId</span>
     <span class="nl">storeAppId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeAppid</span>
     <span class="nl">storeName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeName</span>
@@ -227,20 +227,20 @@
 <p>为其他库提供自定义门店插件cell的支持.插件code需要对应cell类名,并且该类需要实现,StoreCustomCommomCell是基于方式二的一种特殊情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">contentViewWithAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">appid</span> <span class="nf">shopAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">shopId</span> <span class="nf">storeId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeId</span> <span class="nf">containsVC:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">vc</span> <span class="nf">delegate:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">delegate</span> <span class="nf">title:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">title</span><span class="p">;</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">contentViewWithAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">appid</span> <span class="nf">shopAppid:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">shopId</span> <span class="nf">storeId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeId</span> <span class="nf">containsVC:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">vc</span> <span class="nf">delegate:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">delegate</span> <span class="nf">title:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">title</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>自适应cell高度的方法:
 在实现上述方法的基础上,回去到cell指针,调用contentViewHeightHasChanged:方法来修改cell高度.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">((</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">id</span><span class="p">,</span><span class="kt">SEL</span><span class="p">,</span><span class="n">CGFloat</span><span class="p">))</span><span class="n">objc_msgSend</span><span class="p">)(</span><span class="n">delegate</span><span class="p">,</span><span class="n">NSSelectorFromString</span><span class="p">(</span><span class="s">@&#34;contentViewHeightHasChanged:&#34;</span><span class="p">),</span><span class="mi">190</span><span class="p">);</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">((</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">id</span><span class="p">,</span><span class="kt">SEL</span><span class="p">,</span><span class="n">CGFloat</span><span class="p">))</span><span class="n">objc_msgSend</span><span class="p">)(</span><span class="n">delegate</span><span class="p">,</span><span class="n">NSSelectorFromString</span><span class="p">(</span><span class="s">@&#34;contentViewHeightHasChanged:&#34;</span><span class="p">),</span><span class="mi">190</span><span class="p">);</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>该方法会创建一个view,当门店详情中,配置了该插件的code,就会创建该view,显示在门店详情对应的cell中</p>
@@ -253,21 +253,21 @@
 在异步请求结束时,可以通过该方法属性cell数据样式.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendNotificationForFreshUI</span><span class="p">;</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendNotificationForFreshUI</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>cell加载数据接口:
 在cell加载完毕之后,会触发这个接口,便于在此处添加请求接口.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - requestAPI
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - requestAPI
 </span><span class="cp"></span><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">requestToShowContent</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -275,11 +275,11 @@
 code由后端和前端协商确定,会通过接口返回插件code,加载插件视图,例如:当门店详情接口返回插件code:StoreDistribution等</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
 </span><span class="cp"></span><span class="k">const</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">TemplateStoreDistribution</span> <span class="o">=</span> <span class="s">@&#34;StoreDistribution&#34;</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
@@ -287,7 +287,7 @@ code由后端和前端协商确定,会通过接口返回插件code,加载插件�
 StoreDistributionCell上.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -298,7 +298,7 @@ StoreDistributionCell上.</p>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 集配门店
 </span><span class="cp"></span><span class="k">const</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">TemplateStoreDistribution</span> <span class="o">=</span> <span class="s">@&#34;StoreDistribution&#34;</span><span class="p">;</span>
 <span class="p">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">templateClassNamesDict</span><span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">_templateClassNamesDict</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">){</span>
@@ -366,7 +366,7 @@ StoreDistributionCell上.</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-08-21 11:32:00 \u002b0800 CST',
+        id: '2019-08-21 11:32:00 \u002b0800 \u002b0800',
         title: '集配门店样式和跳转功能',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

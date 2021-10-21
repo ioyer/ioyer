@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/" />
@@ -38,7 +38,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -151,6 +151,104 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/">Xcode7编译发布问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-25 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 788 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Xcode7编译发布问题 ERROR ITMS-90535: &ldquo;Unexpected CFBundleExecutable Key. The bundle at &lsquo;Payload/PBBReader.app/TencentOpenApi_IOS_Bundle.bundle&rsquo; does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to
+    </div>
+    <div class="read-more">
+      <a href="/post/old/%E7%BC%96%E8%AF%91/xcode7%E7%BC%96%E8%AF%91%E5%8F%91%E5%B8%83%E9%97%AE%E9%A2%98/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Xcode和Jenkins持续集成的几种实现方式</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-09-18 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 4827 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="ci服务器">CI服务器</h2>
+<p>写到这儿，对于iOS开发者来说，需要准备好：</p>
+<ul>
+<li>一个比较容易获取的源代码仓库(包含源代码)</li>
+<li>一套自动化构建脚本</li>
+<li>一系列围绕构建的可执行测试</li>
+</ul>
+<p>接下来就需要一个CI服务器来根据源代码的变更触发构建，监控测试结果。</p>
+<p>目前，业界比较流行的，支持iOS构建的CI服务器有</p>
+<ul>
+<li><a href="https://travis-ci.org">Travis CI</a>：是一个免费的云服务平台，基本上支持所有目前主流的语言，Object-C自然也在其中，但是只支持github极大的限制了其应用场景。目前国内无法访问，<a href="http://www.infoq.com/cn/articles/build-ios-continuous-integration-platform-part3">详见</a></li>
+<li><strong>Jenkins</strong>：经过多年的发展，其活跃的社区和丰富的插件让其成为了业界最受欢迎的CI服务器。通过使用Xcode插件，可以非常方便在Jenkins中运行iOS项目的构建脚本。</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">快速正确的安装Ruby,Rails运行环境</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-21 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 738 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>安装ruby环境：
+方法一：下载源码，编译安装：<a href="http://fsjoy.blog.51cto.com/318484/115045/">配置中制定安装目录</a><br>
+方法二：使用rvm安装：<a href="https://ruby-china.org/wiki/rvm-guide">可以提供一个便捷的多版本 Ruby 环境的管理和切换</a><br>
+方法三：使用macport安装 <code>port install ruby</code></p>
+<p><a href="https://ruby-china.org/wiki/install_ruby_guide">详细教程</a></p>
+<p>问题：<br>
+<code>ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/rake</code>
+<a href="http://stackoverflow.com/questions/30812777/cannot-install-cocoa-pods-after-uninstalling-results-in-error/30851030#30851030">stackoverflow方法</a>测试结果没走通。<br>
+最终通过<a href="http://tadaland.com/os-x-rootless.html">OS X 10.11中Rootless的实现与解释以及关闭方法</a>解决.</p>
+<h4 id="gem介绍">Gem介绍</h4>
+<p>Gem是一个ruby库和程序的标准包，它通过RubyGem来定位、安装、升级和卸载，非常的便捷。</p>
+<p>Ruby 1.9.2版本默认安装RubyGem，如果你使用其它版本，请参考如何安装RubyGem。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/shell/%E5%BF%AB%E9%80%9F%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85rubyrails%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/">Git中的储藏工具stash</a></h1>
@@ -580,180 +678,6 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
     </div>
     <div class="read-more">
       <a href="/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">iOS Document Interaction 编程指南</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 4071 字 </span>
-        <span class="more-meta"> 预计阅读 9 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h4 id="关于-document-interaction">关于 Document Interaction</h4>
-<p>iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html">UIDocumentInteractionController</a>类，以及<a href="https://developer.apple.com/library/ios/documentation/QuickLook/Reference/QuickLookFrameworkReference_iPhoneOS/_index.html">Quick Look</a>框架。</p>
-<ul>
-<li>######预览文档和呈现选项菜单<br>
-如果app需要打开自身并不支持的文件时，就需要使用<strong>UIDocumentInteractionController</strong>。一个<strong>document interaction controller</strong>通过<strong>Quick Look框架</strong>判断文档是否能被另一个app打开和预览。也就是说，app可以通过<strong>documentinteraction controller</strong>提供一些支持打开该文件方式的菜单。</li>
-</ul>
-<p>具体实现需要以下步骤：</p>
-<ul>
-<li>
-<ul>
-<li>需要通过其他APP打开的文件，来实例化<code>UIDocumentInteractionController</code>实例对象。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>用户交互，如触摸这个控件，则调用<code>documentinteractioncontroller</code>对象。</li>
-</ul>
-</li>
-</ul>
-<p>三种交互界面:
-1. 预览文件的内容。
-2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。
-3. 一个菜单，仅包含“以其它方式打开”操作。</p>
-<p>同时，<code>documentinteractioncontroller</code>内置了一些手势，必要时可以直接实现它们。</p>
-<ul>
-<li>
-<p>######使用<code>documentinteractioncontroller</code>的场景:<strong>与文件交互的app都可以使用。</strong></p>
-</li>
-<li>
-<ul>
-<li>需要从网络下载文件的APP:<br>
-例如，email程序需要打开和预览邮件附件。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>不下载文件的APP:<br>
-例如，APP需要支持文件共享（参考“File-Sharing Support” in <a href="https://developer.apple.com/library/ios/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007898">iOS Technology Overview</a>), 即可以对同步到app Documents/Shared目录下的文件使用<code>documentinteractioncontroller</code>。</li>
-</ul>
-</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/">instrument之Zombie工具</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-01 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 588 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Zombie:针对<strong>僵尸对象</strong>导致应用程序崩溃，即已经<code>deallocated</code>的对象，它们的<code>retainCount</code>计数器已经为0，通过正常的手段是无法在<code>debug</code>中跟踪和观察到的。</p>
-<p>如果你开启了 <code>Zombie Enabled</code> ，则当 Zombie 问题出现时，控制台会输出 Zombie 对象的地址，且程序会在此处产生断点：</p>
-<pre><code> -[CALayer retainCount]: message sent to deallocated instance &lt;memoryaddress&gt;
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/%E8%B0%83%E8%AF%95/instrument%E4%B9%8Bzombie%E5%B7%A5%E5%85%B7/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/">UIDevice类介绍</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-17 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 818 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h3 id="uideviceh">UIDevice.h</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">currentDevice</span><span class="p">;</span> 		  <span class="c1">// 获取当前设备
-</span><span class="c1"></span>
-<span class="n">NSString</span>    <span class="o">*</span><span class="n">name</span><span class="p">;</span>               	  <span class="c1">// e.g. &#34;My iPhone&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">model</span><span class="p">;</span>              	  <span class="c1">// e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">localizedModel</span><span class="p">;</span>     	  <span class="c1">// localized version of model  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemName</span><span class="p">;</span>     		  <span class="c1">// e.g. @&#34;iOS&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemVersion</span><span class="p">;</span>   	  <span class="c1">// e.g. @&#34;4.0&#34;  
-</span><span class="c1"></span><span class="n">UIDeviceOrientation</span> <span class="n">orientation</span><span class="p">;</span>    <span class="c1">//除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-</span><span class="c1"></span><span class="n">NSUUID</span> <span class="o">*</span><span class="n">identifierForVendor</span>         <span class="c1">//可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">UIDeviceOrientationUnknown</span><span class="p">,</span>
-    <span class="n">UIDeviceOrientationPortrait</span><span class="p">,</span>                    <span class="c1">// 竖向，头向上
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">,</span>  		<span class="c1">// 竖向，头向下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeLeft</span><span class="p">,</span>         		<span class="c1">// 横向，头向左
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">,</span>       		<span class="c1">// 横向，头向右
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceUp</span><span class="p">,</span>                  	<span class="c1">// 平放，屏幕朝下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceDown</span>                	 <span class="c1">// 平放，屏幕朝下
-</span></code></pre></td></tr></table>
-</div>
-</div><p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
-{%codeblock lang:java 纵向宏定义,返回YES:纵向%}
-#define UIDeviceOrientationIsPortrait(orientation)  ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
-{%endcodeblock %}
-{%codeblock lang:java 横向宏定义,返回YES:横向%}
-#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
-{%endcodeblock%}</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/uidevice%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

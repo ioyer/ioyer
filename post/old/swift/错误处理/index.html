@@ -33,7 +33,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" />
@@ -45,7 +45,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -106,8 +106,8 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 抛出函数会把错误抛给调用它的函数周期中去。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-01-11T17:04:21&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-12T23:57:57&#43;08:00" />
+<meta property="article:published_time" content="2017-01-11T17:04:21+00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
 
 <meta itemprop="name" content="swift错误处理">
 <meta itemprop="description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
@@ -161,8 +161,8 @@ Propagating Errors Using Throwing Functions
 To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&gt;).
 函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：throws即可，这种方法被称为throws函数，throws关键字位置在参数之后，返回值(-&gt;)之前
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
-抛出函数会把错误抛给调用它的函数周期中去。"><meta itemprop="datePublished" content="2017-01-11T17:04:21&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-12T23:57:57&#43;08:00" />
+抛出函数会把错误抛给调用它的函数周期中去。"><meta itemprop="datePublished" content="2017-01-11T17:04:21+00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
 <meta itemprop="wordCount" content="4582">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift错误处理"/>
@@ -360,14 +360,14 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 一个在操作一台游戏机时的会出现的错误枚举类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
 <span class="k">case</span> <span class="n">invalidSelection</span>
 <span class="k">case</span> <span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
 <span class="k">case</span> <span class="n">outOfStock</span>
@@ -378,10 +378,10 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="handling-errors">Handling Errors</h1>
@@ -406,7 +406,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 在下面的例子中，对某个请求内容不可用时，自动售货机会通过<code>vend(itemNamed:)</code>方法抛出一个对应的<code>VendingMachineError</code>错误，缺货或超过目前的存款金额成本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -438,7 +438,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">Item</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">Item</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
     <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span>
 <span class="p">}</span>
@@ -477,7 +477,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 <p>例如，<code>buyFavoriteSnack(person:vendingMachine:)</code>也是一个抛出函数，从<code>vend(itemNamed:)</code>方法接受到的所有错误，都会被会<code>buyFavoriteSnack(person:vendingMachine:)</code>继续抛给调用它的函数中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -489,7 +489,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">favoriteSnacks</span> <span class="p">=</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">favoriteSnacks</span> <span class="p">=</span> <span class="p">[</span>
     <span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="s">&#34;Chips&#34;</span><span class="p">,</span>
     <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="s">&#34;Licorice&#34;</span><span class="p">,</span>
     <span class="s">&#34;Eve&#34;</span><span class="p">:</span> <span class="s">&#34;Pretzels&#34;</span><span class="p">,</span>
@@ -507,7 +507,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 抛出构造器也能向抛出函数一样传递错误，例如：<code>PurchasedSnackstructure</code>的构造器中调用了抛出函数：<code>vend(itemNamed:)</code>，抛出构造器可以通过向上传递来处理这些错误。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -517,7 +517,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">PurchasedSnack</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">PurchasedSnack</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
     <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> 
     <span class="p">{</span>
@@ -533,7 +533,7 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 Here is the general form of a <code>do-catch </code>statement:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -543,7 +543,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">do</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">do</span> <span class="p">{</span>
     <span class="k">try</span> <span class="n">expression</span>
     <span class="n">statements</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">1</span> <span class="p">{</span>
@@ -560,7 +560,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 <p>例如，下面的代码处理<code>VendingMachineError</code>枚举类中的三个错误<code>cases</code>，但其他的错误都是由其周边范围处理：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -574,7 +574,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">vendingMachine</span> <span class="p">=</span> <span class="n">VendingMachine</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">vendingMachine</span> <span class="p">=</span> <span class="n">VendingMachine</span><span class="p">()</span>
 <span class="n">vendingMachine</span><span class="p">.</span><span class="n">coinsDeposited</span> <span class="p">=</span> <span class="mi">8</span>
 <span class="k">do</span> <span class="p">{</span>
     <span class="k">try</span> <span class="n">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">vendingMachine</span><span class="p">)</span>
@@ -595,7 +595,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 使用<code>try?表达式</code>处理错误，是通过把错误转换为<code>可选值(?)类型</code>处理。在<code>try?</code>表达式中出现抛出错误时，这个表达式的值<code>=nil</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -607,7 +607,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">someThrowingFunction</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">someThrowingFunction</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
     <span class="c1">// ...</span>
 <span class="p">}</span>
 <span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
@@ -628,14 +628,14 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 当用这种方式来处理所有错误时，使用<code>try?</code>表达式能写更简洁的错误处理代码，例如：下面的代码使用几种方法来获取数据，如果这些方法失败就会返回nil。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Data</span><span class="p">?</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Data</span><span class="p">?</span> <span class="p">{</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromDisk</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromServer</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
 <span class="k">return</span> <span class="kc">nil</span>
@@ -649,10 +649,10 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 例如：使用<code>loadImage(atPath:)</code>函数要么通过这个路径加载image，要么image加载失败抛出一个错误。在这种情况下，因为<code>image</code>在app资源目录<code>resources</code>中，所以在运行时肯定不会有异常抛出。因此可以使用<code>try!</code>禁止错误传递。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">photo</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">loadImage</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&#34;./Resources/John Appleseed.jpg&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">photo</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">loadImage</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&#34;./Resources/John Appleseed.jpg&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="specifying-cleanup-actions">Specifying Cleanup Actions</h2>
@@ -663,7 +663,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 <p><code>defer</code>延迟操作是按照指定的顺序执行的，就是先执行最后一个<code>defer语句</code>中的代码之后，再执行第倒数第二个<code>defer语句</code>的代码，以此类推，倒叙清理退场。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -678,7 +678,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processFile</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processFile</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
     <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nv">file</span> <span class="p">=</span> <span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">defer</span> <span class="p">{</span>

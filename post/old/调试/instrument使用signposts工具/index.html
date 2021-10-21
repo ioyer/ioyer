@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/instrument%E4%BD%BF%E7%94%A8signposts%E5%B7%A5%E5%85%B7/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="引言 性能是实现卓越的用户体验的关键之一。当应用或者游戏表现的运行迅速，反应灵敏时，用户会更喜欢。但是软件是很复杂的，当你的应用视图做某事时，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/instrument%E4%BD%BF%E7%94%A8signposts%E5%B7%A5%E5%85%B7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-02T23:19:55&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-10-02T23:19:55+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="Instrument使用Signposts工具">
-<meta itemprop="description" content="引言 性能是实现卓越的用户体验的关键之一。当应用或者游戏表现的运行迅速，反应灵敏时，用户会更喜欢。但是软件是很复杂的，当你的应用视图做某事时，"><meta itemprop="datePublished" content="2018-10-02T23:19:55&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="引言 性能是实现卓越的用户体验的关键之一。当应用或者游戏表现的运行迅速，反应灵敏时，用户会更喜欢。但是软件是很复杂的，当你的应用视图做某事时，"><meta itemprop="datePublished" content="2018-10-02T23:19:55+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="6341">
 <meta itemprop="keywords" content="iOS,调试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instrument使用Signposts工具"/>
@@ -208,11 +208,11 @@
 <p>这里你可以看到一个<code>OSLog</code>的例子，创建一个简单的日志句柄，并且像它发送了一个Hello world。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let logHandle = OSLog(subsystem: &#34;com.example.widget&#34;, category: &#34;Setup&#34;)
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">let logHandle = OSLog(subsystem: &#34;com.example.widget&#34;, category: &#34;Setup&#34;)
 os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </code></pre></td></tr></table>
 </div>
@@ -233,12 +233,12 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">panel</span><span class="p">.</span><span class="n">elements</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">panel</span><span class="p">.</span><span class="n">elements</span> <span class="p">{</span>
     <span class="n">fetchAsset</span><span class="p">(</span><span class="k">for</span><span class="p">:</span> <span class="n">element</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -251,7 +251,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 <p>当我们拥有了日志句柄，我们只需要调用<code>Siginposts</code>的<code>.begin</code>和<code>.end</code>两个函数即可。参数中，我们将日志句柄传递过去，然后再传递一个<code>Signpost</code>的名字。名字是一个字符串，用来标识我们感兴趣的操作的时间间隔。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -262,7 +262,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">os</span><span class="p">.</span><span class="nc">signpost</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">os</span><span class="p">.</span><span class="nc">signpost</span>
 
 <span class="kd">let</span> <span class="nv">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
 
@@ -277,7 +277,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 所以返回之前的时间轴，它就变成了这个样子。在每次开始、结束获取资源时，我们都添加了一个<code>路标</code>。因为在开始和结束的路标的标识一样，所以我们可以将他们两者匹配在一起。但是，如果我们还想要测试整个操作的全部时间，整个刷新过程是怎样的，该如何去做呢？我们在代码中，只需要再添加一对新路标即可（新的名字）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -290,7 +290,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">os</span><span class="p">.</span><span class="nc">signpost</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">os</span><span class="p">.</span><span class="nc">signpost</span>
 
 <span class="kd">let</span> <span class="nv">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
 
@@ -315,13 +315,13 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 在这种情况下，我们需要向系统提供一些额外的信息，以便系统可以将这些路标彼此区分开来。到现在为止，我们在调用方法的时候只用到了名字，通过名字将相同路标的绑定在一起。名字已经确定了时间间隔，但是没有给我们一种区分重叠时间间隔的方法，所以在这里引入了<code>Signpost IDs</code>。路标ID将告诉系统哪些是相同类型的操作，但每个操作彼此不同。在路标开始和结尾传递相同的id，则系统知道这两个是关联的。你可以通过日志句柄来得到一个路标ID。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">spid</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">spid</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">)</span>
 <span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spid</span><span class="p">)</span>
 <span class="c1">//  some code or even async...</span>
 <span class="n">os_signpost</span><span class="p">(.</span><span class="n">end</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spid</span><span class="p">)</span>
@@ -330,10 +330,10 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </div><p>同样你也可以通过一个对象来得到<code>日志句柄</code>。如果你有一些对象代表您正在尝试的工作，只要您使用该对象实例就会生成相同的路标ID。这就意味着您不用去存放路标ID，只需要通过对象去管理ID就好了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let spid = OSSignpostID(log: refreshLog, object: element)
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">let spid = OSSignpostID(log: refreshLog, object: element)
 </code></pre></td></tr></table>
 </div>
 </div><p>在视觉上，您可以将路标ID视为允许我们向每一个路标调用传递一些额外的上下文，这可以将特定操作的开始和结束标记互相关联。
@@ -343,7 +343,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 我们现在把示例中的<code>fetchAsset</code>从同步调用改为异步调用。并且由于是异步的，这些时间间隔可能会相互重叠，所以我们还要在创建路标时加上路标ID。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -364,7 +364,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
 
 <span class="kd">let</span> <span class="nv">spidForRefresh</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">)</span>
 <span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Refresh Panel&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spidForRefresh</span><span class="p">)</span>
@@ -391,20 +391,20 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 <p>您可能希望在路标中传达一些额外的信息，额外的性能相关的信息。很巧，我们有一个方法来为路标添加元数据。下面是一个基本的路标。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们可以添加一个额外的<code>字符串</code>（OSLog格式化的）参数。这允许您向开始点与结束点添加一些上下文。我们可以通过<code>%d</code>来传递<code>整数</code>。当然也可以传递<code>其他的格式化类型</code>的参数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">,</span> <span class="s">&#34;%d %d %d %d&#34;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">,</span> <span class="s">&#34;%d %d %d %d&#34;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 <span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">,</span><span class="s">&#34;%{public}s %.1f %.1f %.2f %.1f %.1f&#34;</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -415,11 +415,11 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 用法与设置开始、结束的路标类似，只不过它标识一个单一的时间点。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">event</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="s">&#34;Fetched first chunk, size %u&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">event</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="s">&#34;Fetched first chunk, size %u&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 <span class="n">os_signpost</span><span class="p">(.</span><span class="n">event</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Swipe&#34;</span><span class="p">,</span> <span class="s">&#34;For action 0x%x&#34;</span><span class="p">,</span> <span class="n">actionCode</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
@@ -435,7 +435,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 <p>举个例子，让我们回到第一个示例的代码上。我以一个环境变量作为条件，来初始化。如果包含该变量，那么使用普通的<code>os日志构造函数</code>；如果不包含，那么将使用禁用的<code>日志句柄</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -450,7 +450,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">refreshLog</span><span class="p">:</span> <span class="n">OSLog</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">refreshLog</span><span class="p">:</span> <span class="n">OSLog</span>
 <span class="k">if</span> <span class="n">ProcessInfo</span><span class="p">.</span><span class="n">processInfo</span><span class="p">.</span><span class="n">environment</span><span class="p">.</span><span class="n">keys</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="s">&#34;SIGNPOSTS_FOR_REFRESH&#34;</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -468,12 +468,12 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 </div><p><code>环境变量</code>是您在调试程序时可以在<code>Xcode scheme</code>中设置的内容。现在我说你不必在调用中进行更改，但这种方式相当昂贵并且只适用于调试时。因此如果您有一些基于<code>Instruments</code>的特定的功能，你可以检查特定的<code>日志句柄</code>，查看它是否打开了<code>siginposts enabled</code>属性。然后试用该属性来控制添加该附加操作。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="n">refreshLog</span><span class="p">.</span><span class="n">signpostsEnabled</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="n">refreshLog</span><span class="p">.</span><span class="n">signpostsEnabled</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">information</span> <span class="p">=</span> <span class="n">copyDescription</span><span class="p">()</span> <span class="n">os_signpost</span><span class="p">(...,</span> <span class="n">information</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>

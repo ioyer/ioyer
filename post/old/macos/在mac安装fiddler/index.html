@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/%E5%9C%A8mac%E5%AE%89%E8%A3%85fiddler/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/%E5%9C%A8mac%E5%AE%89%E8%A3%85fiddler/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-05-31T16:38:52&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-05-31T16:38:52+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="在Mac安装Fiddler">
-<meta itemprop="description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只"><meta itemprop="datePublished" content="2018-05-31T16:38:52&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="安装Mono Mac下需要使用.Net编译后的程序，首先需要用到跨平台的方案Mono(现阶段微软已推出跨平台的方案.Net Core，不过暂时只"><meta itemprop="datePublished" content="2018-05-31T16:38:52+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="322">
 <meta itemprop="keywords" content="工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在Mac安装Fiddler"/>
@@ -203,11 +203,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$cd /Library/Frameworks/Mono.framework/Versions/&lt;mono version&gt;/bin/
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$cd /Library/Frameworks/Mono.framework/Versions/&lt;mono version&gt;/bin/
 $./mozroots --import --sync
 </code></pre></td></tr></table>
 </div>
@@ -220,11 +220,11 @@ $./mozroots --import --sync
 <p>在<code>.bash_profile</code>中加入如下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">export MONO_HOME=/Library/Frameworks/Mono.framework/Versions/5.0.1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">export MONO_HOME=/Library/Frameworks/Mono.framework/Versions/5.0.1
 export PATH=$PATH:$MONO_HOME/bin
 </code></pre></td></tr></table>
 </div>
@@ -236,10 +236,10 @@ export PATH=$PATH:$MONO_HOME/bin
 <p>打开Terminal，进入到刚才解压的Fiddler路径，执行命令运行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo mono Fiddler.exe
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo mono Fiddler.exe
 </code></pre></td></tr></table>
 </div>
 </div><p><a href="http://www.cocoachina.com/apple/20170704/19729.html">参看</a></p>

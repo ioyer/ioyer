@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 如何做异步网络请求 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供了在" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%8E%E5%8F%B0%E5%AE%9E%E7%8E%B0/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-09-24T11:03:35&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2017-09-24T11:03:35+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="常见的后台实现">
-<meta itemprop="description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 如何做异步网络请求 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供了在"><meta itemprop="datePublished" content="2017-09-24T11:03:35&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="概览 本文主要探讨一些常用后台任务的最佳实践： 如何做异步网络请求 如何异步处理大型文件，以保持较低的内存占用 操作队列 (Operation Queues) 还是 GCD ? 操作队列提供了在"><meta itemprop="datePublished" content="2017-09-24T11:03:35+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="3410">
 <meta itemprop="keywords" content="iOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="常见的后台实现"/>
@@ -220,7 +220,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>例如使用操作队列隔离以下昂贵操作：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -230,7 +230,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">__weak</span> <span class="kt">id</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">__weak</span> <span class="kt">id</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
 <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">operationQueue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
     <span class="n">NSNumber</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="n">findLargestMersennePrime</span><span class="p">();</span>
     <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
@@ -249,14 +249,14 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>如果你确实认为在后台执行绘制代码会是你的最好选择时再这么做。其实解决起来也很简单，把 <code>drawRect:</code> 中的代码放到一个后台操作中去做就可以了。然后将原本打算绘制的视图用一个 image view 来替换，等到操作执行完后再去更新。在绘制的方法中，使用 <code>UIGraphicsBeginImageContextWithOptions</code> 来取代 <code>UIGraphicsGetCurrentContext</code> ：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">NO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">NO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="c1">// drawing code here
 </span><span class="c1"></span><span class="n">UIImage</span> <span class="o">*</span><span class="n">i</span> <span class="o">=</span> <span class="n">UIGraphicsGetImageFromCurrentImageContext</span><span class="p">();</span>
 <span class="n">UIGraphicsEndImageContext</span><span class="p">();</span>
@@ -273,7 +273,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>然而，在 GCD 下，有时候你可能会看到这样的代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -282,7 +282,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 警告：不要使用这些代码。
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 警告：不要使用这些代码。
 </span><span class="c1"></span><span class="n">dispatch_async</span><span class="p">(</span><span class="n">backgroundQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
     <span class="n">NSData</span><span class="o">*</span> <span class="n">contents</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:</span><span class="n">url</span><span class="p">]</span>
     <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
@@ -303,7 +303,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 例如：在<code>NSOperation</code>子类<code>DownloadOperation</code>中重写<code>start</code>方法，并实现<code>NSURLConnectionDelegate</code>代理方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -318,7 +318,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">DownloadOperation</span> : <span class="nc">NSOperation</span><span class="o">&lt;</span><span class="n">NSURLConnectionDelegate</span><span class="o">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">DownloadOperation</span> : <span class="nc">NSOperation</span><span class="o">&lt;</span><span class="n">NSURLConnectionDelegate</span><span class="o">&gt;</span>
 
 <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">start</span>
 <span class="p">{</span>
@@ -339,7 +339,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>要处理URL 连接，我们重写自定义的 operation 子类中的 <code>start</code> 方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -352,7 +352,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">start</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">start</span>
 <span class="p">{</span>
     <span class="n">NSURLRequest</span><span class="o">*</span> <span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">url</span><span class="p">];</span>
     <span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
@@ -368,7 +368,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </div><p>由于重写的是 <code>start</code> 方法，所以我们需要自己要管理操作的 <code>isExecuting</code> 和 <code>isFinished</code> 状态。要取消一个操作，我们需要取消 connection ，并且设定合适的标记，这样操作队列才知道操作已经完成。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -377,7 +377,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancel</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancel</span>
 <span class="p">{</span>
     <span class="p">[</span><span class="nb">super</span> <span class="n">cancel</span><span class="p">];</span>
     <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">connection</span> <span class="n">cancel</span><span class="p">];</span>
@@ -389,7 +389,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </div><p>当连接完成加载后，它向代理发送回调：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -398,7 +398,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectionDidFinishLoading:</span><span class="p">(</span><span class="n">NSURLConnection</span> <span class="o">*</span><span class="p">)</span><span class="nv">connection</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectionDidFinishLoading:</span><span class="p">(</span><span class="n">NSURLConnection</span> <span class="o">*</span><span class="p">)</span><span class="nv">connection</span>
 <span class="p">{</span>
     <span class="nb">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">buffer</span><span class="p">;</span>
     <span class="nb">self</span><span class="p">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
@@ -435,13 +435,13 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>为了将其运用到实践中，我们又建立了一个<a href="https://github.com/objcio/issue-2-background-file-io">示例应用</a>，里面有一个 <code>Reader</code> 类完成了这件事情，它的接口十分简单</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Reader</span> : <span class="nc">NSObject</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Reader</span> : <span class="nc">NSObject</span>
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateLines:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span><span class="o">*</span><span class="p">))</span><span class="nv">block</span> <span class="nf">completion:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">completion</span><span class="p">;</span>
 <span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">initWithFileAtPath:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">path</span><span class="p">;</span>
 <span class="k">@end</span>
@@ -451,7 +451,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>注意，这个类不是 NSOperation 的子类。与 URL connections 类似，输入的 streams 通过 run loop 来传递它的事件。这里，我们仍然采用 main run loop 来分发事件，然后将数据处理过程派发至后台操作线程里去处理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -469,7 +469,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateLines:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span><span class="o">*</span><span class="p">))</span><span class="nv">block</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateLines:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span><span class="o">*</span><span class="p">))</span><span class="nv">block</span>
 <span class="nf">completion:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">completion</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">queue</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
@@ -490,7 +490,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </div><p>调用时的代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -510,7 +510,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">import:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">import:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span>
 <span class="p">{</span>
     <span class="n">NSURL</span> <span class="o">*</span><span class="n">fileURL</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">URLForResource</span><span class="p">:</span><span class="s">@&#34;Clarissa Harlowe&#34;</span> <span class="nl">withExtension</span><span class="p">:</span><span class="s">@&#34;txt&#34;</span><span class="p">];</span>
     <span class="n">NSAssert</span><span class="p">([[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">]</span> <span class="nl">fileExistsAtPath</span><span class="p">:[</span><span class="n">fileURL</span> <span class="n">path</span><span class="p">]],</span> <span class="s">@&#34;Please download the sample data&#34;</span><span class="p">);</span>
@@ -534,7 +534,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 <p>现在，input stream 将（在主线程）向我们发送代理消息，然后我们可以在操作队列中加入一个 block 操作来执行处理了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -557,7 +557,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stream:</span><span class="p">(</span><span class="n">NSStream</span><span class="o">*</span><span class="p">)</span><span class="nv">stream</span> <span class="nf">handleEvent:</span><span class="p">(</span><span class="n">NSStreamEvent</span><span class="p">)</span><span class="nv">eventCode</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stream:</span><span class="p">(</span><span class="n">NSStream</span><span class="o">*</span><span class="p">)</span><span class="nv">stream</span> <span class="nf">handleEvent:</span><span class="p">(</span><span class="n">NSStreamEvent</span><span class="p">)</span><span class="nv">eventCode</span>
 <span class="p">{</span>
     <span class="k">switch</span> <span class="p">(</span><span class="n">eventCode</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">...</span>
@@ -585,7 +585,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 数据处理过程中会不断的从buffer中获取已读入的数据。然后把这些新读入的数据按行分开并存储。剩余的数据被再次存储到缓冲区中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -615,7 +615,7 @@ GCD 给予你更多的控制权力以及操作队列中所不能使用的底层�
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processDataChunk:</span><span class="p">(</span><span class="n">NSMutableData</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processDataChunk:</span><span class="p">(</span><span class="n">NSMutableData</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">remainder</span> <span class="nl">appendData</span><span class="p">:</span><span class="n">buffer</span><span class="p">];</span>

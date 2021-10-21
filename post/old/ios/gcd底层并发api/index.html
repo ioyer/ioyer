@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/gcd%E5%BA%95%E5%B1%82%E5%B9%B6%E5%8F%91api/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/gcd%E5%BA%95%E5%B1%82%E5%B9%B6%E5%8F%91api/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-09-24T18:21:38&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2017-09-24T18:21:38+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="GCD底层并发API">
-<meta itemprop="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的"><meta itemprop="datePublished" content="2017-09-24T18:21:38&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="这篇文章里，我们将会讨论一些 iOS 和 OS X 都可以使用的底层 API。除了 dispatch_once ，我们一般不鼓励使用其中的任何一种技术。 但是我们想要揭示出表面之下深层次的"><meta itemprop="datePublished" content="2017-09-24T18:21:38+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="11419">
 <meta itemprop="keywords" content="线程,API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GCD底层并发API"/>
@@ -240,7 +240,7 @@
 <p>或许GCD中使用最多并且被滥用功能的就是 <code>dispatch_once</code> 了。正确的用法看起来是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -251,7 +251,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">boringColor</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">boringColor</span><span class="p">;</span>
 <span class="p">{</span>
     <span class="k">static</span> <span class="n">UIColor</span> <span class="o">*</span><span class="n">color</span><span class="p">;</span>
     <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
@@ -269,7 +269,7 @@
 <p>它能使工作延后执行。它是很强大的，但是要注意：你很容易就陷入到一堆麻烦中。一般用法是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -279,7 +279,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">foo</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">foo</span>
 <span class="p">{</span>
 <span class="kt">double</span> <span class="n">delayInSeconds</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
 <span class="n">dispatch_time_t</span> <span class="n">popTime</span> <span class="o">=</span> <span class="n">dispatch_time</span><span class="p">(</span><span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="p">(</span><span class="n">int64_t</span><span class="p">)</span> <span class="p">(</span><span class="n">delayInSeconds</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">));</span>
@@ -305,7 +305,7 @@
 GCD 中一个基本的代码块就是队列。下面我们会给出一些如何使用它的例子。当使用队列的时候，给它们一个明显的标签会帮自己不少忙。在调试时，这个标签会在 Xcode (和 lldb)中显示，这会帮助你了解你的 app 是由什么决定的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -320,7 +320,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">;</span>
 <span class="p">{</span>
     <span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">self</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
@@ -363,7 +363,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>举例来说，我们需要以多线程（或者多个队列）方式访问 <code>NSMutableDictionary</code> 。我们可能会照下面的代码来做：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,7 +386,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
 <span class="p">{</span>
     <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">copy</span><span class="p">];</span>
     <span class="n">dispatch_async</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
@@ -424,16 +424,16 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>以如下方式创建队列：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">([</span><span class="n">label</span> <span class="n">UTF8String</span><span class="p">],</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">([</span><span class="n">label</span> <span class="n">UTF8String</span><span class="p">],</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>并且用以下代码来改变setter函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -446,7 +446,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCount:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span> <span class="nf">forKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
 <span class="p">{</span>
     <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">copy</span><span class="p">];</span>
     <span class="n">dispatch_barrier_async</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isolationQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
@@ -487,7 +487,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -495,7 +495,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span><span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
     <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
         <span class="n">foo</span><span class="p">();</span>
@@ -507,7 +507,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 2. 更隐晦的产生死锁方式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -529,7 +529,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span><span class="n">dispatch_queue_t</span> <span class="n">queueB</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span>
 <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
@@ -556,7 +556,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>这是使用同步分发存在的固有问题，如果我们使用异步分发，比如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -564,7 +564,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queueA</span><span class="p">;</span> <span class="c1">// assume we have this
 </span><span class="c1"></span><span class="n">dispatch_async</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
     <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queueA</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
         <span class="n">foo</span><span class="p">();</span>
@@ -589,7 +589,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>如果你写一个类，让你类的使用者设置一个回调处理队列或许会是一个好的选择。你的代码可能像这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -600,7 +600,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)processImage:(UIImage *)image completionHandler:(void(^)(BOOL success))handler;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">- (void)processImage:(UIImage *)image completionHandler:(void(^)(BOOL success))handler;
 {
     dispatch_async(self.isolationQueue, ^(void){
         // do actual processing here
@@ -617,14 +617,14 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>如果你的代码看起来是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Do something with x and y here
 </span><span class="c1"></span>    <span class="p">}</span>
@@ -634,14 +634,14 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </div><p>小小的改动或许就可以让它运行的更快：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_apply</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">(</span><span class="n">size_t</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_apply</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">(</span><span class="n">size_t</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Do something with x and y here
 </span><span class="c1"></span>    <span class="p">}</span>
@@ -655,7 +655,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 现在，如果你想要在这些任务都执行完成后运行一些代码，&ldquo;groups&rdquo; 可以完成这项任务。看这里的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -680,7 +680,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_group_t</span> <span class="n">group</span> <span class="o">=</span> <span class="n">dispatch_group_create</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_group_t</span> <span class="n">group</span> <span class="o">=</span> <span class="n">dispatch_group_create</span><span class="p">();</span>
 <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
     <span class="c1">// Do something that takes a while
@@ -712,7 +712,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>举例来说，我们可以给 Core Data 的 <code>-performBlock:</code> API 函数添加上 groups，就像这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -726,7 +726,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span> <span class="nf">performBlock:</span><span class="p">(</span><span class="n">dispatch_block_t</span><span class="p">)</span><span class="nv">block</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span> <span class="nf">performBlock:</span><span class="p">(</span><span class="n">dispatch_block_t</span><span class="p">)</span><span class="nv">block</span>
 <span class="p">{</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">group</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">[</span><span class="nb">self</span> <span class="nl">performBlock</span><span class="p">:</span><span class="n">block</span><span class="p">];</span>
@@ -744,7 +744,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>很明显，我们可以给 <code>NSURLConnection</code> 做同样的事情：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -765,7 +765,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">withGroup:</span><span class="p">(</span><span class="n">dispatch_group_t</span><span class="p">)</span><span class="nv">group</span>
 <span class="nf">sendAsynchronousRequest:</span><span class="p">(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
 <span class="nf">queue:</span><span class="p">(</span><span class="n">NSOperationQueue</span> <span class="o">*</span><span class="p">)</span><span class="nv">queue</span>
 <span class="nf">completionHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURLResponse</span><span class="o">*</span><span class="p">,</span> <span class="n">NSData</span><span class="o">*</span><span class="p">,</span> <span class="n">NSError</span><span class="o">*</span><span class="p">))</span><span class="nv">handler</span>
@@ -799,7 +799,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>如果一些进程正在运行而你想知道他们什么时候存在，GCD 能够做到这些。你也可以使用 GCD 来检测进程什么时候分叉，也就是产生子进程或者传送给了进程的一个信号（比如 <code>SIGTERM</code>）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -813,7 +813,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSRunningApplication</span> <span class="o">*</span><span class="n">mail</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSRunningApplication</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSRunningApplication</span> <span class="o">*</span><span class="n">mail</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSRunningApplication</span>
 <span class="nl">runningApplicationsWithBundleIdentifier</span><span class="p">:</span><span class="s">@&#34;com.apple.mail&#34;</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">mail</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
 <span class="k">return</span><span class="p">;</span>
@@ -835,7 +835,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <p>你也可以使用它来监视文件夹，比如创建一个 <em>watch folder</em>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -861,7 +861,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSURL *directoryURL; // assume this is set to a directory
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">NSURL *directoryURL; // assume this is set to a directory
 int const fd = open([[directoryURL path] fileSystemRepresentation], O_EVTONLY);
 if (fd &lt; 0) {
 char buffer[80];
@@ -894,7 +894,7 @@ dispatch_resume(self.source);
 <p>这里我们设定了一个5秒的定时器，并允许有十分之一秒的余地值：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -906,7 +906,7 @@ dispatch_resume(self.source);
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_source_t</span> <span class="n">source</span> <span class="o">=</span> <span class="n">dispatch_source_create</span><span class="p">(</span><span class="n">DISPATCH_SOURCE_TYPE_TIMER</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_source_t</span> <span class="n">source</span> <span class="o">=</span> <span class="n">dispatch_source_create</span><span class="p">(</span><span class="n">DISPATCH_SOURCE_TYPE_TIMER</span><span class="p">,</span>
 <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">DISPATCH_TARGET_QUEUE_DEFAULT</span><span class="p">);</span>
 <span class="n">dispatch_source_set_event_handler</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="o">^</span><span class="p">(){</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;Time flies.&#34;</span><span class="p">);</span>
@@ -942,13 +942,13 @@ dispatch_resume(self.source);
 <p><code>dispatch_data_t</code> 的一个相当独特的属性是它可以基于零碎的内存区域。这解决了我们刚提到的组合内存的问题。当你要将两个数据对象连接起来时：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_t</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Assume this hold some valid data
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_t</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Assume this hold some valid data
 </span><span class="c1"></span><span class="n">dispatch_data_t</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// Assume this hold some valid data
 </span><span class="c1"></span><span class="n">dispatch_data_t</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dispatch_data_create_concat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
 
@@ -957,13 +957,13 @@ dispatch_resume(self.source);
 </div><p>数据对象 c 并不会将 a 和 b 拷贝到一个单独的，更大的内存区域里去。相反，它只是简单地 retain 了 a 和 b。你可以使用 <code>dispatch_data_apply</code> 来遍历对象 c 持有的内存区域：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_apply</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">^</span><span class="kt">bool</span><span class="p">(</span><span class="n">dispatch_data_t</span> <span class="n">region</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">offset</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_data_apply</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">^</span><span class="kt">bool</span><span class="p">(</span><span class="n">dispatch_data_t</span> <span class="n">region</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">offset</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
 <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;region with offset %zu, size %zu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
 <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">});</span>
@@ -974,11 +974,11 @@ dispatch_resume(self.source);
 <p>在 GCD 的核心里，<em>调度 I/O</em>（译注：原文为 Dispatch I/O） 与所谓的<em>通道</em>有关。调度 I/O 通道提供了一种与从文件描述符中读写不同的方式。创建这样一个通道最基本的方式就是调用：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_io_t</span> <span class="nf">dispatch_io_create</span><span class="p">(</span><span class="n">dispatch_io_type_t</span> <span class="n">type</span><span class="p">,</span> <span class="n">dispatch_fd_t</span> <span class="n">fd</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_io_t</span> <span class="nf">dispatch_io_create</span><span class="p">(</span><span class="n">dispatch_io_type_t</span> <span class="n">type</span><span class="p">,</span> <span class="n">dispatch_fd_t</span> <span class="n">fd</span><span class="p">,</span>
 <span class="n">dispatch_queue_t</span> <span class="n">queue</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">cleanup_handler</span><span class="p">)(</span><span class="kt">int</span> <span class="n">error</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>

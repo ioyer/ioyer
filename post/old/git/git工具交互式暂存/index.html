@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/git/git%E5%B7%A5%E5%85%B7%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9A%82%E5%AD%98/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="交互式暂存 Git 自带的一些脚本可以使在命令行下工作更容易。 本节的几个互交命令可以帮助你将文件的特定部分组合成提交。 当你修改一组文件后，希望这些改" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/git/git%E5%B7%A5%E5%85%B7%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9A%82%E5%AD%98/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-04-12T19:41:46&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-04-12T19:41:46+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="Git工具交互式暂存">
-<meta itemprop="description" content="交互式暂存 Git 自带的一些脚本可以使在命令行下工作更容易。 本节的几个互交命令可以帮助你将文件的特定部分组合成提交。 当你修改一组文件后，希望这些改"><meta itemprop="datePublished" content="2018-04-12T19:41:46&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="交互式暂存 Git 自带的一些脚本可以使在命令行下工作更容易。 本节的几个互交命令可以帮助你将文件的特定部分组合成提交。 当你修改一组文件后，希望这些改"><meta itemprop="datePublished" content="2018-04-12T19:41:46+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="1654">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git工具交互式暂存"/>
@@ -188,7 +188,7 @@
 <p>Git 自带的一些脚本可以使在命令行下工作更容易。 本节的几个互交命令可以帮助你将文件的特定部分组合成提交。 当你修改一组文件后，希望这些改动能放到若干提交而不是混杂在一起成为一个提交时，这几个工具会非常有用。 通过这种方式，可以确保提交是逻辑上独立的变更集，同时也会使其他开发者在与你工作时很容易地审核。 如果运行 git add 时使用 -i 或者 &ndash;interactive 选项，Git 将会进入一个交互式终端模式，显示类似下面的东西：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -200,7 +200,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git add -i
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ git add -i
 staged     unstaged path
 1:    unchanged        +0/-1 TODO
 2:    unchanged        +1/-1 index.html
@@ -218,7 +218,7 @@ What now&gt;
 <p>如果在 What now&gt; 提示符后键入 2 或 u，脚本将会提示想要暂存哪个文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -226,7 +226,7 @@ What now&gt;
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">What now&gt; 2
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">What now&gt; 2
 staged     unstaged path
 1:    unchanged        +0/-1 TODO
 2:    unchanged        +1/-1 index.html
@@ -237,7 +237,7 @@ Update&gt;&gt;
 </div><p>要暂存 TODO 与 index.html 文件，可以输入数字：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -245,7 +245,7 @@ Update&gt;&gt;
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Update&gt;&gt; 1,2
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Update&gt;&gt; 1,2
 staged     unstaged path
 * 1:    unchanged        +0/-1 TODO
 * 2:    unchanged        +1/-1 index.html
@@ -256,7 +256,7 @@ Update&gt;&gt;
 </div><p>每个文件前面的 * 意味着选中的文件将会被暂存。 如果在 Update&raquo; 提示符后不输入任何东西并直接按回车，Git 将会暂存之前选择的文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -269,7 +269,7 @@ Update&gt;&gt;
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Update&gt;&gt;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Update&gt;&gt;
 updated 2 paths
 
 *** Commands ***
@@ -285,7 +285,7 @@ staged     unstaged path
 </div><p>现在可以看到 TODO 与 index.html 文件已经被暂存而 simplegit.rb 文件还未被暂存。 如果这时想要取消暂存 TODO 文件，使用 3 或 r（撤消）选项：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -302,7 +302,7 @@ staged     unstaged path
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
 1: status     2: update      3: revert     4: add untracked
 5: patch      6: diff        7: quit       8: help
 What now&gt; 3
@@ -322,7 +322,7 @@ reverted one path
 </div><p>再次查看 Git 状态，可以看到已经取消暂存 TODO 文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -332,7 +332,7 @@ reverted one path
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
 1: status     2: update      3: revert     4: add untracked
 5: patch      6: diff        7: quit       8: help
 What now&gt; 1
@@ -345,7 +345,7 @@ staged     unstaged path
 </div><p>如果想要查看已暂存内容的区别，可以使用 6 或 d（区别）命令。 它会显示暂存文件的一个列表，可以从中选择想要查看的暂存区别。 这跟你在命令行指定 git diff &ndash;cached 非常相似：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -366,7 +366,7 @@ staged     unstaged path
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">*** Commands ***
 1: status     2: update      3: revert     4: add untracked
 5: patch      6: diff        7: quit       8: help
 What now&gt; 6
@@ -392,7 +392,7 @@ index 4d07108..4335f49 100644
 <p>Git 也可以暂存文件的特定部分。 例如，如果在 simplegit.rb 文件中做了两处修改，但只想要暂存其中的一个而不是另一个，Git 会帮你轻松地完成。 从交互式提示符中，输入 5 或 p（补丁）。 Git 会询问你想要部分暂存哪些文件；然后，对已选择文件的每一个部分，它都会一个个地显示文件区别并询问你是否想要暂存它们：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -408,7 +408,7 @@ index 4d07108..4335f49 100644
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">diff --git a/lib/simplegit.rb b/lib/simplegit.rb
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">diff --git a/lib/simplegit.rb b/lib/simplegit.rb
 index dd5ecc4..57399e0 100644
 --- a/lib/simplegit.rb
 +++ b/lib/simplegit.rb
@@ -427,7 +427,7 @@ Stage this hunk [y,n,a,d,/,j,J,g,e,?]?
 </div><p>这时有很多选项。 输入 ? 显示所有可以使用的命令列表：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -443,7 +443,7 @@ Stage this hunk [y,n,a,d,/,j,J,g,e,?]?
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Stage this hunk [y,n,a,d,/,j,J,g,e,?]? ?
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Stage this hunk [y,n,a,d,/,j,J,g,e,?]? ?
 y - stage this hunk
 n - do not stage this hunk
 a - stage this and all the remaining hunks in the file
@@ -462,14 +462,14 @@ e - manually edit the current hunk
 </div><p>通常情况下可以输入 y 或 n 来选择是否要暂存每一个区块，当然，暂存特定文件中的所有部分或为之后的选择跳过一个区块也是非常有用的。 如果你只暂存文件的一部分，状态输出可能会像下面这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">What now&gt; 1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">What now&gt; 1
 staged     unstaged path
 1:    unchanged        +0/-1 TODO
 2:        +1/-1      nothing index.html

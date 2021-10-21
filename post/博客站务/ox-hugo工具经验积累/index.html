@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo%E5%B7%A5%E5%85%B7%E7%BB%8F%E9%AA%8C%E7%A7%AF%E7%B4%AF/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Test post to test another ox-hugo test." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo%E5%B7%A5%E5%85%B7%E7%BB%8F%E9%AA%8C%E7%A7%AF%E7%B4%AF/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-16T00:00:00&#43;08:00" />
-<meta property="article:modified_time" content="2021-07-16T15:15:51&#43;08:00" />
+<meta property="article:published_time" content="2021-07-16T00:00:00+08:00" />
+<meta property="article:modified_time" content="2021-07-16T15:15:51+08:00" />
 
 <meta itemprop="name" content="ox-hugo在博客写作过程积累总结">
-<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-07-16T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2021-07-16T15:15:51&#43;08:00" />
+<meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-07-16T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2021-07-16T15:15:51+08:00" />
 <meta itemprop="wordCount" content="1190">
 <meta itemprop="keywords" content="hugo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ox-hugo在博客写作过程积累总结"/>
@@ -221,13 +221,13 @@
 <p>导出时，显示：当在写作阶段，在网页段显示todo状态，可以方便跟踪任务状态和进度，把todo 设置为t即可。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
        <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:t</span>
        <span class="nb">:END:</span>
     </code></pre></td></tr></table>
@@ -238,13 +238,13 @@
 <p>导出时，隐藏：在完成写作校对之后，导出成品时，可以通过设置todo 为 nil 隐藏todo 关键字。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
        <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:nil</span>
        <span class="nb">:END:</span>
     </code></pre></td></tr></table>
@@ -256,21 +256,21 @@
 <p>在切换任务状态时，会有活动状态变更log记录，在ox-hugo导出时，这些记录显示会显示网页中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>如何即保留这些记录，导出时，ox-hugo又可以忽略这些记录，在看了官方demo发现针对该问题的属性： <code>:LOG_INTO_DRAWER: t</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:PROPERTIES:</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:PROPERTIES:</span>
 <span class="nb">:LOG_INTO_DRAWER:</span> <span class="no">t</span>
 <span class="err">🔚</span></code></pre></td></tr></table>
 </div>
@@ -278,12 +278,12 @@
 <p>当该属性开启状态时，日志信息会自动添加到 <code>LOGBOOK</code> 中，此时在执行导出，状态记录会被自动忽略。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:LOGBOOK:</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:LOGBOOK:</span>
 <span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span>
 <span class="nb">:END:</span></code></pre></td></tr></table>
 </div>
@@ -297,7 +297,7 @@
 <p>在org 文件声明方式，即新建一个节点，例如 <code>CSS for TODO</code>, 并设置不支持导出 <code>:noexport:</code>,如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -320,7 +320,7 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-org" data-lang="org">       CSS for TODO :noexport:
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org">       CSS for TODO :noexport:
 <span class="c">       :PROPERTIES:
 </span><span class="c"></span><span class="cs">       :CUSTOM_ID: todo-css
 </span><span class="cs"></span><span class="c">       :END:</span>
@@ -349,11 +349,11 @@
 <p>上述样例中，最关键是提供一个id <code>:CUSTOM_ID: todo-css</code>, 让后就可以引入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="err">#</span><span class="nv">+include:</span> <span class="s">&#34;./all-posts.org::#todo-css&#34;</span> <span class="nb">:only-contents</span> <span class="no">t</span>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="err">#</span><span class="nv">+include:</span> <span class="s">&#34;./all-posts.org::#todo-css&#34;</span> <span class="nb">:only-contents</span> <span class="no">t</span>
     </code></pre></td></tr></table>
 </div>
 </div>
@@ -434,7 +434,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-07-16 12:43:00 \u002b0800 CST',
+        id: '2021-07-16 12:43:00 \u002b0800 \u002b0800',
         title: 'ox-hugo在博客写作过程积累总结',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',

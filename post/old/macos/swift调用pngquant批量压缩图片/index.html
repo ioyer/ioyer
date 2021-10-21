@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-15T20:51:45&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2018-10-15T20:51:45+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="swift调用pngquant批量压缩图片">
-<meta itemprop="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif"><meta itemprop="datePublished" content="2018-10-15T20:51:45&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="{% github amosavian FileProvider b597244 width = 30% %} 安装FilesProvider 使用FilesProvider来做文件处理，通过SPM管理库依赖 配置Package.swif"><meta itemprop="datePublished" content="2018-10-15T20:51:45+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="771">
 <meta itemprop="keywords" content="macOS,工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift调用pngquant批量压缩图片"/>
@@ -193,7 +193,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -204,7 +204,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="err">dependencies:</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">dependencies:</span> <span class="p">[</span>
     <span class="err">//</span> <span class="err">Dependencies</span> <span class="err">declare</span> <span class="err">other</span> <span class="err">packages</span> <span class="err">that</span> <span class="err">this</span> <span class="err">package</span> <span class="err">depends</span> <span class="err">on.</span>
     <span class="err">//</span> <span class="err">.package(url:</span> <span class="err">/*</span> <span class="err">package</span> <span class="err">url</span> <span class="err">*/</span><span class="p">,</span> <span class="err">from:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="err">)</span><span class="p">,</span> <span class="err">指定版本。giturl</span>
     <span class="err">.package(path:</span> <span class="s2">&#34;/Users/admin/hsg/FileProvider&#34;</span><span class="err">)</span>   <span class="err">//源码clone本地，指定路径</span>
@@ -228,7 +228,7 @@
 <h2 id="测通可运行的代码片段">测通可运行的代码片段</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -284,7 +284,7 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">FilesProvider</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">FilesProvider</span>
 <span class="kd">var</span> <span class="nv">documentsProvider</span><span class="p">:</span><span class="n">LocalFileProvider</span><span class="p">!</span>
 <span class="kd">var</span> <span class="nv">pngexpectation</span><span class="p">:</span> <span class="n">XCTestExpectation</span><span class="p">!</span> <span class="p">=</span> <span class="kc">nil</span>
 <span class="kr">override</span> <span class="kd">func</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>

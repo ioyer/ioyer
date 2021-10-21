@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/coreml%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.8e23316a352f3a05d140b33b51574575e7b19d4d2f5803ab367051e85e82b126.css" rel="stylesheet">
+<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
@@ -46,12 +46,12 @@
 <meta property="og:description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/coreml%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2017-06-24T22:10:44&#43;00:00" />
-<meta property="article:modified_time" content="2021-05-13T09:48:14&#43;08:00" />
+<meta property="article:published_time" content="2017-06-24T22:10:44+00:00" />
+<meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="CoreML机器学习初级教程">
-<meta itemprop="description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating"><meta itemprop="datePublished" content="2017-06-24T22:10:44&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-13T09:48:14&#43;08:00" />
+<meta itemprop="description" content="资源 Core ML开发文档 ML模型资源页面 在Working with Models中包含有几个常用的模型模板，例如用于在图片中检测物体——树、动物、人等等。 Integrating"><meta itemprop="datePublished" content="2017-06-24T22:10:44+00:00" />
+<meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
 <meta itemprop="wordCount" content="2247">
 <meta itemprop="keywords" content="CoreML," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoreML机器学习初级教程"/>
@@ -229,11 +229,11 @@ CoreML模型 是用于 Vision 请求的 Core ML 模型的容器
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">CoreML</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">CoreML</span>
 <span class="kd">import</span> <span class="nc">Vision</span>
 </code></pre></td></tr></table>
 </div>
@@ -244,7 +244,7 @@ Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预�
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -259,7 +259,7 @@ Core ML 模型<code>GoogLeNetPlaces</code> 是一个分类器，因为它仅预�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 创建一个带有 completion handler 的 Vision 请求
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 创建一个带有 completion handler 的 Vision 请求
 let request = VNCoreMLRequest(model: model) { [weak self] request, error in
     guard let results = request.results as? [VNClassificationObservation],
     let topResult = results.first else {
@@ -281,7 +281,7 @@ let article = (self?.vowels.contains(topResult.identifier.first!))! ? &#34;an&#3
 把下面几行添加到 <code>detectScene(image:)</code> 的末尾：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -292,7 +292,7 @@ let article = (self?.vowels.contains(topResult.identifier.first!))! ? &#34;an&#3
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 在主线程上运行 Core ML GoogLeNetPlaces 分类器</span>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">// 在主线程上运行 Core ML GoogLeNetPlaces 分类器</span>
 <span class="kd">let</span> <span class="nv">handler</span> <span class="p">=</span> <span class="n">VNImageRequestHandler</span><span class="p">(</span><span class="n">ciImage</span><span class="p">:</span> <span class="n">image</span><span class="p">)</span>
 <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">global</span><span class="p">(</span><span class="n">qos</span><span class="p">:</span> <span class="p">.</span><span class="n">userInteractive</span><span class="p">).</span><span class="n">async</span> <span class="p">{</span>
     <span class="k">do</span> <span class="p">{</span>
@@ -308,14 +308,14 @@ let article = (self?.vowels.contains(topResult.identifier.first!))! ? &#34;an&#3
 把下面几行添加到 viewDidLoad() 的末端和 imagePickerController(_:didFinishPickingMediaWithInfo:) 的末端：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">guard let ciImage = CIImage(image: image) else {
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">guard let ciImage = CIImage(image: image) else {
     fatalError(&#34;couldn&#39;t convert UIImage to CIImage&#34;)
 }
 
