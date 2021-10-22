@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       
-  <title>hugo支持全文RSS设置问题 - 习七</title>
+  <title>iOS在切换摄像头时，session可能导致的问题 - 习七</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。" /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
+<meta name="author" content="iTBoyer" /><meta name="description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题" /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
 
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
-<link rel="canonical" href="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/hugo%E6%94%AF%E6%8C%81%E5%85%A8%E6%96%87%E8%AE%A2%E9%98%85%E7%9A%84%E8%AE%BE%E7%BD%AE/" />
+<link rel="canonical" href="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%91%84%E5%83%8F%E5%A4%B4%E5%88%87%E6%8D%A2%E9%97%AE%E9%A2%98/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,20 +42,20 @@
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
 
 
-<meta property="og:title" content="hugo支持全文RSS设置问题" />
-<meta property="og:description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。" />
+<meta property="og:title" content="iOS在切换摄像头时，session可能导致的问题" />
+<meta property="og:description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/hugo%E6%94%AF%E6%8C%81%E5%85%A8%E6%96%87%E8%AE%A2%E9%98%85%E7%9A%84%E8%AE%BE%E7%BD%AE/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-10-21T13:28:00+08:00" />
-<meta property="article:modified_time" content="2021-10-21T18:13:01+08:00" />
+<meta property="og:url" content="https://it-boyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%91%84%E5%83%8F%E5%A4%B4%E5%88%87%E6%8D%A2%E9%97%AE%E9%A2%98/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-22T20:17:00+08:00" />
+<meta property="article:modified_time" content="2021-10-22T20:23:16+08:00" />
 
-<meta itemprop="name" content="hugo支持全文RSS设置问题">
-<meta itemprop="description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。"><meta itemprop="datePublished" content="2021-10-21T13:28:00+08:00" />
-<meta itemprop="dateModified" content="2021-10-21T18:13:01+08:00" />
-<meta itemprop="wordCount" content="1557">
+<meta itemprop="name" content="iOS在切换摄像头时，session可能导致的问题">
+<meta itemprop="description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题"><meta itemprop="datePublished" content="2021-10-22T20:17:00+08:00" />
+<meta itemprop="dateModified" content="2021-10-22T20:23:16+08:00" />
+<meta itemprop="wordCount" content="612">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="hugo支持全文RSS设置问题"/>
-<meta name="twitter:description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。"/>
+<meta name="twitter:title" content="iOS在切换摄像头时，session可能导致的问题"/>
+<meta name="twitter:description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -156,15 +156,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">hugo支持全文RSS设置问题</h1>
+      <h1 class="post-title">iOS在切换摄像头时，session可能导致的问题</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-10-21 </span>
+        <span class="post-time"> 2021-10-22 </span>
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 1557 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 612 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
   
@@ -179,36 +179,17 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#elfeed订阅初衷">elfeed订阅初衷</a></li>
-    <li><a href="#rsshub订阅源的流行">RSSHub订阅源的流行</a></li>
-    <li><a href="#hugo支持全文订阅">hugo支持全文订阅</a>
+    <li><a href="#相机切换">相机切换</a>
       <ul>
-        <li><a href="#定制rss模板">定制rss模板</a></li>
-        <li><a href="#特殊-h-符号导致rss问题">特殊 <code>^H</code> 符号导致RSS问题</a></li>
+        <li><a href="#问题">问题</a></li>
       </ul>
     </li>
-    <li><a href="#elfeed订阅rsshub-方案和订阅源筛选">elfeed订阅RSSHub 方案和订阅源筛选</a></li>
-    <li><a href="#pocket-reader提升阅读幸福感">pocket-reader提升阅读幸福感</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="elfeed订阅初衷">elfeed订阅初衷</h2>
-<p>在emacs中沉浸阅读体验使用elfeed插件必不可少，主要以来RSS订阅功能，可以逃离app束缚，使用喜欢的方式阅读。</p>
-<p>现在想通过RSS订阅自己的博客，但是会出现不是全文的情况，参看了hugo文档，设置RSS 订阅配置，就可以实现全文订阅。</p>
-<h2 id="rsshub订阅源的流行">RSSHub订阅源的流行</h2>
-<p>现在支持RSS订阅功能的网站越来越少，造就了RSSHub的盛行，可以为帮助用户轻松订阅不支持RSS的王章，得益于很多人在贡献自己制作的订阅源，分享到到RSSHub网站上，提供给同样感兴趣的订阅者。</p>
-<p>比如前几天想通过telegram机器人实现微信公众号订阅源，但是最终以失败告终。不过学到了telegram机器人和公众号的爬去机制。</p>
-<p>制作微信公众号订阅源失败了，可以制作自己博客的订阅源，换个教书熟悉RSS技术，在过程中最好能够解决elfeed订阅RSSHub订阅失败的问题。</p>
-<h2 id="hugo支持全文订阅">hugo支持全文订阅</h2>
-<h3 id="定制rss模板">定制rss模板</h3>
-<ol>
-<li>
-<p>在 <code>hsg/.iNotes/layouts/</code> 新建文件 <code>index.rss.xml</code></p>
-<p>核心代码行：</p>
-<p><code>&lt;description&gt;{{ .Content | html }}&lt;/description&gt;</code></p>
-<p><code>.Content</code> ： 全文</p>
+      <h2 id="相机切换">相机切换</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -248,146 +229,139 @@
 </span><span class="lnt">35
 </span><span class="lnt">36
 </span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml">       {{- $pctx := . -}}
-       {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-       {{- $pages := slice -}}
-       {{- if or $.IsHome $.IsSection -}}
-       {{- $pages = $pctx.RegularPages -}}
-       {{- else -}}
-       {{- $pages = $pctx.Pages -}}
-       {{- end -}}
-       {{- $limit := .Site.Config.Services.RSS.Limit -}}
-       {{- if ge $limit 1 -}}
-       {{- $pages = $pages | first $limit -}}
-       {{- end -}}
-       {{- printf &#34;<span class="cp">&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;utf-8\&#34; standalone=\&#34;yes\&#34;?&gt;</span>&#34; | safeHTML }}
-       <span class="nt">&lt;rss</span> <span class="na">version=</span><span class="s">&#34;2.0&#34;</span> <span class="na">xmlns:atom=</span><span class="s">&#34;http://www.w3.org/2005/Atom&#34;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;channel&gt;</span>
-           <span class="nt">&lt;title&gt;</span>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}<span class="nt">&lt;/title&gt;</span>
-           <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
-           <span class="nt">&lt;description&gt;</span>最近更新的内容 {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}<span class="nt">&lt;/description&gt;</span>
-           <span class="nt">&lt;generator&gt;</span>Hugo -- iT-Boyer.github.io<span class="nt">&lt;/generator&gt;</span>{{ with .Site.LanguageCode }}
-           <span class="nt">&lt;language&gt;</span>{{.}}<span class="nt">&lt;/language&gt;</span>{{end}}{{ with .Site.Author.email }}
-           <span class="nt">&lt;managingEditor&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/managingEditor&gt;</span>{{end}}{{ with .Site.Author.email }}
-           <span class="nt">&lt;webMaster&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/webMaster&gt;</span>{{end}}{{ with .Site.Copyright }}
-           <span class="nt">&lt;copyright&gt;</span>{{.}}<span class="nt">&lt;/copyright&gt;</span>{{end}}{{ if not .Date.IsZero }}
-           <span class="nt">&lt;lastBuildDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/lastBuildDate&gt;</span>{{ end }}
-           {{- with .OutputFormats.Get &#34;RSS&#34; -}}
-           {{ printf &#34;<span class="nt">&lt;atom:link</span> <span class="na">href=</span><span class="s">%q</span> <span class="na">rel=</span><span class="s">\&#34;self\&#34;</span> <span class="na">type=</span><span class="s">%q</span> <span class="nt">/&gt;</span>&#34; .Permalink .MediaType | safeHTML }}
-           {{- end -}}
-           {{ range $pages }}
-           <span class="nt">&lt;item&gt;</span>
-             <span class="nt">&lt;title&gt;</span>{{ .Title }}<span class="nt">&lt;/title&gt;</span>
-             <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
-             <span class="nt">&lt;pubDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/pubDate&gt;</span>
-             {{ with .Site.Author.email }}<span class="nt">&lt;author&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/author&gt;</span>{{end}}
-             <span class="nt">&lt;guid&gt;</span>{{ .Permalink }}<span class="nt">&lt;/guid&gt;</span>
-             <span class="nt">&lt;description&gt;</span>{{ .Content | html }}<span class="nt">&lt;/description&gt;</span>
-           <span class="nt">&lt;/item&gt;</span>
-           {{ end }}
-         <span class="nt">&lt;/channel&gt;</span>
-       <span class="nt">&lt;/rss&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//前后摄像头的切换
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">changeDeviceAction</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">beginConfiguration</span><span class="p">];</span>
+    <span class="c1">//改变会话的配置前一定要先开启配置，配置完成后提交配置改变
+</span><span class="c1"></span>    <span class="n">AVCaptureDevice</span> <span class="o">*</span><span class="n">currentDevice</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageInput</span> <span class="n">device</span><span class="p">];</span>
+    <span class="n">AVCaptureDevice</span> <span class="o">*</span><span class="n">toChangeDevice</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">([</span><span class="n">currentDevice</span> <span class="n">position</span><span class="p">]</span> <span class="o">==</span> <span class="n">AVCaptureDevicePositionBack</span><span class="p">){</span>
+        <span class="n">toChangeDevice</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="nl">cameraWithPosition</span><span class="p">:</span><span class="n">AVCaptureDevicePositionFront</span><span class="p">];</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="n">toChangeDevice</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="nl">cameraWithPosition</span><span class="p">:</span><span class="n">AVCaptureDevicePositionBack</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="c1">//获得要调整的设备输入对象
+</span><span class="c1"></span>
+    <span class="n">AVCaptureDeviceInput</span> <span class="o">*</span><span class="n">toChangeDeviceInput</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AVCaptureDeviceInput</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithDevice</span><span class="p">:</span><span class="n">toChangeDevice</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="c1">//移除原有输入对象
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="nl">removeInput</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">imageInput</span><span class="p">];</span>
+    <span class="c1">//添加新的输入对象
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">([</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="nl">canAddInput</span><span class="p">:</span><span class="n">toChangeDeviceInput</span><span class="p">])</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="nl">addInput</span><span class="p">:</span><span class="n">toChangeDeviceInput</span><span class="p">];</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">imageInput</span> <span class="o">=</span> <span class="n">toChangeDeviceInput</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//提交会话配置
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">commitConfiguration</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="c1">//定向获取摄像头设备
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">AVCaptureDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">cameraWithPosition:</span><span class="p">(</span><span class="n">AVCaptureDevicePosition</span><span class="p">)</span><span class="nv">position</span>
+<span class="p">{</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVCaptureDevice</span> <span class="nl">devicesWithMediaType</span><span class="p">:</span><span class="n">AVMediaTypeVideo</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">AVCaptureDevice</span> <span class="o">*</span><span class="n">device</span> <span class="k">in</span> <span class="n">devices</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">device</span> <span class="n">position</span><span class="p">]</span> <span class="o">==</span> <span class="n">position</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">device</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="问题">问题</h3>
+<p>控制摄像机 <code>AVCaptureSession</code> 运行状态</p>
+<ol>
+<li>
+<p>初始化session</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">       <span class="c1">//负责输入和输出设备之间的数据传递
+</span><span class="c1"></span>       <span class="k">@property</span><span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span><span class="n">AVCaptureSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span>
     </code></pre></td></tr></table>
 </div>
 </div>
 </li>
 <li>
-<p>设置订阅限制数</p>
-<p><code>{{- $limit := .Site.Config.Services.RSS.Limit -}}</code></p>
-<p>在模板代码中有获取配置文件 <code>config.toml</code> 属性值：</p>
+<p>当页面加载完成时，激活session：startRunning</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">       </span><span class="c"># 制定RSS最大条数</span><span class="w">
-</span><span class="w">       </span><span class="l">rssLimit = 10</span><span class="w">
-</span><span class="w">    </span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidAppear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span>
+       <span class="p">{</span>
+           <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+           <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">startRunning</span><span class="p">];</span>
+       <span class="p">}</span>
+    </code></pre></td></tr></table>
 </div>
 </div>
-<p>查看：<a href="https://gohugo.io/getting-started/configuration/#rsslimit">rsslimit | Hugo</a></p>
-<p>更多：<a href="https://gohugo.io/variables/site/">Site 参数获取 | Hugo</a></p>
 </li>
-</ol>
-<h3 id="特殊-h-符号导致rss问题">特殊 <code>^H</code> 符号导致RSS问题</h3>
-<p>特殊符号，会导致一下问题：</p>
+<li>
+<p>当页面消失时，停止session</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">This page contains the following errors:
-error on line <span class="m">20461</span> at column 29: PCDATA invalid Char value <span class="m">8</span>
-Below is a rendering of the page up to the first error.</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">       <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidDisappear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span><span class="p">{</span>
+           <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+           <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">stopRunning</span><span class="p">];</span>
+       <span class="p">}</span>
+    </code></pre></td></tr></table>
 </div>
 </div>
-<ol>
-<li>
-<p>在emacs 执行删除操作</p>
-<p>选中并拷贝 <code>v y</code></p>
-<p>全文搜索： <code>spc s d 目录</code></p>
-<p>替换： <code>M-x:replace-string</code></p>
-<p>清理完成之后，重新编译即可。</p>
 </li>
 </ol>
-<h2 id="elfeed订阅rsshub-方案和订阅源筛选">elfeed订阅RSSHub 方案和订阅源筛选</h2>
-<p>因为RSSHub大部分是用户分享的订阅源，存在失效情况。</p>
-<p>为增加订阅的成功率，可以参考RSSHub官网搭建私服服务的教程，配合RSSHub 公布的订阅源，把域名替换为私服路径，在验证是否有效。</p>
-<p>推荐使用heroku平台部署文档：<a href="https://docs.rsshub.app/install/#bu-shu-dao-heroku">一键部署到 Heroku</a></p>
-<p>已经个人的服务： <code>https://i2rsshub.herokuapp.com</code></p>
-<p>验证RSS订阅源主要关注几点：</p>
-<ol>
-<li>
-<p>订阅内容内容质量</p>
-<p>内容是否符合自己兴趣爱好，有质量，有新东西的网站，才能有高效阅读体验</p>
-</li>
-<li>
-<p>更新频率</p>
-<p>主要为了筛选过期的订阅源，节省精力。</p>
-<p>如果质量很好值得收藏，例如objc.io 已经停更，但是质量很高。</p>
-<p>对于高质量的订阅源，要利用好elfeed 的时间过滤条件，也能够轻松驾驭过期期刊。</p>
-</li>
-<li>
-<p>支持全文订阅</p>
-<p>如果不支持全文订阅，文章质量有很好，可以借助 <code>pocket-reader</code> 工具获取全文内容</p>
-<p>pocket-reader 可以通过 <code>pocket-reader-add-link</code> 从org/elfeed/eww 等buffer 中的超链接，直接加入到pocket-reader 列表。</p>
-<p>pocket-reader 提供了优秀的阅读体验，可以将订阅内容格式化为org 在 <code>org-mode</code> 模式下阅读，相当惊艳。</p>
-</li>
-</ol>
-<h2 id="pocket-reader提升阅读幸福感">pocket-reader提升阅读幸福感</h2>
-<p>pocket-reader 本身不支持订阅，是通过文章URL, 抓取文章内容的机制，这样在emacs 中提升阅读体验提供了基础。</p>
-<p><a href="https://github.com/alphapapa/pocket-reader.el">GitHub - alphapapa/pocket-reader.el: Emacs client for Pocket reading list (ge&hellip;</a></p>
-<p>掌握了这个阅读器，可以将网页内容，格式化为org 文章来阅读，这样提升阅读体验，在写博客时，也能沉浸在emacs 世界，尽情发挥想象力，全神贯注的投入创造。</p>
-<p>它的快捷键很多，需要切换到在 edit 模式。</p>
-<ol>
-<li>
-<p>关于文章来源</p>
-<p>pocket 有很多工具的支持，几乎可以实现随时随地推送一篇博客到pocket中。</p>
-<ol>
-<li>
-<p>浏览器插件</p>
-</li>
-<li>
-<p>alfred工具</p>
-</li>
-<li>
-<p>elfeed</p>
-</li>
-<li>
-<p>微信公众号无解</p>
-</li>
-</ol>
-</li>
-</ol>
+<p>上述代码，看似没有问题，但是放在以下场景中，会导致无法正常切换摄像头。</p>
+<p>场景描述：有两个拍照页面，先使用后置摄像头，拍环境照片，然后进入预览页面。再返回拍照页面，切换前置摄像头，进行正面拍照。这时，会出现无法切换摄像头的问题。</p>
+<p>问题分析：在当第一次拍照进入上传页面时，会 <code>stopRunning</code> 停止，这时如果在上传页面完成上传时，执行拍照的页面的带代理方法时，~session~ 还是stop 状态，无法进行切换摄像头。</p>
+<p>解决思路：要在激活 <code>session</code> 才能进行摄像头切换。</p>
+<p>这样，需要在 <code>viewDidAppear</code> 方法中，确定执行 <code>startRunning</code> 之后，再执行摄像头切换：如：7-9 行代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="hl"><span class="lnt"> 7
+</span></span><span class="hl"><span class="lnt"> 8
+</span></span><span class="hl"><span class="lnt"> 9
+</span></span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidAppear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">startRunning</span><span class="p">];</span>
+        <span class="c1">//切换摄像头
+</span><span class="hl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">style</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hl">            <span class="p">[</span><span class="nb">self</span> <span class="n">changeDeviceAction</span><span class="p">];</span>
+</span><span class="hl">        <span class="p">}</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 
     </div>
 
@@ -399,8 +373,8 @@ Below is a rendering of the page up to the first error.</code></pre></td></tr></
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-10-21
-        <a href="iNotes/commit/b30bf260cac7f7aaef49d4dbb4bdc890a4136b16" title="update">(b30bf26)</a>
+        2021-10-22
+        <a href="iNotes/commit/de34a75eef616c054ac9ef09e748a50680d2c83c" title="update">(de34a75)</a>
     </span>
   </p>
   
@@ -423,13 +397,9 @@ Below is a rendering of the page up to the first error.</code></pre></td></tr></
 </div><footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%91%84%E5%83%8F%E5%A4%B4%E5%88%87%E6%8D%A2%E9%97%AE%E9%A2%98/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">iOS在切换摄像头时，session可能导致的问题</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/telegram%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%AE%A2%E9%98%85web%E7%89%88%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/">
-            <span class="next-text nav-default">使用teleagram机器人实现公众号订阅</span>
+        
+        <a class="next" href="/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/hugo%E6%94%AF%E6%8C%81%E5%85%A8%E6%96%87%E8%AE%A2%E9%98%85%E7%9A%84%E8%AE%BE%E7%BD%AE/">
+            <span class="next-text nav-default">hugo支持全文RSS设置问题</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -442,8 +412,8 @@ Below is a rendering of the page up to the first error.</code></pre></td></tr></
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-10-21 18:11:00 \u002b0800 \u002b0800',
-        title: 'hugo支持全文RSS设置问题',
+        id: '2021-10-22 20:17:00 \u002b0800 \u002b0800',
+        title: 'iOS在切换摄像头时，session可能导致的问题',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
         repo: 'it-boyer.github.io',
