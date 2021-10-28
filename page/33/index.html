@@ -97,10 +97,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -130,9 +128,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -151,6 +147,150 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/">XMPP简单研究[转]</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-06 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 2853 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      最近想做一个游戏服务器和 IM 互通的服务。最初的想法是可以增进游戏帐号的安全，比如游戏用户可以通过绑定一个 IM 帐号，从而不用登陆游戏就向游戏服务器
+    </div>
+    <div class="read-more">
+      <a href="/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/xmpp%E7%AE%80%E5%8D%95%E7%A0%94%E7%A9%B6%E8%BD%AC/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/">代码实现AutoLayout相关特性</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
+          </div>
+        <span class="more-meta"> 约 2705 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="按比例缩放">按比例缩放</h2>
+<p>按比例缩放，这是在Interface Builder中无法设置的内容。<br>
+而在代码中，有如下两种实现方式:</p>
+<ol>
+<li>使用<code>NSLayoutConstraint</code>类型的初始化函数中的<code>multiplier</code>参数就可以非常简单的设置按比例缩放。</li>
+<li>同时也可以设置不同<code>NSLayoutAttribute</code>参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。</li>
+</ol>
+<p>现在就拿一个简单的**<code>UIButton</code>**做示例，在ViewController中创建一个UIButton字段：<br>
+{%codeblock lang:objc%}
+UIButton *btn;<br>
+{%endcodeblock%}</p>
+<h4 id="需求-1">需求 1：</h4>
+<ol>
+<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
+<li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
+{%codeblock lang:objc%}</li>
+</ol>
+<ul>
+<li>
+<p>(void)viewDidLoad
+{
+[super viewDidLoad];</p>
+<p>//创建UIButton，不需要设置frame
+btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+[btn setTitle:@&ldquo;mgen&rdquo; forState:UIControlStateNormal];
+btn.backgroundColor = [UIColor greenColor];
+[self.view addSubview:btn];</p>
+<p>//禁止自动转换AutoresizingMask
+btn.translatesAutoresizingMaskIntoConstraints = NO;</p>
+<p>//居中
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeCenterX
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeCenterX
+multiplier:1
+constant:0]];</p>
+<p>//距离底部20单位
+//注意NSLayoutConstraint创建的constant是加在toItem参数的，所以需要-20。
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeBottom
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeBottom
+multiplier:1
+constant:-20]];</p>
+<p>//定义高度是父View的三分之一
+[self.view addConstraint:[NSLayoutConstraint
+constraintWithItem:btn
+attribute:NSLayoutAttributeHeight
+relatedBy:NSLayoutRelationEqual
+toItem:self.view
+attribute:NSLayoutAttributeHeight
+multiplier:0.3
+constant:0]];</p>
+<p>//注册KVO方法
+[btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; <br>
+}</p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/">在IOS中自定义URLSchemes教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-08-28 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
+          </div>
+        <span class="more-meta"> 约 1463 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+      <span class="more-meta"> by
+ </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h4 id="url-schemes">URL Schemes</h4>
+<p>iPhone SDK中最酷的功能之一是一个应用程序能够把自己和自定义的URL协议绑定，这个URL协议可用于启动该应用程序（通过浏览器或者iPhone上的另一个程序）。创建这样的绑定并不难，难得的是你忍不住要在你的程序里用它！</p>
+<p>首先，你需要说明你想如何在程序中响应这个URL。最简单的自定义协议的方法是“唤醒”，而且可以通过URL把数据信息传递给程序，这样，程序被唤醒后能做更多的事情。</p>
+<h4 id="注册自定义url协议">注册自定义URL协议</h4>
+<p>首先需要向iPhone注册一个自定义URL协议。这是在你的项目文件夹的info.plist文件进行的（就是你改变应用程序图标的同一个文件）。</p>
+<p>默认，Xcode在图形窗口中打开info.pllist，当然也可以直接用文本模式打开——对有的人来说这反而更简单。</p>
+<h6 id="step1-右键选择add-row在下拉选框中选择url-types类型为array">Step1. 右键，选择“Add Row”,在下拉选框中选择“<strong>URL types</strong>”，类型为Array:</h6>
+<h6 id="step2-打开item-0类型为dic添加新key为url-identifier类型为string可以是任何值但建议用反域名例如-commyapp">Step2. 打开“Item 0″类型为Dic,添加新key为&quot;URL identifier&quot;,类型为String。可以是任何值，但建议用“反域名”(例如 “com.myapp”)。</h6>
+<h5 id="step3-打开item-0类型为dic添加新key为url-schemes类型为array">Step3. 打开“Item 0″类型为Dic,添加新key为“URL Schemes”,类型为Array:</h5>
+    </div>
+    <div class="read-more">
+      <a href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89urlschemes%E6%95%99%E7%A8%8B/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/old/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/">XcodeHeaderDoc教程</a></h1>
@@ -349,7 +489,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
       <div class="post-category">
           <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
           </div>
-        <span class="more-meta"> 约 4071 字 </span>
+        <span class="more-meta"> 约 4080 字 </span>
         <span class="more-meta"> 预计阅读 9 分钟 </span>
       <span class="more-meta"> by
  </span>
@@ -535,8 +675,8 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
       <h2 id="text-kit">Text Kit</h2>
 <p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。</p>
 <blockquote>
-<p><!-- raw HTML omitted -->更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
-例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。<!-- raw HTML omitted --></p>
+<p><font size=3>更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
+例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。</font></p>
 </blockquote>
 <p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br>
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br>
@@ -544,81 +684,6 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
     </div>
     <div class="read-more">
       <a href="/post/old/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/">IOS7的变革</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-11 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
-          </div>
-        <span class="more-meta"> 约 4787 字 </span>
-        <span class="more-meta"> 预计阅读 10 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      性能提高以及被遗弃的功能 新增截屏通知:UIApplicationUserDidTakeScreenshotNotification 在IOS 7
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/ios7%E7%9A%84%E5%8F%98%E9%9D%A9/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/">在IOS中像SnapChat一样监控screenshots</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 284 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      A number of Stack Overflowquestions were having issues with this, so I figured I’d explain. From reverse engineering, this is the exact method used by SnapChat, but it’s also pretty much what I’d have done myself. The process is pretty simple, and relies on a quirk of iOS: taking a screenshot cancels all touches on the screen. Because of that, anything that you
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/%E5%9C%A8ios%E4%B8%AD%E5%83%8Fsnapchat%E4%B8%80%E6%A0%B7%E7%9B%91%E6%8E%A7screenshots/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/old/ios/ios7%E6%88%AA%E5%B1%8F%E9%97%AE%E9%A2%98/">IOS7截屏问题</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-06-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
-          </div>
-        <span class="more-meta"> 约 840 字 </span>
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
-      <span class="more-meta"> by
- </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      iOS 7截图最新变化: 不再影响用户其他操作 在 iOS 7 中，截图动作已经发生了变化，就如苹果在版本说明中描述的那样：用户截图时，有效点击不会再失效了。这
-    </div>
-    <div class="read-more">
-      <a href="/post/old/ios/ios7%E6%88%AA%E5%B1%8F%E9%97%AE%E9%A2%98/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

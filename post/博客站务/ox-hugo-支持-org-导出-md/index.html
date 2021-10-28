@@ -52,7 +52,7 @@
 <meta itemprop="name" content="在 hugo 站点实时预览 org 生成的 md 效果">
 <meta itemprop="description" content="Test post to test another ox-hugo test."><meta itemprop="datePublished" content="2021-05-08T19:32:00+08:00" />
 <meta itemprop="dateModified" content="2021-05-14T13:56:32+08:00" />
-<meta itemprop="wordCount" content="463">
+<meta itemprop="wordCount" content="459">
 <meta itemprop="keywords" content="hugo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在 hugo 站点实时预览 org 生成的 md 效果"/>
 <meta name="twitter:description" content="Test post to test another ox-hugo test."/>
@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -163,7 +159,7 @@
         <div class="post-category">
             <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/"> 博客站务 </a>
             </div>
-          <span class="more-meta"> 约 463 字 </span>
+          <span class="more-meta"> 约 459 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -179,7 +175,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#目的">目的</a></li>
@@ -203,7 +199,7 @@
 <p>要想实现在 hugo 站点实时预览 org 生成的 md 效果,需要借助 ox-hugo 提供的自动导出的功能,配合 hugo server 实时刷新的特性,达到实时预览的目的.</p>
 <ol>
 <li><strong>实时预览</strong>:hugo server 是 hugo 常用的命令,只要启动了站点服务,就可以实时预览 md 的变更.</li>
-<li><strong>自动导出</strong>:ox-hugo 是基于 <strong>实时预览</strong>,为 <!-- raw HTML omitted -->emacs<!-- raw HTML omitted --> 用户提供了一个强大的 <strong>自动导出</strong> md 的功能.<br>
+<li><strong>自动导出</strong>:ox-hugo 是基于 <strong>实时预览</strong>,为 <span class="underline">emacs</span> 用户提供了一个强大的 <strong>自动导出</strong> md 的功能.<br>
 即:当每次编写完成保存 org 文件时,会根据 Export 相关属性,自动导出 md 文件到 hugo 站点,从而实现在 hugo 实时预览 md 效果.</li>
 </ol>
 <p>ox-hugo 的自动导出功能有类似作用域的概念,可以针对目录下所有文件,也可以仅在当前 org 文件中起作用,也可以指定 org 文件不支持自动保存.</p>

@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#agvtool自动增加版本号命令行工具">agvtool自动增加版本号命令行工具</a>
@@ -197,10 +193,10 @@
     <div class="post-content">
       <p>修改APP启动图标上的名称，需配置<code>Info.plist</code>文件，增加<code>CFBundleDisplayName</code>属性键值对。
 进入到如下界面：</p>
-<!-- raw HTML omitted -->
+<!--长宽设置百分比大小无效果-->
 <p>在<code>Info.plist</code>文件属性列表中搜索&quot;Bundle display name&quot;，如果存在就修改为新APP名称。
 如果不存在，在任何一个属性条目下，点击&quot;+&ldquo;按钮，弹出的下拉列表中选择&quot;Bundle display name&rdquo;，再双击&quot;Bundle display name&quot;属性值列，输入新APP名称。</p>
-<!-- raw HTML omitted -->
+<!--长宽设置百分比大小无效果-->
 <h2 id="agvtool自动增加版本号命令行工具">agvtool自动增加版本号命令行工具</h2>
 <p>版本号和编译号分别是代表了正式发布版本和内部版本， agvtool 是一个自动增加版本号的命令行工具。</p>
 <p>注意：版本号是给用户看的，用于标明当前的发行版本，并且被存储在 App 的 Info.plist 文件的 CFBundleShortVersionString (Bundle versions string, short) 中。编译号是内部使用的，用于标明未发行或者已内部发行的应用程序，并且它被存储在 Info.plist 文件的 CFBundleVersion (Bundle version) 中。</p>

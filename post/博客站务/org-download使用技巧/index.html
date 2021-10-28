@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -176,12 +172,12 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目的"><!-- raw HTML omitted -->1<!-- raw HTML omitted --> 目的</a></li>
-    <li><a href="#探索插入图片的几种方案"><!-- raw HTML omitted -->2<!-- raw HTML omitted --> 探索插入图片的几种方案</a></li>
-    <li><a href="#org-download工具使用"><!-- raw HTML omitted -->3<!-- raw HTML omitted --> org-download工具使用</a>
+    <li><a href="#目的"><span class="section-num">1</span> 目的</a></li>
+    <li><a href="#探索插入图片的几种方案"><span class="section-num">2</span> 探索插入图片的几种方案</a></li>
+    <li><a href="#org-download工具使用"><span class="section-num">3</span> org-download工具使用</a>
       <ul>
         <li><a href="#支持两种-org-download-method-方式">支持两种 <code>org-download-method</code> 方式：</a></li>
         <li><a href="#doom-emacs下安装">doom-emacs下安装</a></li>
@@ -199,7 +195,7 @@
     </div>
   </div>
     <div class="post-content">
-      <h2 id="目的"><!-- raw HTML omitted -->1<!-- raw HTML omitted --> 目的</h2>
+      <h2 id="目的"><span class="section-num">1</span> 目的</h2>
 <p>使用图床方式托管图片，减小hugo源文件对github库的占用控件。</p>
 <p>在使用markdown时，可以使用 <code>！[](imgUrl)</code> 语法加载图床中的图片。</p>
 <p>现在想在org-mode中实现同样的效果，尝试了以下几种方式，都无法实现。<br>
@@ -211,7 +207,7 @@ org-mode插图仅支持文件模式:</p>
 <a href="https://ox-hugo.scripter.co/doc/images-in-content/">Images in Content — ox-hugo - Org to Hugo exporter</a><br>
 <a href="https://vinurs.me/post/d4070283-b585-48b4-9275-99721b1ee36d/">利其器─Emacs/orgmode插入图片 - 知行合一</a><br>
 <a href="https://www.cnblogs.com/yangwen0228/p/6287455.html">使用Emacs中的org-mode写cnblogs之图片插入 - yangwen0228 - 博客园</a></p>
-<h2 id="探索插入图片的几种方案"><!-- raw HTML omitted -->2<!-- raw HTML omitted --> 探索插入图片的几种方案</h2>
+<h2 id="探索插入图片的几种方案"><span class="section-num">2</span> 探索插入图片的几种方案</h2>
 <ol>
 <li>
 <p>外连接图片直接粘贴路径到org中即可。</p>
@@ -322,7 +318,7 @@ snippet命令：umlimg</p>
 snippet命令：img</p>
 </li>
 </ol>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -372,7 +368,7 @@ snippet命令：img</p>
 <p>问题：<br>
 <a href="https://emacs-china.org/t/homebrew-emacs-27-1-svg/16451/3">homebrew 安装emacs 27.1 不支持svg吗? - Emacs-general - Emacs China</a><br>
 <a href="https://emacs-china.org/t/svg-invalid-image-type-svg/17561">无法显示 svg，Invalid image type &lsquo;svg&rsquo; - Emacs-general - Emacs China</a></p>
-<h2 id="org-download工具使用"><!-- raw HTML omitted -->3<!-- raw HTML omitted --> org-download工具使用</h2>
+<h2 id="org-download工具使用"><span class="section-num">3</span> org-download工具使用</h2>
 <p>org-download本身会自动在org文档当前目录下创建一个与文档同名的文件夹来保存图片，然后支持多种途径的图片插入，插入之后会复制或者下载一张图片到图片文件夹下面：</p>
 <ul>
 <li>用url把图片插入，然后自动下载；</li>

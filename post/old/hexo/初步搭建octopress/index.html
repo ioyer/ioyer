@@ -52,7 +52,7 @@
 <meta itemprop="name" content="初步搭建Octopress">
 <meta itemprop="description" content="my information"><meta itemprop="datePublished" content="2014-06-09T23:26:22+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="2976">
+<meta itemprop="wordCount" content="3026">
 <meta itemprop="keywords" content="hexo," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="初步搭建Octopress"/>
 <meta name="twitter:description" content="my information"/>
@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -163,8 +159,8 @@
         <div class="post-category">
             <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/"> 博客站务 </a>
             </div>
-          <span class="more-meta"> 约 2976 字 </span>
-          <span class="more-meta"> 预计阅读 6 分钟 </span>
+          <span class="more-meta"> 约 3026 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
  </span>
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#配置">配置：</a></li>
@@ -205,8 +201,8 @@
 <li><strong>Mou</strong>:MarkDown编辑软件，可用于后期发布博客文章。<a href="http://mouapp.com/">下载</a></li>
 <li><strong>Xcode</strong>：它将帮助你安装好Unix环境需要的开发包。</li>
 </ol>
-<p>￼<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p>￼<!--显示文章缩略部分的标记方法--></p>
+<!-- more -->
 <h1 id="学习目的">学习目的：</h1>
 <p>要求:搭建一个独立博客网站,首先要有台连接到英特网服务器,要有前端的页面和后端的数据库,以及域名等.</p>
 <ol>
@@ -279,12 +275,12 @@
 </li>
 </ul>
 <h2 id="添加多说">添加多说：</h2>
-<p>需要在多说网注册个帐号，添加站点，获取站点 <!-- raw HTML omitted -->short_name<!-- raw HTML omitted -->.</p>
+<p>需要在多说网注册个帐号，添加站点，获取站点 <font color=red>short_name</font>.</p>
 <ul>
 <li>
 <p>######底部评论：</p>
 <ul>
-<li>在 <!-- raw HTML omitted --> _config.yml<!-- raw HTML omitted --> 	中添加
+<li>在 <font color=red> _config.yml</font> 	中添加
 {%codeblock lang:ruby %}
 #duoshuo comments
 duoshuo_comments: true
@@ -293,28 +289,33 @@ duoshuo_short_name: yourname
 </ul>
 </li>
 <li>
-<p>在<!-- raw HTML omitted --><code>source/_layouts/post.html</code><!-- raw HTML omitted -->中的<!-- raw HTML omitted --> disqus<!-- raw HTML omitted -->代码：</p>
+<p>在<font color=red><code>source/_layouts/post.html</code></font>中的<font color=red> disqus</font>代码：</p>
 </li>
 </ul>
 <p>{%codeblock lang:js %}
 { % if site.disqus_short_name and page.comments == true % }
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Comments<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->{ % include post/disqus_thread.html % }<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<section>
+<h1>Comments</h1>
+<div id="disqus_thread" aria-live="polite">{ % include post/disqus_thread.html % }</div>
+</section>
 { % endif % }
 {%endcodeblock%}
-下方添加 <!-- raw HTML omitted -->多说评论<!-- raw HTML omitted --> 模块:</p>
+下方添加 <font color=red>多说评论</font> 模块:</p>
 <p>{%codeblock lang:js %}
 { % if site.duoshuo_short_name and site.duoshuo_comments == true and  page.comments == true % }</p>
-<!-- raw HTML omitted -->
+<section>
+ 			<h1>Comments</h1>
+ 				<div id="comments" aria-live="polite">{ % include post/duoshuo.html % }</div>
+ 				</section>
+{ % endif % }
+{%endcodeblock%}
 <ul>
-<li>然后就按路径创建一个<!-- raw HTML omitted -->source/_includes/post/duoshuo.html<!-- raw HTML omitted --></li>
+<li>然后就按路径创建一个<font color=red>source/_includes/post/duoshuo.html</font></li>
 </ul>
 <p>{%codeblock lang:js %}
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="{% if site.titlecase %}{{ post.title | site.titlecase }}{% else %}{{ post.title }}{% endif %}"></div>
+<script type="text/javascript">
 var duoshuoQuery = {short_name:&quot;{{ site.duoshuo_short_name }}&quot;};
 (function() {
 var ds = document.createElement(&lsquo;script&rsquo;);
@@ -324,10 +325,10 @@ ds.src = &lsquo;<a href="http://static.duoshuo.com/embed.js';">http://static.duo
 ds.charset = &lsquo;UTF-8&rsquo;;
 (document.getElementsByTagName(&lsquo;head&rsquo;)[0]  || document.getElementsByTagName(&lsquo;body&rsquo;)[0]).appendChild(ds);
 })();
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</script>
+<!-- Duoshuo Comment END -->
 {%endcodeblock%}</p>
-<p>随后，再修改 <!-- raw HTML omitted -->_includes/article.html <!-- raw HTML omitted -->文件,</p>
+<p>随后，再修改 <font color=red>_includes/article.html </font>文件,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -340,10 +341,10 @@ ds.charset = &lsquo;UTF-8&rsquo;;
 <span class="p">{</span> <span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span> <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>下方添加如下<!-- raw HTML omitted -->多说评论链接路径<!-- raw HTML omitted -->：</p>
+</div><p>下方添加如下<font color=red>多说评论链接路径</font>：</p>
 <p>{%codeblock lang:js %}
 { % if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true % }
-| <!-- raw HTML omitted -->Comments<!-- raw HTML omitted -->
+| <a href="{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#comments">Comments</a>
 { % endif % }</p>
 <p>{%endcodeblock %}</p>
 <ul>
@@ -361,17 +362,43 @@ duoshuo_asides_length: 18   # 侧边栏评论截取的长度
 {%endcodeblock %}</p>
 </li>
 <li>
-<p>再创建 <!-- raw HTML omitted -->_includes/custom/asides/recent_comments.html<!-- raw HTML omitted -->
+<p>再创建 <font color=red>_includes/custom/asides/recent_comments.html</font>
 {%codeblock lang:html %}</p>
 </li>
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<section>
+<h1>Recent Comments</h1>
+   <ul class="ds-recent-comments"
+    data-num-items="{{ site.duoshuo_asides_num }}"
+     data-show-avatars="{{ site.duoshuo_asides_avatars }}"
+      data-show-time="{{ site.duoshuo_asides_time }}"
+       data-show-title="{{ site.duoshuo_asides_title }}"
+        data-show-admin="{{ site.duoshuo_asides_admin }}"
+        data-excerpt-length="{{ site.duoshuo_asides_length }}"></ul>
+   { % if index % }
+<!-- 多说js加载开始，一个页面只需要加载一次 -->
+		<script type="text/javascript">
+		  var duoshuoQuery = {short_name:"{{ site.duoshuo_short_name }}"};
+		  (function() {
+		    var ds = document.createElement('script');
+		    ds.type = 'text/javascript';
+		    ds.async = true;
+		    ds.src = 'http://static.duoshuo.com/embed.js';
+		    ds.charset = 'UTF-8';
+		    (document.getElementsByTagName('head')[0]  ||
+		    document.getElementsByTagName('body')[0]).appendChild(ds);
+		    })();
+		</script>
+<!-- 多说js加载结束，一个页面只需要加载一次 -->
+   { % endif % }
+</section>
+{%endcodeblock %}
 <ul>
-<li>最后修改：<!-- raw HTML omitted -->_config.yml <!-- raw HTML omitted -->配置:
+<li>最后修改：<font color=red>_config.yml </font>配置:
 <ul>
-<li>方式一：在<!-- raw HTML omitted --> blog_index_asides<!-- raw HTML omitted --> 行或 <!-- raw HTML omitted -->page_asides <!-- raw HTML omitted -->行或 <!-- raw HTML omitted -->post_asides <!-- raw HTML omitted -->添加：</li>
+<li>方式一：在<font color=red> blog_index_asides</font> 行或 <font color=red>page_asides </font>行或 <font color=red>post_asides </font>添加：</li>
 </ul>
 </li>
 </ul>
@@ -426,7 +453,7 @@ default_asides: [custom/asides/recent_comments.html, asides/recent_posts.html, &
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<!--![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "title text")-->
 <ul>
 <li><strong>Octopress</strong>目录结构，及之间的关系：</li>
 </ul>

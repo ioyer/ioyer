@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#nsurlconnection机制">NSURLConnection机制</a>
@@ -227,7 +223,7 @@
 <li><code>NSURLSessionUploadTask</code>：上传文件，当上传任务完成时，也会有上传相关数据返回，所以继承自 <code>NSURLSessionDataTask</code>。</li>
 <li><code>NSURLSessionDownloadTask</code>：下载文件，当下载任务结束时，它会返回已下载文件的一个临时的文件路径。</li>
 </ol>
-<!-- raw HTML omitted -->
+<img alt="NSURLSessionTask class diagram" src="https://www.objccn.io/images/issues/issue-5/NSURLSession.png" width="612" height="294">
 <p>所有的 task 都是可以取消，暂停或者恢复的。当一个 download task 取消时，可以通过选项来创建一个<strong>恢复数据（resume data）</strong>，然后可以传递给下一次新创建的 download task，以便继续之前的下载。</p>
 <h4 id="工厂方法">工厂方法</h4>
 <p>不同于直接使用 <code>alloc-init</code> 初始化方法，task 是由一个 <code>NSURLSession</code> 创建的。每个 task 的构造方法都对应有或者没有 <code>completionHandler</code> 这个 block 的两个版本:</p>
@@ -339,7 +335,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p><!-- raw HTML omitted -->编者注<!-- raw HTML omitted --> 原文中这块代码以及上文的表述中存有一些问题，详见这个 <a href="https://github.com/objcio/articles/issues/24">issue</a>，本文已进行更正，如果您有不同意见，欢迎在 <a href="https://github.com/objccn/articles">Github</a> 上给我们反馈。</p>
+<p><span class="secondary radius label">编者注</span> 原文中这块代码以及上文的表述中存有一些问题，详见这个 <a href="https://github.com/objcio/articles/issues/24">issue</a>，本文已进行更正，如果您有不同意见，欢迎在 <a href="https://github.com/objccn/articles">Github</a> 上给我们反馈。</p>
 </blockquote>
 <h4 id="nsurlsession-的-delegate-方法">NSURLSession 的 delegate 方法</h4>
 <p><code>NSURLSession</code> 的 delegate 方法是 <code>NSURLConnection</code> 的演化的十年中对于 ad-hoc 模式的一个显著改善。您可以查看这个<a href="https://gist.github.com/floriankugler/6870499">映射表</a>来进行一个完整的概览。</p>

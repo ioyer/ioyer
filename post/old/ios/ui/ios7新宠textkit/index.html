@@ -19,7 +19,8 @@
 
 <meta name="author" content="iTBoyer" /><meta name="description" content="Text Kit Text Kit：是个庞大的framework，继承了Core Text的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过NSTextStorage对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。
  更直观的理解，UITextView，UITextField、UILabel等UIKit控件都已经基于Text Kit重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.
-例如：NSTextStorage对象，它本身是NSMutableAttributedString的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。 IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下Core Text。后来iOS6，增加一个很棒的属性:NSAttributedString，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的Text Kit新宠。
+例如：NSTextStorage对象，它本身是NSMutableAttributedString的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。
+ IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下Core Text。后来iOS6，增加一个很棒的属性:NSAttributedString，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的Text Kit新宠。
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：
 " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
@@ -129,10 +130,8 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -162,9 +161,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -202,7 +199,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#text-kit">Text Kit</a></li>
@@ -221,8 +218,8 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
       <h2 id="text-kit">Text Kit</h2>
 <p><strong><code>Text Kit</code></strong>：是个庞大的framework，继承了<code>Core Text</code>的全部功能，构建了快速、先进的文本排版和渲染引擎，更让开发者们高兴的是，设计者把它封装在了一个面向对象的API中。并且与UIKit框架很好的集成，它让程序能够通过<strong>NSTextStorage</strong>对象存储文本排版和显示文本等主要信息，并支持排版所需要的所有特性，包括字距调整、连写、换行和对齐等。</p>
 <blockquote>
-<p><!-- raw HTML omitted -->更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
-例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。<!-- raw HTML omitted --></p>
+<p><font size=3>更直观的理解，<strong>UITextView</strong>，<strong>UITextField</strong>、<strong>UILabel</strong>等UIKit控件都已经基于<strong>Text Kit</strong>重新构建，是为UIKit框架提供高质量排版服务而扩展的一些类和协议.<br>
+例如：NSTextStorage对象，它本身是<strong>NSMutableAttributedString</strong>的子类，支持分批编辑，这就意味着在改变一个范围内的字符样式时，不用整体替换文本内容，就能完成排版效果。其中支持分页文本、文本包装、富文本编辑、交互式文本着色、文本折叠和自定义截取等特性。</font></p>
 </blockquote>
 <p>IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下<code>Core Text</code>。后来iOS6，增加一个很棒的属性:<code>NSAttributedString</code>，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的<code>Text Kit</code>新宠。<br>
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：<br>

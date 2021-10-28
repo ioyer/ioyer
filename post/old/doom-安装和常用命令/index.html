@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -171,7 +167,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#编辑命令">编辑命令</a></li>
@@ -252,33 +248,37 @@
 <h3 id="hugo-项目中管理-doom-版本">hugo 项目中管理 doom 版本</h3>
 <h3 id="doom-工具的基本命令-install-refresh-upgrade-使用">doom 工具的基本命令（install/refresh/upgrade）使用</h3>
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-03-24 二 15:46]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-03-24 二 15:46]</span></span></li>
 </ul>
 <p>`控制工作`：任务任用</p>
 <h4 id="升级-doom-和-package">升级 doom 和 package</h4>
 <p>方式一：</p>
-<!-- raw HTML omitted -->
+<div class="shell">
+  <div></div>
 <p>doom upgrade   # or &lsquo;doom up&rsquo;自动升级</p>
-<!-- raw HTML omitted -->
+</div>
 <p>方式二：手动升级</p>
-<!-- raw HTML omitted -->
+<div class="shell">
+  <div></div>
 <p>cd ~/.emacs.d<br>
 git pull        # updates Doom<br>
 doom clean      # Ensure your config isn&rsquo;t byte-compiled<br>
 doom sync       # synchronizes your config with Doom Emacs<br>
 doom update     # updates installed packages</p>
-<!-- raw HTML omitted -->
+</div>
 <h4 id="仅升级-package">仅升级 package</h4>
 <p>To upgrade only your packages (and not Doom itself):</p>
-<!-- raw HTML omitted -->
+<div class="shell">
+  <div></div>
 <p>doom upgrade &ndash;packages</p>
-<!-- raw HTML omitted -->
+</div>
 <h4 id="重装-doom-环境">重装 doom 环境</h4>
 <p><a href="https://github.com/hlissner/doom-emacs/blob/develop/docs/getting%5Fstarted.org#updowngrading-emacs">重装两种方式：</a></p>
-<!-- raw HTML omitted -->
+<div class="emacs">
+  <div></div>
 <p>rm -rf ~/.emacs.d/.local<br>
 doom sync</p>
-<!-- raw HTML omitted -->
+</div>
 <h3 id="doom-中的-module-创建和实现-helloword-加载实现">doom 中的 module 创建和实现 helloword 加载实现</h3>
 <h3 id="doom-帮助文档的使用">doom 帮助文档的使用</h3>
 <h2 id="统计命令">统计命令</h2>
@@ -350,7 +350,7 @@ org-insert-todo-subheading : 子节点 todo</p>
 <h2 id="eww-浏览器">eww 浏览器</h2>
 <h3 id="配置默认搜索引擎">配置默认搜索引擎</h3>
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-05-06 三 16:15]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-05-06 三 16:15]</span></span></li>
 </ul>
 <p>在 config 中配置：默认搜索引擎<br>
 (setq eww-search-prefix &ldquo;<a href="https://github.com/search?q">https://github.com/search?q</a>=&quot;)</p>
@@ -375,10 +375,10 @@ H:返回上一页</p>
 <p>SPC f e d 打开配置文件<br>
 SPC f e R 重加载配置文件<br>
 Shift h 查看当前 buffer 启动的 mode</p>
-<p>我最近开始使用 emacs 。Evil 和 org 模式。 当在组织模式下记录时，程序会进入 <!-- raw HTML omitted --> 模式，我可以在框架底部的状态栏上看到。 启动 emacs 时，我通常在状态栏上看到一个 <!-- raw HTML omitted --> 。我认为<br>
-<!-- raw HTML omitted --> - 用于正常模式<br>
-<!-- raw HTML omitted --> - 用于插入模式什么是 <!-- raw HTML omitted --> 模式？如何在不重新启动 emacs 的情况下返回到正常模式？<br>
-<a href="https://ask.helplib.com/emacs/post%5F12452808">Emacs Evil <!-- raw HTML omitted --> 模式和org模式_emacs_HELPLIB 编程知识库</a></p>
+<p>我最近开始使用 emacs 。Evil 和 org 模式。 当在组织模式下记录时，程序会进入 <E> 模式，我可以在框架底部的状态栏上看到。 启动 emacs 时，我通常在状态栏上看到一个 <N> 。我认为<br>
+<N> - 用于正常模式<br>
+<I> - 用于插入模式什么是 <E> 模式？如何在不重新启动 emacs 的情况下返回到正常模式？<br>
+<a href="https://ask.helplib.com/emacs/post%5F12452808">Emacs Evil <E> 模式和org模式_emacs_HELPLIB 编程知识库</a></p>
 <h3 id="yasnippet-使用">yasnippet 使用</h3>
 <p>暂时把所有的 snippet 都移动到 org-mode 中，可以正常加载使用</p>
 <div class="highlight"><div class="chroma">
@@ -403,17 +403,18 @@ F pull 命令<br>
 &quot; subtree 命令</p>
 <h2 id="在-treemacs-中无法启动-file-templates-问题">在 treemacs 中无法启动 file-templates 问题</h2>
 <ul>
-<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <!-- raw HTML omitted --><!-- raw HTML omitted -->[2020-05-11 一 09:35]<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-05-11 一 09:35]</span></span></li>
 </ul>
 <p>在 ~/.doom.d/config.el 加入如下脚本：</p>
-<!-- raw HTML omitted -->
+<div class="elisp">
+  <div></div>
 <p>(add-hook! &lsquo;treemacs-create-file-functions<br>
 (defun expand-file-template (file)<br>
 (with-current-buffer (or (get-file-buffer file)<br>
 (find-file-noselect file))<br>
 (when-let (rule (cl-find-if #'+file-template-p +file-templates-alist))<br>
 (apply #'+file-templates&ndash;expand rule)))))</p>
-<!-- raw HTML omitted -->
+</div>
 
     </div>
 

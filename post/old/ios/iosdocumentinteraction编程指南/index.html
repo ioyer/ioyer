@@ -150,7 +150,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 
 "><meta itemprop="datePublished" content="2014-07-01T23:12:01+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="4071">
+<meta itemprop="wordCount" content="4080">
 <meta itemprop="keywords" content="文档,API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS Document Interaction 编程指南"/>
 <meta name="twitter:description" content="关于 Document Interaction
@@ -243,10 +243,8 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -276,9 +274,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -306,7 +302,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 4071 字 </span>
+          <span class="more-meta"> 约 4080 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -316,7 +312,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li>
@@ -410,7 +406,7 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 </div>
 </div><p>实例创建后，可以通过它的属性来读取与之关联的文件信息，包括文件名、类型和URL。该实例中还有一个<code>icons</code>属性，其中包含了多个 <code>UIImage</code> 对象,可以用于表示该文档的多个大小的图标。这些信息可用于UI。</p>
 <p>如果用其他APP打开该文件，可以利用该实例的 <code>annotation</code> 属性，该属性包含了其他APP所需的附加信息。当然信息的格式必须能够被该APP识别。<br>
-例如:当程序想与套件中的其他程序进行交互时，就可以使用<code>annotation</code> 属性。当被调用应用程序打开一个文件时，<code>option</code> 字典中会包含 <code>annotation</code> 的值，可以使用<!-- raw HTML omitted -->UIApplicationLaunchOptionsAnnotationKey<!-- raw HTML omitted --> 作为键在<code>option</code>字典中检索它。</p>
+例如:当程序想与套件中的其他程序进行交互时，就可以使用<code>annotation</code> 属性。当被调用应用程序打开一个文件时，<code>option</code> 字典中会包含 <code>annotation</code> 的值，可以使用<font color=red size = 1>UIApplicationLaunchOptionsAnnotationKey</font> 作为键在<code>option</code>字典中检索它。</p>
 <h4 id="呈现-document-interaction-controller">呈现 Document Interaction Controller</h4>
 <p>用户可以通过 <code>Document interaction controller</code>实例，来预览该文件，或者通过弹出菜单让用户选择相应的动作。</p>
 <ul>
@@ -492,21 +488,21 @@ LSHandlerRank 				//表示应用程序是“拥有”还是仅仅是“打开”
 <ul>
 <li>**<code>CFBundleDocumentTypes</code>**字典数组示例:
 {%codeblock lang:html 自定义文件格式的文档类型 %}
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->CFBundleTypeName<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->My File Format<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->CFBundleTypeIconFiles<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->MySmallIcon.png<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->MyLargeIcon.png<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->LSItemContentTypes<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->com.example.myformat<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->LSHandlerRank<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Owner<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<dict>
+<key>CFBundleTypeName</key>
+<string>My File Format</string>
+<key>CFBundleTypeIconFiles</key>
+<array>
+<string>MySmallIcon.png</string>
+<string>MyLargeIcon.png</string>
+</array>
+<key>LSItemContentTypes</key>
+<array>
+<string>com.example.myformat</string>
+</array>
+<key>LSHandlerRank</key>
+<string>Owner</string>
+</dict>
 {%endcodeblock%}</li>
 </ul>
 <h4 id="打开支持的文件类型">打开支持的文件类型</h4>
@@ -519,7 +515,7 @@ LSHandlerRank 				//表示应用程序是“拥有”还是仅仅是“打开”
 {%endcodeblock%}</li>
 </ul>
 <blockquote>
-<p><!-- raw HTML omitted -->注:如果你的程序要处理某些自定义的文件类型，就必须实现这个委托方法（而不是**<code>applicationDidFinishLaunching:</code>**方法) 并用这个方法启动应用程序<!-- raw HTML omitted --></p>
+<p><font size =1>注:如果你的程序要处理某些自定义的文件类型，就必须实现这个委托方法（而不是**<code>applicationDidFinishLaunching:</code>**方法) 并用这个方法启动应用程序</font></p>
 </blockquote>
 <p>该方法的**<code>option</code>**包含了要打开的文件的相关信息，可以通过以下键名一一解析：
 {%codeblock lang:objc %}
@@ -556,7 +552,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
 </li>
 </ul>
 <blockquote>
-<p><!-- raw HTML omitted -->预览窗口中会包括一个标题，显示文件 URL 的最后一段路径。如果要重载标题，可以定制**<code>PreviewItem</code>** 类，并实现**<code>QLPreviewItem</code>** 协议中的 **previewItemTitle**方法。<!-- raw HTML omitted --></p>
+<p><font size=1 >预览窗口中会包括一个标题，显示文件 URL 的最后一段路径。如果要重载标题，可以定制**<code>PreviewItem</code>** 类，并实现**<code>QLPreviewItem</code>** 协议中的 **previewItemTitle**方法。</font></p>
 </blockquote>
 <ul>
 <li>

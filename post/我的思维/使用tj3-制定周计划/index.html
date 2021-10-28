@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -176,7 +172,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#目的">目的</a></li>
@@ -282,7 +278,7 @@
 <p><code>duration</code>: 指定任务应该持续的时间。这是日历时间，不是工作时间。7d 表示一周。</p>
 <p>如果指定了资源，则在可用时分配它们。资源的可用性对任务的持续时间没有影响。它将始终是指定的持续时间。</p>
 <p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>Effort</code> 和 <code>lenght</code> 属性。</p>
-<p>duration <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+<p>duration <value> (min | h | d | w | m | y)</p>
 </li>
 <li>
 <p><code>length</code> : 将此任务的持续时间指定为工作时间，而不是日历时间。7d 表示 7 个工作日，或 7 次 8 小时（假设默认设置），而不是一周。</p>
@@ -290,7 +286,7 @@
 <p>如果没有全球假期，那么没有指定资源可用的时间段仍被视为工作时间，并且相应地定义了全球工作时间。</p>
 <p>对于长度计算，除非任务已分配班次，否则全局工作时间和全局休假很重要。在后一种情况下，轮班的工作时间和假期适用于指定的时间段，以确定某个时段是否为工作时间。如果资源定义了额外的工作时间，则长度为 5d 的任务很可能会分配超过 40 小时的工作量。资源工作时间仅影响是否为特定时间段进行分配。它们不会影响任务的最终持续时间。</p>
 <p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>duration~、~Effort</code> 和 <code>milestone</code> 属性。</p>
-<p>length <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+<p>length <value> (min | h | d | w | m | y)</p>
 </li>
 <li>
 <p><code>Effort</code> : 指定完成任务所需的工作量。 <code>Effort: 6d</code> （6资源天）可与2专职资源情况下，在3个工作日内完成。</p>
@@ -298,7 +294,7 @@
 <p>在分配的资源贡献了指定的工作量之前，任务不会完成。因此，任务的持续时间将取决于所分配资源的可用性。指定的 <code>Effort值</code> 必须至少与 <code>timingresolution</code> 一样大。</p>
 <p>警告：在几乎所有现实世界的项目中， <code>Effort</code> 并不是时间和资源的产物。仅当可以在不增加任何开销的情况下对任务进行分区时，这才是正确的。有关这方面的更多信息，请阅读Frederick P. Brooks, Jr. 的The Mythical Man-Month。</p>
 <p>如果使用此属性，任务可能没有子任务。设置此属性将重置 <code>duration</code> 持续时间和 <code>length</code> 长度属性。具有 <code>Effort值</code> 的任务不能成为里程碑。</p>
-<p>effort <!-- raw HTML omitted --> (min | h | d | w | m | y)</p>
+<p>effort <value> (min | h | d | w | m | y)</p>
 </li>
 </ol>
 </li>
@@ -320,7 +316,7 @@
 <p>tj3 定义一个任务的几个属性，任务名称，任务Id,任务依赖，任务评估时长，开始，结束时间等：</p>
 </li>
 </ol>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -377,7 +373,7 @@
 <ol>
 <li>Taskjuggler 中的任务可能如下所示：</li>
 </ol>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

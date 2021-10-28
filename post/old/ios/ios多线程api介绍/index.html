@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#os-x-和-ios-中的并发编程">OS X 和 iOS 中的并发编程</a>
@@ -635,11 +631,11 @@
 <h4 id="子线程中使用runloop">子线程中使用runloop</h4>
 <p>主线程一般来说都已经配置好了 main run loop。然而其他线程默认情况下都没有设置 run loop。你也可以自行为其他线程设置 run loop ，但是一般来说我们很少需要这么做。大多数时间使用 main run loop 会容易得多。如果你需要处理一些很重的工作，但是又不想在主线程里做，你仍然可以在你的代码在 main run loop 中被调用后将工作分配给其他队列。Chris 在他关于<a href="http://objccn.io/issue-2-2/">常见的后台实践</a>的文章里阐述了一些关于这种模式的很好的例子。</p>
 <p>如果你真需要在别的线程中添加一个 run loop ，那么不要忘记在 run loop 中至少添加一个 input source 。如果 run loop 中没有设置好的 input source，那么每次运行这个 run loop ，它都会立即退出。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="challenges" id="challenges"> </a></p>
 <h2 id="并发编程中面临的挑战">并发编程中面临的挑战</h2>
 <p>使用并发编程会带来许多陷阱。只要一旦你做的事情超过了最基本的情况，对于并发执行的多任务之间的相互影响的不同状态的监视就会变得异常困难。 问题往往发生在一些不确定性（不可预见性）的地方，这使得在调试相关并发代码时更加困难。</p>
 <p>关于并发编程的不可预见性有一个非常有名的例子：在1995年， NASA (美国宇航局)发送了开拓者号火星探测器，但是当探测器成功着陆在我们红色的邻居星球后不久，任务<a href="http://research.microsoft.com/en-us/um/people/mbj/Mars_Pathfinder/Mars_Pathfinder.html">嘎然而止</a>，火星探测器莫名其妙的不停重启，在计算机领域内，遇到的这种现象被定为为<a href="#priority_inversion">优先级反转</a>，也就是说低优先级的线程一直阻塞着高优先级的线程。稍后我们会看到关于这个问题的更多细节。在这里我们想说明的是，即使拥有丰富的资源和大量优秀工程师的智慧，并发也还是会在不少情况下反咬你一口。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="shared_resources" id="shared_resources"> </a></p>
 <h3 id="资源共享">资源共享</h3>
 <p>并发编程中许多问题的根源就是在多线程中访问共享资源。资源可以是一个属性、一个对象，通用的内存、网络设备或者一个文件等等。在多线程中任何一个共享的资源都可能是一个潜在的冲突点，你必须精心设计以防止这种冲突的发生。</p>
 <h4 id="示例">示例</h4>
@@ -663,7 +659,7 @@
 <h4 id="不同类型的锁">不同类型的锁</h4>
 <p>锁也有不同的类型。当没有竞争时，有些锁在没有锁竞争的情况下性能很好，但是在有锁的竞争情况下，性能就会大打折扣。另外一些锁则在基本层面上就比较耗费资源，但是在竞争情况下，性能的恶化会没那么厉害。(<a href="http://en.wikipedia.org/wiki/Lock_%28computer_science%29#Granularity">锁的竞争</a>是这样产生的：当一个或者多个线程尝试获取一个已经被别的线程获取过了的锁)。</p>
 <p>我们经常能看到本来计划并行运行的代码，但实际上由于共享资源中配置了相关的锁，所以同一时间只有一个线程是处于激活状态的。对于你的代码会如何在多核上运行的预测往往十分重要，你可以使用 Instrument 的 <a href="http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/AnalysingCPUUsageinYourOSXApp/AnalysingCPUUsageinYourOSXApp.html">CPU strategy view</a> 来检查是否有效的利用了 CPU 的可用核数，进而得出更好的想法，以此来优化代码。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="dead_locks" id="dead_locks"> </a></p>
 <h3 id="死锁">死锁</h3>
 <p>互斥锁解决了竞态条件的问题，但很不幸同时这也引入了一些<a href="http://en.wikipedia.org/wiki/Lock_%28computer_science%29#The_problems_with_locks">其他问题</a>，其中一个就是<a href="http://en.wikipedia.org/wiki/Deadlock">死锁</a>。当多个线程在相互等待着对方的结束时，就会发生死锁，这时程序可能会被卡住。</p>
 <p><img src="https://www.objccn.io/images/issue-2/dead-lock.png" alt="死锁"></p>
@@ -715,7 +711,7 @@
 <p>当你认为已经足够了解并发编程面临的问题时，又出现了一个新的问题。锁定的共享资源会引起<a href="http://en.wikipedia.org/wiki/Readers-writers_problem">读写问题</a>。大多数情况下，限制资源一次只能有一个线程进行读取访问其实是非常浪费的。因此，在资源上没有写入锁的时候，持有一个读取锁是被允许的。这种情况下，如果一个持有读取锁的线程在等待获取写入锁的时候，其他希望读取资源的线程则因为无法获得这个读取锁而导致<a href="http://en.wikipedia.org/wiki/Resource_starvation">资源饥饿</a>的发生。</p>
 <h4 id="解决方案-1">解决方案</h4>
 <p>为了解决这个问题，我们需要使用一个比简单的读/写锁更聪明的方法，例如给定一个 <a href="http://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock">writer preference</a>，或者使用 <a href="http://en.wikipedia.org/wiki/Read-copy-update">read-copy-update</a> 算法。Daniel 在<a href="http://objccn.io/issue-2-3/#multiple-readers-single-writer">底层并发编程 API </a>中有介绍了如何用 GCD 实现一个多读取单写入的模式，这样就不会被写入资源饥饿的问题困扰了。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="priority_inversion" id="priority_inversion"> </a></p>
 <h2 id="优先级反转">优先级反转</h2>
 <p>本节开头介绍了美国宇航局发射的开拓者号火星探测器在火星上遇到的并发问题。现在我们就来看看为什么开拓者号几近失败，以及为什么有时候我们的程序也会遇到相同的问题，该死的<a href="http://en.wikipedia.org/wiki/Priority_inversion">优先级反转</a>。</p>
 <p>优先级反转是指程序在运行时低优先级的任务阻塞了高优先级的任务，有效的反转了任务的优先级。由于 GCD 提供了拥有不同优先级的后台队列，甚至包括一个 I/O 队列，所以我们最好了解一下优先级反转的可能性。</p>

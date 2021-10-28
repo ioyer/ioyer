@@ -381,10 +381,8 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -414,9 +412,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -454,7 +450,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#便笺练习功能点">便笺练习功能点:</a></li>
@@ -612,7 +608,7 @@ Build并运行app，修改字体大小设置，行高也会随着字体大小的
 <h3 id="凸版印刷效果letterpress-effects">凸版印刷效果（Letterpress effects）</h3>
 <p>凸版印刷效果（Letterpress effects）给文字加上精致的阴影和高光是文字看上去有一定立体感——就好像轻轻嵌入屏幕里一样。</p>
 <blockquote>
-<p><!-- raw HTML omitted -->注: 使用“凸版印刷（letterpress）”这一印刷术语是向早期印刷业的致敬。所谓凸版印刷，就是将涂上油墨的图文凸版嵌在印版上，然后在纸面上按压就把图文凸版上的油墨转移到纸面上了——纸面受力在文字边缘形成好看的突起。现在这一工艺已广泛被数码打印所取代。<!-- raw HTML omitted --></p>
+<p><font size=3>注: 使用“凸版印刷（letterpress）”这一印刷术语是向早期印刷业的致敬。所谓凸版印刷，就是将涂上油墨的图文凸版嵌在印版上，然后在纸面上按压就把图文凸版上的油墨转移到纸面上了——纸面受力在文字边缘形成好看的突起。现在这一工艺已广泛被数码打印所取代。</font></p>
 </blockquote>
 <p>打开NotesListViewController.m 将<code>tableView:cellForRowAtIndexPath: </code>方法中的代码用以下代码替换:<br>
 {%codeblock lang:objc%}
@@ -652,7 +648,7 @@ cell.textLabel?.attributedText = NSAttributedString.init(string: note.title, att
 return cell
 }
 {% endcodeblock %}</p>
-<p>上面的代码为单元格的标题创建了一个使用了凸版印刷效果的**<code>NSAttributedString</code>**。  <!-- raw HTML omitted -->
+<p>上面的代码为单元格的标题创建了一个使用了凸版印刷效果的**<code>NSAttributedString</code>**。  <p>
 Build并运行app， 表格将显示凸版印刷效果，如下图所示：<br>
 <img src="/images/Letterpress.png" alt="image"><br>
 凸版印刷效果是很精巧——但是并不表示你可以随意过度使用它。视觉特效能让文字看上去更有趣，但并不表示一定能让你的文字更清晰易读。</p>
@@ -1028,7 +1024,7 @@ view.addSubview(textView)
 <p>现在回顾之前那个图表所展示的四个关键类(文本存储器<code>storage</code>, 布局管理器<code>layout manager</code>, 文本容器<code>container</code> 和文本视图<code>textView</code>)之间的关系，是不是觉得理解起来容易多了。<br>
 <img src="/images/TextKitStack-443x320.png" alt="image"></p>
 <blockquote>
-<p><!-- raw HTML omitted -->注意:文本容器的宽度会自动匹配视图的宽度，但是它的高度是无限高的——或者说无限接近于<code>CGFLOAT_MAX</code>，它的值可以是无限大。不管怎么说，它的高度足够让<code>UITextView</code>上下滚动以容纳很长的文本。<!-- raw HTML omitted --></p>
+<p><font size=3>注意:文本容器的宽度会自动匹配视图的宽度，但是它的高度是无限高的——或者说无限接近于<code>CGFLOAT_MAX</code>，它的值可以是无限大。不管怎么说，它的高度足够让<code>UITextView</code>上下滚动以容纳很长的文本。</font></p>
 </blockquote>
 <p>在<code>viewDidLoad</code>方法中调用超类的<code>viewDidLoad</code>方法的语句后面添加以下一行代码：
 {%codeblock lang:objc%}
@@ -1144,7 +1140,7 @@ BOOL *stop){</p>
 </ul>
 <p>将后一个星号符之后的文本都重置为“常规”样式。以保证添加在后一个星号符之后的文本不被粗体风格所影响。</p>
 <blockquote>
-<p><!-- raw HTML omitted -->注： 字体描述器（<strong>Font descriptors</strong>）是一种描述性语言，它使你可以通过设置属性来修改字体，或者无需初始化<code>UIFont</code>实例便可获取字体规格的细节。<!-- raw HTML omitted --></p>
+<p><font size=3>注： 字体描述器（<strong>Font descriptors</strong>）是一种描述性语言，它使你可以通过设置属性来修改字体，或者无需初始化<code>UIFont</code>实例便可获取字体规格的细节。</font></p>
 </blockquote>
 <p>Build并运行app；向便笺中输入文本，并将其中一个词用星号符包围。这个词将会自动变为黑体，如下面截图所示：<br>
 <img src="/images/BoldText.png" alt="image"></p>
@@ -1208,7 +1204,7 @@ w+   	 	 —— 后接一个或多个 “word”式 字符串<br>
 s   	  —— 以空格结尾<br>
 {%endcodeblock%}</p>
 <blockquote>
-<p><!-- raw HTML omitted -->注：如果你想对正则表达式有更多了解，请参考 <a href="http://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet">NSRegularExpression tutorial and cheat sheet</a>.<!-- raw HTML omitted --></p>
+<p><font size=3>注：如果你想对正则表达式有更多了解，请参考 <a href="http://www.raywenderlich.com/30288/nsregularexpression-tutorial-and-cheat-sheet">NSRegularExpression tutorial and cheat sheet</a>.</font></p>
 </blockquote>
 <p>现在你需要调用<code>createHighlightPatterns：</code>
 将<strong>SyntaxHighlightTextStorage.m</strong> 中的<code>init</code>方法更新如下：

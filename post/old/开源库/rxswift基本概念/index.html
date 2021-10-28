@@ -52,7 +52,7 @@
 <meta itemprop="name" content="RxSwift基本概念">
 <meta itemprop="description" content="FRP函数式反应型编程 Functional Reactive Programming ， 缩写为 FRP 函数编程 函数是第一等公民 所谓 第一等公民 (first class) ，指的是函数与其他数据类型一样，处于平等地位。既可以赋值给其"><meta itemprop="datePublished" content="2017-03-03T13:01:41+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="4144">
+<meta itemprop="wordCount" content="4152">
 <meta itemprop="keywords" content="SDK," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RxSwift基本概念"/>
 <meta name="twitter:description" content="FRP函数式反应型编程 Functional Reactive Programming ， 缩写为 FRP 函数编程 函数是第一等公民 所谓 第一等公民 (first class) ，指的是函数与其他数据类型一样，处于平等地位。既可以赋值给其"/>
@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -163,7 +159,7 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 4144 字 </span>
+          <span class="more-meta"> 约 4152 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#frp函数式反应型编程">FRP函数式反应型编程</a></li>
@@ -256,7 +252,7 @@ let increment = { return $0 + 1 }
 <h4 id="map-映射函数">map 映射函数</h4>
 <p><code>map</code> 可以把一个数组按照一定的规则转换成另一个数组，定义如下：
 {% codeblock lang:swift %}
-func map<!-- raw HTML omitted -->(transform: (T) -&gt; U) -&gt; U[]
+func map<U>(transform: (T) -&gt; U) -&gt; U[]
 //效果
 [ x1, x2, &hellip; , xn].map(f) -&gt; [f(x1), f(x2), &hellip; , f(xn)]
 {% endcodeblock %}
@@ -274,7 +270,7 @@ println(filteredArray) // [45, 32]
 <p><code>reduce</code>函数把<code>U</code>类型集合中的所有元素，以<code>initial</code>为初始值，按照<code>combine</code>规则，逐个迭代并返回一个U类型的对象。
 定义如下：
 {% codeblock lang:swift %}
-func reduce<!-- raw HTML omitted -->(initial: U, combine: (U, T) -&gt; U) -&gt; U
+func reduce<U>(initial: U, combine: (U, T) -&gt; U) -&gt; U
 {% endcodeblock %}
 reduce 有两个参数，<code>initial</code>是初始值，<code>combine</code>定义规则闭包，闭包有两个输入的参数，一个是原始值，一个是新进来的值，闭包返回的新值作为下一轮循环中的<code>initial</code>值。
 写几个小例子试一下：
@@ -337,9 +333,9 @@ Swift 本身并不是一门函数式语言，不过有一些函数式的方法�
 <ol>
 <li><code>empty</code>是一个空的序列，它只发送 <code>.Completed</code> 消息。
 {% codeblock Observable+Creation.swift lang:swift %}
-public static func empty() -&gt; Observable<!-- raw HTML omitted -->
+public static func empty() -&gt; Observable<E>
 example(&ldquo;empty&rdquo;) {
-let emptySequence: Observable<!-- raw HTML omitted --> = empty()
+let emptySequence: Observable<Int> = empty()
 let subscription = emptySequence.subscribe { event in
 print(event)
 }
@@ -354,7 +350,7 @@ Completed
 <ul>
 <li>returns: An observable sequence whose observers will never get called.
 */
-public static func never() -&gt; Observable<!-- raw HTML omitted -->
+public static func never() -&gt; Observable<E>
 {% endcodeblock %}</li>
 </ul>
 <ol start="3">
@@ -363,27 +359,27 @@ public static func never() -&gt; Observable<!-- raw HTML omitted -->
 /**
 Returns an observable sequence that contains a single element.
 */
-public static func just(_ element: E) -&gt; Observable<!-- raw HTML omitted --> {
+public static func just(_ element: E) -&gt; Observable<E> {
 return Just(element: element)
 }
 {% endcodeblock %}</li>
 <li><code>sequenceOf</code> 可以把一系列元素转换成订阅源
 {% codeblock lang:swift %}
-let sequenceOfElements/* : Observable<!-- raw HTML omitted --> */ = sequenceOf(0, 1, 2, 3)
+let sequenceOfElements/* : Observable<Int> */ = sequenceOf(0, 1, 2, 3)
 {% endcodeblock %}</li>
 <li><code>asObservable方法</code> 将遵守<code>ObservableType</code>协议的对象转为可观察者序列
 {% codeblock ObservableType.swift lang:swift %}
 public protocol ObservableType : ObservableConvertibleType
 {
 //Default implementation of converting <code>ObservableType</code> to <code>Observable</code>.
-public func asObservable() -&gt; Observable<!-- raw HTML omitted -->
+public func asObservable() -&gt; Observable<E>
 }
 let sequenceFromArray = [1, 2, 3, 4, 5].asObservable()
 {% endcodeblock %}</li>
 <li><code>failWith</code>创建一个没有元素的序列，只会发送失败 (<code>.Error</code>) 事件。
 {% codeblock lang:swift %}
 let error = NSError(domain: &ldquo;Test&rdquo;, code: -1, userInfo: nil)
-let erroredSequence: Observable<!-- raw HTML omitted --> = failWith(error)
+let erroredSequence: Observable<Int> = failWith(error)
 let subscription = erroredSequence.subscribe { event in print(event)}
 &mdash; failWith example &mdash;
 Error(Error Domain=Test Code=-1 &ldquo;The operation couldn’t be completed. (Test error -1.)&quot;)
@@ -394,7 +390,7 @@ Error(Error Domain=Test Code=-1 &ldquo;The operation couldn’t be completed. (T
 {% codeblock lang:swift %}
 example(&ldquo;create&rdquo;)
 {
-let myJust = { (singleElement: Int) -&gt; Observable<!-- raw HTML omitted --> in
+let myJust = { (singleElement: Int) -&gt; Observable<Int> in
 return create { observer in
 observer.on(.Next(singleElement))
 observer.on(.Completed)
@@ -435,7 +431,7 @@ Completed
 <p>当<code>PublishSubject</code>类型订阅源事件队列中<code>.on()</code>新增事件时，会触发所有订阅者，一起响应该事件。
 {% codeblock lang:swift %}
 example(&ldquo;PublishSubject&rdquo;) {
-let subject = PublishSubject<!-- raw HTML omitted -->()
+let subject = PublishSubject<String>()
 writeSequenceToConsole(&ldquo;1&rdquo;, sequence: subject)
 subject.on(.Next(&ldquo;a&rdquo;))
 subject.on(.Next(&ldquo;b&rdquo;))
@@ -459,7 +455,7 @@ Subscription: 2, event: Next(d)
 {% codeblock lang:swift %}
 example(&ldquo;ReplaySubject&rdquo;)
 {
-let subject = ReplaySubject<!-- raw HTML omitted -->.create(bufferSize: 1)
+let subject = ReplaySubject<String>.create(bufferSize: 1)
 writeSequenceToConsole(&ldquo;1&rdquo;, sequence: subject)
 subject.on(.Next(&ldquo;a&rdquo;))
 subject.on(.Next(&ldquo;b&rdquo;))
@@ -526,7 +522,7 @@ Subscription: 2, event: Completed
 <h3 id="map规则-遍历映射">map{规则} 遍历映射</h3>
 <p>通过闭包中定义的规则将队列中的数据映射到新的队列中，支持订阅遍历事件。
 {% codeblock lang:swift %}
-func map<!-- raw HTML omitted -->(transform: (T) -&gt; U) -&gt; U[]
+func map<U>(transform: (T) -&gt; U) -&gt; U[]
 //效果
 [ x1, x2, &hellip; , xn].map(f) -&gt; [f(x1), f(x2), &hellip; , f(xn)]
 {% endcodeblock %}
@@ -647,8 +643,8 @@ Completed
 {% codeblock lang:swift %}
 example(&ldquo;combineLatest 1&rdquo;)
 {
-let intOb1 = PublishSubject<!-- raw HTML omitted -->()
-let intOb2 = PublishSubject<!-- raw HTML omitted -->()
+let intOb1 = PublishSubject<String>()
+let intOb2 = PublishSubject<Int>()
 combineLatest(intOb1, intOb2) {&quot;($0) ($1)&quot;}.subscribe {  print($0) }
 intOb1.on(.Next(&ldquo;A&rdquo;))
 intOb2.on(.Next(1))
@@ -665,8 +661,8 @@ Next(B 2)
 {% codeblock lang:swift %}
 example(&ldquo;zip 1&rdquo;)
 {
-let intOb1 = PublishSubject<!-- raw HTML omitted -->()
-let intOb2 = PublishSubject<!-- raw HTML omitted -->()
+let intOb1 = PublishSubject<String>()
+let intOb2 = PublishSubject<Int>()
 zip(intOb1, intOb2) { &ldquo;($0) ($1)&rdquo; }.subscribe { print($0)}
 intOb1.on(.Next(&ldquo;A&rdquo;))
 intOb2.on(.Next(1))
@@ -683,8 +679,8 @@ Next(B 2)
 {% codeblock lang:swift %}
 example(&ldquo;merge 1&rdquo;)
 {
-let subject1 = PublishSubject<!-- raw HTML omitted -->()
-let subject2 = PublishSubject<!-- raw HTML omitted -->()
+let subject1 = PublishSubject<Int>()
+let subject2 = PublishSubject<Int>()
 sequenceOf(subject1, subject2).merge().subscribeNext { int in print(int)}
 subject1.on(.Next(1))
 subject1.on(.Next(2))
@@ -706,7 +702,7 @@ example(&ldquo;switchLatest&rdquo;)
 {
 let var1 = Variable(0)
 let var2 = Variable(200)
-// var3 is like an Observable&lt;Observable<!-- raw HTML omitted -->&gt;
+// var3 is like an Observable&lt;Observable<Int>&gt;
 let var3 = Variable(var1)
 let d = var3.switchLatest().subscribe{ print($0) }
 var1.value = 1
@@ -745,8 +741,8 @@ Next(6)
 <p>{% codeblock lang:swift  %}
 example(&ldquo;takeUntil&rdquo;)
 {
-let originalSequence = PublishSubject<!-- raw HTML omitted -->()
-let whenThisSendsNextWorldStops = PublishSubject<!-- raw HTML omitted -->()
+let originalSequence = PublishSubject<Int>()
+let whenThisSendsNextWorldStops = PublishSubject<Int>()
 originalSequence.takeUntil(whenThisSendsNextWorldStops)
 .subscribe {
 print($0)
@@ -766,7 +762,7 @@ Completed
 {% codeblock lang:swift %}
 example(&ldquo;takeWhile&rdquo;)
 {
-let sequence = PublishSubject<!-- raw HTML omitted -->()
+let sequence = PublishSubject<Int>()
 sequence.takeWhile { int in int &lt; 2 }.subscribe { print($0) }
 sequence.on(.Next(1))
 sequence.on(.Next(2))

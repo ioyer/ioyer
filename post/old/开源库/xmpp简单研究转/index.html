@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
@@ -187,8 +183,8 @@
 <p>后来细想，这里面可以做的东西还有许多。玩家会因为多一个信息通道，而更轻松的去玩那些需要长期驻留的游戏。游戏厂商也可以多一个挽留玩家的渠道，甚至用来宣传新游戏或游戏的增值服务，等等。好处不再列举。</p>
 <p>其实、绑定 IM 帐号和绑定手机号本质上区别不大。只不过，IM 帐号几乎是零费用，又不像 SMS ，控制权掌控在移动手里。IM 更适合做双向交流（SMS 的双向交流不那么方便，而且对用户和游戏运营商都有经济负担）。独立提供一个 Game2IM 的服务供众多游戏运营商使用也是个有趣的主意。和 SMS 一样，只要给出一个简单接口让游戏运营商调用，把游戏网络和 IM 网络互联就可以了。</p>
 <p>实现这个想法有两个方案。其一是制作各种 IM 的机器人，通过机器人和用户 IM 沟通。这个方案技术门槛稍低，有许多现成的机器人可以使用。缺点是，受 IM 提供商的限制（比如好友数量限制）。无法使用机器人的签名针对性的向用户传递特有的消息。除非你为每个游戏用户定制一个机器人，但那样，每个机器人都需要单独一个连接，对资源消耗过大。
-￼<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+￼<!--显示文章缩略部分的标记方法--></p>
+<!-- more -->
 <p>第二个方案就是使用已有的 IM 互通方案，自己提供一个特有的 Game-IM 网络，跟已有的 IM 网络互通。比较流行的 IM 互通协议用基于 SIP 的 SIMPLE 和起源于 Jabber 的 XMPP 。</p>
 <p>我最常用的 IM 是 google talk ，本身就实现了标准的 XMPP Client 和 XMPP Server 协议；而我们的 网易 popo 也实现了 XMPP 的 s2s 网关。我想研究一下 XMPP 是个不错的选择。</p>
 <p>花了一整天的时间，把 XMPP 核心协议 仔细通读了一遍，收获颇多。原来以为 XMPP 是个可怕的巨无霸。我对 XML 原本也没有太多好感。最后，看法有所改变。</p>

@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#常用的gcd">常用的GCD</a>
@@ -422,7 +418,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 <li>从函数接口可以看出，<code>-setCount:forKey:</code> 需要一个 <code>NSString</code> 参数，用来传递给 <code>dispatch_async</code>。函数调用者可以自由传递一个 <code>NSMutableString</code> 值并且能够在函数返回后修改它。因此我们<em>必须</em>对传入的字符串使用 <em>copy</em> 操作以确保函数能够正确地工作。如果传入的字符串不是可变的（也就是正常的 <code>NSString</code> 类型），调用<em>copy</em>基本上是个空操作。</li>
 <li><code>isolationQueue</code> 创建时，参数 <code>dispatch_queue_attr_t</code> 的值必须是<em>DISPATCH_QUEUE_SERIAL</em>（或者0）。</li>
 </ol>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a id='multiple_readers_single_writer' name='multiple_readers_single_writer'> </a></p>
 <h4 id="barrier分发block实现并行队列多读单写"><strong>barrier</strong>分发block实现并行队列多读单写</h4>
 <p>我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 <code>NSMutableDictionary</code> 中读取只要我们不同时修改它。
 我们使用 <em>barrier</em> 来分发一个block实现对字典的多读单写操作。这样的一个 block 的运行时机是，<strong>在它之前所有计划好的 block 完成之后，并且在所有它后面的 block 运行之前</strong>。</p>
@@ -465,7 +461,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </code></pre></td></tr></table>
 </div>
 </div><p>当使用并发队列时，要确保所有的 <em>barrier</em> 调用都是 <em>async</em> 的。如果你使用 <code>dispatch_barrier_sync</code> ，那么你很可能会使你自己（更确切的说是，你的代码）产生死锁。写操作<em>需要</em>  barrier，并且<em>可以</em>是 async 的。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a id='contention' name='contention'> </a></p>
 <h3 id="锁竞争">锁竞争</h3>
 <p>首先，这里有一个警告：上面这个例子中我们保护的资源是一个  <code>NSMutableDictionary</code>，出于这样的目的，这段代码运行地相当不错。但是在真实的代码中，把隔离放到正确的复杂度层级下是很重要的。</p>
 <p>如果你对 <code>NSMutableDictionary</code> 的访问操作变得非常频繁，你会碰到一个已知的叫做锁竞争的问题。锁竞争并不是只是在 GCD 和队列下才变得特殊，任何使用了锁机制的程序都会碰到同样的问题——只不过不同的锁机制会以不同的方式碰到。</p>
@@ -483,7 +479,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 举个例子：
 类 <code>Foo</code> 有一个隔离队列并且它本身保护着对 <code>NSMutableDictionary</code> 的访问，代替的，可以有一个用到了 <code>Foo</code> 类的 <code>Bar</code> 类有一个隔离队列保护所有对类 <code>Foo</code> 的使用。
 换句话说，你可以把类 <code>Foo</code> 变为非线程安全的（没有隔离队列），并在 <code>Bar</code> 中，使用一个隔离队列来确保任何时刻只能有一个线程使用 <code>Foo</code> 。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="async" id="async"> </a></p>
 <h3 id="死锁问题">死锁问题</h3>
 <p>全都使用异步分发</p>
 <h4 id="同步分发死锁">同步分发死锁</h4>
@@ -834,7 +830,7 @@ GCD 中一个基本的代码块就是队列。下面我们会给出一些如何�
 </div>
 </div><p>当 Mail.app 退出的时候，这个程序会打印出 <strong>Mail quit.</strong>。</p>
 <p>注意：在所有的事件源被传递到你的事件处理器之前，必须调用 <code>dispatch_resume()</code>。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a name="watching_files" id="watching_files"> </a></p>
 <h3 id="监视文件">监视文件</h3>
 <p>这种可能性是无穷的。你能直接监视一个文件的改变，并且当改变发生时事件源的事件处理将会被调用。</p>
 <p>你也可以使用它来监视文件夹，比如创建一个 <em>watch folder</em>：</p>
@@ -926,7 +922,7 @@ dispatch_resume(self.source);
 </div><h3 id="取消">取消</h3>
 <p>所有的事件源都允许你添加一个 <em>cancel handler</em> 。这对清理你为事件源创建的任何资源都是很有帮助的，比如关闭文件描述符。GCD 保证在 <em>cancel handle</em>  调用前，所有的事件处理都已经完成调用。</p>
 <p>参考上面的<a href="#watching_files">监视文件例子</a>中对 <code>dispatch_source_set_cancel_handler()</code> 的使用。</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a id='input_output' name='input_output'> </a></p>
 <h2 id="输入输出">输入输出</h2>
 <p>写出能够在繁重的 I/O 处理情况下运行良好的代码是一件非常棘手的事情。GCD 有一些能够帮上忙的地方。不会涉及太多的细节，我们只简单的分析下问题是什么，GCD 是怎么处理的。</p>
 <p>习惯上，当你从一个网络套接字中读取数据时，你要么做一个阻塞的读操作，也就是让你个线程一直等待直到数据变得可用，或者是做反复的轮询。这两种方法都是很浪费资源并且无法度量。然而，<code>kqueue</code> 通过当数据变得可用时传递一个事件解决了轮询的问题，GCD 也采用了同样的方法，但是更加优雅。当向套接字写数据时，同样的问题也存在，这时你要么做阻塞的写操作，要么等待套接字直到能够接收数据。</p>
@@ -936,9 +932,9 @@ dispatch_resume(self.source);
 2: at/Linux)\r\nLast-Modified: Wed, 08 Jan 2003 23
 3: :11:55 GMT\r\nEtag: &ldquo;3f80f-1b6-3e1cb03b&rdquo;\r\nCon
 4: tent-Type: text/html; charset=UTF-8\r\nContent-
-5: Length: 131\r\nConnection: close\r\n\r\n<!-- raw HTML omitted -->\r
-6: \n<!-- raw HTML omitted -->\r\n  <!-- raw HTML omitted -->An Example Page<!-- raw HTML omitted -->\r\n
-7: <!-- raw HTML omitted -->\r\n<!-- raw HTML omitted -->\r\n  Hello World, this is a ve</p>
+5: Length: 131\r\nConnection: close\r\n\r\n<html>\r
+6: \n<head>\r\n  <title>An Example Page</title>\r\n
+7: </head>\r\n<body>\r\n  Hello World, this is a ve</p>
 <p>如果你是在寻找 HTTP 的头部，将所有数据块组合成一个大的缓冲区并且从中查找 <code>\r\n\r\n</code> 是非常简单的。但是这样做，你会大量地复制这些数据。大量 <em>旧的</em> C 语言 API 存在的另一个问题就是，缓冲区没有所有权的概念，所以函数不得不将数据再次拷贝到自己的缓冲区中——又一次的拷贝。拷贝数据操作看起来是无关紧要的，但是当你正在做大量的 I/O 操作的时候，你会在 profiling tool(Instruments) 中看到这些拷贝操作大量出现。即使你仅仅每个内存区域拷贝一次，你还是使用了两倍的存储带宽并且占用了两倍的内存缓存。</p>
 <h3 id="gcd-和缓冲区">GCD 和缓冲区</h3>
 <p>最直接了当的方法是使用数据缓冲区。GCD 有一个 <code>dispatch_data_t</code> 类型，在某种程度上和 Objective-C 的 <code>NSData</code> 类型很相似。但是它能做别的事情，而且更通用。</p>
@@ -1067,7 +1063,7 @@ NSLog(@&quot;-[NSMutableArray addObject:] : %llu ns&quot;, n);</p>
 <p>访问帮助界面：</p>
 <p>curl &ldquo;<a href="http://opensource.apple.com/source/libdispatch/libdispatch-84.5/man/dispatch_benchmark.3?txt%22">http://opensource.apple.com/source/libdispatch/libdispatch-84.5/man/dispatch_benchmark.3?txt&quot;</a>
 | /usr/bin/groffer &ndash;tty -T utf8</p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><a id='atomic_operations' name='atomic_operations'> </a></p>
 <h2 id="原子操作">原子操作</h2>
 <p>头文件 <code>libkern/OSAtomic.h</code> 里有许多强大的函数，专门用来底层多线程编程。尽管它是内核头文件的一部分，它也能够在内核之外来帮助编程。</p>
 <p>这些函数都是很底层的，并且你需要知道一些额外的事情。就算你已经这样做了，你还可能会发现一两件你不能做，或者不易做的事情。当你正在为编写高性能代码或者正在实现无锁的和无等待的算法工作时，这些函数会吸引你。</p>

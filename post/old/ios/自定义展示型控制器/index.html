@@ -100,10 +100,8 @@
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
-      </a><a href="/habit/habit/">
-        <li class="mobile-menu-item">目标</li>
-      </a><a href="/habit/habit1/">
-        <li class="mobile-menu-item">宣言</li>
+      </a><a href="/categories/%E5%91%A8%E6%8A%A5/">
+        <li class="mobile-menu-item">周报</li>
       </a><a href="/idocs/">
         <li class="mobile-menu-item">文档</li>
       </a><a href="/authors/itboyer/">
@@ -133,9 +131,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit/">目标</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/habit/habit1/">宣言</a>
+        <a class="menu-item-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/idocs/">文档</a>
       </li><li class="menu-item">
@@ -173,7 +169,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#触发转场的方式">触发转场的方式</a>
@@ -331,19 +327,19 @@ func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
 <h4 id="转场代理transition-delegate">转场代理(Transition Delegate)：</h4>
 <p>有如下三种容器转场代理，对应上面三种类型的转场：
 {% codeblock lang:swift %}
-<!-- raw HTML omitted --> //UINavigationController 的 delegate 属性遵守该协议。
-<!-- raw HTML omitted --> //UITabBarController 的 delegate 属性遵守该协议。
-<!-- raw HTML omitted --> //UIViewController 的 transitioningDelegate 属性遵守该协议。
+<UINavigationControllerDelegate> //UINavigationController 的 delegate 属性遵守该协议。
+<UITabBarControllerDelegate> //UITabBarController 的 delegate 属性遵守该协议。
+<UIViewControllerTransitioningDelegate> //UIViewController 的 transitioningDelegate 属性遵守该协议。
 {% endcodeblock %}
-这里除了<!-- raw HTML omitted -->是 iOS 7 新增的协议，其他两种在 iOS 2 里就存在了，在 iOS 7 时扩充了这两种协议来支持自定义转场。</p>
+这里除了<UIViewControllerTransitioningDelegate>是 iOS 7 新增的协议，其他两种在 iOS 2 里就存在了，在 iOS 7 时扩充了这两种协议来支持自定义转场。</p>
 <h4 id="动画控制器animation-controller">动画控制器(Animation Controller)：</h4>
-<p>最重要的部分，负责添加视图以及执行动画；遵守<!-- raw HTML omitted -->协议；由我们实现。</p>
+<p>最重要的部分，负责添加视图以及执行动画；遵守<UIViewControllerAnimatedTransitioning>协议；由我们实现。</p>
 <h4 id="交互控制器interaction-controller">交互控制器(Interaction Controller)：</h4>
-<p>通过交互手段，通常是手势来驱动动画控制器实现的动画，使得用户能够控制整个过程；遵守<!-- raw HTML omitted -->协议；系统已经打包好现成的类供我们使用。</p>
+<p>通过交互手段，通常是手势来驱动动画控制器实现的动画，使得用户能够控制整个过程；遵守<UIViewControllerInteractiveTransitioning>协议；系统已经打包好现成的类供我们使用。</p>
 <h4 id="转场环境transition-context">转场环境(Transition Context):</h4>
-<p>提供转场中需要的数据；遵守<!-- raw HTML omitted -->协议；由 UIKit 在转场开始前生成并提供给我们提交的动画控制器和交互控制器使用。</p>
+<p>提供转场中需要的数据；遵守<UIViewControllerContextTransitioning>协议；由 UIKit 在转场开始前生成并提供给我们提交的动画控制器和交互控制器使用。</p>
 <h4 id="转场协调器transition-coordinator">转场协调器(Transition Coordinator)：</h4>
-<p>可在转场动画发生的同时并行执行其他的动画，其作用与其说协调不如说辅助，主要在 Modal 转场和交互转场取消时使用，其他时候很少用到；遵守<!-- raw HTML omitted -->协议；由 UIKit 在转场时生成，UIViewController 在 iOS 7 中新增了方法transitionCoordinator()返回一个遵守该协议的对象，且该方法只在该控制器处于转场过程中才返回一个此类对象，不参与转场时返回 nil。</p>
+<p>可在转场动画发生的同时并行执行其他的动画，其作用与其说协调不如说辅助，主要在 Modal 转场和交互转场取消时使用，其他时候很少用到；遵守<UIViewControllerTransitionCoordinator>协议；由 UIKit 在转场时生成，UIViewController 在 iOS 7 中新增了方法transitionCoordinator()返回一个遵守该协议的对象，且该方法只在该控制器处于转场过程中才返回一个此类对象，不参与转场时返回 nil。</p>
 <p>总结下，5个协议只需要我们操心3个；实现一个最低限度可用的转场动画，我们只需要提供上面五个组件里的两个：转场代理和动画控制器即可，还有一个转场环境是必需的，不过这由系统提供；当进一步实现交互转场时，还需要我们提供交互控制器，也有现成的类供我们使用。</p>
 <h2 id="特殊的-modal-转场">特殊的 Modal 转场</h2>
 <p>容器类 VC 的转场里 <code>fromView</code> 和 <code>toView</code> 是 <code>containerView</code> 的子层次的视图，而 Modal 转场里 <code>presentingView</code> 与 <code>containerView</code> 是同层次的视图，只有 <code>presentedView</code> 是 <code>containerView</code> 的子层次视图。</p>
@@ -476,7 +472,7 @@ return UIModalPresentationStyle.fullScreen
 <h2 id="交互式转场">交互式转场</h2>
 <h3 id="实现交互化">实现交互化</h3>
 <p>在非交互转场的基础上将之交互化需要两个条件：
-由转场代理提供交互控制器，这是一个遵守<!-- raw HTML omitted -->协议的对象，不过系统已经打包好了现成的类<code>UIPercentDrivenInteractiveTransition</code>供我们使用。我们不需要做任何配置，仅仅在转场代理的相应方法中提供一个该类实例便能工作。另外交互控制器必须有动画控制器才能工作。
+由转场代理提供交互控制器，这是一个遵守<UIViewControllerInteractiveTransitioning>协议的对象，不过系统已经打包好了现成的类<code>UIPercentDrivenInteractiveTransition</code>供我们使用。我们不需要做任何配置，仅仅在转场代理的相应方法中提供一个该类实例便能工作。另外交互控制器必须有动画控制器才能工作。
 交互控制器还需要交互手段的配合，最常见的是使用手势，或是其他事件，来驱动整个转场进程。</p>
 <h3 id="使用一个变量来标记交互状态配合转场交互">使用一个变量来标记交互状态配合转场交互</h3>
 <p>如果在转场代理中提供了交互控制器，而转场发生时并没有方法来驱动转场进程(比如手势)，转场过程将一直处于开始阶段无法结束。
