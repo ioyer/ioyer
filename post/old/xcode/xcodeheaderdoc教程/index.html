@@ -29,7 +29,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" />
@@ -41,10 +41,11 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
+<link rel="stylesheet" href="/css/todo.css">
 
 
 <meta property="og:title" content="XcodeHeaderDoc教程" />
@@ -67,7 +68,7 @@ MathAPI: 包含了1个方法，用于累加两个数。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/xcode/xcodeheaderdoc%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2014-08-28T15:18:41+00:00" />
+<meta property="article:published_time" content="2014-08-28T15:18:41+08:00" />
 <meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
 
 <meta itemprop="name" content="XcodeHeaderDoc教程">
@@ -87,7 +88,7 @@ MathAPI: 包含了1个方法，用于累加两个数。
 Car: 包含几个属性及一个 “drive” 方法以及一个 completion 块。
 MathAPI: 包含了1个方法，用于累加两个数。
 现在，这两个类还没有任何注释。以便演示如何通过 HeaderDoc 为这两个类创建文档。
-"><meta itemprop="datePublished" content="2014-08-28T15:18:41+00:00" />
+"><meta itemprop="datePublished" content="2014-08-28T15:18:41+08:00" />
 <meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
 <meta itemprop="wordCount" content="4559">
 <meta itemprop="keywords" content="工具,文档," /><meta name="twitter:card" content="summary"/>
@@ -235,7 +236,7 @@ MathAPI: 包含了1个方法，用于累加两个数。
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-12T23:57:57" title="May 12, 2021">May 12, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -301,7 +302,7 @@ HeaderDoc 标签可以分为两种：</p>
 </ul>
 <p>用 Xcode 打开<strong>DocumentationExamples</strong> 项目, 打开<strong>ViewController.h</strong>,
 在** car **属性的前面，加入一行注释:</p>
-<pre><code>    /*!  * @brief The ViewController class' car object.  */
+<pre><code>	/*!  * @brief The ViewController class' car object.  */
 
 	@property (nonatomic) Car *car;
 </code></pre>
@@ -316,11 +317,11 @@ HeaderDoc 标签可以分为两种：</p>
 <p>这个方法有两个参数及一个返回值。因此需要一个 @description 标签、两个@param标签，以及一个@return 标签，如下面所示：</p>
 <pre><code>/*!  * @discussion A really simple way to calculate the sum of two numbers.
 
-     * @param firstNumber An NSInteger to be used in the summation of two numbers
+ 	 * @param firstNumber An NSInteger to be used in the summation of two numbers
 
-     * @param secondNumber The second half of the equation.
+ 	 * @param secondNumber The second half of the equation.
 
-     * @return The sum of the two numbers passed in.
+  	 * @return The sum of the two numbers passed in.
 
 */
 
@@ -350,11 +351,11 @@ HeaderDoc 标签可以分为两种：</p>
 <p>要想让 <strong>snippet</strong> 生效，首先删除原有注释，然后将鼠标放到addNumber:toNumber: 方法的 + 号前面,输入<strong>doccomment</strong>，然后回车，该<strong>snippet</strong> 将自动生成。然后，通过 Tab 键在3个 token 间移动，并填充它们。最终完成的文档化结果如下:</p>
 <pre><code>/*!  * @discussion A really simple way to calculate the sum of two numbers.
 
-     * @param firstNumber An NSInteger to be used in the summation of two numbers.
+	 * @param firstNumber An NSInteger to be used in the summation of two numbers.
 
-     * @param secondNumber The second half of the equation.
+	 * @param secondNumber The second half of the equation.
 
-     * @warning Please make note that this method is only good for adding non-negative numbers.
+	 * @warning Please make note that this method is only good for adding non-negative numbers.
 
      * @return The sum of the two numbers passed in.
 */
@@ -369,21 +370,21 @@ HeaderDoc 标签可以分为两种：</p>
 <p>找到 <strong>enum OldCarType</strong>。它包含两个常量，是用于古典汽车的。在<strong>typedef</strong> 声明之上，将原来的注释替换为：</p>
 <pre><code>/*!  * @typedef OldCarType
 
-     * @brief A list of older car types.
+	 * @brief A list of older car types.
 
-     * @constant OldCarTypeModelT A cool old car.
+	 * @constant OldCarTypeModelT A cool old car.
 
-     * @constant OldCarTypeModelA A sophisticated old car.
+	 * @constant OldCarTypeModelA A sophisticated old car.
 */
 
 typedef enum {
-        /// A cool, old car.
+		/// A cool, old car.
 
-        OldCarTypeModelT,
+ 		OldCarTypeModelT,
 
-        /// A sophisticated older car.
+		/// A sophisticated older car.
 
-        OldCarTypeModelA
+		OldCarTypeModelA
 
 } OldCarType;
 </code></pre>
@@ -391,21 +392,21 @@ typedef enum {
 <p>在这个类中只有一个 <strong>NS_ENUM</strong>，因此接下来进行进行文档化。常量已经注释了，只要对整个<strong>NS_ENUM</strong> 进行一个总体的注释就可以了。</p>
 <pre><code>/*!  * @typedefCarType
 
-     * @brief Alist of newer car types.
+	 * @brief Alist of newer car types.
 
-     * @constantCarTypeHatchback Hatchbacks are fun, but small.
+	 * @constantCarTypeHatchback Hatchbacks are fun, but small.
 
-     * @constantCarTypeSedan Sedans should have enough room to put your kids, and your golfclubs
+	 * @constantCarTypeSedan Sedans should have enough room to put your kids, and your golfclubs
 
-     * @constantCarTypeEstate Estate cars should hold your kids, groceries, sport equipment,etc.
+	 * @constantCarTypeEstate Estate cars should hold your kids, groceries, sport equipment,etc.
 
-     * @constantCarTypeSport Sport cars should be fast, fun, and hard on the back.
+	 * @constantCarTypeSport Sport cars should be fast, fun, and hard on the back.
 */
 </code></pre>
 <p>注意:这个enum 是通过宏来声明的，悲催的 Xcode 不能完全支持和 <strong>typedef enum</strong> 一样的文档特性，虽然<strong>NS_ENUM</strong> 实际上是声明 enums 的推荐的方法。</p>
 <h4 id="typedef-block-文档化">typedef block 文档化</h4>
 <pre><code>/*!  * @brief A block that makes the car drive.
-     * @param distance The distance is equal to a distance driven when the block is ready to execute. It could be miles, or kilometers, but not both. Just pick one and stick with it. ;]
+	 * @param distance The distance is equal to a distance driven when the block is ready to execute. It could be miles, or kilometers, but not both. Just pick one and stick with it. ;]
 */
 
 typedef void(^driveCompletion)(CGFloat distance);
@@ -421,13 +422,13 @@ typedef void(^driveCompletion)(CGFloat distance);
 <p>这需要使用 <strong>@code 标签</strong>。在 <strong>driveCarWithCompletion</strong>方法声明之前添加如下内容：</p>
 <pre><code>/*!  * @brief The car will drive, and then execute the drive block
 
-     * @param completion A driveCompletion block
+	 * @param completion A driveCompletion block
 
-     * @code [car driveCarWithCompletion:^(CGFloat distance){
+	 * @code [car driveCarWithCompletion:^(CGFloat distance){
 
-                           NSLog(@&quot;Distance driven %f&quot;, distance);
+	 					   NSLog(@&quot;Distance driven %f&quot;, distance);
 
-                        }];
+	 					}];
 */
 </code></pre>
 <p>编译，在方法名上使用<strong>alt+左键</strong>。如下图所示：</p>
@@ -459,12 +460,12 @@ typedef void(^driveCompletion)(CGFloat distance);
 它除了解释已添加的注释，显示一个弹出菜单以及将注释在<strong>Quick Help</strong> 中显示之外，还可以在文档化之后创建 HTML、XML 以及联机帮助手册。</p>
 <p>本节介绍 HTML 文件的制作。如果你对用 HeaderDoc 如何创建在线文档感兴趣，请参考<a href="https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/usage/usage.html">HeaderDoc 用户指南</a>.</p>
 <p>打开终端，转到 DocumentationExamples 项目目录：</p>
-<pre><code>    cd /path/to/your/folder
+<pre><code>	cd /path/to/your/folder
 
 	确保该路径下包含了 Xcodeproject  文件(“DocumentationExamples.xcodeproj”)。
 </code></pre>
 <p>然后用下列命令创建 HTML 文档：</p>
-<pre><code>    headerdoc2html -o ~/Desktop/documentation DocumentationExamples/
+<pre><code>	headerdoc2html -o ~/Desktop/documentation DocumentationExamples/
 </code></pre>
 <p>此时终端会有许多输出。当创建完毕，返回桌面，出现一个名为documentation 的目录。双击打开，找到 Car_h 目录，打开 index.html：</p>
 <p><strong>headerdoc2html 脚本</strong>有两个参数：</p>
@@ -561,7 +562,7 @@ typedef void(^driveCompletion)(CGFloat distance);
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-08-28 15:18:41 \u002b0000 UTC',
+        id: '2014-08-28 15:18:41 \u002b0800 CST',
         title: 'XcodeHeaderDoc教程',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -611,7 +612,7 @@ typedef void(^driveCompletion)(CGFloat distance);
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 

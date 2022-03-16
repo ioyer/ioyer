@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" />
@@ -36,21 +36,22 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
+<link rel="stylesheet" href="/css/todo.css">
 
 
 <meta property="og:title" content="[转]Swift最佳实践" />
 <meta property="og:description" content="[英文][SwiftCommunityBestPractices] [SwiftCommunityBestPractices]: https://github.com/schwa/Swift-Community-Best-Practices [SwiftCommunity]: http://swift-lang.schwa.io/ [swiftCaptureLists]: http://www.russbishop.net/swift-capture-lists [SwiftURL]: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/index.html [驼峰命名法URL]: http://www.wikiwand.com/en/Studly_caps [匈牙利命名法URL]: http://www.wikiwand.com/en/Hungarian_notation 黄金法则" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/swift/%E8%BD%ACswift%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2015-09-29T17:05:21+00:00" />
+<meta property="article:published_time" content="2015-09-29T17:05:21+08:00" />
 <meta property="article:modified_time" content="2021-05-12T23:57:57+08:00" />
 
 <meta itemprop="name" content="[转]Swift最佳实践">
-<meta itemprop="description" content="[英文][SwiftCommunityBestPractices] [SwiftCommunityBestPractices]: https://github.com/schwa/Swift-Community-Best-Practices [SwiftCommunity]: http://swift-lang.schwa.io/ [swiftCaptureLists]: http://www.russbishop.net/swift-capture-lists [SwiftURL]: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/index.html [驼峰命名法URL]: http://www.wikiwand.com/en/Studly_caps [匈牙利命名法URL]: http://www.wikiwand.com/en/Hungarian_notation 黄金法则"><meta itemprop="datePublished" content="2015-09-29T17:05:21+00:00" />
+<meta itemprop="description" content="[英文][SwiftCommunityBestPractices] [SwiftCommunityBestPractices]: https://github.com/schwa/Swift-Community-Best-Practices [SwiftCommunity]: http://swift-lang.schwa.io/ [swiftCaptureLists]: http://www.russbishop.net/swift-capture-lists [SwiftURL]: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/index.html [驼峰命名法URL]: http://www.wikiwand.com/en/Studly_caps [匈牙利命名法URL]: http://www.wikiwand.com/en/Hungarian_notation 黄金法则"><meta itemprop="datePublished" content="2015-09-29T17:05:21+08:00" />
 <meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
 <meta itemprop="wordCount" content="1474">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
@@ -188,7 +189,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-12T23:57:57" title="May 12, 2021">May 12, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -290,10 +291,10 @@ struct PhysicsModel {
 static var speedOfLightInAVacuum = 299_792_458
 }</p>
 <pre><code>class Spaceship {
-     static let topSpeed = PhysicsModel.speedOfLightInAVacuum
+	 static let topSpeed = PhysicsModel.speedOfLightInAVacuum
      var speed: Double
-     func fullSpeedAhead() {
-         speed = Spaceship.topSpeed
+	 func fullSpeedAhead() {
+   		 speed = Spaceship.topSpeed
 	}
 }
 </code></pre>
@@ -356,7 +357,7 @@ static var speedOfLightInAVacuum = 299_792_458
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-09-29 17:05:21 \u002b0000 UTC',
+        id: '2015-09-29 17:05:21 \u002b0800 CST',
         title: '[转]Swift最佳实践',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -406,7 +407,7 @@ static var speedOfLightInAVacuum = 299_792_458
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 

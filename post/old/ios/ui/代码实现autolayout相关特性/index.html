@@ -22,7 +22,7 @@
  使用NSLayoutConstraint类型的初始化函数中的multiplier参数就可以非常简单的设置按比例缩放。 同时也可以设置不同NSLayoutAttribute参数来达到意想不到的效果，比如“A的Width等于B的Height的2倍”这样的效果。  现在就拿一个简单的**UIButton**做示例，在ViewController中创建一个UIButton字段：
 {%codeblock lang:objc%} UIButton *btn;
 {%endcodeblock%}
-需求 1：  要求**UIButton**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。 使用KVO来监控**UIButton**的大小并实时输出到屏幕上。
+需求 1：  要求**UIButton水平居中，始终距离父View底部20**单位，其高度是父View高度的三分之一。 使用KVO来监控**UIButton**的大小并实时输出到屏幕上。
 {%codeblock lang:objc%}    (void)viewDidLoad { [super viewDidLoad];
 //创建UIButton，不需要设置frame btn = [UIButton buttonWithType:UIButtonTypeRoundedRect]; [btn setTitle:@&amp;ldquo;mgen&amp;rdquo; forState:UIControlStateNormal]; btn.backgroundColor = [UIColor greenColor]; [self.view addSubview:btn];
 //禁止自动转换AutoresizingMask btn.translatesAutoresizingMaskIntoConstraints = NO;
@@ -37,7 +37,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" />
@@ -49,10 +49,11 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
+<link rel="stylesheet" href="/css/todo.css">
 
 
 <meta property="og:title" content="代码实现AutoLayout相关特性" />
@@ -69,7 +70,7 @@ UIButton *btn;
 {%endcodeblock%}
 需求 1：
 
-要求**UIButton**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。
+要求**UIButton水平居中，始终距离父View底部20**单位，其高度是父View高度的三分之一。
 使用KVO来监控**UIButton**的大小并实时输出到屏幕上。
 {%codeblock lang:objc%}
 
@@ -120,7 +121,7 @@ constant:0]];
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0autolayout%E7%9B%B8%E5%85%B3%E7%89%B9%E6%80%A7/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2014-09-02T15:53:11+00:00" />
+<meta property="article:published_time" content="2014-09-02T15:53:11+08:00" />
 <meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="代码实现AutoLayout相关特性">
@@ -137,7 +138,7 @@ UIButton *btn;
 {%endcodeblock%}
 需求 1：
 
-要求**UIButton**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。
+要求**UIButton水平居中，始终距离父View底部20**单位，其高度是父View高度的三分之一。
 使用KVO来监控**UIButton**的大小并实时输出到屏幕上。
 {%codeblock lang:objc%}
 
@@ -185,9 +186,9 @@ constant:0]];
 [btn addObserver:self forKeyPath:@&ldquo;bounds&rdquo; options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil]; 
 }
 
-"><meta itemprop="datePublished" content="2014-09-02T15:53:11+00:00" />
+"><meta itemprop="datePublished" content="2014-09-02T15:53:11+08:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="2705">
+<meta itemprop="wordCount" content="2644">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="代码实现AutoLayout相关特性"/>
 <meta name="twitter:description" content="按比例缩放
@@ -203,7 +204,7 @@ UIButton *btn;
 {%endcodeblock%}
 需求 1：
 
-要求**UIButton**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。
+要求**UIButton水平居中，始终距离父View底部20**单位，其高度是父View高度的三分之一。
 使用KVO来监控**UIButton**的大小并实时输出到屏幕上。
 {%codeblock lang:objc%}
 
@@ -355,7 +356,7 @@ constant:0]];
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 2705 字 </span>
+          <span class="more-meta"> 约 2644 字 </span>
           <span class="more-meta"> 预计阅读 6 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -378,7 +379,7 @@ constant:0]];
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-13T09:48:14" title="May 13, 2021">May 13, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -396,7 +397,7 @@ UIButton *btn;<br>
 {%endcodeblock%}</p>
 <h4 id="需求-1">需求 1：</h4>
 <ol>
-<li>要求**<code>UIButton</code>**水平居中，始终距离父View底部**20**单位，其高度是父View高度的三分之一。</li>
+<li>要求**<code>UIButton</code><strong>水平居中，始终距离父View底部</strong>20**单位，其高度是父View高度的三分之一。</li>
 <li>使用<strong>KVO</strong>来监控**<code>UIButton</code>**的大小并实时输出到屏幕上。<br>
 {%codeblock lang:objc%}</li>
 </ol>
@@ -464,9 +465,9 @@ if (object == btn &amp;&amp; [keyPath isEqualToString:@&ldquo;bounds&rdquo;])
 </ol>
 <p>涉及到的相关特性：</p>
 <ul>
-<li><strong>优先级</strong>：当两个**<code>Constraint</code>**同时作用在一个控件时，在某些情况下是有冲突的，可以通过设置**<code>Constraint</code>**的优先级来解决。
-优先级对应**<code>NSLayoutConstraint</code>**类型的**<code>priority</code>**属性，默认值是**<code>UILayoutPriorityRequired</code>**，数值上等于**1000**. 设置一个低的值代表更低的优先级。</li>
-<li><strong>最小值的定义</strong>：使用**<code>NSLayoutRelationGreaterThanOrEqual</code>**作为**<code>NSLayoutConstraint</code>**类型创建时的**<code>relatedBy</code>**参数。</li>
+<li><strong>优先级</strong>：当两个**<code>Constraint</code><strong>同时作用在一个控件时，在某些情况下是有冲突的，可以通过设置</strong><code>Constraint</code><strong>的优先级来解决。
+优先级对应</strong><code>NSLayoutConstraint</code><strong>类型的</strong><code>priority</code><strong>属性，默认值是</strong><code>UILayoutPriorityRequired</code><strong>，数值上等于</strong>1000**. 设置一个低的值代表更低的优先级。</li>
+<li><strong>最小值的定义</strong>：使用**<code>NSLayoutRelationGreaterThanOrEqual</code><strong>作为</strong><code>NSLayoutConstraint</code><strong>类型创建时的</strong><code>relatedBy</code>**参数。</li>
 </ul>
 <p>修改上面的比例Constraint，并在下方加入一个新的限制最小值的Constraint，代码：<br>
 {%codeblock lang:objc%}
@@ -520,7 +521,7 @@ constant:constant]
 接下来，创建一个UIView，利用上面的辅助方法快速设置其在父控件的左，上，右边距为20单位。如下代码：<br>
 {%codeblock lang:objc%}
 //view1
-UIView *view1 = [UIView new];
+UIView <em>view1 = [UIView new];
 view1.backgroundColor = [UIColor yellowColor];
 //不允许AutoresizingMask转换成Autolayout
 view1.translatesAutoresizingMaskIntoConstraints = NO;
@@ -530,10 +531,10 @@ view1.translatesAutoresizingMaskIntoConstraints = NO;
 [self setEdge:self.view view:view1 attr:NSLayoutAttributeTop constant:20];
 [self setEdge:self.view view:view1 attr:NSLayoutAttributeRight constant:-20];
 {%endcodeblock%}<br>
-但是运行后会发现，界面上不会显示任何东西。原因就是上面讲的，<code>UIView</code>默认是没有**<code>intrinsicContentSize</code>**的。</li>
+但是运行后会发现，界面上不会显示任何东西。原因就是上面讲的，<code>UIView</code>默认是没有</em>*<code>intrinsicContentSize</code>**的。</li>
 </ul>
-<p>创建一个自定义的<code>UIView</code>来改写**<code>intrinsicContentSize</code>**：MyView:<br>
-然后在.m文件中改写**intrinsicContentSize**方法，并返回有效值，比如这样：<br>
+<p>创建一个自定义的<code>UIView</code>来改写**<code>intrinsicContentSize</code><strong>：MyView:<br>
+然后在.m文件中改写</strong>intrinsicContentSize**方法，并返回有效值，比如这样：<br>
 {%codeblock lang:objc%}
 //改写UIView的intrinsicContentSize</p>
 <ul>
@@ -566,7 +567,7 @@ view2.translatesAutoresizingMaskIntoConstraints = NO;<br>
 <li>
 <p>通过代码加入Autolayout中的间距，命令view1和view2上下必须间隔20个单位。
 2. - 这里要求view2在view1之下的<strong>20</strong>单位，所以创建<strong>NSLayoutConstraint</strong>中view2参数在前面。<br>
-2. - view2的**<code>attribute</code>**参数是**<code>NSLayoutAttributeTop</code>**，而view1的**<code>attribute</code>**参数是**<code>NSLayoutAttributeBottom</code>**</p>
+2. - view2的**<code>attribute</code><strong>参数是</strong><code>NSLayoutAttributeTop</code><strong>，而view1的</strong><code>attribute</code><strong>参数是</strong><code>NSLayoutAttributeBottom</code>**</p>
 </li>
 <li>
 <p>拉伸view2,而不拉伸view1。</p>
@@ -596,9 +597,9 @@ constant:20]
 ];
 {%endcodeblock%}</p>
 <p>OK，的确，此时view1和view2相互间隔20单位，但是view1被拉伸了。</p>
-<p>使用控件的**<code>Content Hugging Priority</code>**，如下图：<br>
-如图,把view1（上图中被拉伸的，在上面的View）的**<code>Content Hugging Priority</code>**设置一个更高的值，那么当<code>Autolayout</code>遇到这种决定谁来拉伸的情况时，view1不会被优先拉伸，而优先级稍低的view2才会被拉伸。<br>
-可以直接通过UIView的<code>setContentHuggingPriority:forAxis</code>方法来设置控件的**<code>Content Hugging Priority</code>**，其中<code>forAxis</code>参数代表横向和纵向，本例中只需要设置纵向，所以传入**<code>UILayoutConstraintAxisVertical</code>**。整句代码：<br>
+<p>使用控件的**<code>Content Hugging Priority</code><strong>，如下图：<br>
+如图,把view1（上图中被拉伸的，在上面的View）的</strong><code>Content Hugging Priority</code><strong>设置一个更高的值，那么当<code>Autolayout</code>遇到这种决定谁来拉伸的情况时，view1不会被优先拉伸，而优先级稍低的view2才会被拉伸。<br>
+可以直接通过UIView的<code>setContentHuggingPriority:forAxis</code>方法来设置控件的</strong><code>Content Hugging Priority</code><strong>，其中<code>forAxis</code>参数代表横向和纵向，本例中只需要设置纵向，所以传入</strong><code>UILayoutConstraintAxisVertical</code>**。整句代码：<br>
 {%codeblock lang:objc%}
 //提高view1的Content Hugging Priority
 [view1 setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
@@ -656,7 +657,7 @@ constant:20]
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-09-02 15:53:11 \u002b0000 UTC',
+        id: '2014-09-02 15:53:11 \u002b0800 CST',
         title: '代码实现AutoLayout相关特性',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -706,7 +707,7 @@ constant:20]
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 

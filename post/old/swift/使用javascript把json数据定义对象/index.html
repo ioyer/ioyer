@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/swift/%E4%BD%BF%E7%94%A8javascript%E6%8A%8Ajson%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1/" />
@@ -36,10 +36,11 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
+<link rel="stylesheet" href="/css/todo.css">
 
 
 <meta property="og:title" content="使用JavaScript把JSON数据定义对象" />
@@ -188,7 +189,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-12T23:57:57" title="May 12, 2021">May 12, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -217,7 +218,7 @@ JSExportAs(PropertyName, Selector)
 {% endcodeblock %}</li>
 </ul>
 <p>{% codeblock JSExportAs的官方宏定义 lang:objc xcdoc://?url=developer.apple.com/library/etc/redirect/xcode/ios/1151/documentation/JavaScriptCore/Reference/JSExport_Ref/index.html  %}
-#define JSExportAs(PropertyName, Selector)<br>
+#define JSExportAs(PropertyName, Selector) <br>
 @optional Selector <strong>JS_EXPORT_AS</strong>##PropertyName:(id)argument; @required Selector
 #endif
 {% endcodeblock %}
@@ -472,7 +473,7 @@ JavaScript 代码段可能是附带应用一起发布的基本的用户定义的
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 

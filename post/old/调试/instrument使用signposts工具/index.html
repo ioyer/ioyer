@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/%E8%B0%83%E8%AF%95/instrument%E4%BD%BF%E7%94%A8signposts%E5%B7%A5%E5%85%B7/" />
@@ -36,10 +36,11 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.7315d809572e1b25374d4410256d7d90f621c715d88b68af77080746846c31d5.css" rel="stylesheet">
+<link href="/sass/main.min.d4d0dce78b3ec6333437bc36540c4749ae9a27ff4ca2d7562da2dbfbf991dde3.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/copy-to-clipboard.css">
+<link rel="stylesheet" href="/css/todo.css">
 
 
 <meta property="og:title" content="Instrument使用Signposts工具" />
@@ -52,7 +53,7 @@
 <meta itemprop="name" content="Instrument使用Signposts工具">
 <meta itemprop="description" content="引言 性能是实现卓越的用户体验的关键之一。当应用或者游戏表现的运行迅速，反应灵敏时，用户会更喜欢。但是软件是很复杂的，当你的应用视图做某事时，"><meta itemprop="datePublished" content="2018-10-02T23:19:55+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="6341">
+<meta itemprop="wordCount" content="5775">
 <meta itemprop="keywords" content="iOS,调试," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instrument使用Signposts工具"/>
 <meta name="twitter:description" content="引言 性能是实现卓越的用户体验的关键之一。当应用或者游戏表现的运行迅速，反应灵敏时，用户会更喜欢。但是软件是很复杂的，当你的应用视图做某事时，"/>
@@ -159,8 +160,8 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 6341 字 </span>
-          <span class="more-meta"> 预计阅读 13 分钟 </span>
+          <span class="more-meta"> 约 5775 字 </span>
+          <span class="more-meta"> 预计阅读 12 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
  </span>
@@ -177,7 +178,6 @@
     <li><a href="#使用signposts">使用Signposts</a>
       <ul>
         <li><a href="#异步用例测量异步任务的时间">异步用例：测量异步任务的时间</a></li>
-        <li><a href="#在signposts中添加元数据">在Signposts中添加元数据</a></li>
         <li><a href="#添加独立事件">添加独立事件</a></li>
       </ul>
     </li>
@@ -195,7 +195,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-05-13T09:48:14" title="May 13, 2021">May 13, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -311,92 +311,43 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
 <li><code>Signpost IDs</code>路标ID:区分重叠时间间隔的方法，将告诉系统哪些是相同类型的操作，但每个操作彼此不同。</li>
 <li></li>
 </ol>
-<p>上面是一个很简单的例子。如果你的应用顺序执行第一步、第二步、第三步等等，那么这样测量是非常有效的。但是我们会经常用到一些异步的工作，他们可能同时发生，他们之间也可能会有重叠或者交叉。
-<img src="https://raw.githubusercontent.com/kingsword/BlogSnapShot/master/WWDC%202018%20sessions/405/7.jpg" alt="">
-在这种情况下，我们需要向系统提供一些额外的信息，以便系统可以将这些路标彼此区分开来。到现在为止，我们在调用方法的时候只用到了名字，通过名字将相同路标的绑定在一起。名字已经确定了时间间隔，但是没有给我们一种区分重叠时间间隔的方法，所以在这里引入了<code>Signpost IDs</code>。路标ID将告诉系统哪些是相同类型的操作，但每个操作彼此不同。在路标开始和结尾传递相同的id，则系统知道这两个是关联的。你可以通过日志句柄来得到一个路标ID。</p>
+<p>let spidForRefresh = OSSignpostID(log: refreshLog)
+os_signpost(.begin, log: refreshLog, name: &ldquo;Refresh Panel&rdquo;, signpostID: spidForRefresh)</p>
+<p>for element in panel.elements {
+//通过对象去创建路标ID
+let spid = OSSignpostID(log: refreshLog, object: element)
+//通过ID去记录一个路标
+os_signpost(.begin, log: refreshLog, name: &ldquo;Fetch Asset&rdquo;, signpostID:spid) <br>
+fetchAssetAsync(for: element) {
+//每一个完成之后的回调
+os_signpost(.end, log: refreshLog, name: &ldquo;Fetch Asset&rdquo;, signpostID: spid)
+}
+}
+//  全部完成完成的回调
+notifyWhenDone {
+os_signpost(.end, log: refreshLog, name: &ldquo;Refresh Panel&rdquo;, signpostID: spidForRefresh)
+}</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">spid</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">)</span>
-<span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spid</span><span class="p">)</span>
-<span class="c1">//  some code or even async...</span>
-<span class="n">os_signpost</span><span class="p">(.</span><span class="n">end</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spid</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>同样你也可以通过一个对象来得到<code>日志句柄</code>。如果你有一些对象代表您正在尝试的工作，只要您使用该对象实例就会生成相同的路标ID。这就意味着您不用去存放路标ID，只需要通过对象去管理ID就好了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">let spid = OSSignpostID(log: refreshLog, object: element)
-</code></pre></td></tr></table>
-</div>
-</div><p>在视觉上，您可以将路标ID视为允许我们向每一个路标调用传递一些额外的上下文，这可以将特定操作的开始和结束标记互相关联。
-<img src="https://raw.githubusercontent.com/kingsword/BlogSnapShot/master/WWDC%202018%20sessions/405/8.jpg" alt="">
-这很重要，因为这些操作不仅仅可以重叠，而且通常他们需要的时间也不同。
-<img src="https://raw.githubusercontent.com/kingsword/BlogSnapShot/master/WWDC%202018%20sessions/405/9.jpg" alt="">
-我们现在把示例中的<code>fetchAsset</code>从同步调用改为异步调用。并且由于是异步的，这些时间间隔可能会相互重叠，所以我们还要在创建路标时加上路标ID。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">refreshLog</span> <span class="p">=</span> <span class="n">OSLog</span><span class="p">(</span><span class="n">subsystem</span><span class="p">:</span> <span class="s">&#34;com.example.your-app&#34;</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="s">&#34;RefreshOperations&#34;</span><span class="p">)</span>
-
-<span class="kd">let</span> <span class="nv">spidForRefresh</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">)</span>
-<span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Refresh Panel&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spidForRefresh</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">element</span> <span class="k">in</span> <span class="n">panel</span><span class="p">.</span><span class="n">elements</span> <span class="p">{</span>
-    <span class="c1">//通过对象去创建路标ID</span>
-    <span class="kd">let</span> <span class="nv">spid</span> <span class="p">=</span> <span class="n">OSSignpostID</span><span class="p">(</span><span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="n">element</span><span class="p">)</span>
-    <span class="c1">//通过ID去记录一个路标</span>
-    <span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span><span class="n">spid</span><span class="p">)</span>    
-    <span class="n">fetchAssetAsync</span><span class="p">(</span><span class="k">for</span><span class="p">:</span> <span class="n">element</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//每一个完成之后的回调</span>
-        <span class="n">os_signpost</span><span class="p">(.</span><span class="n">end</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Fetch Asset&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spid</span><span class="p">)</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
-<span class="c1">//  全部完成完成的回调</span>
-<span class="n">notifyWhenDone</span> <span class="p">{</span>
-    <span class="n">os_signpost</span><span class="p">(.</span><span class="n">end</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">refreshLog</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Refresh Panel&#34;</span><span class="p">,</span> <span class="n">signpostID</span><span class="p">:</span> <span class="n">spidForRefresh</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这样就完成了，您可以将<code>Signposts</code>视为一种分类或等级制度。所有的操作都通过日志句柄相关联，这意味着日志分类。然后对我们感兴趣的每个操作，我们给它一个路标名字，如果可能有重叠，我们在给他们<code>路标ID</code>，告诉系统虽然名字相同了，但是我希望通过ID区分。</p>
-<p>这个接口设计的特别灵活，所以你可以控制起始点和结束点的所有参数，日志句柄，路标名字及ID。只要传递的参数是一致的，起始点与结束点就可以对应上，即便他们写在了不同的方法或者文件中。我们之所以这样做是因为希望您能够将它应用到实际开发中。</p>
-<h3 id="在signposts中添加元数据">在Signposts中添加元数据</h3>
-<p>您可能希望在路标中传达一些额外的信息，额外的性能相关的信息。很巧，我们有一个方法来为路标添加元数据。下面是一个基本的路标。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span> <span class="n">log</span><span class="p">:</span> <span class="n">log</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;Compute Physics&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="err">这样就完成了，您可以将</span><span class="o">`</span><span class="n">Signposts</span><span class="o">`</span><span class="err">视为一种分类或等级制度。所有的操作都通过日志句柄相关联，这意味着日志分类。然后对我们感兴趣的每个操作，我们给它一个路标名字，如果可能有重叠，我们在给他们</span><span class="o">`</span><span class="err">路标</span><span class="n">ID</span><span class="o">`</span><span class="err">，告诉系统虽然名字相同了，但是我希望通过</span><span class="n">ID区分</span><span class="err">。</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="err">这个接口设计的特别灵活，所以你可以控制起始点和结束点的所有参数，日志句柄，路标名字及</span><span class="n">ID</span><span class="err">。只要传递的参数是一致的，起始点与结束点就可以对应上，即便他们写在了不同的方法或者文件中。我们之所以这样做是因为希望您能够将它应用到实际开发中。</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">### 在Signposts中添加元数据
+</span><span class="c1"></span><span class="err">您可能希望在路标中传达一些额外的信息，额外的性能相关的信息。很巧，我们有一个方法来为路标添加元数据。下面是一个基本的路标。</span><span class="w">
+</span><span class="w"></span><span class="o">```</span><span class="n">swift</span><span class="w">
+</span><span class="w"></span><span class="nf">os_signpost</span><span class="p">(.</span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="n">log</span><span class="p">:</span><span class="w"> </span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Compute Physics&#34;</span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>我们可以添加一个额外的<code>字符串</code>（OSLog格式化的）参数。这允许您向开始点与结束点添加一些上下文。我们可以通过<code>%d</code>来传递<code>整数</code>。当然也可以传递<code>其他的格式化类型</code>的参数。</p>
 <div class="highlight"><div class="chroma">
@@ -638,7 +589,7 @@ os_log(.info, log: logHandle, &#34;Hello, %{public}s!&#34;, world)
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>iTBoyer</span>
   </span>
 </div>
 
