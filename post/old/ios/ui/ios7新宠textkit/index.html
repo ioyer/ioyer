@@ -30,7 +30,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" />
@@ -61,7 +61,7 @@ IOS6之前，想实现一些丰富的文本排版，例如在textView中显示�
 iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/ios7%E6%96%B0%E5%AE%A0textkit/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2014-06-16T22:24:48+08:00" />
+<meta property="article:published_time" content="2014-06-16T22:24:48+00:00" />
 <meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="IOS7新宠TextKit">
@@ -73,9 +73,9 @@ Text Kit：是个庞大的framework，继承了Core Text的全部功能，构建
 
 IOS6之前，想实现一些丰富的文本排版，例如在textView中显示不同样式的文本，或者图片和文字混排等，就需要借助于UIWebView或者深入研究一下Core Text。后来iOS6，增加一个很棒的属性:NSAttributedString，主要用于支持UILabel、UITextField、UITextView等UIKit控件自主排版的功能。很显然，IOS7并没有满足于这一改进，同时推出一款功能更为齐全，易用的Text Kit新宠。
 在iOS 6中, 用于文本的UIKit控件是基于WebKit和Core Graphics的字符串绘制方法来实现的。如下面层级体系图所示：
-iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示："><meta itemprop="datePublished" content="2014-06-16T22:24:48+08:00" />
+iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWebView）现在都可以使用Text Kit，如下图所示："><meta itemprop="datePublished" content="2014-06-16T22:24:48+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="2364">
+<meta itemprop="wordCount" content="2380">
 <meta itemprop="keywords" content="API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IOS7新宠TextKit"/>
 <meta name="twitter:description" content="Text Kit
@@ -190,7 +190,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 2364 字 </span>
+          <span class="more-meta"> 约 2380 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -247,8 +247,8 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 <li><strong><code>Text storage</code></strong>: 对应着<code>NSTextStorage</code>类。该类定义了<code>Text Kit</code>扩展文本处理系统中的基本存储机制。<code>NSTextStorage</code>继承自<code>NSmutableAttributedString</code>，主要用来存储文本的字符和相关属性。另外，当<code>NSTextStorage</code>中的字符或属性发生了改变，会通知<code>NSLayoutManager</code>，进而做到文本内容的显示更新。<br>
 通常情况下，<strong><code>NSTextStorage</code></strong>、<strong><code>NSLayoutManager</code><strong>和</strong><code>NSTextContainer</code><strong>是一一对应关系:<br>
 如果将文字显示为多列，或多页，可以按照下图关系，使用多个</strong><code>NSTextContainer</code></strong>:
-如果针对不同的排版方式，可以按照下图关系，使用多个**<code>NSLayoutManager</code><strong>:
-通常由</strong><code>NSLayoutManager</code><strong>从</strong><code>NSTextStorage</code><strong>中读取出文本数据，然后根据一定的排版方式，将文本排版到</strong><code>NSTextContainer</code><strong>中，再由</strong><code>NSTextContainer</code>**结合<code>UITextView</code>将最终效果显示出来。
+如果针对不同的排版方式，可以按照下图关系，使用多个**<code>NSLayoutManager</code>**:
+通常由**<code>NSLayoutManager</code>**从**<code>NSTextStorage</code>**中读取出文本数据，然后根据一定的排版方式，将文本排版到**<code>NSTextContainer</code>**中，再由**<code>NSTextContainer</code>**结合<code>UITextView</code>将最终效果显示出来。
 如下图，为了更直观理解，对<code>UITextView</code>的组成做了分解:</li>
 </ul>
 </li>
@@ -380,7 +380,7 @@ UIPanGestureRecognizer *localSender = sender;</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-06-16 22:24:48 \u002b0800 CST',
+        id: '2014-06-16 22:24:48 \u002b0000 UTC',
         title: 'IOS7新宠TextKit',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
