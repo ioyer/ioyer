@@ -21,7 +21,7 @@
  动态样式（Dynamic type） 凸版印刷效果（Letterpress effects） 环绕路径（Exclusion paths） 动态文本格式及存储（Dynamic text formatting and storage）  这个应用中我们将实现回流文本，字体大小的动态变换，以及闪回文本等效果。 效果图:
 App开始运行后自动生成一组便笺实例并利用tableViewController显示出来。Storyboards和segues会将被选中的单元格所对应的便笺内容显示出来以供用户编辑。 项目开发包：Notepad.zip
 动态样式 动态样式（Dynamic type）是iOS 7里面变化最大的特性之一; 它使得app可以遵从用户选择的字体大小和粗细。 选择 通用-&amp;gt;文字大小 或 通用-&amp;gt;辅助功能 来查看app中的字体设置。
-iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。 例如**UIFont**新增的一个方法： **preferredFontForTextStyle** 用来根据用户对字体大小的设置来自动制定字体样式。
+iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。 例如**UIFont**新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
 使用系统动态字体样式 使用动态文本，是通过给文本字体设置字体样式style而不是指定具体的字体名称和大小。这样，系统会在运行时自动根据这一样式以及用户的字体大小设置来选择使用合适的字体。
@@ -35,10 +35,10 @@ preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewControl
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
-<link rel="canonical" href="https://it-boyer.github.io/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
+<link rel="canonical" href="https://ioyer.github.io/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -73,7 +73,7 @@ App开始运行后自动生成一组便笺实例并利用tableViewController显�
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
-例如**UIFont**新增的一个方法： **preferredFontForTextStyle** 用来根据用户对字体大小的设置来自动制定字体样式。
+例如**UIFont**新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
@@ -147,8 +147,8 @@ self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://it-boyer.github.io/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2014-07-03T17:29:00+00:00" />
+<meta property="og:url" content="https://ioyer.github.io/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-07-03T17:29:00+08:00" />
 <meta property="article:modified_time" content="2021-05-13T09:48:14+08:00" />
 
 <meta itemprop="name" content="TextKit之便笺实战">
@@ -170,7 +170,7 @@ App开始运行后自动生成一组便笺实例并利用tableViewController显�
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
-例如**UIFont**新增的一个方法： **preferredFontForTextStyle** 用来根据用户对字体大小的设置来自动制定字体样式。
+例如**UIFont**新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
@@ -242,9 +242,9 @@ self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 {%endcodeblock%}
 这一方法作用是根据新的字体设置来设定textView中的字体。 
 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
-"><meta itemprop="datePublished" content="2014-07-03T17:29:00+00:00" />
+"><meta itemprop="datePublished" content="2014-07-03T17:29:00+08:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="9515">
+<meta itemprop="wordCount" content="9487">
 <meta itemprop="keywords" content="API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="TextKit之便笺实战"/>
 <meta name="twitter:description" content="便笺练习功能点:
@@ -265,7 +265,7 @@ App开始运行后自动生成一组便笺实例并利用tableViewController显�
 选择 通用-&gt;文字大小 或 通用-&gt;辅助功能 来查看app中的字体设置。
 
 iOS 7 支持通过粗体、设置字体大小等方式提高支持动态文本的应用的易读性。
-例如**UIFont**新增的一个方法： **preferredFontForTextStyle** 用来根据用户对字体大小的设置来自动制定字体样式。
+例如**UIFont**新增的一个方法： preferredFontForTextStyle 用来根据用户对字体大小的设置来自动制定字体样式。
 下面表格中是六种可用字体样式的示例：
 
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。
@@ -441,7 +441,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
         <div class="post-category">
             <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
             </div>
-          <span class="more-meta"> 约 9515 字 </span>
+          <span class="more-meta"> 约 9487 字 </span>
           <span class="more-meta"> 预计阅读 19 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -500,7 +500,7 @@ App开始运行后自动生成一组便笺实例并利用<code>tableViewControll
 选择 <strong>通用-&gt;文字大小</strong> 或 <strong>通用-&gt;辅助功能</strong> 来查看app中的字体设置。</p>
 <p><img src="/images/UserTextPreferences.png" alt="image"><br>
 iOS 7 支持通过<code>粗体</code>、<code>设置字体大小</code>等方式提高支持动态文本的应用的易读性。
-例如**<code>UIFont</code>**新增的一个方法： **<code>preferredFontForTextStyle</code>** 用来根据用户对字体大小的设置来自动制定字体样式。<br>
+例如**<code>UIFont</code>**新增的一个方法： <strong><code>preferredFontForTextStyle</code></strong> 用来根据用户对字体大小的设置来自动制定字体样式。<br>
 下面表格中是六种可用字体样式的示例：<br>
 <img src="/images/TextStyles.png" alt="image"><br>
 最左边一列是最小字体；中间一列是最大字体；最右边一列是粗体效果。</p>
@@ -802,8 +802,8 @@ Build并运行app，选择一个便笺项，如下图所示：<br>
 <li>将<code>UITextView</code>的默认文本存储器,用自定义的实现替换掉。</li>
 </ol>
 <h4 id="创建文本存储器nstextstorage子类">创建文本存储器NSTextStorage子类</h4>
-<p>新建**<code>NSTextStorage</code>**的子类，类命名为**<code>SyntaxHighlightTextStorage</code>**
-打开**SyntaxHighlightTextStorage.m**并添加实例变量并初始化：
+<p>新建**<code>NSTextStorage</code><strong>的子类，类命名为</strong><code>SyntaxHighlightTextStorage</code>**
+打开<strong>SyntaxHighlightTextStorage.m</strong>并添加实例变量并初始化：
 {%codeblock lang:objc%}
 #import &ldquo;SyntaxHighlightTextStorage.h&rdquo;
 @implementation SyntaxHighlightTextStorage
@@ -921,8 +921,8 @@ endEditing()
 <h3 id="创建uitextview使用自定义text-kit堆栈">创建UITextView使用自定义Text Kit堆栈</h3>
 <p>现在有了一个自定义的<code>NSTextStorage</code>，还需创建一个<code>UITextView</code>来使用它。</p>
 <h4 id="storyboard创建uitextview时text-kit组件只读问题">storyboard创建UITextView时，Text Kit组件只读问题</h4>
-<p>从<strong>storyboard</strong>编辑器实例化<code>UITextView</code>会自动创建**<code>NSTextStorage</code>**, **<code>NSLayoutManager</code>**和**<code>NSTextContainer</code>** (例如**Text Kit**堆栈)实例以及所有的这三个只读属性。<br>
-虽然没有办法从**storyboard**编辑器中改变这种设定，但可以手动编程创建<code>UITextView</code>和**Text Kit**堆栈。</p>
+<p>从<strong>storyboard</strong>编辑器实例化<code>UITextView</code>会自动创建**<code>NSTextStorage</code><strong>, <strong><code>NSLayoutManager</code><strong>和</strong><code>NSTextContainer</code></strong> (例如</strong>Text Kit<strong>堆栈)实例以及所有的这三个只读属性。<br>
+虽然没有办法从</strong>storyboard<strong>编辑器中改变这种设定，但可以手动编程创建<code>UITextView</code>和</strong>Text Kit**堆栈。</p>
 <h4 id="在uitextview中使用自定义的syntaxhighlighttextstorage">在UITextView中使用自定义的SyntaxHighlightTextStorage</h4>
 <h5 id="清理ib相关设置">清理IB相关设置</h5>
 <ul>
@@ -1105,8 +1105,8 @@ fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
 UIFont* boldFont =  [UIFont fontWithDescriptor:boldFontDescriptor size: 0.0];
 UIFont* normalFont =  [UIFont preferredFontForTextStyle:UIFontTextStyleBody];</p>
 <p>// 2. match items surrounded by asterisks
-NSString* regexStr = @&quot;(*w+(sw+)**)s&rdquo;;
-NSRegularExpression* regex = [NSRegularExpression
+NSString* regexStr = @&quot;(<em>w+(sw+)**)s&rdquo;;
+NSRegularExpression</em> regex = [NSRegularExpression
 regularExpressionWithPattern:regexStr
 options:0
 error:nil];</p>
@@ -1293,7 +1293,7 @@ return @{ NSFontAttributeName : font };
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-07-03 17:29:00 \u002b0000 UTC',
+        id: '2014-07-03 17:29:00 \u002b0800 CST',
         title: 'TextKit之便笺实战',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -1321,7 +1321,7 @@ return @{ NSFontAttributeName : font };
       <a href="http://www.zhihu.com/people/boyers" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://douban.com/people/boyers" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://it-boyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://ioyer.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
