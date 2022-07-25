@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E8%B0%83%E8%AF%95/xcode%E8%B0%83%E8%AF%95%E4%B8%AD%E5%BC%95%E7%94%A8python%E8%84%9A%E6%9C%AC/" />
@@ -234,46 +234,46 @@
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">#coding=utf-8  </span>
-<span class="c1">#自定义lldb命令 </span>
-<span class="kn">import</span> <span class="nn">lldb</span>
-<span class="kn">import</span> <span class="nn">commands</span>
-<span class="kn">import</span> <span class="nn">optparse</span>
-<span class="kn">import</span> <span class="nn">shlex</span>
-
-<span class="c1">#批量执行`image lookup`命令的函数，也是自定义的新的lldb命令的名称</span>
-<span class="k">def</span> <span class="nf">layne_imagelookup</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">internal_dict</span><span class="p">):</span>
-    <span class="n">target</span> <span class="o">=</span> <span class="n">debugger</span><span class="o">.</span><span class="n">GetSelectedTarget</span><span class="p">()</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">GetProcess</span><span class="p">()</span>
-    <span class="n">thread</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">GetSelectedThread</span><span class="p">()</span>
-
-    <span class="n">command_args</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">create_custom_parser</span><span class="p">()</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">command_args</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">SetError</span> <span class="p">(</span><span class="s2">&#34;option parsing failed&#34;</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;*************************************&#34;</span><span class="p">)</span>
-            <span class="n">debugger</span><span class="o">.</span><span class="n">HandleCommand</span><span class="p">(</span><span class="s1">&#39;image lookup -a </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
-
-
-<span class="k">def</span> <span class="nf">create_custom_parser</span><span class="p">():</span>
-    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&#34;usage: %prog [options]&#34;</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Parse Symbols to Human-readable Format.&#39;&#39;&#39;</span>
-    <span class="c1">#生成解析器</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">optparse</span><span class="o">.</span><span class="n">OptionParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;print_frame&#39;</span><span class="p">,</span><span class="n">usage</span><span class="o">=</span><span class="n">usage</span><span class="p">)</span>
-    <span class="c1"># parser.add_option(&#39;-p&#39;,&#39;--parse&#39;,type=&#39;string&#39;,dest = &#39;parse&#39;,help=&#39;parse symbols.&#39;);</span>
-    <span class="k">return</span> <span class="n">parser</span>
-
-<span class="c1">#运行脚本入口</span>
-<span class="k">def</span> <span class="nf">__lldb_init_module</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">internal_dict</span><span class="p">):</span>  
-    <span class="n">debugger</span><span class="o">.</span><span class="n">HandleCommand</span><span class="p">(</span><span class="s1">&#39;command script add -f layne_command.layne_imagelookup layne_imagelookup&#39;</span><span class="p">)</span>  
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The &#34;layne_imagelookup&#34; python command has been installed and is ready for use.&#39;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#coding=utf-8  </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#自定义lldb命令 </span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">lldb</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">commands</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">optparse</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">shlex</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#批量执行`image lookup`命令的函数，也是自定义的新的lldb命令的名称</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">layne_imagelookup</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">internal_dict</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target</span> <span class="o">=</span> <span class="n">debugger</span><span class="o">.</span><span class="n">GetSelectedTarget</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">process</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">GetProcess</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">thread</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">GetSelectedThread</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">command_args</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span> <span class="o">=</span> <span class="n">create_custom_parser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">command_args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="o">.</span><span class="n">SetError</span> <span class="p">(</span><span class="s2">&#34;option parsing failed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;*************************************&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">debugger</span><span class="o">.</span><span class="n">HandleCommand</span><span class="p">(</span><span class="s1">&#39;image lookup -a </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">create_custom_parser</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">usage</span> <span class="o">=</span> <span class="s2">&#34;usage: %prog [options]&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Parse Symbols to Human-readable Format.&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#生成解析器</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span> <span class="o">=</span> <span class="n">optparse</span><span class="o">.</span><span class="n">OptionParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;print_frame&#39;</span><span class="p">,</span><span class="n">usage</span><span class="o">=</span><span class="n">usage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># parser.add_option(&#39;-p&#39;,&#39;--parse&#39;,type=&#39;string&#39;,dest = &#39;parse&#39;,help=&#39;parse symbols.&#39;);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">parser</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#运行脚本入口</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">__lldb_init_module</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">internal_dict</span><span class="p">):</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">debugger</span><span class="o">.</span><span class="n">HandleCommand</span><span class="p">(</span><span class="s1">&#39;command script add -f layne_command.layne_imagelookup layne_imagelookup&#39;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The &#34;layne_imagelookup&#34; python command has been installed and is ready for use.&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后保存为文件<code>layne_command.py</code>,放到如下目录(自己指定)：<code>~/Python/lldb/layne_command.py </code>
 说明:
@@ -420,7 +420,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

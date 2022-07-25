@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/%E4%BD%BF%E7%94%A8cocoapods%E5%BC%80%E5%8F%91%E9%9D%99%E6%80%81%E5%BA%93/" />
@@ -213,8 +213,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo gem install cocoapods-packager
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo gem install cocoapods-packager
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>打包
@@ -225,8 +225,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pod package BZLib.podspec --library --force
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pod package BZLib.podspec --library --force
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>--library</code>指定打包成.a文件，如果不带上将会打包成.framework文件。<code>--force</code>是指强制覆盖。最终的目录结构如下</p>
 <div class="highlight"><div class="chroma">
@@ -236,10 +236,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">|____BZLib.podspec
-|____ios
-| |____libBZLib.a
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">|____BZLib.podspec
+</span></span><span class="line"><span class="cl">|____ios
+</span></span><span class="line"><span class="cl">| |____libBZLib.a
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要特别强调的是，该插件通过对引用的三方库进行重命名很好的解决了类库命名冲突的问题。
 比如你的类库使用了ASI，然后打包成静态库.a文件。外部调用的项目也使用了ASI，那么不会造成冲突。因为在打包的时候，你的类库里的ASI被重命名为项目+ASI的前缀。</p>
@@ -384,7 +384,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

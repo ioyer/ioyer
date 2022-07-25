@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%BE%93%E5%85%A5%E6%B3%95%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" />
@@ -230,8 +230,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">  </span><span class="nt">patch</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">menu/page_size</span><span class="p">:</span><span class="w"> </span><span class="m">10</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">menu/page_size</span><span class="p">:</span><span class="w"> </span><span class="m">10</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="隐藏侯选框的方法">隐藏侯选框的方法</h4>
@@ -242,8 +242,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">_hide_candidate</span><span class="w">
-</span><span class="w">   </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c">#默认开启这个开关，隐藏候选栏</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">_hide_candidate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c">#默认开启这个开关，隐藏候选栏</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="设置输入法偏好">设置输入法偏好</h4>
@@ -278,27 +278,27 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">switches</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
-</span><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">中文, 西文 ]</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">full_shape</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">半角, 全角 ]</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
-</span><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">漢字, 汉字 ]</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_punct</span><span class="w">
-</span><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">。，, ．， ]</span><span class="w">
-</span><span class="w"></span><span class="c">#  - name: _hide_candidate</span><span class="w">
-</span><span class="w"> </span><span class="c">#   reset: 0  #默认开启这个开关，隐藏候选栏</span><span class="w">
-</span><span class="w">      </span><span class="c"># 这个按键用来收起软键盘</span><span class="w">
-</span><span class="w"></span><span class="c">#  - options: [ _key_Control_L ]</span><span class="w">
-</span><span class="w"></span><span class="c">#    states: [ &#34;CTRL&#34; ]</span><span class="w">
-</span><span class="w"></span><span class="c">#  - options: [ _key_Escape ]</span><span class="w">
-</span><span class="w"></span><span class="c">#    states: [ &#34;ESC&#34; ]</span><span class="w">
-</span><span class="w"></span><span class="c">#  - options: [ _key_Alt_L ]</span><span class="w">
-</span><span class="w"></span><span class="c">#    states: [ &#34;Alt&#34; ]</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">switches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">中文, 西文 ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">full_shape</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">半角, 全角 ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">simplification</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">漢字, 汉字 ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ascii_punct</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">reset</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">。，, ．， ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - name: _hide_candidate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="c">#   reset: 0  #默认开启这个开关，隐藏候选栏</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这个按键用来收起软键盘</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - options: [ _key_Control_L ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#    states: [ &#34;CTRL&#34; ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - options: [ _key_Escape ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#    states: [ &#34;ESC&#34; ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - options: [ _key_Alt_L ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#    states: [ &#34;Alt&#34; ]</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="键位设置">键位设置</h4>
@@ -309,7 +309,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/click&#34;: </span><span class="l">date_time</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/click&#34;: </span><span class="l">date_time</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>开启36键位的方法： <code>querty0</code></p>
@@ -319,8 +319,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">   </span><span class="nt">&#34;preset_keyboards/luna_pinyin/import_preset&#34;: </span><span class="l">qwerty0</span><span class="w">
-</span><span class="w">   </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@43/long_click&#34;: </span><span class="l">Mode_switch</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">   </span><span class="nt">&#34;preset_keyboards/luna_pinyin/import_preset&#34;: </span><span class="l">qwerty0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@43/long_click&#34;: </span><span class="l">Mode_switch</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>键位绑定支持两种方式：键位占用和键位长按</p>
@@ -332,10 +332,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># click绑定键位</span><span class="w">
-</span><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/click&#34;: </span><span class="l">date_time</span><span class="w">
-</span><span class="w"></span><span class="c"># long_click绑定键位长按</span><span class="w">
-</span><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/long_click&#34;: </span><span class="l">date_time</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># click绑定键位</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/click&#34;: </span><span class="l">date_time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># long_click绑定键位长按</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/long_click&#34;: </span><span class="l">date_time</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <!--list-separator-->
@@ -367,24 +367,24 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">           </span><span class="c"># 参考trime.yaml内置的date键，新建一个按键date_time</span><span class="w">
-</span><span class="w">             </span><span class="s2">&#34;preset_keys/date_time&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">               </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">date</span><span class="w">
-</span><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">时间</span><span class="w">
-</span><span class="w">               </span><span class="nt">option</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;yyyy-MM-dd  HH:mm:ss&#34;</span><span class="w">  </span><span class="c">#通过`option`参数控制输出的日期和时间格式</span><span class="w">
-</span><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">function</span><span class="w">
-</span><span class="w">        
-</span><span class="w">            </span><span class="c">#Clear: {label: 清除, text: &#34;{Control+a}{BackSpace}&#34;} #全選並刪除</span><span class="w">
-</span><span class="w">             </span><span class="s2">&#34;preset_keys/cg&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">撤销</span><span class="w">
-</span><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">Control+g</span><span class="w">
-</span><span class="w">             </span><span class="s2">&#34;preset_keys/cc&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">完1</span><span class="w">
-</span><span class="w">               </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{Control+c}{Control+c}&#34;</span><span class="w">
-</span><span class="w">             </span><span class="s2">&#34;preset_keys/control&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">CTR</span><span class="w">
-</span><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">Control_L</span><span class="w"> </span><span class="c">#space+colon</span><span class="w">
-</span><span class="w">        </span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">           </span><span class="c"># 参考trime.yaml内置的date键，新建一个按键date_time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="s2">&#34;preset_keys/date_time&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">date</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">时间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">option</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;yyyy-MM-dd  HH:mm:ss&#34;</span><span class="w">  </span><span class="c">#通过`option`参数控制输出的日期和时间格式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">function</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c">#Clear: {label: 清除, text: &#34;{Control+a}{BackSpace}&#34;} #全選並刪除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="s2">&#34;preset_keys/cg&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">撤销</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">Control+g</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="s2">&#34;preset_keys/cc&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">完1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{Control+c}{Control+c}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="s2">&#34;preset_keys/control&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l">CTR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">send</span><span class="p">:</span><span class="w"> </span><span class="l">Control_L</span><span class="w"> </span><span class="c">#space+colon</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -398,10 +398,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/long_click&#34;: </span><span class="l">date_time</span><span class="w">
-</span><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@33/long_click&#34;: </span><span class="l">Mode_switch</span><span class="w">
-</span><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@36/long_click&#34;: </span><span class="l">todo</span><span class="w">
-</span><span class="w">        </span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@26/long_click&#34;: </span><span class="l">date_time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@33/long_click&#34;: </span><span class="l">Mode_switch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@36/long_click&#34;: </span><span class="l">todo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -416,11 +416,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">              </span><span class="nt">&#34;preset_keyboards/luna_pinyin/import_preset&#34;: </span><span class="l">qwerty0</span><span class="w">
-</span><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@36/long_click&#34;: </span><span class="l">date_time</span><span class="w">
-</span><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@43/long_click&#34;: </span><span class="l">Mode_switch</span><span class="w">
-</span><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@46/long_click&#34;: </span><span class="l">todo</span><span class="w">
-</span><span class="w">        </span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">              </span><span class="nt">&#34;preset_keyboards/luna_pinyin/import_preset&#34;: </span><span class="l">qwerty0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@36/long_click&#34;: </span><span class="l">date_time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@43/long_click&#34;: </span><span class="l">Mode_switch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">&#34;preset_keyboards/qwerty0/keys/@46/long_click&#34;: </span><span class="l">todo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -434,7 +434,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">    </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@33/long_click&#34;: </span><span class="l">Mode_switch</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@33/long_click&#34;: </span><span class="l">Mode_switch</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="定制长按enter键输入">定制长按Enter键输入 ~ - [ ] ~</h4>
@@ -446,9 +446,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">  </span><span class="s2">&#34;preset_keys/todo&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;- [ ]&#34;</span><span class="w">
-</span><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;- [ ] &#34;</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="s2">&#34;preset_keys/todo&#34;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;- [ ]&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;- [ ] &#34;</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>添加到长按事件中</p>
@@ -457,7 +457,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">    </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@36/long_click&#34;: </span><span class="l">todo</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#34;preset_keyboards/qwerty/keys/@36/long_click&#34;: </span><span class="l">todo</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="状态栏添加菜单项">状态栏添加菜单项</h4>
@@ -490,24 +490,24 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">switches</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># 这个按键用来收起软键盘</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_Hide ]</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;▼&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span><span class="w">  </span><span class="c">#states是显示在状态栏的图标，options是实际执行的功能</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c"># 这个按键用来调出输入法切换菜单</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_IME_switch ]</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;🌐&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span><span class="w">  </span><span class="c"># 更多功能键请查阅trime.yaml/preset_keys</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c"># 这是一个空按键，按下去不会执行任何动作</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_VoidSymbol ]</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;    &#34;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c">#空键的宽度由这里的空格决定</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c"># 这个按键用来输出句号</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_period ]</span><span class="w"> </span><span class="c">#period是句号的英文名，也可以直接写成[ _key_. ]</span><span class="w">
-</span><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;。&#34;</span><span class="w"> </span><span class="p">]</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">switches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 这个按键用来收起软键盘</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_Hide ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;▼&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#states是显示在状态栏的图标，options是实际执行的功能</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 这个按键用来调出输入法切换菜单</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_IME_switch ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;🌐&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 更多功能键请查阅trime.yaml/preset_keys</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 这是一个空按键，按下去不会执行任何动作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_VoidSymbol ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;    &#34;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="c">#空键的宽度由这里的空格决定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 这个按键用来输出句号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">_key_period ]</span><span class="w"> </span><span class="c">#period是句号的英文名，也可以直接写成[ _key_. ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;。&#34;</span><span class="w"> </span><span class="p">]</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="squirrel">squirrel</h2>
@@ -528,10 +528,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">       curl -L -O https://github.com/rime/librime/releases/download/1.7.1/rime-1.7.1-osx.zip
-       unzip rime-1.7.1-osx.zip -d ~/.emacs.d/librime
-       rm -rf rime-1.7.1-osx.zip
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">       curl -L -O https://github.com/rime/librime/releases/download/1.7.1/rime-1.7.1-osx.zip
+</span></span><span class="line"><span class="cl">       unzip rime-1.7.1-osx.zip -d ~/.emacs.d/librime
+</span></span><span class="line"><span class="cl">       rm -rf rime-1.7.1-osx.zip
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -543,7 +543,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">package!</span> <span class="nv">rime</span><span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">package!</span> <span class="nv">rime</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>偏好设置： <code>rime-librime-root</code> : 指定为安装 <code>librime</code> 的目录 <code>~/.emacs.d/librime/dist</code></p>
@@ -579,34 +579,34 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nv">use-package!</span> <span class="nv">rime</span>
-  <span class="nb">:custom</span>
-  <span class="p">(</span><span class="nv">default-input-method</span> <span class="s">&#34;rime&#34;</span><span class="p">)</span>
-  <span class="p">(</span><span class="nv">rime-emacs-module-header-root</span> <span class="s">&#34;/Applications/Emacs.app/Contents/Resources/include/&#34;</span><span class="p">)</span>
-<span class="hl">  <span class="p">(</span><span class="nv">rime-librime-root</span> <span class="p">(</span><span class="nf">expand-file-name</span> <span class="s">&#34;librime/dist&#34;</span> <span class="nv">user-emacs-directory</span><span class="p">))</span>
-</span>  <span class="p">(</span><span class="nv">rime-cursor</span> <span class="s">&#34;˰&#34;</span><span class="p">)</span>
-  <span class="p">(</span><span class="nv">rime-show-candidate</span> <span class="ss">&#39;posframe</span><span class="p">)</span>
-  <span class="c1">;;https://emacs-china.org/t/doom-emacs-rime/12499/18?u=huos3203</span>
-<span class="c1">;;  (rime-share-data-dir &#34;/Users/boyer/Library/Rime&#34;)</span>
-<span class="c1">;;  (rime-user-data-dir &#34;/Users/boyer/Library/Rime&#34;)</span>
-  <span class="p">(</span><span class="nv">rime-posframe-properties</span>
-   <span class="p">(</span><span class="nf">list</span> <span class="nb">:background-color</span> <span class="s">&#34;#073642&#34;</span>
-         <span class="nb">:foreground-color</span> <span class="s">&#34;#839496&#34;</span>
-         <span class="nb">:internal-border-width</span> <span class="mi">1</span>
-         <span class="nb">:font</span> <span class="s">&#34;Input Mono Narrow&#34;</span>
-         <span class="p">))</span>
-  <span class="c1">;;</span>
-  <span class="p">(</span><span class="nv">rime-disable-predicates</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">rime-predicate-evil-mode-p</span>
-                             <span class="nv">rime-predicate-after-alphabet-char-p</span>
-                             <span class="nv">rime-predicate-prog-in-code-p</span><span class="p">))</span>
-  <span class="c1">;;; 具体参考 mode-line-mule-info 默认值，其中可能有其它有用信息</span>
-  <span class="p">(</span><span class="nv">mode-line-mule-info</span> <span class="o">&#39;</span><span class="p">((</span><span class="nb">:eval</span> <span class="p">(</span><span class="nv">rime-lighter</span><span class="p">))))</span>
-  <span class="c1">;;在 minibuffer 使用后自动关闭输入法</span>
-  <span class="p">(</span><span class="nv">rime-deactivate-when-exit-minibuffer</span> <span class="no">t</span><span class="p">)</span>
-
-  <span class="nb">:config</span>
-  <span class="p">(</span><span class="nv">set-face-attribute</span> <span class="ss">&#39;rime-default-face</span> <span class="no">nil</span> <span class="nb">:foreground</span> <span class="s">&#34;#839496&#34;</span> <span class="nb">:background</span> <span class="s">&#34;#073642&#34;</span><span class="p">)</span>
-  <span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">use-package!</span> <span class="nv">rime</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:custom</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">default-input-method</span> <span class="s">&#34;rime&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-emacs-module-header-root</span> <span class="s">&#34;/Applications/Emacs.app/Contents/Resources/include/&#34;</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl">  <span class="p">(</span><span class="nv">rime-librime-root</span> <span class="p">(</span><span class="nf">expand-file-name</span> <span class="s">&#34;librime/dist&#34;</span> <span class="nv">user-emacs-directory</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-cursor</span> <span class="s">&#34;˰&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-show-candidate</span> <span class="ss">&#39;posframe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">;;https://emacs-china.org/t/doom-emacs-rime/12499/18?u=huos3203</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;  (rime-share-data-dir &#34;/Users/boyer/Library/Rime&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;  (rime-user-data-dir &#34;/Users/boyer/Library/Rime&#34;)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-posframe-properties</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nf">list</span> <span class="nb">:background-color</span> <span class="s">&#34;#073642&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:foreground-color</span> <span class="s">&#34;#839496&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:internal-border-width</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:font</span> <span class="s">&#34;Input Mono Narrow&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">;;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-disable-predicates</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">rime-predicate-evil-mode-p</span>
+</span></span><span class="line"><span class="cl">                             <span class="nv">rime-predicate-after-alphabet-char-p</span>
+</span></span><span class="line"><span class="cl">                             <span class="nv">rime-predicate-prog-in-code-p</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">;;; 具体参考 mode-line-mule-info 默认值，其中可能有其它有用信息</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">mode-line-mule-info</span> <span class="o">&#39;</span><span class="p">((</span><span class="nb">:eval</span> <span class="p">(</span><span class="nv">rime-lighter</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">;;在 minibuffer 使用后自动关闭输入法</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">rime-deactivate-when-exit-minibuffer</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">set-face-attribute</span> <span class="ss">&#39;rime-default-face</span> <span class="no">nil</span> <span class="nb">:foreground</span> <span class="s">&#34;#839496&#34;</span> <span class="nb">:background</span> <span class="s">&#34;#073642&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="高低配置">高低配置</h3>
@@ -621,9 +621,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">patch</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">  </span><span class="c"># 對於列表類型，現在無有辦法指定如何添加、消除或單一修改某項，於是要在定製檔中將整個列表替換！</span><span class="w">
-</span><span class="w">    </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_simp </span><span class="w"> </span><span class="c">#默认简体输入法</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schema_list</span><span class="p">:</span><span class="w">  </span><span class="c"># 對於列表類型，現在無有辦法指定如何添加、消除或單一修改某項，於是要在定製檔中將整個列表替換！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l">luna_pinyin_simp </span><span class="w"> </span><span class="c">#默认简体输入法</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -768,7 +768,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

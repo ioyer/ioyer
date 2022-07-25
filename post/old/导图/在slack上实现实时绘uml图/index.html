@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%AF%BC%E5%9B%BE/%E5%9C%A8slack%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%AE%9E%E6%97%B6%E7%BB%98uml%E5%9B%BE/" />
@@ -218,40 +218,40 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">title 部署一台heroku机器人\n支持在slack窗口实时绘制uml图
-center header
-umlbot工具
-endheader
-
-[slack] as slack
-
-cloud &#34;heroku服务器&#34;{
-[umlbot] as umlbot
-[heroku] as hero
-umlbot -[#yellow]&gt; hero: 部署机器人
-hero -[#green]&gt; umlbot: 原脚本
-}
-
-umlbot -[#green]-&gt; slack: 绘制UML
-slack -&gt; hero: 输入hook用户数据\nTOKEN
-hero --&gt; slack: 机器人URL
-
-&#39;注释模块&#39;
-note right of umlbot : github源码库\nhero支持github直接部署
-note left of heroku服务器 #white: 运行umlbot机器人\n 从slack获取源数据
-note left of slack #red: 配置outgoing hook\n输出:token\n输入:机器人URL(s)
-
-&#39;接口模块&#39;
-()&#34;注册&#34; --&gt; hero: 部署前提
-()&#34;部署&#34; --&gt; hero: 设置TOKEN
-
-note left of &#34;注册&#34; #green: 需要翻墙\n&#34;Please confirm you&#39;re not a robot.&#34;
-note right of &#34;部署&#34; #red: 设置**TOKEN**位置\n通过readme提供的部署按钮\n来实现设置token
-
-center footer
-目前测试并没有实现slack绘制UML的效果
-endfooter
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title 部署一台heroku机器人\n支持在slack窗口实时绘制uml图
+</span></span><span class="line"><span class="cl">center header
+</span></span><span class="line"><span class="cl">umlbot工具
+</span></span><span class="line"><span class="cl">endheader
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[slack] as slack
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cloud &#34;heroku服务器&#34;{
+</span></span><span class="line"><span class="cl">[umlbot] as umlbot
+</span></span><span class="line"><span class="cl">[heroku] as hero
+</span></span><span class="line"><span class="cl">umlbot -[#yellow]&gt; hero: 部署机器人
+</span></span><span class="line"><span class="cl">hero -[#green]&gt; umlbot: 原脚本
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">umlbot -[#green]-&gt; slack: 绘制UML
+</span></span><span class="line"><span class="cl">slack -&gt; hero: 输入hook用户数据\nTOKEN
+</span></span><span class="line"><span class="cl">hero --&gt; slack: 机器人URL
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#39;注释模块&#39;
+</span></span><span class="line"><span class="cl">note right of umlbot : github源码库\nhero支持github直接部署
+</span></span><span class="line"><span class="cl">note left of heroku服务器 #white: 运行umlbot机器人\n 从slack获取源数据
+</span></span><span class="line"><span class="cl">note left of slack #red: 配置outgoing hook\n输出:token\n输入:机器人URL(s)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#39;接口模块&#39;
+</span></span><span class="line"><span class="cl">()&#34;注册&#34; --&gt; hero: 部署前提
+</span></span><span class="line"><span class="cl">()&#34;部署&#34; --&gt; hero: 设置TOKEN
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">note left of &#34;注册&#34; #green: 需要翻墙\n&#34;Please confirm you&#39;re not a robot.&#34;
+</span></span><span class="line"><span class="cl">note right of &#34;部署&#34; #red: 设置**TOKEN**位置\n通过readme提供的部署按钮\n来实现设置token
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">center footer
+</span></span><span class="line"><span class="cl">目前测试并没有实现slack绘制UML的效果
+</span></span><span class="line"><span class="cl">endfooter
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -391,7 +391,7 @@ endfooter
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

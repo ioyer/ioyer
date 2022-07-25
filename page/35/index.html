@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/" />
@@ -264,7 +264,7 @@
       <div class="post-category">
           <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
           </div>
-        <span class="more-meta"> 约 9487 字 </span>
+        <span class="more-meta"> 约 9488 字 </span>
         <span class="more-meta"> 预计阅读 19 分钟 </span>
       <span class="more-meta"> by
  </span>
@@ -500,16 +500,16 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">UIDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">currentDevice</span><span class="p">;</span> 		  <span class="c1">// 获取当前设备
-</span><span class="c1"></span>
-<span class="n">NSString</span>    <span class="o">*</span><span class="n">name</span><span class="p">;</span>               	  <span class="c1">// e.g. &#34;My iPhone&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">model</span><span class="p">;</span>              	  <span class="c1">// e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">localizedModel</span><span class="p">;</span>     	  <span class="c1">// localized version of model  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemName</span><span class="p">;</span>     		  <span class="c1">// e.g. @&#34;iOS&#34;  
-</span><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemVersion</span><span class="p">;</span>   	  <span class="c1">// e.g. @&#34;4.0&#34;  
-</span><span class="c1"></span><span class="n">UIDeviceOrientation</span> <span class="n">orientation</span><span class="p">;</span>    <span class="c1">//除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
-</span><span class="c1"></span><span class="n">NSUUID</span> <span class="o">*</span><span class="n">identifierForVendor</span>         <span class="c1">//可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">+</span> <span class="p">(</span><span class="n">UIDevice</span> <span class="o">*</span><span class="p">)</span><span class="nf">currentDevice</span><span class="p">;</span> 		  <span class="c1">// 获取当前设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">NSString</span>    <span class="o">*</span><span class="n">name</span><span class="p">;</span>               	  <span class="c1">// e.g. &#34;My iPhone&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">model</span><span class="p">;</span>              	  <span class="c1">// e.g. @&#34;iPhone&#34;, @&#34;iPod touch&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">localizedModel</span><span class="p">;</span>     	  <span class="c1">// localized version of model  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemName</span><span class="p">;</span>     		  <span class="c1">// e.g. @&#34;iOS&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSString</span>    <span class="o">*</span><span class="n">systemVersion</span><span class="p">;</span>   	  <span class="c1">// e.g. @&#34;4.0&#34;  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UIDeviceOrientation</span> <span class="n">orientation</span><span class="p">;</span>    <span class="c1">//除非正在生成设备方向的通知，否则返回UIDeviceOrientationUnknown  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSUUID</span> <span class="o">*</span><span class="n">identifierForVendor</span>         <span class="c1">//可用于唯一标识该设备，同一供应商不同应用具有相同的UUID
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -522,14 +522,14 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">UIDeviceOrientationUnknown</span><span class="p">,</span>
-    <span class="n">UIDeviceOrientationPortrait</span><span class="p">,</span>                    <span class="c1">// 竖向，头向上
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">,</span>  		<span class="c1">// 竖向，头向下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeLeft</span><span class="p">,</span>         		<span class="c1">// 横向，头向左
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">,</span>       		<span class="c1">// 横向，头向右
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceUp</span><span class="p">,</span>                  	<span class="c1">// 平放，屏幕朝下
-</span><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceDown</span>                	 <span class="c1">// 平放，屏幕朝下
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">    <span class="n">UIDeviceOrientationUnknown</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UIDeviceOrientationPortrait</span><span class="p">,</span>                    <span class="c1">// 竖向，头向上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">,</span>  		<span class="c1">// 竖向，头向下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeLeft</span><span class="p">,</span>         		<span class="c1">// 横向，头向左
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UIDeviceOrientationLandscapeRight</span><span class="p">,</span>       		<span class="c1">// 横向，头向右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceUp</span><span class="p">,</span>                  	<span class="c1">// 平放，屏幕朝下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">UIDeviceOrientationFaceDown</span>                	 <span class="c1">// 平放，屏幕朝下
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>//使用内置的宏定义的函数，根据<strong>orientation</strong>判断设备方向,返回值类型<strong>BOOL</strong>.<br>
 {%codeblock lang:java 纵向宏定义,返回YES:纵向%}
@@ -708,7 +708,7 @@ iOS 7的整体构架要更清晰，所有基于文本的UIKit控件（除了UIWe
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

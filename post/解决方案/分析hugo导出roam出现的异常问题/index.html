@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E5%88%86%E6%9E%90hugo%E5%AF%BC%E5%87%BAroam%E5%87%BA%E7%8E%B0%E7%9A%84%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98/" />
@@ -190,7 +190,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-10-18T18:47:27" title="October 18, 2021">October 18, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -204,7 +204,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Error (after-save-hook): Error running hook &#34;org-hugo-export-wim-to-md-after-save&#34; because: (org-link-broken 8bf3df1d-b8f3-4e26-99fb-da0bc476771f)</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Error (after-save-hook): Error running hook &#34;org-hugo-export-wim-to-md-after-save&#34; because: (org-link-broken 8bf3df1d-b8f3-4e26-99fb-da0bc476771f)</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="方案一">方案一</h3>
@@ -222,15 +222,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">jethro/org-roam-export-updated</span> <span class="p">()</span>
-    <span class="s">&#34;Re-export files that are linked to the current file.&#34;</span>
-    <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">files</span> <span class="p">(</span><span class="nv">emacsql-sqlite</span> <span class="p">[</span><span class="nb">:select</span> <span class="p">[</span><span class="nv">to</span><span class="p">]</span> <span class="nb">:from</span> <span class="nv">links</span> <span class="nb">:where</span> <span class="p">(</span><span class="nf">=</span> <span class="nv">from</span> <span class="nv">$s1</span><span class="p">)]</span> <span class="nf">buffer-file-name</span><span class="p">)))</span>
-      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">f</span> <span class="nv">files</span><span class="p">)</span>
-        <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="p">(</span><span class="nv">find-file-noselect</span> <span class="p">(</span><span class="nf">car</span> <span class="nv">f</span><span class="p">))</span>
-          <span class="p">(</span><span class="nv">org-hugo-export-wim-to-md</span><span class="p">)))))</span>
-
-<span class="p">(</span><span class="nv">add-hook!</span> <span class="ss">&#39;after-save-hook</span> <span class="ss">&#39;jethro/org-roam-export-updated</span><span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">jethro/org-roam-export-updated</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Re-export files that are linked to the current file.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">files</span> <span class="p">(</span><span class="nv">emacsql-sqlite</span> <span class="p">[</span><span class="nb">:select</span> <span class="p">[</span><span class="nv">to</span><span class="p">]</span> <span class="nb">:from</span> <span class="nv">links</span> <span class="nb">:where</span> <span class="p">(</span><span class="nf">=</span> <span class="nv">from</span> <span class="nv">$s1</span><span class="p">)]</span> <span class="nf">buffer-file-name</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">f</span> <span class="nv">files</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="p">(</span><span class="nv">find-file-noselect</span> <span class="p">(</span><span class="nf">car</span> <span class="nv">f</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nv">org-hugo-export-wim-to-md</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook!</span> <span class="ss">&#39;after-save-hook</span> <span class="ss">&#39;jethro/org-roam-export-updated</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>在上文中用到的org-roam-sql 已经废弃，替换为 <code>emacsql-sqlite</code></p>
@@ -262,24 +262,24 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;替换链接</span>
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo--org-roam-backlinks</span> <span class="p">(</span><span class="nv">backend</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nf">equal</span> <span class="nv">backend</span> <span class="ss">&#39;hugo</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">org-roam--org-roam-file-p</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">beginning-of-buffer</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">replace-string</span> <span class="s">&#34;{&#34;</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">beginning-of-buffer</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">replace-string</span> <span class="s">&#34;}&#34;</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">end-of-buffer</span><span class="p">)</span>
-    <span class="p">(</span><span class="nv">org-roam-buffer--insert-backlinks</span><span class="p">))))</span>
-<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-export-before-processing-hook</span> <span class="nf">#&#39;</span><span class="nv">org-hugo--org-roam-backlinks</span><span class="p">)</span>
-
-<span class="c1">;添加hook方法保存</span>
-<span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo--org-roam-save-buffer</span><span class="p">(</span><span class="kp">&amp;optional</span> <span class="nv">no-trace-links</span><span class="p">)</span>
-  <span class="s">&#34;On save export to hugo&#34;</span>
-  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">org-roam--org-roam-file-p</span><span class="p">)</span>
-      <span class="p">(</span><span class="nv">org-hugo-export-wim-to-md</span><span class="p">)))</span>
-<span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;after-save-hook</span> <span class="nf">#&#39;</span><span class="nv">org-hugo--org-roam-save-buffer</span><span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;替换链接</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo--org-roam-backlinks</span> <span class="p">(</span><span class="nv">backend</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nf">equal</span> <span class="nv">backend</span> <span class="ss">&#39;hugo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">org-roam--org-roam-file-p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">beginning-of-buffer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">replace-string</span> <span class="s">&#34;{&#34;</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">beginning-of-buffer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">replace-string</span> <span class="s">&#34;}&#34;</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">end-of-buffer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">org-roam-buffer--insert-backlinks</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-export-before-processing-hook</span> <span class="nf">#&#39;</span><span class="nv">org-hugo--org-roam-backlinks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;添加hook方法保存</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo--org-roam-save-buffer</span><span class="p">(</span><span class="kp">&amp;optional</span> <span class="nv">no-trace-links</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;On save export to hugo&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nv">org-roam--org-roam-file-p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">org-hugo-export-wim-to-md</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;after-save-hook</span> <span class="nf">#&#39;</span><span class="nv">org-hugo--org-roam-save-buffer</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="a1-激活-追问反思经验">A1:激活/追问反思经验</h2>
@@ -430,7 +430,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/objective-c%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/" />
@@ -197,8 +197,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;objc/runtime.h&gt;
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="cp">#import &lt;objc/runtime.h&gt;
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>runtime.h</code>开源库主要由 C 和汇编编写而成，其实现了诸如类、对象、方法调度、协议等面向对象编程这个部分。</p>
 <h4 id="成员结构体">成员结构体</h4>
@@ -216,11 +216,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">objc_class</span> <span class="o">*</span><span class="kt">Class</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">objc_object</span> <span class="p">{</span>
-    <span class="kt">Class</span> <span class="n">isa</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">objc_class</span> <span class="o">*</span><span class="kt">Class</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">objc_object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">Class</span> <span class="n">isa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li><strong>类结构体</strong></li>
@@ -241,19 +241,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">struct</span> <span class="n">objc_class</span> <span class="p">{</span>
-    <span class="kt">Class</span> <span class="n">isa</span><span class="p">;</span>
-    <span class="kt">Class</span> <span class="n">super_class</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">version</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">info</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">instance_size</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">objc_ivar_list</span> <span class="o">*</span><span class="n">ivars</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">objc_method_list</span> <span class="o">**</span><span class="n">methodLists</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">objc_cache</span> <span class="o">*</span><span class="n">cache</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">objc_protocol_list</span> <span class="o">*</span><span class="n">protocols</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">objc_class</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">Class</span> <span class="n">isa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">Class</span> <span class="n">super_class</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">version</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">instance_size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">objc_ivar_list</span> <span class="o">*</span><span class="n">ivars</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">objc_method_list</span> <span class="o">**</span><span class="n">methodLists</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">objc_cache</span> <span class="o">*</span><span class="n">cache</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">objc_protocol_list</span> <span class="o">*</span><span class="n">protocols</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>isa</strong>属性：建立自身与 <code>super_class</code> 这个值进行关联。
 <strong>super_class</strong>:除了 NSObject 这个类之外，super_class 的值永远不会为 nil，因为 Objective-C 当中的其余类都是以某种方式继承自 NSObject 的。
@@ -271,12 +271,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">struct</span> <span class="n">objc_ivar</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">ivar_name</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">ivar_type</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">ivar_offset</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">objc_ivar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ivar_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ivar_type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ivar_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
 <li><strong>方法结构体</strong></li>
@@ -290,12 +290,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">struct</span> <span class="n">objc_method</span> <span class="p">{</span>
-    <span class="kt">SEL</span> <span class="n">method_name</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">method_types</span><span class="p">;</span>
-    <span class="kt">IMP</span> <span class="n">method_imp</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">objc_method</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">SEL</span> <span class="n">method_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">method_types</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">IMP</span> <span class="n">method_imp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>method_name</strong>： 方法名，使用<code>Selector</code>来表示方法编号，对应在 <code>performSelector</code> 当中所匹配的内容。
 <strong>method_types</strong>：方法类型，使用<code>char</code>字符来表示。
@@ -315,13 +315,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//类函数的构造器
-</span><span class="c1"></span><span class="kt">Class</span> <span class="n">myClass</span> <span class="o">=</span> <span class="n">objc_allocateClassPair</span><span class="p">([</span><span class="n">NSObject</span> <span class="k">class</span><span class="p">],</span> <span class="s">&#34;MyClass&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="c1">// 在这里添加变量、方法和协议
-</span><span class="c1"></span><span class="n">objc_registerClassPair</span><span class="p">(</span><span class="n">myClass</span><span class="p">);</span>
-<span class="c1">// 当类注册之后，变量列表将会被锁定
-</span><span class="c1"></span><span class="p">[[</span><span class="n">myClass</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>   <span class="c1">//可见这个运行时类和Objective-C创建的类毫无区别
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">//类函数的构造器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">Class</span> <span class="n">myClass</span> <span class="o">=</span> <span class="n">objc_allocateClassPair</span><span class="p">([</span><span class="n">NSObject</span> <span class="k">class</span><span class="p">],</span> <span class="s">&#34;MyClass&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 在这里添加变量、方法和协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">objc_registerClassPair</span><span class="p">(</span><span class="n">myClass</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 当类注册之后，变量列表将会被锁定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[[</span><span class="n">myClass</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>   <span class="c1">//可见这个运行时类和Objective-C创建的类毫无区别
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>[NSObject class]</strong>：就是<code>类结构体</code>的属性<strong>isa</strong>要关联的类引用
 <strong>&ldquo;MyClass&rdquo;</strong>：指定<code>类结构体</code>的<strong>name</strong>属性值
@@ -344,16 +344,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@implementation NSObject (Name)
-@dynamic Name;
-- (void)setName:(id)object {
-    objc_setAssociatedObject(self, @selector(Name), object,
-    OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (id)Name {
-    return objc_getAssociatedObject(self, @selector(Name));
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@implementation NSObject (Name)
+</span></span><span class="line"><span class="cl">@dynamic Name;
+</span></span><span class="line"><span class="cl">- (void)setName:(id)object {
+</span></span><span class="line"><span class="cl">    objc_setAssociatedObject(self, @selector(Name), object,
+</span></span><span class="line"><span class="cl">    OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">- (id)Name {
+</span></span><span class="line"><span class="cl">    return objc_getAssociatedObject(self, @selector(Name));
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="内省机制">内省机制</h5>
 <p>内省机制是用来判别这个类是否实现具备某项功能。当我们使用了一个带有可选方法的协议时，为了避免崩溃发生，可以借助这个<strong>内省机制</strong>来判断这个对象是否可以调用此可选方法。
@@ -370,13 +370,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//类成员判断
-</span><span class="c1"></span><span class="p">[</span><span class="n">myObject</span> <span class="nl">isMemberOfClass</span><span class="p">:</span><span class="n">NSObject</span><span class="p">.</span><span class="k">class</span><span class="p">];</span>
-<span class="c1">//类方法判断
-</span><span class="c1"></span><span class="p">[</span><span class="n">myObject</span> <span class="nl">respondsToSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:)];</span>
-<span class="c1">//等价上一句
-</span><span class="c1"></span><span class="n">class_respondsToSelector</span><span class="p">(</span><span class="n">myObject</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">//类成员判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="n">myObject</span> <span class="nl">isMemberOfClass</span><span class="p">:</span><span class="n">NSObject</span><span class="p">.</span><span class="k">class</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//类方法判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="n">myObject</span> <span class="nl">respondsToSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:)];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//等价上一句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">class_respondsToSelector</span><span class="p">(</span><span class="n">myObject</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="使用运行时实现单元测试">使用运行时实现单元测试</h5>
 <p>当我们在编写 <code>XCTestCase</code> 的时候，需要完成 <code>setUp</code> 和 <code>tearDown</code> 的设定，随后才能编写相关的 <code>test</code> 函数。当测试运行的时候，系统会自行遍历所有的测试函数，并自动运行。</p>
@@ -396,19 +396,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">unsigned int count;
-Method *methods = class_copyMethodList(myObject.class,&amp;count);  //方法列表
-//Ivar *list = class_copyIvarList(myObject.class,&amp;count);       //变量列表
-
-for(unsigned i = 0; i &lt; count; i++) {
-    SEL selector = method_getName(methods[i]);                  //获取到方法名
-    NSString *selectorString = NSStringFromSelector(selector);  //转为字符串
-    if ([selectorString containsString:@&#34;test&#34;]) {
-        [myObject performSelector:selector];
-    }
-}
-free(methods);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unsigned int count;
+</span></span><span class="line"><span class="cl">Method *methods = class_copyMethodList(myObject.class,&amp;count);  //方法列表
+</span></span><span class="line"><span class="cl">//Ivar *list = class_copyIvarList(myObject.class,&amp;count);       //变量列表
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for(unsigned i = 0; i &lt; count; i++) {
+</span></span><span class="line"><span class="cl">    SEL selector = method_getName(methods[i]);                  //获取到方法名
+</span></span><span class="line"><span class="cl">    NSString *selectorString = NSStringFromSelector(selector);  //转为字符串
+</span></span><span class="line"><span class="cl">    if ([selectorString containsString:@&#34;test&#34;]) {
+</span></span><span class="line"><span class="cl">        [myObject performSelector:selector];
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">free(methods);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>单元测试的原理就是借助了运行时函数<code>class_copyMethodList</code>获取到方法名，然后将其转换为字符串，检查其是否包含有 “test”，如果有便可以运行。</p>
 <h5 id="运行时方法调度">运行时方法调度</h5>
@@ -429,15 +429,15 @@ free(methods);
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//
-</span><span class="c1"></span><span class="n">Method</span> <span class="n">doStuff</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">doStuff</span><span class="p">));</span>
-<span class="c1">//获取方法的实现
-</span><span class="c1"></span><span class="kt">IMP</span> <span class="n">doStuffImplementation</span> <span class="o">=</span> <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">doStuff</span><span class="p">);</span>
-<span class="c1">//获取方法的类型
-</span><span class="c1"></span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">types</span> <span class="o">=</span> <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">doStuff</span><span class="p">);</span> <span class="c1">//“v@:@&#34;
-</span><span class="c1"></span>
-<span class="n">class_addMethod</span><span class="p">(</span><span class="n">myClass</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:),</span> <span class="n">doStuffImplementation</span><span class="p">,</span> <span class="n">types</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Method</span> <span class="n">doStuff</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">doStuff</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//获取方法的实现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">IMP</span> <span class="n">doStuffImplementation</span> <span class="o">=</span> <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">doStuff</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//获取方法的类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">types</span> <span class="o">=</span> <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">doStuff</span><span class="p">);</span> <span class="c1">//“v@:@&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">class_addMethod</span><span class="p">(</span><span class="n">myClass</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="nl">doStuff</span><span class="p">:),</span> <span class="n">doStuffImplementation</span><span class="p">,</span> <span class="n">types</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>class_getInstanceMethod</code>:获取方法的<code>SEL</code>
 <code>method_getImplementation</code>:方法的实现<code>IMP</code>
@@ -453,8 +453,8 @@ free(methods);
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">objc_msgSend</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">message</span><span class="p">));</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">objc_msgSend</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">message</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>但是如果调用方法所在的对象为 nil 的时候，我们就会得到一个异常，应用便会崩溃。但事实证明，在崩溃之前会预留几个步骤，从而允许我们对某个不存在的函数进行一些操作：方法转发/替换等。</p>
 <ol start="3">
@@ -476,18 +476,18 @@ free(methods);
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 1添加实例方法/类方法，如果 return YES，就会调用原始方法
-+(BOOL)resolveInstanceMethod:(SEL)sel;
-+(BOOL)resolveClassMethod:(SEL)sel;
-// 2 返回可以处理 Selector 的对象
-- (id)forwardingTargetForSelector:(SEL)aSelector;
-// 3 创建 NSInvocation
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
-// 4 在您所选择的目标上调用 Selector
-- (void)forwardInvocation:(NSInvocation *)invocation {
-    [invocation invokeWithTarget:target];
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 1添加实例方法/类方法，如果 return YES，就会调用原始方法
+</span></span><span class="line"><span class="cl">+(BOOL)resolveInstanceMethod:(SEL)sel;
+</span></span><span class="line"><span class="cl">+(BOOL)resolveClassMethod:(SEL)sel;
+</span></span><span class="line"><span class="cl">// 2 返回可以处理 Selector 的对象
+</span></span><span class="line"><span class="cl">- (id)forwardingTargetForSelector:(SEL)aSelector;
+</span></span><span class="line"><span class="cl">// 3 创建 NSInvocation
+</span></span><span class="line"><span class="cl">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;
+</span></span><span class="line"><span class="cl">// 4 在您所选择的目标上调用 Selector
+</span></span><span class="line"><span class="cl">- (void)forwardInvocation:(NSInvocation *)invocation {
+</span></span><span class="line"><span class="cl">    [invocation invokeWithTarget:target];
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>3.1. 首先调用两个类方法：一个名为 <code>resolveInstanceMethod</code>/<code>resolveClassMethod</code>类方法，这时候我们便有机会来添加方法了，如果我们返回了 YES，就意味着原始方法将会再次被调用。
 3.2.  <code>forwardingTargetForSelector</code>：当不要添加新方法时，可以直接返回需要调用方法的目标对象，之后这个对象就会调用 Selector。
@@ -527,33 +527,33 @@ free(methods);
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">load</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
-    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
-        <span class="kt">Class</span> <span class="k">class</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="k">class</span><span class="p">];</span>
-
-        <span class="kt">SEL</span> <span class="n">originalSelector</span> <span class="o">=</span> <span class="k">@selector</span><span class="p">(</span><span class="n">doSomething</span><span class="p">);</span>
-        <span class="kt">SEL</span> <span class="n">swizzledSelector</span> <span class="o">=</span> <span class="k">@selector</span><span class="p">(</span><span class="n">mo_doSomething</span><span class="p">);</span>
-
-        <span class="n">Method</span> <span class="n">originalMethod</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span>
-        <span class="n">originalSelector</span><span class="p">);</span>
-        <span class="n">Method</span> <span class="n">swizzledMethod</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span>
-        <span class="n">swizzledSelector</span><span class="p">);</span>
-
-        <span class="kt">BOOL</span> <span class="n">didAddMethod</span> <span class="o">=</span> <span class="n">class_addMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span> <span class="n">originalSelector</span><span class="p">,</span>
-                                <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">swizzledMethod</span><span class="p">),</span>
-                                <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">swizzledMethod</span><span class="p">));</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">didAddMethod</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">class_replaceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span><span class="n">swizzledSelector</span><span class="p">,</span>
-                                <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">),</span>
-                                <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">));</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">method_exchangeImplementations</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">,</span> <span class="n">swizzledMethod</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">load</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">Class</span> <span class="k">class</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="k">class</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">SEL</span> <span class="n">originalSelector</span> <span class="o">=</span> <span class="k">@selector</span><span class="p">(</span><span class="n">doSomething</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">SEL</span> <span class="n">swizzledSelector</span> <span class="o">=</span> <span class="k">@selector</span><span class="p">(</span><span class="n">mo_doSomething</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Method</span> <span class="n">originalMethod</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">originalSelector</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Method</span> <span class="n">swizzledMethod</span> <span class="o">=</span> <span class="n">class_getInstanceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">swizzledSelector</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">BOOL</span> <span class="n">didAddMethod</span> <span class="o">=</span> <span class="n">class_addMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span> <span class="n">originalSelector</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">swizzledMethod</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">swizzledMethod</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">didAddMethod</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">class_replaceMethod</span><span class="p">(</span><span class="k">class</span><span class="p">,</span><span class="n">swizzledSelector</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">method_getImplementation</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">method_getTypeEncoding</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">method_exchangeImplementations</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">,</span> <span class="n">swizzledMethod</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -693,7 +693,7 @@ free(methods);
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

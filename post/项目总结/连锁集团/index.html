@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/%E8%BF%9E%E9%94%81%E9%9B%86%E5%9B%A2/" />
@@ -313,33 +313,33 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">      <span class="cp">#pragma mark ---- 侧滑删除
-</span><span class="cp"></span>      <span class="c1">//先要设Cell可编辑
-</span><span class="c1"></span>      <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">canEditRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-      <span class="p">}</span>
-    
-      <span class="o">-</span> <span class="p">(</span><span class="n">UISwipeActionsConfiguration</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">trailingSwipeActionsConfigurationForRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(@</span><span class="n">available</span> <span class="p">(</span><span class="n">iOS</span> <span class="mi">11</span><span class="p">,</span> <span class="o">*</span><span class="p">))</span> <span class="p">{</span>
-              <span class="n">UIContextualAction</span> <span class="o">*</span><span class="n">deleteAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIContextualAction</span> <span class="nl">contextualActionWithStyle</span><span class="p">:</span><span class="n">UIContextualActionStyleDestructive</span> <span class="nl">title</span><span class="p">:</span><span class="s">@&#34;删除&#34;</span> <span class="nl">handler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIContextualAction</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">action</span><span class="p">,</span> <span class="n">__kindof</span> <span class="n">UIView</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">sourceView</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">_Nonnull</span> <span class="n">completionHandler</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">))</span> <span class="p">{</span>
-                      <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">)</span> <span class="p">{</span>
-                          <span class="nb">self</span><span class="p">.</span><span class="n">chainModel</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
-                          <span class="p">[</span><span class="nb">self</span> <span class="n">delfirmAcion</span><span class="p">];</span>
-                      <span class="p">}</span>
-    
-                      <span class="n">completionHandler</span><span class="p">(</span><span class="nb">YES</span><span class="p">);</span>
-                  <span class="p">}];</span>
-    
-              <span class="n">deleteAction</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;JHLivePlayBundle.bundle/unitorgdelbtn&#34;</span><span class="p">];</span>
-              <span class="n">deleteAction</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorFromHexRGB</span><span class="p">:</span><span class="s">@&#34;FC681F&#34;</span><span class="p">];</span>
-              <span class="n">UISwipeActionsConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[</span><span class="n">UISwipeActionsConfiguration</span> <span class="nl">configurationWithActions</span><span class="p">:</span><span class="l">@[</span><span class="n">deleteAction</span><span class="l">]</span><span class="p">];</span>
-    
-              <span class="k">return</span> <span class="n">configuration</span><span class="p">;</span>
-          <span class="p">}</span>
-    
-          <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
-      <span class="p">}</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">      <span class="cp">#pragma mark ---- 侧滑删除
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>      <span class="c1">//先要设Cell可编辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">canEditRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="p">(</span><span class="n">UISwipeActionsConfiguration</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">trailingSwipeActionsConfigurationForRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(@</span><span class="n">available</span> <span class="p">(</span><span class="n">iOS</span> <span class="mi">11</span><span class="p">,</span> <span class="o">*</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">UIContextualAction</span> <span class="o">*</span><span class="n">deleteAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIContextualAction</span> <span class="nl">contextualActionWithStyle</span><span class="p">:</span><span class="n">UIContextualActionStyleDestructive</span> <span class="nl">title</span><span class="p">:</span><span class="s">@&#34;删除&#34;</span> <span class="nl">handler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIContextualAction</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">action</span><span class="p">,</span> <span class="n">__kindof</span> <span class="n">UIView</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">sourceView</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">_Nonnull</span> <span class="n">completionHandler</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                      <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                          <span class="nb">self</span><span class="p">.</span><span class="n">chainModel</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                          <span class="p">[</span><span class="nb">self</span> <span class="n">delfirmAcion</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">                      <span class="n">completionHandler</span><span class="p">(</span><span class="nb">YES</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                  <span class="p">}];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">              <span class="n">deleteAction</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;JHLivePlayBundle.bundle/unitorgdelbtn&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">              <span class="n">deleteAction</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorFromHexRGB</span><span class="p">:</span><span class="s">@&#34;FC681F&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">              <span class="n">UISwipeActionsConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[</span><span class="n">UISwipeActionsConfiguration</span> <span class="nl">configurationWithActions</span><span class="p">:</span><span class="l">@[</span><span class="n">deleteAction</span><span class="l">]</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">              <span class="k">return</span> <span class="n">configuration</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -398,41 +398,41 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">             <span class="c1">// 声明tableView style：UITableViewStyleGrouped
-</span><span class="c1"></span>             <span class="n">_tableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITableView</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectZero</span> <span class="nl">style</span><span class="p">:</span><span class="n">UITableViewStyleGrouped</span><span class="p">];</span>
-             <span class="c1">// 返回section
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nl">numberOfSectionsInTableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span>
-             <span class="p">{</span>
-                 <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
-             <span class="p">}</span>
-             <span class="c1">//每个section返回单个row
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">numberOfRowsInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
-             <span class="p">{</span>
-                 <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-             <span class="p">}</span>
-             <span class="c1">// headerView 高度
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">heightForHeaderInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
-             <span class="p">{</span>
-                 <span class="k">return</span> <span class="mi">12</span><span class="p">;</span>
-             <span class="p">}</span>
-             <span class="c1">// 返回透明headerView
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">viewForHeaderInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
-             <span class="p">{</span>
-                 <span class="n">UIView</span> <span class="o">*</span><span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIView</span> <span class="n">new</span><span class="p">];</span>
-                 <span class="n">header</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">clearColor</span><span class="p">];</span>
-                 <span class="k">return</span> <span class="n">header</span><span class="p">;</span>
-             <span class="p">}</span>
-             <span class="c1">// footerView高度为0.001 达到隐藏效果
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">heightForFooterInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
-             <span class="p">{</span>
-                 <span class="k">return</span> <span class="mf">0.001</span><span class="p">;</span>
-             <span class="p">}</span>
-             <span class="c1">// footerView 返回nil
-</span><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">viewForFooterInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
-             <span class="p">{</span>
-                 <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
-             <span class="p">}</span>
-        </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">             <span class="c1">// 声明tableView style：UITableViewStyleGrouped
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">_tableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITableView</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectZero</span> <span class="nl">style</span><span class="p">:</span><span class="n">UITableViewStyleGrouped</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 返回section
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nl">numberOfSectionsInTableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">dataArray</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">//每个section返回单个row
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">numberOfRowsInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// headerView 高度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">heightForHeaderInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 返回透明headerView
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">viewForHeaderInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">UIView</span> <span class="o">*</span><span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIView</span> <span class="n">new</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">header</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">clearColor</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="n">header</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// footerView高度为0.001 达到隐藏效果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">heightForFooterInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="mf">0.001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// footerView 返回nil
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="o">-</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">viewForFooterInSection</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">section</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -458,17 +458,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">      <span class="n">NSString</span> <span class="o">*</span><span class="n">addr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;地       址：%@&#34;</span><span class="p">,</span><span class="n">model</span><span class="p">.</span><span class="n">address</span><span class="p">];</span>
-      <span class="n">_name</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-      <span class="c1">//缩进
-</span><span class="c1"></span>      <span class="n">NSMutableParagraphStyle</span> <span class="o">*</span><span class="n">para</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableParagraphStyle</span> <span class="n">new</span><span class="p">];</span>
-      <span class="n">para</span><span class="p">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">NSTextAlignmentLeft</span><span class="p">;</span>
-      <span class="n">CGFloat</span> <span class="n">emptylen</span> <span class="o">=</span> <span class="n">_addr</span><span class="p">.</span><span class="n">font</span><span class="p">.</span><span class="n">pointSize</span> <span class="o">*</span> <span class="mi">5</span><span class="p">;</span>
-      <span class="c1">//  para.firstLineHeadIndent = emptylen;
-</span><span class="c1"></span>      <span class="n">para</span><span class="p">.</span><span class="n">headIndent</span> <span class="o">=</span> <span class="n">emptylen</span><span class="p">;</span>
-      <span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">muAttr</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="n">addr</span> <span class="nl">attributes</span><span class="p">:</span><span class="l">@{</span><span class="nl">NSFontAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span> <span class="mi">15</span><span class="p">],</span><span class="nl">NSForegroundColorAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorFromHexRGB</span><span class="p">:</span><span class="s">@&#34;333333&#34;</span><span class="p">],</span><span class="nl">NSParagraphStyleAttributeName</span><span class="p">:</span><span class="n">para</span><span class="l">}</span><span class="p">];</span>
-      <span class="n">_addr</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">muAttr</span><span class="p">;</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">      <span class="n">NSString</span> <span class="o">*</span><span class="n">addr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;地       址：%@&#34;</span><span class="p">,</span><span class="n">model</span><span class="p">.</span><span class="n">address</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">_name</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//缩进
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">NSMutableParagraphStyle</span> <span class="o">*</span><span class="n">para</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableParagraphStyle</span> <span class="n">new</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">para</span><span class="p">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">NSTextAlignmentLeft</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">CGFloat</span> <span class="n">emptylen</span> <span class="o">=</span> <span class="n">_addr</span><span class="p">.</span><span class="n">font</span><span class="p">.</span><span class="n">pointSize</span> <span class="o">*</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//  para.firstLineHeadIndent = emptylen;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">para</span><span class="p">.</span><span class="n">headIndent</span> <span class="o">=</span> <span class="n">emptylen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">muAttr</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="n">addr</span> <span class="nl">attributes</span><span class="p">:</span><span class="l">@{</span><span class="nl">NSFontAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span> <span class="mi">15</span><span class="p">],</span><span class="nl">NSForegroundColorAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorFromHexRGB</span><span class="p">:</span><span class="s">@&#34;333333&#34;</span><span class="p">],</span><span class="nl">NSParagraphStyleAttributeName</span><span class="p">:</span><span class="n">para</span><span class="l">}</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">_addr</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">muAttr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -502,16 +502,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">             <span class="c1">// 核心代码
-</span><span class="c1"></span>             <span class="n">presentVC</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:</span><span class="mi">0</span> <span class="nl">green</span><span class="p">:</span><span class="mi">0</span> <span class="nl">blue</span><span class="p">:</span><span class="mi">0</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">0.3</span><span class="p">];</span>
-             <span class="c1">// 可以使用的Style
-</span><span class="c1"></span>             <span class="c1">// UIModalPresentationOverCurrentContext
-</span><span class="c1"></span>             <span class="c1">// UIModalPresentationOverFullScreen
-</span><span class="c1"></span>             <span class="c1">// UIModalPresentationCustom
-</span><span class="c1"></span>             <span class="c1">// 使用其他Style会黑屏
-</span><span class="c1"></span>             <span class="n">presentVC</span><span class="p">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="n">UIModalPresentationOverCurrentContext</span><span class="p">;</span>
-             <span class="p">[</span><span class="nb">self</span> <span class="nl">presentViewController</span><span class="p">:</span><span class="n">presentVC</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-        </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">             <span class="c1">// 核心代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">presentVC</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:</span><span class="mi">0</span> <span class="nl">green</span><span class="p">:</span><span class="mi">0</span> <span class="nl">blue</span><span class="p">:</span><span class="mi">0</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">0.3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 可以使用的Style
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="c1">// UIModalPresentationOverCurrentContext
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="c1">// UIModalPresentationOverFullScreen
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="c1">// UIModalPresentationCustom
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="c1">// 使用其他Style会黑屏
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">presentVC</span><span class="p">.</span><span class="n">modalPresentationStyle</span> <span class="o">=</span> <span class="n">UIModalPresentationOverCurrentContext</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">[</span><span class="nb">self</span> <span class="nl">presentViewController</span><span class="p">:</span><span class="n">presentVC</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -545,23 +545,23 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">                    <span class="o">-</span><span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nl">initWithCorners</span><span class="p">:(</span><span class="n">UIRectCorner</span><span class="p">)</span><span class="n">corners</span> <span class="nl">radii</span><span class="p">:(</span><span class="n">CGSize</span><span class="p">)</span><span class="n">radii</span>
-                    <span class="p">{</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="n">init</span><span class="p">])</span> <span class="p">{</span>
-                            <span class="n">_corners</span> <span class="o">=</span> <span class="n">corners</span><span class="p">;</span>
-                            <span class="n">_radii</span> <span class="o">=</span> <span class="n">radii</span><span class="p">;</span>
-                        <span class="p">}</span>
-                        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-                    <span class="p">}</span>
-                    <span class="c1">//.m中实现贝塞尔曲线绘制圆角
-</span><span class="c1"></span>                    <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">layoutSubviews</span>
-                    <span class="p">{</span>
-                        <span class="p">[</span><span class="nb">super</span> <span class="n">layoutSubviews</span><span class="p">];</span>
-                        <span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">maskPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nl">bezierPathWithRoundedRect</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">bounds</span> <span class="nl">byRoundingCorners</span><span class="p">:</span><span class="n">_corners</span> <span class="nl">cornerRadii</span><span class="p">:</span><span class="n">_radii</span><span class="p">];</span>
-                        <span class="p">((</span><span class="n">CAShapeLayer</span> <span class="o">*</span><span class="p">)</span><span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">).</span><span class="n">path</span> <span class="o">=</span> <span class="n">maskPath</span><span class="p">.</span><span class="n">CGPath</span><span class="p">;</span>
-            
-                    <span class="p">}</span>
-            </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">                    <span class="o">-</span><span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nl">initWithCorners</span><span class="p">:(</span><span class="n">UIRectCorner</span><span class="p">)</span><span class="n">corners</span> <span class="nl">radii</span><span class="p">:(</span><span class="n">CGSize</span><span class="p">)</span><span class="n">radii</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="p">(</span><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="n">init</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">_corners</span> <span class="o">=</span> <span class="n">corners</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">_radii</span> <span class="o">=</span> <span class="n">radii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">//.m中实现贝塞尔曲线绘制圆角
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">layoutSubviews</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">[</span><span class="nb">super</span> <span class="n">layoutSubviews</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">UIBezierPath</span> <span class="o">*</span><span class="n">maskPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nl">bezierPathWithRoundedRect</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">bounds</span> <span class="nl">byRoundingCorners</span><span class="p">:</span><span class="n">_corners</span> <span class="nl">cornerRadii</span><span class="p">:</span><span class="n">_radii</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">((</span><span class="n">CAShapeLayer</span> <span class="o">*</span><span class="p">)</span><span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">).</span><span class="n">path</span> <span class="o">=</span> <span class="n">maskPath</span><span class="p">.</span><span class="n">CGPath</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -579,14 +579,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">                    <span class="c1">//声明圆角视图
-</span><span class="c1"></span>                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">JHShapeView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithCorners</span><span class="p">:</span><span class="n">UIRectCornerBottomLeft</span><span class="o">|</span><span class="n">UIRectCornerTopRight</span><span class="o">|</span><span class="n">UIRectCornerBottomRight</span> <span class="nl">radii</span><span class="p">:</span><span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">)];</span>
-            
-                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowColor</span>   <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithWhite</span><span class="p">:</span><span class="mi">0</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">0.07</span><span class="p">].</span><span class="n">CGColor</span><span class="p">;</span>
-                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOffset</span>  <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOpacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowRadius</span>  <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-            </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">                    <span class="c1">//声明圆角视图
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">JHShapeView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithCorners</span><span class="p">:</span><span class="n">UIRectCornerBottomLeft</span><span class="o">|</span><span class="n">UIRectCornerTopRight</span><span class="o">|</span><span class="n">UIRectCornerBottomRight</span> <span class="nl">radii</span><span class="p">:</span><span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowColor</span>   <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithWhite</span><span class="p">:</span><span class="mi">0</span> <span class="nl">alpha</span><span class="p">:</span><span class="mf">0.07</span><span class="p">].</span><span class="n">CGColor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOffset</span>  <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOpacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nb">self</span><span class="p">.</span><span class="n">alertView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowRadius</span>  <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -756,7 +756,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

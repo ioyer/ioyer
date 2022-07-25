@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/swift%E5%8D%95%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
@@ -197,9 +197,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env xcrun swift 
-</span><span class="cp"></span>println<span class="o">(</span><span class="s2">&#34;hello&#34;</span><span class="o">)</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env xcrun swift 
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>println<span class="o">(</span><span class="s2">&#34;hello&#34;</span><span class="o">)</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>终端设置为可执行权限，并运行打印：</li>
@@ -212,11 +212,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&gt; chmod <span class="m">755</span> hello.swift 
-&gt; ./hello.swift 
-// 输出： 
-hello 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&gt; chmod <span class="m">755</span> hello.swift 
+</span></span><span class="line"><span class="cl">&gt; ./hello.swift 
+</span></span><span class="line"><span class="cl">// 输出： 
+</span></span><span class="line"><span class="cl">hello 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>这些特性与其他的解释性语言表现得完全一样</p>
@@ -236,13 +236,13 @@ hello
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span> 
-    <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&#34;XiaoMing&#34;</span> 
-    <span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="bp">println</span><span class="p">(</span><span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span> 
-        <span class="p">}</span> 
-<span class="p">}</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="s">&#34;XiaoMing&#34;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="bp">println</span><span class="p">(</span><span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>main.swift</li>
@@ -253,9 +253,9 @@ hello
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">object</span> <span class="p">=</span> <span class="n">MyClass</span><span class="p">()</span> 
-<span class="n">object</span><span class="p">.</span><span class="n">hello</span><span class="p">()</span> 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">object</span> <span class="p">=</span> <span class="n">MyClass</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">object</span><span class="p">.</span><span class="n">hello</span><span class="p">()</span> 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>终端编译运行，将生成一个名叫 <code>main</code> 的可执行文件：</li>
@@ -266,9 +266,9 @@ hello
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">&gt; xcrun swiftc MyClass.swift main.swift
-&gt; ./main  //运行main文件
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&gt; xcrun swiftc MyClass.swift main.swift
+</span></span><span class="line"><span class="cl">&gt; ./main  //运行main文件
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>利用这个方法，我们就可以用 Swift 写出一些命令行的程序了。</p>
 <p>最后想说明的一个 Swift 命令行工具的使用案例是生成汇编级别的代码。有时候我们想要确认经过优化后的汇编代码实际上做了些什么。swiftc 提供了参数来生成 asm 级别的汇编代码：</p>
@@ -277,8 +277,8 @@ hello
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">swiftc -O hello.swift &gt; hello.asm
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">swiftc -O hello.swift &gt; hello.asm
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Swift 的命令行工具还有不少强大的功能，对此感兴趣的读者不妨使用 <code>xcrun swift --help</code> 以及 <code>xcrun swiftc --help</code> 来查看具体还有哪些参数可以使用。</p>
 <h2 id="swiftc--g支持lldb调试"><code>swiftc -g</code>支持lldb调试</h2>
@@ -420,7 +420,7 @@ hello
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/" />
@@ -207,8 +207,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get install libpython2.7-dev
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt-get install libpython2.7-dev
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="macos-编译事项">MacOS 编译事项</h2>
 <p>请确定 Xcode 9.0 以上版本已经正确安装</p>
@@ -225,14 +225,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="p">.</span><span class="n">package</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/PerfectlySoft/Perfect-Python.git&#34;</span><span class="p">,</span> 
-<span class="n">from</span><span class="p">:</span> <span class="s">&#34;3.2.0&#34;</span><span class="p">)</span>
-
-<span class="c1">// 注意在编译目标段落需要追加：</span>
-<span class="p">.</span><span class="n">target</span><span class="p">(</span>
-<span class="c1">// name: &#34;your project name&#34;,</span>
-<span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;PerfectPython&#34;</span><span class="p">,</span> <span class="s">&#34;PythonAPI&#34;</span><span class="p">]),</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="p">.</span><span class="n">package</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/PerfectlySoft/Perfect-Python.git&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="n">from</span><span class="p">:</span> <span class="s">&#34;3.2.0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 注意在编译目标段落需要追加：</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="n">target</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// name: &#34;your project name&#34;,</span>
+</span></span><span class="line"><span class="cl"><span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;PerfectPython&#34;</span><span class="p">,</span> <span class="s">&#34;PythonAPI&#34;</span><span class="p">]),</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后将下列头文件导入Swift源代码：</p>
 <div class="highlight"><div class="chroma">
@@ -241,9 +241,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">PythonAPI</span>
-<span class="kd">import</span> <span class="nc">PerfectPython</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PythonAPI</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PerfectPython</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>请注意在任何程序调用之前，必须调用<code>Py_Initialize()</code>函数初始化python嵌入环境：</p>
 <div class="highlight"><div class="chroma">
@@ -251,8 +251,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">Py_Initialize</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Py_Initialize</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="导入python函数库模块">导入Python函数库模块</h3>
 <p>使用 <code>PyObj</code> 类对象用于导入python模块。下列参考范例中，一个名为<code>/tmp/clstest.py</code>的脚本被动态导入到当前Swift运行环境：</p>
@@ -261,8 +261,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">pymod</span> <span class="p">=</span> <span class="k">try</span> <span class="n">PyObj</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">&#34;/tmp&#34;</span><span class="p">,</span> <span class="kd">import</span><span class="p">:</span> <span class="s">&#34;clstest&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">pymod</span> <span class="p">=</span> <span class="k">try</span> <span class="n">PyObj</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">&#34;/tmp&#34;</span><span class="p">,</span> <span class="kd">import</span><span class="p">:</span> <span class="s">&#34;clstest&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="访问python变量">访问Python变量</h3>
 <p>导入模块后，您可以使用<code>PyObj.load()</code>函数加载任何一个变量；也可以反过来用 <code>PyObj.save()</code>命令保存当前变量为一个新的值。</p>
@@ -272,8 +272,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">stringVar</span> <span class="o">=</span> <span class="s1">&#39;Hello, world&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">stringVar</span> <span class="o">=</span> <span class="s1">&#39;Hello, world&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>那么要取得这个字符串的值只需要这样做：</p>
 <div class="highlight"><div class="chroma">
@@ -284,11 +284,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">str</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;stringVar&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<span class="c1">// 会打印变量的字符串值 &#34;Hello, world!&#34;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">str</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;stringVar&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 会打印变量的字符串值 &#34;Hello, world!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>此时您还可以为该变量直接写入新的字符串值：</p>
 <div class="highlight"><div class="chroma">
@@ -296,8 +296,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">try</span> <span class="n">pymod</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">&#34;stringVar&#34;</span><span class="p">,</span> <span class="n">newValue</span><span class="p">:</span> <span class="s">&#34;Hola, 🇨🇳🇨🇦！&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">try</span> <span class="n">pymod</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="s">&#34;stringVar&#34;</span><span class="p">,</span> <span class="n">newValue</span><span class="p">:</span> <span class="s">&#34;Hola, 🇨🇳🇨🇦！&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>注意</strong> 目前，Perfect-Python仅支持如下Swift / Python数据类型自动转换：</p>
 <table>
@@ -346,9 +346,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mymul</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-<span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">mymul</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Perfect-Python 可以用下列方法封装并调用以上函数，您所需要注意的仅仅是其函数名称以及参数。其中函数名称用字符串代替，而参数用一个数组表达：</p>
 <div class="highlight"><div class="chroma">
@@ -359,11 +359,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;mymul&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Int</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="c1">// 结果为 6</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;mymul&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 结果为 6</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="python类对象">Python类对象</h3>
 <p>请同样使用 <code>PyObj.load()</code> 函数用于家在Python类对象，但是注意后面一定要紧跟一个<code>PyObj.construct()</code> 用于初始化类对象实例。该方法同样支持用一个任意类型的数组作为参数进行对象构造。</p>
@@ -379,14 +379,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-<span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-
-<span class="k">def</span> <span class="nf">intro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="k">return</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;, Age: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl"><span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">intro</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;, Age: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在Swift中初始化上述类对象的方法需要进行以下两步走：</p>
 <div class="highlight"><div class="chroma">
@@ -397,11 +397,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">personClass</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;Person&#34;</span><span class="p">),</span>
-<span class="kd">let</span> <span class="nv">person</span> <span class="p">=</span> <span class="n">personClass</span><span class="p">.</span><span class="n">construct</span><span class="p">([</span><span class="s">&#34;rocky&#34;</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span> <span class="p">{</span>
-<span class="c1">// person is now the object instance</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">personClass</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;Person&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">person</span> <span class="p">=</span> <span class="n">personClass</span><span class="p">.</span><span class="n">construct</span><span class="p">([</span><span class="s">&#34;rocky&#34;</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// person is now the object instance</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>之后就可以访问类实例的属性变量和方法了，如同上文所提到的普通变量和函数调用的方法一样：</p>
 <div class="highlight"><div class="chroma">
@@ -413,12 +413,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span><span class="p">,</span>
-<span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Int</span><span class="p">,</span>
-<span class="kd">let</span> <span class="nv">intro</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;intro&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[])?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">intro</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">)?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">intro</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;intro&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[])?.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">intro</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="回调函数">回调函数</h3>
 <p>参考以下python代码，此时如果执行 <code>x = caller('Hello', callback)</code> 则可以将函数作为参数进行回调:</p>
@@ -431,12 +431,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-<span class="k">return</span> <span class="s1">&#39;callback: &#39;</span> <span class="o">+</span> <span class="n">msg</span>
-
-<span class="k">def</span> <span class="nf">caller</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-<span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="s1">&#39;callback: &#39;</span> <span class="o">+</span> <span class="n">msg</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">caller</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在Swift中等效的代码平淡无奇，只不过将待调函数作为参数而已：:</p>
 <div class="highlight"><div class="chroma">
@@ -449,13 +449,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="kd">let</span> <span class="nv">fun</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;callback&#34;</span><span class="p">),</span>
-<span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;caller&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;Hello&#34;</span><span class="p">,</span> <span class="n">fun</span><span class="p">]),</span>
-<span class="kd">let</span> <span class="nv">v</span> <span class="p">=</span> <span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="c1">// 结果是 &#34;callback: Hello&#34;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">fun</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#34;callback&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="n">pymod</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&#34;caller&#34;</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;Hello&#34;</span><span class="p">,</span> <span class="n">fun</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">v</span> <span class="p">=</span> <span class="n">result</span><span class="p">.</span><span class="n">value</span> <span class="k">as</span><span class="p">?</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="bp">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 结果是 &#34;callback: Hello&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://segmentfault.com/a/1190000010917250">你没看错：Swift可以直接调用Python函数库</a></p>
 
@@ -495,13 +495,13 @@
           <a href="/tags/swift/">swift</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/old/swift/%E4%BD%BF%E7%94%A8swift%E5%BC%80%E5%8F%91%E8%87%AA%E5%B7%B1%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/">
+        <a class="prev" href="/post/old/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">使用swift开发自己的命令行工具</span>
+            <span class="prev-text nav-default">Swift调用AppleScript脚本和Shell脚本</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/old/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/">
-            <span class="next-text nav-default">Swift调用AppleScript脚本和Shell脚本</span>
+        <a class="next" href="/post/old/%E5%85%B6%E4%BB%96/%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7/">
+            <span class="next-text nav-default">批量压缩png图片工具</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -596,7 +596,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

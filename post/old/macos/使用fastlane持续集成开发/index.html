@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/%E4%BD%BF%E7%94%A8fastlane%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91/" />
@@ -218,28 +218,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># Fastfile
-desc &#34;Release new version&#34;
-lane :release do |options|
-    target_version = options[:version]
-    raise &#34;The version is missed.&#34; if target_version.nil?
-    ensure_git_branch                                             # 确认 master 分支
-    ensure_git_status_clean                                       # 确认没有未提交的文件
-    scan                                                          # 运行测试
-
-    sync_build_number_to_git                                      # 将 build 号设为 git commit 数
-    increment_version_number(version_number: target_version)      # 设置版本号
-
-    version_bump_podspec(path: &#34;Kingfisher.podspec&#34;,
-               version_number: target_version)                    # 更新 podspec
-    git_commit_all(message: &#34;Bump version to #{target_version}&#34;)  # 提交版本号修改
-    add_git_tag tag: target_version                               # 设置 tag
-    push_to_git_remote                                            # 推送到 git 仓库
-    pod_push                                                      # 提交到 CocoaPods
-end
-
-$ fastlane release version:1.8.4
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Fastfile
+</span></span><span class="line"><span class="cl">desc &#34;Release new version&#34;
+</span></span><span class="line"><span class="cl">lane :release do |options|
+</span></span><span class="line"><span class="cl">    target_version = options[:version]
+</span></span><span class="line"><span class="cl">    raise &#34;The version is missed.&#34; if target_version.nil?
+</span></span><span class="line"><span class="cl">    ensure_git_branch                                             # 确认 master 分支
+</span></span><span class="line"><span class="cl">    ensure_git_status_clean                                       # 确认没有未提交的文件
+</span></span><span class="line"><span class="cl">    scan                                                          # 运行测试
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    sync_build_number_to_git                                      # 将 build 号设为 git commit 数
+</span></span><span class="line"><span class="cl">    increment_version_number(version_number: target_version)      # 设置版本号
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    version_bump_podspec(path: &#34;Kingfisher.podspec&#34;,
+</span></span><span class="line"><span class="cl">               version_number: target_version)                    # 更新 podspec
+</span></span><span class="line"><span class="cl">    git_commit_all(message: &#34;Bump version to #{target_version}&#34;)  # 提交版本号修改
+</span></span><span class="line"><span class="cl">    add_git_tag tag: target_version                               # 设置 tag
+</span></span><span class="line"><span class="cl">    push_to_git_remote                                            # 推送到 git 仓库
+</span></span><span class="line"><span class="cl">    pod_push                                                      # 提交到 CocoaPods
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ fastlane release version:1.8.4
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>AFNetworking 在 3.0 版本开始加入了 fastlane 做自动集成和发布，可以说把开源项目的 CI 做到了极致。在这里强烈推荐大家有空可以看一看这个项目，除了使用 fastlane 简化流程以外，这个项目里还介绍了一些发布框架时的最佳实践。</p>
 
@@ -381,7 +381,7 @@ $ fastlane release version:1.8.4
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

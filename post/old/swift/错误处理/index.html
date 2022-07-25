@@ -33,7 +33,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" />
@@ -369,12 +369,12 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
-<span class="k">case</span> <span class="n">invalidSelection</span>
-<span class="k">case</span> <span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
-<span class="k">case</span> <span class="n">outOfStock</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">enum</span> <span class="nc">VendingMachineError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="n">invalidSelection</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="n">outOfStock</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:
 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：</p>
@@ -383,8 +383,8 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="handling-errors">Handling Errors</h1>
 <p>When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.
@@ -440,37 +440,37 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">Item</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
-    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span>
-<span class="p">}</span>
-<span class="kd">class</span> <span class="nc">VendingMachine</span>
-<span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">inventory</span> <span class="p">=</span> <span class="p">[</span>
-        <span class="s">&#34;Candy Bar&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">7</span><span class="p">),</span>
-        <span class="s">&#34;Chips&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="s">&#34;Pretzels&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
-    <span class="p">]</span>
-    <span class="kd">var</span> <span class="nv">coinsDeposited</span> <span class="p">=</span> <span class="mi">0</span>
-    <span class="kd">func</span> <span class="nf">vend</span><span class="p">(</span><span class="n">itemNamed</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> 
-    <span class="p">{</span>
-        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">item</span> <span class="p">=</span> <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span>
-        <span class="p">}</span>
-        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="bp">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span>
-        <span class="p">}</span>
-        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">&lt;=</span> <span class="n">coinsDeposited</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">-</span> <span class="n">coinsDeposited</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="n">coinsDeposited</span> <span class="o">-=</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span>
-        <span class="kd">var</span> <span class="nv">newItem</span> <span class="p">=</span> <span class="n">item</span>
-        <span class="n">newItem</span><span class="p">.</span><span class="bp">count</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="p">=</span> <span class="n">newItem</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Dispensing </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">Item</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">count</span><span class="p">:</span> <span class="nb">Int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">VendingMachine</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">inventory</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;Candy Bar&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">7</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;Chips&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;Pretzels&#34;</span><span class="p">:</span> <span class="n">Item</span><span class="p">(</span><span class="n">price</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">coinsDeposited</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">vend</span><span class="p">(</span><span class="n">itemNamed</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">item</span> <span class="p">=</span> <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="bp">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">guard</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">&lt;=</span> <span class="n">coinsDeposited</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="n">coinsNeeded</span><span class="p">:</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span> <span class="o">-</span> <span class="n">coinsDeposited</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">coinsDeposited</span> <span class="o">-=</span> <span class="n">item</span><span class="p">.</span><span class="n">price</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nv">newItem</span> <span class="p">=</span> <span class="n">item</span>
+</span></span><span class="line"><span class="cl">        <span class="n">newItem</span><span class="p">.</span><span class="bp">count</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inventory</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="p">=</span> <span class="n">newItem</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Dispensing </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The implementation of the <code>vend(itemNamed:)</code> method uses guard statements to exit the method early and throw appropriate errors if any of the requirements for purchasing a snack aren’t met. Because a throw statement immediately transfers program control, an item will be vended only if all of these requirements are met.
 <code>vend(itemNamed:)</code>方法的实现中使用 <code>guard语句</code>来判断，当在购买操作不符合相应条件会直接抛出相应的错误，来打断该方法的其他操作。因为<code>throw语句</code>会立即转移程序控制权，保证了机器仅出售满足所有条件的物品。</p>
@@ -491,17 +491,17 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">favoriteSnacks</span> <span class="p">=</span> <span class="p">[</span>
-    <span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="s">&#34;Chips&#34;</span><span class="p">,</span>
-    <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="s">&#34;Licorice&#34;</span><span class="p">,</span>
-    <span class="s">&#34;Eve&#34;</span><span class="p">:</span> <span class="s">&#34;Pretzels&#34;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="kd">func</span> <span class="nf">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> 
-<span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">snackName</span> <span class="p">=</span> <span class="n">favoriteSnacks</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="p">??</span> <span class="s">&#34;Candy Bar&#34;</span>
-    <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">snackName</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">favoriteSnacks</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="s">&#34;Chips&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="s">&#34;Licorice&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Eve&#34;</span><span class="p">:</span> <span class="s">&#34;Pretzels&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">snackName</span> <span class="p">=</span> <span class="n">favoriteSnacks</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="p">??</span> <span class="s">&#34;Candy Bar&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">snackName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>In this example, the <code>buyFavoriteSnack(person: vendingMachine:)</code> function looks up a given person’s favorite snack and tries to buy it for them by calling the <code>vend(itemNamed:)</code> method. Because the <code>vend(itemNamed:)</code> method can throw an error, it’s called with the trykeyword in front of it.
 <code>buyFavoriteSnack(person: vendingMachine:)</code> 函数查找买家中意的snake，并<code>vend(itemNamed:)</code>调用尝试购买。使用在方法前使用<code>try</code>关键字来抛出异常，并向上传递。</p>
@@ -519,15 +519,15 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">PurchasedSnack</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
-    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> 
-    <span class="p">{</span>
-        <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">PurchasedSnack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">VendingMachine</span><span class="p">)</span> <span class="kr">throws</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="n">vendingMachine</span><span class="p">.</span><span class="n">vend</span><span class="p">(</span><span class="n">itemNamed</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="handling-errors-using-do-catch">Handling Errors Using Do-Catch</h2>
 <p>You use a do-catch statement to handle errors by running a block of code. If an error is thrown by the code in the <code>do</code> clause, it is matched against the <code>catch </code>clauses to determine which one of them can handle the error.
@@ -545,15 +545,15 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="k">do</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="n">expression</span>
-    <span class="n">statements</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">1</span> <span class="p">{</span>
-    <span class="n">statements</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">2</span> <span class="k">where</span> <span class="n">condition</span> <span class="p">{</span>
-    <span class="n">statements</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="n">expression</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statements</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statements</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="n">pattern</span> <span class="mi">2</span> <span class="k">where</span> <span class="n">condition</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statements</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You write a pattern after catch to indicate what errors that clause can handle. If a <code>catch</code> clause doesn’t have a pattern, the clause matches any <code>error</code> and binds the <code>error</code> to a local constant named error. For more information about pattern matching, see Patterns.
 在关键字catch后边跟随匹配模式，这个<code>catch分句</code>就会处理匹配到的错误，如果关键字<code>catch分句</code>没有任何匹配模式，那么这个分句将会匹配到所有错误，并把这些错误信息赋值给系统常量<code>error</code>。</p>
@@ -576,19 +576,19 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">vendingMachine</span> <span class="p">=</span> <span class="n">VendingMachine</span><span class="p">()</span>
-<span class="n">vendingMachine</span><span class="p">.</span><span class="n">coinsDeposited</span> <span class="p">=</span> <span class="mi">8</span>
-<span class="k">do</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="n">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">vendingMachine</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Invalid Selection.&#34;</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Out of Stock.&#34;</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="kd">let</span> <span class="nv">coinsNeeded</span><span class="p">)</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Insufficient funds. Please insert an additional </span><span class="si">\(</span><span class="n">coinsNeeded</span><span class="si">)</span><span class="s"> coins.&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// Prints &#34;Insufficient funds. Please insert an additional 2 coins.&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">vendingMachine</span> <span class="p">=</span> <span class="n">VendingMachine</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">vendingMachine</span><span class="p">.</span><span class="n">coinsDeposited</span> <span class="p">=</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="n">buyFavoriteSnack</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="n">vendingMachine</span><span class="p">:</span> <span class="n">vendingMachine</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">invalidSelection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Invalid Selection.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">outOfStock</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Out of Stock.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="n">VendingMachineError</span><span class="p">.</span><span class="n">insufficientFunds</span><span class="p">(</span><span class="kd">let</span> <span class="nv">coinsNeeded</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Insufficient funds. Please insert an additional </span><span class="si">\(</span><span class="n">coinsNeeded</span><span class="si">)</span><span class="s"> coins.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Prints &#34;Insufficient funds. Please insert an additional 2 coins.&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>In the above example, the <code>buyFavoriteSnack(person:vendingMachine:)</code> function is called in a try expression, because it can throw an error. If an error is thrown, execution immediately transfers to the <code>catch</code> clauses, which decide whether to allow propagation to continue. If no error is thrown, the remaining statements in the do statement are executed.
 在上述代码中因为<code>buyFavoriteSnack(person:vendingMachine:)</code>函数会抛出错误异常，所以要在try表达式中调用。如果抛出异常就会立马执行是否继续传递的catch分句，如果没有抛出异常，会保持do分句中的代码正常进行。</p>
@@ -609,17 +609,17 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">someThrowingFunction</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
-<span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
-<span class="kd">let</span> <span class="nv">y</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
-<span class="k">do</span> <span class="p">{</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="kc">nil</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">someThrowingFunction</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">x</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">y</span><span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someThrowingFunction</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="p">=</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>If someThrowingFunction() throws an error, the value of x and y is nil. Otherwise, the value of x and y is the value that the function returned. Note that x and y are an optional of whatever type someThrowingFunction() returns. Here the function returns an integer, so xand y are optional integers.
 如果函数<code>someThrowingFunction()</code>抛出异常，<code>x,y = nil</code>，否则:<code>x,y</code>就时函数<code>return</code>的值。</p>
@@ -637,12 +637,12 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Data</span><span class="p">?</span> <span class="p">{</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromDisk</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromServer</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
-<span class="k">return</span> <span class="kc">nil</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">Data</span><span class="p">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromDisk</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">fetchDataFromServer</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="disabling-error-propagation">Disabling Error Propagation</h2>
 <p>Sometimes you know a throwing function or method won’t, in fact, throw an error at runtime. On those occasions, you can write <code>try!</code> before the expression to disable error propagation and wrap the call in a runtime assertion that no error will be thrown. If an error actually is thrown, you’ll get a runtime error.
@@ -654,8 +654,8 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">photo</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">loadImage</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&#34;./Resources/John Appleseed.jpg&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">photo</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">loadImage</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&#34;./Resources/John Appleseed.jpg&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="specifying-cleanup-actions">Specifying Cleanup Actions</h2>
 <p>You use a defer statement to execute a set of statements just before code execution leaves the current block of code. This statement lets you do any necessary cleanup that should be performed regardless of how execution leaves the current block of code—whether it leaves because an error was thrown or because of a statement such as return or break. For example, you can use a defer statement to ensure that file descriptors are closed and manually allocated memory is freed.
@@ -680,20 +680,20 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">processFile</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">file</span> <span class="p">=</span> <span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="k">defer</span> <span class="p">{</span>
-            <span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="k">while</span> <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="k">try</span> <span class="n">file</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span> 
-        <span class="p">{</span>
-            <span class="c1">// Work with the file.</span>
-        <span class="p">}</span>
-            <span class="c1">// close(file) is called here, at the end of the scope.</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">processFile</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">file</span> <span class="p">=</span> <span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">defer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="k">try</span> <span class="n">file</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// Work with the file.</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// close(file) is called here, at the end of the scope.</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The above example uses a defer statement to ensure that the <code>open(_:)</code> function has a corresponding call to <code>close(_:)</code>.
 使用defer语句，确保了在open的同时与之相关的还有close。</p>
@@ -836,7 +836,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

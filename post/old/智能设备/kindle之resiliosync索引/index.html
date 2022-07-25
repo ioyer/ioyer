@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/kindle%E4%B9%8Bresiliosync%E7%B4%A2%E5%BC%95/" />
@@ -228,9 +228,9 @@ BOC3NIGPF2DOKETOF2FAHXJXE2HF24QWC
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd 同步目录/.sync／
-cat IgnoreList 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd 同步目录/.sync／
+</span></span><span class="line"><span class="cl">cat IgnoreList 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><pre><code>&gt;# IgnoreList is a UTF-8 encoded .txt file that helps you specify single files, paths and rules 
 &gt;# for ignoring during the synchronization job. It supports &quot;?&quot; and &quot;*&quot; wildcard symbols.
@@ -279,28 +279,28 @@ Thumbs.db
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">disk_low_priority</span><span class="err">：</span><span class="kp">true</span>  <span class="err">设置在磁盘上操作文件的优先级，如果设置为</span><span class="kp">false</span><span class="err">，在同步文件时读写文件将会采用最高速度和优先级，不过这样会影响其他应用的性能。</span>
-
-<span class="n">folder_rescan_interval</span><span class="err">：</span><span class="mi">600</span>  <span class="err">设置扫描目录的时间间隔，单位为秒</span>
-
-<span class="n">lan_encrypt_data</span><span class="err">：</span><span class="kp">true</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，则在本地网络传输时会采用加密传输。</span>
-
-<span class="n">lan_use_tcp</span><span class="err">：</span><span class="kp">false</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，在本地网络同步会采用</span><span class="n">tcp传输</span><span class="err">，而不是采用</span><span class="n">udp传输</span><span class="err">。注意：在</span><span class="no">LAN中禁止加密并采用tcp传输</span><span class="err">，会增加传输速度。</span>
-
-<span class="n">rate_limit_local_peers</span><span class="err">：</span><span class="kp">false</span>  <span class="err">申请在本地网络的</span><span class="n">peers直接限速传输</span><span class="err">，默认没有在</span><span class="no">LAN里面限速</span>
-
-<span class="n">send_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在发送文件时可以使用的发送缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
-
-<span class="n">recv_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在接收文件时可以使用的接收缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
-
-<span class="n">sync_max_time_diff</span><span class="err">：</span><span class="mi">600</span>  <span class="err">同步的设备之间的时间差别</span>
-
-<span class="n">sync_trash_ttl</span><span class="err">：</span><span class="mi">30</span>  <span class="err">设置多少天之后自动删除</span><span class="o">.</span><span class="n">SyncArchive目录中的文件</span>
-
-<span class="n">max_file_size_diff_for_patching</span><span class="err">：</span><span class="mi">1000</span>
-
-<span class="n">max_file_size_for_versioning</span><span class="err">：</span><span class="mi">1000</span>  <span class="err">版本控制的一个参数，不了解</span><span class="o">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">disk_low_priority</span><span class="err">：</span><span class="kp">true</span>  <span class="err">设置在磁盘上操作文件的优先级，如果设置为</span><span class="kp">false</span><span class="err">，在同步文件时读写文件将会采用最高速度和优先级，不过这样会影响其他应用的性能。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">folder_rescan_interval</span><span class="err">：</span><span class="mi">600</span>  <span class="err">设置扫描目录的时间间隔，单位为秒</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lan_encrypt_data</span><span class="err">：</span><span class="kp">true</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，则在本地网络传输时会采用加密传输。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lan_use_tcp</span><span class="err">：</span><span class="kp">false</span>  <span class="err">如果设置为</span><span class="n">ture</span><span class="err">，在本地网络同步会采用</span><span class="n">tcp传输</span><span class="err">，而不是采用</span><span class="n">udp传输</span><span class="err">。注意：在</span><span class="no">LAN中禁止加密并采用tcp传输</span><span class="err">，会增加传输速度。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rate_limit_local_peers</span><span class="err">：</span><span class="kp">false</span>  <span class="err">申请在本地网络的</span><span class="n">peers直接限速传输</span><span class="err">，默认没有在</span><span class="no">LAN里面限速</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">send_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在发送文件时可以使用的发送缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">recv_buf_size</span><span class="err">：</span><span class="mi">5</span>  <span class="err">在接收文件时可以使用的接收缓存，可以设置</span><span class="mi">1</span><span class="o">~</span><span class="mi">100</span><span class="n">M</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sync_max_time_diff</span><span class="err">：</span><span class="mi">600</span>  <span class="err">同步的设备之间的时间差别</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sync_trash_ttl</span><span class="err">：</span><span class="mi">30</span>  <span class="err">设置多少天之后自动删除</span><span class="o">.</span><span class="n">SyncArchive目录中的文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">max_file_size_diff_for_patching</span><span class="err">：</span><span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">max_file_size_for_versioning</span><span class="err">：</span><span class="mi">1000</span>  <span class="err">版本控制的一个参数，不了解</span><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="常见问题汇总">常见问题汇总</h3>
 <h4 id="添加同步链接后为什么找不到节点">添加同步链接后为什么找不到节点？</h4>
@@ -453,7 +453,7 @@ Thumbs.db
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

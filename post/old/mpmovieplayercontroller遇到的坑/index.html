@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/mpmovieplayercontroller%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
@@ -187,7 +187,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-10-21T15:59:29" title="October 21, 2021">October 21, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -211,14 +211,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">The playState is a bitmask. Any number of bits can be set, such as
-MPMovieLoadStatePlaythroughOK | MPMovieLoadStatePlayable
-Check for states like this:
-MPMovieLoadState state = [playerController loadState];
-if( state &amp; MPMovieLoadStatePlaythroughOK ) {
-NSLog(@&#34;State is Playthrough OK&#34;);
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">The playState is a bitmask. Any number of bits can be set, such as
+</span></span><span class="line"><span class="cl">MPMovieLoadStatePlaythroughOK | MPMovieLoadStatePlayable
+</span></span><span class="line"><span class="cl">Check for states like this:
+</span></span><span class="line"><span class="cl">MPMovieLoadState state = [playerController loadState];
+</span></span><span class="line"><span class="cl">if( state &amp; MPMovieLoadStatePlaythroughOK ) {
+</span></span><span class="line"><span class="cl">NSLog(@&#34;State is Playthrough OK&#34;);
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="问题2">问题2</h1>
 <h4 id="投影不全屏">投影不全屏</h4>
@@ -241,8 +241,8 @@ NSLog(@&#34;State is Playthrough OK&#34;);
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">VAALMoviePlayerController[7438:3348866] [] &lt;&lt;&lt;&lt; AVOutputDeviceDiscoverySession (FigRouteDiscoverer) &gt;&gt;&gt;&gt; -[AVFigRouteDiscovererOutputDeviceDiscoverySessionImpl outputDeviceDiscoverySessionDidChangeDiscoveryMode:]: Setting device discovery mode to DiscoveryMode_None (client: VAALMoviePlayerController)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过百度有两种方式：
 1.在viewwillapear中添加<code>player=nil</code>
@@ -387,7 +387,7 @@ NSLog(@&#34;State is Playthrough OK&#34;);
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

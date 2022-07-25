@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/mvvm%E4%BB%8B%E7%BB%8D/" />
@@ -226,17 +226,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Person</span> : <span class="nc">NSObject</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initwithSalutation:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">salutation</span> <span class="nf">firstName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">firstName</span> <span class="nf">lastName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">lastName</span> <span class="nf">birthdate:</span><span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">birthdate</span><span class="p">;</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">salutation</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">firstName</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">lastName</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">birthdate</span><span class="p">;</span>
-
-<span class="k">@end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@interface</span> <span class="nc">Person</span> : <span class="nc">NSObject</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initwithSalutation:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">salutation</span> <span class="nf">firstName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">firstName</span> <span class="nf">lastName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">lastName</span> <span class="nf">birthdate:</span><span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">birthdate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">salutation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">firstName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">lastName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">birthdate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在我们假设我们有一个 <code>PersonViewController</code> ，在 <code>viewDidLoad</code> 里，只需要基于它的 <code>model</code> 属性设置一些 Label 即可。</p>
 <div class="highlight"><div class="chroma">
@@ -256,20 +256,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">salutation</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@ %@ %@&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">salutation</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">lastName</span><span class="p">];</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@ %@&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">lastName</span><span class="p">];</span>
-    <span class="p">}</span>
-
-    <span class="n">NSDateFormatter</span> <span class="o">*</span><span class="n">dateFormatter</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDateFormatter</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">dateFormatter</span> <span class="nl">setDateFormat</span><span class="p">:</span><span class="s">@&#34;EEEE MMMM d, yyyy&#34;</span><span class="p">];</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">birthdateLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">dateFormatter</span> <span class="nl">stringFromDate</span><span class="p">:</span><span class="n">model</span><span class="p">.</span><span class="n">birthdate</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">salutation</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@ %@ %@&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">salutation</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">lastName</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@ %@&#34;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">lastName</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">NSDateFormatter</span> <span class="o">*</span><span class="n">dateFormatter</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDateFormatter</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="n">dateFormatter</span> <span class="nl">setDateFormat</span><span class="p">:</span><span class="s">@&#34;EEEE MMMM d, yyyy&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="p">.</span><span class="n">birthdateLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">dateFormatter</span> <span class="nl">stringFromDate</span><span class="p">:</span><span class="n">model</span><span class="p">.</span><span class="n">birthdate</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这全都直截了当，标准的 MVC。现在来看看我们如何用一个 View Model 来增强它。</p>
 <div class="highlight"><div class="chroma">
@@ -286,17 +286,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PersonViewModel</span> : <span class="nc">NSObject</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithPerson:</span><span class="p">(</span><span class="n">Person</span> <span class="o">*</span><span class="p">)</span><span class="nv">person</span><span class="p">;</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">Person</span> <span class="o">*</span><span class="n">person</span><span class="p">;</span>
-
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">nameText</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">birthdateText</span><span class="p">;</span>
-
-<span class="k">@end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@interface</span> <span class="nc">PersonViewModel</span> : <span class="nc">NSObject</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithPerson:</span><span class="p">(</span><span class="n">Person</span> <span class="o">*</span><span class="p">)</span><span class="nv">person</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">Person</span> <span class="o">*</span><span class="n">person</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">nameText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">birthdateText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们的 View Model 的实现大概如下：</p>
 <div class="highlight"><div class="chroma">
@@ -323,27 +323,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@implementation PersonViewModel
-
-- (instancetype)initWithPerson:(Person *)person {
-    self = [super init];
-    if (!self) return nil;
-
-    _person = person;
-    if (person.salutation.length &gt; 0) {
-        _nameText = [NSString stringWithFormat:@&#34;%@ %@ %@&#34;, self.person.salutation, self.person.firstName, self.person.lastName];
-    } else {
-        _nameText = [NSString stringWithFormat:@&#34;%@ %@&#34;, self.person.firstName, self.person.lastName];
-    }
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@&#34;EEEE MMMM d, yyyy&#34;];
-    _birthdateText = [dateFormatter stringFromDate:person.birthdate];
-
-    return self;
-}
-@end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@implementation PersonViewModel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- (instancetype)initWithPerson:(Person *)person {
+</span></span><span class="line"><span class="cl">    self = [super init];
+</span></span><span class="line"><span class="cl">    if (!self) return nil;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    _person = person;
+</span></span><span class="line"><span class="cl">    if (person.salutation.length &gt; 0) {
+</span></span><span class="line"><span class="cl">        _nameText = [NSString stringWithFormat:@&#34;%@ %@ %@&#34;, self.person.salutation, self.person.firstName, self.person.lastName];
+</span></span><span class="line"><span class="cl">    } else {
+</span></span><span class="line"><span class="cl">        _nameText = [NSString stringWithFormat:@&#34;%@ %@&#34;, self.person.firstName, self.person.lastName];
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+</span></span><span class="line"><span class="cl">    [dateFormatter setDateFormat:@&#34;EEEE MMMM d, yyyy&#34;];
+</span></span><span class="line"><span class="cl">    _birthdateText = [dateFormatter stringFromDate:person.birthdate];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    return self;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">@end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们已经将 <code>viewDidLoad</code> 中的表示逻辑放入我们的 View Model 里了。此时，我们新的 <code>viewDidLoad</code> 就会非常轻量：</p>
 <div class="highlight"><div class="chroma">
@@ -356,13 +356,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-
-    <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">viewModel</span><span class="p">.</span><span class="n">nameText</span><span class="p">;</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">birthdateLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">viewModel</span><span class="p">.</span><span class="n">birthdateText</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">viewModel</span><span class="p">.</span><span class="n">nameText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">self</span><span class="p">.</span><span class="n">birthdateLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">viewModel</span><span class="p">.</span><span class="n">birthdateText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以，如你所见，并没有对我们的 MVC 架构做太多改变。还是同样的代码，只不过移动了位置。它与 MVC 兼容，带来<a href="http://objccn.io/issue-1/">更轻量的 View Controllers</a>。</p>
 <h3 id="可测试">可测试</h3>
@@ -395,31 +395,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">SpecBegin(Person)
-NSString *salutation = @&#34;Dr.&#34;;
-NSString *firstName = @&#34;first&#34;;
-NSString *lastName = @&#34;last&#34;;
-NSDate *birthdate = [NSDate dateWithTimeIntervalSince1970:0];
-
-it (@&#34;should use the salutation available. &#34;, ^{
-    Person *person = [[Person alloc] initWithSalutation:salutation firstName:firstName lastName:lastName birthdate:birthdate];
-    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
-    expect(viewModel.nameText).to.equal(@&#34;Dr. first last&#34;);
-});
-
-it (@&#34;should not use an unavailable salutation. &#34;, ^{
-    Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];
-    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
-    expect(viewModel.nameText).to.equal(@&#34;first last&#34;);
-});
-
-it (@&#34;should use the correct date format. &#34;, ^{
-    Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];
-    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
-    expect(viewModel.birthdateText).to.equal(@&#34;Thursday January 1, 1970&#34;);
-});
-SpecEnd
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SpecBegin(Person)
+</span></span><span class="line"><span class="cl">NSString *salutation = @&#34;Dr.&#34;;
+</span></span><span class="line"><span class="cl">NSString *firstName = @&#34;first&#34;;
+</span></span><span class="line"><span class="cl">NSString *lastName = @&#34;last&#34;;
+</span></span><span class="line"><span class="cl">NSDate *birthdate = [NSDate dateWithTimeIntervalSince1970:0];
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">it (@&#34;should use the salutation available. &#34;, ^{
+</span></span><span class="line"><span class="cl">    Person *person = [[Person alloc] initWithSalutation:salutation firstName:firstName lastName:lastName birthdate:birthdate];
+</span></span><span class="line"><span class="cl">    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
+</span></span><span class="line"><span class="cl">    expect(viewModel.nameText).to.equal(@&#34;Dr. first last&#34;);
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">it (@&#34;should not use an unavailable salutation. &#34;, ^{
+</span></span><span class="line"><span class="cl">    Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];
+</span></span><span class="line"><span class="cl">    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
+</span></span><span class="line"><span class="cl">    expect(viewModel.nameText).to.equal(@&#34;first last&#34;);
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">it (@&#34;should use the correct date format. &#34;, ^{
+</span></span><span class="line"><span class="cl">    Person *person = [[Person alloc] initWithSalutation:nil firstName:firstName lastName:lastName birthdate:birthdate];
+</span></span><span class="line"><span class="cl">    PersonViewModel *viewModel = [[PersonViewModel alloc] initWithPerson:person];
+</span></span><span class="line"><span class="cl">    expect(viewModel.birthdateText).to.equal(@&#34;Thursday January 1, 1970&#34;);
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">SpecEnd
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果我们没有将这个逻辑移入 View Model，我们将不得不实例化一个完整的 View Controller 以及伴随的 View，然后去比较我们 View 中 Label 的值。这样做不只是会变成一个麻烦的间接层，而且它只代表了一个十分脆弱的测试。现在，我们可以按意愿自由地修改视图层级而不必担心破坏我们的单元测试。使用 MVVM 带来的对于测试的好处非常清晰，甚至从这个简单的例子来看也可见一斑，而在有更复杂的表示逻辑的情况下，这个好处会更加明显。</p>
 <h3 id="响应式同步">响应式同步</h3>
@@ -567,7 +567,7 @@ SpecEnd
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

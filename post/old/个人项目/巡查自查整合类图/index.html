@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E5%B7%A1%E6%9F%A5%E8%87%AA%E6%9F%A5%E6%95%B4%E5%90%88%E7%B1%BB%E5%9B%BE/" />
@@ -336,158 +336,158 @@
 </span><span class="lnt">151
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">title</span> <span class="nx">巡查及处理整合迭代</span>
-<span class="nx">center</span> <span class="nx">header</span>
-<span class="nx">巡查执法及处理整合设计实现图</span>
-<span class="nx">endheader</span>
-
-<span class="err">&#39;</span><span class="o">*******</span> <span class="nx">类声明模块</span> <span class="o">*******</span><span class="sc">&#39;
-</span><span class="sc">&#39;</span><span class="nx">类型</span><span class="p">:</span><span class="nx">class</span><span class="p">,</span><span class="nx">abstract</span><span class="p">,</span><span class="kd">interface</span><span class="p">,</span><span class="nx">annotation</span><span class="p">,</span><span class="nx">enum</span><span class="sc">&#39;
-</span><span class="sc">&#39;</span><span class="nx">访问域</span><span class="p">:(</span><span class="o">-</span><span class="p">)</span><span class="nx">私有</span><span class="p">,(</span><span class="err">#</span><span class="p">)</span><span class="nx">保护</span><span class="p">,(</span><span class="err">~</span><span class="p">)</span><span class="nx">包私有</span><span class="p">,(</span><span class="o">+</span><span class="p">)</span><span class="nx">公有</span><span class="err">&#39;</span>
-
-<span class="nx">class</span> <span class="nx">TagCenter</span><span class="p">{</span>
-<span class="o">--</span> <span class="nx">私有属性</span><span class="o">--</span> <span class="err">&#39;</span><span class="nx">分隔符</span><span class="o">--</span><span class="p">,..,</span><span class="o">==</span><span class="p">,</span><span class="nx">__</span><span class="err">&#39;</span>
-<span class="nx">IBOutlet</span> <span class="nx">UIScrollView</span> <span class="o">*</span><span class="nx">titleScrollView</span><span class="p">;</span>
-<span class="nx">IBOutlet</span> <span class="nx">UIScrollView</span> <span class="o">*</span><span class="nx">contentScrollView</span><span class="p">;</span>
-<span class="nx">NSMutableArray</span> <span class="o">*</span><span class="nx">titleLabels</span><span class="p">;</span>
-<span class="nx">IBOutlet</span> <span class="nx">PatrolSearchBar</span> <span class="o">*</span><span class="nx">ibSearchBar</span><span class="p">;</span>
-<span class="nx">IBOutlet</span> <span class="nx">UIView</span> <span class="o">*</span><span class="nx">ibErrorView</span><span class="p">;</span>
-<span class="nx">ReqFilterStoreModel</span> <span class="o">*</span><span class="nx">filterModel</span><span class="p">;</span>
-<span class="nx">__初始化</span> <span class="nx">滚动标题方法__</span>
-<span class="c1">// 初始化UIScrollView
-</span><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpScrollView</span>
-<span class="c1">// 添加所有子控制器对应标题
-</span><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpTitleLabel</span>
-<span class="c1">// 添加所有子控制器
-</span><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpChildViewController</span>
-<span class="p">}</span>
-<span class="kn">package</span> <span class="nx">过滤工具</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
-<span class="nx">class</span> <span class="nx">JHTagListView</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">动画属性</span><span class="o">--</span>
-<span class="nx">IBOutlet</span> <span class="nx">NSLayoutConstraint</span> <span class="o">*</span><span class="nx">ibTableViewToLeftViewConut</span><span class="p">;</span>
-<span class="nx">IBOutlet</span> <span class="nx">NSLayoutConstraint</span> <span class="o">*</span><span class="nx">ibShadeToFilterViewConut</span><span class="p">;</span>
-<span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
-<span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setupFilterView</span><span class="p">:(</span><span class="nx">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nx">dataArray</span><span class="p">;</span>
-<span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">loadDataList</span><span class="p">:(</span><span class="nx">dispatch_group_t</span><span class="p">)</span><span class="nx">group</span><span class="p">;</span>
-<span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">showListView</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">JHTagListView</span> <span class="o">*--</span> <span class="nx">JHFilterStoreTypeCell</span>
-<span class="nf">UICollectionView</span> <span class="p">()</span><span class="o">-</span> <span class="nx">JHFilterStoreTypeCell</span> 
-<span class="nx">class</span> <span class="nx">JHFilterStoreTypeCell</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">接口属性</span><span class="o">--</span>
-<span class="nx">NSString</span> <span class="o">*</span><span class="nx">typeName</span><span class="p">;</span>
-<span class="nx">NSArray</span> <span class="o">*</span><span class="nx">tagArr</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">JHTagListView</span> <span class="o">*--</span> <span class="nx">JHFilterPatrolTimeCell</span>
-<span class="nx">class</span> <span class="nx">JHFilterPatrolTimeCell</span><span class="p">{</span>
-
-<span class="p">}</span>
-<span class="nx">JHFilterPatrolTimeCell</span> <span class="o">*--</span> <span class="nx">DateAlertPickerController</span> 
-<span class="nx">class</span> <span class="nx">DateAlertPickerController</span><span class="p">{</span>
-<span class="p">}</span>
-<span class="nx">note</span> <span class="nx">left</span> <span class="nx">of</span> <span class="nx">DateAlertPickerController</span>
-<span class="nx">时间选择器的封装</span>
-<span class="nx">end</span> <span class="nx">note</span>
-<span class="nx">note</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">JHFilterPatrolTimeCell</span>
-<span class="nx">定义时间cell样式</span>
-<span class="nx">end</span> <span class="nx">note</span>
-
-<span class="nx">note</span> <span class="nx">top</span> <span class="nx">of</span> <span class="nx">JHFilterStoreTypeCell</span>
-<span class="nx">定义业态类型样式</span>
-<span class="nx">end</span> <span class="nx">note</span> 
-
-
-<span class="p">}</span>
-<span class="err">&#39;</span><span class="nx">显示</span><span class="o">/</span><span class="nx">隐藏类</span><span class="p">,</span><span class="nx">类方法属性等</span> <span class="nx">关键字支持class</span><span class="p">,</span><span class="kd">interface</span><span class="p">,</span><span class="nx">enum</span><span class="err">&#39;</span>
-
-<span class="err">&#39;</span><span class="o">----</span> <span class="nx">声明类关系线备注</span><span class="p">,</span><span class="nx">可以当做用例来参与到关系连接中</span> <span class="o">---</span><span class="err">&#39;</span>
-<span class="nx">note</span> <span class="s">&#34;实现过滤UI及业务的类&#34;</span> <span class="nx">as</span> <span class="nx">filterClassnote</span>
-
-<span class="err">&#39;######</span> <span class="nx">类备注模块</span> <span class="nx">类声明末尾使用</span><span class="p">:</span><span class="nx">note</span> <span class="nx">位置</span><span class="p">:</span> <span class="nx">备注</span><span class="err">#########&#39;</span>
-<span class="nx">note</span> <span class="nx">left</span> <span class="nx">of</span> <span class="nx">TagCenter</span> <span class="err">#</span><span class="nx">red</span>
-<span class="nx">整个框架的主体</span><span class="err">：</span><span class="nx">包括搜索框</span><span class="o">/</span><span class="nx">过滤条件列表</span><span class="o">/</span><span class="nx">滚动标签</span>
-<span class="nx">end</span> <span class="nx">note</span>
-
-<span class="err">&#39;</span><span class="o">&amp;&amp;&amp;&amp;&amp;&amp;</span> <span class="nx">类组合模块</span> <span class="nx">类模块</span> <span class="o">&amp;&amp;&amp;&amp;&amp;&amp;&amp;</span><span class="sc">&#39;
-</span><span class="sc">&#39;</span><span class="nx">六种组合样式</span><span class="p">:</span><span class="nx">Node</span><span class="p">,</span><span class="nx">Rectangle</span><span class="p">,</span><span class="nx">Folder</span><span class="p">,</span><span class="nx">Frame</span><span class="p">,</span><span class="nx">Cloud</span><span class="p">,</span><span class="nx">Database</span><span class="err">&#39;</span>
-<span class="kn">package</span> <span class="nx">tagList</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
-<span class="nx">class</span> <span class="nx">tagBase</span><span class="p">{</span>
-<span class="o">--</span> <span class="nx">属性</span><span class="o">--</span> <span class="err">&#39;</span><span class="nx">分隔符</span><span class="o">--</span><span class="p">,..,</span><span class="o">==</span><span class="p">,</span><span class="nx">__</span><span class="err">&#39;</span>
-<span class="nx">TagListType</span> <span class="nx">curTagType</span><span class="p">;</span> <span class="c1">//标签类型
-</span><span class="c1"></span><span class="nx">NSMutableArray</span> <span class="o">*</span><span class="nx">dataArray</span><span class="p">;</span> <span class="c1">//列表数据源
-</span><span class="c1"></span><span class="nx">__</span> <span class="nx">getter</span><span class="o">/</span><span class="nx">setter方法__</span>
-<span class="o">-</span><span class="p">(</span><span class="nx">NSMutableArray</span> <span class="o">*</span><span class="p">)</span><span class="nx">dataArray</span> <span class="c1">//通过标签类型过滤出当前列表的数据源
-</span><span class="c1"></span><span class="p">}</span>
-<span class="kn">package</span> <span class="nx">基础类</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
-<span class="nx">class</span> <span class="nx">JHTagBanLiModel</span><span class="p">{</span>
-<span class="nx">ddd</span>
-<span class="p">}</span>
-<span class="nx">class</span> <span class="nx">JHTagBanliCell</span><span class="p">{</span>
-<span class="nx">ddd</span>
-<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kn">package</span> <span class="nx">巡查执法</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
-<span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">DaiBan</span>
-<span class="nx">class</span> <span class="nx">DaiBan</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
-<span class="nx">tagtype</span>
-<span class="nx">redhot</span> <span class="c1">//红点显示
-</span><span class="c1"></span><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
-<span class="nx">tableView</span>
-<span class="p">}</span>
-<span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiBanVC</span> 
-<span class="kn">package</span> <span class="nx">YiBan</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
-<span class="nx">class</span> <span class="nx">YiBanVC</span><span class="p">{</span>
-<span class="nx">dddd</span>
-<span class="p">}</span>
-<span class="nx">YiBanVC</span> <span class="o">*--</span> <span class="nx">YiBanCellView</span>
-<span class="nx">JHTagBanliCell</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiBanCellView</span> 
-<span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">Guanli</span>
-<span class="nx">class</span> <span class="nx">Guanli</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
-<span class="nx">tagtype</span>
-<span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
-<span class="nx">tableView</span>
-<span class="p">}</span> 
-<span class="p">}</span>
-
-<span class="p">}</span>
-<span class="kn">package</span> <span class="nx">自检自查</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
-<span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiZCha</span>
-<span class="nx">class</span> <span class="nx">YiZCha</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
-<span class="nx">tagtype</span>
-<span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
-<span class="nx">tableView</span>
-<span class="p">}</span>
-<span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">WeiZCha</span>
-<span class="nx">class</span> <span class="nx">WeiZCha</span><span class="p">{</span>
-<span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
-<span class="nx">tagtype</span>
-<span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
-<span class="nx">tableView</span>
-<span class="p">}</span>
-<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="err">&#39;</span><span class="o">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="nx">类关系图及连接备注模块</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="sc">&#39;
-</span><span class="sc">&#39;</span><span class="nx">关系节点符</span><span class="p">:(|&gt;)</span><span class="nx">继承</span><span class="p">,(</span><span class="o">*</span><span class="p">)</span><span class="nx">合成</span> <span class="p">,(</span><span class="nx">o</span><span class="p">)</span><span class="nx">聚合</span><span class="p">,</span> <span class="nx">其他</span><span class="err">#</span><span class="p">,</span><span class="nx">x</span><span class="p">,},</span><span class="o">+</span><span class="p">,^</span> <span class="nx">连线符</span><span class="p">:(</span><span class="o">--</span><span class="p">)</span><span class="nx">实线</span> <span class="err">，</span><span class="p">(..)</span><span class="nx">虚线</span><span class="err">&#39;</span>
-<span class="nx">TagCenter</span> <span class="s">&#34;1&#34;</span> <span class="o">*-</span><span class="nx">down</span><span class="p">[</span><span class="err">#</span><span class="nx">red</span><span class="p">]</span><span class="o">-</span> <span class="s">&#34;3+2&#34;</span><span class="nx">tagBase</span><span class="p">:</span><span class="nx">列表基类</span> <span class="p">&gt;</span>
-<span class="nx">note</span> <span class="nx">left</span> <span class="nx">on</span> <span class="nx">link</span> <span class="err">#</span><span class="nx">green</span>
-<span class="nx">解偶列表与搜索功能相关的UI和业务</span>
-<span class="nx">end</span> <span class="nx">note</span>
-<span class="nx">TagCenter</span> <span class="s">&#34;1&#34;</span> <span class="o">*-</span><span class="nx">down</span><span class="p">[</span><span class="err">#</span><span class="nx">red</span><span class="p">]</span><span class="o">-</span> <span class="s">&#34;1&#34;</span><span class="nx">JHTagListView</span><span class="p">:</span><span class="nx">过滤条件列表</span> <span class="p">&gt;</span>
-
-
-
-
-
-
-<span class="nx">center</span> <span class="nx">footer</span>
-<span class="nx">类图实现设计图</span>
-<span class="nx">endfooter</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">title</span> <span class="nx">巡查及处理整合迭代</span>
+</span></span><span class="line"><span class="cl"><span class="nx">center</span> <span class="nx">header</span>
+</span></span><span class="line"><span class="cl"><span class="nx">巡查执法及处理整合设计实现图</span>
+</span></span><span class="line"><span class="cl"><span class="nx">endheader</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="o">*******</span> <span class="nx">类声明模块</span> <span class="o">*******</span><span class="sc">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sc">&#39;</span><span class="nx">类型</span><span class="p">:</span><span class="nx">class</span><span class="p">,</span><span class="nx">abstract</span><span class="p">,</span><span class="kd">interface</span><span class="p">,</span><span class="nx">annotation</span><span class="p">,</span><span class="nx">enum</span><span class="sc">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sc">&#39;</span><span class="nx">访问域</span><span class="p">:(</span><span class="o">-</span><span class="p">)</span><span class="nx">私有</span><span class="p">,(</span><span class="err">#</span><span class="p">)</span><span class="nx">保护</span><span class="p">,(</span><span class="err">~</span><span class="p">)</span><span class="nx">包私有</span><span class="p">,(</span><span class="o">+</span><span class="p">)</span><span class="nx">公有</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">TagCenter</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="nx">私有属性</span><span class="o">--</span> <span class="err">&#39;</span><span class="nx">分隔符</span><span class="o">--</span><span class="p">,..,</span><span class="o">==</span><span class="p">,</span><span class="nx">__</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">UIScrollView</span> <span class="o">*</span><span class="nx">titleScrollView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">UIScrollView</span> <span class="o">*</span><span class="nx">contentScrollView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">NSMutableArray</span> <span class="o">*</span><span class="nx">titleLabels</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">PatrolSearchBar</span> <span class="o">*</span><span class="nx">ibSearchBar</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">UIView</span> <span class="o">*</span><span class="nx">ibErrorView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ReqFilterStoreModel</span> <span class="o">*</span><span class="nx">filterModel</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">__初始化</span> <span class="nx">滚动标题方法__</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 初始化UIScrollView
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpScrollView</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加所有子控制器对应标题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpTitleLabel</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加所有子控制器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">-</span> <span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setUpChildViewController</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">过滤工具</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">JHTagListView</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">动画属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">NSLayoutConstraint</span> <span class="o">*</span><span class="nx">ibTableViewToLeftViewConut</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IBOutlet</span> <span class="nx">NSLayoutConstraint</span> <span class="o">*</span><span class="nx">ibShadeToFilterViewConut</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">setupFilterView</span><span class="p">:(</span><span class="nx">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nx">dataArray</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">loadDataList</span><span class="p">:(</span><span class="nx">dispatch_group_t</span><span class="p">)</span><span class="nx">group</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span><span class="nx">showListView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JHTagListView</span> <span class="o">*--</span> <span class="nx">JHFilterStoreTypeCell</span>
+</span></span><span class="line"><span class="cl"><span class="nf">UICollectionView</span> <span class="p">()</span><span class="o">-</span> <span class="nx">JHFilterStoreTypeCell</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">JHFilterStoreTypeCell</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">接口属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">NSString</span> <span class="o">*</span><span class="nx">typeName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">NSArray</span> <span class="o">*</span><span class="nx">tagArr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JHTagListView</span> <span class="o">*--</span> <span class="nx">JHFilterPatrolTimeCell</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">JHFilterPatrolTimeCell</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JHFilterPatrolTimeCell</span> <span class="o">*--</span> <span class="nx">DateAlertPickerController</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">DateAlertPickerController</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="nx">left</span> <span class="nx">of</span> <span class="nx">DateAlertPickerController</span>
+</span></span><span class="line"><span class="cl"><span class="nx">时间选择器的封装</span>
+</span></span><span class="line"><span class="cl"><span class="nx">end</span> <span class="nx">note</span>
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="nx">right</span> <span class="nx">of</span> <span class="nx">JHFilterPatrolTimeCell</span>
+</span></span><span class="line"><span class="cl"><span class="nx">定义时间cell样式</span>
+</span></span><span class="line"><span class="cl"><span class="nx">end</span> <span class="nx">note</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="nx">top</span> <span class="nx">of</span> <span class="nx">JHFilterStoreTypeCell</span>
+</span></span><span class="line"><span class="cl"><span class="nx">定义业态类型样式</span>
+</span></span><span class="line"><span class="cl"><span class="nx">end</span> <span class="nx">note</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="nx">显示</span><span class="o">/</span><span class="nx">隐藏类</span><span class="p">,</span><span class="nx">类方法属性等</span> <span class="nx">关键字支持class</span><span class="p">,</span><span class="kd">interface</span><span class="p">,</span><span class="nx">enum</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="o">----</span> <span class="nx">声明类关系线备注</span><span class="p">,</span><span class="nx">可以当做用例来参与到关系连接中</span> <span class="o">---</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="s">&#34;实现过滤UI及业务的类&#34;</span> <span class="nx">as</span> <span class="nx">filterClassnote</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&#39;######</span> <span class="nx">类备注模块</span> <span class="nx">类声明末尾使用</span><span class="p">:</span><span class="nx">note</span> <span class="nx">位置</span><span class="p">:</span> <span class="nx">备注</span><span class="err">#########&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="nx">left</span> <span class="nx">of</span> <span class="nx">TagCenter</span> <span class="err">#</span><span class="nx">red</span>
+</span></span><span class="line"><span class="cl"><span class="nx">整个框架的主体</span><span class="err">：</span><span class="nx">包括搜索框</span><span class="o">/</span><span class="nx">过滤条件列表</span><span class="o">/</span><span class="nx">滚动标签</span>
+</span></span><span class="line"><span class="cl"><span class="nx">end</span> <span class="nx">note</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="o">&amp;&amp;&amp;&amp;&amp;&amp;</span> <span class="nx">类组合模块</span> <span class="nx">类模块</span> <span class="o">&amp;&amp;&amp;&amp;&amp;&amp;&amp;</span><span class="sc">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sc">&#39;</span><span class="nx">六种组合样式</span><span class="p">:</span><span class="nx">Node</span><span class="p">,</span><span class="nx">Rectangle</span><span class="p">,</span><span class="nx">Folder</span><span class="p">,</span><span class="nx">Frame</span><span class="p">,</span><span class="nx">Cloud</span><span class="p">,</span><span class="nx">Database</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">tagList</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">tagBase</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span> <span class="nx">属性</span><span class="o">--</span> <span class="err">&#39;</span><span class="nx">分隔符</span><span class="o">--</span><span class="p">,..,</span><span class="o">==</span><span class="p">,</span><span class="nx">__</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">TagListType</span> <span class="nx">curTagType</span><span class="p">;</span> <span class="c1">//标签类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">NSMutableArray</span> <span class="o">*</span><span class="nx">dataArray</span><span class="p">;</span> <span class="c1">//列表数据源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">__</span> <span class="nx">getter</span><span class="o">/</span><span class="nx">setter方法__</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="p">(</span><span class="nx">NSMutableArray</span> <span class="o">*</span><span class="p">)</span><span class="nx">dataArray</span> <span class="c1">//通过标签类型过滤出当前列表的数据源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">基础类</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">JHTagBanLiModel</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ddd</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">JHTagBanliCell</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ddd</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">巡查执法</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">DaiBan</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">DaiBan</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagtype</span>
+</span></span><span class="line"><span class="cl"><span class="nx">redhot</span> <span class="c1">//红点显示
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tableView</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiBanVC</span> 
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">YiBan</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">YiBanVC</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dddd</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">YiBanVC</span> <span class="o">*--</span> <span class="nx">YiBanCellView</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JHTagBanliCell</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiBanCellView</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">Guanli</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">Guanli</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagtype</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tableView</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">自检自查</span> <span class="o">&lt;&lt;</span><span class="nx">Folder</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">YiZCha</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">YiZCha</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagtype</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tableView</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagBase</span> <span class="p">&lt;|</span><span class="o">--</span> <span class="nx">WeiZCha</span>
+</span></span><span class="line"><span class="cl"><span class="nx">class</span> <span class="nx">WeiZCha</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">属性</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tagtype</span>
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nx">方法</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tableView</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">&#39;</span><span class="o">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="nx">类关系图及连接备注模块</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="sc">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sc">&#39;</span><span class="nx">关系节点符</span><span class="p">:(|&gt;)</span><span class="nx">继承</span><span class="p">,(</span><span class="o">*</span><span class="p">)</span><span class="nx">合成</span> <span class="p">,(</span><span class="nx">o</span><span class="p">)</span><span class="nx">聚合</span><span class="p">,</span> <span class="nx">其他</span><span class="err">#</span><span class="p">,</span><span class="nx">x</span><span class="p">,},</span><span class="o">+</span><span class="p">,^</span> <span class="nx">连线符</span><span class="p">:(</span><span class="o">--</span><span class="p">)</span><span class="nx">实线</span> <span class="err">，</span><span class="p">(..)</span><span class="nx">虚线</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">TagCenter</span> <span class="s">&#34;1&#34;</span> <span class="o">*-</span><span class="nx">down</span><span class="p">[</span><span class="err">#</span><span class="nx">red</span><span class="p">]</span><span class="o">-</span> <span class="s">&#34;3+2&#34;</span><span class="nx">tagBase</span><span class="p">:</span><span class="nx">列表基类</span> <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">note</span> <span class="nx">left</span> <span class="nx">on</span> <span class="nx">link</span> <span class="err">#</span><span class="nx">green</span>
+</span></span><span class="line"><span class="cl"><span class="nx">解偶列表与搜索功能相关的UI和业务</span>
+</span></span><span class="line"><span class="cl"><span class="nx">end</span> <span class="nx">note</span>
+</span></span><span class="line"><span class="cl"><span class="nx">TagCenter</span> <span class="s">&#34;1&#34;</span> <span class="o">*-</span><span class="nx">down</span><span class="p">[</span><span class="err">#</span><span class="nx">red</span><span class="p">]</span><span class="o">-</span> <span class="s">&#34;1&#34;</span><span class="nx">JHTagListView</span><span class="p">:</span><span class="nx">过滤条件列表</span> <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">center</span> <span class="nx">footer</span>
+</span></span><span class="line"><span class="cl"><span class="nx">类图实现设计图</span>
+</span></span><span class="line"><span class="cl"><span class="nx">endfooter</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -625,7 +625,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

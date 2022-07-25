@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E8%B0%83%E8%AF%95/%E5%9F%BA%E4%BA%8Echisel%E8%87%AA%E5%AE%9A%E4%B9%89python%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/" />
@@ -195,8 +195,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在将lldbinit原文件放在自己便于管理的地方，便于导入python命令</p>
 <div class="highlight"><div class="chroma">
@@ -215,19 +215,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="c1">#  installChisel.sh</span>
-<span class="c1">#  HexoDeploy</span>
-<span class="c1">#</span>
-<span class="c1">#  Created by admin on 2018/10/21.</span>
-<span class="c1">#  Copyright © 2018年 boyer. All rights reserved.</span>
-<span class="nv">basepath</span><span class="o">=</span><span class="k">$(</span><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
-<span class="nb">echo</span> <span class="s2">&#34;当前cd的目录名：&#34;</span><span class="sb">`</span>basename <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&#34;sh脚本文件的绝对路径：</span><span class="nv">$basepath</span><span class="s2">&#34;</span>
-ln -fs <span class="nv">$basepath</span>/lldbinit ~/.lldbinit
-<span class="nb">echo</span> <span class="s2">&#34;done&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  installChisel.sh</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  HexoDeploy</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  Created by admin on 2018/10/21.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  Copyright © 2018年 boyer. All rights reserved.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">basepath</span><span class="o">=</span><span class="k">$(</span><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;当前cd的目录名：&#34;</span><span class="sb">`</span>basename <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;sh脚本文件的绝对路径：</span><span class="nv">$basepath</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">ln -fs <span class="nv">$basepath</span>/lldbinit ~/.lldbinit
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;done&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="创建加载自定义命令">创建加载自定义命令</h2>
 <p>无论是本地使用还是提交到<code>Chisel</code>贡献，工作流程都是一样的。</p>
@@ -258,27 +258,27 @@ ln -fs <span class="nv">$basepath</span>/lldbinit ~/.lldbinit
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#!/usr/bin/python
-# Example file with custom commands, located at /magical/commands/example.py
-
-import lldb
-import fblldbbase as fb
-
-def lldbcommands():
-    return [ PrintKeyWindowLevel() ]
-
-class PrintKeyWindowLevel(fb.FBCommand):
-    def name(self):
-        return &#39;pkeywinlevel&#39;
-
-def description(self):
-    return &#39;An incredibly contrived command that prints the window level of the key window.&#39;
-
-def run(self, arguments, options):
-    # It&#39;s a good habit to explicitly cast the type of all return
-    # values and arguments. LLDB can&#39;t always find them on its own.
-    lldb.debugger.HandleCommand(&#39;p (CGFloat)[(id)[(id)[UIApplication sharedApplication] keyWindow] windowLevel]&#39;)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#!/usr/bin/python
+</span></span><span class="line"><span class="cl"># Example file with custom commands, located at /magical/commands/example.py
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">import lldb
+</span></span><span class="line"><span class="cl">import fblldbbase as fb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def lldbcommands():
+</span></span><span class="line"><span class="cl">    return [ PrintKeyWindowLevel() ]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class PrintKeyWindowLevel(fb.FBCommand):
+</span></span><span class="line"><span class="cl">    def name(self):
+</span></span><span class="line"><span class="cl">        return &#39;pkeywinlevel&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def description(self):
+</span></span><span class="line"><span class="cl">    return &#39;An incredibly contrived command that prints the window level of the key window.&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def run(self, arguments, options):
+</span></span><span class="line"><span class="cl">    # It&#39;s a good habit to explicitly cast the type of all return
+</span></span><span class="line"><span class="cl">    # values and arguments. LLDB can&#39;t always find them on its own.
+</span></span><span class="line"><span class="cl">    lldb.debugger.HandleCommand(&#39;p (CGFloat)[(id)[(id)[UIApplication sharedApplication] keyWindow] windowLevel]&#39;)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>加载新建的命令
@@ -293,11 +293,11 @@ def run(self, arguments, options):
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># ~/.lldbinit
-...
-command script import /path/to/fblldb.py
-script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># ~/.lldbinit
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">command script import /path/to/fblldb.py
+</span></span><span class="line"><span class="cl">script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>更方便的方式：命令文件直接放在chisel源码中的<code>mcommands</code>目录中，这样会自动加载，就不用在lldbinit中配置了。
@@ -453,7 +453,7 @@ script fblldb.loadCommandsInDirectory(&#39;/magical/commands/&#39;)
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

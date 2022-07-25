@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/git/git%E5%A6%82%E4%BD%95%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%8C%85%E6%8B%AC%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" />
@@ -220,8 +220,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">alias bfg=&#34;java -jar ~/Downloads/soft/bfg/bfg.jar&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias bfg=&#34;java -jar ~/Downloads/soft/bfg/bfg.jar&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="常用命令">常用命令</h3>
 <ol>
@@ -232,8 +232,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone --mirror git@github.com:OpenFibers/openfibers.github.com.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>移除目标文件
@@ -245,8 +245,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --delete-files id_{dsa,rsa}  my-repo.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ bfg --delete-files id_{dsa,rsa}  my-repo.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从历史纪录中删除所有大于1M的二进制文件 :</p>
 <div class="highlight"><div class="chroma">
@@ -254,8 +254,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --strip-blobs-bigger-than 1M  my-repo.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ bfg --strip-blobs-bigger-than 1M  my-repo.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从文件中删除所有列出的密码：</p>
 <div class="highlight"><div class="chroma">
@@ -263,8 +263,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ bfg --replace-text passwords.txt  my-repo.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ bfg --replace-text passwords.txt  my-repo.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除目录及目录下文件:
 <code>demo</code>:删除的目录
@@ -278,12 +278,12 @@ sudo vi ~/.bash_profile  添加如下：</li>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> 
-</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">bfg</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">folders</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">files</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="kt">blob</span><span class="o">-</span><span class="n">protection</span><span class="w">
-</span><span class="w"></span><span class="o">//</span><span class="err">上述命令将</span><span class="n">demo索引状态重置为</span><span class="o">`</span><span class="k">add</span><span class="o">`</span><span class="err">的状态，需要执行</span><span class="n">reset即可</span><span class="w">
-</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">HEAD</span><span class="w"> </span><span class="n">demo</span><span class="w">
-</span><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">fr</span><span class="w"> </span><span class="n">demo</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">bfg</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">folders</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="k">delete</span><span class="o">-</span><span class="n">files</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="kt">blob</span><span class="o">-</span><span class="n">protection</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">//</span><span class="err">上述命令将</span><span class="n">demo索引状态重置为</span><span class="o">`</span><span class="k">add</span><span class="o">`</span><span class="err">的状态，需要执行</span><span class="n">reset即可</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">HEAD</span><span class="w"> </span><span class="n">demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">fr</span><span class="w"> </span><span class="n">demo</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用-filter-branch命令">使用 filter-branch命令</h2>
 <h2 id="步骤一-从资料库中清除文件">步骤一: 从资料库中清除文件</h2>
@@ -292,8 +292,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached --ignore-unmatch path-to-your-remove-file&#39;</span> --prune-empty --tag-name-filter cat -- --all
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached --ignore-unmatch path-to-your-remove-file&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中, <code>path-to-your-remove-file</code> 是要删除的文件的相对路径(相对于git仓库的跟目录), 替换成你要删除的文件即可.</p>
 <blockquote>
@@ -306,8 +306,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder&#39;</span> --prune-empty --tag-name-filter cat -- --all
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="支持通配符">支持通配符</h3>
 <p>如果当要删除的文件很多, 文件或路径里有中文, 由于MinGW或CygWin对中文路径设置比较麻烦, 你可以使用通配符*号, 例如: <code>sound/music_*.mp3</code>, 这样就把<code>sound</code>目录下以<code>music_</code>开头的mp3文件都删除了.
@@ -317,8 +317,8 @@ sudo vi ~/.bash_profile  添加如下：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*&#39;</span> --prune-empty --tag-name-filter cat -- --all
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git filter-branch --force --index-filter <span class="s1">&#39;git rm --cached -r --ignore-unmatch path-to-your-remove-folder/*&#39;</span> --prune-empty --tag-name-filter cat -- --all
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>成功的日志：</p>
 <div class="highlight"><div class="chroma">
@@ -330,12 +330,12 @@ sudo vi ~/.bash_profile  添加如下：</li>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Ref <span class="s1">&#39;refs/heads/master&#39;</span> was rewritten
-Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> was rewritten
-WARNING: Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> is unchanged
-WARNING: Ref <span class="s1">&#39;refs/tags/v0.9.0&#39;</span> is unchanged
-v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f5472 -&gt; 2694a7834dada67cf8768ef27e2d7c3d777f5472<span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Ref <span class="s1">&#39;refs/heads/master&#39;</span> was rewritten
+</span></span><span class="line"><span class="cl">Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> was rewritten
+</span></span><span class="line"><span class="cl">WARNING: Ref <span class="s1">&#39;refs/remotes/origin/master&#39;</span> is unchanged
+</span></span><span class="line"><span class="cl">WARNING: Ref <span class="s1">&#39;refs/tags/v0.9.0&#39;</span> is unchanged
+</span></span><span class="line"><span class="cl">v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f5472 -&gt; 2694a7834dada67cf8768ef27e2d7c3d777f5472<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p><code>Ref 'refs/heads/master' was rewritten</code>:表示成功；
@@ -349,8 +349,8 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git push --force origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push --force origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个过程其实是重新上传我们的repo, 比较耗时, 虽然跟删掉重新建一个repo有些类似, 但是好处是保留了原有的更新记录, 所以还是有些不同的. 如果你实在不在意这些更新记录, 也可以删掉重建, 两者也差不太多, 也许后者还更直观些.</p>
 <h3 id="tag同步">tag同步</h3>
@@ -360,8 +360,8 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git push origin master --force --tags
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin master --force --tags
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="步骤三-清理和回收空间">步骤三: 清理和回收空间</h2>
 <p>虽然上面我们已经删除了文件, 但是我们的repo里面仍然保留了这些objects, 等待垃圾回收(GC), 所以我们要用命令彻底清除它, 并收回空间.</p>
@@ -392,29 +392,29 @@ v0.9.0 -&gt; v0.9.0 <span class="o">(</span>2694a7834dada67cf8768ef27e2d7c3d777f
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ rm -rf .git/refs/original/
-
-$ git reflog expire --expire<span class="o">=</span>now --all
-
-$ git gc --prune<span class="o">=</span>now
-
-
-Counting objects: 2437, <span class="k">done</span>.
-<span class="c1"># Delta compression using up to 4 threads.</span>
-<span class="c1"># Compressing objects: 100% (1378/1378), done.</span>
-<span class="c1"># Writing objects: 100% (2437/2437), done.</span>
-<span class="c1"># Total 2437 (delta 1461), reused 1802 (delta 1048)</span>
-
-
-$ git gc --aggressive --prune<span class="o">=</span>now
-
-
-Counting objects: 2437, <span class="k">done</span>.
-<span class="c1"># Delta compression using up to 4 threads.</span>
-<span class="c1"># Compressing objects: 100% (2426/2426), done.</span>
-<span class="c1"># Writing objects: 100% (2437/2437), done.</span>
-<span class="c1"># Total 2437 (delta 1483), reused 0 (delta 0)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ rm -rf .git/refs/original/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git reflog expire --expire<span class="o">=</span>now --all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git gc --prune<span class="o">=</span>now
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Counting objects: 2437, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl"><span class="c1"># Delta compression using up to 4 threads.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Compressing objects: 100% (1378/1378), done.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Writing objects: 100% (2437/2437), done.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Total 2437 (delta 1461), reused 1802 (delta 1048)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git gc --aggressive --prune<span class="o">=</span>now
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Counting objects: 2437, <span class="k">done</span>.
+</span></span><span class="line"><span class="cl"><span class="c1"># Delta compression using up to 4 threads.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Compressing objects: 100% (2426/2426), done.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Writing objects: 100% (2437/2437), done.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Total 2437 (delta 1483), reused 0 (delta 0)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -554,7 +554,7 @@ Counting objects: 2437, <span class="k">done</span>.
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

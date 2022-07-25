@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/hexo/heroku%E9%83%A8%E7%BD%B2web%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
@@ -196,8 +196,8 @@ Mac端</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">brew install heroku/brew/heroku
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew install heroku/brew/heroku
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://devcenter.heroku.com/articles/heroku-cli-commands">Heroku CLI 命令</a></p>
 <div class="highlight"><div class="chroma">
@@ -206,9 +206,9 @@ Mac端</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">heroku -h
-heroku login
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">heroku -h
+</span></span><span class="line"><span class="cl">heroku login
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li><a href="https://devcenter.heroku.com/articles/creating-apps">Creating Apps from the CLI</a></li>
@@ -224,14 +224,14 @@ heroku login
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir example
-$ cd example
-$ git init
-$ heroku apps:create example
-Creating ⬢ example... done
-https://example.herokuapp.com/ | https://git.heroku.com/example.git
-Git remote heroku added
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ mkdir example
+</span></span><span class="line"><span class="cl">$ cd example
+</span></span><span class="line"><span class="cl">$ git init
+</span></span><span class="line"><span class="cl">$ heroku apps:create example
+</span></span><span class="line"><span class="cl">Creating ⬢ example... done
+</span></span><span class="line"><span class="cl">https://example.herokuapp.com/ | https://git.heroku.com/example.git
+</span></span><span class="line"><span class="cl">Git remote heroku added
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-info">查看现有APP信息</a></li>
@@ -242,9 +242,9 @@ Git remote heroku added
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">heroku apps      //所有应用列表
-heroku apps:info //查看所有应用的详细信息
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">heroku apps      //所有应用列表
+</span></span><span class="line"><span class="cl">heroku apps:info //查看所有应用的详细信息
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li><a href="https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-open-path">在浏览器中访问APP页面</a></li>
@@ -266,20 +266,20 @@ heroku apps:info //查看所有应用的详细信息
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">USAGE
-$ heroku apps:open [PATH]
-
-OPTIONS
--a, --app=app        (required) app to run command against
--r, --remote=remote  git remote of app to use
-
-EXAMPLES
-$ heroku open -a myapp
-# opens https://myapp.herokuapp.com
-
-$ heroku open -a myapp /foo
-# opens https://myapp.herokuapp.com/foo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">USAGE
+</span></span><span class="line"><span class="cl">$ heroku apps:open [PATH]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OPTIONS
+</span></span><span class="line"><span class="cl">-a, --app=app        (required) app to run command against
+</span></span><span class="line"><span class="cl">-r, --remote=remote  git remote of app to use
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">EXAMPLES
+</span></span><span class="line"><span class="cl">$ heroku open -a myapp
+</span></span><span class="line"><span class="cl"># opens https://myapp.herokuapp.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ heroku open -a myapp /foo
+</span></span><span class="line"><span class="cl"># opens https://myapp.herokuapp.com/foo
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="用例在heroku上部署gh-oauth-server服务">用例：在heroku上部署<code>gh-oauth-server</code>服务</h2>
 <p><a href="https://github.com/imsun/gitment/issues/170">issues:object ProgressEvent</a>
@@ -293,12 +293,12 @@ $ heroku open -a myapp /foo
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/imsun/gh-oauth-server
-cd gh-oauth-server
-heroku create gitment-hexo   //创建herokua应用
-git push heroku master       //会自动安装package.json依赖库。
-heroku open -a gitment-hexo  //浏览器打开
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone https://github.com/imsun/gh-oauth-server
+</span></span><span class="line"><span class="cl">cd gh-oauth-server
+</span></span><span class="line"><span class="cl">heroku create gitment-hexo   //创建herokua应用
+</span></span><span class="line"><span class="cl">git push heroku master       //会自动安装package.json依赖库。
+</span></span><span class="line"><span class="cl">heroku open -a gitment-hexo  //浏览器打开
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="进入heroku服务器命令行">进入heroku服务器命令行</h2>
 <div class="highlight"><div class="chroma">
@@ -311,13 +311,13 @@ heroku open -a gitment-hexo  //浏览器打开
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="err">$</span><span class="n">heroku</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">bash</span><span class="w">
-</span><span class="w"></span><span class="n">Running</span><span class="w"> </span><span class="o">`</span><span class="n">bash</span><span class="o">`</span><span class="w"> </span><span class="n">attached</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">terminal</span><span class="p">...</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="mi">3052</span><span class="w">
-</span><span class="w"></span><span class="o">~</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w">
-</span><span class="w"></span><span class="n">Procfile</span><span class="w">  </span><span class="n">README</span><span class="p">.</span><span class="n">md</span><span class="w">  </span><span class="n">composer</span><span class="p">.</span><span class="n">json</span><span class="w">  </span><span class="n">composer</span><span class="p">.</span><span class="k">lock</span><span class="w">  </span><span class="n">vendor</span><span class="w">  </span><span class="n">views</span><span class="w">  </span><span class="n">web</span><span class="w">
-</span><span class="w"></span><span class="o">~</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="k">exit</span><span class="w">
-</span><span class="w"></span><span class="k">exit</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="err">$</span><span class="n">heroku</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">bash</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Running</span><span class="w"> </span><span class="o">`</span><span class="n">bash</span><span class="o">`</span><span class="w"> </span><span class="n">attached</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">terminal</span><span class="p">...</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="mi">3052</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">~</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Procfile</span><span class="w">  </span><span class="n">README</span><span class="p">.</span><span class="n">md</span><span class="w">  </span><span class="n">composer</span><span class="p">.</span><span class="n">json</span><span class="w">  </span><span class="n">composer</span><span class="p">.</span><span class="k">lock</span><span class="w">  </span><span class="n">vendor</span><span class="w">  </span><span class="n">views</span><span class="w">  </span><span class="n">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">~</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="k">exit</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">exit</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="参考">参考</h3>
 <p><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#prepare-the-app">Getting Started on Heroku with Node.js</a>
@@ -460,7 +460,7 @@ heroku open -a gitment-hexo  //浏览器打开
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

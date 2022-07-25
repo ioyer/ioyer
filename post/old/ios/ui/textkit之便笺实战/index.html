@@ -35,7 +35,7 @@ preferredFontForTextStyle:方法设置字体样式  打开 NoteEditorViewControl
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/ui/textkit%E4%B9%8B%E4%BE%BF%E7%AC%BA%E5%AE%9E%E6%88%98/" />
@@ -244,7 +244,7 @@ self.textView.font = UIFont.preferredFont(forTextStyle: .body)
 Build并运行app，修改字体大小设置，Note页面就可以即时更新字体大小了。
 "><meta itemprop="datePublished" content="2014-07-03T17:29:00+08:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="9487">
+<meta itemprop="wordCount" content="9488">
 <meta itemprop="keywords" content="API," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="TextKit之便笺实战"/>
 <meta name="twitter:description" content="便笺练习功能点:
@@ -441,7 +441,7 @@ Build并运行app，修改字体大小设置，Note页面就可以即时更新�
         <div class="post-category">
             <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
             </div>
-          <span class="more-meta"> 约 9487 字 </span>
+          <span class="more-meta"> 约 9488 字 </span>
           <span class="more-meta"> 预计阅读 19 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -860,7 +860,7 @@ if range == nil
 {
 return [:]
 }
-//print(&ldquo;backingStore:location(location),effectiveRange:(range!)&quot;)
+//print(&ldquo;backingStore:location(location),effectiveRange:(range!)&rdquo;)
 return backingStore.attributes(at: location, effectiveRange: range!)
 }</p>
 <p>{% endcodeblock %}
@@ -897,7 +897,7 @@ NSLog(@&ldquo;setAttributes:%@ range:%@&rdquo;, attrs, NSStringFromRange(range))
 <p>{% codeblock swift lang:swift %}
 override func replaceCharacters(in range: NSRange, with str: String)
 {
-print(&ldquo;replaceCharactersInRange:(NSStringFromRange(range)) withString:(str)&quot;)
+print(&ldquo;replaceCharactersInRange:(NSStringFromRange(range)) withString:(str)&rdquo;)
 beginEditing()
 backingStore.replaceCharacters(in: range, with: str)
 edited([.editedAttributes,.editedCharacters], range: range, changeInLength: str.utf16.count - range.length)
@@ -906,7 +906,7 @@ endEditing()
 <p>override func setAttributes(_ attrs: [String : Any]?, range: NSRange)
 {
 //Sets the attributes for the characters in the specified range to the specified attributes.
-print(&ldquo;setAttributes:(attrs!) range:(NSStringFromRange(range))&quot;)
+print(&ldquo;setAttributes:(attrs!) range:(NSStringFromRange(range))&rdquo;)
 beginEditing()
 backingStore.setAttributes(attrs!, range: range)
 edited(.editedAttributes, range: range, changeInLength: 0)
@@ -1085,7 +1085,7 @@ var extendedRange = NSUnionRange(changedRange, range1)</p>
 <p>let maxRange = NSMakeRange(NSMaxRange(changedRange), 0)</p>
 <p>let range2 = (backingStore.string as NSString).lineRange(for: maxRange)
 extendedRange = NSUnionRange(changedRange, range2)</p>
-<p>print(&ldquo;在指定的区域中进行替换:(extendedRange)&quot;)
+<p>print(&ldquo;在指定的区域中进行替换:(extendedRange)&rdquo;)
 applyStylesToRange(searchRange: extendedRange)
 }</p>
 </li>
@@ -1105,7 +1105,7 @@ fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
 UIFont* boldFont =  [UIFont fontWithDescriptor:boldFontDescriptor size: 0.0];
 UIFont* normalFont =  [UIFont preferredFontForTextStyle:UIFontTextStyleBody];</p>
 <p>// 2. match items surrounded by asterisks
-NSString* regexStr = @&quot;(<em>w+(sw+)**)s&rdquo;;
+NSString* regexStr = @&quot;(<em>w+(sw+)**)s&quot;;
 NSRegularExpression</em> regex = [NSRegularExpression
 regularExpressionWithPattern:regexStr
 options:0
@@ -1175,9 +1175,9 @@ NSDictionary* redTextAttributes =
 @{ NSForegroundColorAttributeName : [UIColor redColor]};</p>
 <p>// construct a dictionary of replacements based on regexes
 _replacements = @{
-@&quot;(*w+(sw+)**)s&rdquo; : boldAttributes,
-@&quot;(<em>w+(sw+)*</em>)s&rdquo; : italicAttributes,
-@&quot;([0-9]+.)s&rdquo; : boldAttributes,
+@&quot;(*w+(sw+)**)s&quot; : boldAttributes,
+@&quot;(<em>w+(sw+)*</em>)s&quot; : italicAttributes,
+@&quot;([0-9]+.)s&quot; : boldAttributes,
 @&quot;(-w+(sw+)*-)s&quot; : strikeThroughAttributes,
 @&quot;(~w+(sw+)*~)s&quot; : scriptAttributes,
 @&ldquo;s([A-Z]{2,})s&rdquo; : redTextAttributes};
@@ -1375,7 +1375,7 @@ return @{ NSFontAttributeName : font };
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

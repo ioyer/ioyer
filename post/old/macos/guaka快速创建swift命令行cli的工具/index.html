@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/guaka%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BAswift%E5%91%BD%E4%BB%A4%E8%A1%8Ccli%E7%9A%84%E5%B7%A5%E5%85%B7/" />
@@ -199,8 +199,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git checkout -v &#34;url&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git checkout -v &#34;url&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>git</code> 就是一个 <strong>CLI</strong>，<code>checkout</code>是这个<strong>CLI</strong>的子命令，并接受一个<code> String</code> 作为他的参数。</p>
 <p>对应上述的命令可以为分为：</p>
@@ -217,11 +217,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">└── git
-    ├── checkout -v
-    └── push -f
-    └── ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">└── git
+</span></span><span class="line"><span class="cl">    ├── checkout -v
+</span></span><span class="line"><span class="cl">    └── push -f
+</span></span><span class="line"><span class="cl">    └── ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 Guaka 中代码表现基本就是这样子的：</p>
 <div class="highlight"><div class="chroma">
@@ -233,12 +233,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">flag</span> <span class="p">=</span> <span class="n">Flag</span><span class="p">(</span><span class="n">longName</span><span class="p">:</span> <span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="s">&#34;Show verbose&#34;</span><span class="p">)</span>
-<span class="kd">let</span> <span class="nv">command</span> <span class="p">=</span> <span class="n">Command</span><span class="p">(</span><span class="n">usage</span><span class="p">:</span> <span class="s">&#34;git&#34;</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="p">[</span><span class="n">flag</span><span class="p">])</span> <span class="p">{</span> <span class="n">flags</span><span class="p">,</span> <span class="n">args</span> <span class="k">in</span>
-    <span class="kd">let</span> <span class="nv">showVerbose</span> <span class="p">=</span> <span class="n">flags</span><span class="p">.</span><span class="n">getBool</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;v&#34;</span><span class="p">)</span>
-    <span class="c1">// args the positional arguments passed to the command</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">flag</span> <span class="p">=</span> <span class="n">Flag</span><span class="p">(</span><span class="n">longName</span><span class="p">:</span> <span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="s">&#34;Show verbose&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">command</span> <span class="p">=</span> <span class="n">Command</span><span class="p">(</span><span class="n">usage</span><span class="p">:</span> <span class="s">&#34;git&#34;</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="p">[</span><span class="n">flag</span><span class="p">])</span> <span class="p">{</span> <span class="n">flags</span><span class="p">,</span> <span class="n">args</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">showVerbose</span> <span class="p">=</span> <span class="n">flags</span><span class="p">.</span><span class="n">getBool</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;v&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// args the positional arguments passed to the command</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面就是 git 的 -v 指令，是否打印过程.</p>
 <h3 id="guaka快速上手">Guaka快速上手</h3>
@@ -250,8 +250,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&gt; brew install oarrabi/tap/guaka
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; brew install oarrabi/tap/guaka
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>新建工程
@@ -263,9 +263,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd 到需要建立工程的目录
-guaka create papa
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd 到需要建立工程的目录
+</span></span><span class="line"><span class="cl">guaka create papa
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>会生成如下路径
 ├── Package.swift
@@ -282,8 +282,8 @@ guaka create papa
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">guaka add check
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">guaka add check
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>增加 flag
 增加 flag 就要去 Source 下面对应的 Swift 文件中修改。</p>
@@ -295,8 +295,8 @@ guaka create papa
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">swift build
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">swift build
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>// 会编译生成可执行文件
 // .build/debug/papa &ndash;help</p>
@@ -308,8 +308,8 @@ guaka create papa
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">.build/debug/papa check
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.build/debug/papa check
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>增加逻辑就在对应的 Swift 文件中增加.</p>
 
@@ -450,7 +450,7 @@ guaka create papa
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

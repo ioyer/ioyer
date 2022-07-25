@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo%E5%B7%A5%E5%85%B7%E7%BB%8F%E9%AA%8C%E7%A7%AF%E7%B4%AF/" />
@@ -231,10 +231,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
-       <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:t</span>
-       <span class="nb">:END:</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="nb">:PROPERTIES:</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:t</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">:END:</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -248,10 +248,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="nb">:PROPERTIES:</span>
-       <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:nil</span>
-       <span class="nb">:END:</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="nb">:PROPERTIES:</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">:EXPORT_OPTIONS:</span> <span class="nv">todo:nil</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">:END:</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -263,7 +263,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>如何即保留这些记录，导出时，ox-hugo又可以忽略这些记录，在看了官方demo发现针对该问题的属性： <code>:LOG_INTO_DRAWER: t</code></p>
@@ -274,9 +274,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:PROPERTIES:</span>
-<span class="nb">:LOG_INTO_DRAWER:</span> <span class="no">t</span>
-<span class="err">🔚</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="nb">:PROPERTIES:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:LOG_INTO_DRAWER:</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl"><span class="err">🔚</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>当该属性开启状态时，日志信息会自动添加到 <code>LOGBOOK</code> 中，此时在执行导出，状态记录会被自动忽略。</p>
@@ -287,9 +287,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nb">:LOGBOOK:</span>
-<span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span>
-<span class="nb">:END:</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="nb">:LOGBOOK:</span>
+</span></span><span class="line"><span class="cl"><span class="nf">-</span> <span class="nv">State</span> <span class="s">&#34;DONE&#34;</span>       <span class="nv">from</span> <span class="s">&#34;TODO&#34;</span>       <span class="p">[</span><span class="nv">2021-07-15</span> <span class="nv">Thu</span> <span class="nv">19:22</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:END:</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="自定义todo-关键字的样式">自定义todo 关键字的样式</h2>
@@ -324,27 +324,27 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org">       CSS for TODO :noexport:
-<span class="c">       :PROPERTIES:
-</span><span class="c"></span><span class="cs">       :CUSTOM_ID: todo-css
-</span><span class="cs"></span><span class="c">       :END:</span>
-<span class="c">       #+begin_export </span><span class="cs">html</span>
-       <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-       <span class="p">.</span><span class="nc">org-todo</span> <span class="p">{</span>
-           <span class="k">font-size</span><span class="p">:</span> <span class="mf">0.8</span><span class="kt">em</span><span class="p">;</span>
-           <span class="k">font-weight</span><span class="p">:</span> <span class="mi">700</span><span class="p">;</span>
-       <span class="p">}</span>
-       <span class="c">/* *** Org TODO set to TODO state */</span>
-       <span class="p">.</span><span class="nc">org-todo</span><span class="p">.</span><span class="nc">todo</span> <span class="p">{</span>
-           <span class="k">color</span><span class="p">:</span> <span class="mh">#e60000</span><span class="p">;</span>
-       <span class="p">}</span>
-       <span class="c">/* *** Org TODO set to DONE state */</span>
-       <span class="p">.</span><span class="nc">org-todo</span><span class="p">.</span><span class="nc">done</span> <span class="p">{</span>
-           <span class="k">color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
-       <span class="p">}</span>
-       <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="c">       #+end_export</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">       CSS for TODO :noexport:
+</span></span><span class="line"><span class="cl"><span class="c">       :PROPERTIES:
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="cs">       :CUSTOM_ID: todo-css
+</span></span></span><span class="line"><span class="cl"><span class="cs"></span><span class="c">       :END:</span>
+</span></span><span class="line"><span class="cl"><span class="c">       #+begin_export </span><span class="cs">html</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">.</span><span class="nc">org-todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">font-size</span><span class="p">:</span> <span class="mf">0.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="k">font-weight</span><span class="p">:</span> <span class="mi">700</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="c">/* *** Org TODO set to TODO state */</span>
+</span></span><span class="line"><span class="cl">       <span class="p">.</span><span class="nc">org-todo</span><span class="p">.</span><span class="nc">todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">color</span><span class="p">:</span> <span class="mh">#e60000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="c">/* *** Org TODO set to DONE state */</span>
+</span></span><span class="line"><span class="cl">       <span class="p">.</span><span class="nc">org-todo</span><span class="p">.</span><span class="nc">done</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="k">color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">       #+end_export</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -357,8 +357,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="err">#</span><span class="nv">+include:</span> <span class="s">&#34;./all-posts.org::#todo-css&#34;</span> <span class="nb">:only-contents</span> <span class="no">t</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="err">#</span><span class="nv">+include:</span> <span class="s">&#34;./all-posts.org::#todo-css&#34;</span> <span class="nb">:only-contents</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -377,7 +377,7 @@
 </li>
 <li>
 <p>TODO 转为DONE ，自动添加Colsed<br>
-(setq org-log-done &lsquo;time)<br>
+(setq org-log-done &rsquo;time)<br>
 或</p>
 <p><a href="https://orgmode.org/manual/Closing-items.html">Closing items (The Org Manual)</a></p>
 </li>
@@ -520,7 +520,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/hexo/pyenv%E5%88%87%E6%8D%A2python%E7%9A%84%E7%89%88%E6%9C%AC/" />
@@ -208,8 +208,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew install pyenv
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install pyenv
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装界面略过，安装结束后，系统提示如下：</p>
 <div class="highlight"><div class="chroma">
@@ -222,13 +222,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">==</span>&gt; Caveats
-To use Homebrew<span class="err">&#39;</span>s directories rather than ~/.pyenv add to your profile:
-<span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span>/usr/local/var/pyenv
-
-To <span class="nb">enable</span> shims and autocompletion add to your profile:
-<span class="k">if</span> which pyenv &gt; /dev/null<span class="p">;</span> <span class="k">then</span> <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">fi</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">==</span>&gt; Caveats
+</span></span><span class="line"><span class="cl">To use Homebrew<span class="err">&#39;</span>s directories rather than ~/.pyenv add to your profile:
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span>/usr/local/var/pyenv
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To <span class="nb">enable</span> shims and autocompletion add to your profile:
+</span></span><span class="line"><span class="cl"><span class="k">if</span> which pyenv &gt; /dev/null<span class="p">;</span> <span class="k">then</span> <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>根据此提示，在bash的配置文件（由于我的bash是oh my zsh，所以我的配置文件为~/.zshrc）中添加以下两行代码：</p>
 <div class="highlight"><div class="chroma">
@@ -237,9 +237,9 @@ To <span class="nb">enable</span> shims and autocompletion add to your profile:
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv &gt; /dev/null; then eval &#34;$(pyenv init -)&#34;; fi
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export PYENV_ROOT=/usr/local/var/pyenv
+</span></span><span class="line"><span class="cl">if which pyenv &gt; /dev/null; then eval &#34;$(pyenv init -)&#34;; fi
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用pyenv">使用pyenv</h2>
 <h4 id="安装指定版本的python">安装指定版本的python</h4>
@@ -250,9 +250,9 @@ if which pyenv &gt; /dev/null; then eval &#34;$(pyenv init -)&#34;; fi
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pyenv install -l
-pyenv install 2.7.11 -v
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pyenv install -l
+</span></span><span class="line"><span class="cl">pyenv install 2.7.11 -v
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>-v</code>表示在显示安装过程。
 安装完成后，2.7.11版本在系统中的存放位置为：
@@ -264,8 +264,8 @@ pyenv install 2.7.11 -v
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pyenv local 2.7.11
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pyenv local 2.7.11
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>即在当前文件夹下配置完成python的开发环境。接下来可通过pip安装开发过程中的各种包。</p>
 <h2 id="其他">其他</h2>
@@ -275,8 +275,8 @@ pyenv install 2.7.11 -v
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pyenv versions
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pyenv versions
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="2切换python版本">2.切换python版本</h3>
 <p>要切换python 版本，可以使用如下命令：</p>
@@ -285,8 +285,8 @@ pyenv install 2.7.11 -v
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pyenv global &lt;version&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pyenv global &lt;version&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>比如，我使用以上命令pyenv global 2.7.11后，系统默认的python版本即为2.7.11，在命令行输入python后，进入的就是2.7.11的shell，不再是system的shell。</p>
 <h3 id="3切换python-shell版本">3.切换python shell版本</h3>
@@ -296,8 +296,8 @@ pyenv install 2.7.11 -v
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pyenv shell &lt;version&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pyenv shell &lt;version&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>比如，我使用pyenv shell 2.7.11后，在命令行输入python，进入的是2.7.11的shell。此时系统的默认python版本也变成了2.7.11，如下所示：</p>
 <p><a href="https://www.jianshu.com/p/bcb3f1be9073">转自</a></p>
@@ -439,7 +439,7 @@ pyenv install 2.7.11 -v
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

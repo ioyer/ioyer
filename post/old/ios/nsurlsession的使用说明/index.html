@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/nsurlsession%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -252,18 +252,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com&#34;</span><span class="p">];</span>
-<span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
-
-<span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
-<span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">dataTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
-<span class="nl">completionHandler</span><span class="p">:</span>
-<span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// ...
-</span><span class="c1"></span><span class="p">}];</span>
-
-<span class="p">[</span><span class="n">task</span> <span class="n">resume</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">dataTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
+</span></span><span class="line"><span class="cl"><span class="nl">completionHandler</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">task</span> <span class="n">resume</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="数据上传工厂">数据上传工厂</h5>
 <p>Upload task 的创建需要使用一个 request，另外加上一个要上传的 <code>NSData</code> 对象或者是一个本地文件的路径对应的 <code>NSURL</code>：</p>
@@ -284,20 +284,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/upload&#34;</span><span class="p">];</span>
-<span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
-<span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">...;</span>
-
-<span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
-<span class="n">NSURLSessionUploadTask</span> <span class="o">*</span><span class="n">uploadTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">uploadTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
-<span class="nl">fromData</span><span class="p">:</span><span class="n">data</span>
-<span class="nl">completionHandler</span><span class="p">:</span>
-<span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// ...
-</span><span class="c1"></span><span class="p">}];</span>
-
-<span class="p">[</span><span class="n">uploadTask</span> <span class="n">resume</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/upload&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">...;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSessionUploadTask</span> <span class="o">*</span><span class="n">uploadTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">uploadTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
+</span></span><span class="line"><span class="cl"><span class="nl">fromData</span><span class="p">:</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="nl">completionHandler</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">uploadTask</span> <span class="n">resume</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="数据下载工厂">数据下载工厂</h5>
 <p>Download task 也需要一个 request，不同之处在于 <code>completionHandler</code> 这个 block。Data task 和 upload task 会在任务完成时一次性返回，但是 Download task 是将数据一点点地写入本地的临时文件。所以在 <code>completionHandler</code> 这个 block 里，我们需要把文件从一个临时地址移动到一个永久的地址保存起来：</p>
@@ -319,21 +319,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/file.zip&#34;</span><span class="p">];</span>
-<span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
-
-<span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
-<span class="n">NSURLSessionDownloadTask</span> <span class="o">*</span><span class="n">downloadTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">downloadTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
-<span class="nl">completionHandler</span><span class="p">:</span>
-<span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">location</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">documentsPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(</span><span class="n">NSDocumentDirectory</span><span class="p">,</span> <span class="n">NSUserDomainMask</span><span class="p">,</span> <span class="nb">YES</span><span class="p">)</span> <span class="n">firstObject</span><span class="p">];</span>
-<span class="n">NSURL</span> <span class="o">*</span><span class="n">documentsDirectoryURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">documentsPath</span><span class="p">];</span>
-<span class="n">NSURL</span> <span class="o">*</span><span class="n">newFileLocation</span> <span class="o">=</span> <span class="p">[</span><span class="n">documentsDirectoryURL</span> <span class="nl">URLByAppendingPathComponent</span><span class="p">:[[</span><span class="n">response</span> <span class="n">URL</span><span class="p">]</span> <span class="n">lastPathComponent</span><span class="p">]];</span>
-<span class="p">[[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">]</span> <span class="nl">copyItemAtURL</span><span class="p">:</span><span class="n">location</span> <span class="nl">toURL</span><span class="p">:</span><span class="n">newFileLocation</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="p">}];</span>
-
-<span class="p">[</span><span class="n">downloadTask</span> <span class="n">resume</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSURL</span> <span class="o">*</span><span class="n">URL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://example.com/file.zip&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">URL</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURLSessionDownloadTask</span> <span class="o">*</span><span class="n">downloadTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">downloadTaskWithRequest</span><span class="p">:</span><span class="n">request</span>
+</span></span><span class="line"><span class="cl"><span class="nl">completionHandler</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="o">^</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="n">location</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">documentsPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(</span><span class="n">NSDocumentDirectory</span><span class="p">,</span> <span class="n">NSUserDomainMask</span><span class="p">,</span> <span class="nb">YES</span><span class="p">)</span> <span class="n">firstObject</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURL</span> <span class="o">*</span><span class="n">documentsDirectoryURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">documentsPath</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSURL</span> <span class="o">*</span><span class="n">newFileLocation</span> <span class="o">=</span> <span class="p">[</span><span class="n">documentsDirectoryURL</span> <span class="nl">URLByAppendingPathComponent</span><span class="p">:[[</span><span class="n">response</span> <span class="n">URL</span><span class="p">]</span> <span class="n">lastPathComponent</span><span class="p">]];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">]</span> <span class="nl">copyItemAtURL</span><span class="p">:</span><span class="n">location</span> <span class="nl">toURL</span><span class="p">:</span><span class="n">newFileLocation</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">downloadTask</span> <span class="n">resume</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p><span class="secondary radius label">编者注</span> 原文中这块代码以及上文的表述中存有一些问题，详见这个 <a href="https://github.com/objcio/articles/issues/24">issue</a>，本文已进行更正，如果您有不同意见，欢迎在 <a href="https://github.com/objccn/articles">Github</a> 上给我们反馈。</p>
@@ -369,8 +369,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span><span class="nf">URLSession:task:didReceiveChallenge:completionHandler:</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span><span class="nf">URLSession:task:didReceiveChallenge:completionHandler:</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>completionHandler</code> 接受的两个参数：
 参数一：<code>NSURLSessionAuthChallengeDisposition</code>:鉴权查询的策略
@@ -414,17 +414,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">userPasswordString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@:%@&#34;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">];</span>
-<span class="n">NSData</span> <span class="o">*</span> <span class="n">userPasswordData</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordString</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">base64EncodedCredential</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">authString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;Basic %@&#34;</span><span class="p">,</span> <span class="n">base64EncodedCredential</span><span class="p">];</span>
-<span class="n">NSString</span> <span class="o">*</span><span class="n">userAgentString</span> <span class="o">=</span> <span class="s">@&#34;AppName/com.example.app (iPhone 5s; iOS 7.0.2; Scale/2.0)&#34;</span><span class="p">;</span>
-
-<span class="n">configuration</span><span class="p">.</span><span class="n">HTTPAdditionalHeaders</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&#34;Accept&#34;</span><span class="o">:</span> <span class="s">@&#34;application/json&#34;</span><span class="p">,</span>
-<span class="s">@&#34;Accept-Language&#34;</span><span class="o">:</span> <span class="s">@&#34;en&#34;</span><span class="p">,</span>
-<span class="s">@&#34;Authorization&#34;</span><span class="o">:</span> <span class="n">authString</span><span class="p">,</span>
-<span class="s">@&#34;User-Agent&#34;</span><span class="o">:</span> <span class="n">userAgentString</span><span class="l">}</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">userPasswordString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@:%@&#34;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSData</span> <span class="o">*</span> <span class="n">userPasswordData</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordString</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">base64EncodedCredential</span> <span class="o">=</span> <span class="p">[</span><span class="n">userPasswordData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">authString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;Basic %@&#34;</span><span class="p">,</span> <span class="n">base64EncodedCredential</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">userAgentString</span> <span class="o">=</span> <span class="s">@&#34;AppName/com.example.app (iPhone 5s; iOS 7.0.2; Scale/2.0)&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">configuration</span><span class="p">.</span><span class="n">HTTPAdditionalHeaders</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&#34;Accept&#34;</span><span class="o">:</span> <span class="s">@&#34;application/json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s">@&#34;Accept-Language&#34;</span><span class="o">:</span> <span class="s">@&#34;en&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s">@&#34;Authorization&#34;</span><span class="o">:</span> <span class="n">authString</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s">@&#34;User-Agent&#34;</span><span class="o">:</span> <span class="n">userAgentString</span><span class="l">}</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li><code>networkServiceType</code>: 对标准的网络流量，网络电话，语音，视频，以及由一个后台进程使用的流量进行了区分。大多数应用程序都不需要设置这个。</li>
@@ -600,7 +600,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

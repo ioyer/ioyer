@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/ios%E5%92%8Cosx%E9%9B%86%E6%88%90gitapi/" />
@@ -207,10 +207,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git submodule add https://github.com/libgit2/objective-git.git External/ObjectiveGit
-如果之前配置过，直接更新：
-git submodule update --init --recursive
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git submodule add https://github.com/libgit2/objective-git.git External/ObjectiveGit
+</span></span><span class="line"><span class="cl">如果之前配置过，直接更新：
+</span></span><span class="line"><span class="cl">git submodule update --init --recursive
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li><code>cd External/ObjectiveGit</code>，然后执行<code>./script/bootstrap</code>安装相关依赖.</li>
@@ -252,11 +252,11 @@ git submodule update --init --recursive
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nf">keyPathsForValuesAffectingValueForKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
-
-<span class="err">或</span>
-<span class="o">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">keyPathsForValuesAffecting</span><span class="o">&lt;</span><span class="err">键名</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nf">keyPathsForValuesAffectingValueForKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">或</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">keyPathsForValuesAffecting</span><span class="o">&lt;</span><span class="err">键名</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>将属性关联起来，这样就可以将类变量的值同步至UI控件中了：</p>
 <div class="highlight"><div class="chroma">
@@ -275,19 +275,19 @@ git submodule update --init --recursive
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nf">keyPathsForValuesAffectingValueForKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> 
-<span class="p">{</span>
-    <span class="n">NSSet</span> <span class="o">*</span><span class="n">keySet</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="s">@&#34;commit&#34;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
-    <span class="k">if</span> <span class="p">([</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;messageTitle&#34;</span><span class="p">]</span> <span class="o">||</span>
-        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;messageDetails&#34;</span><span class="p">]</span> <span class="o">||</span>
-        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;author&#34;</span><span class="p">]</span> <span class="o">||</span>
-        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;date&#34;</span><span class="p">])</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="n">keySet</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">keyPathsForValuesAffectingValueForKey</span><span class="p">:</span><span class="n">key</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nf">keyPathsForValuesAffectingValueForKey:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NSSet</span> <span class="o">*</span><span class="n">keySet</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="s">@&#34;commit&#34;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">([</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;messageTitle&#34;</span><span class="p">]</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;messageDetails&#34;</span><span class="p">]</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;author&#34;</span><span class="p">]</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="n">key</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;date&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">keySet</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">keyPathsForValuesAffectingValueForKey</span><span class="p">:</span><span class="n">key</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="实现字体样式菜单来改变字体样式">实现字体样式菜单来改变字体样式</h4>
 <ol>
@@ -432,7 +432,7 @@ git submodule update --init --recursive
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

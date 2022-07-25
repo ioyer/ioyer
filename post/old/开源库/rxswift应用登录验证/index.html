@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/rxswift%E5%BA%94%E7%94%A8%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/" />
@@ -235,22 +235,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">///首先写一个UIBindingObserver
-var rx_click:AnyObserver&lt;Bool&gt; {
-return UIBindingObserver.init(UIElement: self, binding: { (lab, result) in
-lab.backgroundColor = result ? UIColor.blue:UIColor.gray
-}).asObserver()
-
-}
-
-//*bindto 信号合并处理  bindto发送信号
-//              combineLatest(合并信号)                       bind(订阅)
-//   observer -----------------------&gt;处理信号时间-------------&gt;处理信号
-///然后手机号11位 验证码 6位就可以用这一行代码解决
-let _ = Observable.combineLatest(phoneobser, passobserver, resultSelector: {
-$0 &amp;&amp; $1
-}).bind(to: canclik.rx_click)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">///首先写一个UIBindingObserver
+</span></span><span class="line"><span class="cl">var rx_click:AnyObserver&lt;Bool&gt; {
+</span></span><span class="line"><span class="cl">return UIBindingObserver.init(UIElement: self, binding: { (lab, result) in
+</span></span><span class="line"><span class="cl">lab.backgroundColor = result ? UIColor.blue:UIColor.gray
+</span></span><span class="line"><span class="cl">}).asObserver()
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//*bindto 信号合并处理  bindto发送信号
+</span></span><span class="line"><span class="cl">//              combineLatest(合并信号)                       bind(订阅)
+</span></span><span class="line"><span class="cl">//   observer -----------------------&gt;处理信号时间-------------&gt;处理信号
+</span></span><span class="line"><span class="cl">///然后手机号11位 验证码 6位就可以用这一行代码解决
+</span></span><span class="line"><span class="cl">let _ = Observable.combineLatest(phoneobser, passobserver, resultSelector: {
+</span></span><span class="line"><span class="cl">$0 &amp;&amp; $1
+</span></span><span class="line"><span class="cl">}).bind(to: canclik.rx_click)
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -390,7 +390,7 @@ $0 &amp;&amp; $1
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

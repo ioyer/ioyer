@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/pbbreader%E9%98%85%E8%AF%BB%E5%99%A8%E8%A7%A3%E6%9E%90/" />
@@ -274,86 +274,86 @@ modelController:ModelController:NSObject,数据视图数据源的model模型。<
 </span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-title 阅读器的内部结构图
-center header
-解析PDF目录，显示PDF页面
-endheader
-
-class FileViewController&lt;UIViewController&gt;{
--- 属性组 --
-+IBOutlet UIView *pdfView;
-+UIPageViewController *pageViewController;
--startingViewController;
-__ 函数组 __
-- (IBAction)ibaBookmarks:(UIButton *)sender;
-- (IBAction)ibaOutline:(UIButton *)sender;
-- (IBAction)ibSearchBtn:(id)sender;
-}
-
-class UIPageViewController&lt;pageView&gt;{
--- 属性组 --
-+delegate;
-+dataSource;
-+view.frame;
-+gestureRecognizers;
-__ 函数组 __
-+init()
-}
-
-class startingViewController&lt;dataSource&gt;{
-__ 函数组 __
--(init)viewControllerAtIndex:storyboard:
--- 搜索模块 --
--(void)restSearchResultColor:(NSString *)searchStr;
-}
-
-&#39;关系层&#39;
-startingViewController .left.&gt; UIPageViewController:model聚合数据源
-UIPageViewController ..&gt;FileViewController:手势传递
-note on link #red: 把翻页控制器的手势事件\n传递给阅读器的PdfView中
-
-FileViewController &#34;1&#34; *-[#blue]- &#34;1&#34;UIPageViewController
-note on link #blue: 构造实例为阅读器添加翻页功能
-
-startingViewController .left[#gray].&gt; &#34;1&#34;FileViewController:pageViewController的数据源
-note on link #gray: 仅用于初始化第一次显示的PDF阅读器界面内容
-
-FileViewController --&gt; startingViewController: 搜索bar传递字符串 &gt;
-
-
-
-note right of startingViewController #white: 1. 为翻页提供数据源\n 2. 更新搜索字段颜色
-note left of FileViewController #red : PDF阅读器主页面
-note left of UIPageViewController : 实现翻页效果的控制器
-
-class PDFParser&lt;工具类&gt;{
-__ 函数组 __
--(id)initWithFileName:(NSString *)filename;
--(id)initWithPDFDoc:(CGPDFDocumentRef)doc;
--(NSArray *)getPDFContents;
-}
-
-class OutLine&lt;UIViewController&gt;{
-__ 属性组 __
-NSMutableArray *outlineEntries;
-NSMutableArray *openOutlineEntries;
-IBOutlet UITableView *outlineTableView;
-NSObject&lt;MyOutlineViewControllerDelegate&gt; *delegate;
-}
-&#39;关系图&#39;
-PDFParser --&gt; OutLine:解析PDF文档获取目录结构
-OutLine -.&gt; FileViewController: 提供目录界面
-
-note left of PDFParser #green
-解析pdf目录结构的核心工具包
-end note
-note right of OutLine #white : 创建目录界面\n显示解析PDF目录工具中得到的数据
-
-center footer
-了解具体的项目结构
-endfooter
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">title 阅读器的内部结构图
+</span></span><span class="line"><span class="cl">center header
+</span></span><span class="line"><span class="cl">解析PDF目录，显示PDF页面
+</span></span><span class="line"><span class="cl">endheader
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class FileViewController&lt;UIViewController&gt;{
+</span></span><span class="line"><span class="cl">-- 属性组 --
+</span></span><span class="line"><span class="cl">+IBOutlet UIView *pdfView;
+</span></span><span class="line"><span class="cl">+UIPageViewController *pageViewController;
+</span></span><span class="line"><span class="cl">-startingViewController;
+</span></span><span class="line"><span class="cl">__ 函数组 __
+</span></span><span class="line"><span class="cl">- (IBAction)ibaBookmarks:(UIButton *)sender;
+</span></span><span class="line"><span class="cl">- (IBAction)ibaOutline:(UIButton *)sender;
+</span></span><span class="line"><span class="cl">- (IBAction)ibSearchBtn:(id)sender;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class UIPageViewController&lt;pageView&gt;{
+</span></span><span class="line"><span class="cl">-- 属性组 --
+</span></span><span class="line"><span class="cl">+delegate;
+</span></span><span class="line"><span class="cl">+dataSource;
+</span></span><span class="line"><span class="cl">+view.frame;
+</span></span><span class="line"><span class="cl">+gestureRecognizers;
+</span></span><span class="line"><span class="cl">__ 函数组 __
+</span></span><span class="line"><span class="cl">+init()
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class startingViewController&lt;dataSource&gt;{
+</span></span><span class="line"><span class="cl">__ 函数组 __
+</span></span><span class="line"><span class="cl">-(init)viewControllerAtIndex:storyboard:
+</span></span><span class="line"><span class="cl">-- 搜索模块 --
+</span></span><span class="line"><span class="cl">-(void)restSearchResultColor:(NSString *)searchStr;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#39;关系层&#39;
+</span></span><span class="line"><span class="cl">startingViewController .left.&gt; UIPageViewController:model聚合数据源
+</span></span><span class="line"><span class="cl">UIPageViewController ..&gt;FileViewController:手势传递
+</span></span><span class="line"><span class="cl">note on link #red: 把翻页控制器的手势事件\n传递给阅读器的PdfView中
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">FileViewController &#34;1&#34; *-[#blue]- &#34;1&#34;UIPageViewController
+</span></span><span class="line"><span class="cl">note on link #blue: 构造实例为阅读器添加翻页功能
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">startingViewController .left[#gray].&gt; &#34;1&#34;FileViewController:pageViewController的数据源
+</span></span><span class="line"><span class="cl">note on link #gray: 仅用于初始化第一次显示的PDF阅读器界面内容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">FileViewController --&gt; startingViewController: 搜索bar传递字符串 &gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">note right of startingViewController #white: 1. 为翻页提供数据源\n 2. 更新搜索字段颜色
+</span></span><span class="line"><span class="cl">note left of FileViewController #red : PDF阅读器主页面
+</span></span><span class="line"><span class="cl">note left of UIPageViewController : 实现翻页效果的控制器
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class PDFParser&lt;工具类&gt;{
+</span></span><span class="line"><span class="cl">__ 函数组 __
+</span></span><span class="line"><span class="cl">-(id)initWithFileName:(NSString *)filename;
+</span></span><span class="line"><span class="cl">-(id)initWithPDFDoc:(CGPDFDocumentRef)doc;
+</span></span><span class="line"><span class="cl">-(NSArray *)getPDFContents;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class OutLine&lt;UIViewController&gt;{
+</span></span><span class="line"><span class="cl">__ 属性组 __
+</span></span><span class="line"><span class="cl">NSMutableArray *outlineEntries;
+</span></span><span class="line"><span class="cl">NSMutableArray *openOutlineEntries;
+</span></span><span class="line"><span class="cl">IBOutlet UITableView *outlineTableView;
+</span></span><span class="line"><span class="cl">NSObject&lt;MyOutlineViewControllerDelegate&gt; *delegate;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">&#39;关系图&#39;
+</span></span><span class="line"><span class="cl">PDFParser --&gt; OutLine:解析PDF文档获取目录结构
+</span></span><span class="line"><span class="cl">OutLine -.&gt; FileViewController: 提供目录界面
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">note left of PDFParser #green
+</span></span><span class="line"><span class="cl">解析pdf目录结构的核心工具包
+</span></span><span class="line"><span class="cl">end note
+</span></span><span class="line"><span class="cl">note right of OutLine #white : 创建目录界面\n显示解析PDF目录工具中得到的数据
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">center footer
+</span></span><span class="line"><span class="cl">了解具体的项目结构
+</span></span><span class="line"><span class="cl">endfooter
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -493,7 +493,7 @@ endfooter
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/emacs-%E6%B1%89%E5%8C%96%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E6%88%B3%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
@@ -209,24 +209,24 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;; 设置agenda 显示中文 月、周、日</span>
-<span class="c1">;; https://emacs-china.org/t/agenda/7711/4</span>
-<span class="p">(</span><span class="nb">setq-default</span>
- <span class="c1">;; inhibit-startup-screen t;隐藏启动显示画面</span>
- <span class="c1">;; calendar-date-style &#39;iso</span>
- <span class="nv">calendar-day-abbrev-array</span> <span class="p">[</span><span class="s">&#34;周七&#34;</span> <span class="s">&#34;周一&#34;</span> <span class="s">&#34;周二&#34;</span> <span class="s">&#34;周三&#34;</span> <span class="s">&#34;周四&#34;</span> <span class="s">&#34;周五&#34;</span> <span class="s">&#34;周六&#34;</span><span class="p">]</span>
- <span class="nv">calendar-day-name-array</span> <span class="p">[</span><span class="s">&#34;周七&#34;</span> <span class="s">&#34;周一&#34;</span> <span class="s">&#34;周二&#34;</span> <span class="s">&#34;周三&#34;</span> <span class="s">&#34;周四&#34;</span> <span class="s">&#34;周五&#34;</span> <span class="s">&#34;周六&#34;</span><span class="p">]</span>
- <span class="nv">calendar-month-name-array</span> <span class="p">[</span><span class="s">&#34;一月&#34;</span> <span class="s">&#34;二月&#34;</span> <span class="s">&#34;三月&#34;</span> <span class="s">&#34;四月&#34;</span> <span class="s">&#34;五月&#34;</span> <span class="s">&#34;六月&#34;</span> <span class="s">&#34;七月&#34;</span> <span class="s">&#34;八月&#34;</span> <span class="s">&#34;九月&#34;</span> <span class="s">&#34;十月&#34;</span> <span class="s">&#34;十一月&#34;</span> <span class="s">&#34;十二月&#34;</span><span class="p">]</span>
- <span class="nv">calendar-week-start-day</span> <span class="mi">1</span>
- <span class="nv">org-agenda-deadline-leaders</span> <span class="p">(</span><span class="nb">quote</span> <span class="p">(</span><span class="s">&#34;最后期限:  &#34;</span> <span class="s">&#34;%3d 天后到期: &#34;</span> <span class="s">&#34;%2d 天前: &#34;</span><span class="p">))</span>
- <span class="nv">org-agenda-scheduled-leaders</span> <span class="p">(</span><span class="nb">quote</span> <span class="p">(</span><span class="s">&#34;要事:&#34;</span> <span class="s">&#34;%2d次☞&#34;</span><span class="p">))</span>
-<span class="c1">;; ------时间戳汉化------</span>
- <span class="nv">system-time-locale</span> <span class="s">&#34;zh_CN.UTF-8&#34;</span> <span class="c1">;; &#34;C&#34;:英文格式</span>
- <span class="nv">org-time-stamp-formats</span>  <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;&lt;%Y-%m-%d 周%a&gt;&#34;</span> <span class="o">.</span> <span class="s">&#34;&lt;%Y-%m-%d 周%a %H:%M&gt;&#34;</span><span class="p">)</span>
- <span class="nv">org-display-custom-times</span> <span class="no">t</span>
- <span class="nv">org-time-stamp-custom-formats</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;&lt;%Y-%m-%d 周%a&gt;&#34;</span> <span class="o">.</span> <span class="s">&#34;&lt;%Y-%m-%d 周%a %H:%M&gt;&#34;</span><span class="p">)</span>
- <span class="nv">org-deadline-warning-days</span> <span class="mi">5</span><span class="c1">;;最后期限到达前5天即给出警告</span>
- <span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;; 设置agenda 显示中文 月、周、日</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; https://emacs-china.org/t/agenda/7711/4</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq-default</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">;; inhibit-startup-screen t;隐藏启动显示画面</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">;; calendar-date-style &#39;iso</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">calendar-day-abbrev-array</span> <span class="p">[</span><span class="s">&#34;周七&#34;</span> <span class="s">&#34;周一&#34;</span> <span class="s">&#34;周二&#34;</span> <span class="s">&#34;周三&#34;</span> <span class="s">&#34;周四&#34;</span> <span class="s">&#34;周五&#34;</span> <span class="s">&#34;周六&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">calendar-day-name-array</span> <span class="p">[</span><span class="s">&#34;周七&#34;</span> <span class="s">&#34;周一&#34;</span> <span class="s">&#34;周二&#34;</span> <span class="s">&#34;周三&#34;</span> <span class="s">&#34;周四&#34;</span> <span class="s">&#34;周五&#34;</span> <span class="s">&#34;周六&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">calendar-month-name-array</span> <span class="p">[</span><span class="s">&#34;一月&#34;</span> <span class="s">&#34;二月&#34;</span> <span class="s">&#34;三月&#34;</span> <span class="s">&#34;四月&#34;</span> <span class="s">&#34;五月&#34;</span> <span class="s">&#34;六月&#34;</span> <span class="s">&#34;七月&#34;</span> <span class="s">&#34;八月&#34;</span> <span class="s">&#34;九月&#34;</span> <span class="s">&#34;十月&#34;</span> <span class="s">&#34;十一月&#34;</span> <span class="s">&#34;十二月&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">calendar-week-start-day</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-agenda-deadline-leaders</span> <span class="p">(</span><span class="nb">quote</span> <span class="p">(</span><span class="s">&#34;最后期限:  &#34;</span> <span class="s">&#34;%3d 天后到期: &#34;</span> <span class="s">&#34;%2d 天前: &#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-agenda-scheduled-leaders</span> <span class="p">(</span><span class="nb">quote</span> <span class="p">(</span><span class="s">&#34;要事:&#34;</span> <span class="s">&#34;%2d次☞&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;; ------时间戳汉化------</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">system-time-locale</span> <span class="s">&#34;zh_CN.UTF-8&#34;</span> <span class="c1">;; &#34;C&#34;:英文格式</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-time-stamp-formats</span>  <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;&lt;%Y-%m-%d 周%a&gt;&#34;</span> <span class="o">.</span> <span class="s">&#34;&lt;%Y-%m-%d 周%a %H:%M&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-display-custom-times</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-time-stamp-custom-formats</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;&lt;%Y-%m-%d 周%a&gt;&#34;</span> <span class="o">.</span> <span class="s">&#34;&lt;%Y-%m-%d 周%a %H:%M&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">org-deadline-warning-days</span> <span class="mi">5</span><span class="c1">;;最后期限到达前5天即给出警告</span>
+</span></span><span class="line"><span class="cl"> <span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -244,13 +244,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;;系统时间设为英文</span>
-<span class="c1">;;(setq system-time-locale &#34;C&#34;)</span>
-<span class="p">(</span><span class="nb">setq</span> <span class="nv">system-time-locale</span> <span class="s">&#34;zh_CN.UTF-8&#34;</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">format</span> <span class="s">&#34;系统环境：%s&#34;</span> <span class="nv">system-time-locale</span><span class="p">)</span>
-<span class="p">(</span><span class="nv">getenv</span> <span class="s">&#34;LANG&#34;</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">format-time-string</span> <span class="s">&#34;%Y-%m-%d %a&#34;</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">format-time-string</span> <span class="s">&#34;%A&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;;系统时间设为英文</span>
+</span></span><span class="line"><span class="cl"><span class="c1">;;(setq system-time-locale &#34;C&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">system-time-locale</span> <span class="s">&#34;zh_CN.UTF-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">format</span> <span class="s">&#34;系统环境：%s&#34;</span> <span class="nv">system-time-locale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">getenv</span> <span class="s">&#34;LANG&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">format-time-string</span> <span class="s">&#34;%Y-%m-%d %a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nf">format-time-string</span> <span class="s">&#34;%A&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>termux android 端问题：插入的内容还是英文。</p>
@@ -390,7 +390,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

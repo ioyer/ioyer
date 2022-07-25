@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/javascriptcore%E5%AE%9E%E7%8E%B0swift%E6%B7%B7%E7%BC%96/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="Java​Script​Core实现swift混编">
 <meta itemprop="description" content="OS X Mavericks 和 iOS 7 引入了 JavaScriptCore 库，它把 WebKit 的 JavaScript 引擎用 Objective-C 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，JavaScrip"><meta itemprop="datePublished" content="2017-02-12T13:34:06+00:00" />
 <meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
-<meta itemprop="wordCount" content="2306">
+<meta itemprop="wordCount" content="2320">
 <meta itemprop="keywords" content="JS,macOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java​Script​Core实现swift混编"/>
 <meta name="twitter:description" content="OS X Mavericks 和 iOS 7 引入了 JavaScriptCore 库，它把 WebKit 的 JavaScript 引擎用 Objective-C 封装，提供了简单，快速以及安全的方式接入世界上最流行的语言。不管你爱它还是恨它，JavaScrip"/>
@@ -160,7 +160,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 2306 字 </span>
+          <span class="more-meta"> 约 2320 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -211,15 +211,15 @@
 {% codeblock  lang:swift %}
 let context = JSContext()    //创建全局环境
 context.evaluateScript(&ldquo;var num = 5 + 5&rdquo;) //计算
-context.evaluateScript(&ldquo;var names = [&lsquo;Grace&rsquo;, &lsquo;Ada&rsquo;, &lsquo;Margaret&rsquo;]&quot;) //定义变量
-context.evaluateScript(&ldquo;var triple = function(value) { return value * 3 }&quot;) //定义方法
-let tripleNum: JSValue = context.evaluateScript(&ldquo;triple(num)&quot;)<br>
+context.evaluateScript(&ldquo;var names = [&lsquo;Grace&rsquo;, &lsquo;Ada&rsquo;, &lsquo;Margaret&rsquo;]&rdquo;) //定义变量
+context.evaluateScript(&ldquo;var triple = function(value) { return value * 3 }&rdquo;) //定义方法
+let tripleNum: JSValue = context.evaluateScript(&ldquo;triple(num)&rdquo;)<br>
 {% endcodeblock %}</p>
 <h3 id="动态类型jsvalue包裹jscontext环境下每一个可能的js值">动态类型JSValue:包裹JSContext环境下每一个可能的JS值</h3>
 <p><code>JavaScript</code> 是动态语言，所以动态类型<code>JSValue</code>包裹JSContext环境中任何可能的JS值，字符串和数字；数组、对象和方法；甚至错误和特殊的 JavaScript 值诸如 <code>null</code> 和 <code>undefined</code>。
 获取<code>tripleNum</code>值：
 {% codeblock  lang:swift %}
-println(&ldquo;Tripled: (tripleNum.toInt32())&quot;)
+println(&ldquo;Tripled: (tripleNum.toInt32())&rdquo;)
 {% endcodeblock %}
 <code>JSValue</code> 包括一系列方法用于访问其可能的值以保证有正确的 <code>Foundation 基本类型</code>
 包括：</p>
@@ -239,7 +239,7 @@ let names = context.objectForKeyedSubscript(&ldquo;names&rdquo;)  //JSContext字
 <h4 id="jsvalue整数下标原始方法">JSValue整数下标原始方法</h4>
 <p>{% codeblock 未映射成[]的原始方法 lang:swift <a href="http://nshipster.cn/object-subscripting/">http://nshipster.cn/object-subscripting/</a> objectAtKeyedSubscript()和objectAtIndexedSubscript() %}
 let initialName = names.objectAtIndexedSubscript(0)   //JSValue整数下标原始方法
-println(&ldquo;The first name: (initialName.toString())&quot;)  //JSValue method
+println(&ldquo;The first name: (initialName.toString())&rdquo;)  //JSValue method
 // The first name: Grace
 {% endcodeblock %}</p>
 <blockquote>
@@ -250,14 +250,14 @@ println(&ldquo;The first name: (initialName.toString())&quot;)  //JSValue method
 {% codeblock lang:swift %}<br>
 let tripleFunction = context.objectForKeyedSubscript(&ldquo;triple&rdquo;) //下标取值
 let result = tripleFunction.callWithArguments([5]) //传入基本类型参数直接调用
-println(&ldquo;Five tripled: (result.toInt32())&quot;)
+println(&ldquo;Five tripled: (result.toInt32())&rdquo;)
 {% endcodeblock %}</p>
 <h3 id="exceptionhandler错误处理"><code>exceptionHandler</code>错误处理</h3>
 <p><code>exceptionHandler</code> 是一个接收<code>JSContext 引用</code>和<code>异常本身</code>的回调处理的闭包。
 通过设置上下文的 <code>exceptionHandler</code> 属性，可以观察和记录<code>语法</code>，<code>类型</code>以及<code>运行时错误</code>:
 {% codeblock lang:swift %}
 context.exceptionHandler = { context, exception in
-println(&ldquo;JS Error: (exception)&quot;)
+println(&ldquo;JS Error: (exception)&rdquo;)
 }</p>
 <p>context.evaluateScript(&ldquo;function multiply(value1, value2) { return value1 * value2 &ldquo;)
 // JS Error: SyntaxError: Unexpected end of script
@@ -293,7 +293,7 @@ return mutableString
 }
 context.setObject(unsafeBitCast(simplifyString, AnyObject.self), forKeyedSubscript: &ldquo;simplifyString&rdquo;)
 //通过simplifyString标示符来调用block的实现
-println(context.evaluateScript(&ldquo;simplifyString(&lsquo;안녕하새요!')&quot;))
+println(context.evaluateScript(&ldquo;simplifyString(&lsquo;안녕하새요!&rsquo;)&rdquo;))
 // annyeonghasaeyo!
 {% endcodeblock %}</p>
 <p>{% codeblock lang:objc %}
@@ -305,7 +305,7 @@ CFStringTransform((__bridge CFMutableStringRef)mutableString, NULL, kCFStringTra
 return mutableString;
 };</p>
 <p>//通过simplifyString标示符来调用block的实现
-NSLog(@&quot;%@&rdquo;, [context evaluateScript:@&ldquo;simplifyString(&lsquo;안녕하새요!')&quot;]);
+NSLog(@&rdquo;%@&rdquo;, [context evaluateScript:@&ldquo;simplifyString(&lsquo;안녕하새요!&rsquo;)&rdquo;]);
 {% endcodeblock %}</p>
 <h4 id="内存管理">内存管理</h4>
 <p>由于 <code>block</code> 可以保有变量引用，而且 <code>JSContext</code> 也强引用它所有的变量，为了避免强引用循环需要特别小心。
@@ -451,7 +451,7 @@ NSLog(@&quot;%@&rdquo;, [context evaluateScript:@&ldquo;simplifyString(&lsquo;�
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

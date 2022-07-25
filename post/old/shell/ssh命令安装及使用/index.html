@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/ssh%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" />
@@ -242,8 +242,8 @@ apt-get系列：</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get install openssh openssh-server
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt-get install openssh openssh-server
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>yum系列：</p>
 <div class="highlight"><div class="chroma">
@@ -251,8 +251,8 @@ apt-get系列：</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo yum install openssh openssh-server
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo yum install openssh openssh-server
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其他系列：自己百度下。
 备注：openssh是客户端、openssh-server是服务器端。不同的发行版名称可能不同，需要自己确认一下。
@@ -266,8 +266,8 @@ apt-get系列：</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">vim  /etc/ssh/sshd_config
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim  /etc/ssh/sshd_config
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以下地方根据实际情况进行修改（yes为允许、no为禁止）：</p>
 <div class="highlight"><div class="chroma">
@@ -278,11 +278,11 @@ apt-get系列：</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PermitRootLogin yes  #是否允许root账户登录
-PasswordAuthentication yes  #是否允许使用密码校验登录
-RSAAuthentication yes  
-PubkeyAuthentication yes  #是否允许使用key登录
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PermitRootLogin yes  #是否允许root账户登录
+</span></span><span class="line"><span class="cl">PasswordAuthentication yes  #是否允许使用密码校验登录
+</span></span><span class="line"><span class="cl">RSAAuthentication yes  
+</span></span><span class="line"><span class="cl">PubkeyAuthentication yes  #是否允许使用key登录
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后使用系统服务管理命令启动服务，在大部分linux系统下，命令为：service 或者 systemctl
 启动ssh服务命令：</p>
@@ -291,8 +291,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# service sshd restart
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# service sshd restart
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者</p>
 <div class="highlight"><div class="chroma">
@@ -300,8 +300,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# systemctl  restart sshd
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# systemctl  restart sshd
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="登录到远程主机">登录到远程主机</h4>
 <p>命令格式为：ssh  用户名@远程主机的ip地址:远程主机端口
@@ -311,8 +311,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ssh  root@192.168.0.1:22   
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh  root@192.168.0.1:22   
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者：</p>
 <div class="highlight"><div class="chroma">
@@ -320,8 +320,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ssh -p <span class="m">22</span> root@192.168.0.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh -p <span class="m">22</span> root@192.168.0.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注：ssh默认端口为22，远程主机为默认端口时，可省略端口号。</p>
@@ -337,8 +337,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# vim /etc/ssh/sshd_config
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# vim /etc/ssh/sshd_config
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>找到PubkeyAuthentication这一行，改成：</p>
 <div class="highlight"><div class="chroma">
@@ -346,8 +346,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PubkeyAuthentication  yes
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PubkeyAuthentication  yes
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>重启ssh服务：</li>
@@ -357,8 +357,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# service sshd restart
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# service sshd restart
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者</p>
 <div class="highlight"><div class="chroma">
@@ -366,8 +366,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# systemctl  restart sshd
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# systemctl  restart sshd
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>使用ssh-keygen命令在本地机器上生成Rsa公钥对：</li>
@@ -377,8 +377,8 @@ PubkeyAuthentication yes  #是否允许使用key登录
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# ssh-keygen -t rsa
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# ssh-keygen -t rsa
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>执行上述命令后，会提示输入要保存的文件路径，默认为：~/.ssh/id_rsa.</p>
 <p>输入文件名，点回车，会提示输入秘钥的密码（会提示输入两遍），即可生成秘钥文件：</p>
@@ -392,9 +392,9 @@ PubkeyAuthentication yes  #是否允许使用key登录
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# ssh-copy-id -i /home/zhao/.ssh/id_rsa_leilei.pub
-root@192.168.0.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# ssh-copy-id -i /home/zhao/.ssh/id_rsa_leilei.pub
+</span></span><span class="line"><span class="cl">root@192.168.0.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>-i</code> 是用来指定公钥文件，执行命令之后，按提示输入远程密码即可。
 5. 然后即可使用私钥文件登录服务器：</p>
@@ -403,8 +403,8 @@ root@192.168.0.1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# ssh -i /home/zhao/.ssh/id_rsa_leilei   root@192.168.0.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# ssh -i /home/zhao/.ssh/id_rsa_leilei   root@192.168.0.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注意：如果在第3步时为秘钥设置了密码，则使用秘钥登录服务器时，需要输入秘钥密码。</p>
@@ -427,8 +427,8 @@ ssh中提供了scp命令用来拷贝文件到远程主机，使用方式为：</
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# scp -i /home/zhao/.ssh/id_rsa_miyao  a.tar.gz root@192.168.0.1:/home/zhao/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# scp -i /home/zhao/.ssh/id_rsa_miyao  a.tar.gz root@192.168.0.1:/home/zhao/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>就能将文件 <code>a.tar.gz</code> 拷贝到远程主机<code>/home/zhao/</code>下<br>
 5. 在远程服务器上执行命令：
@@ -438,8 +438,8 @@ ssh中提供了scp命令用来拷贝文件到远程主机，使用方式为：</
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# ssh -i /home/zhao/.ssh/id_rsa_miyao root@192.168.0.1  &#34;ls -l&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# ssh -i /home/zhao/.ssh/id_rsa_miyao root@192.168.0.1  &#34;ls -l&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>即可在远程服务器上执行“<code>ls -l</code>” 命令，结果将输出到本地控制台。
 但是在执行一些命令时，远程主机会提示无法找到该命令，这说明需要设置远程主机的环境变量，可在发送给远程主机的命令中增加source指令，如：</p>
@@ -448,8 +448,8 @@ ssh中提供了scp命令用来拷贝文件到远程主机，使用方式为：</
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">~# ssh -i /home/zhao/.ssh/id_rsa_miyao  root@192.168.0.1 &#34;source ~/.bash_profile &amp;&amp; ls -l&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~# ssh -i /home/zhao/.ssh/id_rsa_miyao  root@192.168.0.1 &#34;source ~/.bash_profile &amp;&amp; ls -l&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="本章总结">本章总结</h2>
 <ol>
@@ -597,7 +597,7 @@ ssh中提供了scp命令用来拷贝文件到远程主机，使用方式为：</
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

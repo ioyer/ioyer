@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/%E5%9C%A8space-vim%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85%E8%8B%A5%E5%B9%B2%E6%8F%92%E4%BB%B6/" />
@@ -291,8 +291,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Layer &#39;ycmd&#39;         &#34;语法自动补齐
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Layer &#39;ycmd&#39;         &#34;语法自动补齐
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>YouCompleteMe 安装位置： <code>~/.vim/plugged/YouCompleteMe</code> 。</p>
 <ol start="2">
@@ -304,8 +304,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">!./install.py --clang-completer
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">!./install.py --clang-completer
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>详见脚本：space-vim/layers/+tools/ycmd/packages.vim</p>
 <p>参考：<a href="http://www.cocoachina.com/ios/20170224/18751.html">征服恐惧！用 Vim 写 iOS App</a></p>
@@ -315,9 +315,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">brew install cmake
-./install.py --clang-completer --system-libclang
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew install cmake
+</span></span><span class="line"><span class="cl">./install.py --clang-completer --system-libclang
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>--clang-completer</code>: 告诉脚本需要 clang 的支持
 <code>--system-libclang</code>: 告诉编译脚本使用系统的 clang，因为之前 clang 升级 4.0 的时候，并没有已经编译好的包给我下载，所以这里不用系统 clang 的话，编译脚本会下载一个 clang 3.0，这样就无法支持 iOS 10.0 以后的 sdk 了，因为 iOS 10.0 以后的 sdk 为了支持 swift 引入了一些 clang 3.0 不支持的新语法，所以这里要加上 &ndash;system-libclang。</p>
@@ -336,8 +336,8 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;keith/sourcekittendaemon.vim&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Plug &#39;keith/sourcekittendaemon.vim&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>NOTE: This plugin doesn&rsquo;t provide Swift runtime files. If you&rsquo;d like those checkout swift.vim</p>
 <h3 id="asyncrun-shell-command">AsyncRun shell command</h3>
@@ -348,9 +348,9 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> :copen //打开脚本运行日志窗口 
- :AsyncRun git status  //异步执行shell脚本
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> :copen //打开脚本运行日志窗口 
+</span></span><span class="line"><span class="cl"> :AsyncRun git status  //异步执行shell脚本
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -490,7 +490,7 @@ YCMD 是通过每个项目路径下的 <code>.ycm_extra_conf.py</code> 脚本文
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%94%B5%E5%AD%90%E5%B7%A1%E6%9F%A5/%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" />
@@ -234,29 +234,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">title 
-用户组管理工期
-创建时间：2019-07-05 08:26:09+0800 
-endtitle
-left header
-通过甘特图梳理工作进度安排
-endheader
-project starts 2019-07-03 
-Sunday are closed
-Saturday are closed
---依赖组件模块--
-[扫码邀请] as [scan] on {hsg} lasts 1 days
-then [用户组管理入口] as [groupMenu] on {hsg} lasts 1 days
-then [分享组件] on {hsg} lasts 1 days
-then [人员选择器] as [selecter] on {hsg} lasts 1 days
-[依赖结束] happens at [selecter]&#39;s end
---用户组管理组件--
-then [默认组逻辑] as [defaultGroup] on {hsg} lasts 1 days
-then [删除业务] as [deleteAction] on {hsg} lasts 1 days
-then [三个菜单] on {hsg:100%} lasts 1 days
-then [待审核业务] as [verfy] on {hsg:100%} lasts 1 days
-[迭代结束] happens at [verfy]&#39;s end
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title 
+</span></span><span class="line"><span class="cl">用户组管理工期
+</span></span><span class="line"><span class="cl">创建时间：2019-07-05 08:26:09+0800 
+</span></span><span class="line"><span class="cl">endtitle
+</span></span><span class="line"><span class="cl">left header
+</span></span><span class="line"><span class="cl">通过甘特图梳理工作进度安排
+</span></span><span class="line"><span class="cl">endheader
+</span></span><span class="line"><span class="cl">project starts 2019-07-03 
+</span></span><span class="line"><span class="cl">Sunday are closed
+</span></span><span class="line"><span class="cl">Saturday are closed
+</span></span><span class="line"><span class="cl">--依赖组件模块--
+</span></span><span class="line"><span class="cl">[扫码邀请] as [scan] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">then [用户组管理入口] as [groupMenu] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">then [分享组件] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">then [人员选择器] as [selecter] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">[依赖结束] happens at [selecter]&#39;s end
+</span></span><span class="line"><span class="cl">--用户组管理组件--
+</span></span><span class="line"><span class="cl">then [默认组逻辑] as [defaultGroup] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">then [删除业务] as [deleteAction] on {hsg} lasts 1 days
+</span></span><span class="line"><span class="cl">then [三个菜单] on {hsg:100%} lasts 1 days
+</span></span><span class="line"><span class="cl">then [待审核业务] as [verfy] on {hsg:100%} lasts 1 days
+</span></span><span class="line"><span class="cl">[迭代结束] happens at [verfy]&#39;s end
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="业务流程">业务流程</h3>
 <p>活动图</p>
@@ -312,54 +312,54 @@ then [待审核业务] as [verfy] on {hsg:100%} lasts 1 days
 </span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">title
-用户组管理功能流程梳理
-创建时间：2019-07-09 07:17:54+0800 
-endtitle
-left header
-入口控制逻辑，列表展示，导航条菜单，组菜单，待审核业务
-endheader
-start
-:用户组;
-if (管理员) then (YES) 
-    :组列表;
-    if (多个组) then (YES)
-        :分组菜单;
-    else(NO)
-        :默认组;
-    endif
-    :当前组;
-    fork
-    :组菜单;
-    if (管理员) then (YES)
-        if () then 
-            :邀请加入;
-            :分享组件;
-            detach
-        elseif()
-            :编辑分组;
-        else
-            :创建分组;
-        endif
-    else(NO)
-        if () then
-            :编辑分组;
-        else
-            :邀请加入;
-            :分享组件;
-            detach
-        endif
-    endif
-    fork again
-    :待审核入口;
-    end fork
-    :web页;
-else(NO)
-:隐藏入口;
-stop
-endif
-stop
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title
+</span></span><span class="line"><span class="cl">用户组管理功能流程梳理
+</span></span><span class="line"><span class="cl">创建时间：2019-07-09 07:17:54+0800 
+</span></span><span class="line"><span class="cl">endtitle
+</span></span><span class="line"><span class="cl">left header
+</span></span><span class="line"><span class="cl">入口控制逻辑，列表展示，导航条菜单，组菜单，待审核业务
+</span></span><span class="line"><span class="cl">endheader
+</span></span><span class="line"><span class="cl">start
+</span></span><span class="line"><span class="cl">:用户组;
+</span></span><span class="line"><span class="cl">if (管理员) then (YES) 
+</span></span><span class="line"><span class="cl">    :组列表;
+</span></span><span class="line"><span class="cl">    if (多个组) then (YES)
+</span></span><span class="line"><span class="cl">        :分组菜单;
+</span></span><span class="line"><span class="cl">    else(NO)
+</span></span><span class="line"><span class="cl">        :默认组;
+</span></span><span class="line"><span class="cl">    endif
+</span></span><span class="line"><span class="cl">    :当前组;
+</span></span><span class="line"><span class="cl">    fork
+</span></span><span class="line"><span class="cl">    :组菜单;
+</span></span><span class="line"><span class="cl">    if (管理员) then (YES)
+</span></span><span class="line"><span class="cl">        if () then 
+</span></span><span class="line"><span class="cl">            :邀请加入;
+</span></span><span class="line"><span class="cl">            :分享组件;
+</span></span><span class="line"><span class="cl">            detach
+</span></span><span class="line"><span class="cl">        elseif()
+</span></span><span class="line"><span class="cl">            :编辑分组;
+</span></span><span class="line"><span class="cl">        else
+</span></span><span class="line"><span class="cl">            :创建分组;
+</span></span><span class="line"><span class="cl">        endif
+</span></span><span class="line"><span class="cl">    else(NO)
+</span></span><span class="line"><span class="cl">        if () then
+</span></span><span class="line"><span class="cl">            :编辑分组;
+</span></span><span class="line"><span class="cl">        else
+</span></span><span class="line"><span class="cl">            :邀请加入;
+</span></span><span class="line"><span class="cl">            :分享组件;
+</span></span><span class="line"><span class="cl">            detach
+</span></span><span class="line"><span class="cl">        endif
+</span></span><span class="line"><span class="cl">    endif
+</span></span><span class="line"><span class="cl">    fork again
+</span></span><span class="line"><span class="cl">    :待审核入口;
+</span></span><span class="line"><span class="cl">    end fork
+</span></span><span class="line"><span class="cl">    :web页;
+</span></span><span class="line"><span class="cl">else(NO)
+</span></span><span class="line"><span class="cl">:隐藏入口;
+</span></span><span class="line"><span class="cl">stop
+</span></span><span class="line"><span class="cl">endif
+</span></span><span class="line"><span class="cl">stop
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="用户组管理类图结构">用户组管理类图结构</h3>
 <p><img src="http://www.plantuml.com/plantuml/png/jLTlKnl76NzTVOeTtWGm8eGCqqIqdi7or983c223NvBZRYMTSxexxzr1QOSPUt0SRFC7DoQuc49mqfesBY5ZrtPHDFumrTw9L_aAVNOVwQHJpi2O2I_GxZv_zdb-lsUVtNDrrw09_ydpOErEPg1si10ytEChEy73dUhX8N_mwEZcNV_-F_bVzn9yyJ4l7_eRBuysNlpyqsP_tmSV9_j-c-pxcFJtfVe_IdtuuRc-Z_hwI8AQ6derQDubHQfeb2MEDlQFdZnA9Jxe9PzTekv5Qhj3fZRXK9OryzPdTJ49ohU3yfV-zaj_-tQmUNjeB0l__VK3Vta_A7y5Y_mlItndXwyj1-K7V7-pXrU-mddrzJ9VMwgzUSWVRuFDTSSoqG85YVvUWdc56V7lDeExY_xMinH94FY3q1pgNcAMPmzf9TtKIGh0y1TVYQ3sTm6Wwkj_zypIQV_-F_p5Vu67uF43llPCHFZrV_tdwz8Bx7CvawC6LTrqUcoCMhP1KyJVU8fxuUw8BHYY1t0bKAj3bR2L0YNzV-nFl6ShwkSm-Vcd9TFIn4_UCa1539XI4WkgONaQ_6gAgqmh3dqlKRSX7PTriqWP1D5158V0B_bpGZKKno4TcG507eF422TrEfksJ9TPXa6PD2WEJAR1GkIKJF8Vj_sRJm486CkbSsH6OIILSvbk5dxVqV4RkJerHQuxG03K4K8oDOKEI6Vsmf3gwfRPfHgg_lcLJovuhckPgKvTwtAeAVAURqHtXHKKK_-J8jGno9ZmBAONTFCT0kHVLg2WG1DYcq-Obal9j0Mnb8YLbqbBHM2-UhXIZ9m8mTVwqj7VdiWQ9yAqtHwZmdeYHpStQ_i_yCewcgCjE46V253JqpmvAz-PQtGwRJ4gyO4whODJH_NQv4NTiHLNXQ90ZHcjhl4M2DyE8qA9v-2wCp4-NEUvplM5ArU6ko00GLlAALgUeULSXRd3bg9TqztYEBtXKSTDcSgCNf0qNvspQKgwc8_6d1c8dYLCJbNjua0OV9JMjuUIYqPIZs8mRjk9IoFH7Rr22T3z5RQK1IGxfPKNb8IUi0BzvtlypXAs2N_bxtprMr65FvQnnCBY4PEsKiI8w-xu_dQmSj3Qkw2NrLuzhrMUySM3jbOVDZH2OhQ16A50phVwno6imZeUeHP594kiuAXLRJvnnfeVrzLYJbNCONrQqkJ0E5hsbqS_7Ozf7pVOwRd42XwnPkXLA-VPb3LzDNKxHtCNTTdX53P7khk8hOZmNSf4nSCHIO467YCXzPZHNWIkPGlURZIT-dU_zrTNguTBGVb5yCqju0K2h9PVzWIFNuXYsDhZgylyGDG3qCaNx_1LSIdonPVLrvlytcwKlREZdO4JmHp8q1Y3kL77t1PhxQXd6fensAF1PFhaxfCK-1FTWUCeh-IJ67l__Q3o82XlrLPUyTMlyVQkljdrR_q0BnQSyZSB_i8N_xjvYt_tWY-imi1_z9_WwK4hwpCMt4e5wZQU9tzWLYb7sGnbBJlXQOItJDQ1KpuxCZTas_Bny0jF1fnyo23hO0wnj8UWXDQrfz_wssjs7SPHEYimxxKDtN5hgrjyUVteY-MWie_fzV1xtzGg5NvlfxPG2LtmUti-92f5QDDU46UzSI0jnOGnortyfD4d8vM0EZ5508gdgW0oaHNMfDlqIc8m615TLQODYd8NXn6D93uT_RrTldq_z1zn3oqP0XJOZW001kbcSg5r6tYFIERg2aeuRbKQpOruCeGXnfIvto4q3PFpf5l09qLH8xb4kWkYSDh5IJZH42vVtAZjxc7qaT2R_KJrc2ozh1Q51nzPW9qo0yDM6KGdBOOHFBc_6CRfr9FGQ5xn35SkHRV9bW0-TAGmPircIuMehwafJ0MVqLYA8HrJKp5ibomcFSRbWr8OnmjLHXMNoZ25JepplCuSpCFGJTggCJAKWpfrNARefjjm1LuoL2yKtMCqgQQxe7VLiji8h1v-ZqqxllnadK21PLrQgkDSceFvOEAaNdUEv3rJ9PsfdbHNqs6puo2zq2tYXAAplKqsIPcUdqjRdXahRfo6EDauBS4jAPodEgCdeCk3nPRMzqwDHnZALTBXRot31GUFbOwmXuGj9snAsBCRxSQHizCyUUL7IL5XL1jiMOM4neVn1GU44uQZmUDv2k41TRWhMh1D5HLJCm2f64tXEEGlSxmUP0jQnxeJbrHuXnwdsEHFN7aoWfGWBglzmcg-CS16tjjxFiIubUUpaOrgf0Elxh0NIaOdih7CDxkQr9ADRGPcf-4zRCVjpVhODw8ENK0nLUhEsRHBDtLNFFX2qX2Ak1ZJr32QCQemEpd6jfPS2c-Xk3rG3VSGxgNsgN08BnQuK6BNHu6rU0cyWjgDHhtID6NWpC7oZpVybAKXlfpbCPKUfo4kcuX2_OruINueKgq1X_XfeRyxwTd9yrYjKP6itP03b3LcGjQ2NMjXY-VqqDYO-9pHh5aJV8TFkEYo-2P9D6Ga6GO1_qb3Htoj_ny0" alt=""></p>
@@ -542,182 +542,182 @@ stop
 </span><span class="lnt">175
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">title</span><span class="w">
-</span><span class="w"></span><span class="err">梳理</span><span class="n">H5调用原生人员选择器</span><span class="w">
-</span><span class="w"></span><span class="err">创建时间：</span><span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">33</span><span class="o">+</span><span class="mi">0800</span><span class="w"> 
-</span><span class="w"></span><span class="n">endtitle</span><span class="w">
-</span><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="n">header</span><span class="w">
-</span><span class="w"></span><span class="err">问题</span><span class="p">:</span><span class="w">
-</span><span class="w"></span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="o">`</span><span class="n">GetDeptAndUserInfo</span><span class="o">`</span><span class="err">问题</span><span class="p">:</span><span class="w"> </span><span class="err">组织架构的</span><span class="n">API的数据结构和域名绑定</span><span class="p">,</span><span class="err">当域名不同返回的</span><span class="n">json结构不同</span><span class="w">
-</span><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">原生选择器多版本</span><span class="p">:</span><span class="w"> 
-</span><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">setGroupAdmini</span><span class="w"> </span><span class="p">:</span><span class="err">用户组管理中</span><span class="p">,</span><span class="n">web拦截器监听的方法</span><span class="w">
-</span><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">JHSelectCCPPeople</span><span class="p">:</span><span class="w"> </span><span class="err">旧版本选择人员的监听器</span><span class="w">
-</span><span class="w"></span><span class="n">endheader</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="n">page</span><span class="w"> </span><span class="mi">2</span><span class="n">x2</span><span class="w">
-</span><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JinherCCP&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">CCP</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w"></span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;H5UseSelectPeopleViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">h5VC</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">    + var :String=&#34;&#34;	
-</span><span class="c1"></span><span class="w">    </span><span class="n">__</span><span class="w"> </span><span class="n">js回调方法__</span><span class="w">
-</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">IBAction</span><span class="p">)</span><span class="n">clcikOKButton</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="n">sender</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w"></span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;OrganizationSelectViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">    + var :String=&#34;&#34;	
-</span><span class="c1"></span><span class="w">    </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w"></span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
-</span><span class="w">    </span><span class="err">用于</span><span class="n">h5调用原生的界面</span><span class="w"> 
-</span><span class="w"></span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w"></span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">origin</span><span class="w"> 
-</span><span class="w">     </span><span class="err">通讯录原生界面的调用方法</span><span class="w">
-</span><span class="w"></span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w"> 
-</span><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JHWebCore&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVDispatcher&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">wvd</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        + var :String=&#34;&#34;	
-</span><span class="c1"></span><span class="w">        </span><span class="n">__拦截jsURL__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webView</span><span class="p">:</span><span class="n">shouldStartLoadWithRequest</span><span class="p">:</span><span class="n">navigationType</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVH5SelectCCPPeople&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ccph5</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webViewShouldStartLoadRequest</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVUGMCCPPeople&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webViewShouldStartLoadRequest</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">wvd</span><span class="w">
-</span><span class="w">        </span><span class="err">用于注册监听接口的类</span><span class="w"> 
-</span><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w">
-</span><span class="w">      </span><span class="err">实现</span><span class="n">web拦截器中跳转到人员选择器的方法</span><span class="w">   
-</span><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w">    </span><span class="n">wvd</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w">
-</span><span class="w">    </span><span class="n">ugmWeb</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
-</span><span class="w">    </span><span class="n">wvd</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ccph5</span><span class="w">
-</span><span class="w">    </span><span class="n">ccph5</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;RichScanLib&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JNQRViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">qr</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">shouldMoveToSuperController</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">NSDictionary</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">parameterWithURL</span><span class="p">:(</span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">url</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">qr</span><span class="w">
-</span><span class="w">        </span><span class="err">扫描二维码的组件</span><span class="p">,</span><span class="err">直接在反射类中分发定制业务</span><span class="w"> 
-</span><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;HPPersonalPagelib&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JHPersonalViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">personVC</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        -BOOL isUGMAdmin
-</span><span class="c1"></span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">//</span><span class="err">网络获取用户信息：用户心情、头像、昵称</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">getUserInfoFromServer</span><span class="w">
-</span><span class="w">        </span><span class="o">//</span><span class="err">接口</span><span class="n">GetIsShowMyAppGroup</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadUGMIsAdmin</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">personVC</span><span class="w">
-</span><span class="w">        </span><span class="err">解析</span><span class="n">personalNewPage</span><span class="p">.</span><span class="n">plist菜单配置信息</span><span class="p">,</span><span class="err">加载功能</span><span class="w">
-</span><span class="w">        </span><span class="err">动态加载菜单</span><span class="w">
-</span><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JHUGManagerSDK&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugm</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JHUGMViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmVC</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        - UIView *numView;
-</span><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UITableView</span><span class="w"> </span><span class="o">*</span><span class="n">tableView</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">数据模型属性组</span><span class="c1">--
-</span><span class="c1">        - ReqUGMPageModel *reqUGM;
-</span><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">OrgAdminModel</span><span class="w"> </span><span class="o">*</span><span class="n">adminModel</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">JHUGManModel</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">dataArray</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">NSArray</span><span class="w"> </span><span class="o">*</span><span class="n">groupArray</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">分组列表属性</span><span class="c1">--
-</span><span class="c1">        - NSString *curGroupId;
-</span><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">navBut</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UGMGroupLView</span><span class="w"> </span><span class="o">*</span><span class="n">groupView</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UGMGroupModel</span><span class="w"> </span><span class="o">*</span><span class="n">defaultGroup</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIImageView</span><span class="w"> </span><span class="o">*</span><span class="n">arrowImgView</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="n">__分组管理菜单属性组__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIView</span><span class="w"> </span><span class="o">*</span><span class="n">moreView</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">moreBut</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">createGroupBut</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIView</span><span class="w"> </span><span class="o">*</span><span class="n">firstGroupline</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">MASConstraint</span><span class="w"> </span><span class="o">*</span><span class="n">createButHeight</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">MASConstraint</span><span class="w"> </span><span class="o">*</span><span class="n">editButTop</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">分享组件属性组</span><span class="c1">--
-</span><span class="c1">        - JHUGMOrgItemModel *myOrg;
-</span><span class="c1"></span><span class="w">
-</span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="nf">func</span><span class="w"> </span><span class="p">(:,:)</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadGroupList</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadUserList</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadVerifyCount</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadOrgAdmin</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadRemoveUser</span><span class="p">:(</span><span class="n">JHUGManModel</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="k">user</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w">    </span><span class="n">cloud</span><span class="w"> </span><span class="s2">&#34;服务器&#34;</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGManagerServer&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmserver</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        + (id)shared;
-</span><span class="c1"></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">JHURLRequest</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">request</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqGetVerifyCount</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">requestGroupListHandler</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">requestUGMList</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqGetIsUGMAdmin</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqRemoveUserFromGroup</span><span class="p">:</span><span class="n">userId</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
-</span><span class="w">       </span><span class="err">}</span><span class="w">
-</span><span class="w">       </span><span class="n">ugmVC</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ugmserver</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    
-</span><span class="w">    </span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
-</span><span class="w">    </span><span class="n">folder</span><span class="w"> </span><span class="s2">&#34;用户组列表&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">UI</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupLView&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">groupview</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        + NSArray *dataArray;
-</span><span class="c1"></span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
-</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithHandler</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupLCell&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">groupcell</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        UGMGroupModel *model;
-</span><span class="c1"></span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupModel&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cellmodel</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
-</span><span class="c1">        + NSString *Id;
-</span><span class="c1"></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">Name</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">AppId</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSNumber</span><span class="w"> </span><span class="o">*</span><span class="n">IsVerify</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">QrCodeSource</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">QrCodeImage</span><span class="p">;</span><span class="w">
-</span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="kt">BOOL</span><span class="w"> </span><span class="n">isGSeleced</span><span class="p">;</span><span class="w">
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="n">groupview</span><span class="w"> </span><span class="o">*-</span><span class="n">up</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ugmVC</span><span class="w">
-</span><span class="w">    </span><span class="n">groupview</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">groupcell</span><span class="w">
-</span><span class="w">    </span><span class="n">groupcell</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cellmodel</span><span class="w"> 
-</span><span class="w">    </span><span class="err">}</span><span class="w">
-</span><span class="w">    
-</span><span class="w">
-</span><span class="w"></span><span class="err">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="n">APP</span><span class="w"> </span><span class="o">---</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">personVC</span><span class="w">
-</span><span class="w"></span><span class="n">APP</span><span class="w"> </span><span class="o">---</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">scan</span><span class="w">
-</span><span class="w"></span><span class="n">personVC</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ugmVC</span><span class="w">
-</span><span class="w"></span><span class="n">ugm</span><span class="w"> </span><span class="o">-</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">web</span><span class="w"> 
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">梳理</span><span class="n">H5调用原生人员选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">创建时间：</span><span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">33</span><span class="o">+</span><span class="mi">0800</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">endtitle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="n">header</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">问题</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="o">`</span><span class="n">GetDeptAndUserInfo</span><span class="o">`</span><span class="err">问题</span><span class="p">:</span><span class="w"> </span><span class="err">组织架构的</span><span class="n">API的数据结构和域名绑定</span><span class="p">,</span><span class="err">当域名不同返回的</span><span class="n">json结构不同</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">原生选择器多版本</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">setGroupAdmini</span><span class="w"> </span><span class="p">:</span><span class="err">用户组管理中</span><span class="p">,</span><span class="n">web拦截器监听的方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">JHSelectCCPPeople</span><span class="p">:</span><span class="w"> </span><span class="err">旧版本选择人员的监听器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">endheader</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">page</span><span class="w"> </span><span class="mi">2</span><span class="n">x2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JinherCCP&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">CCP</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;H5UseSelectPeopleViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">h5VC</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">    + var :String=&#34;&#34;	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">__</span><span class="w"> </span><span class="n">js回调方法__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">IBAction</span><span class="p">)</span><span class="n">clcikOKButton</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="n">sender</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;OrganizationSelectViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">    + var :String=&#34;&#34;	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">用于</span><span class="n">h5调用原生的界面</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">origin</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">通讯录原生界面的调用方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JHWebCore&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVDispatcher&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">wvd</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        + var :String=&#34;&#34;	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">__拦截jsURL__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webView</span><span class="p">:</span><span class="n">shouldStartLoadWithRequest</span><span class="p">:</span><span class="n">navigationType</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVH5SelectCCPPeople&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ccph5</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webViewShouldStartLoadRequest</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;WVUGMCCPPeople&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">webViewShouldStartLoadRequest</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">wvd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">用于注册监听接口的类</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">实现</span><span class="n">web拦截器中跳转到人员选择器的方法</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">wvd</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ugmWeb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ugmWeb</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">wvd</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ccph5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ccph5</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">h5VC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;RichScanLib&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JNQRViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">qr</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">shouldMoveToSuperController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">NSDictionary</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">parameterWithURL</span><span class="p">:(</span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">url</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">qr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">扫描二维码的组件</span><span class="p">,</span><span class="err">直接在反射类中分发定制业务</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;HPPersonalPagelib&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JHPersonalViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">personVC</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        -BOOL isUGMAdmin
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">//</span><span class="err">网络获取用户信息：用户心情、头像、昵称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">getUserInfoFromServer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">//</span><span class="err">接口</span><span class="n">GetIsShowMyAppGroup</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadUGMIsAdmin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">note</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">personVC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">解析</span><span class="n">personalNewPage</span><span class="p">.</span><span class="n">plist菜单配置信息</span><span class="p">,</span><span class="err">加载功能</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">动态加载菜单</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">end</span><span class="w"> </span><span class="n">note</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">package</span><span class="w"> </span><span class="s2">&#34;JHUGManagerSDK&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugm</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;JHUGMViewController&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmVC</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        - UIView *numView;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UITableView</span><span class="w"> </span><span class="o">*</span><span class="n">tableView</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">数据模型属性组</span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        - ReqUGMPageModel *reqUGM;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">OrgAdminModel</span><span class="w"> </span><span class="o">*</span><span class="n">adminModel</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">NSMutableArray</span><span class="o">&lt;</span><span class="n">JHUGManModel</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">dataArray</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">NSArray</span><span class="w"> </span><span class="o">*</span><span class="n">groupArray</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">分组列表属性</span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        - NSString *curGroupId;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">navBut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UGMGroupLView</span><span class="w"> </span><span class="o">*</span><span class="n">groupView</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UGMGroupModel</span><span class="w"> </span><span class="o">*</span><span class="n">defaultGroup</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIImageView</span><span class="w"> </span><span class="o">*</span><span class="n">arrowImgView</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__分组管理菜单属性组__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIView</span><span class="w"> </span><span class="o">*</span><span class="n">moreView</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">moreBut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIButton</span><span class="w"> </span><span class="o">*</span><span class="n">createGroupBut</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">UIView</span><span class="w"> </span><span class="o">*</span><span class="n">firstGroupline</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">MASConstraint</span><span class="w"> </span><span class="o">*</span><span class="n">createButHeight</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">MASConstraint</span><span class="w"> </span><span class="o">*</span><span class="n">editButTop</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">分享组件属性组</span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        - JHUGMOrgItemModel *myOrg;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="nf">func</span><span class="w"> </span><span class="p">(:,:)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadGroupList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadUserList</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadVerifyCount</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadOrgAdmin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">loadRemoveUser</span><span class="p">:(</span><span class="n">JHUGManModel</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="k">user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cloud</span><span class="w"> </span><span class="s2">&#34;服务器&#34;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGManagerServer&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ugmserver</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        + (id)shared;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">JHURLRequest</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">request</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqGetVerifyCount</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">requestGroupListHandler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">requestUGMList</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqGetIsUGMAdmin</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">reqRemoveUserFromGroup</span><span class="p">:</span><span class="n">userId</span><span class="p">:</span><span class="n">handler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">ugmVC</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ugmserver</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;package，node，folder，frame，cloud，database&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">folder</span><span class="w"> </span><span class="s2">&#34;用户组列表&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">UI</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupLView&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">groupview</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        + NSArray *dataArray;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">__</span><span class="w"> </span><span class="err">函数组</span><span class="n">__</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithHandler</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupLCell&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">groupcell</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        UGMGroupModel *model;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">class</span><span class="w"> </span><span class="s2">&#34;UGMGroupModel&#34;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cellmodel</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">--</span><span class="err">属性组</span><span class="w"> </span><span class="c1">--
+</span></span></span><span class="line"><span class="cl"><span class="c1">        + NSString *Id;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">Name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">AppId</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSNumber</span><span class="w"> </span><span class="o">*</span><span class="n">IsVerify</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">QrCodeSource</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="n">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">QrCodeImage</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="kt">BOOL</span><span class="w"> </span><span class="n">isGSeleced</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">groupview</span><span class="w"> </span><span class="o">*-</span><span class="n">up</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ugmVC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">groupview</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">groupcell</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">groupcell</span><span class="w"> </span><span class="p">..</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cellmodel</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">APP</span><span class="w"> </span><span class="o">---</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">personVC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">APP</span><span class="w"> </span><span class="o">---</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">scan</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">personVC</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ugmVC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ugm</span><span class="w"> </span><span class="o">-</span><span class="n">down</span><span class="o">-&gt;</span><span class="w"> </span><span class="n">web</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="添加消息的脑图">添加消息的脑图</h2>
 <p><img src="https://it-boyer.github.io/iPictures/images/%E6%B7%BB%E5%8A%A0%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B%E6%B5%81%E7%A8%8B.png" alt=""></p>
@@ -732,12 +732,12 @@ stop
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistGroupsOfUser
-Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetGroupsOfUser
-Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistTypesOfUser
-Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/UpdateUserGroup
-Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistGroupsOfUser
+</span></span><span class="line"><span class="cl">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetGroupsOfUser
+</span></span><span class="line"><span class="cl">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/GetExistTypesOfUser
+</span></span><span class="line"><span class="cl">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/UpdateUserGroup
+</span></span><span class="line"><span class="cl">Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="域名获取三种方式">域名获取三种方式</h3>
 <ol>
@@ -752,9 +752,9 @@ Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc">
-<span class="p">[[</span><span class="n">HttpIpFileService</span> <span class="n">shareInstance</span><span class="p">]</span> <span class="nl">getIpFile</span><span class="p">:</span><span class="s">@&#34;api_host_GroupQuery&#34;</span><span class="p">];</span><span class="c1">//服务器地址
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="n">HttpIpFileService</span> <span class="n">shareInstance</span><span class="p">]</span> <span class="nl">getIpFile</span><span class="p">:</span><span class="s">@&#34;api_host_GroupQuery&#34;</span><span class="p">];</span><span class="c1">//服务器地址
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>经排查分析,接口<code>Jinher.AMP.SNS.SV.AppSceneUserQuerySV.svc/ExistSceneUser</code>用到了上述方式:
 所以不能修改<code>iPfile.plist</code>的<code>api_host_GroupChat</code>的值.</p>
@@ -766,8 +766,8 @@ Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">api_host_GroupQuery:api.iuoooo.com/ugm.api
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">api_host_GroupQuery:api.iuoooo.com/ugm.api
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="依赖jhacrossnetengin组件的头文件netenginh定义的宏方式">依赖<code>JHAcrossNetEngin</code>组件的头文件<code>NetEngin.h</code>定义的宏方式</h4>
 <div class="highlight"><div class="chroma">
@@ -776,9 +776,9 @@ Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="o">/</span><span class="n">AppGroupUser</span>
-<span class="cp">#define AppGroupUserHttpHead [NSString stringWithFormat:@&#34;%@%@api.iuoooo.com/ugm.api/Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc&#34;, JHTWREQUESTPROTOCOL, NetFormat]
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="o">/</span><span class="n">AppGroupUser</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define AppGroupUserHttpHead [NSString stringWithFormat:@&#34;%@%@api.iuoooo.com/ugm.api/Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc&#34;, JHTWREQUESTPROTOCOL, NetFormat]
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>只需替换<code>JHAcrossNetEngin</code>组件<code>NetEngin.h</code>的宏定义,将<code>sns.iuoooo.com</code>替换为<code>api.iuoooo.com/ugm.api</code>
 然后,重新编译<code>JHAcrossNetEngin</code>组件库,并提交到主工程中.</p>
@@ -796,13 +796,13 @@ Jinher.AMP.SNS.SV.AppGroupUserQuerySV.svc/IsUserInGroup
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">modified:   JHUniversalApp/JHUniversalApp/Categories/AccessRelevantLayoutData.m
-modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/AcrossNetEngin/NetEngine.h
-modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/JinherUniversalStaticLib/ipFile.plist
-modified:   JHUniversalApp/JHUniversalApp/ViewControllers/HomePage/Controller/HomeChannelController.m
-modified:   JHUniversalApp/JHUniversalApp/ViewControllers/LayoutEngine/LayoutEngineViewController.m
-modified:   JHUniversalApp/JHUniversalApp/ViewControllers/LayoutEngine/LayoutSecondEngineViewController.m
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/Categories/AccessRelevantLayoutData.m
+</span></span><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/AcrossNetEngin/NetEngine.h
+</span></span><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/Components/Libs/JH/JinherUniversalStaticLib/ipFile.plist
+</span></span><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/ViewControllers/HomePage/Controller/HomeChannelController.m
+</span></span><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/ViewControllers/LayoutEngine/LayoutEngineViewController.m
+</span></span><span class="line"><span class="cl">modified:   JHUniversalApp/JHUniversalApp/ViewControllers/LayoutEngine/LayoutSecondEngineViewController.m
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -942,7 +942,7 @@ modified:   JHUniversalApp/JHUniversalApp/ViewControllers/LayoutEngine/LayoutSec
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

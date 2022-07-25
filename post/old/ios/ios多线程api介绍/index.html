@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/ios%E5%A4%9A%E7%BA%BF%E7%A8%8Bapi%E4%BB%8B%E7%BB%8D/" />
@@ -292,77 +292,77 @@
 </span><span class="lnt">70
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#import &lt;pthread.h&gt;
-</span><span class="cp"></span>
-<span class="k">struct</span> <span class="n">threadInfo</span> <span class="p">{</span>
-<span class="kt">uint32_t</span> <span class="o">*</span> <span class="n">inputValues</span><span class="p">;</span>
-<span class="n">size_t</span> <span class="n">count</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="k">struct</span> <span class="n">threadResult</span> <span class="p">{</span>
-<span class="kt">uint32_t</span> <span class="n">min</span><span class="p">;</span>
-<span class="kt">uint32_t</span> <span class="n">max</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="kt">void</span> <span class="o">*</span> <span class="nf">findMinAndMax</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="k">struct</span> <span class="n">threadInfo</span> <span class="k">const</span> <span class="o">*</span> <span class="k">const</span> <span class="n">info</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span><span class="p">)</span> <span class="n">arg</span><span class="p">;</span>
-<span class="kt">uint32_t</span> <span class="n">min</span> <span class="o">=</span> <span class="n">UINT32_MAX</span><span class="p">;</span>
-<span class="kt">uint32_t</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-<span class="kt">uint32_t</span> <span class="n">v</span> <span class="o">=</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">inputValues</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="n">min</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-<span class="n">max</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">free</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
-<span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span> <span class="k">const</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">));</span>
-<span class="n">result</span><span class="o">-&gt;</span><span class="n">min</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span>
-<span class="n">result</span><span class="o">-&gt;</span><span class="n">max</span> <span class="o">=</span> <span class="n">max</span><span class="p">;</span>
-<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-<span class="n">size_t</span> <span class="k">const</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
-<span class="kt">uint32_t</span> <span class="n">inputValues</span><span class="p">[</span><span class="n">count</span><span class="p">];</span>
-
-<span class="c1">// 使用随机数字填充 inputValues
-</span><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">inputValues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arc4random</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="c1">// 开始4个寻找最小值和最大值的线程
-</span><span class="c1"></span><span class="n">size_t</span> <span class="k">const</span> <span class="n">threadCount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">pthread_t</span> <span class="n">tid</span><span class="p">[</span><span class="n">threadCount</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span> <span class="k">const</span> <span class="n">info</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">info</span><span class="p">));</span>
-<span class="n">size_t</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
-<span class="n">info</span><span class="o">-&gt;</span><span class="n">inputValues</span> <span class="o">=</span> <span class="n">inputValues</span> <span class="o">+</span> <span class="n">offset</span><span class="p">;</span>
-<span class="n">info</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">findMinAndMax</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
-<span class="n">NSCAssert</span><span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="err">@</span><span class="s">&#34;pthread_create() failed: %d&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 等待线程退出
-</span><span class="c1"></span><span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span> <span class="n">results</span><span class="p">[</span><span class="n">threadCount</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-<span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
-<span class="n">NSCAssert</span><span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="err">@</span><span class="s">&#34;pthread_join() failed: %d&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 寻找 min 和 max
-</span><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">min</span> <span class="o">=</span> <span class="n">UINT32_MAX</span><span class="p">;</span>
-<span class="kt">uint32_t</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">min</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">min</span><span class="p">);</span>
-<span class="n">max</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">max</span><span class="p">);</span>
-<span class="n">free</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">NSLog</span><span class="p">(</span><span class="err">@</span><span class="s">&#34;min = %u&#34;</span><span class="p">,</span> <span class="n">min</span><span class="p">);</span>
-<span class="n">NSLog</span><span class="p">(</span><span class="err">@</span><span class="s">&#34;max = %u&#34;</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#import &lt;pthread.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">threadInfo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="o">*</span> <span class="n">inputValues</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">threadResult</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span> <span class="nf">findMinAndMax</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">threadInfo</span> <span class="k">const</span> <span class="o">*</span> <span class="k">const</span> <span class="n">info</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span><span class="p">)</span> <span class="n">arg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">min</span> <span class="o">=</span> <span class="n">UINT32_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">v</span> <span class="o">=</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">inputValues</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">min</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">max</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">free</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span> <span class="k">const</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">-&gt;</span><span class="n">min</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">-&gt;</span><span class="n">max</span> <span class="o">=</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="k">const</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">inputValues</span><span class="p">[</span><span class="n">count</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用随机数字填充 inputValues
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputValues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arc4random</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 开始4个寻找最小值和最大值的线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">size_t</span> <span class="k">const</span> <span class="n">threadCount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">pthread_t</span> <span class="n">tid</span><span class="p">[</span><span class="n">threadCount</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span> <span class="k">const</span> <span class="n">info</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">threadInfo</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">info</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">info</span><span class="o">-&gt;</span><span class="n">inputValues</span> <span class="o">=</span> <span class="n">inputValues</span> <span class="o">+</span> <span class="n">offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">info</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pthread_create</span><span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">findMinAndMax</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSCAssert</span><span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="err">@</span><span class="s">&#34;pthread_create() failed: %d&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 等待线程退出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="n">threadResult</span> <span class="o">*</span> <span class="n">results</span><span class="p">[</span><span class="n">threadCount</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">pthread_join</span><span class="p">(</span><span class="n">tid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSCAssert</span><span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="err">@</span><span class="s">&#34;pthread_join() failed: %d&#34;</span><span class="p">,</span> <span class="n">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 寻找 min 和 max
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="n">min</span> <span class="o">=</span> <span class="n">UINT32_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">min</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">min</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">max</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">max</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">max</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">free</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">NSLog</span><span class="p">(</span><span class="err">@</span><span class="s">&#34;min = %u&#34;</span><span class="p">,</span> <span class="n">min</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSLog</span><span class="p">(</span><span class="err">@</span><span class="s">&#34;max = %u&#34;</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="nsthread方式实现">NSThread方式实现</h5>
 <p><code>NSThread</code> 是 Objective-C 对 pthread 的一个封装。通过封装，在 Cocoa 环境中，可以让代码看起来更加亲切。例如，<strong>开发者可以利用 NSThread 的一个子类来定义一个线程，在这个子类的中封装需要在后台线程运行的代码</strong>。针对上面的那个例子，我们可以定义一个这样的 <code>NSThread</code> 子类：</p>
@@ -398,35 +398,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">FindMinMaxThread</span> : <span class="nc">NSThread</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">min</span><span class="p">;</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">max</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithNumbers:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">numbers</span><span class="p">;</span>
-<span class="k">@end</span>
-
-<span class="k">@implementation</span> <span class="nc">FindMinMaxThread</span> <span class="p">{</span>
-<span class="n">NSArray</span> <span class="o">*</span><span class="n">_numbers</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithNumbers:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">numbers</span>
-<span class="p">{</span>
-<span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">_numbers</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
-<span class="p">{</span>
-<span class="n">NSUInteger</span> <span class="n">min</span><span class="p">;</span>
-<span class="n">NSUInteger</span> <span class="n">max</span><span class="p">;</span>
-<span class="c1">// 进行相关数据的处理
-</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">max</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">@end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@interface</span> <span class="nc">FindMinMaxThread</span> : <span class="nc">NSThread</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithNumbers:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">numbers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">@implementation</span> <span class="nc">FindMinMaxThread</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSArray</span> <span class="o">*</span><span class="n">_numbers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithNumbers:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">numbers</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="n">init</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">_numbers</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 进行相关数据的处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">min</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span><span class="p">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>要想启动一个新的线程，需要创建一个线程对象，然后调用它的 <code>start</code> 方法：</p>
 <div class="highlight"><div class="chroma">
@@ -445,19 +445,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableSet</span> <span class="o">*</span><span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableSet</span> <span class="n">set</span><span class="p">];</span>
-<span class="n">NSUInteger</span> <span class="n">numberCount</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
-<span class="n">NSUInteger</span> <span class="n">threadCount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">NSUInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">NSUInteger</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
-<span class="n">NSUInteger</span> <span class="n">count</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">numberCount</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">numberCount</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">);</span>
-<span class="n">NSRange</span> <span class="n">range</span> <span class="o">=</span> <span class="n">NSMakeRange</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
-<span class="n">NSArray</span> <span class="o">*</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">numbers</span> <span class="nl">subarrayWithRange</span><span class="p">:</span><span class="n">range</span><span class="p">];</span>
-<span class="n">FindMinMaxThread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[[</span><span class="n">FindMinMaxThread</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNumbers</span><span class="p">:</span><span class="n">subset</span><span class="p">];</span>
-<span class="p">[</span><span class="n">threads</span> <span class="nl">addObject</span><span class="p">:</span><span class="kr">thread</span><span class="p">];</span>
-<span class="p">[</span><span class="kr">thread</span> <span class="n">start</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSMutableSet</span> <span class="o">*</span><span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableSet</span> <span class="n">set</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">numberCount</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">numbers</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">threadCount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">NSUInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">threadCount</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSUInteger</span> <span class="n">count</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">numberCount</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">numberCount</span> <span class="o">/</span> <span class="n">threadCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSRange</span> <span class="n">range</span> <span class="o">=</span> <span class="n">NSMakeRange</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">NSArray</span> <span class="o">*</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">numbers</span> <span class="nl">subarrayWithRange</span><span class="p">:</span><span class="n">range</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">FindMinMaxThread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[[</span><span class="n">FindMinMaxThread</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNumbers</span><span class="p">:</span><span class="n">subset</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">threads</span> <span class="nl">addObject</span><span class="p">:</span><span class="kr">thread</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="kr">thread</span> <span class="n">start</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在，我们可以<strong>通过检测到线程的 <code>isFinished</code> 属性来检测新生成的线程是否已经结束，并获取结果</strong>。</p>
 <h4 id="线程问题">线程问题</h4>
@@ -494,13 +494,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="nc">YourOperation</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
-<span class="p">{</span>
-<span class="c1">// 进行处理 ...
-</span><span class="c1"></span><span class="p">}</span>
-<span class="k">@end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@implementation</span> <span class="nc">YourOperation</span>
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 进行处理 ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="重写-start方法">重写 <code>start</code>方法</h5>
 <p>这种方式可以拥有更多的控制权，以及在一个操作中可以执行异步任务，重写 <code>start</code> 方法必须手动管理操作的状态（例如 <code>isExecuting</code> 和 <code>isFinished</code>）。</p>
@@ -525,21 +525,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@implementation</span> <span class="nc">YourOperation</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">start</span>
-<span class="p">{</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
-<span class="c1">// 开始处理，在结束时应该调用 finished ...
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">finished</span>
-<span class="p">{</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">@end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@implementation</span> <span class="nc">YourOperation</span>
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">start</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 开始处理，在结束时应该调用 finished ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">finished</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span><span class="p">.</span><span class="n">isExecuting</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">self</span><span class="p">.</span><span class="n">isFinished</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">@end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><pre><code>注意：这种情况下，你必须手动管理操作的状态。 为了让操作队列能够捕获到操作的改变，需要将状态的属性以配合 KVO 的方式进行实现。如果你不使用它们默认的 setter 来进行设置的话，你就需要在合适的时候发送合适的 KVO 消息。
 </code></pre>
@@ -557,13 +557,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
-<span class="p">{</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">notDone</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">self</span><span class="p">.</span><span class="n">isCancelled</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 进行处理
-</span><span class="c1"></span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">notDone</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">self</span><span class="p">.</span><span class="n">isCancelled</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 进行处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>重写 operation 的<code>description</code> 方法
@@ -579,10 +579,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="n">YourOperation</span> <span class="o">*</span><span class="n">operation</span> <span class="o">=</span> <span class="p">[[</span><span class="n">YourOperation</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">YourOperation</span> <span class="o">*</span><span class="n">operation</span> <span class="o">=</span> <span class="p">[[</span><span class="n">YourOperation</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="添加一次性任务">添加一次性任务</h5>
 <p>另外，你也可以将 block 添加到操作队列中。这有时候会非常的方便，比如你希望在主队列中调度一个一次性任务：</p>
@@ -593,10 +593,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-<span class="c1">// 代码...
-</span><span class="c1"></span><span class="p">}];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 代码...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="操作队列的任务个数">操作队列的任务个数</h5>
 <p>除了提供基本的调度操作或 block 外，操作队列还提供了在 GCD 中不太容易处理好的特性的功能。例如，你可以通过 <code>maxConcurrentOperationCount</code> 属性来控制一个特定队列中可以有多少个操作参与并发执行。将其设置为 1 的话，你将得到一个串行队列，这在以隔离为目的的时候会很有用。</p>
@@ -614,10 +614,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">intermediateOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">operation1</span><span class="p">];</span>
-<span class="p">[</span><span class="n">intermediateOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">operation2</span><span class="p">];</span>
-<span class="p">[</span><span class="n">finishedOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">intermediateOperation</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">[</span><span class="n">intermediateOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">operation1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">intermediateOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">operation2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">finishedOperation</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">intermediateOperation</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这些简单的代码可以确保 <code>operation1</code> 和 <code>operation2</code> 在 <code>intermediateOperation</code> 之前执行，当然，也会在 <code>finishOperation</code> 之前被执行。</p>
 <p>从本质上来看，操作队列的性能比 GCD 要低那么一点，不过，大多数情况下这点负面影响可以忽略不计，操作队列是并发编程的首选工具。</p>
@@ -680,18 +680,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">lock</span><span class="p">(</span><span class="n">lockA</span><span class="p">);</span>
-<span class="n">lock</span><span class="p">(</span><span class="n">lockB</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">unlock</span><span class="p">(</span><span class="n">lockB</span><span class="p">);</span>
-<span class="n">unlock</span><span class="p">(</span><span class="n">lockA</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">lock</span><span class="p">(</span><span class="n">lockA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">lock</span><span class="p">(</span><span class="n">lockB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">unlock</span><span class="p">(</span><span class="n">lockB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">unlock</span><span class="p">(</span><span class="n">lockA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>大多数时候，这能够正常运行。但是当两个线程使用相反的值来同时调用上面这个方法时：</p>
 <div class="highlight"><div class="chroma">
@@ -700,9 +700,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="c1">// 线程 1
-</span><span class="c1"></span><span class="n">swap</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span> <span class="c1">// 线程 2
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">);</span> <span class="c1">// 线程 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">swap</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">);</span> <span class="c1">// 线程 2
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>此时程序可能会由于死锁而被终止。线程 1 获得了 X 的一个锁，线程 2 获得了 Y 的一个锁。 接着它们会同时等待另外一把锁，但是永远都不会获得。</p>
 <p>再说一次，你在线程之间共享的资源越多，你使用的锁也就越多，同时程序被死锁的概率也会变大。这也是为什么我们需要尽量减少线程间资源共享，并确保共享的资源尽量简单的原因之一。</p>
@@ -867,7 +867,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

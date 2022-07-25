@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/swift%E8%B0%83%E7%94%A8pngquant%E6%89%B9%E9%87%8F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/" />
@@ -206,16 +206,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">dependencies:</span> <span class="p">[</span>
-    <span class="c1">// Dependencies declare other packages that this package depends on.
-</span><span class="c1"></span>    <span class="c1">// .package(url: /* package url */, from: &#34;1.0.0&#34;), 指定版本。giturl
-</span><span class="c1"></span>    <span class="err">.package(path:</span> <span class="s2">&#34;/Users/admin/hsg/FileProvider&#34;</span><span class="err">)</span>   <span class="c1">//源码clone本地，指定路径
-</span><span class="c1"></span><span class="p">]</span><span class="err">,</span>
-    <span class="err">.target(</span>
-        <span class="err">name:</span> <span class="s2">&#34;SPMCmdLineTool&#34;</span><span class="err">,</span>
-        <span class="err">dependencies:</span> <span class="p">[</span><span class="s2">&#34;FilesProvider&#34;</span><span class="p">]</span><span class="err">),</span>
-<span class="err">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">dependencies:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Dependencies declare other packages that this package depends on.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// .package(url: /* package url */, from: &#34;1.0.0&#34;), 指定版本。giturl
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">.package(path:</span> <span class="s2">&#34;/Users/admin/hsg/FileProvider&#34;</span><span class="err">)</span>   <span class="c1">//源码clone本地，指定路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">]</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">    <span class="err">.target(</span>
+</span></span><span class="line"><span class="cl">        <span class="err">name:</span> <span class="s2">&#34;SPMCmdLineTool&#34;</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">        <span class="err">dependencies:</span> <span class="p">[</span><span class="s2">&#34;FilesProvider&#34;</span><span class="p">]</span><span class="err">),</span>
+</span></span><span class="line"><span class="cl"><span class="err">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li><code>swift build</code></li>
@@ -286,61 +286,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">FilesProvider</span>
-<span class="kd">var</span> <span class="nv">documentsProvider</span><span class="p">:</span><span class="n">LocalFileProvider</span><span class="p">!</span>
-<span class="kd">var</span> <span class="nv">pngexpectation</span><span class="p">:</span> <span class="n">XCTestExpectation</span><span class="p">!</span> <span class="p">=</span> <span class="kc">nil</span>
-<span class="kr">override</span> <span class="kd">func</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Put setup code here. This method is called before the invocation of each test method in the class.</span>
-    <span class="n">documentsProvider</span> <span class="p">=</span> <span class="n">LocalFileProvider</span><span class="p">(</span><span class="k">for</span><span class="p">:</span> <span class="p">.</span><span class="n">userDirectory</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="p">.</span><span class="n">allDomainsMask</span><span class="p">)</span>
-    <span class="n">pngexpectation</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">expectation</span><span class="p">(</span><span class="n">description</span><span class="p">:</span> <span class="s">&#34;BLDownloadImageNotification&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">testExample</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// This is an example of a functional test case.</span>
-    <span class="c1">// Use XCTAssert and related functions to verify your tests produce the correct results.</span>
-    <span class="c1">//创建文件夹</span>
-    <span class="n">documentsProvider</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span> <span class="s">&#34;testPng&#34;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="s">&#34;admin/hsg/&#34;</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">in</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;新建目录成功&#34;</span><span class="p">)</span>
-        <span class="c1">//拷贝图片到目录</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">documentsProvider</span><span class="p">.</span><span class="n">contentsOfDirectory</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">&#34;admin/Desktop&#34;</span><span class="p">,</span>           
-            <span class="n">completionHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">contents</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
-            <span class="k">for</span> <span class="n">file</span> <span class="k">in</span> <span class="n">contents</span>
-            <span class="p">{</span>
-                <span class="kd">let</span> <span class="nv">png</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;png&#34;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">png</span><span class="p">{</span>
-                    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;文件路径:</span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-                    <span class="kd">let</span> <span class="nv">thePath</span><span class="p">:</span><span class="n">NSString</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span> <span class="k">as</span> <span class="n">NSString</span>
-                    <span class="kd">let</span> <span class="nv">toFile</span> <span class="p">=</span> <span class="s">&#34;admin/hsg/testPng/</span><span class="si">\(</span><span class="n">thePath</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="si">)</span><span class="s">&#34;</span>
-                    <span class="kc">self</span><span class="p">.</span><span class="n">documentsProvider</span><span class="p">.</span><span class="n">copyItem</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">toFile</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">in</span>
-                        <span class="c1">//调用shell工具压缩图片</span>
-                        <span class="kc">self</span><span class="p">.</span><span class="n">testProcessRunShellScript</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="n">toFile</span><span class="p">)</span>
-                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Name: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Size: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">size</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;路径: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-                    <span class="p">})</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">})</span>
-    <span class="p">}</span>
-    <span class="n">waitForExpectations</span><span class="p">(</span><span class="n">timeout</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">//可用</span>
-<span class="kd">func</span> <span class="nf">testProcessRunShellScript</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span><span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">sub</span> <span class="p">=</span> <span class="s">&#34;_temp.png&#34;</span>
-    <span class="kd">let</span> <span class="nv">pngquantFile</span> <span class="p">=</span> <span class="s">&#34;/Users/&#34;</span><span class="o">+</span><span class="n">filePath</span>
-    <span class="kd">let</span> <span class="nv">tmpFilePath</span> <span class="p">=</span> <span class="n">filePath</span><span class="p">.</span><span class="n">replacingOccurrences</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="s">&#34;.png&#34;</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="n">sub</span><span class="p">)</span>
-    <span class="kd">let</span> <span class="nv">exePath</span> <span class="p">=</span> <span class="s">&#34;/Users/admin/hsg/hexo/GitSubmodules/hsgTool/pngquant/pngquant&#34;</span>
-    <span class="nb">Process</span><span class="p">.</span><span class="n">launchedProcess</span><span class="p">(</span><span class="n">launchPath</span><span class="p">:</span> <span class="n">exePath</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;--ext&#34;</span><span class="p">,</span><span class="n">sub</span><span class="p">,</span><span class="s">&#34;--speed=3&#34;</span><span class="p">,</span><span class="n">pngquantFile</span><span class="p">])</span>
-    <span class="c1">// 删除旧文件</span>
-<span class="c1">//        documentsProvider.removeItem(path: filePath) { (error) in</span>
-<span class="c1">//            //重命名压缩过的tmp文件</span>
-<span class="c1">//            print(&#34;ddddddderr:\(error?.localizedDescription)&#34;)</span>
-<span class="c1">//            self.documentsProvider.moveItem(path: tmpFilePath, to: filePath, overwrite: true,  completionHandler: { (error) in</span>
-<span class="c1">//                self.pngexpectation.fulfill()</span>
-<span class="c1">//            })</span>
-<span class="c1">//        }</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">FilesProvider</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">documentsProvider</span><span class="p">:</span><span class="n">LocalFileProvider</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">pngexpectation</span><span class="p">:</span> <span class="n">XCTestExpectation</span><span class="p">!</span> <span class="p">=</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="kr">override</span> <span class="kd">func</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Put setup code here. This method is called before the invocation of each test method in the class.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">documentsProvider</span> <span class="p">=</span> <span class="n">LocalFileProvider</span><span class="p">(</span><span class="k">for</span><span class="p">:</span> <span class="p">.</span><span class="n">userDirectory</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="p">.</span><span class="n">allDomainsMask</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pngexpectation</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">expectation</span><span class="p">(</span><span class="n">description</span><span class="p">:</span> <span class="s">&#34;BLDownloadImageNotification&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">testExample</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// This is an example of a functional test case.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Use XCTAssert and related functions to verify your tests produce the correct results.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//创建文件夹</span>
+</span></span><span class="line"><span class="cl">    <span class="n">documentsProvider</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">folder</span><span class="p">:</span> <span class="s">&#34;testPng&#34;</span><span class="p">,</span> <span class="n">at</span><span class="p">:</span> <span class="s">&#34;admin/hsg/&#34;</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;新建目录成功&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//拷贝图片到目录</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">documentsProvider</span><span class="p">.</span><span class="n">contentsOfDirectory</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">&#34;admin/Desktop&#34;</span><span class="p">,</span>           
+</span></span><span class="line"><span class="cl">            <span class="n">completionHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">contents</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">file</span> <span class="k">in</span> <span class="n">contents</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">let</span> <span class="nv">png</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;png&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">png</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;文件路径:</span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">let</span> <span class="nv">thePath</span><span class="p">:</span><span class="n">NSString</span> <span class="p">=</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span> <span class="k">as</span> <span class="n">NSString</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">let</span> <span class="nv">toFile</span> <span class="p">=</span> <span class="s">&#34;admin/hsg/testPng/</span><span class="si">\(</span><span class="n">thePath</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="si">)</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="kc">self</span><span class="p">.</span><span class="n">documentsProvider</span><span class="p">.</span><span class="n">copyItem</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">toFile</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">//调用shell工具压缩图片</span>
+</span></span><span class="line"><span class="cl">                        <span class="kc">self</span><span class="p">.</span><span class="n">testProcessRunShellScript</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="n">toFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Name: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Size: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">size</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;路径: </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">waitForExpectations</span><span class="p">(</span><span class="n">timeout</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//可用</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">testProcessRunShellScript</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span><span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">sub</span> <span class="p">=</span> <span class="s">&#34;_temp.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">pngquantFile</span> <span class="p">=</span> <span class="s">&#34;/Users/&#34;</span><span class="o">+</span><span class="n">filePath</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">tmpFilePath</span> <span class="p">=</span> <span class="n">filePath</span><span class="p">.</span><span class="n">replacingOccurrences</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="s">&#34;.png&#34;</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="n">sub</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">exePath</span> <span class="p">=</span> <span class="s">&#34;/Users/admin/hsg/hexo/GitSubmodules/hsgTool/pngquant/pngquant&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Process</span><span class="p">.</span><span class="n">launchedProcess</span><span class="p">(</span><span class="n">launchPath</span><span class="p">:</span> <span class="n">exePath</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;--ext&#34;</span><span class="p">,</span><span class="n">sub</span><span class="p">,</span><span class="s">&#34;--speed=3&#34;</span><span class="p">,</span><span class="n">pngquantFile</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 删除旧文件</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//        documentsProvider.removeItem(path: filePath) { (error) in</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//            //重命名压缩过的tmp文件</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//            print(&#34;ddddddderr:\(error?.localizedDescription)&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//            self.documentsProvider.moveItem(path: tmpFilePath, to: filePath, overwrite: true,  completionHandler: { (error) in</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//                self.pngexpectation.fulfill()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//            })</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//        }</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -481,7 +481,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

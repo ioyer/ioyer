@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/%E4%BD%BF%E7%94%A8spm%E7%AE%A1%E7%90%86%E4%BE%9D%E8%B5%96%E5%BA%93/" />
@@ -238,27 +238,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">import PackageDescription
-<span class="nb">let</span> <span class="nv">package</span> <span class="o">=</span> Package<span class="o">(</span>
-    name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
-    products: <span class="o">[</span>
-        .library<span class="o">(</span>name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
-        .executable<span class="o">(</span>name: <span class="s2">&#34;Dealer&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;Dealer&#34;</span><span class="o">])</span>,
-    <span class="o">]</span>,
-    dependencies: <span class="o">[</span>
-        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span>, from: <span class="s2">&#34;2.0.0&#34;</span><span class="o">)</span>,
-        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span>, from: <span class="s2">&#34;3.0.0&#34;</span><span class="o">)</span>,
-    <span class="o">]</span>,
-    targets: <span class="o">[</span>
-        .target<span class="o">(</span>
-            name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
-            dependencies: <span class="o">[</span><span class="s2">&#34;FisherYates&#34;</span>, <span class="s2">&#34;PlayingCard&#34;</span><span class="o">])</span>,
-        .testTarget<span class="o">(</span>
-            name: <span class="s2">&#34;DeckOfPlayingCardsTests&#34;</span>,
-            dependencies: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
-    <span class="o">]</span>
-<span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">import PackageDescription
+</span></span><span class="line"><span class="cl"><span class="nb">let</span> <span class="nv">package</span> <span class="o">=</span> Package<span class="o">(</span>
+</span></span><span class="line"><span class="cl">    name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
+</span></span><span class="line"><span class="cl">    products: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        .library<span class="o">(</span>name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
+</span></span><span class="line"><span class="cl">        .executable<span class="o">(</span>name: <span class="s2">&#34;Dealer&#34;</span>, targets: <span class="o">[</span><span class="s2">&#34;Dealer&#34;</span><span class="o">])</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">    dependencies: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span>, from: <span class="s2">&#34;2.0.0&#34;</span><span class="o">)</span>,
+</span></span><span class="line"><span class="cl">        .package<span class="o">(</span>url: <span class="s2">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span>, from: <span class="s2">&#34;3.0.0&#34;</span><span class="o">)</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">    targets: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">        .target<span class="o">(</span>
+</span></span><span class="line"><span class="cl">            name: <span class="s2">&#34;DeckOfPlayingCards&#34;</span>,
+</span></span><span class="line"><span class="cl">            dependencies: <span class="o">[</span><span class="s2">&#34;FisherYates&#34;</span>, <span class="s2">&#34;PlayingCard&#34;</span><span class="o">])</span>,
+</span></span><span class="line"><span class="cl">        .testTarget<span class="o">(</span>
+</span></span><span class="line"><span class="cl">            name: <span class="s2">&#34;DeckOfPlayingCardsTests&#34;</span>,
+</span></span><span class="line"><span class="cl">            dependencies: <span class="o">[</span><span class="s2">&#34;DeckOfPlayingCards&#34;</span><span class="o">])</span>,
+</span></span><span class="line"><span class="cl">    <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="products产品">Products产品</h3>
 <p>一个<code>target</code>可能构建一个<code>.library()库</code>或者一个<code>.executable()可执行文件</code>作为其产品。
@@ -279,10 +279,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">mkdir</span> <span class="nx">PlayingCard</span>
-<span class="nx">cd</span> <span class="nx">PlayingCard</span>
-<span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">mkdir</span> <span class="nx">PlayingCard</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cd</span> <span class="nx">PlayingCard</span>
+</span></span><span class="line"><span class="cl"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>创建公共实现类
@@ -306,21 +306,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">public enum Rank : Int {
-    case Ace = 1
-    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
-    case Jack, Queen, King
-}
-
-public enum Suit: String {
-    case Spades, Hearts, Diamonds, Clubs
-}
-
-public struct PlayingCard {
-    let rank: Rank
-    let suit: Suit
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public enum Rank : Int {
+</span></span><span class="line"><span class="cl">    case Ace = 1
+</span></span><span class="line"><span class="cl">    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+</span></span><span class="line"><span class="cl">    case Jack, Queen, King
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public enum Suit: String {
+</span></span><span class="line"><span class="cl">    case Spades, Hearts, Diamonds, Clubs
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public struct PlayingCard {
+</span></span><span class="line"><span class="cl">    let rank: Rank
+</span></span><span class="line"><span class="cl">    let suit: Suit
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>按照约定，一个<code>target</code>所有的源文件都存在相应的<code>Sources/&lt;target-name&gt;</code>目录下，默认情况下，<code>库模块</code>使用<code>public</code>来声明类型和方法，这些类型和方法位于<code>Sources/&lt;target-name&gt;</code>中：</p>
 <div class="highlight"><div class="chroma">
@@ -334,14 +334,14 @@ public struct PlayingCard {
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">example-package-playingcard
-├── Sources
-│   └── PlayingCard
-│       ├── PlayingCard.swift
-│       ├── Rank.swift
-│       └── Suit.swift
-└── Package.swift
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">example-package-playingcard
+</span></span><span class="line"><span class="cl">├── Sources
+</span></span><span class="line"><span class="cl">│   └── PlayingCard
+</span></span><span class="line"><span class="cl">│       ├── PlayingCard.swift
+</span></span><span class="line"><span class="cl">│       ├── Rank.swift
+</span></span><span class="line"><span class="cl">│       └── Suit.swift
+</span></span><span class="line"><span class="cl">└── Package.swift
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>PlayingCard</code>因为不生成<code>executable</code>可执行文件，这种类型的<code>target</code>成为<code>库</code>，当构建一个模块可以被依赖导入使用。</p>
 <ol start="3">
@@ -358,10 +358,10 @@ public struct PlayingCard {
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">mkdir</span> <span class="nx">fisher</span>
-<span class="nx">cd</span> <span class="nx">fisher</span>
-<span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">mkdir</span> <span class="nx">fisher</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cd</span> <span class="nx">fisher</span>
+</span></span><span class="line"><span class="cl"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">init</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>fisher</code>与<code>PlayingCard</code>不同，此模块不定义任何新类型。相反，它扩展了现有的类型(特别是<code>CollectionType</code>和<code>MutableCollectionType</code>协议)，以添加<code>shuffle()</code>方法和它的变体副本<code>shuffleInPlace()</code>。
 2. 使用构建配置语句 <code>#if #else #endif</code>
@@ -393,28 +393,28 @@ public struct PlayingCard {
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#if os(Linux)
-import Glibc
-#else
-import Darwin.C
-#endif
-
-public extension MutableCollectionType where Index == Int {
-    mutating func shuffleInPlace() {
-        if count &lt;= 1 { return }
-
-        for i in 0..&lt;count - 1 {
-            #if os(Linux)
-                let j = Int(random() % (count - i)))) + i
-            #else
-                let j = Int(arc4random_uniform(UInt32(count - i))) + i
-            #endif
-                if i == j { continue }
-                swap(&amp;self[i], &amp;self[j])
-        }
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#if os(Linux)
+</span></span><span class="line"><span class="cl">import Glibc
+</span></span><span class="line"><span class="cl">#else
+</span></span><span class="line"><span class="cl">import Darwin.C
+</span></span><span class="line"><span class="cl">#endif
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public extension MutableCollectionType where Index == Int {
+</span></span><span class="line"><span class="cl">    mutating func shuffleInPlace() {
+</span></span><span class="line"><span class="cl">        if count &lt;= 1 { return }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        for i in 0..&lt;count - 1 {
+</span></span><span class="line"><span class="cl">            #if os(Linux)
+</span></span><span class="line"><span class="cl">                let j = Int(random() % (count - i)))) + i
+</span></span><span class="line"><span class="cl">            #else
+</span></span><span class="line"><span class="cl">                let j = Int(arc4random_uniform(UInt32(count - i))) + i
+</span></span><span class="line"><span class="cl">            #endif
+</span></span><span class="line"><span class="cl">                if i == j { continue }
+</span></span><span class="line"><span class="cl">                swap(&amp;self[i], &amp;self[j])
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="依赖库导入及使用">依赖库导入及使用</h3>
 <p><code>DeckOfPlayingCards</code>包将前两个包组合在一起:它定义了一种桥牌类型，该类型在一个<code>PlayingCard</code>值数组上使用<code>fisher()</code>方法。
@@ -444,28 +444,28 @@ public extension MutableCollectionType where Index == Int {
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// swift-tools-version:4.0
-</span><span class="c1"></span><span class="kn">import</span> <span class="nx">PackageDescription</span>
-
-<span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
-    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
-    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="nf">library</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
-    <span class="p">],</span>
-    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;2.0.0&#34;</span><span class="p">),</span>
-        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
-    <span class="p">],</span>
-    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
-            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
-            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;FisherYates&#34;</span><span class="p">,</span> <span class="s">&#34;PlayingCard&#34;</span><span class="p">]),</span>
-        <span class="p">.</span><span class="nf">testTarget</span><span class="p">(</span>
-            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCardsTests&#34;</span><span class="p">,</span>
-            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// swift-tools-version:4.0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">import</span> <span class="nx">PackageDescription</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nf">library</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-fisheryates.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;2.0.0&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-playingcard.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;FisherYates&#34;</span><span class="p">,</span> <span class="s">&#34;PlayingCard&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nf">testTarget</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;DeckOfPlayingCardsTests&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>每个依赖项指定源<code>URL</code>和<code>from:</code>版本号。
 <code>源URL</code>是解析到Git存储库的当前用户可以访问的URL。版本需求遵循语义版本控制(SemVer)约定，用于确定签出哪个Git标签并使用它来构建依赖关系。对于依赖项<code>FisherYates</code> ，将使用最新版本主版本为2(例如，2.0.4)。类似地，<code>PlayingCard</code>依赖项将使用最新版本主版本为3。
@@ -495,25 +495,25 @@ public extension MutableCollectionType where Index == Int {
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// swift-tools-version:4.0
-</span><span class="c1"></span>
-<span class="kn">import</span> <span class="nx">PackageDescription</span>
-
-<span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
-    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;dealer&#34;</span><span class="p">,</span>
-    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="nf">executable</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;Dealer&#34;</span><span class="p">]),</span>
-    <span class="p">],</span>
-    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-deckofplayingcards.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
-    <span class="p">],</span>
-    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
-        <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span>
-        <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// swift-tools-version:4.0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">PackageDescription</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">let</span> <span class="kn">package</span> <span class="p">=</span> <span class="nf">Package</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;dealer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">products</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nf">executable</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span> <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;Dealer&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="kn">package</span><span class="p">(</span><span class="nx">url</span><span class="p">:</span> <span class="s">&#34;https://github.com/apple/example-package-deckofplayingcards.git&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">:</span> <span class="s">&#34;3.0.0&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="nf">target</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;Dealer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;DeckOfPlayingCards&#34;</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>依赖传递关系也体现在Swift源文件代码<code>import</code>导入一个模块，就可以使用该某块下所有依赖库的类型。例如<code>Dealer</code>模块的<code>main.swift </code>文件。在<code>DeckOfPlayingCards</code>中的<code>Deck</code>类型和<code>PlayingCard</code>中的<code>PlayingCard</code>类型。尽管<code>Deck</code>类型的<code>shuffle()</code>方法在内部使用了<code>fisher</code>模块，但该模块不需要在<code>main.swift</code>中导入。</p>
 <div class="highlight"><div class="chroma">
@@ -535,22 +535,22 @@ public extension MutableCollectionType where Index == Int {
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import PlayingCard
-import DeckOfPlayingCards
-
-let numberOfCards = 10
-
-var deck = Deck.standard52CardDeck()
-deck.shuffle()
-
-for _ in 1...numberOfCards {
-    guard let card = deck.deal() else {
-        print(&#34;No More Cards!&#34;)
-        break
-    }
-    print(card)
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import PlayingCard
+</span></span><span class="line"><span class="cl">import DeckOfPlayingCards
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">let numberOfCards = 10
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">var deck = Deck.standard52CardDeck()
+</span></span><span class="line"><span class="cl">deck.shuffle()
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for _ in 1...numberOfCards {
+</span></span><span class="line"><span class="cl">    guard let card = deck.deal() else {
+</span></span><span class="line"><span class="cl">        print(&#34;No More Cards!&#34;)
+</span></span><span class="line"><span class="cl">        break
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    print(card)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="构建并运行可执行文件">构建并运行可执行文件</h3>
 <p>根据约定，一个<code>target</code>的根目录中包含一个名为<code>main.swift</code>文件，可以构建成一个可执行文件。
@@ -571,19 +571,19 @@ for _ in 1...numberOfCards {
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ swift build
-$ ./.build/debug/Dealer
-♠︎6
-♢K
-♢2
-♡8
-♠︎7
-♣︎10
-♣︎5
-♢A
-♡Q
-♡7
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ swift build
+</span></span><span class="line"><span class="cl">$ ./.build/debug/Dealer
+</span></span><span class="line"><span class="cl">♠︎6
+</span></span><span class="line"><span class="cl">♢K
+</span></span><span class="line"><span class="cl">♢2
+</span></span><span class="line"><span class="cl">♡8
+</span></span><span class="line"><span class="cl">♠︎7
+</span></span><span class="line"><span class="cl">♣︎10
+</span></span><span class="line"><span class="cl">♣︎5
+</span></span><span class="line"><span class="cl">♢A
+</span></span><span class="line"><span class="cl">♡Q
+</span></span><span class="line"><span class="cl">♡7
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="两个坑">两个坑</h3>
 <div class="highlight"><div class="chroma">
@@ -591,8 +591,8 @@ $ ./.build/debug/Dealer
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">swift</span> <span class="kn">package</span> <span class="nx">generate</span><span class="o">-</span><span class="nx">xcodeproj</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>每次更新或添加库或框架，xcodeproj就需要重新创建一次，不然无法引用到新库或新框架；</li>
@@ -738,7 +738,7 @@ $ ./.build/debug/Dealer
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

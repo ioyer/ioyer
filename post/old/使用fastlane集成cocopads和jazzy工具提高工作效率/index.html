@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E4%BD%BF%E7%94%A8fastlane%E9%9B%86%E6%88%90cocopads%E5%92%8Cjazzy%E5%B7%A5%E5%85%B7%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/" />
@@ -215,15 +215,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    author: Alamofire Software Foundation
-    author_url: http://alamofire.org/
-    github_url: https://github.com/Alamofire/Alamofire
-    root_url: https://alamofire.github.io/Alamofire/
-    module: Alamofire
-    output: docs
-    theme: fullwidth
-    xcodebuild_arguments: <span class="o">[</span>-workspace, <span class="s1">&#39;Alamofire.xcworkspace&#39;</span>, -scheme, <span class="s1">&#39;Alamofire iOS&#39;</span><span class="o">]</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    author: Alamofire Software Foundation
+</span></span><span class="line"><span class="cl">    author_url: http://alamofire.org/
+</span></span><span class="line"><span class="cl">    github_url: https://github.com/Alamofire/Alamofire
+</span></span><span class="line"><span class="cl">    root_url: https://alamofire.github.io/Alamofire/
+</span></span><span class="line"><span class="cl">    module: Alamofire
+</span></span><span class="line"><span class="cl">    output: docs
+</span></span><span class="line"><span class="cl">    theme: fullwidth
+</span></span><span class="line"><span class="cl">    xcodebuild_arguments: <span class="o">[</span>-workspace, <span class="s1">&#39;Alamofire.xcworkspace&#39;</span>, -scheme, <span class="s1">&#39;Alamofire iOS&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>使用test.sh</p>
@@ -237,12 +237,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    <span class="c1">#!/bin/bash</span>
-    jazzy --config .custom.jazzy.yaml
-    jazzy --config .admin.jazzy.yaml
-    jazzy --config .swiftfire.jazzy.yaml
-    <span class="nb">echo</span> <span class="s2">&#34;Jazzy completed&#34;</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    <span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl">    jazzy --config .custom.jazzy.yaml
+</span></span><span class="line"><span class="cl">    jazzy --config .admin.jazzy.yaml
+</span></span><span class="line"><span class="cl">    jazzy --config .swiftfire.jazzy.yaml
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Jazzy completed&#34;</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -265,8 +265,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    - ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Could not find a <span class="sb">`</span>ios<span class="sb">`</span> simulator <span class="o">(</span>valid values: <span class="o">)</span>. Ensure that Xcode -&gt; Window -&gt; Devices has at least one <span class="sb">`</span>ios<span class="sb">`</span> simulator listed or otherwise add one.<span class="o">)</span> during validation.
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    - ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Could not find a <span class="sb">`</span>ios<span class="sb">`</span> simulator <span class="o">(</span>valid values: <span class="o">)</span>. Ensure that Xcode -&gt; Window -&gt; Devices has at least one <span class="sb">`</span>ios<span class="sb">`</span> simulator listed or otherwise add one.<span class="o">)</span> during validation.
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>解决办法: 升级CocoaPods（使用的gem 源： <a href="https://gems.ruby-china.com/">https://gems.ruby-china.com/</a>）</p>
@@ -281,10 +281,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  sudo gem install cocoapods
-  fastlane podPushLane version:1.3 project:LogSwift
-或
-pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  sudo gem install cocoapods
+</span></span><span class="line"><span class="cl">  fastlane podPushLane version:1.3 project:LogSwift
+</span></span><span class="line"><span class="cl">或
+</span></span><span class="line"><span class="cl">pod lib lint LogSwift.podspec --allow-warnings</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>错误2</p>
@@ -293,7 +293,7 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">- NOTE  <span class="p">|</span> xcodebuild:  error: SWIFT_VERSION <span class="s1">&#39;3.0&#39;</span> is unsupported, supported versions are: 4.0, 4.2, 5.0. <span class="o">(</span>in target <span class="s1">&#39;LogSwift&#39;</span> from project <span class="s1">&#39;Pods&#39;</span><span class="o">)</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">- NOTE  <span class="p">|</span> xcodebuild:  error: SWIFT_VERSION <span class="s1">&#39;3.0&#39;</span> is unsupported, supported versions are: 4.0, 4.2, 5.0. <span class="o">(</span>in target <span class="s1">&#39;LogSwift&#39;</span> from project <span class="s1">&#39;Pods&#39;</span><span class="o">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>原因:  Usage of the `.swift_version` file has been deprecated! Please delete the file and use the `swift_versions` attribute within your podspec instead.
@@ -316,19 +316,19 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Validating spec
--&gt; LogSwift <span class="o">(</span>1.6<span class="o">)</span>
-- ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Unable to find a specification <span class="k">for</span> <span class="sb">`</span>RNCryptor <span class="o">(</span>~&gt; 5.1.0<span class="o">)</span><span class="sb">`</span> depended upon by <span class="sb">`</span>LogSwift<span class="sb">`</span>
-
-                                                       You have either:
-                                                       * out-of-date <span class="nb">source</span> repos which you can update with <span class="sb">`</span>pod repo update<span class="sb">`</span> or with <span class="sb">`</span>pod install --repo-update<span class="sb">`</span>.
-                                                       * mistyped the name or version.
-                                                       * not added the <span class="nb">source</span> repo that hosts the Podspec to your Podfile.
-
-                                                       Note: as of CocoaPods 1.0, <span class="sb">`</span>pod repo update<span class="sb">`</span> does not happen on <span class="sb">`</span>pod install<span class="sb">`</span> by default.
-                                                      <span class="o">)</span> during validation.
-
-<span class="o">[</span>!<span class="o">]</span> The <span class="sb">`</span>LogSwift.podspec<span class="sb">`</span> specification does not validate.</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Validating spec
+</span></span><span class="line"><span class="cl">-&gt; LogSwift <span class="o">(</span>1.6<span class="o">)</span>
+</span></span><span class="line"><span class="cl">- ERROR <span class="p">|</span> <span class="o">[</span>iOS<span class="o">]</span> unknown: Encountered an unknown error <span class="o">(</span>Unable to find a specification <span class="k">for</span> <span class="sb">`</span>RNCryptor <span class="o">(</span>~&gt; 5.1.0<span class="o">)</span><span class="sb">`</span> depended upon by <span class="sb">`</span>LogSwift<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                                                       You have either:
+</span></span><span class="line"><span class="cl">                                                       * out-of-date <span class="nb">source</span> repos which you can update with <span class="sb">`</span>pod repo update<span class="sb">`</span> or with <span class="sb">`</span>pod install --repo-update<span class="sb">`</span>.
+</span></span><span class="line"><span class="cl">                                                       * mistyped the name or version.
+</span></span><span class="line"><span class="cl">                                                       * not added the <span class="nb">source</span> repo that hosts the Podspec to your Podfile.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                                                       Note: as of CocoaPods 1.0, <span class="sb">`</span>pod repo update<span class="sb">`</span> does not happen on <span class="sb">`</span>pod install<span class="sb">`</span> by default.
+</span></span><span class="line"><span class="cl">                                                      <span class="o">)</span> during validation.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> The <span class="sb">`</span>LogSwift.podspec<span class="sb">`</span> specification does not validate.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>解决方法: pod repo update 更新pod索引库重新发布: pod repo push PodRepo &lsquo;LogSwift.podspec&rsquo; &ndash;allow-warnings</p>
@@ -348,17 +348,17 @@ pod lib lint LogSwift.podspec --allow-warnings</code></pre></td></tr></table>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span>!<span class="o">]</span> The repo <span class="sb">`</span>PodRepo<span class="sb">`</span> at <span class="sb">`</span>../../../../.cocoapods/repos/PodRepo<span class="sb">`</span> is not clean
-
-原因:
-git status
-
-.DS_Store
-ArcProgressUI/.DS_Store
-LogSwift/.DS_Store
-MusicLrc/.DS_Store
-
-$ git clean <span class="o">[</span>参数<span class="o">]</span> //-n 显示将要删除的文件和目录 -f 删除文件 -df 删除文件和目录</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>!<span class="o">]</span> The repo <span class="sb">`</span>PodRepo<span class="sb">`</span> at <span class="sb">`</span>../../../../.cocoapods/repos/PodRepo<span class="sb">`</span> is not clean
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">原因:
+</span></span><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">.DS_Store
+</span></span><span class="line"><span class="cl">ArcProgressUI/.DS_Store
+</span></span><span class="line"><span class="cl">LogSwift/.DS_Store
+</span></span><span class="line"><span class="cl">MusicLrc/.DS_Store
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git clean <span class="o">[</span>参数<span class="o">]</span> //-n 显示将要删除的文件和目录 -f 删除文件 -df 删除文件和目录</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -511,7 +511,7 @@ fastlane编译app并运行到真机上?
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

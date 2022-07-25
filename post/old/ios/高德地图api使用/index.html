@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BEapi%E4%BD%BF%E7%94%A8/" />
@@ -192,9 +192,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;AMapFoundationKit/AMapFoundationKit.h&gt;
-</span><span class="cp">#import &lt;AMapLocationKit/AMapLocationKit.h&gt;
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="cp">#import &lt;AMapFoundationKit/AMapFoundationKit.h&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp">#import &lt;AMapLocationKit/AMapLocationKit.h&gt;
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="调用方法">调用方法</h2>
 <div class="highlight"><div class="chroma">
@@ -255,61 +255,61 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">strKey</span> <span class="o">=</span> <span class="s">@&#34;2d8a96d668576584acebf2bab0ba0c08&#34;</span><span class="p">;</span><span class="c1">//默认值
-</span><span class="c1">//配置里面取值
-</span><span class="c1"></span><span class="n">NSString</span> <span class="o">*</span><span class="n">strBundleKey</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="n">infoDictionary</span><span class="p">][</span><span class="s">@&#34;IOSPostionkey&#34;</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">strBundleKey</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">strKey</span> <span class="o">=</span> <span class="n">strBundleKey</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">[</span><span class="n">AMapServices</span> <span class="n">sharedServices</span><span class="p">].</span><span class="n">apiKey</span> <span class="o">=</span> <span class="n">strKey</span><span class="p">;</span>
-
-<span class="c1">// 带逆地理信息的一次定位（返回坐标和地址信息）
-</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AMapLocationManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setDesiredAccuracy</span><span class="p">:</span><span class="n">kCLLocationAccuracyHundredMeters</span><span class="p">];</span>
-<span class="c1">//   定位超时时间，最低2s，此处设置为2s
-</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span><span class="p">.</span><span class="n">locationTimeout</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-<span class="c1">//   逆地理请求超时时间，最低2s，此处设置为2s
-</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span><span class="p">.</span><span class="n">reGeocodeTimeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="c1">//设置不允许系统暂停定位
-</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setPausesLocationUpdatesAutomatically</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
-<span class="c1">//    //设置允许在后台定位
-</span><span class="c1">//    [locationManager setAllowsBackgroundLocationUpdates:YES];
-</span><span class="c1">//设置允许连续定位逆地理
-</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setLocatingWithReGeocode</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
-<span class="c1">//    [locationManager setDelegate:self];
-</span><span class="c1">// [self.locationManager startUpdatingLocation];
-</span><span class="c1">//    // 带逆地理（返回坐标和地址信息）。将下面代码中的 YES 改成 NO ，则不会返回地址信息。
-</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">requestLocationWithReGeocode</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">completionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="n">gaodeLocation</span><span class="p">,</span> <span class="n">AMapLocationReGeocode</span> <span class="o">*</span><span class="n">regeocode</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">gaodeLocation</span><span class="o">==</span><span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;高德没有返回地理位置,使用苹果官方定位经纬度&#34;</span><span class="p">);</span>
-        <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">jingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">weidu</span><span class="p">];</span>
-        <span class="k">return</span> <span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;locError:{%ld - %@};&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">error</span><span class="p">.</span><span class="n">code</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">AMapLocationErrorLocateFailed</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;AMapLocationErrorLocateFailed高德没有返回地理位置,使用苹果官方定位经纬度&#34;</span><span class="p">);</span>
-            <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">jingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">weidu</span><span class="p">];</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;使用高德location:%@&#34;</span><span class="p">,</span> <span class="n">gaodeLocation</span><span class="p">);</span>
-    <span class="n">NSString</span> <span class="o">*</span> <span class="n">gaodeWeidu</span> <span class="o">=</span>  <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%.9f&#34;</span><span class="p">,</span><span class="n">gaodeLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">latitude</span><span class="p">];</span>
-    <span class="n">NSString</span> <span class="o">*</span> <span class="n">gaodeJingdu</span> <span class="o">=</span>  <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%.9f&#34;</span><span class="p">,</span><span class="n">gaodeLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">longitude</span><span class="p">];</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">regeocode</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;reGeocode:%@&#34;</span><span class="p">,</span> <span class="n">regeocode</span><span class="p">);</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">theRealAdress</span> <span class="o">=</span> <span class="n">regeocode</span><span class="p">.</span><span class="n">formattedAddress</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">gaodeJingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">gaodeWeidu</span><span class="p">];</span>
-<span class="p">}];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">NSString</span> <span class="o">*</span><span class="n">strKey</span> <span class="o">=</span> <span class="s">@&#34;2d8a96d668576584acebf2bab0ba0c08&#34;</span><span class="p">;</span><span class="c1">//默认值
+</span></span></span><span class="line"><span class="cl"><span class="c1">//配置里面取值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">NSString</span> <span class="o">*</span><span class="n">strBundleKey</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="n">infoDictionary</span><span class="p">][</span><span class="s">@&#34;IOSPostionkey&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">strBundleKey</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strKey</span> <span class="o">=</span> <span class="n">strBundleKey</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">AMapServices</span> <span class="n">sharedServices</span><span class="p">].</span><span class="n">apiKey</span> <span class="o">=</span> <span class="n">strKey</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 带逆地理信息的一次定位（返回坐标和地址信息）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AMapLocationManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setDesiredAccuracy</span><span class="p">:</span><span class="n">kCLLocationAccuracyHundredMeters</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//   定位超时时间，最低2s，此处设置为2s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span><span class="p">.</span><span class="n">locationTimeout</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//   逆地理请求超时时间，最低2s，此处设置为2s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span><span class="p">.</span><span class="n">reGeocodeTimeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//设置不允许系统暂停定位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setPausesLocationUpdatesAutomatically</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//    //设置允许在后台定位
+</span></span></span><span class="line"><span class="cl"><span class="c1">//    [locationManager setAllowsBackgroundLocationUpdates:YES];
+</span></span></span><span class="line"><span class="cl"><span class="c1">//设置允许连续定位逆地理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">setLocatingWithReGeocode</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//    [locationManager setDelegate:self];
+</span></span></span><span class="line"><span class="cl"><span class="c1">// [self.locationManager startUpdatingLocation];
+</span></span></span><span class="line"><span class="cl"><span class="c1">//    // 带逆地理（返回坐标和地址信息）。将下面代码中的 YES 改成 NO ，则不会返回地址信息。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">GaodelocationManager</span> <span class="nl">requestLocationWithReGeocode</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">completionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="n">gaodeLocation</span><span class="p">,</span> <span class="n">AMapLocationReGeocode</span> <span class="o">*</span><span class="n">regeocode</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">gaodeLocation</span><span class="o">==</span><span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;高德没有返回地理位置,使用苹果官方定位经纬度&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">jingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">weidu</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;locError:{%ld - %@};&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">error</span><span class="p">.</span><span class="n">code</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">AMapLocationErrorLocateFailed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;AMapLocationErrorLocateFailed高德没有返回地理位置,使用苹果官方定位经纬度&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">jingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">weidu</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;使用高德location:%@&#34;</span><span class="p">,</span> <span class="n">gaodeLocation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NSString</span> <span class="o">*</span> <span class="n">gaodeWeidu</span> <span class="o">=</span>  <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%.9f&#34;</span><span class="p">,</span><span class="n">gaodeLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">latitude</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NSString</span> <span class="o">*</span> <span class="n">gaodeJingdu</span> <span class="o">=</span>  <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%.9f&#34;</span><span class="p">,</span><span class="n">gaodeLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">longitude</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">regeocode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;reGeocode:%@&#34;</span><span class="p">,</span> <span class="n">regeocode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">self</span><span class="p">.</span><span class="n">theRealAdress</span> <span class="o">=</span> <span class="n">regeocode</span><span class="p">.</span><span class="n">formattedAddress</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nb">self</span> <span class="nl">GetGISInfoByByLocationWithjingdu</span><span class="p">:</span><span class="n">gaodeJingdu</span> <span class="nl">AndWeidu</span><span class="p">:</span><span class="n">gaodeWeidu</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -449,7 +449,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

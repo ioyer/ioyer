@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/swift%E7%9A%84%E5%8A%A8%E6%80%81%E6%80%A7/" />
@@ -213,11 +213,11 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
-
-<span class="p">[</span><span class="n">myClass</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
-<span class="p">[</span><span class="n">myClass</span> <span class="nl">setValue</span><span class="p">:</span><span class="l">@(</span><span class="mi">4</span><span class="l">)</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">myClass</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">myClass</span> <span class="nl">setValue</span><span class="p">:</span><span class="l">@(</span><span class="mi">4</span><span class="l">)</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;number&#34;</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>例如，假设我们有这个 number 属性，您可以将属性名称作为键，来获取属性值或者设置属性值。这个功能可以用在此前我们所看到的获取变量列表、协议列表，以及危险的混淆功能当中。</p>
 <h3 id="kvo">KVO</h3>
@@ -240,18 +240,18 @@ KVC 和 KVO 允许我们将 UI 和数据进行绑定，这也是 Rx 以及其他
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">myClass</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;number&#34;</span>
-<span class="nl">options</span><span class="p">:</span><span class="n">NSKeyValueObservingOptionInitial</span> <span class="o">|</span> <span class="n">NSKeyValueObservingOptionNew</span>
-<span class="nl">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">observeValueForKeyPath:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyPath</span>
-<span class="nf">ofObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">object</span>
-<span class="nf">change:</span><span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSKeyValueChangeKey</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">change</span>
-<span class="nf">context:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">{</span>
-<span class="c1">// Respond to observation.
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">[</span><span class="n">myClass</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
+</span></span><span class="line"><span class="cl"><span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;number&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">options</span><span class="p">:</span><span class="n">NSKeyValueObservingOptionInitial</span> <span class="o">|</span> <span class="n">NSKeyValueObservingOptionNew</span>
+</span></span><span class="line"><span class="cl"><span class="nl">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">observeValueForKeyPath:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyPath</span>
+</span></span><span class="line"><span class="cl"><span class="nf">ofObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">object</span>
+</span></span><span class="line"><span class="cl"><span class="nf">change:</span><span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSKeyValueChangeKey</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">change</span>
+</span></span><span class="line"><span class="cl"><span class="nf">context:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Respond to observation.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在观察的值发生变更之后，KVO 会调用此方法立即通知观察者。通过这个方法，我们便可以按需更新 UI。
 2. 弊端：难以调试
@@ -293,20 +293,20 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 1
-</span><span class="c1"></span><span class="n">override</span> <span class="k">class</span> <span class="n">func</span> <span class="nf">resolveInstanceMethod</span><span class="p">(</span><span class="n">_</span> <span class="nl">sel</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span>
-<span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
-<span class="c1">// 添加实例方法并返回 true 的一次机会，它随后会再次尝试发送消息
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="c1">// 2
-</span><span class="c1"></span><span class="n">override</span> <span class="n">func</span> <span class="nf">forwardingTarget</span><span class="p">(</span><span class="k">for</span> <span class="nl">aSelector</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span>
-<span class="n">Any</span><span class="o">?</span> <span class="p">{</span>
-<span class="c1">// 返回可以处理 Selector 的对象
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="c1">// 3 - Swift 不支持 NSInvocation
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">override</span> <span class="k">class</span> <span class="n">func</span> <span class="nf">resolveInstanceMethod</span><span class="p">(</span><span class="n">_</span> <span class="nl">sel</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加实例方法并返回 true 的一次机会，它随后会再次尝试发送消息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">override</span> <span class="n">func</span> <span class="nf">forwardingTarget</span><span class="p">(</span><span class="k">for</span> <span class="nl">aSelector</span><span class="p">:</span> <span class="n">Selector</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Any</span><span class="o">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 返回可以处理 Selector 的对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 3 - Swift 不支持 NSInvocation
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>resolveInstanceMethod 同样会被调用，forwardingTarget 看起来似乎更贴近于 Swift 3 风格的 API。但是 NSInvocation 并不能在 Swift 当中使用。我们同样可以实现方法转发，因此看起来也不算太坏。</p>
 <h4 id="方法混淆">方法混淆</h4>
@@ -327,18 +327,18 @@ pleaseRefrainFromDoingSoInTheFutureOkayThanksBye:</li>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">if self is MyClass {
-// YAY
-}
-
-let myString = &#34;myString&#34;;
-let mirror = Mirror(reflecting: myString)
-print(mirror.subjectType) // “String&#34;
-let string = String(reflecting: type(of:
-myString)) // Swift.String
-
-// No native method introspection
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if self is MyClass {
+</span></span><span class="line"><span class="cl">// YAY
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">let myString = &#34;myString&#34;;
+</span></span><span class="line"><span class="cl">let mirror = Mirror(reflecting: myString)
+</span></span><span class="line"><span class="cl">print(mirror.subjectType) // “String&#34;
+</span></span><span class="line"><span class="cl">let string = String(reflecting: type(of:
+</span></span><span class="line"><span class="cl">myString)) // Swift.String
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// No native method introspection
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>is</code> 替代了 <code>isMemberOfClass</code>，它同样也可以对 Swift 值类型:结构体、枚举以及其他 Swift 当中的新类型使用。此外还有一个新的映射 API，它主要针对于管道 (pipe) 和数据。</p>
 <h4 id="单元测试">单元测试</h4>
@@ -491,7 +491,7 @@ myString)) // Swift.String
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo-%E6%94%AF%E6%8C%81-org-%E5%AF%BC%E5%87%BA-md/" />
@@ -220,12 +220,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="nf">*</span> <span class="nv">Footnotes</span>
-<span class="nf">*</span> <span class="nv">COMMENT</span> <span class="nv">Local</span> <span class="nv">Variables</span> <span class="nb">:ARCHIVE:</span>
-<span class="err">#</span> <span class="nv">Local</span> <span class="nv">Variables:</span>
-<span class="err">#</span> <span class="nv">eval:</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span><span class="p">)</span>
-<span class="err">#</span> <span class="nv">End:</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="nf">*</span> <span class="nv">Footnotes</span>
+</span></span><span class="line"><span class="cl"><span class="nf">*</span> <span class="nv">COMMENT</span> <span class="nv">Local</span> <span class="nv">Variables</span> <span class="nb">:ARCHIVE:</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">Local</span> <span class="nv">Variables:</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">eval:</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">End:</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="作用在目录下所有-org-文件">作用在目录下所有 org 文件</h2>
 <p>举例,当想在 <code>~/your/org</code> 目录下:</p>
@@ -234,8 +234,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">vi ~/your/org/.dir-locals.el
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vi ~/your/org/.dir-locals.el
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在文件中添加如下内容</p>
 <div class="highlight"><div class="chroma">
@@ -243,8 +243,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"> <span class="p">((</span><span class="nv">org-mode</span> <span class="o">.</span> <span class="p">((</span><span class="nf">eval</span> <span class="o">.</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span><span class="p">)))))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"> <span class="p">((</span><span class="nv">org-mode</span> <span class="o">.</span> <span class="p">((</span><span class="nf">eval</span> <span class="o">.</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span><span class="p">)))))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>保存之后,在 emacs 编辑 org 并保存,验证是否成功.</p>
 <h3 id="屏蔽该目录下-org-自动保存">屏蔽该目录下 org 自动保存</h3>
@@ -257,12 +257,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="err">​</span><span class="nf">*</span> <span class="nv">Footnotes</span>
-<span class="err">​</span><span class="nf">*</span> <span class="nv">COMMENT</span> <span class="nv">Local</span> <span class="nv">Variables</span>                          <span class="nb">:ARCHIVE:</span>
-<span class="err">#</span> <span class="nv">Local</span> <span class="nv">Variables:</span>
-<span class="err">#</span> <span class="nv">eval:</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span> <span class="mi">-1</span><span class="p">)</span>
-<span class="err">#</span> <span class="nv">End:</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="err">​</span><span class="nf">*</span> <span class="nv">Footnotes</span>
+</span></span><span class="line"><span class="cl"><span class="err">​</span><span class="nf">*</span> <span class="nv">COMMENT</span> <span class="nv">Local</span> <span class="nv">Variables</span>                          <span class="nb">:ARCHIVE:</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">Local</span> <span class="nv">Variables:</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">eval:</span> <span class="p">(</span><span class="nv">org-hugo-auto-export-mode</span> <span class="mi">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nv">End:</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -402,7 +402,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

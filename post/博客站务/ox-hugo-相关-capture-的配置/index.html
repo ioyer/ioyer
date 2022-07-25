@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/ox-hugo-%E7%9B%B8%E5%85%B3-capture-%E7%9A%84%E9%85%8D%E7%BD%AE/" />
@@ -215,8 +215,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">    <span class="p">((</span><span class="nb">setq</span> <span class="nv">var</span> <span class="p">)</span> <span class="nv">org-default-notes-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">org-directory</span> <span class="s">&#34;/notes.org&#34;</span><span class="p">))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">    <span class="p">((</span><span class="nb">setq</span> <span class="nv">var</span> <span class="p">)</span> <span class="nv">org-default-notes-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="nv">org-directory</span> <span class="s">&#34;/notes.org&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>配置好之后,重新加载下配置,    使用这个和自己的快捷键有关,目前使用 doom 主题,所以 <code>spc shift x</code> 激活 capture 功能页面</p>
 </li>
@@ -252,9 +252,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">     <span class="p">(</span><span class="nv">file</span> <span class="s">&#34;/path/to/template-file&#34;</span><span class="p">)</span>
-     <span class="p">(</span><span class="nb">function</span> <span class="nv">FUNCTION-RETURNING-THE-TEMPLATE</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">     <span class="p">(</span><span class="nv">file</span> <span class="s">&#34;/path/to/template-file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nb">function</span> <span class="nv">FUNCTION-RETURNING-THE-TEMPLATE</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -272,9 +272,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">   <span class="nf">&lt;</span><span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: [17:09]</span>
-   <span class="nv">&lt;%d</span> <span class="nv">%m</span> <span class="nv">%Y</span>  <span class="nv">%a</span> <span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: 02 12 2021 Fir [17:09]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="nf">&lt;</span><span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: [17:09]</span>
+</span></span><span class="line"><span class="cl">   <span class="nv">&lt;%d</span> <span class="nv">%m</span> <span class="nv">%Y</span>  <span class="nv">%a</span> <span class="p">[</span><span class="nv">%H:%M</span><span class="p">]</span><span class="nf">&gt;</span> <span class="c1">;;生成的结果是: 02 12 2021 Fir [17:09]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>真实案例:</p>
 <div class="highlight"><div class="chroma">
@@ -289,14 +289,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="s">&#34;g&#34;</span> <span class="s">&#34;日总结周总结做日志记录、日记写作,file+weektree顺序排列&#34;</span>
-                      <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+weektree</span> <span class="nv">org-agenda-file-gtd</span><span class="p">)</span>
-<span class="hl">                      <span class="s">&#34;* %&lt;[%H:%M]&gt; %^{title} %^g\n %?\n&#34;</span>
-</span>                      <span class="nb">:empty-lines</span> <span class="mi">1</span>
-                      <span class="c1">;; :immediate-finish t</span>
-                      <span class="c1">;; :jump-to-captured 1</span>
-                      <span class="p">)</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="s">&#34;g&#34;</span> <span class="s">&#34;日总结周总结做日志记录、日记写作,file+weektree顺序排列&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+weektree</span> <span class="nv">org-agenda-file-gtd</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl">                      <span class="s">&#34;* %&lt;[%H:%M]&gt; %^{title} %^g\n %?\n&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="nb">:empty-lines</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                      <span class="c1">;; :immediate-finish t</span>
+</span></span><span class="line"><span class="cl">                      <span class="c1">;; :jump-to-captured 1</span>
+</span></span><span class="line"><span class="cl">                      <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p><code>％t</code>:时间戳记，仅日期.<br>
@@ -324,12 +324,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-capture-templates</span>
-            <span class="o">&#39;</span><span class="p">((</span><span class="s">&#34;t&#34;</span> <span class="s">&#34;Todo&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+headline</span> <span class="s">&#34;~/org/gtd.org&#34;</span> <span class="s">&#34;Tasks&#34;</span><span class="p">)</span>
-               <span class="s">&#34;* TODO %?\n  %i\n  %a&#34;</span><span class="p">)</span>
-              <span class="p">(</span><span class="s">&#34;j&#34;</span> <span class="s">&#34;Journal&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+datetree</span> <span class="s">&#34;~/org/journal.org&#34;</span><span class="p">)</span>
-               <span class="s">&#34;* %?\nEntered on %U\n  %i\n  %a&#34;</span><span class="p">)))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-capture-templates</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&#39;</span><span class="p">((</span><span class="s">&#34;t&#34;</span> <span class="s">&#34;Todo&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+headline</span> <span class="s">&#34;~/org/gtd.org&#34;</span> <span class="s">&#34;Tasks&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="s">&#34;* TODO %?\n  %i\n  %a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s">&#34;j&#34;</span> <span class="s">&#34;Journal&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file+datetree</span> <span class="s">&#34;~/org/journal.org&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="s">&#34;* %?\nEntered on %U\n  %i\n  %a&#34;</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -341,10 +341,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-templates</span>
-                   <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;!l&#34;</span> <span class="s">&#34;Link&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file</span> <span class="nv">org-agenda-file-inbox</span><span class="p">)</span>
-                     <span class="s">&#34;* TODO 阅读：%:description\nCaptured On: %U\n\n%:link&#34;</span> <span class="nb">:immediate-finish</span> <span class="no">t</span><span class="p">))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-templates</span>
+</span></span><span class="line"><span class="cl">                   <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;!l&#34;</span> <span class="s">&#34;Link&#34;</span> <span class="nv">entry</span> <span class="p">(</span><span class="nv">file</span> <span class="nv">org-agenda-file-inbox</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                     <span class="s">&#34;* TODO 阅读：%:description\nCaptured On: %U\n\n%:link&#34;</span> <span class="nb">:immediate-finish</span> <span class="no">t</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -359,9 +359,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
-           <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取到到文件名 <code>fname</code> 之后,会在插入到 org 时,填充给必须属性: <code>:EXPORT_FILE_NAME:</code>.<br>
 官网的 capture 主要实现在用湖创建一篇新博客时,会自动填充属性栏中的导出文件名的值,这样用户就可以直接进行博客编写,不需要关心导出时的相关设置.</p>
@@ -385,21 +385,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;; Populates only the EXPORT_FILE_NAME property in the inserted headline.</span>
-<span class="p">(</span><span class="nb">with-eval-after-load</span> <span class="ss">&#39;org-capture</span>
-  <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
-    <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
-</span><span class="s">See </span><span class="ss">`org-capture-templates&#39;</span><span class="s"> for more information.&#34;</span>
-<span class="hl">    <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
-</span><span class="hl">           <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
-</span>      <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;identity</span>
-                 <span class="o">`</span><span class="p">(</span>
-                   <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;* TODO &#34;</span> <span class="nv">title</span><span class="p">)</span>
-                   <span class="s">&#34;:PROPERTIES:&#34;</span>
-                   <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_FILE_NAME: &#34;</span> <span class="nv">fname</span><span class="p">)</span>
-                   <span class="s">&#34;:END:&#34;</span>
-                   <span class="s">&#34;%?\n&#34;</span><span class="p">)</span>          <span class="c1">;Place the cursor here finally</span>
-                 <span class="s">&#34;\n&#34;</span><span class="p">)))</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;; Populates only the EXPORT_FILE_NAME property in the inserted headline.</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">with-eval-after-load</span> <span class="ss">&#39;org-capture</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
+</span></span></span><span class="line"><span class="cl"><span class="s">See </span><span class="ss">`org-capture-templates&#39;</span><span class="s"> for more information.&#34;</span>
+</span></span><span class="line hl"><span class="cl">    <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
+</span></span><span class="line hl"><span class="cl">           <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;identity</span>
+</span></span><span class="line"><span class="cl">                 <span class="o">`</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                   <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;* TODO &#34;</span> <span class="nv">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                   <span class="s">&#34;:PROPERTIES:&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_FILE_NAME: &#34;</span> <span class="nv">fname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                   <span class="s">&#34;:END:&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="s">&#34;%?\n&#34;</span><span class="p">)</span>          <span class="c1">;Place the cursor here finally</span>
+</span></span><span class="line"><span class="cl">                 <span class="s">&#34;\n&#34;</span><span class="p">)))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <div class="src-block-caption">
@@ -420,16 +420,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-template</span>    <span class="nv">s</span>
-               <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;h&#34;</span>                <span class="c1">;`org-capture&#39; binding + h</span>
-                 <span class="s">&#34;Hugo post&#34;</span>
-                 <span class="nv">entry</span>
-                 <span class="c1">;; It is assumed that below file is present in `org-directory&#39;</span>
-                 <span class="c1">;; and that it has a &#34;Blog Ideas&#34; heading. It can even be a</span>
-                 <span class="c1">;; symlink pointing to the actual location of all-posts.org!</span>
-                 <span class="p">(</span><span class="nv">file+olp</span> <span class="s">&#34;all-posts.org&#34;</span> <span class="s">&#34;Blog Ideas&#34;</span><span class="p">)</span>
-                 <span class="p">(</span><span class="nb">function</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span><span class="p">))))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-capture-template</span>    <span class="nv">s</span>
+</span></span><span class="line"><span class="cl">               <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;h&#34;</span>                <span class="c1">;`org-capture&#39; binding + h</span>
+</span></span><span class="line"><span class="cl">                 <span class="s">&#34;Hugo post&#34;</span>
+</span></span><span class="line"><span class="cl">                 <span class="nv">entry</span>
+</span></span><span class="line"><span class="cl">                 <span class="c1">;; It is assumed that below file is present in `org-directory&#39;</span>
+</span></span><span class="line"><span class="cl">                 <span class="c1">;; and that it has a &#34;Blog Ideas&#34; heading. It can even be a</span>
+</span></span><span class="line"><span class="cl">                 <span class="c1">;; symlink pointing to the actual location of all-posts.org!</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="nv">file+olp</span> <span class="s">&#34;all-posts.org&#34;</span> <span class="s">&#34;Blog Ideas&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="nb">function</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span><span class="p">))))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>官方推荐了几个属性:</p>
 <ol>
@@ -459,23 +459,23 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
-         <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
-</span><span class="s">       See </span><span class="ss">`org-capture-templates&#39;</span><span class="s"> for more information.&#34;</span>
-<span class="hl">         <span class="p">(</span><span class="nb">let*</span> <span class="p">(</span><span class="c1">;; http://www.holgerschurig.de/en/emacs-blog-from-org-to-hugo/</span>
-</span><span class="hl">                <span class="p">(</span><span class="nv">date</span> <span class="p">(</span><span class="nf">format-time-string</span> <span class="p">(</span><span class="nv">org-time-stamp-format</span> <span class="nb">:long</span> <span class="nb">:inactive</span><span class="p">)</span> <span class="p">(</span><span class="nv">org-current-time</span><span class="p">)))</span>
-</span>                <span class="p">(</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
-                <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;identity</span>
-                      <span class="o">`</span><span class="p">(</span>
-                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;* TODO &#34;</span> <span class="nv">title</span><span class="p">)</span>
-                        <span class="s">&#34;:PROPERTIES:&#34;</span>
-                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_FILE_NAME: &#34;</span> <span class="nv">fname</span><span class="p">)</span>
-<span class="hl">                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_DATE: &#34;</span> <span class="nv">date</span><span class="p">)</span> <span class="c1">;Enter current date and time</span>
-</span>                        <span class="s">&#34;:END:&#34;</span>
-                        <span class="s">&#34;%?\n&#34;</span><span class="p">)</span>                <span class="c1">;Place the cursor here finally</span>
-                      <span class="s">&#34;\n&#34;</span><span class="p">)))</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">org-hugo-new-subtree-post-capture-template</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">         <span class="s">&#34;Returns </span><span class="ss">`org-capture&#39;</span><span class="s"> template string for new Hugo post.
+</span></span></span><span class="line"><span class="cl"><span class="s">       See </span><span class="ss">`org-capture-templates&#39;</span><span class="s"> for more information.&#34;</span>
+</span></span><span class="line hl"><span class="cl">         <span class="p">(</span><span class="nb">let*</span> <span class="p">(</span><span class="c1">;; http://www.holgerschurig.de/en/emacs-blog-from-org-to-hugo/</span>
+</span></span><span class="line hl"><span class="cl">                <span class="p">(</span><span class="nv">date</span> <span class="p">(</span><span class="nf">format-time-string</span> <span class="p">(</span><span class="nv">org-time-stamp-format</span> <span class="nb">:long</span> <span class="nb">:inactive</span><span class="p">)</span> <span class="p">(</span><span class="nv">org-current-time</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="nv">title</span> <span class="p">(</span><span class="nf">read-from-minibuffer</span> <span class="s">&#34;Post Title: &#34;</span><span class="p">))</span> <span class="c1">;Prompt to enter the post title</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="nv">fname</span> <span class="p">(</span><span class="nv">org-hugo-slug</span> <span class="nv">title</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nf">mapconcat</span> <span class="nf">#&#39;identity</span>
+</span></span><span class="line"><span class="cl">                      <span class="o">`</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;* TODO &#34;</span> <span class="nv">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="s">&#34;:PROPERTIES:&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_FILE_NAME: &#34;</span> <span class="nv">fname</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl">                        <span class="o">,</span><span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;:EXPORT_DATE: &#34;</span> <span class="nv">date</span><span class="p">)</span> <span class="c1">;Enter current date and time</span>
+</span></span><span class="line"><span class="cl">                        <span class="s">&#34;:END:&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="s">&#34;%?\n&#34;</span><span class="p">)</span>                <span class="c1">;Place the cursor here finally</span>
+</span></span><span class="line"><span class="cl">                      <span class="s">&#34;\n&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -618,7 +618,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

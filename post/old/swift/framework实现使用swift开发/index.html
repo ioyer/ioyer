@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/framework%E5%AE%9E%E7%8E%B0%E4%BD%BF%E7%94%A8swift%E5%BC%80%E5%8F%91/" />
@@ -220,15 +220,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ld: warning: Auto-Linking library not found for -lswiftDispatch
-ld: warning: Auto-Linking library not found for -lswiftCoreFoundation
-ld: warning: Auto-Linking library not found for -lswiftObjectiveC
-ld: warning: Auto-Linking library not found for -lswiftDarwin
-ld: warning: Auto-Linking library not found for -lswiftFoundation
-ld: warning: Auto-Linking library not found for -lswiftCoreGraphics
-ld: warning: Auto-Linking library not found for -lswiftCore
-ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftDispatch
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftCoreFoundation
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftObjectiveC
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftDarwin
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftFoundation
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftCoreGraphics
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftCore
+</span></span><span class="line"><span class="cl">ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>联想方法：
@@ -250,10 +250,10 @@ ld: warning: Auto-Linking library not found for -lswiftSwiftOnoneSupport
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">dyld: Library not loaded: @rpath/libswiftCoreImage.dylib
-Referenced from: .../../Debug-iphonesimulator/SecondFramework.framework/SecondFramework
-Reason: image not found
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dyld: Library not loaded: @rpath/libswiftCoreImage.dylib
+</span></span><span class="line"><span class="cl">Referenced from: .../../Debug-iphonesimulator/SecondFramework.framework/SecondFramework
+</span></span><span class="line"><span class="cl">Reason: image not found
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>解决办法：需要在<code>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</code>设置为<code>YES</code>.再次编译出现问题3。</p>
 <h3 id="framework-问题3">Framework: 问题3</h3>
@@ -265,10 +265,10 @@ Reason: image not found
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#39;SecondFramework-Swift.h&#39; file not found
-#import &#34;SecondFramework-Swift.h&#34;
-^~~~~~~~~~~~~~~~~~~~~~~~~
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;SecondFramework-Swift.h&#39; file not found
+</span></span><span class="line"><span class="cl">#import &#34;SecondFramework-Swift.h&#34;
+</span></span><span class="line"><span class="cl">^~~~~~~~~~~~~~~~~~~~~~~~~
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果将：<code>Install Objective-C Compatibility Header</code> : <code>NO</code>可以正常调用swift方法了。</p>
 <blockquote>
@@ -420,7 +420,7 @@ Reason: image not found
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

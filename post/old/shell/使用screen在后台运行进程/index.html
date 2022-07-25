@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/%E4%BD%BF%E7%94%A8screen%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E8%BF%9B%E7%A8%8B/" />
@@ -217,19 +217,19 @@ Screen可以让一个或多个用户从不同终端登录一个会话，并共�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">-A 　          将所有的视窗都调整为目前终端机的大小
--d  　         将指定的screen作业离线
--h  　         指定视窗的缓冲区行数
--m             即使目前已在作业中的screen作业，仍强制建立新的screen作业
--r             恢复离线的screen作业
--R 　          先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业
--s 　          指定建立新视窗时，所要执行的shell
--S             指定screen作业的名称
--v 　          显示版本信息
--x 　          恢复之前离线的screen作业
--ls或-list 　  显示目前所有的screen作业
--wipe 　       检查目前所有的screen作业，并删除已经无法使用的screen作业
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-A 　          将所有的视窗都调整为目前终端机的大小
+</span></span><span class="line"><span class="cl">-d  　         将指定的screen作业离线
+</span></span><span class="line"><span class="cl">-h  　         指定视窗的缓冲区行数
+</span></span><span class="line"><span class="cl">-m             即使目前已在作业中的screen作业，仍强制建立新的screen作业
+</span></span><span class="line"><span class="cl">-r             恢复离线的screen作业
+</span></span><span class="line"><span class="cl">-R 　          先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业
+</span></span><span class="line"><span class="cl">-s 　          指定建立新视窗时，所要执行的shell
+</span></span><span class="line"><span class="cl">-S             指定screen作业的名称
+</span></span><span class="line"><span class="cl">-v 　          显示版本信息
+</span></span><span class="line"><span class="cl">-x 　          恢复之前离线的screen作业
+</span></span><span class="line"><span class="cl">-ls或-list 　  显示目前所有的screen作业
+</span></span><span class="line"><span class="cl">-wipe 　       检查目前所有的screen作业，并删除已经无法使用的screen作业
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="screen命令">screen命令</h4>
 <ol>
@@ -245,13 +245,13 @@ Screen可以让一个或多个用户从不同终端登录一个会话，并共�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">screen_name</span><span class="o">=</span><span class="s2">&#34;ngrok&#34;</span> <span class="c1"># 创建了一个名为 my_screen 的窗</span>
-screen -dmS <span class="nv">$screen_name</span>
-
-<span class="nv">cmd</span><span class="o">=</span><span class="s2">&#34;ngrok tcp 22&#34;</span><span class="p">;</span>
-screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s2">&#34;</span><span class="nv">$cmd</span><span class="s2">&#34;</span>
-screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s1">&#39;\n&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">screen_name</span><span class="o">=</span><span class="s2">&#34;ngrok&#34;</span> <span class="c1"># 创建了一个名为 my_screen 的窗</span>
+</span></span><span class="line"><span class="cl">screen -dmS <span class="nv">$screen_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">cmd</span><span class="o">=</span><span class="s2">&#34;ngrok tcp 22&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s2">&#34;</span><span class="nv">$cmd</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X stuff <span class="s1">&#39;\n&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>退出进程</li>
@@ -261,8 +261,8 @@ screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">screen -S session_name -X quit
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">screen -S session_name -X quit
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其他</p>
 <div class="highlight"><div class="chroma">
@@ -280,18 +280,18 @@ screen -x -S <span class="nv">$screen_name</span> -p <span class="m">0</span> -X
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">C-a ?       显示所有键绑定信息
-C-a w       显示所有窗口列表
-C-a C-a     切换到之前显示的窗口
-C-a c       创建一个新的运行shell的窗口并切换到该窗口
-C-a n       切换到下一个窗口
-C-a p       切换到前一个窗口(与C-a n相对)
-C-a 0..9    切换到窗口0..9
-C-a a       发送 C-a到当前窗口
-C-a d       暂时断开screen会话
-C-a k       杀掉当前窗口
-C-a [       进入拷贝/回滚模式
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C-a ?       显示所有键绑定信息
+</span></span><span class="line"><span class="cl">C-a w       显示所有窗口列表
+</span></span><span class="line"><span class="cl">C-a C-a     切换到之前显示的窗口
+</span></span><span class="line"><span class="cl">C-a c       创建一个新的运行shell的窗口并切换到该窗口
+</span></span><span class="line"><span class="cl">C-a n       切换到下一个窗口
+</span></span><span class="line"><span class="cl">C-a p       切换到前一个窗口(与C-a n相对)
+</span></span><span class="line"><span class="cl">C-a 0..9    切换到窗口0..9
+</span></span><span class="line"><span class="cl">C-a a       发送 C-a到当前窗口
+</span></span><span class="line"><span class="cl">C-a d       暂时断开screen会话
+</span></span><span class="line"><span class="cl">C-a k       杀掉当前窗口
+</span></span><span class="line"><span class="cl">C-a [       进入拷贝/回滚模式
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="退出screen">退出screen</h4>
 <p>退出screen的作业时，有两种方式：</p>
@@ -302,10 +302,10 @@ C-a [       进入拷贝/回滚模式
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Crtl + a +d     保存进程并退出作业(程序在screen中继续运行，screen -ls 可查看)
-Crtl + alt + a + d  进入后台运行进程
-exit            退出作业和进程(程序终止，screen -ls 不可查看)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Crtl + a +d     保存进程并退出作业(程序在screen中继续运行，screen -ls 可查看)
+</span></span><span class="line"><span class="cl">Crtl + alt + a + d  进入后台运行进程
+</span></span><span class="line"><span class="cl">exit            退出作业和进程(程序终止，screen -ls 不可查看)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="什么是mosh">什么是Mosh</h2>
 <p><strong>Mosh</strong>表示<code>移动Shell</code>(Mobile Shell)，是一个用于从客户端跨互联网连接远程服务器的命令行工具。它能用于<code>SSH</code>连接，但是比<code>Secure Shell</code>功能更多。它是一个类似于<code>SSH</code>而带有更多功能的应用。程序最初由Keith Winstein 编写，用于类Unix的操作系统中，发布于GNU GPL V3协议下。
@@ -452,7 +452,7 @@ exit            退出作业和进程(程序终止，screen -ls 不可查看)
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

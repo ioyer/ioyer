@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87/opkg%E5%9C%A8%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -203,8 +203,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">mount -o remount,rw /
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount -o remount,rw /
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="新建配置">新建配置</h1>
 <ol>
@@ -215,8 +215,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">mv /etc/opkg.conf /etc/opkg.conf.bak
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mv /etc/opkg.conf /etc/opkg.conf.bak
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>开始配置
@@ -241,22 +241,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">src/gz attitude_adjustment_base http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base
-src/gz attitude_adjustment_packages http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/packages/
-src/gz attitude_adjustment_luci http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/luci/
-src/gz attitude_adjustment_management http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/management/
-src/gz attitude_adjustment_oldpackages http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages/
-src/gz attitude_adjustment_routing http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/routing/
-src/gz openwrt_dist http://openwrt-dist.sourceforge.net/releases/ramips/packages
-src/gz openwrt_dist_luci http://openwrt-dist.sourceforge.net/releases/luci/packages
-dest root /data
-dest ram /tmp
-lists_dir ext /data/var/opkg-lists
-option overlay_root /data
-arch all 100
-arch ramips 200
-arch ramips_24kec 300
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">src/gz attitude_adjustment_base http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base
+</span></span><span class="line"><span class="cl">src/gz attitude_adjustment_packages http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/packages/
+</span></span><span class="line"><span class="cl">src/gz attitude_adjustment_luci http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/luci/
+</span></span><span class="line"><span class="cl">src/gz attitude_adjustment_management http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/management/
+</span></span><span class="line"><span class="cl">src/gz attitude_adjustment_oldpackages http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages/
+</span></span><span class="line"><span class="cl">src/gz attitude_adjustment_routing http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/routing/
+</span></span><span class="line"><span class="cl">src/gz openwrt_dist http://openwrt-dist.sourceforge.net/releases/ramips/packages
+</span></span><span class="line"><span class="cl">src/gz openwrt_dist_luci http://openwrt-dist.sourceforge.net/releases/luci/packages
+</span></span><span class="line"><span class="cl">dest root /data
+</span></span><span class="line"><span class="cl">dest ram /tmp
+</span></span><span class="line"><span class="cl">lists_dir ext /data/var/opkg-lists
+</span></span><span class="line"><span class="cl">option overlay_root /data
+</span></span><span class="line"><span class="cl">arch all 100
+</span></span><span class="line"><span class="cl">arch ramips 200
+</span></span><span class="line"><span class="cl">arch ramips_24kec 300
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>更新库</li>
@@ -268,10 +268,10 @@ arch ramips_24kec 300
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ opkg update
-Downloading http://downloads.openwrt.org/..../generic/packages/packages/Packages.gz.
-Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ opkg update
+</span></span><span class="line"><span class="cl">Downloading http://downloads.openwrt.org/..../generic/packages/packages/Packages.gz.
+</span></span><span class="line"><span class="cl">Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注：如果下载失败，请确认是否是http而非https。另外如果链接失效可能是更新了包，可以到https://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/搜索libc_找到最新下载地址。</p>
@@ -294,8 +294,8 @@ Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$  opkg install http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/libc_0.9.33.2-1_ramips_24kec.ipk
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$  opkg install http://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/packages/base/libc_0.9.33.2-1_ramips_24kec.ipk
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>接下来就可以安装一些自己需求的软件包:
@@ -306,8 +306,8 @@ Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ opkg install git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ opkg install git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="5">
 <li>配置系统环境
@@ -320,9 +320,9 @@ Updated list of available packages in /data/var/opkg-lists/attitude_adjustment.
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">export PATH=/data/usr/bin:$PATH
-$ source /etc/profile //命令生效
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export PATH=/data/usr/bin:$PATH
+</span></span><span class="line"><span class="cl">$ source /etc/profile //命令生效
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="http://www.liwangmeng.com/openwrt%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%BD%92%E7%BA%B3/">OpenWRT基本知识整理</a></p>
 
@@ -463,7 +463,7 @@ $ source /etc/profile //命令生效
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

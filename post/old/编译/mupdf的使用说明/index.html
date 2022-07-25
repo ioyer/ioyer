@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E7%BC%96%E8%AF%91/mupdf%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
@@ -220,13 +220,13 @@ git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//se</span><span class="n">rver</span><span class="o">.</span><span class="n">local</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">mupdf</span><span class="o">.</span><span class="n">git</span> <span class="n">mupdf</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">thirdparty</span><span class="o">/</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
-<span class="err">$</span> <span class="nb">open</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="no">MuPDF</span><span class="o">.</span><span class="n">xcodeproj</span>
-<span class="err">$</span> <span class="n">build</span> <span class="o">&amp;</span> <span class="n">run</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//se</span><span class="n">rver</span><span class="o">.</span><span class="n">local</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">mupdf</span><span class="o">.</span><span class="n">git</span> <span class="n">mupdf</span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">cd</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">thirdparty</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">init</span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="nb">open</span> <span class="n">mupdf</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="no">MuPDF</span><span class="o">.</span><span class="n">xcodeproj</span>
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="n">build</span> <span class="o">&amp;</span> <span class="n">run</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>封装MuPDFFramework便于集成至PBBReader中：
 初始化mupdf页面接口：</p>
@@ -238,11 +238,11 @@ git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">MuPDFViewController</span> <span class="o">*</span><span class="n">bindingPhone</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MuPDFViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="n">bindingPhone</span><span class="p">.</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">;</span>
-<span class="n">bindingPhone</span><span class="p">.</span><span class="n">openfilepath</span><span class="o">=</span><span class="n">select_files</span><span class="p">;</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">contentViewController</span> <span class="nl">presentViewControllerAsSheet</span><span class="p">:</span><span class="n">bindingPhone</span><span class="p">];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">MuPDFViewController</span> <span class="o">*</span><span class="n">bindingPhone</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MuPDFViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithNibName</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">bundle</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">bindingPhone</span><span class="p">.</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">bindingPhone</span><span class="p">.</span><span class="n">openfilepath</span><span class="o">=</span><span class="n">select_files</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">contentViewController</span> <span class="nl">presentViewControllerAsSheet</span><span class="p">:</span><span class="n">bindingPhone</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -382,7 +382,7 @@ git clone &ndash;recursive git://git.ghostscript.com/mupdf.git
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/elgantt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" />
@@ -226,12 +226,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">elgantt</span>
-         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;legalnonsense/elgantt&#34;</span><span class="p">))</span>
-    
-       <span class="p">(</span><span class="nv">package!</span> <span class="nv">org-ql</span>
-         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;alphapapa/org-ql&#34;</span><span class="p">))</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">elgantt</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;legalnonsense/elgantt&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">org-ql</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;alphapapa/org-ql&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -254,16 +254,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="c1">;;========扩展elgantt的属性</span>
-<span class="p">(</span><span class="nv">elgantt-create-display-rule</span> <span class="nv">add-org-properties-display</span>
-  <span class="nb">:parser</span> <span class="p">(</span>
-           <span class="p">(</span><span class="nv">elgantt-priority</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;PRIORITY&#34;</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nv">elgantt-effort</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;Effort&#34;</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nv">elgantt-blocker</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;BLOCKER&#34;</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nv">elgantt-TOTAL_PAGES</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;TOTAL_PAGES&#34;</span><span class="p">)))</span>
-           <span class="p">(</span><span class="nv">elgantt-PAGES_READ</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;PAGES_READ&#34;</span><span class="p">)))</span>
-           <span class="p">)</span>
-  <span class="nb">:body</span> <span class="p">(()))</span> <span class="c1">;; insert code here, which can use elgantt-priority variable</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="c1">;;========扩展elgantt的属性</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">elgantt-create-display-rule</span> <span class="nv">add-org-properties-display</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:parser</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">elgantt-priority</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;PRIORITY&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">elgantt-effort</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;Effort&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">elgantt-blocker</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;BLOCKER&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">elgantt-TOTAL_PAGES</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;TOTAL_PAGES&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nv">elgantt-PAGES_READ</span> <span class="o">.</span> <span class="p">((</span><span class="nv">org-entry-get</span> <span class="p">(</span><span class="nf">point</span><span class="p">)</span> <span class="s">&#34;PAGES_READ&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:body</span> <span class="p">(()))</span> <span class="c1">;; insert code here, which can use elgantt-priority variable</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -276,9 +276,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">           <span class="c1">; 设置展示内容的起始日期</span>
-           <span class="p">(</span><span class="nb">setq</span> <span class="nv">elgantt-start-date</span> <span class="s">&#34;2020-01-01&#34;</span><span class="p">)</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">           <span class="c1">; 设置展示内容的起始日期</span>
+</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">setq</span> <span class="nv">elgantt-start-date</span> <span class="s">&#34;2020-01-01&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>可以设定预览时，直接调到显示当前月份位置。</p>
@@ -288,8 +288,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp">           <span class="nv">elgantt-scroll-to-current-month-at-startup</span> <span class="no">t</span>
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">           <span class="nv">elgantt-scroll-to-current-month-at-startup</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -447,7 +447,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

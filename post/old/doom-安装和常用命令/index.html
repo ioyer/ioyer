@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/doom-%E5%AE%89%E8%A3%85%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
@@ -354,7 +354,7 @@ org-insert-todo-subheading : 子节点 todo</p>
 <li>State &ldquo;DONE&rdquo;       from &ldquo;TODO&rdquo;       <span class="timestamp-wrapper"><span class="timestamp">[2020-05-06 三 16:15]</span></span></li>
 </ul>
 <p>在 config 中配置：默认搜索引擎<br>
-(setq eww-search-prefix &ldquo;<a href="https://github.com/search?q">https://github.com/search?q</a>=&quot;)</p>
+(setq eww-search-prefix &ldquo;<a href="https://github.com/search?q">https://github.com/search?q</a>=&rdquo;)</p>
 <h3 id="常用命令-m-x-eww">常用命令：M-x: eww</h3>
 <h4 id="书签">书签：</h4>
 <ol>
@@ -387,7 +387,7 @@ Shift h 查看当前 buffer 启动的 mode</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">mv plantuml-mode org-mode</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mv plantuml-mode org-mode</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>仅支持在 org 文件内，使用`Tab`展开。</p>
@@ -400,7 +400,7 @@ C-c C-k 取消提交操作<br>
 l 查看 git 日志<br>
 z stash 命令<br>
 F pull 命令<br>
-' submodule 命令<br>
+&rsquo; submodule 命令<br>
 &quot; subtree 命令</p>
 <h2 id="在-treemacs-中无法启动-file-templates-问题">在 treemacs 中无法启动 file-templates 问题</h2>
 <ul>
@@ -409,12 +409,12 @@ F pull 命令<br>
 <p>在 ~/.doom.d/config.el 加入如下脚本：</p>
 <div class="elisp">
   <div></div>
-<p>(add-hook! &lsquo;treemacs-create-file-functions<br>
+<p>(add-hook! &rsquo;treemacs-create-file-functions<br>
 (defun expand-file-template (file)<br>
 (with-current-buffer (or (get-file-buffer file)<br>
 (find-file-noselect file))<br>
-(when-let (rule (cl-find-if #'+file-template-p +file-templates-alist))<br>
-(apply #'+file-templates&ndash;expand rule)))))</p>
+(when-let (rule (cl-find-if #&rsquo;+file-template-p +file-templates-alist))<br>
+(apply #&rsquo;+file-templates&ndash;expand rule)))))</p>
 </div>
 
     </div>
@@ -552,7 +552,7 @@ F pull 命令<br>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

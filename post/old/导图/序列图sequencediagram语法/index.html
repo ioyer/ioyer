@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%AF%BC%E5%9B%BE/%E5%BA%8F%E5%88%97%E5%9B%BEsequencediagram%E8%AF%AD%E6%B3%95/" />
@@ -217,10 +217,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Alice-&gt;Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob--&gt;Alice: I am good thanks!
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Alice-&gt;Bob: Hello Bob, how are you?
+</span></span><span class="line"><span class="cl">Note right of Bob: Bob thinks
+</span></span><span class="line"><span class="cl">Bob--&gt;Alice: I am good thanks!
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="角色actor">角色Actor</h3>
 <p>系统角色。
@@ -232,8 +232,8 @@ Bob--&gt;Alice: I am good thanks!
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Title:[标题]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Title:[标题]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="对象object">对象Object</h3>
 <p>位于序列图顶部，代表参与交互行为的对象。常见的命名方式：</p>
@@ -253,9 +253,9 @@ MarkDown语法：</li>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">participant [对象名1]
-participant [对象名2]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">participant [对象名1]
+</span></span><span class="line"><span class="cl">participant [对象名2]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -267,13 +267,13 @@ participant [对象名2]
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">participant A
-participant B
-Note left of A: 这是对A的注释
-Note right of B: 这是对B的注释
-Note over A: 这是A上的注释
-Note over A,B: 这是A和B共有的注释
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">participant A
+</span></span><span class="line"><span class="cl">participant B
+</span></span><span class="line"><span class="cl">Note left of A: 这是对A的注释
+</span></span><span class="line"><span class="cl">Note right of B: 这是对B的注释
+</span></span><span class="line"><span class="cl">Note over A: 这是A上的注释
+</span></span><span class="line"><span class="cl">Note over A,B: 这是A和B共有的注释
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>为对象添加注释</li>
@@ -285,10 +285,10 @@ Note over A,B: 这是A和B共有的注释
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Note left/right to [对象名]: [注释]
-Note over [对象名]: [注释]
-Note over [多个对象，之间以,隔开]: [注释]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Note left/right to [对象名]: [注释]
+</span></span><span class="line"><span class="cl">Note over [对象名]: [注释]
+</span></span><span class="line"><span class="cl">Note over [多个对象，之间以,隔开]: [注释]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="生命线lifeline">生命线Lifeline</h3>
 <ol>
@@ -325,8 +325,8 @@ MarkDown语法：</li>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[发送对象][箭头符号][接收对象]: [消息]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[发送对象][箭头符号][接收对象]: [消息]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="效果实现">效果实现：</h3>
 <div class="highlight"><div class="chroma">
@@ -337,11 +337,11 @@ MarkDown语法：</li>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">A-&gt;B: -&gt;
-B--&gt;C: --&gt;
-B-&gt;&gt;A: -&gt;&gt;
-C--&gt;&gt;A: --&gt;&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">A-&gt;B: -&gt;
+</span></span><span class="line"><span class="cl">B--&gt;C: --&gt;
+</span></span><span class="line"><span class="cl">B-&gt;&gt;A: -&gt;&gt;
+</span></span><span class="line"><span class="cl">C--&gt;&gt;A: --&gt;&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>定义箭头语法：
@@ -489,7 +489,7 @@ C--&gt;&gt;A: --&gt;&gt;
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

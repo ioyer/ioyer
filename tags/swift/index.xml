@@ -24,7 +24,7 @@
       <pubDate>Sun, 13 Sep 2020 22:33:34 +0800</pubDate>
       <author>itboyer@qq.com (iTBoyer)</author>
       <guid>https://ioyer.github.io/post/old/swift-%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>xcrun/swift 命令工具 第一种 vi test.swift #!/usr/bin/env xcrun swift print(&amp;ldquo;hello&amp;rdquo;) $ chmod 755 test.swift $ ./test.swift 第二种 $ cat &amp;laquo;EOF &amp;gt; script #!/usr/bin/swift print(&amp;ldquo;Hi!&amp;quot;) EOF $ chmod u+x script $ ./script Hi! swift-sh 支持库依赖 安装命令 brew install swift-sh 使用 $ cat &amp;laquo;EOF &amp;gt; script #!/usr/bin/swift sh import PromiseKit // @mxcl ~&amp;gt; 6.5 print(Promise.value(&amp;ldquo;Hi!&amp;quot;)) EOF $ chmod</description>
+      <description>xcrun/swift 命令工具 第一种 vi test.swift #!/usr/bin/env xcrun swift print(&amp;ldquo;hello&amp;rdquo;) $ chmod 755 test.swift $ ./test.swift 第二种 $ cat &amp;laquo;EOF &amp;gt; script #!/usr/bin/swift print(&amp;ldquo;Hi!&amp;rdquo;) EOF $ chmod u+x script $ ./script Hi! swift-sh 支持库依赖 安装命令 brew install swift-sh 使用 $ cat &amp;laquo;EOF &amp;gt; script #!/usr/bin/swift sh import PromiseKit // @mxcl ~&amp;gt; 6.5 print(Promise.value(&amp;ldquo;Hi!&amp;rdquo;)) EOF $ chmod</description>
     </item>
     
     <item>
@@ -91,21 +91,21 @@
     </item>
     
     <item>
-      <title>Swift直接调用Python函数库</title>
-      <link>https://ioyer.github.io/post/old/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/</link>
-      <pubDate>Mon, 15 Oct 2018 17:22:37 +0000</pubDate>
-      <author>itboyer@qq.com (iTBoyer)</author>
-      <guid>https://ioyer.github.io/post/old/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
-      <description>{% github PerfectlySoft Perfect-Python 63589be width = 30% %} Perfect - Python 本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。 本项目采用Swift Package Manager 软件包管理器</description>
-    </item>
-    
-    <item>
       <title>Swift调用AppleScript脚本和Shell脚本</title>
       <link>https://ioyer.github.io/post/old/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Mon, 15 Oct 2018 17:22:37 +0000</pubDate>
       <author>itboyer@qq.com (iTBoyer)</author>
       <guid>https://ioyer.github.io/post/old/swift/swift%E8%B0%83%E7%94%A8applescript%E8%84%9A%E6%9C%AC%E5%92%8Cshell%E8%84%9A%E6%9C%AC/</guid>
       <description>当想让自己的app支持播放，但有没有足够的时间来开发自己的播放器，可以先考虑用mpv播放器来实现相关功能，这是AppleScript作为互通</description>
+    </item>
+    
+    <item>
+      <title>Swift直接调用Python函数库</title>
+      <link>https://ioyer.github.io/post/old/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/</link>
+      <pubDate>Mon, 15 Oct 2018 17:22:37 +0000</pubDate>
+      <author>itboyer@qq.com (iTBoyer)</author>
+      <guid>https://ioyer.github.io/post/old/swift/swift%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8python%E5%87%BD%E6%95%B0%E5%BA%93/</guid>
+      <description>{% github PerfectlySoft Perfect-Python 63589be width = 30% %} Perfect - Python 本项目提供了在Swift服务器应用上直接引用Python 2.7函数库的简便方法。 本项目采用Swift Package Manager 软件包管理器</description>
     </item>
     
     <item>
@@ -250,12 +250,12 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;invalidSelection&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outOfStock&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Error&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;invalidSelection&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outOfStock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine:
 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：&lt;/p&gt;
@@ -264,8 +264,8 @@ swift枚举类型特别适合为一组错误条件建模，用来关联导致错
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;VendingMachineError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;insufficientFunds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;coinsNeeded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h1 id=&#34;handling-errors&#34;&gt;Handling Errors&lt;/h1&gt;
 &lt;p&gt;When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.

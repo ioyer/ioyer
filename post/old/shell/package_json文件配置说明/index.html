@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/package_json%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" />
@@ -203,11 +203,11 @@ package.json文件可以手工编写，也可以用npm init命令自动生成，
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
-&#34;name&#34;:&#34;aaa&#34;,       //项目名称
-&#34;version&#34;:&#34;0.0.0&#34;   //项目版本(大版本.次要版本.小版本)
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">&#34;name&#34;:&#34;aaa&#34;,       //项目名称
+</span></span><span class="line"><span class="cl">&#34;version&#34;:&#34;0.0.0&#34;   //项目版本(大版本.次要版本.小版本)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>package是一个JSON对象，对象的每个成员就是当前项目的一项设置。</p>
 <h3 id="script字段">script字段</h3>
@@ -222,13 +222,13 @@ package.json文件可以手工编写，也可以用npm init命令自动生成，
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;script&#34;:{
-    &#34;start&#34;:&#34;node index.js&#34;,
-    &#34;test&#34;:&#34;tap test/*.js&#34;
-}
-//运行npm run start时，执行node index.js命令
-//运行npm run test时，执行tap test/*.js命令
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;script&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;start&#34;:&#34;node index.js&#34;,
+</span></span><span class="line"><span class="cl">    &#34;test&#34;:&#34;tap test/*.js&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">//运行npm run start时，执行node index.js命令
+</span></span><span class="line"><span class="cl">//运行npm run test时，执行tap test/*.js命令
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="dependenciesdevdependencies">dependencies，devDependencies</h3>
 <p>dependencies和devDependencies两项，分别指定了项目运行所依赖的模块、项目开发所需要的模块。它们都指向一个对象，该对象的各个成员，分别由模块名和对应的版本要去组成，表示依赖的模块及其版本范围</p>
@@ -245,14 +245,14 @@ package.json文件可以手工编写，也可以用npm init命令自动生成，
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
-    &#34;devDependencies&#34;:{
-        &#34;browserify&#34;:&#34;~13.0.0&#34;,
-        &#34;babel-core&#34;:&#34;^6.5.0&#34;       
-    }
-}
-//模块名：对应的版本
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;devDependencies&#34;:{
+</span></span><span class="line"><span class="cl">        &#34;browserify&#34;:&#34;~13.0.0&#34;,
+</span></span><span class="line"><span class="cl">        &#34;babel-core&#34;:&#34;^6.5.0&#34;       
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">//模块名：对应的版本
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="对应的版本">对应的版本</h3>
 <p>指定版本: 比如1.2.2，安装时只安装指定版本1.2.2</p>
@@ -266,9 +266,9 @@ package.json文件可以手工编写，也可以用npm init命令自动生成，
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install express --save
-$ npm install express --save-dev
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ npm install express --save
+</span></span><span class="line"><span class="cl">$ npm install express --save-dev
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>例如安装上面的express模块，–save表示将模块写入dependencies属性，–save-dev表示将模块写入devDependencies属性。</p>
 <h2 id="注释问题">注释问题</h2>
@@ -411,7 +411,7 @@ $ npm install express --save-dev
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

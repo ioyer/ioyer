@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90%E7%B1%BB%E4%BE%9D%E8%B5%96%E8%8A%82%E7%82%B9%E5%9B%BE/" />
@@ -190,7 +190,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>【注意】最后更新于 <span class="timeago" datetime="2021-11-23T15:40:15" title="November 23, 2021">November 23, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
@@ -234,26 +234,26 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ ./generate-objc-dependencies-to-json.rb -h
-Usage: objc_dependency_tree_generator <span class="o">[</span>options<span class="o">]</span>
-General options:
-    -p, --path PATH                  Path to directory where are your .o files were placed by the compiler
-    -D DERIVED_DATA                  Path to directory where DerivedData is
-    -s PROJECT_NAME                  Search project .o files by specified project name
-    -t, --target TARGET_NAME         Target of project
-    -e PREFIXES                      Prefixes of classes those will be exсluded from visualization.
-					NS<span class="p">|</span>UI
-					UI<span class="p">|</span>CA<span class="p">|</span>MF
-    -d, --use-dwarf-info             Use DWARF Information also
-    -w, --swift-dependencies         Generate swift project dependencies
-    -k FILENAME                      Generate dependencies from <span class="nb">source</span> kitten output <span class="o">(</span>json<span class="o">)</span>
-        --ast-file FILENAME          Generate dependencies from the swift ast dump output <span class="o">(</span>ast<span class="o">)</span>
-        --ast-show-parsed-tree       Show ast parsing info <span class="o">(</span><span class="k">for</span> swift ast parser only<span class="o">)</span>
-        --inheritance-only           Show only inheritance dependencies
-    -f FORMAT                        Output format. json by default. Possible values are <span class="o">[</span>dot<span class="p">|</span>json-pretty<span class="p">|</span>json<span class="p">|</span>json-var<span class="p">|</span>yaml<span class="o">]</span>
-    -o, --output OUTPUT_FILE         target of output
-Common options:
-    -h                               Prints this help</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ ./generate-objc-dependencies-to-json.rb -h
+</span></span><span class="line"><span class="cl">Usage: objc_dependency_tree_generator <span class="o">[</span>options<span class="o">]</span>
+</span></span><span class="line"><span class="cl">General options:
+</span></span><span class="line"><span class="cl">    -p, --path PATH                  Path to directory where are your .o files were placed by the compiler
+</span></span><span class="line"><span class="cl">    -D DERIVED_DATA                  Path to directory where DerivedData is
+</span></span><span class="line"><span class="cl">    -s PROJECT_NAME                  Search project .o files by specified project name
+</span></span><span class="line"><span class="cl">    -t, --target TARGET_NAME         Target of project
+</span></span><span class="line"><span class="cl">    -e PREFIXES                      Prefixes of classes those will be exсluded from visualization.
+</span></span><span class="line"><span class="cl">					NS<span class="p">|</span>UI
+</span></span><span class="line"><span class="cl">					UI<span class="p">|</span>CA<span class="p">|</span>MF
+</span></span><span class="line"><span class="cl">    -d, --use-dwarf-info             Use DWARF Information also
+</span></span><span class="line"><span class="cl">    -w, --swift-dependencies         Generate swift project dependencies
+</span></span><span class="line"><span class="cl">    -k FILENAME                      Generate dependencies from <span class="nb">source</span> kitten output <span class="o">(</span>json<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        --ast-file FILENAME          Generate dependencies from the swift ast dump output <span class="o">(</span>ast<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        --ast-show-parsed-tree       Show ast parsing info <span class="o">(</span><span class="k">for</span> swift ast parser only<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        --inheritance-only           Show only inheritance dependencies
+</span></span><span class="line"><span class="cl">    -f FORMAT                        Output format. json by default. Possible values are <span class="o">[</span>dot<span class="p">|</span>json-pretty<span class="p">|</span>json<span class="p">|</span>json-var<span class="p">|</span>yaml<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    -o, --output OUTPUT_FILE         target of output
+</span></span><span class="line"><span class="cl">Common options:
+</span></span><span class="line"><span class="cl">    -h                               Prints this help</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>脚本依赖 <code>.o</code> 文件，在生成类图依赖时，需要先编译源码，生成 .o 文件。</p>
@@ -270,8 +270,8 @@ Common options:
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">       ./generate-objc-dependencies-to-json.rb -d -s <span class="s2">&#34;&#34;</span> &gt; origin.js <span class="p">;</span> open index.html
-    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">       ./generate-objc-dependencies-to-json.rb -d -s <span class="s2">&#34;&#34;</span> &gt; origin.js <span class="p">;</span> open index.html
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -291,15 +291,15 @@ Common options:
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">./generate-objc-dependencies-to-json.rb -d -s <span class="s2">&#34;&#34;</span>
-
-日志输入：
-find: /Users/boyer/Library/Caches/appCode*/DerivedData: No such file or directory
-There were <span class="m">208</span> directories found
-Last modifications were in
-/Users/boyer/Library/Developer/Xcode/DerivedData/ObjcDepVisuTest-xxxxxtn/Build/Intermediates.noindex/ObjcDepVisuTest.build/Debug-iphonesimulator/ObjcDepVisuTest.build/Objects-normal/x86_64
-directory at
-2021-11-04 17:01:43 +0800</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./generate-objc-dependencies-to-json.rb -d -s <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">日志输入：
+</span></span><span class="line"><span class="cl">find: /Users/boyer/Library/Caches/appCode*/DerivedData: No such file or directory
+</span></span><span class="line"><span class="cl">There were <span class="m">208</span> directories found
+</span></span><span class="line"><span class="cl">Last modifications were in
+</span></span><span class="line"><span class="cl">/Users/boyer/Library/Developer/Xcode/DerivedData/ObjcDepVisuTest-xxxxxtn/Build/Intermediates.noindex/ObjcDepVisuTest.build/Debug-iphonesimulator/ObjcDepVisuTest.build/Objects-normal/x86_64
+</span></span><span class="line"><span class="cl">directory at
+</span></span><span class="line"><span class="cl">2021-11-04 17:01:43 +0800</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ol>
@@ -466,7 +466,7 @@ directory at
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/hexo/hexo%E9%9B%86%E6%88%90gitment%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" />
@@ -200,8 +200,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;gitment&#34;: &#34;^0.0.3&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;gitment&#34;: &#34;^0.0.3&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装</p>
 <div class="highlight"><div class="chroma">
@@ -209,8 +209,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">npm install
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="申请应用">申请应用</h3>
 <p>首先去<a href="https://github.com/settings/applications/new">New OAuth App</a>为你的博客应用一个密钥:</p>
@@ -222,11 +222,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Application name:随便写
-Homepage URL:这个也可以随意写,就写你的博客地址就行
-Application description:描述,也可以随意写
-Authorization callback URL:这个必须写你的博客地址
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Application name:随便写
+</span></span><span class="line"><span class="cl">Homepage URL:这个也可以随意写,就写你的博客地址就行
+</span></span><span class="line"><span class="cl">Application description:描述,也可以随意写
+</span></span><span class="line"><span class="cl">Authorization callback URL:这个必须写你的博客地址
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>申请好之后点注册,然后就可以看到两个东西ClientID和Client Secret,后面会用到.</p>
 <h3 id="配置">配置</h3>
@@ -250,22 +250,22 @@ Authorization callback URL:这个必须写你的博客地址
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="err">#</span> <span class="nx">Gitment</span>
-<span class="err">#</span> <span class="nx">Introduction</span><span class="o">:</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//imsun.net/posts/gitment-introduction/
-</span><span class="c1"></span><span class="nx">gitment</span><span class="o">:</span>
-    <span class="nx">enable</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="nx">mint</span><span class="o">:</span> <span class="kc">true</span> <span class="err">#</span> <span class="nx">RECOMMEND</span><span class="p">,</span> <span class="nx">A</span> <span class="nx">mint</span> <span class="nx">on</span> <span class="nx">Gitment</span><span class="p">,</span> <span class="nx">to</span> <span class="nx">support</span> <span class="nx">count</span><span class="p">,</span> <span class="nx">language</span> <span class="nx">and</span> <span class="nx">proxy_gateway</span>
-    <span class="nx">count</span><span class="o">:</span> <span class="kc">true</span> <span class="err">#</span> <span class="nx">Show</span> <span class="nx">comments</span> <span class="nx">count</span> <span class="k">in</span> <span class="nx">post</span> <span class="nx">meta</span> <span class="nx">area</span>
-    <span class="nx">lazy</span><span class="o">:</span> <span class="kc">false</span> <span class="err">#</span> <span class="nx">Comments</span> <span class="nx">lazy</span> <span class="nx">loading</span> <span class="kd">with</span> <span class="nx">a</span> <span class="nx">button</span>
-    <span class="nx">cleanly</span><span class="o">:</span> <span class="kc">false</span> <span class="err">#</span> <span class="nx">Hide</span> <span class="s1">&#39;Powered by ...&#39;</span> <span class="nx">on</span> <span class="nx">footer</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">more</span>
-    <span class="nx">language</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Force</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">auto</span> <span class="k">switch</span> <span class="nx">by</span> <span class="nx">theme</span>
-    <span class="nx">github_user</span><span class="o">:</span> <span class="p">{</span><span class="nx">you</span> <span class="nx">github</span> <span class="nx">user</span> <span class="nx">id</span><span class="p">}</span>
-    <span class="nx">github_repo</span><span class="o">:</span> <span class="nx">随便写一个你的公开的git仓库就行</span><span class="p">,</span><span class="nx">到时候评论会作为那个项目的issue</span>
-    <span class="nx">client_id</span><span class="o">:</span> <span class="p">{</span><span class="nx">刚才申请的ClientID</span><span class="p">}</span>
-    <span class="nx">client_secret</span><span class="o">:</span> <span class="p">{</span><span class="nx">刚才申请的Client</span> <span class="nx">Secret</span><span class="p">}</span>
-    <span class="nx">proxy_gateway</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Address</span> <span class="k">of</span> <span class="nx">api</span> <span class="nx">proxy</span><span class="p">,</span> <span class="nx">See</span><span class="o">:</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/aimingoo/intersect
-</span><span class="c1"></span>    <span class="nx">redirect_protocol</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Protocol</span> <span class="k">of</span> <span class="nx">redirect_uri</span> <span class="kd">with</span> <span class="nx">force_redirect_protocol</span> <span class="nx">when</span> <span class="nx">mint</span> <span class="nx">enabled</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Gitment</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">Introduction</span><span class="o">:</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//imsun.net/posts/gitment-introduction/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">gitment</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mint</span><span class="o">:</span> <span class="kc">true</span> <span class="err">#</span> <span class="nx">RECOMMEND</span><span class="p">,</span> <span class="nx">A</span> <span class="nx">mint</span> <span class="nx">on</span> <span class="nx">Gitment</span><span class="p">,</span> <span class="nx">to</span> <span class="nx">support</span> <span class="nx">count</span><span class="p">,</span> <span class="nx">language</span> <span class="nx">and</span> <span class="nx">proxy_gateway</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span><span class="o">:</span> <span class="kc">true</span> <span class="err">#</span> <span class="nx">Show</span> <span class="nx">comments</span> <span class="nx">count</span> <span class="k">in</span> <span class="nx">post</span> <span class="nx">meta</span> <span class="nx">area</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">lazy</span><span class="o">:</span> <span class="kc">false</span> <span class="err">#</span> <span class="nx">Comments</span> <span class="nx">lazy</span> <span class="nx">loading</span> <span class="kd">with</span> <span class="nx">a</span> <span class="nx">button</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cleanly</span><span class="o">:</span> <span class="kc">false</span> <span class="err">#</span> <span class="nx">Hide</span> <span class="s1">&#39;Powered by ...&#39;</span> <span class="nx">on</span> <span class="nx">footer</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">more</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">language</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Force</span> <span class="nx">language</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">auto</span> <span class="k">switch</span> <span class="nx">by</span> <span class="nx">theme</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">github_user</span><span class="o">:</span> <span class="p">{</span><span class="nx">you</span> <span class="nx">github</span> <span class="nx">user</span> <span class="nx">id</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">github_repo</span><span class="o">:</span> <span class="nx">随便写一个你的公开的git仓库就行</span><span class="p">,</span><span class="nx">到时候评论会作为那个项目的issue</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">client_id</span><span class="o">:</span> <span class="p">{</span><span class="nx">刚才申请的ClientID</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">client_secret</span><span class="o">:</span> <span class="p">{</span><span class="nx">刚才申请的Client</span> <span class="nx">Secret</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">proxy_gateway</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Address</span> <span class="k">of</span> <span class="nx">api</span> <span class="nx">proxy</span><span class="p">,</span> <span class="nx">See</span><span class="o">:</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/aimingoo/intersect
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">redirect_protocol</span><span class="o">:</span> <span class="err">#</span> <span class="nx">Protocol</span> <span class="k">of</span> <span class="nx">redirect_uri</span> <span class="kd">with</span> <span class="nx">force_redirect_protocol</span> <span class="nx">when</span> <span class="nx">mint</span> <span class="nx">enabled</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="开通评论">开通评论</h3>
 <p>注意到这里基本上已经OK了,再看你的博客应该可以显示评论了.不过每篇博客都需要你手动初始化评论功能(如果你的历史博客很多那就一篇一篇去点吧，不过貌似有人写了批量处理脚本,没试过哈).</p>
@@ -287,18 +287,18 @@ Authorization callback URL:这个必须写你的博客地址
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">_utils</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://gh-oauth.imsun.net&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">code</span><span class="o">:</span> <span class="nx">code</span><span class="p">,</span>
-        <span class="nx">client_id</span><span class="o">:</span> <span class="nx">client_id</span><span class="p">,</span>
-        <span class="nx">client_secret</span><span class="o">:</span> <span class="nx">client_secret</span>
-    <span class="p">},</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">_this</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">access_token</span><span class="p">;</span>
-        <span class="nx">_this</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
-    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">_this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">isLoggingIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">_utils</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://gh-oauth.imsun.net&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">code</span><span class="o">:</span> <span class="nx">code</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">client_id</span><span class="o">:</span> <span class="nx">client_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">client_secret</span><span class="o">:</span> <span class="nx">client_secret</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">_this</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">access_token</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">_this</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">_this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">isLoggingIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>请求了一个服务接口，由于这个跨域服务接口是作者自己搭建的，已经停止了。
 有博主 fork 源作者的 repo ，在这个基础上改的，修改了一些地方接入自己通用的服务<a href="https://github.com/jjeejj/CORS-Proxy-Server">CORS-Proxy-Server</a>.
@@ -447,7 +447,7 @@ hexo 这个评论接了一个自己写的一个通用的跨域服务 <code>https
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

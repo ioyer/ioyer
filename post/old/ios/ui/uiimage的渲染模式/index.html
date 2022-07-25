@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/ui/uiimage%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F/" />
@@ -197,18 +197,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIImageRenderingModeAutomatic</span> <span class="c1">// 根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
-</span><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysOriginal</span> <span class="c1">// 始终绘制图片原始状态，不使用Tint Color。
-</span><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysTemplate</span> <span class="c1">// 始终根据Tint Color绘制图片，忽略图片的颜色信息。
-</span><span class="c1"></span>
-<span class="n">UIImage</span> <span class="o">*</span><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;myimage&#34;</span><span class="p">];</span>
-<span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysTemplate</span><span class="p">];</span>
-<span class="c1">//实际效果，效果依旧显示为baritem的Tint Color
-</span><span class="c1"></span><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">barButtonItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:</span><span class="n">setImage</span>
-                                                   <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span>
-                                                  <span class="nl">target</span><span class="p">:</span><span class="nb">self</span>
-                                                  <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">setAction</span><span class="p">:)];</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">UIImageRenderingModeAutomatic</span> <span class="c1">// 根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysOriginal</span> <span class="c1">// 始终绘制图片原始状态，不使用Tint Color。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UIImageRenderingModeAlwaysTemplate</span> <span class="c1">// 始终根据Tint Color绘制图片，忽略图片的颜色信息。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">UIImage</span> <span class="o">*</span><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;myimage&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysTemplate</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//实际效果，效果依旧显示为baritem的Tint Color
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">barButtonItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:</span><span class="n">setImage</span>
+</span></span><span class="line"><span class="cl">                                                   <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span>
+</span></span><span class="line"><span class="cl">                                                  <span class="nl">target</span><span class="p">:</span><span class="nb">self</span>
+</span></span><span class="line"><span class="cl">                                                  <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">setAction</span><span class="p">:)];</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在新的 Xcode 中，我们可以直接在 Image Asset 里的 Render As 选项来指定是不是需要作为 template 使用。相应的，在<code>UIApperance</code>中，Apple 也为我们对于 <code>Size Classes</code> 添加了相应的方法。使用 <code>+appearanceForTraitCollection:</code> 方法，我们就可以针对不同 trait 下的应用的 apperance 进行很简单的设定。</p>
 <div class="highlight"><div class="chroma">
@@ -217,9 +217,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Compact</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">redColor</span><span class="p">()</span>  
-<span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Regular</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">greenColor</span><span class="p">()</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Compact</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">redColor</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="n">UIView</span><span class="p">.</span><span class="n">appearanceForTraitCollection</span><span class="p">(</span><span class="n">UITraitCollection</span><span class="p">(</span><span class="nl">verticalSizeClass</span><span class="p">:.</span><span class="n">Regular</span><span class="p">)).</span><span class="n">tintColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">greenColor</span><span class="p">()</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -359,7 +359,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

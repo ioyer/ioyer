@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/hexo/%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BAoctopress/" />
@@ -320,7 +320,7 @@ duoshuo_short_name: yourname
 var duoshuoQuery = {short_name:&quot;{{ site.duoshuo_short_name }}&quot;};
 (function() {
 var ds = document.createElement(&lsquo;script&rsquo;);
-ds.type = &lsquo;text/javascript&rsquo;;
+ds.type = &rsquo;text/javascript&rsquo;;
 ds.async = true;
 ds.src = &lsquo;<a href="http://static.duoshuo.com/embed.js';">http://static.duoshuo.com/embed.js';</a>
 ds.charset = &lsquo;UTF-8&rsquo;;
@@ -337,10 +337,10 @@ ds.charset = &lsquo;UTF-8&rsquo;;
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span> <span class="o">%</span> <span class="k">if</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_short_name</span> <span class="nx">and</span> <span class="nx">page</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span> <span class="kc">false</span> <span class="nx">and</span> <span class="nx">post</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span><span class="kc">false</span> <span class="nx">and</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_show_comment_count</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">%</span> <span class="p">}</span>
-			 <span class="o">|</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#disqus_thread&#34;</span><span class="o">&gt;</span><span class="nx">Comments</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
-<span class="p">{</span> <span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span> <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span> <span class="o">%</span> <span class="k">if</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_short_name</span> <span class="nx">and</span> <span class="nx">page</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span> <span class="kc">false</span> <span class="nx">and</span> <span class="nx">post</span><span class="p">.</span><span class="nx">comments</span> <span class="o">!=</span><span class="kc">false</span> <span class="nx">and</span> <span class="nx">site</span><span class="p">.</span><span class="nx">disqus_show_comment_count</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">%</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">			 <span class="o">|</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;{ % if index % }{{ root_url }}{{ post.url }}{ % endif % }#disqus_thread&#34;</span><span class="o">&gt;</span><span class="nx">Comments</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>下方添加如下<font color=red>多说评论链接路径</font>：</p>
 <p>{%codeblock lang:js %}
@@ -525,10 +525,10 @@ origin <a href="http://github.com/....github.io(push)">http://github.com/....git
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git add .
-git commit -m &#39;yourmessage&#39;
-git push origin source
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#39;yourmessage&#39;
+</span></span><span class="line"><span class="cl">git push origin source
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="版本管理">版本管理</h1>
 <p>你可以先去github上新建一个空的Repo（最好是private的，否则可能会被其他人拿到你的source），拿到repo的url，然后到octopress目录下执行下面这些操作：</p>
@@ -543,14 +543,14 @@ git push origin source
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># 因为你是从octopress github上clone的，所以需要把origin这个branch换一个名字</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">origin</span> <span class="n">octopress</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="p">(</span><span class="n">your</span> <span class="n">github</span> <span class="n">url</span><span class="p">)</span>
-<span class="c1"># 把你的github branch作为默认的branch</span>
-<span class="n">git</span> <span class="n">config</span> <span class="n">branch</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">remote</span> <span class="n">origin</span>
-<span class="c1"># 把你的octopress导入到github上去</span>
-<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># 因为你是从octopress github上clone的，所以需要把origin这个branch换一个名字</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">remote</span> <span class="n">rename</span> <span class="n">origin</span> <span class="n">octopress</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="p">(</span><span class="n">your</span> <span class="n">github</span> <span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 把你的github branch作为默认的branch</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">config</span> <span class="n">branch</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">remote</span> <span class="n">origin</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 把你的octopress导入到github上去</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果你新增加了博客或者修改了某些内容，你可以把你的改动commit到github上去：</p>
 <div class="highlight"><div class="chroma">
@@ -560,10 +560,10 @@ git push origin source
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git add source
-git commit -a -m &#39;new blog or edit some blog&#39;
-git push -u origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git add source
+</span></span><span class="line"><span class="cl">git commit -a -m &#39;new blog or edit some blog&#39;
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果octopress有更新，你可以直接pull octopress这个branch进行更新即可</p>
 <div class="highlight"><div class="chroma">
@@ -572,9 +572,9 @@ git push -u origin master
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git pull octopress master
-git push -u origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git pull octopress master
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -710,7 +710,7 @@ git push -u origin master
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

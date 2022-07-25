@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/xcodeproj%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8/" />
@@ -222,8 +222,8 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">XcodeProj</span>
-<span class="kd">import</span> <span class="nc">PathKit</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">XcodeProj</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PathKit</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="通过xcodeproj在工程的xxx-group下引入xx-dot-h和xx-dot-m文件">通过xcodeproj在工程的xxx group下引入xx.h和xx.m文件</h2>
@@ -241,12 +241,12 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 </span><span class="hl"><span class="lnt">6
 </span></span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift">       <span class="kd">let</span> <span class="nv">path</span> <span class="p">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/XcodeTest/XcodeTest.xcodeproj&#34;</span><span class="p">)</span> <span class="c1">// Your project path</span>
-       <span class="kd">let</span> <span class="nv">xcodeproj</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">XcodeProj</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
-       <span class="kd">let</span> <span class="nv">pbxproj</span> <span class="p">=</span> <span class="n">xcodeproj</span><span class="p">.</span><span class="n">pbxproj</span> <span class="c1">// Returns a PBXProj</span>
-       <span class="c1">// 获取到project</span>
-       <span class="kd">let</span> <span class="nv">project</span> <span class="p">=</span> <span class="n">pbxproj</span><span class="p">.</span><span class="n">projects</span><span class="p">.</span><span class="bp">first</span><span class="p">!</span> <span class="c1">// Returns a PBXProject</span>
-<span class="hl">    </span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">path</span> <span class="p">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/XcodeTest/XcodeTest.xcodeproj&#34;</span><span class="p">)</span> <span class="c1">// Your project path</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">xcodeproj</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">XcodeProj</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">pbxproj</span> <span class="p">=</span> <span class="n">xcodeproj</span><span class="p">.</span><span class="n">pbxproj</span> <span class="c1">// Returns a PBXProj</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// 获取到project</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">project</span> <span class="p">=</span> <span class="n">pbxproj</span><span class="p">.</span><span class="n">projects</span><span class="p">.</span><span class="bp">first</span><span class="p">!</span> <span class="c1">// Returns a PBXProject</span>
+</span></span><span class="line hl"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -264,14 +264,14 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 </span></span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift">       <span class="c1">// 修改目录结构</span>
-       <span class="kd">let</span> <span class="nv">mainGroup</span> <span class="p">=</span> <span class="n">project</span><span class="p">.</span><span class="n">mainGroup</span>
-       <span class="kd">let</span> <span class="nv">group</span> <span class="p">=</span> <span class="k">try</span> <span class="n">mainGroup</span><span class="p">?.</span><span class="n">addGroup</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="s">&#34;MyGroup&#34;</span><span class="p">)</span>
-       <span class="kd">let</span> <span class="nv">newgroup</span><span class="p">:</span><span class="n">PBXGroup</span><span class="p">?</span> <span class="p">=</span> <span class="n">group</span><span class="p">?.</span><span class="bp">last</span>
-       <span class="n">newgroup</span><span class="p">?.</span><span class="n">children</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">fileee</span><span class="p">!)</span>
-<span class="hl">       <span class="kd">let</span> <span class="nv">filep</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/test/tet.txt&#34;</span><span class="p">)</span>
-</span><span class="hl">       <span class="k">try</span> <span class="n">newgroup</span><span class="p">?.</span><span class="n">addFile</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="n">filep</span><span class="p">,</span> <span class="n">sourceRoot</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/&#34;</span><span class="p">))</span>
-</span>    </code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl">       <span class="c1">// 修改目录结构</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">mainGroup</span> <span class="p">=</span> <span class="n">project</span><span class="p">.</span><span class="n">mainGroup</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">group</span> <span class="p">=</span> <span class="k">try</span> <span class="n">mainGroup</span><span class="p">?.</span><span class="n">addGroup</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="s">&#34;MyGroup&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">newgroup</span><span class="p">:</span><span class="n">PBXGroup</span><span class="p">?</span> <span class="p">=</span> <span class="n">group</span><span class="p">?.</span><span class="bp">last</span>
+</span></span><span class="line"><span class="cl">       <span class="n">newgroup</span><span class="p">?.</span><span class="n">children</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">fileee</span><span class="p">!)</span>
+</span></span><span class="line hl"><span class="cl">       <span class="kd">let</span> <span class="nv">filep</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/test/tet.txt&#34;</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl">       <span class="k">try</span> <span class="n">newgroup</span><span class="p">?.</span><span class="n">addFile</span><span class="p">(</span><span class="n">at</span><span class="p">:</span> <span class="n">filep</span><span class="p">,</span> <span class="n">sourceRoot</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="s">&#34;/Users/boyer/Desktop/&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
 </div>
 </div>
 <ul>
@@ -302,22 +302,22 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">pbxproj</span><span class="p">.</span><span class="n">nativeTargets</span><span class="p">.</span><span class="n">forEach</span><span class="p">{</span> <span class="n">target</span> <span class="k">in</span>
-    <span class="bp">print</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="c1">//phase</span>
-    <span class="kd">let</span> <span class="nv">obj</span><span class="p">:</span><span class="n">PBXFrameworksBuildPhase</span><span class="p">?</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">target</span><span class="p">.</span><span class="n">frameworksBuildPhase</span><span class="p">()</span>
-    <span class="c1">//打印当前frame 清单</span>
-    <span class="n">obj</span><span class="p">!.</span><span class="n">files</span><span class="p">?.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">filess</span> <span class="k">in</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Framework </span><span class="si">\(</span><span class="n">filess</span><span class="p">.</span><span class="n">file</span><span class="p">?.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">})</span>
-    <span class="c1">// 添加新的framework</span>
-    <span class="kd">let</span> <span class="nv">frameworkfile</span> <span class="p">=</span> <span class="n">PBXFileElement</span><span class="p">(</span><span class="n">path</span><span class="p">:</span><span class="s">&#34;/Users/test/YunCeng.framework&#34;</span><span class="p">,</span><span class="n">name</span><span class="p">:</span><span class="s">&#34;YunCeng.framework&#34;</span><span class="p">)</span>
-<span class="hl">    <span class="kd">let</span> <span class="nv">buildfile</span><span class="p">:</span><span class="n">PBXBuildFile</span><span class="p">?</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">obj</span><span class="p">?.</span><span class="n">add</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">frameworkfile</span><span class="p">)</span>
-</span>    <span class="c1">// 打印加入后的最新清单</span>
-    <span class="n">obj</span><span class="p">!.</span><span class="n">files</span><span class="p">?.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">filess</span> <span class="k">in</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Framework </span><span class="si">\(</span><span class="n">filess</span><span class="p">.</span><span class="n">file</span><span class="p">?.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">pbxproj</span><span class="p">.</span><span class="n">nativeTargets</span><span class="p">.</span><span class="n">forEach</span><span class="p">{</span> <span class="n">target</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//phase</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">obj</span><span class="p">:</span><span class="n">PBXFrameworksBuildPhase</span><span class="p">?</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">target</span><span class="p">.</span><span class="n">frameworksBuildPhase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//打印当前frame 清单</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span><span class="p">!.</span><span class="n">files</span><span class="p">?.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">filess</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Framework </span><span class="si">\(</span><span class="n">filess</span><span class="p">.</span><span class="n">file</span><span class="p">?.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 添加新的framework</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">frameworkfile</span> <span class="p">=</span> <span class="n">PBXFileElement</span><span class="p">(</span><span class="n">path</span><span class="p">:</span><span class="s">&#34;/Users/test/YunCeng.framework&#34;</span><span class="p">,</span><span class="n">name</span><span class="p">:</span><span class="s">&#34;YunCeng.framework&#34;</span><span class="p">)</span>
+</span></span><span class="line hl"><span class="cl">    <span class="kd">let</span> <span class="nv">buildfile</span><span class="p">:</span><span class="n">PBXBuildFile</span><span class="p">?</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">obj</span><span class="p">?.</span><span class="n">add</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">frameworkfile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印加入后的最新清单</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span><span class="p">!.</span><span class="n">files</span><span class="p">?.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">filess</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Framework </span><span class="si">\(</span><span class="n">filess</span><span class="p">.</span><span class="n">file</span><span class="p">?.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="通过xcodeproj在把xx-dot-framework-xxx-dot-h-xxx-dot-bundle-加入到copy-files-phase中">通过xcodeproj在把xx.framework xxx.h xxx.bundle 加入到copy files phase中</h2>
@@ -352,32 +352,32 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">pbxproj</span><span class="p">.</span><span class="n">nativeTargets</span><span class="p">.</span><span class="n">forEach</span><span class="p">{</span> <span class="n">target</span> <span class="k">in</span>
-    <span class="bp">print</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="c1">//配置</span>
-    <span class="n">target</span><span class="p">.</span><span class="n">buildConfigurationList</span><span class="p">?.</span><span class="n">buildConfigurations</span><span class="p">.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">config</span> <span class="k">in</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;buildconfig == </span><span class="si">\(</span><span class="n">config</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="c1">//config.buildSettings 字典类型</span>
-        <span class="c1">//证书配置配置:</span>
-        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;PROVISIONING_PROFILE_SPECIFIER&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxProfileName&#34;</span>
-        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;DEVELOPMENT_TEAM&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxTeamName&#34;</span>
-        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;CODE_SIGN_IDENTITY&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxIdentityName&#34;</span>
-        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;CODE_SIGN_IDENTITY[sdk=iphoneos*]&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;iPhone Developer&#34;</span>
-
-        <span class="c1">//OTHER_LDFLAGS:</span>
-        <span class="k">if</span> <span class="kd">let</span> <span class="nv">kj</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]{</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;other link ld flags </span><span class="si">\(</span><span class="n">kj</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-            <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;-fobjc -objc&#34;</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;OTHER_LDFLAGS 不存在..&#34;</span><span class="p">)</span>
-            <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;-fobjc -objc&#34;</span>
-        <span class="p">}</span>
-
-
-        <span class="c1">//修改配置</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;===== end =====&#34;</span><span class="p">)</span>
-    <span class="p">})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">pbxproj</span><span class="p">.</span><span class="n">nativeTargets</span><span class="p">.</span><span class="n">forEach</span><span class="p">{</span> <span class="n">target</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//配置</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target</span><span class="p">.</span><span class="n">buildConfigurationList</span><span class="p">?.</span><span class="n">buildConfigurations</span><span class="p">.</span><span class="n">forEach</span><span class="p">({</span> <span class="n">config</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;buildconfig == </span><span class="si">\(</span><span class="n">config</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//config.buildSettings 字典类型</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//证书配置配置:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;PROVISIONING_PROFILE_SPECIFIER&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxProfileName&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;DEVELOPMENT_TEAM&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxTeamName&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;CODE_SIGN_IDENTITY&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;xxIdentityName&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;CODE_SIGN_IDENTITY[sdk=iphoneos*]&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;iPhone Developer&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//OTHER_LDFLAGS:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="kd">let</span> <span class="nv">kj</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]{</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;other link ld flags </span><span class="si">\(</span><span class="n">kj</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;-fobjc -objc&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;OTHER_LDFLAGS 不存在..&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">config</span><span class="p">.</span><span class="n">buildSettings</span><span class="p">[</span><span class="s">&#34;OTHER_LDFLAGS&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;-fobjc -objc&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//修改配置</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;===== end =====&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -516,7 +516,7 @@ iOS开发过程中,build setting 相关配置的问题时常发生,后来有了c
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

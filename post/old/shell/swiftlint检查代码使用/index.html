@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/swiftlint%E6%A3%80%E6%9F%A5%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8/" />
@@ -206,12 +206,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> which swiftlint &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
-swiftlint
-<span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&#34;warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint&#34;</span>
-<span class="k">fi</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="k">if</span> which swiftlint &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">swiftlint
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="单个项目安装swiftlint">单个项目安装swiftlint</h4>
 <ol>
@@ -222,8 +222,8 @@ swiftlint
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pod &#39;SwiftLint&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pod &#39;SwiftLint&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>项目中添加支持</li>
@@ -233,8 +233,8 @@ swiftlint
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&#34;${PODS_ROOT}/SwiftLint/swiftlint&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;${PODS_ROOT}/SwiftLint/swiftlint&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>注意：pod服务器上有时并不是最新版本，尝试<code>:=&gt; githuburl</code>无用。这种情况智能使用安装包方式。</p>
@@ -251,12 +251,12 @@ swiftlint
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ cd your-project
-$ vi .swiftlint.yml
-
-excluded: 
-    - Pods
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ cd your-project
+</span></span><span class="line"><span class="cl">$ vi .swiftlint.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">excluded: 
+</span></span><span class="line"><span class="cl">    - Pods
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>excluded</code>： 配置项用来设置忽略代码规范检查的路径，可以指定整个文件夹，也可以指定精确路径下的文件。
 <strong>支持嵌套</strong>：
@@ -276,9 +276,9 @@ excluded:
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mkdir -p ~/.vim/autoload ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p ~/.vim/autoload ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>设置<code>~/.vimrc</code>配置项：</p>
 <div class="highlight"><div class="chroma">
@@ -286,8 +286,8 @@ excluded:
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">execute pathogen#infect<span class="o">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">execute pathogen#infect<span class="o">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>第二步将<code>syntastic</code> 作为 <code>Pathogen</code> bundle的资源方式安装</li>
@@ -298,9 +298,9 @@ excluded:
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vim-syntastic/syntastic.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ~/.vim/bundle <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vim-syntastic/syntastic.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="终端集成使用">终端集成使用</h4>
 <p>在<code>vimrc</code>中添加配置，当启动vim即可使用：</p>
@@ -309,8 +309,8 @@ excluded:
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">let</span> g:syntastic_swift_checkers <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;swiftpm&#39;</span>, <span class="s1">&#39;swiftlint&#39;</span><span class="o">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">let</span> g:syntastic_swift_checkers <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;swiftpm&#39;</span>, <span class="s1">&#39;swiftlint&#39;</span><span class="o">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>终端支持<code>Package.swift</code>
@@ -456,7 +456,7 @@ excluded:
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

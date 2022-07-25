@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%85%B6%E4%BB%96/%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93/" />
@@ -220,9 +220,9 @@ scp -i localDir serveruser@serverip:serverDir</li>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">sudo docker pull mysql 
-sudo docker run --name jiradb -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>jiradb -d mysql/mysql-server:latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo docker pull mysql 
+</span></span><span class="line"><span class="cl">sudo docker run --name jiradb -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>jiradb -d mysql/mysql-server:latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>-name : 容器名
@@ -235,8 +235,8 @@ MYSQL_ROOT_PASSWORD : 数据库密码
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo docker exec -it jiradb mysql -ujira -pjira
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo docker exec -it jiradb mysql -ujira -pjira
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="进入mysql终端访问数据库">进入mysql终端,访问数据库</h4>
 <div class="highlight"><div class="chroma">
@@ -249,13 +249,13 @@ MYSQL_ROOT_PASSWORD : 数据库密码
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo docker exec -it jiradb bash
-#登录数据库  默认用户root 密码为空，如果前边设置了MYSQL_ROOT_PASSWORD的值，则需要密码
-mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
-回车
-输入密码：jiradb  #就是$MYSQL_ROOT_PASSWORD的值
-即登录
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo docker exec -it jiradb bash
+</span></span><span class="line"><span class="cl">#登录数据库  默认用户root 密码为空，如果前边设置了MYSQL_ROOT_PASSWORD的值，则需要密码
+</span></span><span class="line"><span class="cl">mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
+</span></span><span class="line"><span class="cl">回车
+</span></span><span class="line"><span class="cl">输入密码：jiradb  #就是$MYSQL_ROOT_PASSWORD的值
+</span></span><span class="line"><span class="cl">即登录
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="用户权限控制">用户权限控制</h4>
 <ol>
@@ -266,8 +266,8 @@ mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">status;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">status;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>创建用户名</li>
@@ -277,8 +277,8 @@ mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">create user jira identified by &#39;jira&#39;;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">create user jira identified by &#39;jira&#39;;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>赋予权限</li>
@@ -291,11 +291,11 @@ mysql -uroot -p   #登录本地数据库 可以 省略-h参数 -h 127.0.0.1
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">grant all privileges on *.* to &#39;jira&#39;@&#39;%&#39; identified by &#39;jira&#39; with grant option;
-grant all privileges on *.* to &#39;jira&#39;@&#39;localhost&#39; identified by &#39;jira&#39; with grant option;
-flush privileges;
-quit;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">grant all privileges on *.* to &#39;jira&#39;@&#39;%&#39; identified by &#39;jira&#39; with grant option;
+</span></span><span class="line"><span class="cl">grant all privileges on *.* to &#39;jira&#39;@&#39;localhost&#39; identified by &#39;jira&#39; with grant option;
+</span></span><span class="line"><span class="cl">flush privileges;
+</span></span><span class="line"><span class="cl">quit;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="数据库操作">数据库操作</h4>
 <ol>
@@ -306,8 +306,8 @@ quit;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">create database jiradb character set &#39;UTF8&#39;;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">create database jiradb character set &#39;UTF8&#39;;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>查看当前数据库名：</li>
@@ -317,8 +317,8 @@ quit;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">select database();
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">select database();
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>切换指定数据库</li>
@@ -328,8 +328,8 @@ quit;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">use jiradb;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">use jiradb;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
 <li>查看数据库表</li>
@@ -339,8 +339,8 @@ quit;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">show tables;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">show tables;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>创建表</p>
 <h5 id="jira和数据库关联结果">jira和数据库关联结果</h5>
@@ -352,9 +352,9 @@ quit;
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Connect to MySQL from an application in another Docker container
-sudo docker run --name jirad --link jiradb:mysql/mysql-server -d cptactionhank/atlassian-jira:latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Connect to MySQL from an application in another Docker container
+</span></span><span class="line"><span class="cl">sudo docker run --name jirad --link jiradb:mysql/mysql-server -d cptactionhank/atlassian-jira:latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>最终采用在ubuntu系统中安装mysql：</p>
 <div class="highlight"><div class="chroma">
@@ -362,8 +362,8 @@ sudo docker run --name jirad --link jiradb:mysql/mysql-server -d cptactionhank/a
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$sudo apt-get -y install mysql-server
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$sudo apt-get -y install mysql-server
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>##问题：Could not reach any registry endpoint
 安装Linux加速器：
@@ -386,9 +386,9 @@ curl -sSL <a href="https://get.daocloud.io/daomonit/install.sh">https://get.daoc
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get update
-$ sudo apt-get install apt-transport-https ca-certificates
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo apt-get update
+</span></span><span class="line"><span class="cl">$ sudo apt-get install apt-transport-https ca-certificates
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
 <li>Docker资源库
@@ -432,8 +432,8 @@ $ sudo apt-get install apt-transport-https ca-certificates
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s2">&#34;&lt;REPO&gt;&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;&lt;REPO&gt;&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>`
 6.Update the APT package index.</p>
@@ -442,8 +442,8 @@ $ sudo apt-get install apt-transport-https ca-certificates
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get update
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt-get update
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>7.Verify that APT is pulling from the right repository.
 When you run the following command, an entry is returned for each version of Docker that is available for you to install. Each entry should have the URL <a href="https://apt.dockerproject.org/repo/">https://apt.dockerproject.org/repo/</a>. The version currently installed is marked with ***.The output below is truncated.</p>
@@ -621,7 +621,7 @@ This command downloads a test image and runs it in a container. When the contain
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

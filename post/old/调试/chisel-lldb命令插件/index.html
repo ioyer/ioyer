@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E8%B0%83%E8%AF%95/chisel-lldb%E5%91%BD%E4%BB%A4%E6%8F%92%E4%BB%B6/" />
@@ -214,16 +214,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) pviews view
-&lt;TestView: 0x18df8070; baseClass = UIControl; frame = (144 9; 126 167); layer = &lt;CALayer: 0x18df8150&gt;&gt;
-| &lt;UIView: 0x18df81d0; frame = (0 0; 126 126); userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8240&gt;&gt;
-| &lt;UIImageView: 0x18df8330; frame = (0 0; 126 126); clipsToBounds = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df83b0&gt;&gt;
-| &lt;UILabel: 0x18df8460; frame = (0 135; 126 14); text = &#39;haha&#39;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x18df7fb0&gt;&gt;
-|    | &lt;_UILabelContentLayer: 0x131a3d50&gt; (layer)
-| &lt;UILabel: 0x18df8670; frame = (0 155; 126 12); text = &#39;hahaha&#39;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x18df8730&gt;&gt;
-|    | &lt;_UILabelContentLayer: 0x131bea10&gt; (layer)
-| &lt;UIImageView: 0x18df88d0; frame = (0 9; 28 27); hidden = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8ba0&gt;&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(lldb) pviews view
+</span></span><span class="line"><span class="cl">&lt;TestView: 0x18df8070; baseClass = UIControl; frame = (144 9; 126 167); layer = &lt;CALayer: 0x18df8150&gt;&gt;
+</span></span><span class="line"><span class="cl">| &lt;UIView: 0x18df81d0; frame = (0 0; 126 126); userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8240&gt;&gt;
+</span></span><span class="line"><span class="cl">| &lt;UIImageView: 0x18df8330; frame = (0 0; 126 126); clipsToBounds = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df83b0&gt;&gt;
+</span></span><span class="line"><span class="cl">| &lt;UILabel: 0x18df8460; frame = (0 135; 126 14); text = &#39;haha&#39;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x18df7fb0&gt;&gt;
+</span></span><span class="line"><span class="cl">|    | &lt;_UILabelContentLayer: 0x131a3d50&gt; (layer)
+</span></span><span class="line"><span class="cl">| &lt;UILabel: 0x18df8670; frame = (0 155; 126 12); text = &#39;hahaha&#39;; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x18df8730&gt;&gt;
+</span></span><span class="line"><span class="cl">|    | &lt;_UILabelContentLayer: 0x131bea10&gt; (layer)
+</span></span><span class="line"><span class="cl">| &lt;UIImageView: 0x18df88d0; frame = (0 9; 28 27); hidden = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x18df8ba0&gt;&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="pvc">pvc</h3>
 <p>这个命令也是递归打印层级，但是不是view，而是<code>viewController</code>。利用它我们可以对viewController的结构一目了然。 其实苹果在IOS8也默默的添加了 UIViewController 的一个私有辅助方法 <code>[UIViewController _printHierarchy]</code> 同样的效果。</p>
@@ -245,21 +245,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) pvc
-&lt;TabBarController: 0x13772fd0; view = &lt;UILayoutContainerView; 0x151b3a30&gt;; frame = (0, 0; 414, 736)&gt;
-| &lt;UINavigationController: 0x1602b800; view = &lt;UILayoutContainerView; 0x1b00aca0&gt;; frame = (0, 0; 414, 736)&gt;
-|   | &lt;FirstViewController: 0x16029c00; view = &lt;UIView; 0x1b01e1c0&gt;; frame = (0, 0; 414, 736)&gt;
-| &lt;UINavigationController: 0x138c5200; view = &lt;UILayoutContainerView; 0x1316a080&gt;; frame = (0, 0; 414, 736)&gt;
-|   | &lt;SecondViewController: 0x16030400; view = &lt;UIView; 0x2094b370&gt;; frame = (0, 0; 414, 736)&gt;
-|   |   | &lt;SecondChildViewController: 0x15af6000; view = &lt;UIView; 0x18d4e650&gt;; frame = (0, 64; 414, 628)&gt;
-| &lt;UINavigationController: 0x1383ca00; view = &lt;UILayoutContainerView; 0x13180070&gt;; frame = (0, 0; 414, 736)&gt;
-|   | &lt;ThirdViewController: 0x138ddc00; view = &lt;UIView; 0x18df6650&gt;; frame = (0, 0; 414, 736)&gt;
-|   |   | &lt;ThirdChild1ViewController: 0x1393fe00; view = &lt;UIView; 0x131ec000&gt;; frame = (0, 0; 414, 672)&gt;
-|   |   | &lt;ThirdChild2ViewController: 0x138dce00; view = &lt;UIView; 0x204075a0&gt;; frame = (414, 0; 414, 672)&gt;
-|   |   | &lt;ThirdChild3ViewController: 0x138a8e00; view = &lt;UIView; 0x20426250&gt;; frame = (828, 0; 414, 672)&gt;
-| &lt;UINavigationController: 0x160eca00; view = &lt;UILayoutContainerView; 0x152f7d90&gt;; frame = (0, 0; 414, 736)&gt;
-|   | &lt;FourViewController: 0x13157cc0; view not loaded&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(lldb) pvc
+</span></span><span class="line"><span class="cl">&lt;TabBarController: 0x13772fd0; view = &lt;UILayoutContainerView; 0x151b3a30&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">| &lt;UINavigationController: 0x1602b800; view = &lt;UILayoutContainerView; 0x1b00aca0&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   | &lt;FirstViewController: 0x16029c00; view = &lt;UIView; 0x1b01e1c0&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">| &lt;UINavigationController: 0x138c5200; view = &lt;UILayoutContainerView; 0x1316a080&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   | &lt;SecondViewController: 0x16030400; view = &lt;UIView; 0x2094b370&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   |   | &lt;SecondChildViewController: 0x15af6000; view = &lt;UIView; 0x18d4e650&gt;; frame = (0, 64; 414, 628)&gt;
+</span></span><span class="line"><span class="cl">| &lt;UINavigationController: 0x1383ca00; view = &lt;UILayoutContainerView; 0x13180070&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   | &lt;ThirdViewController: 0x138ddc00; view = &lt;UIView; 0x18df6650&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   |   | &lt;ThirdChild1ViewController: 0x1393fe00; view = &lt;UIView; 0x131ec000&gt;; frame = (0, 0; 414, 672)&gt;
+</span></span><span class="line"><span class="cl">|   |   | &lt;ThirdChild2ViewController: 0x138dce00; view = &lt;UIView; 0x204075a0&gt;; frame = (414, 0; 414, 672)&gt;
+</span></span><span class="line"><span class="cl">|   |   | &lt;ThirdChild3ViewController: 0x138a8e00; view = &lt;UIView; 0x20426250&gt;; frame = (828, 0; 414, 672)&gt;
+</span></span><span class="line"><span class="cl">| &lt;UINavigationController: 0x160eca00; view = &lt;UILayoutContainerView; 0x152f7d90&gt;; frame = (0, 0; 414, 736)&gt;
+</span></span><span class="line"><span class="cl">|   | &lt;FourViewController: 0x13157cc0; view not loaded&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="visualize">visualize</h3>
 <p>这是个很有意思的功能，它可以让你使用Mac的预览打开一个 UIImage, CGImageRef, UIView, 或 CALayer。 这个功能或许可以帮我们用来截图、用来定位一个view的具体内容。 但是在我试用了一下，发现暂时还是只能在模拟器时使用，真机还不行。</p>
@@ -268,8 +268,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) visualize imageView
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(lldb) visualize imageView
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="fv--fvc">fv &amp; fvc</h3>
 <p><code>fv</code> 和 <code>fvc</code> 这两个命令是用来通过类名搜索当前内存中存在的view和viewController实例的命令，支持正则搜索。</p>
@@ -286,16 +286,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) fv scrollView
-0x18d3b8c0 UIScrollView
-0x137d0c50 UIScrollView
-0x131b1580 UIScrollView
-0x131b2070 UIScrollView
-(lldb) fvc Home
-0x1393fe00 HomeFeedsViewController
-0x138a8e00 HomeFeedsViewController
-(lldb)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(lldb) fv scrollView
+</span></span><span class="line"><span class="cl">0x18d3b8c0 UIScrollView
+</span></span><span class="line"><span class="cl">0x137d0c50 UIScrollView
+</span></span><span class="line"><span class="cl">0x131b1580 UIScrollView
+</span></span><span class="line"><span class="cl">0x131b2070 UIScrollView
+</span></span><span class="line"><span class="cl">(lldb) fvc Home
+</span></span><span class="line"><span class="cl">0x1393fe00 HomeFeedsViewController
+</span></span><span class="line"><span class="cl">0x138a8e00 HomeFeedsViewController
+</span></span><span class="line"><span class="cl">(lldb)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="show--hide">show &amp; hide</h3>
 <p>这两个命令用来显示和隐藏一个指定的 UIView . 你甚至不需要Continue Progress. 就可以看到效果。</p>
@@ -314,11 +314,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(lldb) p view
-(long) $122 = 140718754142192
-(lldb) e (void)[$122 setBackgroundColor:[UIColor greenColor]]
-(lldb) caflush
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(lldb) p view
+</span></span><span class="line"><span class="cl">(long) $122 = 140718754142192
+</span></span><span class="line"><span class="cl">(lldb) e (void)[$122 setBackgroundColor:[UIColor greenColor]]
+</span></span><span class="line"><span class="cl">(lldb) caflush
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="bmessage">bmessage</h3>
 <p>使用场景：我们想在 <code>[MyViewController viewWillAppear:]</code> 里面打断点，但是 <code>MyViewController</code>并没有实现 <code>viewWillAppear:</code> 方法， 以往的作法可能就是在子类中实现下<code>viewWillAppear:</code>，然后打断点，然后<code>rebuild</code>。
@@ -463,7 +463,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

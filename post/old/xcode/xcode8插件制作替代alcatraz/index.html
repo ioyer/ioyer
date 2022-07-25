@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/xcode/xcode8%E6%8F%92%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%9B%BF%E4%BB%A3alcatraz/" />
@@ -231,23 +231,23 @@ Xcode 8验证每个库和包，以防止恶意代码未经您的许可运行。�
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">&lt;key&gt;NSExtensionAttributes&lt;/key&gt;</span>
-<span class="err">&lt;dict&gt;</span>
-    <span class="err">&lt;key&gt;XCSourceEditorCommandDefinitions&lt;/key&gt;</span>
-    <span class="err">&lt;array&gt;</span>
-        <span class="err">&lt;dict&gt;</span>
-            <span class="err">&lt;key&gt;XCSourceEditorCommandClassName&lt;/key&gt;</span>
-            <span class="err">&lt;string&gt;$(PRODUCT_MODULE_NAME).SourceEditorCommand&lt;/string&gt;</span>
-            <span class="err">&lt;key&gt;XCSourceEditorCommandIdentifier&lt;/key&gt;</span>
-            <span class="err">&lt;string&gt;com.xt.APPlugins.AutoComment.SourceEditorCommand&lt;/string&gt;</span>
-            <span class="err">&lt;key&gt;XCSourceEditorCommandName&lt;/key&gt;</span>
-            <span class="err">&lt;string&gt;Source</span> <span class="err">Editor</span> <span class="err">Command&lt;/string&gt;</span>
-        <span class="err">&lt;/dict&gt;</span>
-    <span class="err">&lt;/array&gt;</span>
-    <span class="err">&lt;key&gt;XCSourceEditorExtensionPrincipalClass&lt;/key&gt;</span>
-    <span class="err">&lt;string&gt;$(PRODUCT_MODULE_NAME).SourceEditorExtension&lt;/string&gt;</span>
-<span class="err">&lt;/dict&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">&lt;key&gt;NSExtensionAttributes&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="err">&lt;dict&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;key&gt;XCSourceEditorCommandDefinitions&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;array&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;dict&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;key&gt;XCSourceEditorCommandClassName&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;string&gt;$(PRODUCT_MODULE_NAME).SourceEditorCommand&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;key&gt;XCSourceEditorCommandIdentifier&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;string&gt;com.xt.APPlugins.AutoComment.SourceEditorCommand&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;key&gt;XCSourceEditorCommandName&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="err">&lt;string&gt;Source</span> <span class="err">Editor</span> <span class="err">Command&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="err">&lt;/dict&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;/array&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;key&gt;XCSourceEditorExtensionPrincipalClass&lt;/key&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">&lt;string&gt;$(PRODUCT_MODULE_NAME).SourceEditorExtension&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="err">&lt;/dict&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中：</p>
 <ul>
@@ -273,17 +273,17 @@ Xcode 8验证每个库和包，以防止恶意代码未经您的许可运行。�
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//1. 启动extension被调用，自定义相关操作</span>
-<span class="kd">func</span> <span class="nf">extensionDidFinishLaunching</span><span class="p">(){}</span>
-
-<span class="kd">var</span> <span class="nv">commandDefinitions</span><span class="p">:</span> <span class="p">[[</span><span class="n">XCSourceEditorCommandDefinitionKey</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]]</span> <span class="p">{</span>
-    <span class="c1">// If your extension needs to return a collection of command definitions that differs from those in its Info.plist, implement this optional property getter.</span>
-    <span class="c1">////commandDefinitions属性的getter方法可以动态的展示或是隐藏特定的指令</span>
-    <span class="k">return</span> <span class="p">[[.</span><span class="n">classNameKey</span><span class="p">:</span> <span class="s">&#34;SourceEditorCommand&#34;</span><span class="p">,</span>
-             <span class="p">.</span><span class="n">identifierKey</span><span class="p">:</span> <span class="s">&#34;CustomIdentifier&#34;</span><span class="p">,</span>
-             <span class="p">.</span><span class="n">nameKey</span><span class="p">:</span> <span class="s">&#34;CustomeName&#34;</span><span class="p">]]</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="c1">//1. 启动extension被调用，自定义相关操作</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">extensionDidFinishLaunching</span><span class="p">(){}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">commandDefinitions</span><span class="p">:</span> <span class="p">[[</span><span class="n">XCSourceEditorCommandDefinitionKey</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// If your extension needs to return a collection of command definitions that differs from those in its Info.plist, implement this optional property getter.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">////commandDefinitions属性的getter方法可以动态的展示或是隐藏特定的指令</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[[.</span><span class="n">classNameKey</span><span class="p">:</span> <span class="s">&#34;SourceEditorCommand&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="p">.</span><span class="n">identifierKey</span><span class="p">:</span> <span class="s">&#34;CustomIdentifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="p">.</span><span class="n">nameKey</span><span class="p">:</span> <span class="s">&#34;CustomeName&#34;</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="命令插件功能实现">命令插件功能实现</h2>
 <p>打开<code>SourceEditorCommand.swift</code>，实现<code>perform(with:completionHandler:)</code>。</p>
@@ -324,40 +324,40 @@ Xcode 8验证每个库和包，以防止恶意代码未经您的许可运行。�
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">SourceEditorCommand</span><span class="p">:</span> <span class="n">NSObject</span><span class="p">,</span> <span class="n">XCSourceEditorCommand</span>
-<span class="p">{</span>
-    <span class="c1">//当通过Xcode菜单键调用插件时调用，实现插件功能的主体</span>
-    <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="n">invocation</span><span class="p">:</span> <span class="n">XCSourceEditorCommandInvocation</span><span class="p">,</span>
-               <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">Error</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="p">{</span>
-       <span class="c1">// 正则匹配含有 闭包 的文本</span>
-       <span class="kd">var</span> <span class="nv">updatedLineIndexes</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
-       <span class="k">for</span> <span class="n">lineIndex</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">.</span><span class="bp">count</span>
-       <span class="p">{</span>
-           <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="n">NSString</span>
-           <span class="k">do</span> <span class="p">{</span>
-               <span class="kd">let</span> <span class="nv">results</span> <span class="p">=</span> <span class="k">try</span> <span class="n">findClosureSyntax</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">)</span>
-               <span class="c1">//简化所有闭包语法格式：移除闭包里面括号</span>
-               <span class="kc">_</span> <span class="p">=</span> <span class="n">results</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
-                   <span class="kd">let</span> <span class="nv">cleanLine</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">characters</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;(&#34;</span><span class="p">,</span> <span class="s">&#34;)&#34;</span><span class="p">],</span> <span class="k">in</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">range</span><span class="p">)</span>
-                   <span class="n">updatedLineIndexes</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">lineIndex</span><span class="p">)</span>
-                   <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="p">=</span> <span class="n">cleanLine</span>
-               <span class="p">}</span>
-           <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-               <span class="n">completionHandler</span><span class="p">(</span><span class="n">error</span> <span class="k">as</span> <span class="n">NSError</span><span class="p">)</span>
-           <span class="p">}</span>
-       <span class="p">}</span>
-       <span class="n">completionHandler</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-   <span class="p">}</span>
-   
-   <span class="c1">//使用正则表达式去遍历每一行代码是否含有闭包</span>
-   <span class="kd">func</span> <span class="nf">findClosureSyntax</span><span class="p">(</span><span class="n">line</span><span class="p">:</span><span class="n">NSString</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;[</span><span class="n">NSTextCheckingResult</span><span class="p">]</span>
-   <span class="p">{</span>
-       <span class="kd">let</span> <span class="nv">regex</span> <span class="p">=</span>  <span class="k">try</span> <span class="n">NSRegularExpression</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\\</span><span class="s">{.*</span><span class="se">\\</span><span class="s">(.+</span><span class="se">\\</span><span class="s">).+in&#34;</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">caseInsensitive</span><span class="p">)</span>
-       <span class="kd">let</span> <span class="nv">range</span> <span class="p">=</span> <span class="n">NSRange</span><span class="p">(</span><span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">line</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
-       <span class="k">return</span> <span class="n">regex</span><span class="p">.</span><span class="n">matches</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">line</span> <span class="k">as</span> <span class="nb">String</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">reportProgress</span><span class="p">,</span> <span class="n">range</span><span class="p">:</span> <span class="n">range</span><span class="p">)</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">SourceEditorCommand</span><span class="p">:</span> <span class="n">NSObject</span><span class="p">,</span> <span class="n">XCSourceEditorCommand</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//当通过Xcode菜单键调用插件时调用，实现插件功能的主体</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="n">invocation</span><span class="p">:</span> <span class="n">XCSourceEditorCommandInvocation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">Error</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// 正则匹配含有 闭包 的文本</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">var</span> <span class="nv">updatedLineIndexes</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]()</span>
+</span></span><span class="line"><span class="cl">       <span class="k">for</span> <span class="n">lineIndex</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">.</span><span class="bp">count</span>
+</span></span><span class="line"><span class="cl">       <span class="p">{</span>
+</span></span><span class="line"><span class="cl">           <span class="kd">let</span> <span class="nv">line</span> <span class="p">=</span> <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="n">NSString</span>
+</span></span><span class="line"><span class="cl">           <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="kd">let</span> <span class="nv">results</span> <span class="p">=</span> <span class="k">try</span> <span class="n">findClosureSyntax</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="c1">//简化所有闭包语法格式：移除闭包里面括号</span>
+</span></span><span class="line"><span class="cl">               <span class="kc">_</span> <span class="p">=</span> <span class="n">results</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                   <span class="kd">let</span> <span class="nv">cleanLine</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">characters</span><span class="p">:</span> <span class="p">[</span><span class="s">&#34;(&#34;</span><span class="p">,</span> <span class="s">&#34;)&#34;</span><span class="p">],</span> <span class="k">in</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">updatedLineIndexes</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">lineIndex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">invocation</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">lines</span><span class="p">[</span><span class="n">lineIndex</span><span class="p">]</span> <span class="p">=</span> <span class="n">cleanLine</span>
+</span></span><span class="line"><span class="cl">               <span class="p">}</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">completionHandler</span><span class="p">(</span><span class="n">error</span> <span class="k">as</span> <span class="n">NSError</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="n">completionHandler</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">//使用正则表达式去遍历每一行代码是否含有闭包</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">func</span> <span class="nf">findClosureSyntax</span><span class="p">(</span><span class="n">line</span><span class="p">:</span><span class="n">NSString</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;[</span><span class="n">NSTextCheckingResult</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">regex</span> <span class="p">=</span>  <span class="k">try</span> <span class="n">NSRegularExpression</span><span class="p">(</span><span class="n">pattern</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\\</span><span class="s">{.*</span><span class="se">\\</span><span class="s">(.+</span><span class="se">\\</span><span class="s">).+in&#34;</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">caseInsensitive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="kd">let</span> <span class="nv">range</span> <span class="p">=</span> <span class="n">NSRange</span><span class="p">(</span><span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">line</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="n">regex</span><span class="p">.</span><span class="n">matches</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">line</span> <span class="k">as</span> <span class="nb">String</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">reportProgress</span><span class="p">,</span> <span class="n">range</span><span class="p">:</span> <span class="n">range</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>XCSourceEditorCommandInvocation</code>的<code>buffer</code>提供了当前选中的文件源代码中的信息，包括文件的<code>lines</code>, <code>selections</code>, <code>indentationWidth</code>等等，具体作用可以查看WWDC视频或者苹果的文档查看，在此就不一一介绍了。</p>
 <h2 id="测试">测试</h2>
@@ -516,7 +516,7 @@ Xcode 8验证每个库和包，以防止恶意代码未经您的许可运行。�
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

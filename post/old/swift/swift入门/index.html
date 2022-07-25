@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/swift%E5%85%A5%E9%97%A8/" />
@@ -212,8 +212,8 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, world&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, world&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在Swift，这就是完整的程序:</p>
 <ol>
@@ -231,10 +231,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">myVariable</span> <span class="p">=</span> <span class="mi">42</span>
-<span class="n">myVariable</span> <span class="p">=</span> <span class="mi">50</span>
-<span class="kd">let</span> <span class="nv">myConstant</span> <span class="p">=</span> <span class="mi">42</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">myVariable</span> <span class="p">=</span> <span class="mi">42</span>
+</span></span><span class="line"><span class="cl"><span class="n">myVariable</span> <span class="p">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">myConstant</span> <span class="p">=</span> <span class="mi">42</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在上面例子中，编译其会推断myVariable是一个整数类型，因为其初始化值就是个整数。</p>
 <h6 id="1-显示隐式-初始化数据类型-------类型与变量名绑定属于静态类型语言">1. 显示/隐式 初始化数据类型 &mdash;   类型与变量名绑定，属于静态类型语言</h6>
@@ -247,10 +247,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">imlicitInteger</span> <span class="p">=</span> <span class="mi">70</span>
-<span class="kd">let</span> <span class="nv">imlicitDouble</span> <span class="p">=</span> <span class="mf">70.0</span>
-<span class="kd">let</span> <span class="nv">explicitDouble</span><span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mi">70</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">imlicitInteger</span> <span class="p">=</span> <span class="mi">70</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">imlicitDouble</span> <span class="p">=</span> <span class="mf">70.0</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">explicitDouble</span><span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mi">70</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h6 id="2-变量--拼接到字符串-----变量值永远不会隐含转换到其他类型">2. 变量  拼接到字符串  &ndash; 变量值永远不会隐含转换到其他类型</h6>
 <ul>
@@ -263,10 +263,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
-<span class="kd">let</span> <span class="nv">width</span> <span class="p">=</span> <span class="mi">94</span>
-<span class="kd">let</span> <span class="nv">widthLabel</span> <span class="p">=</span> <span class="n">label</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">label</span> <span class="p">=</span> <span class="s">&#34;The width is &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">width</span> <span class="p">=</span> <span class="mi">94</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">widthLabel</span> <span class="p">=</span> <span class="n">label</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>以小括号来写值，并用反斜线(“”)放在小括号之前</li>
@@ -279,11 +279,11 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
-<span class="kd">let</span> <span class="nv">oranges</span> <span class="p">=</span> <span class="mi">5</span>     <span class="c1">//by gashero</span>
-<span class="kd">let</span> <span class="nv">appleSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.&#34;</span>
-<span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit.&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">apples</span> <span class="p">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">oranges</span> <span class="p">=</span> <span class="mi">5</span>     <span class="c1">//by gashero</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">appleSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span><span class="si">)</span><span class="s"> apples.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">fruitSummary</span> <span class="p">=</span> <span class="s">&#34;I have </span><span class="si">\(</span><span class="n">apples</span> <span class="o">+</span> <span class="n">oranges</span><span class="si">)</span><span class="s"> pieces of fruit.&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="数组和字典的用法">数组和字典的用法</h4>
 <ol>
@@ -296,10 +296,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="nb">String</span><span class="p">[]()</span>
-<span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Float</span><span class="p">&gt;()</span>
-<span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[]</span> <span class="c1">//去购物并买些东西 </span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">emptyArray</span> <span class="p">=</span> <span class="nb">String</span><span class="p">[]()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">emptyDictionary</span> <span class="p">=</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Float</span><span class="p">&gt;()</span>
+</span></span><span class="line"><span class="cl"><span class="n">shoppingList</span> <span class="p">=</span> <span class="p">[]</span> <span class="c1">//去购物并买些东西 </span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果数组类型无法推断，你可以写空的数组为 “[]” 和空的字典为 “[:]“。
 2. 访问<br>
@@ -315,14 +315,14 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;catfish&#34;</span><span class="p">,</span> <span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="s">&#34;tulips&#34;</span><span class="p">,</span> <span class="s">&#34;blue paint&#34;</span><span class="p">]</span>
-<span class="n">shoppingList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;bottle of water&#34;</span>
-<span class="kd">var</span> <span class="nv">occupations</span> <span class="p">=</span> <span class="p">[</span>
-   <span class="s">&#34;Malcolm&#34;</span><span class="p">:</span> <span class="s">&#34;Captain&#34;</span><span class="p">,</span>
-   <span class="s">&#34;Kaylee&#34;</span><span class="p">:</span> <span class="s">&#34;Mechanic&#34;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="n">occupations</span><span class="p">[</span><span class="s">&#34;Jayne&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Public Relations&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">shoppingList</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#34;catfish&#34;</span><span class="p">,</span> <span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="s">&#34;tulips&#34;</span><span class="p">,</span> <span class="s">&#34;blue paint&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">shoppingList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;bottle of water&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">occupations</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;Malcolm&#34;</span><span class="p">:</span> <span class="s">&#34;Captain&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;Kaylee&#34;</span><span class="p">:</span> <span class="s">&#34;Mechanic&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">occupations</span><span class="p">[</span><span class="s">&#34;Jayne&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Public Relations&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="控制流------条件控制循环控制">控制流  &ndash;  条件控制，循环控制</h4>
 <h6 id="1-条件控制">1. 条件控制</h6>
@@ -343,14 +343,14 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
-<span class="n">optionalString</span> <span class="p">==</span> <span class="kc">nil</span>
-<span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;John Appleseed&#34;</span>
-<span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello!&#34;</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">optionalName</span> <span class="p">{</span>
-    <span class="n">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">optionalString</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">optionalString</span> <span class="p">==</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">optionalName</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="s">&#34;John Appleseed&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="kd">let</span> <span class="nv">name</span> <span class="p">=</span> <span class="n">optionalName</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">greeting</span> <span class="p">=</span> <span class="s">&#34;Hello, </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>switch 支持多种数据以及多种比较，不限制必须是整数和测试相等</li>
@@ -370,18 +370,18 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
-<span class="k">switch</span> <span class="n">vegetable</span> <span class="p">{</span>
-<span class="k">case</span> <span class="s">&#34;celery&#34;</span><span class="p">:</span>
-    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Add some raisins and make ants on a log.&#34;</span>
-<span class="k">case</span> <span class="s">&#34;cucumber&#34;</span><span class="p">,</span> <span class="s">&#34;watercress&#34;</span><span class="p">:</span>
-    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;That would make a good tea sandwich.&#34;</span>
-<span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;pepper&#34;</span><span class="p">):</span>
-    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Is it a spicy </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">?&#34;</span>
-<span class="k">default</span><span class="p">:</span>    <span class="c1">//by gashero</span>
-    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Everything tastes good in soup.&#34;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">vegetable</span> <span class="p">=</span> <span class="s">&#34;red pepper&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">switch</span> <span class="n">vegetable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s">&#34;celery&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Add some raisins and make ants on a log.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s">&#34;cucumber&#34;</span><span class="p">,</span> <span class="s">&#34;watercress&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;That would make a good tea sandwich.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&#34;pepper&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Is it a spicy </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">?&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">default</span><span class="p">:</span>    <span class="c1">//by gashero</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">vegetableComment</span> <span class="p">=</span> <span class="s">&#34;Everything tastes good in soup.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在执行匹配的情况后，程序会从 switch 跳出，而不是继续执行下一个情况。所以不再需要 break 跳出 switch 。</p>
 <h6 id="2-循环控制">2. 循环控制</h6>
@@ -406,20 +406,20 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
-    <span class="s">&#34;Prime&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
-    <span class="s">&#34;Fibonacci&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-    <span class="s">&#34;Square&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-<span class="p">]</span>
-<span class="kd">var</span> <span class="nv">largest</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span> <span class="k">in</span> <span class="n">interestingNumbers</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">largest</span> <span class="p">{</span>
-            <span class="n">largest</span> <span class="p">=</span> <span class="n">number</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">interestingNumbers</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Prime&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Fibonacci&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Square&#34;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">largest</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span> <span class="k">in</span> <span class="n">interestingNumbers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">largest</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">largest</span> <span class="p">=</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>你可以在循环中保持一个索引，通过“..”来表示索引范围或明确声明一个初始值、条件、增量。<br>
 这两个循环做相同的事情:</p>
@@ -436,16 +436,16 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="mi">3</span> <span class="p">{</span>
-    <span class="n">firstForLoop</span> <span class="o">+=</span> <span class="n">i</span>
-<span class="p">}</span>
-<span class="n">firstForLoop</span>
-<span class="kd">var</span> <span class="nv">secondForLoop</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="kd">var</span> <span class="nv">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">{</span>
-    <span class="n">secondForLoop</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">firstForLoop</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="mi">3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">firstForLoop</span> <span class="o">+=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">firstForLoop</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">secondForLoop</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="kd">var</span> <span class="nv">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">secondForLoop</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用 .. 构造范围忽略最高值，而用 … 构造的范围则包含两个值。</p>
 <ul>
@@ -466,17 +466,17 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
-    <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="p">}</span>
-<span class="n">n</span>
-<span class="kd">var</span> <span class="nv">m</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="k">do</span> <span class="p">{</span>
-    <span class="n">m</span> <span class="p">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="p">}</span> <span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">100</span>
-<span class="n">m</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">n</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">m</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="p">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="函数与闭包-----函数是闭包的特殊情况">函数与闭包  &ndash; 函数是闭包的特殊情况</h4>
 <h6 id="1-闭包-无需名字只需要放在大括号中即可">1. 闭包 无需名字，只需要放在大括号中即可</h6>
@@ -493,12 +493,12 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
-    <span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
-    <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span>
-    <span class="k">return</span> <span class="n">result</span>
-    <span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>单一语句的闭包可以直接返回值<br>
@@ -509,8 +509,8 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="n">number</span> <span class="k">in</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">number</span><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>通过数字而不是名字来引用一个参数，这对于很短的闭包很有用。<br>
@@ -521,8 +521,8 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="bp">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="bp">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">&gt;</span> <span class="nv">$1</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h6 id="2-函数">2. 函数</h6>
 <ul>
@@ -537,11 +537,11 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">, today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
-<span class="p">}</span>
-<span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;Hello </span><span class="si">\(</span><span class="n">name</span><span class="si">)</span><span class="s">, today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">greet</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Tuesday&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>函数的嵌套<br>
@@ -560,15 +560,15 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">10</span>
-    <span class="kd">func</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">y</span> <span class="o">+=</span> <span class="mi">5</span>
-    <span class="p">}</span>
-    <span class="n">add</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">y</span>
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">returnFifteen</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y</span> <span class="o">+=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>函数接收的参数
@@ -591,16 +591,16 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
-        <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">sum</span>
-<span class="p">}</span>
-<span class="c1">//例子</span>
-<span class="n">sumOf</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">597</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">sumOf</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="nb">Int</span><span class="p">...)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">sum</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sum</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//例子</span>
+</span></span><span class="line"><span class="cl"><span class="n">sumOf</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">597</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>其他函数作为参数  func hasAnyMatches(list: Int[], condition: Int -&gt; Bool) -&gt; Bool{}</li>
@@ -622,20 +622,20 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift">   <span class="kd">func</span> <span class="nf">hasAnyMatches</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nb">Int</span><span class="p">[],</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">true</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="kc">false</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">lessThanTen</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span>
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nv">numbers</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
-<span class="n">hasAnyMatches</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">lessThanTen</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl">   <span class="kd">func</span> <span class="nf">hasAnyMatches</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nb">Int</span><span class="p">[],</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">lessThanTen</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">numbers</span> <span class="p">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">hasAnyMatches</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">lessThanTen</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>函数实际是闭包的特殊情况。你可以写一个闭包而无需名字，只需要放在大括号中即可。使用 in 到特定参数和主体的返回值。</p>
 <ul>
@@ -653,10 +653,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">getGasPrices</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mf">3.59</span><span class="p">,</span> <span class="mf">3.69</span><span class="p">,</span> <span class="mf">3.79</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getGasPrices</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">,</span> <span class="nb">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="mf">3.59</span><span class="p">,</span> <span class="mf">3.69</span><span class="p">,</span> <span class="mf">3.79</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>返回另一个函数  ： makeIncrementer() -&gt; (Int -&gt; Int)
@@ -674,15 +674,15 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">number</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">addOne</span>
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nv">increment</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">()</span>
-<span class="n">increment</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">makeIncrementer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nb">Int</span> <span class="p">-&gt;</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">addOne</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">addOne</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">increment</span> <span class="p">=</span> <span class="n">makeIncrementer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">increment</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="对象与类">对象与类</h4>
 <h6 id="1-类的创建--class-类名">1. 类的创建  ：class 类名</h6>
@@ -700,13 +700,13 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Shape</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">numberOfSides</span> <span class="p">=</span> <span class="mi">0</span>
-    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&#34;A shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Shape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">numberOfSides</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;A shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>类的构造器  ： 构造器来在创建实例时设置类，使用 init 来创建</li>
@@ -727,19 +727,19 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">NamedShape</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">numberOfSides</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
-    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
-
-    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
-    <span class="p">}</span>   <span class="c1">//by gashero</span>
-
-    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&#34;A Shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">NamedShape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">numberOfSides</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>   <span class="c1">//by gashero</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;A Shape with </span><span class="si">\(</span><span class="n">numberOfSides</span><span class="si">)</span><span class="s"> sides.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>self 用来区分 name 属性和 name 参数。
 构造器的声明跟函数一样，除了会创建类的实例。每个属性都需要赋值，无论在声明里还是在构造器里。
@@ -772,27 +772,27 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">Square</span><span class="p">:</span> <span class="n">NamedShape</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">sideLength</span><span class="p">:</span> <span class="nb">Double</span>
-
-    <span class="kd">init</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="nb">Double</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">sideLength</span> <span class="p">=</span> <span class="n">sideLength</span>
-        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
-        <span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">4</span>
-    <span class="p">}</span>
-
-    <span class="kd">func</span> <span class="nf">area</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">sideLength</span> <span class="o">*</span> <span class="n">sideLength</span>
-    <span class="p">}</span>
-
-    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&#34;A square with sides of length </span><span class="si">\(</span><span class="n">sideLength</span><span class="si">)</span><span class="s">.&#34;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">let</span> <span class="nv">test</span> <span class="p">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;my test square&#34;</span><span class="p">)</span>
-<span class="n">test</span><span class="p">.</span><span class="n">area</span><span class="p">()</span>
-<span class="n">test</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Square</span><span class="p">:</span> <span class="n">NamedShape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">sideLength</span><span class="p">:</span> <span class="nb">Double</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">init</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="nb">Double</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">sideLength</span> <span class="p">=</span> <span class="n">sideLength</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">area</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">sideLength</span> <span class="o">*</span> <span class="n">sideLength</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;A square with sides of length </span><span class="si">\(</span><span class="n">sideLength</span><span class="si">)</span><span class="s">.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">test</span> <span class="p">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">sideLength</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&#34;my test square&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">.</span><span class="n">area</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h6 id="2-类的实例创建-----类名--点语法来访问实例的属性和方法">2. 类的实例创建   :  类名()  ,点语法来访问实例的属性和方法</h6>
 <p>通过在类名后加小括号来创建类的实例。使用点语法来访问实例的属性和方法。</p>
@@ -803,10 +803,10 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">shape</span> <span class="p">=</span> <span class="n">Shape</span><span class="p">()</span>
-<span class="n">shape</span><span class="p">.</span><span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">7</span>
-<span class="kd">var</span> <span class="nv">shapeDescription</span> <span class="p">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">shape</span> <span class="p">=</span> <span class="n">Shape</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">shape</span><span class="p">.</span><span class="n">numberOfSides</span> <span class="p">=</span> <span class="mi">7</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nv">shapeDescription</span> <span class="p">=</span> <span class="n">shape</span><span class="p">.</span><span class="n">simpleDescription</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>可选类型 Int?
 可选绑定 if while</p>
@@ -957,7 +957,7 @@ Swift集成了现代编程语言思想，以及Apple工程文化的智慧，编�
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

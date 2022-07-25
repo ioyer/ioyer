@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/shell/%E5%AE%89%E8%A3%85ruby%E5%8F%8Achruby%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" />
@@ -198,8 +198,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ brew install ruby-install
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ brew install ruby-install
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装指定-ruby-版本">安装指定 Ruby 版本</h3>
 <p>方式一：使用<code>Homebrew</code>安装</p>
@@ -209,9 +209,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ruby-install ruby 2.4.1
-$ ruby-install --system ruby  #覆盖系统版本
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ruby-install ruby 2.4.1
+</span></span><span class="line"><span class="cl">$ ruby-install --system ruby  #覆盖系统版本
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>但Mac最新系统安装Xcode时已经没有Command Line工具，需要单独安装。安装命令行：<code>xcode-select --install</code></p>
 <h3 id="安装chruby管理工具">安装chruby管理工具</h3>
@@ -220,8 +220,8 @@ $ ruby-install --system ruby  #覆盖系统版本
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ brew install chruby
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ brew install chruby
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="管理ruby版本">管理ruby版本</h2>
 <ol>
@@ -235,11 +235,11 @@ $ ruby-install --system ruby  #覆盖系统版本
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ chruby
-    ruby-1.9.3-p392
-    jruby-1.7.0
-    rubinius-2.0.0-rc1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ chruby
+</span></span><span class="line"><span class="cl">    ruby-1.9.3-p392
+</span></span><span class="line"><span class="cl">    jruby-1.7.0
+</span></span><span class="line"><span class="cl">    rubinius-2.0.0-rc1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>切换为使用版本</li>
@@ -253,12 +253,12 @@ $ ruby-install --system ruby  #覆盖系统版本
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ chruby 1.9.3 #切换操作
-$ chruby
-* ruby-1.9.3-p392  #当前使用的版本
-    jruby-1.7.0
-    rubinius-2.0.0-rc1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ chruby 1.9.3 #切换操作
+</span></span><span class="line"><span class="cl">$ chruby
+</span></span><span class="line"><span class="cl">* ruby-1.9.3-p392  #当前使用的版本
+</span></span><span class="line"><span class="cl">    jruby-1.7.0
+</span></span><span class="line"><span class="cl">    rubinius-2.0.0-rc1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>智能切换支持
@@ -270,9 +270,9 @@ $ chruby
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">source /usr/local/share/chruby/chruby.sh
+</span></span><span class="line"><span class="cl">source /usr/local/share/chruby/auto.sh
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>OSX does not automatically execute <code>~/.bashrc</code>, instead try adding to <code>/etc/bashrc</code>.</p>
@@ -286,8 +286,8 @@ source /usr/local/share/chruby/auto.sh
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">chruby ruby-1.9
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chruby ruby-1.9
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果终端已经设置自启动项切换 <code>chruby.sh</code> and/or <code>auto.sh</code> , 只需要在<code>~/</code>目录新建<code>.ruby-version</code>:</p>
 <div class="highlight"><div class="chroma">
@@ -295,8 +295,8 @@ source /usr/local/share/chruby/auto.sh
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">echo &#34;ruby-1.9&#34; &gt; ~/.ruby-version
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo &#34;ruby-1.9&#34; &gt; ~/.ruby-version
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -436,7 +436,7 @@ source /usr/local/share/chruby/auto.sh
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

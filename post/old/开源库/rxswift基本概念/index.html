@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%BC%80%E6%BA%90%E5%BA%93/rxswift%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" />
@@ -383,7 +383,7 @@ let error = NSError(domain: &ldquo;Test&rdquo;, code: -1, userInfo: nil)
 let erroredSequence: Observable<Int> = failWith(error)
 let subscription = erroredSequence.subscribe { event in print(event)}
 &mdash; failWith example &mdash;
-Error(Error Domain=Test Code=-1 &ldquo;The operation couldn’t be completed. (Test error -1.)&quot;)
+Error(Error Domain=Test Code=-1 &ldquo;The operation couldn’t be completed. (Test error -1.)&rdquo;)
 {% endcodeblock %}</li>
 </ol>
 <h3 id="create自定义订阅源">create自定义订阅源</h3>
@@ -423,7 +423,7 @@ print(event)
 }
 }
 &mdash; TestDeferred example &mdash;
-Next(Optional(&ldquo;Hello!&quot;))
+Next(Optional(&ldquo;Hello!&rdquo;))
 Completed
 {% endcodeblock %}</p>
 <h2 id="几种特殊类型的订阅源">几种特殊类型的订阅源</h2>
@@ -547,7 +547,7 @@ Completed
 example(&ldquo;flatMap&rdquo;)
 {
 let sequenceInt = sequenceOf(1, 2, 3)
-let sequenceString = sequenceOf(&ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;&ndash;&quot;)
+let sequenceString = sequenceOf(&ldquo;A&rdquo;, &ldquo;B&rdquo;, &ldquo;&ndash;&rdquo;)
 sequenceInt.flatMap{ int in sequenceString }.subscribe{ print($0) }
 }
 &mdash; flatMap example &mdash;
@@ -911,7 +911,7 @@ Completed
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

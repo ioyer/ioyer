@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/%E9%80%9A%E8%BF%87%E6%B2%99%E7%9B%92%E4%B8%ADjs%E8%84%9A%E6%9C%AC%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96app/" />
@@ -369,12 +369,12 @@ NSError *error;
 BOOL success = [fileManager copyItemAtURL:sourceURL toURL:destinationURL error:&amp;error];
 if (success)
 {
-NSAlert *alert = [NSAlert alertWithMessageText:@&ldquo;Script Installed&rdquo; defaultButton:@&ldquo;OK&rdquo; alternateButton:nil otherButton:nil informativeTextWithFormat:@&ldquo;The Automation script was installed succcessfully.&quot;];
+NSAlert *alert = [NSAlert alertWithMessageText:@&ldquo;Script Installed&rdquo; defaultButton:@&ldquo;OK&rdquo; alternateButton:nil otherButton:nil informativeTextWithFormat:@&ldquo;The Automation script was installed succcessfully.&rdquo;];
 [alert runModal];
 }
 else
 {
-NSLog(@&quot;%s error = %@&rdquo;, <strong>PRETTY_FUNCTION</strong>, error);
+NSLog(@&quot;%s error = %@&quot;, <strong>PRETTY_FUNCTION</strong>, error);
 if ([error code] == NSFileWriteFileExistsError)
 {
 // this is where you could update the script, by removing the old one and copying in a new one
@@ -614,7 +614,7 @@ dispatch_semaphore_signal(self.appleScriptTaskSemaphore);
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

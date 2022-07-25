@@ -27,7 +27,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/xcode%E5%92%8Cjenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" />
@@ -255,8 +255,8 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> nohup java -jar ~/Downloads/jenkins.war —httpPort=8081 —ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -267,9 +267,9 @@ Jenkins：经过多年的发展，其活跃的社区和丰富的插件让其成�
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">vi /Users/(username)/.bash_profile  
-输入:alias jenkins=&#34;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vi /Users/(username)/.bash_profile  
+</span></span><span class="line"><span class="cl">输入:alias jenkins=&#34;nohup java -jar ~/Downloads/SVNRepos/jenkins.war --httpPort=8081 --ajp13Port=8010 &gt; /tmp/jenkins.log 2&gt;&amp;1 &amp;”  
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -409,11 +409,11 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">xctool</span><span class="o">.</span><span class="n">sh</span> 
-  <span class="o">-</span><span class="n">workspaceYourWorkspace</span><span class="o">.</span><span class="n">xcworkspace</span>
-  <span class="o">-</span><span class="n">schemeYourScheme</span>
-<span class="nb">test</span> <span class="o">-</span><span class="n">only</span> <span class="ss">SomeTestTarget</span><span class="p">:</span><span class="no">SomeTestClass</span><span class="o">/</span><span class="n">testSomeMethod</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">xctool</span><span class="o">.</span><span class="n">sh</span> 
+</span></span><span class="line"><span class="cl">  <span class="o">-</span><span class="n">workspaceYourWorkspace</span><span class="o">.</span><span class="n">xcworkspace</span>
+</span></span><span class="line"><span class="cl">  <span class="o">-</span><span class="n">schemeYourScheme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">test</span> <span class="o">-</span><span class="n">only</span> <span class="ss">SomeTestTarget</span><span class="p">:</span><span class="no">SomeTestClass</span><span class="o">/</span><span class="n">testSomeMethod</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="自动化部署">自动化部署</h4>
 <p>这儿的想谈的“部署”不是传统意义上的直接部署到产品环境的部署，而是指如何把最新版本的应用快速的部署到测试用户的机器上以收集反馈，或者做一些探索性的测试。</p>
@@ -444,8 +444,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo gem install calabash-cucumber
+</span></span></code></pre></td></tr></table>
 </div>
 </div>``</li>
 <li>安装Calabash中文支持包
@@ -454,8 +454,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo gem install calabash-cucumber-cn
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo gem install calabash-cucumber-cn
+</span></span></code></pre></td></tr></table>
 </div>
 </div>``</li>
 </ol>
@@ -468,8 +468,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd path-to-my-ios-project (i.e. directory containing .xcodeproj file)
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -479,8 +479,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">gem install calabash-cucumber
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gem install calabash-cucumber
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>``</p>
 </li>
@@ -491,8 +491,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios setup  //Answer the questions and read the output :)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">calabash-ios setup  //Answer the questions and read the output :)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>``</p>
 </li>
@@ -503,8 +503,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">calabash-ios gen
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">calabash-ios gen
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>``</p>
 </li>
@@ -518,8 +518,8 @@ ln -sfv apache-tomcat-8.0.27 tomcat
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cucumber
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cucumber
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>``</p>
 </li>
@@ -750,7 +750,7 @@ feature为主件夹，step_definitions目录内是你封装的脚本，my_first.
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

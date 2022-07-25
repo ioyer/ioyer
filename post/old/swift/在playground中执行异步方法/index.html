@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/%E5%9C%A8playground%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95/" />
@@ -193,14 +193,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">NSURL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&#34;http://httpbin.org/get&#34;</span><span class="p">)</span><span class="o">!</span>
-<span class="kd">let</span> <span class="nv">getTask</span> <span class="p">=</span> <span class="n">URLSession</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">dataTask</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">url</span> <span class="k">as</span> <span class="n">URL</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
-    <span class="kd">let</span> <span class="nv">dictionary</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">JSONSerialization</span><span class="p">.</span><span class="n">jsonObject</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">data</span><span class="p">!,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[])</span>
-    <span class="bp">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">getTask</span><span class="p">.</span><span class="n">resume</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">NSURL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&#34;http://httpbin.org/get&#34;</span><span class="p">)</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nv">getTask</span> <span class="p">=</span> <span class="n">URLSession</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">dataTask</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">url</span> <span class="k">as</span> <span class="n">URL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nv">dictionary</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">JSONSerialization</span><span class="p">.</span><span class="n">jsonObject</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">data</span><span class="p">!,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">getTask</span><span class="p">.</span><span class="n">resume</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>之前有30s限制，目前可以无限执行。
 ~~可以通过 Alt + Cmd + 回车 来打开辅助编辑器。在这里你会看到控制台输出和时间轴，将右下角的 30 改成你想要的数字，就可以对延时运行的最长时间进行设定了。 ~~</p>
@@ -342,7 +342,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

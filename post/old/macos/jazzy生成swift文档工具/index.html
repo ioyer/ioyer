@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/jazzy%E7%94%9F%E6%88%90swift%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" />
@@ -209,8 +209,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo gem install jazzy
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo gem install jazzy
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>gem source不稳定常会导致无法找到jazzy</p>
 <div class="highlight"><div class="chroma">
@@ -221,11 +221,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-$ gem sources -l
-https://gems.ruby-china.com
-# 确保只有 gems.ruby-china.com
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+</span></span><span class="line"><span class="cl">$ gem sources -l
+</span></span><span class="line"><span class="cl">https://gems.ruby-china.com
+</span></span><span class="line"><span class="cl"># 确保只有 gems.ruby-china.com
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>腾讯云：<code> https://gems.ruby-china.com/</code>
 淘宝：<code>https://ruby.taobao.org/</code></p>
@@ -237,9 +237,9 @@ https://gems.ruby-china.com
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd path_to_project_folder
-Jazzy 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd path_to_project_folder
+</span></span><span class="line"><span class="cl">Jazzy 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输入 <code>Jazzy</code> 之后敲回车,会将标注为 <code>public</code> 的结构写入代码文档。
 如果你想要包含所有的实体，就输入一下：</p>
@@ -248,8 +248,8 @@ Jazzy
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">jazzy --min-acl internal
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">jazzy --min-acl internal
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>默认输出的文件夹位于工程的根目录（你也可以更改输出路径），叫 <code>docs</code>。
 当jazzy不支持swift版本时，会导致错误：</p>
@@ -259,9 +259,9 @@ Jazzy
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">Could</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">xcodebuild</span><span class="o">`</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="w">
-</span><span class="w"></span><span class="n">Please</span><span class="w"> </span><span class="n">confirm</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="o">`</span><span class="n">xcodebuild</span><span class="o">`</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">building</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Swift</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">Could</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">xcodebuild</span><span class="o">`</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Please</span><span class="w"> </span><span class="n">confirm</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="o">`</span><span class="n">xcodebuild</span><span class="o">`</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">building</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Swift</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是就需要在<code>build settings</code>中设置<code>swift Language Version</code>版本号。</p>
 <h3 id="生成指定的swift版本">生成指定的swift版本</h3>
@@ -271,8 +271,8 @@ Jazzy
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">jazzy --swift-version 2.1.1 --min-acl internal
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">jazzy --swift-version 2.1.1 --min-acl internal
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="帮助">帮助</h2>
 <p><code>jazzy -help</code>查看使用 Jazzy 时可能使用到的参数。当然，你完全可以根据自己的喜好来得到最终的结果。</p>
@@ -304,29 +304,29 @@ Jazzy
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">author=&#34;iTBoyer&#34;;
-author_url=&#34;http://it-boyer.github.io&#34;;
-github_url=&#34;https://github.com/it-boyer&#34;;
-sdk=&#34;iphone&#34;;
-output=&#34;docs/swift_output&#34;;   #生成的文档地址
-docSetDir=&#34;/Users/admin/Library/Developer/Shared/Documentation/DocSets/&#34;
-
-jazzy \
---objc \
---clean \
---author &#34;${author}&#34;\
---author_url &#34;${author_url}&#34; \
---github_url &#34;${github_url}&#34; \
---module-version 0.96.2 \
---xcodebuild-arguments -scheme,&#34;${PROJECT_NAME}&#34; \
---module &#34;${PROJECT_NAME}&#34; \
---sdk  &#34;${sdk}&#34; \
---output &#34;${output}&#34; \
-#拷贝到xcode文档目录中
-echo &#34;${output}/docsets/${PROJECT_NAME}.docset&#34;
-pwd
-cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">author=&#34;iTBoyer&#34;;
+</span></span><span class="line"><span class="cl">author_url=&#34;http://it-boyer.github.io&#34;;
+</span></span><span class="line"><span class="cl">github_url=&#34;https://github.com/it-boyer&#34;;
+</span></span><span class="line"><span class="cl">sdk=&#34;iphone&#34;;
+</span></span><span class="line"><span class="cl">output=&#34;docs/swift_output&#34;;   #生成的文档地址
+</span></span><span class="line"><span class="cl">docSetDir=&#34;/Users/admin/Library/Developer/Shared/Documentation/DocSets/&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">jazzy \
+</span></span><span class="line"><span class="cl">--objc \
+</span></span><span class="line"><span class="cl">--clean \
+</span></span><span class="line"><span class="cl">--author &#34;${author}&#34;\
+</span></span><span class="line"><span class="cl">--author_url &#34;${author_url}&#34; \
+</span></span><span class="line"><span class="cl">--github_url &#34;${github_url}&#34; \
+</span></span><span class="line"><span class="cl">--module-version 0.96.2 \
+</span></span><span class="line"><span class="cl">--xcodebuild-arguments -scheme,&#34;${PROJECT_NAME}&#34; \
+</span></span><span class="line"><span class="cl">--module &#34;${PROJECT_NAME}&#34; \
+</span></span><span class="line"><span class="cl">--sdk  &#34;${sdk}&#34; \
+</span></span><span class="line"><span class="cl">--output &#34;${output}&#34; \
+</span></span><span class="line"><span class="cl">#拷贝到xcode文档目录中
+</span></span><span class="line"><span class="cl">echo &#34;${output}/docsets/${PROJECT_NAME}.docset&#34;
+</span></span><span class="line"><span class="cl">pwd
+</span></span><span class="line"><span class="cl">cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装到Xcode，在编写代码时，可以快速查看帮助。</p>
 <div class="highlight"><div class="chroma">
@@ -337,11 +337,11 @@ cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">#拷贝到xcode文档目录中
-echo &#34;${output}/docsets/${PROJECT_NAME}.docset&#34;
-pwd
-cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#拷贝到xcode文档目录中
+</span></span><span class="line"><span class="cl">echo &#34;${output}/docsets/${PROJECT_NAME}.docset&#34;
+</span></span><span class="line"><span class="cl">pwd
+</span></span><span class="line"><span class="cl">cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="工具推荐">工具推荐</h2>
 <ul>
@@ -354,10 +354,10 @@ cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">git</span> <span class="nb">clone</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tomaz</span><span class="o">/</span><span class="n">appledoc</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="o">.</span><span class="n">/</span><span class="n">appledoc</span>
-<span class="n">sudo</span> <span class="n">sh</span> <span class="n">install</span><span class="o">-</span><span class="n">appledoc</span><span class="o">.</span><span class="n">sh</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">git</span> <span class="nb">clone</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tomaz</span><span class="o">/</span><span class="n">appledoc</span><span class="o">.</span><span class="n">git</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">.</span><span class="n">/</span><span class="n">appledoc</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">sh</span> <span class="n">install</span><span class="o">-</span><span class="n">appledoc</span><span class="o">.</span><span class="n">sh</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><a href="https://github.com/omz/Dash-Plugin-for-Xcode#readme">dash插件</a>的使用</li>
@@ -501,7 +501,7 @@ cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/%E7%94%B5%E5%AD%90%E5%B7%A1%E6%9F%A5/%E6%9A%82%E5%AD%98%E6%9C%BA%E5%88%B6%E6%97%B6%E5%BA%8F%E5%9B%BE/" />
@@ -241,58 +241,58 @@
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">title 时序图
-center header
-使用类的生命线来描述用例在代码中执行的具体流程
-参与者：actor，boundary,control,entity,database
-参与者支持as别名
-生命线: --&gt; &lt;--
-消息
-endheader
-
-&#39;******* 类声明模块 *******&#39;
-actor 巡查员 as patrol
-entity 检查记录 as record
-control 拍照 as paizhao
-database 图库 as imgdb
-control 上传器 as uploader
-database 请求库 as reqdb
-control 任务服务器 as server 
-==拍照服务==
-patrol --&gt; record:五定拍照指令
-
-record --&gt; paizhao: 五定一
-activate paizhao 
-paizhao --&gt; imgdb :图片1model数据
-activate imgdb
-imgdb --&gt; uploader:上传图片
-activate uploader
-uploader --&gt; imgdb:更新status=2
-deactivate uploader
-deactivate paizhao
-deactivate imgdb
-
-==提交服务==
-record --&gt; reqdb:存储suRequest数据
-
-activate record
-activate reqdb
-reqdb --&gt; imgdb:查询检查项所有的图片状态
-activate imgdb
-imgdb --&gt; reqdb:更新请求记录
-deactivate imgdb
-deactivate reqdb
-reqdb --&gt; server:提交检查项
-activate server
-server --&gt; reqdb:清除请求记录
-server --&gt; imgdb:清空图片记录
-deactivate server
-deactivate record
-
-center footer
-完成
-endfooter
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">title 时序图
+</span></span><span class="line"><span class="cl">center header
+</span></span><span class="line"><span class="cl">使用类的生命线来描述用例在代码中执行的具体流程
+</span></span><span class="line"><span class="cl">参与者：actor，boundary,control,entity,database
+</span></span><span class="line"><span class="cl">参与者支持as别名
+</span></span><span class="line"><span class="cl">生命线: --&gt; &lt;--
+</span></span><span class="line"><span class="cl">消息
+</span></span><span class="line"><span class="cl">endheader
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#39;******* 类声明模块 *******&#39;
+</span></span><span class="line"><span class="cl">actor 巡查员 as patrol
+</span></span><span class="line"><span class="cl">entity 检查记录 as record
+</span></span><span class="line"><span class="cl">control 拍照 as paizhao
+</span></span><span class="line"><span class="cl">database 图库 as imgdb
+</span></span><span class="line"><span class="cl">control 上传器 as uploader
+</span></span><span class="line"><span class="cl">database 请求库 as reqdb
+</span></span><span class="line"><span class="cl">control 任务服务器 as server 
+</span></span><span class="line"><span class="cl">==拍照服务==
+</span></span><span class="line"><span class="cl">patrol --&gt; record:五定拍照指令
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">record --&gt; paizhao: 五定一
+</span></span><span class="line"><span class="cl">activate paizhao 
+</span></span><span class="line"><span class="cl">paizhao --&gt; imgdb :图片1model数据
+</span></span><span class="line"><span class="cl">activate imgdb
+</span></span><span class="line"><span class="cl">imgdb --&gt; uploader:上传图片
+</span></span><span class="line"><span class="cl">activate uploader
+</span></span><span class="line"><span class="cl">uploader --&gt; imgdb:更新status=2
+</span></span><span class="line"><span class="cl">deactivate uploader
+</span></span><span class="line"><span class="cl">deactivate paizhao
+</span></span><span class="line"><span class="cl">deactivate imgdb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==提交服务==
+</span></span><span class="line"><span class="cl">record --&gt; reqdb:存储suRequest数据
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">activate record
+</span></span><span class="line"><span class="cl">activate reqdb
+</span></span><span class="line"><span class="cl">reqdb --&gt; imgdb:查询检查项所有的图片状态
+</span></span><span class="line"><span class="cl">activate imgdb
+</span></span><span class="line"><span class="cl">imgdb --&gt; reqdb:更新请求记录
+</span></span><span class="line"><span class="cl">deactivate imgdb
+</span></span><span class="line"><span class="cl">deactivate reqdb
+</span></span><span class="line"><span class="cl">reqdb --&gt; server:提交检查项
+</span></span><span class="line"><span class="cl">activate server
+</span></span><span class="line"><span class="cl">server --&gt; reqdb:清除请求记录
+</span></span><span class="line"><span class="cl">server --&gt; imgdb:清空图片记录
+</span></span><span class="line"><span class="cl">deactivate server
+</span></span><span class="line"><span class="cl">deactivate record
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">center footer
+</span></span><span class="line"><span class="cl">完成
+</span></span><span class="line"><span class="cl">endfooter
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="活动图">活动图</h2>
 <p><img src="http://www.plantuml.com/plantuml/png/Aov9B2hXidhMtVkyTRarLsQQWiQJ7GtFPgu7aa_tBD1KACb8pUDI00AO6WZdoOwk9tiMG3YPQHhbfH2L2XgLgSMQO568dlu9JtOjWIXBpIbE1IfDIO78MvLa5cTaMdE1X3MUBjduOijIgCJBXeQdxRk0CdafcMbWUGM4kvukcGLq5qHbMdvHDcwtmPKe9AOdPkBs1DWYY5bMoVcvkPabrbp59Va529k1TZvRknHYCyoVaQx1cZ3VFr-p1kWue1ACG41n9OO3C5oBwc8YDS5S3-R0V03cm7q1S-Ik7bH7qZKOGIxGqwEpxP14124X0W00" alt=""></p>
@@ -356,63 +356,63 @@ endfooter
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">start
-:拍照;
-if (一景一张) then
-    :拍照;
-    :上传;
-    if(wu) then (yes)
-        :提交;
-    elseif(dd)
-    :tishi;
-else(失败)
-    :退出;
-endif
-else if (一景多张)
-    fork
-    :拍照;
-    :上传;
-    fork again
-    :拍照;
-    :上传;
-end fork
-:commit;
-stop
-else if (多步多张) then (YES)
-    if(第一步) then (yes)
-        fork
-        :拍照;
-        :上传;
-        fork again
-        :拍照;
-        :上传;
-    end fork
-    :commit;
-    stop
-else if(第二步) then (yes)
-    fork
-    :拍照;
-    :上传;
-    fork again
-    :拍照;
-    :上传;
-end fork
-:commit;
-stop
-else if (第..) then (yes)
-    fork
-    :拍照;
-    :上传;
-    fork again
-    :拍照;
-    :上传;
-end fork
-:commit;
-stop
-endif
-endif
-stop
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">start
+</span></span><span class="line"><span class="cl">:拍照;
+</span></span><span class="line"><span class="cl">if (一景一张) then
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">    if(wu) then (yes)
+</span></span><span class="line"><span class="cl">        :提交;
+</span></span><span class="line"><span class="cl">    elseif(dd)
+</span></span><span class="line"><span class="cl">    :tishi;
+</span></span><span class="line"><span class="cl">else(失败)
+</span></span><span class="line"><span class="cl">    :退出;
+</span></span><span class="line"><span class="cl">endif
+</span></span><span class="line"><span class="cl">else if (一景多张)
+</span></span><span class="line"><span class="cl">    fork
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">    fork again
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">end fork
+</span></span><span class="line"><span class="cl">:commit;
+</span></span><span class="line"><span class="cl">stop
+</span></span><span class="line"><span class="cl">else if (多步多张) then (YES)
+</span></span><span class="line"><span class="cl">    if(第一步) then (yes)
+</span></span><span class="line"><span class="cl">        fork
+</span></span><span class="line"><span class="cl">        :拍照;
+</span></span><span class="line"><span class="cl">        :上传;
+</span></span><span class="line"><span class="cl">        fork again
+</span></span><span class="line"><span class="cl">        :拍照;
+</span></span><span class="line"><span class="cl">        :上传;
+</span></span><span class="line"><span class="cl">    end fork
+</span></span><span class="line"><span class="cl">    :commit;
+</span></span><span class="line"><span class="cl">    stop
+</span></span><span class="line"><span class="cl">else if(第二步) then (yes)
+</span></span><span class="line"><span class="cl">    fork
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">    fork again
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">end fork
+</span></span><span class="line"><span class="cl">:commit;
+</span></span><span class="line"><span class="cl">stop
+</span></span><span class="line"><span class="cl">else if (第..) then (yes)
+</span></span><span class="line"><span class="cl">    fork
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">    fork again
+</span></span><span class="line"><span class="cl">    :拍照;
+</span></span><span class="line"><span class="cl">    :上传;
+</span></span><span class="line"><span class="cl">end fork
+</span></span><span class="line"><span class="cl">:commit;
+</span></span><span class="line"><span class="cl">stop
+</span></span><span class="line"><span class="cl">endif
+</span></span><span class="line"><span class="cl">endif
+</span></span><span class="line"><span class="cl">stop
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -550,7 +550,7 @@ stop
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 

@@ -32,7 +32,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.92.0 with theme even" />
+<meta name="generator" content="Hugo 0.99.1 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
@@ -394,16 +394,16 @@ iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还�
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="p">)</span> <span class="nf">setupControllerWithURL:</span> <span class="p">(</span><span class="n">NSURL</span><span class="p">)</span> <span class="nv">fileURL</span>
-    											 <span class="nf">usingDelegate:</span> <span class="p">(</span><span class="kt">id</span> <span class="o">&lt;</span><span class="n">UIDocumentInteractionControllerDelegate</span><span class="o">&gt;</span><span class="p">)</span> <span class="nv">interactionDelegate</span> 
-<span class="p">{</span>
-	   <span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="n">interactionController</span> <span class="o">=</span>
-	       									<span class="p">[</span><span class="n">UIDocumentInteractionController</span> <span class="nl">interactionControllerWithURL</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">];</span>
-	   <span class="n">interactionController</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">interactionDelegate</span><span class="p">;</span>
-	
-	   <span class="k">return</span> <span class="n">interactionController</span><span class="p">;</span>
-<span class="p">}</span>  
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="p">)</span> <span class="nf">setupControllerWithURL:</span> <span class="p">(</span><span class="n">NSURL</span><span class="p">)</span> <span class="nv">fileURL</span>
+</span></span><span class="line"><span class="cl">    											 <span class="nf">usingDelegate:</span> <span class="p">(</span><span class="kt">id</span> <span class="o">&lt;</span><span class="n">UIDocumentInteractionControllerDelegate</span><span class="o">&gt;</span><span class="p">)</span> <span class="nv">interactionDelegate</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">UIDocumentInteractionController</span> <span class="o">*</span><span class="n">interactionController</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">	       									<span class="p">[</span><span class="n">UIDocumentInteractionController</span> <span class="nl">interactionControllerWithURL</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">interactionController</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">interactionDelegate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	   <span class="k">return</span> <span class="n">interactionController</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>实例创建后，可以通过它的属性来读取与之关联的文件信息，包括文件名、类型和URL。该实例中还有一个<code>icons</code>属性，其中包含了多个 <code>UIImage</code> 对象,可以用于表示该文档的多个大小的图标。这些信息可用于UI。</p>
 <p>如果用其他APP打开该文件，可以利用该实例的 <code>annotation</code> 属性，该属性包含了其他APP所需的附加信息。当然信息的格式必须能够被该APP识别。<br>
@@ -734,7 +734,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
 
 
 
