@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/elgantt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="学习elgantt.el">
 <meta itemprop="description" content="甘特图的使用和注意事项，监督任务提高效率"><meta itemprop="datePublished" content="2021-09-06T16:46:00+08:00" />
 <meta itemprop="dateModified" content="2021-09-08T14:59:27+08:00" />
-<meta itemprop="wordCount" content="979">
+<meta itemprop="wordCount" content="976">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="学习elgantt.el"/>
 <meta name="twitter:description" content="甘特图的使用和注意事项，监督任务提高效率"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 979 字 </span>
+          <span class="more-meta"> 约 976 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -227,15 +227,13 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">elgantt</span>
-</span></span><span class="line"><span class="cl">         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;legalnonsense/elgantt&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">org-ql</span>
-</span></span><span class="line"><span class="cl">         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;alphapapa/org-ql&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">package!</span> <span class="nv">elgantt</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;legalnonsense/elgantt&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">package!</span> <span class="nv">org-ql</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span> <span class="nb">:repo</span> <span class="s">&#34;alphapapa/org-ql&#34;</span><span class="p">))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -277,23 +275,19 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">           <span class="c1">; 设置展示内容的起始日期</span>
-</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nb">setq</span> <span class="nv">elgantt-start-date</span> <span class="s">&#34;2020-01-01&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="c1">; 设置展示内容的起始日期</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">setq</span> <span class="nv">elgantt-start-date</span> <span class="s">&#34;2020-01-01&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>可以设定预览时，直接调到显示当前月份位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">           <span class="nv">elgantt-scroll-to-current-month-at-startup</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="nv">elgantt-scroll-to-current-month-at-startup</span> <span class="nv">t</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -369,7 +363,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-09-06 17:44:00 \u002b0800 CST',
+        id: '2021-09-06 17:44:00 \u002b0800 \u002b0800',
         title: '学习elgantt.el',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -451,7 +445,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

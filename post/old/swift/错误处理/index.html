@@ -20,8 +20,8 @@
 <meta name="author" content="iTBoyer" /><meta name="description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime. Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly. As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve. 举例，在读取和处理磁盘上的一个文件的数据时，会有有许多方法失败，包括指定的文件路径找不到，没有文件的读取权限，或文件编码格式不兼容。在这些不同情况下，就可以让程序提示用户导致程序无法执行的具体原因。
 Representing and Throwing Errors In Swift, errors are represented by values of types that conform to the Error protocol. This empty protocol indicates that a type can be used for error handling. 在swift中，错误类型是遵循Error 协议。
 Swift enumerations are particularly well suited to modeling a group of related error conditions, with associated values allowing for additional information about the nature of an error to be communicated. For example, here’s how you might represent the error conditions of operating a vending machine inside a game: swift枚举类型特别适合为一组错误条件建模，用来关联导致错误的真正原因的相关信息。例如： 一个在操作一台游戏机时的会出现的错误枚举类：
-1 2 3 4 5  enum VendingMachineError: Error { case invalidSelection case insufficientFunds(coinsNeeded: Int) case outOfStock }   Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine: 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：
-1  throw VendingMachineError.insufficientFunds(coinsNeeded: 5)   Handling Errors When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure. 当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。
+1 2 3 4 5 enum VendingMachineError: Error { case invalidSelection case insufficientFunds(coinsNeeded: Int) case outOfStock } Throwing an error lets you indicate that something unexpected happened and the normal flow of execution can’t continue. You use a throw statement to throw an error. For example, the following code throws an error to indicate that five additional coins are needed by the vending machine: 抛出错误说明游戏出现异常，导致其他操作无法进行。这是需要通过Throw语句来抛出这个错误。例如，以下代码抛出了一个错误表明需要five：
+1 throw VendingMachineError.insufficientFunds(coinsNeeded: 5) Handling Errors When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure. 当错误抛出后，这段代码必须来处理这个错误。例如：通过纠正问题，尝试其他方式实现，或通知用户的失败。
 There are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a do-catch statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below. 在swift中有四种处理错误机制: 1. 向调用方法中传递这个错误 2. 使用do-catch语句处理 3. 把错误设置为可选型 4.断言不会出现异常的情况下，使用try!禁止异常抛出
 When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the try keyword—or the try? or try! variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below. 当一个方法抛出错误时，会打断程序正常的工作流，必须快速定位到可能抛出错误的代码。可以使用关键字try 要注意 try?或try!之间的差异。在调用一个函数，方法或者构造器之前，来抛出异常。
 Propagating Errors Using Throwing Functions To indicate that a function, method, or initializer can throw an error, you write the throws keyword in the function’s declaration after its parameters. A function marked with throws is called a throwing function. If the function specifies a return type, you write the throwskeyword before the return arrow (-&amp;gt;). 函数，方法或构造器都可以抛出异常，只需要在声明它们时添加关键字：throws即可，这种方法被称为throws函数，throws关键字位置在参数之后，返回值(-&amp;gt;)之前
@@ -33,7 +33,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/swift/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/" />
@@ -164,7 +164,7 @@ To indicate that a function, method, or initializer can throw an error, you writ
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
 抛出函数会把错误抛给调用它的函数周期中去。"><meta itemprop="datePublished" content="2017-01-11T17:04:21+00:00" />
 <meta itemprop="dateModified" content="2021-05-12T23:57:57+08:00" />
-<meta itemprop="wordCount" content="4582">
+<meta itemprop="wordCount" content="4583">
 <meta itemprop="keywords" content="swift," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swift错误处理"/>
 <meta name="twitter:description" content="Error handling is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
@@ -326,7 +326,7 @@ A throwing function propagates errors that are thrown inside of it to the scope 
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 4582 字 </span>
+          <span class="more-meta"> 约 4583 字 </span>
           <span class="more-meta"> 预计阅读 10 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -840,7 +840,7 @@ Here is the general form of a <code>do-catch </code>statement:</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

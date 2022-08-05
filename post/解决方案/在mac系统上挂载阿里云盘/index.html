@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E5%9C%A8mac%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%8C%82%E8%BD%BD%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="在mac系统上使用webdav工具挂载阿里云盘">
 <meta itemprop="description" content="扩充电脑硬盘空间的一种方式，阿里云盘不限速下载，可以作为本地盘来使用，本地应用可以直接访问阿里云盘的资源文件。"><meta itemprop="datePublished" content="2021-10-19T16:47:00+08:00" />
 <meta itemprop="dateModified" content="2021-10-19T19:39:20+08:00" />
-<meta itemprop="wordCount" content="278">
+<meta itemprop="wordCount" content="292">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在mac系统上使用webdav工具挂载阿里云盘"/>
 <meta name="twitter:description" content="扩充电脑硬盘空间的一种方式，阿里云盘不限速下载，可以作为本地盘来使用，本地应用可以直接访问阿里云盘的资源文件。"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 278 字 </span>
+          <span class="more-meta"> 约 292 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -220,24 +220,22 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">                           </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.0&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                           </span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                             </span><span class="nt">webdav-aliyundriver</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">messense/aliyundrive-webdav</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">aliyundriver</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">environment</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                                 </span>- <span class="l">REFRESH_TOKEN=9d3535a***d8e85</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                                 </span>- <span class="l">WEBDAV_AUTH_USER=admin</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                                 </span>- <span class="l">WEBDAV_AUTH_PASSWORD=admin</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                                 </span>- <span class="l">/Users/boyer/docker/alidriver/:/etc/aliyun-driver/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                                 </span>- <span class="m">8686</span><span class="p">:</span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                               </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">               </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="nt">webdav-aliyundriver</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">messense/aliyundrive-webdav</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">aliyundriver</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span>- <span class="l">REFRESH_TOKEN=9d3535a***d8e85</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span>- <span class="l">WEBDAV_AUTH_USER=admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span>- <span class="l">WEBDAV_AUTH_PASSWORD=admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span>- <span class="l">/Users/boyer/docker/alidriver/:/etc/aliyun-driver/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                     </span>- <span class="m">8686</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -250,11 +248,9 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">                                     docker-compose up -d
-</span></span><span class="line"><span class="cl">                </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">                     docker-compose up -d</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -272,20 +268,18 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">                            <span class="c1">#关闭 Docker 容器们</span>
-</span></span><span class="line"><span class="cl">                            docker-compose down
-</span></span><span class="line"><span class="cl">                            <span class="c1"># 删除已停止的 Docker 容器</span>
-</span></span><span class="line"><span class="cl">                            docker-compose rm
-</span></span><span class="line"><span class="cl">                            <span class="c1"># ……</span>
-</span></span><span class="line"><span class="cl">                            <span class="c1"># 修改 docker-compose 配置文件</span>
-</span></span><span class="line"><span class="cl">                            <span class="c1"># ……</span>
-</span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl">                            <span class="c1"># 再次开启 Docker 服务</span>
-</span></span><span class="line"><span class="cl">                            docker-compose up -d
-</span></span><span class="line"><span class="cl">                </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">            <span class="c1">#关闭 Docker 容器们</span>
+</span></span><span class="line"><span class="cl">            docker-compose down
+</span></span><span class="line"><span class="cl">            <span class="c1"># 删除已停止的 Docker 容器</span>
+</span></span><span class="line"><span class="cl">            docker-compose rm
+</span></span><span class="line"><span class="cl">            <span class="c1"># ……</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 修改 docker-compose 配置文件</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># ……</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 再次开启 Docker 服务</span>
+</span></span><span class="line"><span class="cl">            docker-compose up -d</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -355,7 +349,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-10-19 18:49:00 \u002b0800 CST',
+        id: '2021-10-19 18:49:00 \u002b0800 \u002b0800',
         title: '在mac系统上使用webdav工具挂载阿里云盘',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -437,7 +431,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

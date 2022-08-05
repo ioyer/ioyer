@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/macos/jazzy%E7%94%9F%E6%88%90swift%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="Jazzy生成Swift文档工具">
 <meta itemprop="description" content="{% github realm jazzy 6932e5e width = 30% %} demo {% github appcoda SwiftDocSample 24c1649 width = 30% %} 使用 Jazzy 产生代码文档 Jazzy 是一款可以为 Swift 和 Objective-C 代码产生具有 Apple 风格的代码文档工具。事实上，Jazzy 会为你创建一"><meta itemprop="datePublished" content="2018-09-05T15:52:33+00:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="732">
+<meta itemprop="wordCount" content="748">
 <meta itemprop="keywords" content="工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Jazzy生成Swift文档工具"/>
 <meta name="twitter:description" content="{% github realm jazzy 6932e5e width = 30% %} demo {% github appcoda SwiftDocSample 24c1649 width = 30% %} 使用 Jazzy 产生代码文档 Jazzy 是一款可以为 Swift 和 Objective-C 代码产生具有 Apple 风格的代码文档工具。事实上，Jazzy 会为你创建一"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 732 字 </span>
+          <span class="more-meta"> 约 748 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -308,28 +308,28 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">author=&#34;iTBoyer&#34;;
-</span></span><span class="line"><span class="cl">author_url=&#34;http://it-boyer.github.io&#34;;
-</span></span><span class="line"><span class="cl">github_url=&#34;https://github.com/it-boyer&#34;;
-</span></span><span class="line"><span class="cl">sdk=&#34;iphone&#34;;
-</span></span><span class="line"><span class="cl">output=&#34;docs/swift_output&#34;;   #生成的文档地址
-</span></span><span class="line"><span class="cl">docSetDir=&#34;/Users/admin/Library/Developer/Shared/Documentation/DocSets/&#34;
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">author</span><span class="o">=</span><span class="s2">&#34;iTBoyer&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">author_url</span><span class="o">=</span><span class="s2">&#34;http://it-boyer.github.io&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">github_url</span><span class="o">=</span><span class="s2">&#34;https://github.com/it-boyer&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">sdk</span><span class="o">=</span><span class="s2">&#34;iphone&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">output</span><span class="o">=</span><span class="s2">&#34;docs/swift_output&#34;</span><span class="p">;</span>   <span class="cp">#生成的文档地址</span>
+</span></span><span class="line"><span class="cl"><span class="nv">docSetDir</span><span class="o">=</span><span class="s2">&#34;/Users/admin/Library/Developer/Shared/Documentation/DocSets/&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">jazzy \
-</span></span><span class="line"><span class="cl">--objc \
-</span></span><span class="line"><span class="cl">--clean \
-</span></span><span class="line"><span class="cl">--author &#34;${author}&#34;\
-</span></span><span class="line"><span class="cl">--author_url &#34;${author_url}&#34; \
-</span></span><span class="line"><span class="cl">--github_url &#34;${github_url}&#34; \
-</span></span><span class="line"><span class="cl">--module-version 0.96.2 \
-</span></span><span class="line"><span class="cl">--xcodebuild-arguments -scheme,&#34;${PROJECT_NAME}&#34; \
-</span></span><span class="line"><span class="cl">--module &#34;${PROJECT_NAME}&#34; \
-</span></span><span class="line"><span class="cl">--sdk  &#34;${sdk}&#34; \
-</span></span><span class="line"><span class="cl">--output &#34;${output}&#34; \
-</span></span><span class="line"><span class="cl">#拷贝到xcode文档目录中
-</span></span><span class="line"><span class="cl">echo &#34;${output}/docsets/${PROJECT_NAME}.docset&#34;
-</span></span><span class="line"><span class="cl">pwd
-</span></span><span class="line"><span class="cl">cp -r &#34;${output}/docsets/${PROJECT_NAME}.docset&#34; &#34;${docSetDir}&#34;
+</span></span><span class="line"><span class="cl"><span class="nv">jazzy</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">objc</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">clean</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">author</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">author</span><span class="p">}</span><span class="s2">&#34;</span>\
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">author_url</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">author_url</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">github_url</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">github_url</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="kn">module</span><span class="o">-</span><span class="nv">version</span> <span class="mf">0.96.2</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">xcodebuild</span><span class="o">-</span><span class="nv">arguments</span> <span class="o">-</span><span class="nv">scheme</span><span class="p">,</span><span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nc">PROJECT_NAME</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="kn">module</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nc">PROJECT_NAME</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">sdk</span>  <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">sdk</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">output</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">output</span><span class="p">}</span><span class="s2">&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="cp">#拷贝到xcode文档目录中</span>
+</span></span><span class="line"><span class="cl"><span class="nv">echo</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">output</span><span class="p">}</span><span class="s2">/docsets/</span><span class="o">$</span><span class="p">{</span><span class="nc">PROJECT_NAME</span><span class="p">}</span><span class="s2">.docset&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pwd</span>
+</span></span><span class="line"><span class="cl"><span class="nv">cp</span> <span class="o">-</span><span class="nv">r</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">output</span><span class="p">}</span><span class="s2">/docsets/</span><span class="o">$</span><span class="p">{</span><span class="nc">PROJECT_NAME</span><span class="p">}</span><span class="s2">.docset&#34;</span> <span class="s2">&#34;</span><span class="o">$</span><span class="p">{</span><span class="nv">docSetDir</span><span class="p">}</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装到Xcode，在编写代码时，可以快速查看帮助。</p>
@@ -505,7 +505,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

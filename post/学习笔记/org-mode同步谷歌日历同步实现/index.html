@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/org-mode%E5%90%8C%E6%AD%A5%E8%B0%B7%E6%AD%8C%E6%97%A5%E5%8E%86%E5%90%8C%E6%AD%A5%E5%AE%9E%E7%8E%B0/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="org-mode和google日历同步和相关技巧">
 <meta itemprop="description" content="同步日历实现，在手机上管理日常事务"><meta itemprop="datePublished" content="2021-08-21T00:00:00+08:00" />
 <meta itemprop="dateModified" content="2021-08-27T12:51:05+08:00" />
-<meta itemprop="wordCount" content="504">
+<meta itemprop="wordCount" content="500">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="org-mode和google日历同步和相关技巧"/>
 <meta name="twitter:description" content="同步日历实现，在手机上管理日常事务"/>
@@ -164,8 +164,8 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 504 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 500 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
   
@@ -225,21 +225,19 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">use-package!</span> <span class="nv">org-gcal</span>
-</span></span><span class="line"><span class="cl">         <span class="nb">:ensure</span> <span class="no">t</span>
-</span></span><span class="line"><span class="cl">         <span class="nb">:config</span>
-</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-gcal-default-calendar</span> <span class="s">&#34;test@gmail.com&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="nv">org-gcal-client-id</span> <span class="s">&#34;xxxxxx.apps.googleusercontent.com&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="nv">org-gcal-client-secret</span> <span class="s">&#34;xxxx-Mvpvxxxxx0Bzz&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="nv">org-gcal-fetch-file-alist</span> <span class="o">&#39;</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                                           <span class="p">(</span><span class="nv">org-gcal-default-calendar</span> <span class="o">.</span>  <span class="s">&#34;~/org/gtd.org&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                           <span class="c1">;;(&#34;another-mail@gmail.com&#34; .  &#34;~/task.org&#34;)</span>
-</span></span><span class="line"><span class="cl">                                           <span class="p">))</span>
-</span></span><span class="line"><span class="cl">         <span class="p">)</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">use-package!</span> <span class="nv">org-gcal</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-gcal-default-calendar</span> <span class="s">&#34;test@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="nv">org-gcal-client-id</span> <span class="s">&#34;xxxxxx.apps.googleusercontent.com&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="nv">org-gcal-client-secret</span> <span class="s">&#34;xxxx-Mvpvxxxxx0Bzz&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="nv">org-gcal-fetch-file-alist</span> <span class="o">&#39;</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="nv">org-gcal-default-calendar</span> <span class="o">.</span>  <span class="s">&#34;~/org/gtd.org&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                       <span class="c1">;;(&#34;another-mail@gmail.com&#34; .  &#34;~/task.org&#34;)</span>
+</span></span><span class="line"><span class="cl">                                       <span class="p">))</span>
+</span></span><span class="line"><span class="cl">     <span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -251,14 +249,12 @@
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">add-to-calendar</span> <span class="p">()</span>
-</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">org-set-property</span> <span class="s">&#34;calendar-id&#34;</span> <span class="nv">org-gcal-default-calendar</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">org-gcal-post-at-point</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nb">defun</span> <span class="nv">add-to-calendar</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nv">org-set-property</span> <span class="s">&#34;calendar-id&#34;</span> <span class="nv">org-gcal-default-calendar</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nv">org-gcal-post-at-point</span><span class="p">))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -268,12 +264,10 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-agenda-mode-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
-</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-capture-after-finalize-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-agenda-mode-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-capture-after-finalize-hook</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-gcal-sync</span><span class="p">)</span> <span class="p">))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -283,12 +277,10 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="c1">;禁止gcal的capture完成时的同步事件</span>
-</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">remove-hook!</span> <span class="ss">&#39;org-capture-after-finalize-hook</span>  <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-gcal--capture-post</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="c1">;禁止gcal的capture完成时的同步事件</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">remove-hook!</span> <span class="ss">&#39;org-capture-after-finalize-hook</span>  <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-gcal--capture-post</span><span class="p">))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -356,7 +348,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-08-24 00:00:00 \u002b0800 CST',
+        id: '2021-08-24 00:00:00 \u002b0800 \u002b0800',
         title: 'org-mode和google日历同步和相关技巧',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -438,7 +430,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

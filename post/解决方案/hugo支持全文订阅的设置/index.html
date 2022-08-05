@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/hugo%E6%94%AF%E6%8C%81%E5%85%A8%E6%96%87%E8%AE%A2%E9%98%85%E7%9A%84%E8%AE%BE%E7%BD%AE/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="hugo支持全文RSS设置问题">
 <meta itemprop="description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。"><meta itemprop="datePublished" content="2021-10-21T13:28:00+08:00" />
 <meta itemprop="dateModified" content="2021-10-21T18:13:01+08:00" />
-<meta itemprop="wordCount" content="1557">
+<meta itemprop="wordCount" content="1548">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo支持全文RSS设置问题"/>
 <meta name="twitter:description" content="hugo默认订阅只有博客的简介内容，如果想RSS订阅全文可以看下文章。"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 1557 字 </span>
+          <span class="more-meta"> 约 1548 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -256,49 +256,47 @@
 </span><span class="lnt">37
 </span><span class="lnt">38
 </span><span class="lnt">39
-</span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">       {{- $pctx := . -}}
-</span></span><span class="line"><span class="cl">       {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-</span></span><span class="line"><span class="cl">       {{- $pages := slice -}}
-</span></span><span class="line"><span class="cl">       {{- if or $.IsHome $.IsSection -}}
-</span></span><span class="line"><span class="cl">       {{- $pages = $pctx.RegularPages -}}
-</span></span><span class="line"><span class="cl">       {{- else -}}
-</span></span><span class="line"><span class="cl">       {{- $pages = $pctx.Pages -}}
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">   {{- $pctx := . -}}
+</span></span><span class="line"><span class="cl">   {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+</span></span><span class="line"><span class="cl">   {{- $pages := slice -}}
+</span></span><span class="line"><span class="cl">   {{- if or $.IsHome $.IsSection -}}
+</span></span><span class="line"><span class="cl">   {{- $pages = $pctx.RegularPages -}}
+</span></span><span class="line"><span class="cl">   {{- else -}}
+</span></span><span class="line"><span class="cl">   {{- $pages = $pctx.Pages -}}
+</span></span><span class="line"><span class="cl">   {{- end -}}
+</span></span><span class="line"><span class="cl">   {{- $limit := .Site.Config.Services.RSS.Limit -}}
+</span></span><span class="line"><span class="cl">   {{- if ge $limit 1 -}}
+</span></span><span class="line"><span class="cl">   {{- $pages = $pages | first $limit -}}
+</span></span><span class="line"><span class="cl">   {{- end -}}
+</span></span><span class="line"><span class="cl">   {{- printf &#34;<span class="cp">&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;utf-8\&#34; standalone=\&#34;yes\&#34;?&gt;</span>&#34; | safeHTML }}
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;rss</span> <span class="na">version=</span><span class="s">&#34;2.0&#34;</span> <span class="na">xmlns:atom=</span><span class="s">&#34;http://www.w3.org/2005/Atom&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;channel&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;title&gt;</span>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;description&gt;</span>最近更新的内容 {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;generator&gt;</span>Hugo -- iT-Boyer.github.io<span class="nt">&lt;/generator&gt;</span>{{ with .Site.LanguageCode }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;language&gt;</span>{{.}}<span class="nt">&lt;/language&gt;</span>{{end}}{{ with .Site.Author.email }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;managingEditor&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/managingEditor&gt;</span>{{end}}{{ with .Site.Author.email }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;webMaster&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/webMaster&gt;</span>{{end}}{{ with .Site.Copyright }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;copyright&gt;</span>{{.}}<span class="nt">&lt;/copyright&gt;</span>{{end}}{{ if not .Date.IsZero }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;lastBuildDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/lastBuildDate&gt;</span>{{ end }}
+</span></span><span class="line"><span class="cl">       {{- with .OutputFormats.Get &#34;RSS&#34; -}}
+</span></span><span class="line"><span class="cl">       {{ printf &#34;<span class="nt">&lt;atom:link</span> <span class="na">href=</span><span class="s">%q</span> <span class="na">rel=</span><span class="s">\&#34;self\&#34;</span> <span class="na">type=</span><span class="s">%q</span> <span class="nt">/&gt;</span>&#34; .Permalink .MediaType | safeHTML }}
 </span></span><span class="line"><span class="cl">       {{- end -}}
-</span></span><span class="line"><span class="cl">       {{- $limit := .Site.Config.Services.RSS.Limit -}}
-</span></span><span class="line"><span class="cl">       {{- if ge $limit 1 -}}
-</span></span><span class="line"><span class="cl">       {{- $pages = $pages | first $limit -}}
-</span></span><span class="line"><span class="cl">       {{- end -}}
-</span></span><span class="line"><span class="cl">       {{- printf &#34;<span class="cp">&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;utf-8\&#34; standalone=\&#34;yes\&#34;?&gt;</span>&#34; | safeHTML }}
-</span></span><span class="line"><span class="cl">       <span class="nt">&lt;rss</span> <span class="na">version=</span><span class="s">&#34;2.0&#34;</span> <span class="na">xmlns:atom=</span><span class="s">&#34;http://www.w3.org/2005/Atom&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&lt;channel&gt;</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;title&gt;</span>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}<span class="nt">&lt;/title&gt;</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;description&gt;</span>最近更新的内容 {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}<span class="nt">&lt;/description&gt;</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;generator&gt;</span>Hugo -- iT-Boyer.github.io<span class="nt">&lt;/generator&gt;</span>{{ with .Site.LanguageCode }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;language&gt;</span>{{.}}<span class="nt">&lt;/language&gt;</span>{{end}}{{ with .Site.Author.email }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;managingEditor&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/managingEditor&gt;</span>{{end}}{{ with .Site.Author.email }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;webMaster&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/webMaster&gt;</span>{{end}}{{ with .Site.Copyright }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;copyright&gt;</span>{{.}}<span class="nt">&lt;/copyright&gt;</span>{{end}}{{ if not .Date.IsZero }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;lastBuildDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/lastBuildDate&gt;</span>{{ end }}
-</span></span><span class="line"><span class="cl">           {{- with .OutputFormats.Get &#34;RSS&#34; -}}
-</span></span><span class="line"><span class="cl">           {{ printf &#34;<span class="nt">&lt;atom:link</span> <span class="na">href=</span><span class="s">%q</span> <span class="na">rel=</span><span class="s">\&#34;self\&#34;</span> <span class="na">type=</span><span class="s">%q</span> <span class="nt">/&gt;</span>&#34; .Permalink .MediaType | safeHTML }}
-</span></span><span class="line"><span class="cl">           {{- end -}}
-</span></span><span class="line"><span class="cl">           {{ range $pages }}
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;item&gt;</span>
-</span></span><span class="line"><span class="cl">             <span class="nt">&lt;title&gt;</span>{{ .Title }}<span class="nt">&lt;/title&gt;</span>
-</span></span><span class="line"><span class="cl">             <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
-</span></span><span class="line"><span class="cl">             <span class="nt">&lt;pubDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/pubDate&gt;</span>
-</span></span><span class="line"><span class="cl">             {{ with .Site.Author.email }}<span class="nt">&lt;author&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/author&gt;</span>{{end}}
-</span></span><span class="line"><span class="cl">             <span class="nt">&lt;guid&gt;</span>{{ .Permalink }}<span class="nt">&lt;/guid&gt;</span>
-</span></span><span class="line"><span class="cl">             <span class="nt">&lt;description&gt;</span>{{ .Content | html }}<span class="nt">&lt;/description&gt;</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&lt;/item&gt;</span>
-</span></span><span class="line"><span class="cl">           {{ end }}
-</span></span><span class="line"><span class="cl">         <span class="nt">&lt;/channel&gt;</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&lt;/rss&gt;</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">       {{ range $pages }}
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;item&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;title&gt;</span>{{ .Title }}<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;link&gt;</span>{{ .Permalink }}<span class="nt">&lt;/link&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;pubDate&gt;</span>{{ .Date.Format &#34;Mon, 02 Jan 2006 15:04:05 -0700&#34; | safeHTML }}<span class="nt">&lt;/pubDate&gt;</span>
+</span></span><span class="line"><span class="cl">         {{ with .Site.Author.email }}<span class="nt">&lt;author&gt;</span>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}<span class="nt">&lt;/author&gt;</span>{{end}}
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;guid&gt;</span>{{ .Permalink }}<span class="nt">&lt;/guid&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="nt">&lt;description&gt;</span>{{ .Content | html }}<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&lt;/item&gt;</span>
+</span></span><span class="line"><span class="cl">       {{ end }}
+</span></span><span class="line"><span class="cl">     <span class="nt">&lt;/channel&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;/rss&gt;</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -310,12 +308,10 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">       </span><span class="c"># 制定RSS最大条数</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="l">rssLimit = 10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">   </span><span class="c"># 制定RSS最大条数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">rssLimit = 10</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>查看：<a href="https://gohugo.io/getting-started/configuration/#rsslimit">rsslimit | Hugo</a></p>
@@ -448,7 +444,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-10-21 18:11:00 \u002b0800 CST',
+        id: '2021-10-21 18:11:00 \u002b0800 \u002b0800',
         title: 'hugo支持全文RSS设置问题',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -530,7 +526,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

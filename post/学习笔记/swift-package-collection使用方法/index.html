@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/swift-package-collection%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="学习创建自己的SPM新增库集合package-collection">
 <meta itemprop="description" content="学习SPM新增包集合，管理常用包"><meta itemprop="datePublished" content="2021-08-20T13:28:00+08:00" />
 <meta itemprop="dateModified" content="2021-09-07T19:17:30+08:00" />
-<meta itemprop="wordCount" content="634">
+<meta itemprop="wordCount" content="630">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="学习创建自己的SPM新增库集合package-collection"/>
 <meta name="twitter:description" content="学习SPM新增包集合，管理常用包"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> 学习笔记 </a>
             </div>
-          <span class="more-meta"> 约 634 字 </span>
+          <span class="more-meta"> 约 630 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -219,15 +219,13 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">       git clone swift-package-collection-generator.git
-</span></span><span class="line"><span class="cl">       <span class="nb">cd</span> swift-package-collection-generator
-</span></span><span class="line"><span class="cl">       swift build
-</span></span><span class="line"><span class="cl">       <span class="c1">#安装</span>
-</span></span><span class="line"><span class="cl">       cp .build/x86_64-apple-macosx/debug/package-collection-generate ~/../bin
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">   git clone swift-package-collection-generator.git
+</span></span><span class="line"><span class="cl">   <span class="nb">cd</span> swift-package-collection-generator
+</span></span><span class="line"><span class="cl">   swift build
+</span></span><span class="line"><span class="cl">   <span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">   cp .build/x86_64-apple-macosx/debug/package-collection-generate ~/../bin</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>我使用dotfiles方式管理本地环境，所以安装时，只要把可执行文件cp到相应的bin目录即可。在终端加载之后，可以方便在其他地方快速调用。</p>
@@ -255,29 +253,27 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">       <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;终端工具依赖库&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">           <span class="nt">&#34;packages&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">               <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/apple/swift-argument-parser.git&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">},{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/tuist/XcodeProj.git&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">},{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/SwiftyJSON/SwiftyJSON.git&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">},{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/sharplet/Regex.git&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">},{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/iT-Boyer/AlfredSwift.git&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">},</span>
-</span></span><span class="line"><span class="cl">               <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                   <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/pvieito/PythonKit&#34;</span>
-</span></span><span class="line"><span class="cl">               <span class="p">}</span>
-</span></span><span class="line"><span class="cl">           <span class="p">]</span>
-</span></span><span class="line"><span class="cl">       <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;终端工具依赖库&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&#34;packages&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/apple/swift-argument-parser.git&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">},{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/tuist/XcodeProj.git&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">},{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/SwiftyJSON/SwiftyJSON.git&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">},{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/sharplet/Regex.git&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">},{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/iT-Boyer/AlfredSwift.git&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">},</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/pvieito/PythonKit&#34;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -286,11 +282,9 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">       package-collection-generate packages.json collection.json
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">   package-collection-generate packages.json collection.json</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -308,11 +302,9 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">       swift package-collection add https://it-boyer.github.io/iDocs/SPM-JSON/swift-sh/collection.json
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">   swift package-collection add https://it-boyer.github.io/iDocs/SPM-JSON/swift-sh/collection.json</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -371,7 +363,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-08-20 14:08:00 \u002b0800 CST',
+        id: '2021-08-20 14:08:00 \u002b0800 \u002b0800',
         title: '学习创建自己的SPM新增库集合package-collection',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -453,7 +445,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

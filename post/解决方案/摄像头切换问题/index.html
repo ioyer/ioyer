@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%91%84%E5%83%8F%E5%A4%B4%E5%88%87%E6%8D%A2%E9%97%AE%E9%A2%98/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="iOS在切换摄像头时，session可能导致的问题">
 <meta itemprop="description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题"><meta itemprop="datePublished" content="2021-10-22T20:17:00+08:00" />
 <meta itemprop="dateModified" content="2021-10-29T20:54:51+08:00" />
-<meta itemprop="wordCount" content="612">
+<meta itemprop="wordCount" content="609">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS在切换摄像头时，session可能导致的问题"/>
 <meta name="twitter:description" content="session 状态会影响摄像头的操作问题，反思状态控制时机问题"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"> 解决方案 </a>
             </div>
-          <span class="more-meta"> 约 612 字 </span>
+          <span class="more-meta"> 约 609 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -285,12 +285,10 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">       <span class="c1">//负责输入和输出设备之间的数据传递
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="k">@property</span><span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span><span class="n">AVCaptureSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">   <span class="c1">//负责输入和输出设备之间的数据传递
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">@property</span><span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span><span class="n">AVCaptureSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -303,15 +301,13 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">       <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidAppear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span>
-</span></span><span class="line"><span class="cl">       <span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">           <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">startRunning</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">       <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">   <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidAppear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span>
+</span></span><span class="line"><span class="cl">   <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">startRunning</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -323,14 +319,12 @@
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">       <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidDisappear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">           <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">           <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">stopRunning</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">       <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">   <span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewDidDisappear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">stopRunning</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -422,7 +416,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-10-22 20:17:00 \u002b0800 CST',
+        id: '2021-10-22 20:17:00 \u002b0800 \u002b0800',
         title: 'iOS在切换摄像头时，session可能导致的问题',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -504,7 +498,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

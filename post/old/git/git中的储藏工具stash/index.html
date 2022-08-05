@@ -17,13 +17,13 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="iTBoyer" /><meta name="description" content=" Stashing 储藏工作 应用储藏 被暂存的文件重新暂存 应用后，移除储藏的内容 取消储藏(Un-applying a Stash) 新建stash-unapply别名 从储藏中创建分支  Git工具 - 储藏（Stashing）git  原文 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
+<meta name="author" content="iTBoyer" /><meta name="description" content=" Stashing 储藏工作 应用储藏 被暂存的文件重新暂存 应用后，移除储藏的内容 取消储藏(Un-applying a Stash) 新建stash-unapply别名 从储藏中创建分支 Git工具 - 储藏（Stashing）git 原文 场景：当项目中某一部分正在编码中，突然接到新任务，又必须换至其他分支去完成。
 问题：你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
 解决：**git stash **命令。
 “Stashing”可以获取工作目录的中间状态，即：将修改过的被追踪的文件和暂存的变更，保存到一个未完结变更的堆栈中，随时可以重新应用。
-储藏工作   进入项目目录，修改某个文件，有可能还暂存其中的一个变更。 **git status **命令,查看中间状态： {%codeblock lang:bash %} $ git status  On branch master Changes to be committed: (use &amp;ldquo;git reset HEAD &amp;hellip;&amp;rdquo; to unstage)  modified: index.html  Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: lib/simplegit.rb  {%endcodeblock%} 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。 执行**git stash 命令，往堆栈中推送一个新的储藏： {%codeblock lang:bash %} $ git stash Saved working directory and index state &amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用git stash list**要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
-应用储藏  执行**git stash apply命令, 可以重新应用最近的一次储藏； 执行git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
-On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed)  modified: index.html modified: lib/simplegit.rb  {%endcodeblock%}
+储藏工作 进入项目目录，修改某个文件，有可能还暂存其中的一个变更。 **git status **命令,查看中间状态： {%codeblock lang:bash %} $ git status On branch master Changes to be committed: (use &amp;ldquo;git reset HEAD &amp;hellip;&amp;rdquo; to unstage) modified: index.html Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed) modified: lib/simplegit.rb {%endcodeblock%} 3. 切换分支，但不提交step 1 中的变更，所以储藏这些变更。 执行**git stash 命令，往堆栈中推送一个新的储藏： {%codeblock lang:bash %} $ git stash Saved working directory and index state &amp;ldquo;WIP on master: 049d078 added the index file&amp;rdquo; HEAD is now at 049d078 added the index file (To restore them type &amp;ldquo;git stash apply&amp;rdquo;) {%endcodeblock%} 4. 执行step 2查看目录库，中间状态就不见了： {%codeblock lang:bash %} $ git status #######On branch master nothing to commit, working directory clean {%endcodeblock%} 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。 5. 使用git stash list**要查看现有的储藏： {%codeblock lang:bash%} $ git stash list stash@{0}: WIP on master: 049d078 added the index file stash@{1}: WIP on master: c264051 Revert &amp;ldquo;added file_size&amp;rdquo; stash@{2}: WIP on master: 21d80a5 added number to log {%endcodeblock%} 在这个案例中，之前已经进行了两次储藏，所以你可以访问到三个不同的储藏。
+应用储藏 执行**git stash apply命令, 可以重新应用最近的一次储藏； 执行git stash apply stash@{2}**命令，即通过指定储藏的名字，来应用更早的储藏。 {%codeblock lang:bash%} $ git stash apply
+On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hellip;&amp;rdquo; to update what will be committed) modified: index.html modified: lib/simplegit.rb {%endcodeblock%}
 " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
 
 
@@ -31,7 +31,7 @@ On branch master Changes not staged for commit: (use &amp;ldquo;git add &amp;hel
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/git/git%E4%B8%AD%E7%9A%84%E5%82%A8%E8%97%8F%E5%B7%A5%E5%85%B7stash/" />
@@ -651,7 +651,7 @@ Switched to a new branch &ldquo;testchanges&rdquo;</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-01-19 19:57:04 \u002b0800 CST',
+        id: '2015-01-19 19:57:04 \u002b0800 \u002b0800',
         title: 'Git中的储藏工具stash',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -733,7 +733,7 @@ Switched to a new branch &ldquo;testchanges&rdquo;</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

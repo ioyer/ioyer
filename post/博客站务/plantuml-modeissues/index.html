@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/plantuml-modeissues/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="plantuml-mode使用问题汇总">
 <meta itemprop="description" content="总结plantuml-mode使用过程中遇到的问题，汇总uml在emacs中的常规使用操作"><meta itemprop="datePublished" content="2021-08-10T09:56:00+08:00" />
 <meta itemprop="dateModified" content="2021-08-10T19:33:20+08:00" />
-<meta itemprop="wordCount" content="863">
+<meta itemprop="wordCount" content="859">
 <meta itemprop="keywords" content="uml," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="plantuml-mode使用问题汇总"/>
 <meta name="twitter:description" content="总结plantuml-mode使用过程中遇到的问题，汇总uml在emacs中的常规使用操作"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E5%8A%A1/"> 博客站务 </a>
             </div>
-          <span class="more-meta"> 约 863 字 </span>
+          <span class="more-meta"> 约 859 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -262,11 +262,9 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">       @@md:![](http://www.plantuml.com/plantuml<span class="ge">/proxy?cache=no&amp;idx=0&amp;fmt=svg&amp;src=https:/</span>/it-boyer.github.io/iDocs/uml/demo-class.plantuml)@@
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">   @@md:![](http://www.plantuml.com/plantuml<span class="ge">/proxy?cache=no&amp;idx=0&amp;fmt=svg&amp;src=https:/</span>/it-boyer.github.io/iDocs/uml/demo-class.plantuml)@@</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -275,11 +273,9 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">       @@html:&lt;<span class="s">img src=&#34;http://www.plantuml.com/plantuml/proxy?cache=no&amp;idx=0&amp;fmt=svg&amp;src=https://it-boyer.github.io/iDocs/uml/hugo/static-imgresource.plantuml&#34; alt=&#34;sdfds&#34; align=&#34;left&#34; title=&#34;image title&#34;/</span>&gt;@@
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-org" data-lang="org"><span class="line"><span class="cl">   @@html:&lt;<span class="s">img src=&#34;http://www.plantuml.com/plantuml/proxy?cache=no&amp;idx=0&amp;fmt=svg&amp;src=https://it-boyer.github.io/iDocs/uml/hugo/static-imgresource.plantuml&#34; alt=&#34;sdfds&#34; align=&#34;left&#34; title=&#34;image title&#34;/</span>&gt;@@</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -304,17 +300,15 @@ fork plantuml-mode 参考issue问题，修复高亮问题：<br>
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nb">defun</span> <span class="nv">plantuml-server-encode-url</span> <span class="p">(</span><span class="nf">string</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">         <span class="s">&#34;Encode the string STRING into a URL suitable for PlantUML server interactions.&#34;</span>
-</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">coding-system</span> <span class="p">(</span><span class="nb">or</span> <span class="nv">buffer-file-coding-system</span>
-</span></span><span class="line"><span class="cl">                                   <span class="s">&#34;utf8&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">;(encoded-string (base64-encode-string (encode-coding-string string coding-system) t)))</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="nv">encoded-string</span> <span class="p">(</span><span class="nf">base64-encode-string</span>  <span class="nf">string</span> <span class="no">t</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl">           <span class="p">(</span><span class="nf">concat</span> <span class="nv">plantuml-server-url</span> <span class="s">&#34;/&#34;</span> <span class="nv">plantuml-output-type</span> <span class="s">&#34;/-base64-&#34;</span> <span class="nv">encoded-string</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nb">defun</span> <span class="nv">plantuml-server-encode-url</span> <span class="p">(</span><span class="nf">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="s">&#34;Encode the string STRING into a URL suitable for PlantUML server interactions.&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">coding-system</span> <span class="p">(</span><span class="nb">or</span> <span class="nv">buffer-file-coding-system</span>
+</span></span><span class="line"><span class="cl">                               <span class="s">&#34;utf8&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">;(encoded-string (base64-encode-string (encode-coding-string string coding-system) t)))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nv">encoded-string</span> <span class="p">(</span><span class="nf">base64-encode-string</span>  <span class="nf">string</span> <span class="no">t</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">       <span class="p">(</span><span class="nf">concat</span> <span class="nv">plantuml-server-url</span> <span class="s">&#34;/&#34;</span> <span class="nv">plantuml-output-type</span> <span class="s">&#34;/-base64-&#34;</span> <span class="nv">encoded-string</span><span class="p">)))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>使用修复的代码：</p>
@@ -324,14 +318,12 @@ fork plantuml-mode 参考issue问题，修复高亮问题：<br>
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">       <span class="p">(</span><span class="nv">package!</span> <span class="nv">plantuml-mode</span>
-</span></span><span class="line"><span class="cl">         <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span>
-</span></span><span class="line"><span class="cl">                  <span class="nb">:repo</span> <span class="s">&#34;it-boyer/plantuml-mode&#34;</span>
-</span></span><span class="line"><span class="cl">                  <span class="nb">:branch</span> <span class="s">&#34;develop&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">package!</span> <span class="nv">plantuml-mode</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">:recipe</span> <span class="p">(</span><span class="nb">:host</span> <span class="nv">github</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">:repo</span> <span class="s">&#34;it-boyer/plantuml-mode&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">:branch</span> <span class="s">&#34;develop&#34;</span><span class="p">))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -405,7 +397,7 @@ fork plantuml-mode 参考issue问题，修复高亮问题：<br>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2021-08-10 19:26:00 \u002b0800 CST',
+        id: '2021-08-10 19:26:00 \u002b0800 \u002b0800',
         title: 'plantuml-mode使用问题汇总',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -487,7 +479,7 @@ fork plantuml-mode 参考issue问题，修复高亮问题：<br>
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

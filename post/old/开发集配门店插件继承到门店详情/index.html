@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/%E5%BC%80%E5%8F%91%E9%9B%86%E9%85%8D%E9%97%A8%E5%BA%97%E6%8F%92%E4%BB%B6%E7%BB%A7%E6%89%BF%E5%88%B0%E9%97%A8%E5%BA%97%E8%AF%A6%E6%83%85/" />
@@ -53,7 +53,7 @@
 <meta itemprop="name" content="集配门店样式和跳转功能">
 <meta itemprop="description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S"><meta itemprop="datePublished" content="2019-08-21T11:32:00+08:00" />
 <meta itemprop="dateModified" content="2021-05-13T09:48:14+08:00" />
-<meta itemprop="wordCount" content="915">
+<meta itemprop="wordCount" content="914">
 <meta itemprop="keywords" content="文档," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="集配门店样式和跳转功能"/>
 <meta name="twitter:description" content="STARTED UI实现 新建列表UI,继承到门店详情中,实现跳转流程. 集配门店code:StoreDistribution UI:在gb组件中新建实体类:S"/>
@@ -164,7 +164,7 @@
         <div class="post-category">
             <a href="/categories/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"> 项目总结 </a>
             </div>
-          <span class="more-meta"> 约 915 字 </span>
+          <span class="more-meta"> 约 914 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
         <span class="more-meta"> by
@@ -212,16 +212,14 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl">    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">showDetailContentWithStoreId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeId</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">shopId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">shopId</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">storeAppId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeAppid</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">storeName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">storeName</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">storeState</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">stState</span>
-</span></span><span class="line"><span class="cl">    <span class="nl">userCoordinate</span><span class="p">:(</span><span class="n">CLLocationCoordinate2D</span><span class="p">)</span><span class="n">userCoordinate</span>
-</span></span><span class="line"><span class="cl">    </span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-objc" data-lang="objc"><span class="line"><span class="cl"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">showDetailContentWithStoreId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeId</span>
+</span></span><span class="line"><span class="cl"><span class="nf">shopId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">shopId</span>
+</span></span><span class="line"><span class="cl"><span class="nf">storeAppId:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeAppid</span>
+</span></span><span class="line"><span class="cl"><span class="nf">storeName:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">storeName</span>
+</span></span><span class="line"><span class="cl"><span class="nf">storeState:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">stState</span>
+</span></span><span class="line"><span class="cl"><span class="nf">userCoordinate:</span><span class="p">(</span><span class="n">CLLocationCoordinate2D</span><span class="p">)</span><span class="nv">userCoordinate</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </li>
@@ -372,7 +370,7 @@ StoreDistributionCell上.</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-08-21 11:32:00 \u002b0800 CST',
+        id: '2019-08-21 11:32:00 \u002b0800 \u002b0800',
         title: '集配门店样式和跳转功能',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -454,7 +452,7 @@ StoreDistributionCell上.</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 

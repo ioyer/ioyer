@@ -18,21 +18,21 @@
 
 
 <meta name="author" content="iTBoyer" /><meta name="description" content="关于 Document Interaction iOS支持在你的app中通过调用其他app来预览和显示文档。iOS还支持文件关联，允许其他app调用你的app打开文件。这些技术包括了UIKit中提供的UIDocumentInteractionController类，以及Quick Look框架。
- ######预览文档和呈现选项菜单
-如果app需要打开自身并不支持的文件时，就需要使用UIDocumentInteractionController。一个document interaction controller通过Quick Look框架判断文档是否能被另一个app打开和预览。也就是说，app可以通过documentinteraction controller提供一些支持打开该文件方式的菜单。  具体实现需要以下步骤：
-   需要通过其他APP打开的文件，来实例化UIDocumentInteractionController实例对象。     在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。     用户交互，如触摸这个控件，则调用documentinteractioncontroller对象。    三种交互界面: 1. 预览文件的内容。 2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。 3. 一个菜单，仅包含“以其它方式打开”操作。
+######预览文档和呈现选项菜单
+如果app需要打开自身并不支持的文件时，就需要使用UIDocumentInteractionController。一个document interaction controller通过Quick Look框架判断文档是否能被另一个app打开和预览。也就是说，app可以通过documentinteraction controller提供一些支持打开该文件方式的菜单。 具体实现需要以下步骤：
+需要通过其他APP打开的文件，来实例化UIDocumentInteractionController实例对象。 在自己的APP UI中提供一个代表这种文件的图像标（一般显示文件名或者图标）。 用户交互，如触摸这个控件，则调用documentinteractioncontroller对象。 三种交互界面: 1. 预览文件的内容。 2. 一个包含预览和打开操作的菜单。可以通过实现某些委托方法，向菜单中加入其他操作，比如复制、打印。 3. 一个菜单，仅包含“以其它方式打开”操作。
 同时，documentinteractioncontroller内置了一些手势，必要时可以直接实现它们。
-  ######使用documentinteractioncontroller的场景:与文件交互的app都可以使用。
-   需要从网络下载文件的APP:
-例如，email程序需要打开和预览邮件附件。     不下载文件的APP:
-例如，APP需要支持文件共享（参考“File-Sharing Support” in iOS Technology Overview), 即可以对同步到app Documents/Shared目录下的文件使用documentinteractioncontroller。   " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
+######使用documentinteractioncontroller的场景:与文件交互的app都可以使用。
+需要从网络下载文件的APP:
+例如，email程序需要打开和预览邮件附件。 不下载文件的APP:
+例如，APP需要支持文件共享（参考“File-Sharing Support” in iOS Technology Overview), 即可以对同步到app Documents/Shared目录下的文件使用documentinteractioncontroller。 " /><meta name="keywords" content="swift, iOS, 积极主动, 以终为始, 要事第一, 效能平衡" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.99.1 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://ioyer.github.io/post/old/ios/iosdocumentinteraction%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
@@ -656,7 +656,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2014-07-01 23:12:01 \u002b0800 CST',
+        id: '2014-07-01 23:12:01 \u002b0800 \u002b0800',
         title: 'iOS Document Interaction 编程指南',
         clientID: 'd46ea301857e36a08319',
         clientSecret: '9da00f1f475c4166b96fbe157d0afdbd64cc613c',
@@ -738,7 +738,7 @@ UIApplicationLaunchOptionsSourceApplicationKey		//源程序向目标程序传递
 
 
 
-<script type="text/javascript" src="/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 
